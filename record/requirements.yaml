@@ -7,7 +7,8 @@ items:
     design_point: Top speed on level paved ground, with the lightest and with the heaviest rider, is at most kart.speed_max_kmh.
     verify: test
     basis:
-      - D-003
+      - D-015
+      - D-011
     status: confirmed
   - id: R-02
     text: The kart carries an adult.
@@ -36,26 +37,29 @@ items:
   - id: R-05
     text: The kart runs on packed snow and ice.
     origin: owner
-    design_point: With the heaviest rider, on level packed snow, the kart starts from rest, runs, turns, and stops.
+    design_point: With the heaviest rider, on level packed snow, the kart starts from rest, runs, turns, and stops, at any speed.
     verify: test
     basis:
       - D-006
+      - D-011
     status: confirmed
   - id: R-06
     text: The kart runs in fresh snow.
     origin: owner
-    design_point: With the heaviest rider, on level fresh snow of depth snow.depth_max_cm, the kart starts from rest, runs, and turns without getting stuck.
+    design_point: With the heaviest rider, on level fresh snow of depth snow.depth_max_cm, the kart starts from rest, runs, and turns at any speed without getting stuck.
     verify: test
     basis:
       - D-006
+      - D-011
     status: confirmed
   - id: R-07
     text: The kart works in the cold.
     origin: owner
-    design_point: After standing at ambient.temp_min_c, the kart starts and runs for kart.run_time_min.
+    design_point: After standing outdoors at ambient.temp_min_c, the kart starts and runs. With batteries it runs for kart.run_time_min per charge; with an engine it may be refuelled between runs.
     verify: test
     basis:
       - D-007
+      - D-013
     status: confirmed
   - id: R-08
     text: The kart is built within the budget.
@@ -106,4 +110,37 @@ items:
     verify: inspection
     basis:
       - H-01
+    status: awaiting
+  - id: R-14
+    text: The kart is carried in a Mitsubishi Delica D:5.
+    origin: owner
+    design_point: With the rear seats of a Delica D:5 folded and slid forward, the kart passes through the tailgate opening (delica.opening_width_min_mm to delica.opening_width_max_mm wide) and lies within the cargo space (delica.cargo_length_mm long, delica.cargo_width_min_mm between the flipped-up third-row seats, delica.cargo_width_max_mm at most), after removing at most parts that come off without tools.
+    verify: demonstration
+    basis:
+      - D-012
+    status: confirmed
+  - id: R-15
+    text: One adult loads and unloads the kart alone.
+    origin: derived
+    design_point: One adult rolls the kart up a ramp onto the cargo floor at delica.lip_height_mm and back down, without lifting the whole kart.
+    verify: demonstration
+    basis:
+      - D-012
+      - H-09
+    status: awaiting
+  - id: R-16
+    text: The kart climbs a fairly steep slope slowly without damage.
+    origin: owner
+    design_point: With the heaviest rider, on grass at site.grade_max_pct, the kart starts from rest on the slope and climbs at walking pace or faster, and no part slips, overheats, or deforms.
+    verify: test
+    basis:
+      - D-014
+    status: confirmed
+  - id: R-17
+    text: An adult can set a lower top speed for a small child.
+    origin: derived
+    design_point: Without tools, an adult sets the top speed on level paved ground to at most kart.speed_child_kmh, and the child cannot undo the setting from the seat.
+    verify: demonstration
+    basis:
+      - H-08
     status: awaiting

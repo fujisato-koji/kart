@@ -37,15 +37,19 @@ Whether a piece of private land counts as a road when other people pass through 
 | R-02 | The kart carries an adult. | Frame, axles, steering, seat, and their joints carry a rider of rider.mass_max_kg under the load cases of docs/03-design.md without yield or loosening. | analysis | confirmed |
 | R-03 | The seat and pedals fit a child and an adult. | Without welding or cutting, the seat-to-pedal distance and the seat height adjust so that riders from rider.stature_min_cm to rider.stature_max_cm reach the pedals fully and hold the steering wheel with bent arms. | demonstration | confirmed |
 | R-04 | The kart runs on paved ground, gravel or dirt, and grass. | With the heaviest rider, on each of the three surfaces, the kart starts from rest, runs, turns, and stops, climbs site.grade_max_pct, and no part other than the tyres touches the ground. | test | confirmed |
-| R-05 | The kart runs on packed snow and ice. | With the heaviest rider, on level packed snow, the kart starts from rest, runs, turns, and stops. | test | confirmed |
-| R-06 | The kart runs in fresh snow. | With the heaviest rider, on level fresh snow of depth snow.depth_max_cm, the kart starts from rest, runs, and turns without getting stuck. | test | confirmed |
-| R-07 | The kart works in the cold. | After standing at ambient.temp_min_c, the kart starts and runs for kart.run_time_min. | test | confirmed |
+| R-05 | The kart runs on packed snow and ice. | With the heaviest rider, on level packed snow, the kart starts from rest, runs, turns, and stops, at any speed. | test | confirmed |
+| R-06 | The kart runs in fresh snow. | With the heaviest rider, on level fresh snow of depth snow.depth_max_cm, the kart starts from rest, runs, and turns at any speed without getting stuck. | test | confirmed |
+| R-07 | The kart works in the cold. | After standing outdoors at ambient.temp_min_c, the kart starts and runs. With batteries it runs for kart.run_time_min per charge; with an engine it may be refuelled between runs. | test | confirmed |
 | R-08 | The kart is built within the budget. | The parts list of docs/05-parts-and-cost.md, with tax, shipping, and winter parts, totals at most budget.parts_jpy, or the owner has accepted the excess. | inspection | confirmed |
 | R-09 | The kart stops in a short distance. | With the heaviest rider, from kart.speed_max_kmh on level dry paved ground, the kart stops within kart.stop_distance_max_m. | test | awaiting |
 | R-10 | The drive stops when the driver lets go. | The throttle returns to zero by a spring when released, and a stop switch that the driver reaches from the seat, and a helper reaches from beside the kart, cuts the drive. | demonstration | awaiting |
 | R-11 | Moving and hot parts cannot be touched. | Chain, sprockets, belt, the turning axle near the seat, and any hot part are covered so that the driver's hands, feet, hair, and clothing cannot reach them from the seat. | inspection | awaiting |
 | R-12 | The kart slides before it tips over. | With the heaviest rider, half the track width divided by the height of the centre of mass is at least kart.tip_ratio_min, on every wheel or ski setup. | analysis | awaiting |
 | R-13 | The frame shields the driver's legs and feet. | Seen from the front and the sides, the driver's feet and legs are inside the frame or a bumper. | inspection | awaiting |
+| R-14 | The kart is carried in a Mitsubishi Delica D:5. | With the rear seats of a Delica D:5 folded and slid forward, the kart passes through the tailgate opening (delica.opening_width_min_mm to delica.opening_width_max_mm wide) and lies within the cargo space (delica.cargo_length_mm long, delica.cargo_width_min_mm between the flipped-up third-row seats, delica.cargo_width_max_mm at most), after removing at most parts that come off without tools. | demonstration | confirmed |
+| R-15 | One adult loads and unloads the kart alone. | One adult rolls the kart up a ramp onto the cargo floor at delica.lip_height_mm and back down, without lifting the whole kart. | demonstration | awaiting |
+| R-16 | The kart climbs a fairly steep slope slowly without damage. | With the heaviest rider, on grass at site.grade_max_pct, the kart starts from rest on the slope and climbs at walking pace or faster, and no part slips, overheats, or deforms. | test | confirmed |
+| R-17 | An adult can set a lower top speed for a small child. | Without tools, an adult sets the top speed on level paved ground to at most kart.speed_child_kmh, and the child cannot undo the setting from the seat. | demonstration | awaiting |
 <!-- tdr:end -->
 
 R-01 to R-08 restate the owner's answers.
@@ -78,6 +82,8 @@ R-09 to R-13 are derived from the hazards in 1.1.4 and wait for the owner to con
 | H-05 | The kart tips over in a turn or on a slope. | The driver. | R-12 |
 | H-06 | The steering, an axle, the frame, or the seat breaks under an adult. | The driver. | R-02 |
 | H-07 | Braking or steering is lost on snow or ice. | The driver and people nearby. | R-05, R-09 |
+| H-08 | A small child drives faster than the child can control. | The child and people nearby. | R-01, R-17 |
+| H-09 | The kart rolls off the ramp or falls while being loaded or unloaded. | The person loading it and people nearby. | R-15 |
 <!-- tdr:end -->
 
 H-04 covers both an engine and a battery; the hazards particular to the chosen power source (exhaust gas in a closed shed, fuel, charging) are added when 1.2 selects it.
@@ -98,15 +104,15 @@ These are not decided here. 1.2 compares forms against them.
 | key | v | unit | status | basis |
 |---|---|---|---|---|
 | kart.seats | 1 |  | decided | D-001 |
-| kart.speed_max_kmh | 30 | km/h | decided | D-003 |
+| kart.speed_max_kmh | 20 | km/h | decided | D-015 |
 | snow.depth_max_cm | 30 | cm | decided | D-006 |
 | ambient.temp_min_c | -10 | degC | decided | D-007 |
 | budget.parts_jpy | 100000 | JPY | decided | D-008 |
-| rider.mass_max_kg | 100 | kg | assumed | Q-001 |
-| rider.stature_min_cm | 120 | cm | assumed | Q-002 |
+| rider.mass_max_kg | 100 | kg | decided | D-009 |
+| rider.stature_min_cm | 102 | cm | sourced | P21 |
 | rider.stature_max_cm | 185 | cm | assumed | Q-002 |
-| site.grade_max_pct | 10 | % | assumed | Q-008 |
-| kart.run_time_min | 30 | min | assumed | Q-007 |
+| site.grade_max_pct | 20 | % | assumed | Q-008 |
+| kart.run_time_min | 120 | min | decided | D-013 |
 | kart.stop_distance_max_m | 6 | m | assumed | Q-004 |
 | kart.tip_ratio_min | 1.5 |  | assumed | Q-005 |
 | snow.density_initial_min | 0.11 | Mg/m3 | sourced | P1 |
@@ -182,6 +188,43 @@ These are not decided here. 1.2 compares forms against them.
 | cost.allow_guards_mounts_jpy | 5000 | JPY | assumed | Q-010 |
 | cost.allow_drive_chains_jpy | 5000 | JPY | assumed | Q-010 |
 | cost.allow_electric_jpy | 5000 | JPY | assumed | Q-010 |
+| kart.speed_child_kmh | 16 | km/h | assumed | Q-013 |
+| ground.crr_avg | 0.08 |  | assumed | Q-009 |
+| drive.speed_avg_kmh | 12 | km/h | assumed | Q-009 |
+| drive.efficiency_electric | 0.8 |  | assumed | Q-009 |
+| battery.usable_fraction | 0.8 |  | assumed | Q-009 |
+| battery.energy_wh | 1536 | Wh | sourced | M21 |
+| rider.mass_child_kg | 19 | kg | sourced | P21 |
+| delica.cargo_length_mm | 1610 | mm | sourced | P26 |
+| delica.cargo_width_max_mm | 1245 | mm | sourced | P26 |
+| delica.cargo_width_min_mm | 770 | mm | sourced | P26 |
+| delica.cargo_height_mm | 1130 | mm | sourced | P26 |
+| delica.opening_width_min_mm | 900 | mm | sourced | P27 |
+| delica.opening_width_max_mm | 1230 | mm | sourced | P27 |
+| delica.lip_height_mm | 620 | mm | sourced | P27 |
+| clutch.engage_rpm | 2200 | rpm | sourced | M23 |
+| tc.ratio_low | 2.7 |  | sourced | M24 |
+| tc.ratio_high | 0.9 |  | sourced | M24 |
+| cost.tc_kit_jpy | 35276 | JPY | sourced | M25 |
+| ground.crr_paved | 0.02 |  | sourced | P29 |
+| ground.crr_gravel | 0.06 |  | sourced | P24 |
+| ground.crr_grass | 0.1 |  | sourced | P24 |
+| ground.crr_snow_packed | 0.016 |  | sourced | P1 |
+| ground.crr_snow_fresh | 0.18 |  | sourced | P1 |
+| ground.mu_snow | 0.15 |  | sourced | S1 |
+| ground.mu_snow_chains | 0.27 |  | sourced | S1 |
+| ground.mu_ice | 0.08 |  | sourced | S1 |
+| ground.mu_ice_chains | 0.19 |  | sourced | S1 |
+| ground.mu_paved | 0.8 |  | assumed | Q-014 |
+| ground.mu_gravel | 0.5 |  | assumed | Q-014 |
+| ground.mu_grass | 0.45 |  | assumed | Q-014 |
+| ski.mu_lateral | 0.2 |  | assumed | Q-014 |
+| track.crr_snow_fresh | 0.1 |  | assumed | Q-014 |
+| snow.plough_per_cm | 0.05 | 1/cm | assumed | Q-014 |
+| kart.wheelbase_rough_mm | 1000 | mm | assumed | Q-009 |
+| kart.length_rough_mm | 1550 | mm | assumed | Q-009 |
+| rider.cg_above_seat_child_m | 0.15 | m | assumed | Q-009 |
+| tyre.width_mm | 127 | mm | calculated | docs/02-form.md#drive |
 | form.mass_total_kg | 170 | kg | calculated | docs/02-form.md#mass |
 | snow.wheel_sinkage_min_cm | 19.0 | cm | calculated | docs/02-form.md#snow |
 | snow.wheel_sinkage_max_cm | 25.1 | cm | calculated | docs/02-form.md#snow |
@@ -194,14 +237,17 @@ These are not decided here. 1.2 compares forms against them.
 | snow.wheel_depth_limit_axle_cm | 8.9 | cm | calculated | docs/02-form.md#snow |
 | form.cg_height_m | 0.368 | m | calculated | docs/02-form.md#stability |
 | form.track_min_m | 1.11 | m | calculated | docs/02-form.md#stability |
-| form.track_min_slope_m | 1.39 | m | calculated | docs/02-form.md#stability |
-| drive.engine_ratio | 7.98 |  | calculated | docs/02-form.md#drive |
-| drive.engine_thrust_n | 497 | N | calculated | docs/02-form.md#drive |
-| drive.motor_thrust_n | 122 | N | calculated | docs/02-form.md#drive |
-| drive.motor2_thrust_n | 233 | N | calculated | docs/02-form.md#drive |
-| drive.climb_force_n | 365 | N | calculated | docs/02-form.md#drive |
-| drive.grass_power_kw | 1.85 | kW | calculated | docs/02-form.md#drive |
-| drive.sprocket_reach_mm | 0 | mm | calculated | docs/02-form.md#drive |
+| form.track_min_slope_m | 1.79 | m | calculated | docs/02-form.md#stability |
+| drive.engine_ratio | 11.97 |  | calculated | docs/02-form.md#drive |
+| drive.engine_thrust_n | 745 | N | calculated | docs/02-form.md#drive |
+| drive.motor_thrust_n | 183 | N | calculated | docs/02-form.md#drive |
+| drive.motor2_thrust_n | 350 | N | calculated | docs/02-form.md#drive |
+| drive.clutch_lock_kmh | 11.4 | km/h | calculated | docs/02-form.md#drive |
+| drive.climb_force_n | 523 | N | calculated | docs/02-form.md#drive |
+| drive.grass_power_kw | 1.24 | kW | calculated | docs/02-form.md#drive |
+| drive.power_avg_heavy_w | 556 | W | calculated | docs/02-form.md#drive |
+| battery.run_time_heavy_min | 133 | min | calculated | docs/02-form.md#drive |
+| drive.sprocket_reach_mm | -81 | mm | calculated | docs/02-form.md#drive |
 | cost.chassis_jpy | 93902 | JPY | calculated | docs/02-form.md#cost |
 | cost.power_engine_clone_jpy | 37940 | JPY | calculated | docs/02-form.md#cost |
 | cost.power_engine_genuine_jpy | 86940 | JPY | calculated | docs/02-form.md#cost |
@@ -219,15 +265,17 @@ These are not decided here. 1.2 compares forms against them.
 | id | text | waits_for |
 |---|---|---|
 | Q-001 | How heavy is the heaviest adult who will drive? The strength is assumed for 100 kg until the owner answers. | owner |
-| Q-002 | How old and how tall is the youngest child who will drive, and how tall is the tallest adult? The seat and pedal range is assumed from 120 cm to 185 cm stature until the owner answers, and is then set from body dimension data. | owner |
+| Q-002 | How tall is the tallest adult who will drive? The youngest is a 5-year-old (D-010); the lower end of the seat and pedal range is set from the statistics of 5-year-olds. The upper end is assumed at 185 cm until the owner answers. | owner |
 | Q-003 | Does the top speed of 30 km/h have to be reached on snow, or is a lower speed enough on packed snow and in fresh snow? R-05 and R-06 ask only that the kart runs, turns, and stops on snow. | owner |
 | Q-004 | Set the longest stopping distance from the top speed from a go-kart standard or kart rules. Until then it is assumed at 6 m, about 0.6 g. | assistant |
 | Q-005 | Set the smallest ratio of half the track width to the height of the centre of mass, so that the kart slides before it tips, from tyre friction data and any standard. Until then it is assumed at 1.5. Also decide whether R-12 must hold standing sideways on site.grade_max_pct, which needs a wider track (form.track_min_slope_m, check K-001). | assistant |
 | Q-006 | Where is the kart kept (indoors, under a roof, outdoors), and must it be carried in a car or a truck? This sets the size and mass limits and whether it stands in the cold before a run. | owner |
-| Q-007 | How long is one session of driving, how often is the kart used, and by when should it be ready? The run time per charge or tank is assumed at 30 min until the owner answers. | owner |
-| Q-008 | What is the steepest slope the kart must climb on the land? It is assumed at 10 % until the owner answers. | owner |
-| Q-009 | The rough inputs of step 1.2 (kart mass and its rear share, tyre pressure, track wheel diameter, ski size, drive efficiency, tube lengths, ground clearance, and heights of the centres of mass) are assumed so that forms can be compared. Step 1.3 replaces each with the chosen part's data or a calculation. | assistant |
+| Q-007 | How often is the kart used, and by when should it be ready? The run time is settled by D-013. | owner |
+| Q-008 | How steep is the fairly steep slope of D-014? It is assumed at 20 % (about 11 degrees) until the owner gives a number or measures the steepest slope on the land. | owner |
+| Q-009 | The rough inputs of step 1.2 (kart mass and its rear share, tyre pressure, track wheel diameter, ski size, drive efficiency, tube lengths, ground clearance, heights of the centres of mass, and a mean speed, rolling resistance, electric efficiency, and usable battery fraction for the run time) are assumed so that forms can be compared. Step 1.3 replaces each with the chosen part's data or a calculation. | assistant |
 | Q-010 | The price of the 12 V chargers for E2 and the allowances for shipping, small parts, a reduction stage, skis, the track running gear, pedals and cables and the stop switch, guards and mounts, drive chains, and electric wiring are assumed. Whether the snow chain price of M15 is for one tyre or a pair is not known; two are counted. Step 1.5 replaces each with a quoted price. | assistant |
 | Q-011 | What is the governed no-load speed of the chosen engine? The gearing for R-01 is set to it. It is assumed at 3850 rpm from a checker's recollection (K-001), not from a source; take it from the engine maker's data, or measure it on the engine when it arrives. | assistant |
 | Q-012 | How far does the owner's fresh snow give under a loaded plate? A board of known area loaded to about 5 kPa and to about 16 kPa, set on undisturbed fresh snow and its sinkage measured, settles whether rear tracks (W2) clear snow.depth_max_cm before the frame is given mounts for them. | owner |
+| Q-013 | Should an adult be able to set a lower top speed for a small child? A 5-year-old drives (D-010), while US youth ATV guidance allows no ATVs under 6 and limits ages 6 and up to 10 mph with the restrictor (P25, S2). The child limit is assumed at 16 km/h, about 10 mph, until the owner decides R-17. | owner |
+| Q-014 | The 3D simulator needs the tyre grip on pavement, gravel, and grass, the sideways grip of the front skis, the resistance of tracks in fresh snow, and the resistance when the floor ploughs snow. No source was found; they are assumed so that the simulator can run, and a test run of the built kart settles them. Simulator results that rest on them are illustrations, not verification. | assistant |
 <!-- tdr:end -->

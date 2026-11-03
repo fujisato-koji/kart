@@ -58,3 +58,57 @@ items:
     touches:
       - budget.parts_jpy
       - R-08
+  - id: D-009
+    date: 2026-11-03
+    by: owner
+    what: The heaviest adult who drives weighs 100 kg.
+    touches:
+      - rider.mass_max_kg
+      - R-02
+  - id: D-010
+    date: 2026-11-03
+    by: owner
+    what: The youngest driver is a 5-year-old child.
+    touches:
+      - rider.stature_min_cm
+      - R-03
+  - id: D-011
+    date: 2026-11-03
+    by: owner
+    what: On snow the kart may be slow. The top speed of 30 km/h applies on paved ground.
+    touches:
+      - R-01
+      - R-05
+      - R-06
+  - id: D-012
+    date: 2026-11-03
+    by: owner
+    what: The kart is kept outdoors under a roof, and is carried in a Mitsubishi Delica D:5, in which it should be easy to load and carry.
+    touches:
+      - R-07
+      - R-14
+  - id: D-013
+    date: 2026-11-03
+    by: owner
+    what: With an engine, refuelling between runs is acceptable. With batteries, two to three hours of driving per charge is wanted, depending on the trade-off.
+    touches:
+      - kart.run_time_min
+      - R-07
+  - id: D-014
+    date: 2026-11-03
+    by: owner
+    what: The kart must not be damaged on a fairly steep slope. It may climb slowly.
+    touches:
+      - site.grade_max_pct
+      - R-16
+  - id: D-015
+    date: 2026-11-03
+    by: owner
+    what: The top speed on paved ground is lowered to 20 km/h, to see whether the kart can be made cheaper.
+    options:
+      - 30 km/h as in D-003
+      - 20 km/h
+    touches:
+      - kart.speed_max_kmh
+      - R-01
+    supersedes: D-003

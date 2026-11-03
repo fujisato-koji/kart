@@ -113,9 +113,17 @@ def compute(v):
         ratio_m = v[f"{pre}.speed_rated_rpm"] / wheel_rpm
         t_m = v[f"{pre}.torque_rated_nm"] * v[f"{pre}.controller_a"] / v[f"{pre}.current_rated_a"]
         put(f"drive.{tag}_thrust_n", round(t_m * ratio_m * eta / r), "N", "drive")
+    # Below this speed the centrifugal clutch slips
+    put("drive.clutch_lock_kmh", round(v["kart.speed_max_kmh"] * v["clutch.engage_rpm"] / v["engine.speed_noload_rpm"], 1),
+        "km/h", "drive")
     crr = v["ground.crr_max"]
     put("drive.climb_force_n", round(w * (math.sin(slope) + crr * math.cos(slope))), "N", "drive")
     put("drive.grass_power_kw", round(crr * w * v["kart.speed_max_kmh"] / 3.6 / eta / 1000, 2), "kW", "drive")
+    # Battery run time at a mean speed on grass with the heaviest rider
+    p_avg = v["ground.crr_avg"] * w * v["drive.speed_avg_kmh"] / 3.6 / v["drive.efficiency_electric"]
+    put("drive.power_avg_heavy_w", round(p_avg), "W", "drive")
+    put("battery.run_time_heavy_min", round(v["battery.energy_wh"] * v["battery.usable_fraction"] / p_avg * 60),
+        "min", "drive")
     # One chain stage: axle sprocket with whole teeth, tooth tips (outside diameter)
     teeth = math.ceil(v["sprocket.engine_teeth"] * ratio_e)
     od = v["sprocket.pitch_mm"] * (0.6 + 1 / math.tan(math.pi / teeth))

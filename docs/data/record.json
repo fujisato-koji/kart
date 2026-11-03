@@ -1,0 +1,2638 @@
+{
+ "schema": 1,
+ "requirements": [
+  {
+   "id": "R-01",
+   "text": "The kart is not faster than a speed set for a child.",
+   "origin": "owner",
+   "design_point": "Top speed on level paved ground, with the lightest and with the heaviest rider, is at most kart.speed_max_kmh.",
+   "verify": "test",
+   "basis": [
+    "D-015",
+    "D-011"
+   ],
+   "status": "confirmed"
+  },
+  {
+   "id": "R-02",
+   "text": "The kart carries an adult.",
+   "origin": "owner",
+   "design_point": "Frame, axles, steering, seat, and their joints carry a rider of rider.mass_max_kg under the load cases of docs/03-design.md without yield or loosening.",
+   "verify": "analysis",
+   "basis": [
+    "D-004"
+   ],
+   "status": "confirmed"
+  },
+  {
+   "id": "R-03",
+   "text": "The seat and pedals fit a child and an adult.",
+   "origin": "owner",
+   "design_point": "Without welding or cutting, the seat-to-pedal distance and the seat height adjust so that riders from rider.stature_min_cm to rider.stature_max_cm reach the pedals fully and hold the steering wheel with bent arms.",
+   "verify": "demonstration",
+   "basis": [
+    "D-004"
+   ],
+   "status": "confirmed"
+  },
+  {
+   "id": "R-04",
+   "text": "The kart runs on paved ground, gravel or dirt, and grass.",
+   "origin": "owner",
+   "design_point": "With the heaviest rider, on each of the three surfaces, the kart starts from rest, runs, turns, and stops, climbs site.grade_max_pct, and no part other than the tyres touches the ground.",
+   "verify": "test",
+   "basis": [
+    "D-005"
+   ],
+   "status": "confirmed"
+  },
+  {
+   "id": "R-05",
+   "text": "The kart runs on packed snow and ice.",
+   "origin": "owner",
+   "design_point": "With the heaviest rider, on level packed snow, the kart starts from rest, runs, turns, and stops, at any speed.",
+   "verify": "test",
+   "basis": [
+    "D-006",
+    "D-011"
+   ],
+   "status": "confirmed"
+  },
+  {
+   "id": "R-06",
+   "text": "The kart runs in fresh snow.",
+   "origin": "owner",
+   "design_point": "With the heaviest rider, on level fresh snow of depth snow.depth_max_cm, the kart starts from rest, runs, and turns at any speed without getting stuck.",
+   "verify": "test",
+   "basis": [
+    "D-006",
+    "D-011"
+   ],
+   "status": "confirmed"
+  },
+  {
+   "id": "R-07",
+   "text": "The kart works in the cold.",
+   "origin": "owner",
+   "design_point": "After standing outdoors at ambient.temp_min_c, the kart starts and runs. With batteries it runs for kart.run_time_min per charge; with an engine it may be refuelled between runs.",
+   "verify": "test",
+   "basis": [
+    "D-007",
+    "D-013"
+   ],
+   "status": "confirmed"
+  },
+  {
+   "id": "R-08",
+   "text": "The kart is built within the budget.",
+   "origin": "owner",
+   "design_point": "The parts list of docs/05-parts-and-cost.md, with tax, shipping, and winter parts, totals at most budget.parts_jpy, or the owner has accepted the excess.",
+   "verify": "inspection",
+   "basis": [
+    "D-008"
+   ],
+   "status": "confirmed"
+  },
+  {
+   "id": "R-09",
+   "text": "The kart stops in a short distance.",
+   "origin": "derived",
+   "design_point": "With the heaviest rider, from kart.speed_max_kmh on level dry paved ground, the kart stops within kart.stop_distance_max_m.",
+   "verify": "test",
+   "basis": [
+    "H-01",
+    "H-07"
+   ],
+   "status": "awaiting"
+  },
+  {
+   "id": "R-10",
+   "text": "The drive stops when the driver lets go.",
+   "origin": "derived",
+   "design_point": "The throttle returns to zero by a spring when released, and a stop switch that the driver reaches from the seat, and a helper reaches from beside the kart, cuts the drive.",
+   "verify": "demonstration",
+   "basis": [
+    "H-02"
+   ],
+   "status": "awaiting"
+  },
+  {
+   "id": "R-11",
+   "text": "Moving and hot parts cannot be touched.",
+   "origin": "derived",
+   "design_point": "Chain, sprockets, belt, the turning axle near the seat, and any hot part are covered so that the driver's hands, feet, hair, and clothing cannot reach them from the seat.",
+   "verify": "inspection",
+   "basis": [
+    "H-03",
+    "H-04"
+   ],
+   "status": "awaiting"
+  },
+  {
+   "id": "R-12",
+   "text": "The kart slides before it tips over.",
+   "origin": "derived",
+   "design_point": "With the heaviest rider, half the track width divided by the height of the centre of mass is at least kart.tip_ratio_min, on every wheel or ski setup.",
+   "verify": "analysis",
+   "basis": [
+    "H-05"
+   ],
+   "status": "awaiting"
+  },
+  {
+   "id": "R-13",
+   "text": "The frame shields the driver's legs and feet.",
+   "origin": "derived",
+   "design_point": "Seen from the front and the sides, the driver's feet and legs are inside the frame or a bumper.",
+   "verify": "inspection",
+   "basis": [
+    "H-01"
+   ],
+   "status": "awaiting"
+  },
+  {
+   "id": "R-14",
+   "text": "The kart is carried in a Mitsubishi Delica D:5.",
+   "origin": "owner",
+   "design_point": "With the rear seats of a Delica D:5 folded and slid forward, the kart passes through the tailgate opening (delica.opening_width_min_mm to delica.opening_width_max_mm wide) and lies within the cargo space (delica.cargo_length_mm long, delica.cargo_width_min_mm between the flipped-up third-row seats, delica.cargo_width_max_mm at most), after removing at most parts that come off without tools.",
+   "verify": "demonstration",
+   "basis": [
+    "D-012"
+   ],
+   "status": "confirmed"
+  },
+  {
+   "id": "R-15",
+   "text": "One adult loads and unloads the kart alone.",
+   "origin": "derived",
+   "design_point": "One adult rolls the kart up a ramp onto the cargo floor at delica.lip_height_mm and back down, without lifting the whole kart.",
+   "verify": "demonstration",
+   "basis": [
+    "D-012",
+    "H-09"
+   ],
+   "status": "awaiting"
+  },
+  {
+   "id": "R-16",
+   "text": "The kart climbs a fairly steep slope slowly without damage.",
+   "origin": "owner",
+   "design_point": "With the heaviest rider, on grass at site.grade_max_pct, the kart starts from rest on the slope and climbs at walking pace or faster, and no part slips, overheats, or deforms.",
+   "verify": "test",
+   "basis": [
+    "D-014"
+   ],
+   "status": "confirmed"
+  },
+  {
+   "id": "R-17",
+   "text": "An adult can set a lower top speed for a small child.",
+   "origin": "derived",
+   "design_point": "Without tools, an adult sets the top speed on level paved ground to at most kart.speed_child_kmh, and the child cannot undo the setting from the seat.",
+   "verify": "demonstration",
+   "basis": [
+    "H-08"
+   ],
+   "status": "awaiting"
+  }
+ ],
+ "values": [
+  {
+   "key": "kart.seats",
+   "v": 1,
+   "status": "decided",
+   "basis": [
+    "D-001"
+   ]
+  },
+  {
+   "key": "kart.speed_max_kmh",
+   "v": 20,
+   "unit": "km/h",
+   "status": "decided",
+   "basis": [
+    "D-015"
+   ]
+  },
+  {
+   "key": "snow.depth_max_cm",
+   "v": 30,
+   "unit": "cm",
+   "status": "decided",
+   "basis": [
+    "D-006"
+   ]
+  },
+  {
+   "key": "ambient.temp_min_c",
+   "v": -10,
+   "unit": "degC",
+   "status": "decided",
+   "basis": [
+    "D-007"
+   ]
+  },
+  {
+   "key": "budget.parts_jpy",
+   "v": 100000,
+   "unit": "JPY",
+   "status": "decided",
+   "basis": [
+    "D-008"
+   ]
+  },
+  {
+   "key": "rider.mass_max_kg",
+   "v": 100,
+   "unit": "kg",
+   "status": "decided",
+   "basis": [
+    "D-009"
+   ]
+  },
+  {
+   "key": "rider.stature_min_cm",
+   "v": 102,
+   "unit": "cm",
+   "status": "sourced",
+   "basis": [
+    "P21"
+   ]
+  },
+  {
+   "key": "rider.stature_max_cm",
+   "v": 185,
+   "unit": "cm",
+   "status": "assumed",
+   "basis": [
+    "Q-002"
+   ]
+  },
+  {
+   "key": "site.grade_max_pct",
+   "v": 20,
+   "unit": "%",
+   "status": "assumed",
+   "basis": [
+    "Q-008"
+   ]
+  },
+  {
+   "key": "kart.run_time_min",
+   "v": 120,
+   "unit": "min",
+   "status": "decided",
+   "basis": [
+    "D-013"
+   ]
+  },
+  {
+   "key": "kart.stop_distance_max_m",
+   "v": 6,
+   "unit": "m",
+   "status": "assumed",
+   "basis": [
+    "Q-004"
+   ]
+  },
+  {
+   "key": "kart.tip_ratio_min",
+   "v": 1.5,
+   "status": "assumed",
+   "basis": [
+    "Q-005"
+   ]
+  },
+  {
+   "key": "snow.density_initial_min",
+   "v": 0.11,
+   "unit": "Mg/m3",
+   "status": "sourced",
+   "basis": [
+    "P1"
+   ]
+  },
+  {
+   "key": "snow.density_initial_max",
+   "v": 0.25,
+   "unit": "Mg/m3",
+   "status": "sourced",
+   "basis": [
+    "P1"
+   ]
+  },
+  {
+   "key": "snow.crrel_rhof_a",
+   "v": 0.519,
+   "unit": "Mg/m3",
+   "status": "sourced",
+   "basis": [
+    "P1"
+   ]
+  },
+  {
+   "key": "snow.crrel_rhof_b",
+   "v": 0.0023,
+   "unit": "Mg/m3/kPa",
+   "status": "sourced",
+   "basis": [
+    "P1"
+   ]
+  },
+  {
+   "key": "snow.bekker_a_n",
+   "v": 1.6,
+   "status": "sourced",
+   "basis": [
+    "P2"
+   ]
+  },
+  {
+   "key": "snow.bekker_a_kc",
+   "v": 4.37,
+   "unit": "kN/m^(n+1)",
+   "status": "sourced",
+   "basis": [
+    "P2"
+   ]
+  },
+  {
+   "key": "snow.bekker_a_kphi",
+   "v": 196.72,
+   "unit": "kN/m^(n+2)",
+   "status": "sourced",
+   "basis": [
+    "P2"
+   ]
+  },
+  {
+   "key": "snow.bekker_b_n",
+   "v": 1.6,
+   "status": "sourced",
+   "basis": [
+    "P2"
+   ]
+  },
+  {
+   "key": "snow.bekker_b_kc",
+   "v": 2.49,
+   "unit": "kN/m^(n+1)",
+   "status": "sourced",
+   "basis": [
+    "P2"
+   ]
+  },
+  {
+   "key": "snow.bekker_b_kphi",
+   "v": 245.9,
+   "unit": "kN/m^(n+2)",
+   "status": "sourced",
+   "basis": [
+    "P2"
+   ]
+  },
+  {
+   "key": "snow.bekker_c_n",
+   "v": 1.44,
+   "status": "sourced",
+   "basis": [
+    "P2"
+   ]
+  },
+  {
+   "key": "snow.bekker_c_kc",
+   "v": 10.55,
+   "unit": "kN/m^(n+1)",
+   "status": "sourced",
+   "basis": [
+    "P2"
+   ]
+  },
+  {
+   "key": "snow.bekker_c_kphi",
+   "v": 66.08,
+   "unit": "kN/m^(n+2)",
+   "status": "sourced",
+   "basis": [
+    "P2"
+   ]
+  },
+  {
+   "key": "snow.snowmobile_pressure_kpa",
+   "v": 3.5,
+   "unit": "kPa",
+   "status": "sourced",
+   "basis": [
+    "P2"
+   ]
+  },
+  {
+   "key": "track.width_mm",
+   "v": 180,
+   "unit": "mm",
+   "status": "sourced",
+   "basis": [
+    "M13"
+   ]
+  },
+  {
+   "key": "track.pitch_mm",
+   "v": 60,
+   "unit": "mm",
+   "status": "sourced",
+   "basis": [
+    "M13"
+   ]
+  },
+  {
+   "key": "track.links",
+   "v": 28,
+   "status": "sourced",
+   "basis": [
+    "M13"
+   ]
+  },
+  {
+   "key": "engine.torque_max_nm",
+   "v": 12.4,
+   "unit": "N m",
+   "status": "sourced",
+   "basis": [
+    "P4"
+   ]
+  },
+  {
+   "key": "engine.speed_rated_rpm",
+   "v": 3600,
+   "unit": "rpm",
+   "status": "sourced",
+   "basis": [
+    "P4"
+   ]
+  },
+  {
+   "key": "motor.torque_rated_nm",
+   "v": 3.2,
+   "unit": "N m",
+   "status": "sourced",
+   "basis": [
+    "M5"
+   ]
+  },
+  {
+   "key": "motor.speed_rated_rpm",
+   "v": 3000,
+   "unit": "rpm",
+   "status": "sourced",
+   "basis": [
+    "M5"
+   ]
+  },
+  {
+   "key": "sprocket.engine_teeth",
+   "v": 10,
+   "status": "sourced",
+   "basis": [
+    "M2"
+   ]
+  },
+  {
+   "key": "cost.tube_25_jpy_per_m",
+   "v": 924,
+   "unit": "JPY/m",
+   "status": "sourced",
+   "basis": [
+    "M6"
+   ]
+  },
+  {
+   "key": "cost.tube_32_jpy_per_m",
+   "v": 1133,
+   "unit": "JPY/m",
+   "status": "sourced",
+   "basis": [
+    "M7"
+   ]
+  },
+  {
+   "key": "cost.axle_kit_jpy",
+   "v": 21630,
+   "unit": "JPY",
+   "status": "sourced",
+   "basis": [
+    "M8"
+   ]
+  },
+  {
+   "key": "cost.steering_kit_jpy",
+   "v": 10052,
+   "unit": "JPY",
+   "status": "sourced",
+   "basis": [
+    "M9"
+   ]
+  },
+  {
+   "key": "cost.tyres_set_jpy",
+   "v": 15460,
+   "unit": "JPY",
+   "status": "sourced",
+   "basis": [
+    "M10"
+   ]
+  },
+  {
+   "key": "cost.seat_jpy",
+   "v": 3855,
+   "unit": "JPY",
+   "status": "sourced",
+   "basis": [
+    "M17"
+   ]
+  },
+  {
+   "key": "cost.clutch_jpy",
+   "v": 4960,
+   "unit": "JPY",
+   "status": "sourced",
+   "basis": [
+    "M2"
+   ]
+  },
+  {
+   "key": "cost.engine_genuine_jpy",
+   "v": 68980,
+   "unit": "JPY",
+   "status": "sourced",
+   "basis": [
+    "M1"
+   ]
+  },
+  {
+   "key": "cost.motor_kit_jpy",
+   "v": 18780,
+   "unit": "JPY",
+   "status": "sourced",
+   "basis": [
+    "M3"
+   ]
+  },
+  {
+   "key": "cost.battery_12v_jpy",
+   "v": 13998,
+   "unit": "JPY",
+   "status": "sourced",
+   "basis": [
+    "M4"
+   ]
+  },
+  {
+   "key": "cost.track_jpy",
+   "v": 24000,
+   "unit": "JPY",
+   "status": "sourced",
+   "basis": [
+    "M13"
+   ]
+  },
+  {
+   "key": "cost.snow_chain_jpy",
+   "v": 7480,
+   "unit": "JPY",
+   "status": "sourced",
+   "basis": [
+    "M15"
+   ]
+  },
+  {
+   "key": "tyre.dia_mm",
+   "v": 330,
+   "unit": "mm",
+   "status": "calculated",
+   "basis": [
+    "docs/02-form.md#drive"
+   ]
+  },
+  {
+   "key": "sprocket.pitch_mm",
+   "v": 12.7,
+   "unit": "mm",
+   "status": "calculated",
+   "basis": [
+    "docs/02-form.md#drive"
+   ]
+  },
+  {
+   "key": "kart.mass_rough_kg",
+   "v": 70,
+   "unit": "kg",
+   "status": "assumed",
+   "basis": [
+    "Q-009"
+   ]
+  },
+  {
+   "key": "kart.rear_share",
+   "v": 0.6,
+   "status": "assumed",
+   "basis": [
+    "Q-009"
+   ]
+  },
+  {
+   "key": "tyre.pressure_kpa",
+   "v": 70,
+   "unit": "kPa",
+   "status": "assumed",
+   "basis": [
+    "Q-009"
+   ]
+  },
+  {
+   "key": "track.wheel_dia_mm",
+   "v": 200,
+   "unit": "mm",
+   "status": "assumed",
+   "basis": [
+    "Q-009"
+   ]
+  },
+  {
+   "key": "ski.width_mm",
+   "v": 120,
+   "unit": "mm",
+   "status": "assumed",
+   "basis": [
+    "Q-009"
+   ]
+  },
+  {
+   "key": "ski.contact_length_mm",
+   "v": 600,
+   "unit": "mm",
+   "status": "assumed",
+   "basis": [
+    "Q-009"
+   ]
+  },
+  {
+   "key": "drive.efficiency",
+   "v": 0.9,
+   "status": "assumed",
+   "basis": [
+    "Q-009"
+   ]
+  },
+  {
+   "key": "frame.tube_25_m",
+   "v": 10,
+   "unit": "m",
+   "status": "assumed",
+   "basis": [
+    "Q-009"
+   ]
+  },
+  {
+   "key": "frame.tube_32_m",
+   "v": 5,
+   "unit": "m",
+   "status": "assumed",
+   "basis": [
+    "Q-009"
+   ]
+  },
+  {
+   "key": "cost.engine_clone_jpy",
+   "v": 19980,
+   "unit": "JPY",
+   "status": "sourced",
+   "basis": [
+    "M18"
+   ]
+  },
+  {
+   "key": "cost.charger_jpy",
+   "v": 10000,
+   "unit": "JPY",
+   "status": "assumed",
+   "basis": [
+    "Q-010"
+   ]
+  },
+  {
+   "key": "cost.allow_shipping_jpy",
+   "v": 5000,
+   "unit": "JPY",
+   "status": "assumed",
+   "basis": [
+    "Q-010"
+   ]
+  },
+  {
+   "key": "cost.allow_small_parts_jpy",
+   "v": 10000,
+   "unit": "JPY",
+   "status": "assumed",
+   "basis": [
+    "Q-010"
+   ]
+  },
+  {
+   "key": "cost.allow_reduction_jpy",
+   "v": 8000,
+   "unit": "JPY",
+   "status": "assumed",
+   "basis": [
+    "Q-010"
+   ]
+  },
+  {
+   "key": "cost.allow_skis_jpy",
+   "v": 8000,
+   "unit": "JPY",
+   "status": "assumed",
+   "basis": [
+    "Q-010"
+   ]
+  },
+  {
+   "key": "cost.allow_track_gear_jpy",
+   "v": 20000,
+   "unit": "JPY",
+   "status": "assumed",
+   "basis": [
+    "Q-010"
+   ]
+  },
+  {
+   "key": "kart.clearance_rough_mm",
+   "v": 150,
+   "unit": "mm",
+   "status": "assumed",
+   "basis": [
+    "Q-009"
+   ]
+  },
+  {
+   "key": "kart.cg_height_rough_m",
+   "v": 0.25,
+   "unit": "m",
+   "status": "assumed",
+   "basis": [
+    "Q-009"
+   ]
+  },
+  {
+   "key": "seat.above_floor_rough_m",
+   "v": 0.05,
+   "unit": "m",
+   "status": "assumed",
+   "basis": [
+    "Q-009"
+   ]
+  },
+  {
+   "key": "rider.cg_above_seat_m",
+   "v": 0.25,
+   "unit": "m",
+   "status": "assumed",
+   "basis": [
+    "Q-009"
+   ]
+  },
+  {
+   "key": "motor2.torque_rated_nm",
+   "v": 4.8,
+   "unit": "N m",
+   "status": "sourced",
+   "basis": [
+    "M19"
+   ]
+  },
+  {
+   "key": "motor2.speed_rated_rpm",
+   "v": 4300,
+   "unit": "rpm",
+   "status": "sourced",
+   "basis": [
+    "M19"
+   ]
+  },
+  {
+   "key": "cost.motor2_kit_jpy",
+   "v": 30994,
+   "unit": "JPY",
+   "status": "sourced",
+   "basis": [
+    "M20"
+   ]
+  },
+  {
+   "key": "cost.battery_48v_jpy",
+   "v": 74780,
+   "unit": "JPY",
+   "status": "sourced",
+   "basis": [
+    "M21"
+   ]
+  },
+  {
+   "key": "cost.charger_48v_jpy",
+   "v": 20900,
+   "unit": "JPY",
+   "status": "sourced",
+   "basis": [
+    "M22"
+   ]
+  },
+  {
+   "key": "engine.power_max_kw",
+   "v": 4.3,
+   "unit": "kW",
+   "status": "sourced",
+   "basis": [
+    "P4"
+   ]
+  },
+  {
+   "key": "engine.speed_noload_rpm",
+   "v": 3850,
+   "unit": "rpm",
+   "status": "assumed",
+   "basis": [
+    "Q-011"
+   ]
+  },
+  {
+   "key": "motor.current_rated_a",
+   "v": 26.7,
+   "unit": "A",
+   "status": "sourced",
+   "basis": [
+    "M5"
+   ]
+  },
+  {
+   "key": "motor.controller_a",
+   "v": 30,
+   "unit": "A",
+   "status": "sourced",
+   "basis": [
+    "M3"
+   ]
+  },
+  {
+   "key": "motor2.current_rated_a",
+   "v": 34,
+   "unit": "A",
+   "status": "sourced",
+   "basis": [
+    "M19"
+   ]
+  },
+  {
+   "key": "motor2.controller_a",
+   "v": 34,
+   "unit": "A",
+   "status": "sourced",
+   "basis": [
+    "M19"
+   ]
+  },
+  {
+   "key": "ground.crr_max",
+   "v": 0.12,
+   "status": "sourced",
+   "basis": [
+    "P24"
+   ]
+  },
+  {
+   "key": "kart.axle_part_low_rough_mm",
+   "v": 75,
+   "unit": "mm",
+   "status": "assumed",
+   "basis": [
+    "Q-009"
+   ]
+  },
+  {
+   "key": "cost.allow_controls_jpy",
+   "v": 8000,
+   "unit": "JPY",
+   "status": "assumed",
+   "basis": [
+    "Q-010"
+   ]
+  },
+  {
+   "key": "cost.allow_guards_mounts_jpy",
+   "v": 5000,
+   "unit": "JPY",
+   "status": "assumed",
+   "basis": [
+    "Q-010"
+   ]
+  },
+  {
+   "key": "cost.allow_drive_chains_jpy",
+   "v": 5000,
+   "unit": "JPY",
+   "status": "assumed",
+   "basis": [
+    "Q-010"
+   ]
+  },
+  {
+   "key": "cost.allow_electric_jpy",
+   "v": 5000,
+   "unit": "JPY",
+   "status": "assumed",
+   "basis": [
+    "Q-010"
+   ]
+  },
+  {
+   "key": "kart.speed_child_kmh",
+   "v": 16,
+   "unit": "km/h",
+   "status": "assumed",
+   "basis": [
+    "Q-013"
+   ]
+  },
+  {
+   "key": "ground.crr_avg",
+   "v": 0.08,
+   "status": "assumed",
+   "basis": [
+    "Q-009"
+   ]
+  },
+  {
+   "key": "drive.speed_avg_kmh",
+   "v": 12,
+   "unit": "km/h",
+   "status": "assumed",
+   "basis": [
+    "Q-009"
+   ]
+  },
+  {
+   "key": "drive.efficiency_electric",
+   "v": 0.8,
+   "status": "assumed",
+   "basis": [
+    "Q-009"
+   ]
+  },
+  {
+   "key": "battery.usable_fraction",
+   "v": 0.8,
+   "status": "assumed",
+   "basis": [
+    "Q-009"
+   ]
+  },
+  {
+   "key": "battery.energy_wh",
+   "v": 1536,
+   "unit": "Wh",
+   "status": "sourced",
+   "basis": [
+    "M21"
+   ]
+  },
+  {
+   "key": "rider.mass_child_kg",
+   "v": 19,
+   "unit": "kg",
+   "status": "sourced",
+   "basis": [
+    "P21"
+   ]
+  },
+  {
+   "key": "delica.cargo_length_mm",
+   "v": 1610,
+   "unit": "mm",
+   "status": "sourced",
+   "basis": [
+    "P26"
+   ]
+  },
+  {
+   "key": "delica.cargo_width_max_mm",
+   "v": 1245,
+   "unit": "mm",
+   "status": "sourced",
+   "basis": [
+    "P26"
+   ]
+  },
+  {
+   "key": "delica.cargo_width_min_mm",
+   "v": 770,
+   "unit": "mm",
+   "status": "sourced",
+   "basis": [
+    "P26"
+   ]
+  },
+  {
+   "key": "delica.cargo_height_mm",
+   "v": 1130,
+   "unit": "mm",
+   "status": "sourced",
+   "basis": [
+    "P26"
+   ]
+  },
+  {
+   "key": "delica.opening_width_min_mm",
+   "v": 900,
+   "unit": "mm",
+   "status": "sourced",
+   "basis": [
+    "P27"
+   ]
+  },
+  {
+   "key": "delica.opening_width_max_mm",
+   "v": 1230,
+   "unit": "mm",
+   "status": "sourced",
+   "basis": [
+    "P27"
+   ]
+  },
+  {
+   "key": "delica.lip_height_mm",
+   "v": 620,
+   "unit": "mm",
+   "status": "sourced",
+   "basis": [
+    "P27"
+   ]
+  },
+  {
+   "key": "clutch.engage_rpm",
+   "v": 2200,
+   "unit": "rpm",
+   "status": "sourced",
+   "basis": [
+    "M23"
+   ]
+  },
+  {
+   "key": "tc.ratio_low",
+   "v": 2.7,
+   "status": "sourced",
+   "basis": [
+    "M24"
+   ]
+  },
+  {
+   "key": "tc.ratio_high",
+   "v": 0.9,
+   "status": "sourced",
+   "basis": [
+    "M24"
+   ]
+  },
+  {
+   "key": "cost.tc_kit_jpy",
+   "v": 35276,
+   "unit": "JPY",
+   "status": "sourced",
+   "basis": [
+    "M25"
+   ]
+  },
+  {
+   "key": "ground.crr_paved",
+   "v": 0.02,
+   "status": "sourced",
+   "basis": [
+    "P29"
+   ]
+  },
+  {
+   "key": "ground.crr_gravel",
+   "v": 0.06,
+   "status": "sourced",
+   "basis": [
+    "P24"
+   ]
+  },
+  {
+   "key": "ground.crr_grass",
+   "v": 0.1,
+   "status": "sourced",
+   "basis": [
+    "P24"
+   ]
+  },
+  {
+   "key": "ground.crr_snow_packed",
+   "v": 0.016,
+   "status": "sourced",
+   "basis": [
+    "P1"
+   ]
+  },
+  {
+   "key": "ground.crr_snow_fresh",
+   "v": 0.18,
+   "status": "sourced",
+   "basis": [
+    "P1"
+   ]
+  },
+  {
+   "key": "ground.mu_snow",
+   "v": 0.15,
+   "status": "sourced",
+   "basis": [
+    "S1"
+   ]
+  },
+  {
+   "key": "ground.mu_snow_chains",
+   "v": 0.27,
+   "status": "sourced",
+   "basis": [
+    "S1"
+   ]
+  },
+  {
+   "key": "ground.mu_ice",
+   "v": 0.08,
+   "status": "sourced",
+   "basis": [
+    "S1"
+   ]
+  },
+  {
+   "key": "ground.mu_ice_chains",
+   "v": 0.19,
+   "status": "sourced",
+   "basis": [
+    "S1"
+   ]
+  },
+  {
+   "key": "ground.mu_paved",
+   "v": 0.8,
+   "status": "assumed",
+   "basis": [
+    "Q-014"
+   ]
+  },
+  {
+   "key": "ground.mu_gravel",
+   "v": 0.5,
+   "status": "assumed",
+   "basis": [
+    "Q-014"
+   ]
+  },
+  {
+   "key": "ground.mu_grass",
+   "v": 0.45,
+   "status": "assumed",
+   "basis": [
+    "Q-014"
+   ]
+  },
+  {
+   "key": "ski.mu_lateral",
+   "v": 0.2,
+   "status": "assumed",
+   "basis": [
+    "Q-014"
+   ]
+  },
+  {
+   "key": "track.crr_snow_fresh",
+   "v": 0.1,
+   "status": "assumed",
+   "basis": [
+    "Q-014"
+   ]
+  },
+  {
+   "key": "snow.plough_per_cm",
+   "v": 0.05,
+   "unit": "1/cm",
+   "status": "assumed",
+   "basis": [
+    "Q-014"
+   ]
+  },
+  {
+   "key": "kart.wheelbase_rough_mm",
+   "v": 1000,
+   "unit": "mm",
+   "status": "assumed",
+   "basis": [
+    "Q-009"
+   ]
+  },
+  {
+   "key": "kart.length_rough_mm",
+   "v": 1550,
+   "unit": "mm",
+   "status": "assumed",
+   "basis": [
+    "Q-009"
+   ]
+  },
+  {
+   "key": "rider.cg_above_seat_child_m",
+   "v": 0.15,
+   "unit": "m",
+   "status": "assumed",
+   "basis": [
+    "Q-009"
+   ]
+  },
+  {
+   "key": "tyre.width_mm",
+   "v": 127,
+   "unit": "mm",
+   "status": "calculated",
+   "basis": [
+    "docs/02-form.md#drive"
+   ]
+  },
+  {
+   "key": "form.mass_total_kg",
+   "v": 170,
+   "unit": "kg",
+   "status": "calculated",
+   "basis": [
+    "docs/02-form.md#mass"
+   ]
+  },
+  {
+   "key": "snow.wheel_sinkage_min_cm",
+   "v": 19.0,
+   "unit": "cm",
+   "status": "calculated",
+   "basis": [
+    "docs/02-form.md#snow"
+   ]
+  },
+  {
+   "key": "snow.wheel_sinkage_max_cm",
+   "v": 25.1,
+   "unit": "cm",
+   "status": "calculated",
+   "basis": [
+    "docs/02-form.md#snow"
+   ]
+  },
+  {
+   "key": "snow.track_pressure_kpa",
+   "v": 5.3,
+   "unit": "kPa",
+   "status": "calculated",
+   "basis": [
+    "docs/02-form.md#snow"
+   ]
+  },
+  {
+   "key": "snow.ski_pressure_kpa",
+   "v": 4.6,
+   "unit": "kPa",
+   "status": "calculated",
+   "basis": [
+    "docs/02-form.md#snow"
+   ]
+  },
+  {
+   "key": "snow.track_sinkage_max_cm",
+   "v": 11.1,
+   "unit": "cm",
+   "status": "calculated",
+   "basis": [
+    "docs/02-form.md#snow"
+   ]
+  },
+  {
+   "key": "snow.ski_sinkage_max_cm",
+   "v": 8.8,
+   "unit": "cm",
+   "status": "calculated",
+   "basis": [
+    "docs/02-form.md#snow"
+   ]
+  },
+  {
+   "key": "snow.track_sinkage_wheels_cm",
+   "v": 20.9,
+   "unit": "cm",
+   "status": "calculated",
+   "basis": [
+    "docs/02-form.md#snow"
+   ]
+  },
+  {
+   "key": "snow.wheel_depth_limit_cm",
+   "v": 17.9,
+   "unit": "cm",
+   "status": "calculated",
+   "basis": [
+    "docs/02-form.md#snow"
+   ]
+  },
+  {
+   "key": "snow.wheel_depth_limit_axle_cm",
+   "v": 8.9,
+   "unit": "cm",
+   "status": "calculated",
+   "basis": [
+    "docs/02-form.md#snow"
+   ]
+  },
+  {
+   "key": "form.cg_height_m",
+   "v": 0.368,
+   "unit": "m",
+   "status": "calculated",
+   "basis": [
+    "docs/02-form.md#stability"
+   ]
+  },
+  {
+   "key": "form.track_min_m",
+   "v": 1.11,
+   "unit": "m",
+   "status": "calculated",
+   "basis": [
+    "docs/02-form.md#stability"
+   ]
+  },
+  {
+   "key": "form.track_min_slope_m",
+   "v": 1.79,
+   "unit": "m",
+   "status": "calculated",
+   "basis": [
+    "docs/02-form.md#stability"
+   ]
+  },
+  {
+   "key": "drive.engine_ratio",
+   "v": 11.97,
+   "status": "calculated",
+   "basis": [
+    "docs/02-form.md#drive"
+   ]
+  },
+  {
+   "key": "drive.engine_thrust_n",
+   "v": 745,
+   "unit": "N",
+   "status": "calculated",
+   "basis": [
+    "docs/02-form.md#drive"
+   ]
+  },
+  {
+   "key": "drive.motor_thrust_n",
+   "v": 183,
+   "unit": "N",
+   "status": "calculated",
+   "basis": [
+    "docs/02-form.md#drive"
+   ]
+  },
+  {
+   "key": "drive.motor2_thrust_n",
+   "v": 350,
+   "unit": "N",
+   "status": "calculated",
+   "basis": [
+    "docs/02-form.md#drive"
+   ]
+  },
+  {
+   "key": "drive.clutch_lock_kmh",
+   "v": 11.4,
+   "unit": "km/h",
+   "status": "calculated",
+   "basis": [
+    "docs/02-form.md#drive"
+   ]
+  },
+  {
+   "key": "drive.climb_force_n",
+   "v": 523,
+   "unit": "N",
+   "status": "calculated",
+   "basis": [
+    "docs/02-form.md#drive"
+   ]
+  },
+  {
+   "key": "drive.grass_power_kw",
+   "v": 1.24,
+   "unit": "kW",
+   "status": "calculated",
+   "basis": [
+    "docs/02-form.md#drive"
+   ]
+  },
+  {
+   "key": "drive.power_avg_heavy_w",
+   "v": 556,
+   "unit": "W",
+   "status": "calculated",
+   "basis": [
+    "docs/02-form.md#drive"
+   ]
+  },
+  {
+   "key": "battery.run_time_heavy_min",
+   "v": 133,
+   "unit": "min",
+   "status": "calculated",
+   "basis": [
+    "docs/02-form.md#drive"
+   ]
+  },
+  {
+   "key": "drive.sprocket_reach_mm",
+   "v": -81,
+   "unit": "mm",
+   "status": "calculated",
+   "basis": [
+    "docs/02-form.md#drive"
+   ]
+  },
+  {
+   "key": "cost.chassis_jpy",
+   "v": 93902,
+   "unit": "JPY",
+   "status": "calculated",
+   "basis": [
+    "docs/02-form.md#cost"
+   ]
+  },
+  {
+   "key": "cost.power_engine_clone_jpy",
+   "v": 37940,
+   "unit": "JPY",
+   "status": "calculated",
+   "basis": [
+    "docs/02-form.md#cost"
+   ]
+  },
+  {
+   "key": "cost.power_engine_genuine_jpy",
+   "v": 86940,
+   "unit": "JPY",
+   "status": "calculated",
+   "basis": [
+    "docs/02-form.md#cost"
+   ]
+  },
+  {
+   "key": "cost.power_electric_jpy",
+   "v": 94772,
+   "unit": "JPY",
+   "status": "calculated",
+   "basis": [
+    "docs/02-form.md#cost"
+   ]
+  },
+  {
+   "key": "cost.power_electric2_jpy",
+   "v": 136674,
+   "unit": "JPY",
+   "status": "calculated",
+   "basis": [
+    "docs/02-form.md#cost"
+   ]
+  },
+  {
+   "key": "cost.winter_skis_chains_jpy",
+   "v": 22960,
+   "unit": "JPY",
+   "status": "calculated",
+   "basis": [
+    "docs/02-form.md#cost"
+   ]
+  },
+  {
+   "key": "cost.winter_tracks_jpy",
+   "v": 76000,
+   "unit": "JPY",
+   "status": "calculated",
+   "basis": [
+    "docs/02-form.md#cost"
+   ]
+  },
+  {
+   "key": "cost.total_l2_e1_w1_jpy",
+   "v": 154802,
+   "unit": "JPY",
+   "status": "calculated",
+   "basis": [
+    "docs/02-form.md#cost"
+   ]
+  },
+  {
+   "key": "cost.total_l2_e1_w2_jpy",
+   "v": 207842,
+   "unit": "JPY",
+   "status": "calculated",
+   "basis": [
+    "docs/02-form.md#cost"
+   ]
+  }
+ ],
+ "sources": [
+  {
+   "id": "P1",
+   "class": "P",
+   "title": "Richmond, Motion Resistance of Wheeled Vehicles in Snow, CRREL Report 95-7, 1995",
+   "url": "https://rosap.ntl.bts.gov/view/dot/14081/dot_14081_DS1.pdf",
+   "retrieved": "2026-11-03",
+   "license": "US government work, approved for public release",
+   "read": "partial",
+   "note": "Read by a helper through the abstract, Table 1, and equations 1 to 8. Sinkage z = h(1 - rho0/rhof) and final density rhof = 0.519 + 0.0023 pmax (Mg/m3, pmax in kPa), fitted to wheeled vehicles in snow 10 to 37 cm deep with initial density 0.11 to 0.25 Mg/m3."
+  },
+  {
+   "id": "P2",
+   "class": "P",
+   "title": "Lines, Elliott, Ray, Rigid Wheel Design and Evaluation for Lightweight Snow Rover, ISTVS conference proceedings, 2021",
+   "url": "https://par.nsf.gov/servlets/purl/10304353",
+   "retrieved": "2026-11-03",
+   "license": "unknown",
+   "read": "partial",
+   "note": "Read by a helper, sections 2 to 4. Gives Bekker snow parameters for three snows taken from Wong (2001), and a snowmobile track ground pressure of 3.5 kPa observed in the field."
+  },
+  {
+   "id": "P3",
+   "class": "P",
+   "title": "Lever et al., Advances in Antarctic Sled Technology, ERDC/CRREL TR-16-4, 2016",
+   "url": "https://geo-summit.org/sites/default/files/docs/ERDC-CRREL_TR-16-4.pdf",
+   "retrieved": "2026-11-03",
+   "license": "US government work, approved for public release",
+   "read": "partial",
+   "note": "Read by a helper. Sled resistance per weight on polar snow, and higher resistance at higher ground pressure."
+  },
+  {
+   "id": "P4",
+   "class": "P",
+   "title": "Honda GX200 product page",
+   "url": "https://www.honda.co.jp/engines/GX/GX200/",
+   "retrieved": "2026-11-03",
+   "license": "unknown",
+   "read": "partial",
+   "note": "Read by a helper. Maximum net output, maximum torque, and dry mass."
+  },
+  {
+   "id": "P5",
+   "class": "P",
+   "title": "Honda GX160 and GX200 Owner's Manual 00X37ZEE6000",
+   "url": "https://cdn.powerequipment.honda.com/engines/pdf/manuals/00X37ZEE6000.pdf",
+   "retrieved": "2026-11-03",
+   "license": "unknown",
+   "read": "partial",
+   "note": "Read by a helper, page 8 and the specifications. The oil chart for 5W-30 and 10W-30 reaches about -15 degC (read from the chart)."
+  },
+  {
+   "id": "P6",
+   "class": "P",
+   "title": "EVE Energy LF105 Product Specification Ver. F, 2019-12-02",
+   "url": "https://files.batteryjunction.com/frontend/files/EVE/EVE-LF105-Datasheet.pdf",
+   "retrieved": "2026-11-03",
+   "license": "unknown",
+   "read": "partial",
+   "note": "Maker document on a retailer host, read by a helper. LiFePO4 cell charging 0 to 55 degC, discharging -20 to 55 degC, at least 70 % of capacity at -20 degC."
+  },
+  {
+   "id": "P7",
+   "class": "P",
+   "title": "Yuasa NP Valve Regulated Lead Acid Battery Manual",
+   "url": "https://www.thierry-lequeu.fr/data/Yuasa3.pdf",
+   "retrieved": "2026-11-03",
+   "license": "unknown",
+   "read": "partial",
+   "note": "Third-party mirror, read by a helper, page 12 figure 4. Cyclic use recommended at +5 to +35 degC; capacity falls steeply with cold at high discharge rates."
+  },
+  {
+   "id": "P8",
+   "class": "P",
+   "title": "SUZUKID Buddy80 SBD-80 maker shop page",
+   "url": "https://www.suzukid.shop/c/welding-machine/semi-auto-welding/semi-auto-welding-machine/sbd-80",
+   "retrieved": "2026-11-03",
+   "license": "unknown",
+   "read": "full",
+   "note": "Read by a helper. 100 V no-gas semi-automatic welder, 30 to 80 A, duty cycle 35 %, input 24.4 A, steel 0.8 to 4.0 mm."
+  },
+  {
+   "id": "P9",
+   "class": "P",
+   "title": "Toyota, GR KART release",
+   "url": "https://global.toyota/jp/newsroom/corporate/44816979.html",
+   "retrieved": "2026-11-03",
+   "license": "unknown",
+   "read": "full",
+   "note": "Read by a helper. Size, wheelbase, mass, and the driver height range of a leisure kart."
+  },
+  {
+   "id": "P10",
+   "class": "P",
+   "title": "CIK-FIA Technical Regulations 2023",
+   "url": "https://www.fiakarting.com/sites/default/files/2023-01/6.0_RT2023.pdf",
+   "retrieved": "2026-11-03",
+   "license": "unknown",
+   "read": "partial",
+   "note": "Read by a helper by text search of articles 4.13, 8.1 to 8.2, 9.1, 10.1 to 10.2, 11.1. Track at least two thirds of the wheelbase."
+  },
+  {
+   "id": "P11",
+   "class": "P",
+   "title": "Road Traffic Act of Japan (道路交通法), articles 1 and 2, e-Gov",
+   "url": "https://laws.e-gov.go.jp/api/1/lawdata/335AC0000000105",
+   "retrieved": "2026-11-03",
+   "license": "unknown",
+   "read": "partial",
+   "note": "Read by a helper. A road includes other places used for general traffic, and driving is defined as use on a road."
+  },
+  {
+   "id": "P12",
+   "class": "P",
+   "title": "Sendai High Court judgment of 1963-12-23 on places used for general traffic",
+   "url": "https://www.courts.go.jp/hanrei/24037/detail3/index.html",
+   "retrieved": "2026-11-03",
+   "license": "unknown",
+   "read": "partial",
+   "note": "Read by a helper, summary page. A place counts as used for general traffic when the public in fact passes without asking permission each time; an enclosed site with permission required was held not to be a road."
+  },
+  {
+   "id": "P13",
+   "class": "P",
+   "title": "Road Transport Vehicle Act of Japan (道路運送車両法), article 2, e-Gov",
+   "url": "https://laws.e-gov.go.jp/api/1/lawdata/326AC0000000185",
+   "retrieved": "2026-11-03",
+   "license": "unknown",
+   "read": "partial",
+   "note": "Read by a helper. Operation excludes use only in places other than roads."
+  },
+  {
+   "id": "P14",
+   "class": "P",
+   "title": "Automobile Liability Security Act of Japan (自動車損害賠償保障法), articles 2, 3, 5, 10, e-Gov",
+   "url": "https://laws.e-gov.go.jp/api/1/lawdata/330AC0000000097",
+   "retrieved": "2026-11-03",
+   "license": "unknown",
+   "read": "partial",
+   "note": "Read by a helper. Compulsory insurance does not apply to use only off roads; article 3 liability is not in the exclusion list."
+  },
+  {
+   "id": "P15",
+   "class": "P",
+   "title": "MLIT detailed technical notice, attachment 98 (braking of mopeds) and article 302",
+   "url": "https://www.mlit.go.jp/jidosha/content/B098.pdf",
+   "retrieved": "2026-11-03",
+   "license": "unknown",
+   "read": "partial",
+   "note": "Read by a helper. Stopping distance limit S = 0.1V + 0.0087V^2 for linked brakes and 0.1V + 0.0143V^2 for the rear brake alone, V = 0.9 Vmax in km/h; pedal force at most 350 N."
+  },
+  {
+   "id": "P16",
+   "class": "P",
+   "title": "JAF guideline for go-kart and similar events, 2023-03-27",
+   "url": "https://motorsports.jaf.or.jp/-/media/1/3375/3379/3402/3404/4128/20230214_3.pdf",
+   "retrieved": "2026-11-03",
+   "license": "unknown",
+   "read": "partial",
+   "note": "Read by a helper, sections 3 to 6. Guards against hair and scarves, pedals and seat adjustable to body size, brakes on both rear wheels, emergency stop with remote speed limit or engine stop, run-off space or barriers, full-face helmet."
+  },
+  {
+   "id": "P17",
+   "class": "P",
+   "title": "JAF national kart technical rules 2019",
+   "url": "https://motorsports.jaf.or.jp/-/media/1/3375/3379/3402/3404/3408/1421_cms_20180821172045_28221_00001.pdf",
+   "retrieved": "2026-11-03",
+   "license": "unknown",
+   "read": "partial",
+   "note": "Read by a helper, article 12 and the Mini class. The chain guard is required and covers the upper run of the chain."
+  },
+  {
+   "id": "P18",
+   "class": "P",
+   "title": "JAF national kart technical rules 2026, comparison of old and new text",
+   "url": "https://motorsports.jaf.or.jp/-/media/1/3375/3379/3402/3404/4350/20251204_03.pdf",
+   "retrieved": "2026-11-03",
+   "license": "unknown",
+   "read": "partial",
+   "note": "Read by a helper. A foot brake acting on both rear wheels; seat belts are prohibited on race karts, which have no roll bar."
+  },
+  {
+   "id": "P19",
+   "class": "P",
+   "title": "Adler, Go-Kart Related Injuries and Deaths to Children, US CPSC, 2000",
+   "url": "https://www.cpsc.gov/s3fs-public/pdfs/go-kart.pdf",
+   "retrieved": "2026-11-03",
+   "license": "US government work",
+   "read": "partial",
+   "note": "Read by a helper, summary, results, and conclusion. Most deaths came from hitting objects or vehicles and from tip-overs on bumps, ruts, and sharp turns; entrapment of hair or clothing in exposed chain, belt, or axle drives was fatal."
+  },
+  {
+   "id": "P20",
+   "class": "P",
+   "title": "Consumer Affairs Agency of Japan, caution on go-kart and similar accidents, 2022-12-02",
+   "url": "https://www.caa.go.jp/policies/policy/consumer_safety/caution/caution_065/assets/consumer_safety_cms205_221202_01.pdf",
+   "retrieved": "2026-11-03",
+   "license": "unknown",
+   "read": "partial",
+   "note": "Read by a helper, sections 2 to 4. Advice to remove scarves and keep long hair inside the helmet."
+  },
+  {
+   "id": "P21",
+   "class": "P",
+   "title": "MEXT school health statistics FY2025, national tables 1 to 3, e-Stat",
+   "url": "https://www.e-stat.go.jp/stat-search/files?stat_infid=000040409507",
+   "retrieved": "2026-11-03",
+   "license": "e-Stat terms of use (not checked)",
+   "read": "full",
+   "note": "The URL is formed from the statInfId the helper gave. Read by helpers for ages 5 to 12. Stature and mass of children by age; the 5th percentile stature is about 102 cm for a 5-year-old girl and 108 cm for a 6-year-old (interpolated by the helpers from the 1 cm distribution of table 2)."
+  },
+  {
+   "id": "P22",
+   "class": "P",
+   "title": "AIST human body dimension database 1991-92",
+   "url": "https://www.airc.aist.go.jp/dhrt/91-92/",
+   "retrieved": "2026-11-03",
+   "license": "free to use with the credit 産総研 AIST人体寸法データベース1991-92",
+   "read": "full",
+   "note": "Read by a helper for stature, sitting height, buttock-heel length, and mass of adults aged 18 to 29. The 95th percentile male stature is about 182 cm."
+  },
+  {
+   "id": "P23",
+   "class": "P",
+   "title": "ASTM F2011-02(2018), Standard Specification for Fun-Karts, abstract",
+   "url": "https://store.astm.org/f2011-02r18.html",
+   "retrieved": "2026-11-03",
+   "license": "unknown",
+   "read": "abstract",
+   "note": "Excludes home-made karts. The text is paywalled, and ASTM prohibits giving its standards to an AI."
+  },
+  {
+   "id": "P24",
+   "class": "P",
+   "title": "Petterson and Gooch, Rolling resistance of ATV tyres in agriculture, DESIGN 2020, doi:10.1017/dsd.2020.75",
+   "url": "https://www.cambridge.org/core/services/aop-cambridge-core/content/view/ECD7544F00543D596B2D0EB3DD639516/S2633776220000758a.pdf/rolling-resistance-of-atv-tyres-in-agriculture.pdf",
+   "retrieved": "2026-11-03",
+   "license": "open access, licence not checked",
+   "read": "partial",
+   "note": "Read by a helper, sections 3.4 to 6 and tables 1 and 2. Seven ATV tyres on 8 to 14 inch rims at 34 kPa; rolling resistance over load 0.035 to 0.09 on a hard farm lane, 0.07 to 0.10 on short grass and 0.08 to 0.12 on long grass at 20 km/h."
+  },
+  {
+   "id": "P25",
+   "class": "P",
+   "title": "US CPSC, Guidance for Youth ATVs",
+   "url": "https://www.cpsc.gov/Business--Manufacturing/Business-Education/Business-Guidance/ATV/Guidance-for-Youth-ATVs",
+   "retrieved": "2026-11-03",
+   "license": "US government work",
+   "read": "full",
+   "note": "Read by a helper. Youth ATV categories under ANSI/SVIA 1 with age bands and maximum speeds with and without the speed restrictor; no ATVs for children under 6."
+  },
+  {
+   "id": "P26",
+   "class": "P",
+   "title": "Mitsubishi Motors FAQ No.762, cargo space dimensions of the Delica D:5",
+   "url": "https://faq.mitsubishi-motors.co.jp/faq/show/762",
+   "retrieved": "2026-11-03",
+   "license": "reproduction prohibited (stated on the FAQ pages); only numbers are cited",
+   "read": "full",
+   "note": "Read by a helper through a fetch summary with verbatim quotes. Reference values (design or measured) for the CV1W from 2019-02. Cargo length 1610 mm with the third row flipped up and the second row tipped up and slid forward; width 1245 mm at most and 770 mm between the flipped-up third-row seats; height 1130 mm."
+  },
+  {
+   "id": "P27",
+   "class": "P",
+   "title": "Mitsubishi Motors FAQ No.440, opening dimensions of the Delica D:5",
+   "url": "https://faq.mitsubishi-motors.co.jp/faq/show/440",
+   "retrieved": "2026-11-03",
+   "license": "reproduction prohibited (stated on the FAQ pages); only numbers are cited",
+   "read": "full",
+   "note": "Read by a helper through a fetch summary; the diagram was not seen. Tailgate opening width about 900 mm at the narrowest and 1230 mm at the widest, height about 1130 mm, lip about 620 mm above the ground."
+  },
+  {
+   "id": "P29",
+   "class": "P",
+   "title": "Stilwell, Gooch, Lafitte, Comparison of e-scooter tyre performance using rolling resistance trailer, DESIGN 2024, doi:10.1017/pds.2024.148",
+   "url": "https://www.cambridge.org/core/services/aop-cambridge-core/content/view/A0ACD8D9A1291896748DA0C323AE6932/S2732527X24001482a.pdf/comparison-of-e-scooter-tyre-performance-using-rolling-resistance-trailer.pdf",
+   "retrieved": "2026-11-03",
+   "license": "open access, licence not checked",
+   "read": "partial",
+   "note": "Read by a helper, tables 1 and 2 and the results. Pneumatic e-scooter tyres of 8.5 to 10 inch on painted concrete, rolling resistance over load 0.011 to 0.023."
+  },
+  {
+   "id": "S1",
+   "class": "S",
+   "title": "Scheibe, An Overview of Studded and Studless Tire Traction and Safety, WSDOT WA-RD 551.1, 2002",
+   "url": "https://www.wsdot.wa.gov/research/reports/fullreports/551.1.pdf",
+   "retrieved": "2026-11-03",
+   "license": "unknown",
+   "read": "partial",
+   "note": "Read by a helper, pages 12 to 16. Reviews car tyre friction on ice and snow with and without studs and chains; chains roughly double the friction on ice."
+  },
+  {
+   "id": "S2",
+   "class": "S",
+   "title": "University of Iowa, Parents Guide To ATV Safety (patient and family handout)",
+   "url": "https://uiowa.cloud-cme.com/assets/uiowa/activities/41694/ATV%20Safety%20Patient-Family%20Handout.pdf",
+   "retrieved": "2026-11-03",
+   "license": "unknown",
+   "read": "full",
+   "note": "Read by a helper. Youth ATV category Y-6+ at 10 mph with the restrictor and 15 mph without."
+  },
+  {
+   "id": "M1",
+   "class": "M",
+   "title": "Yahoo Shopping search for Honda GX160 general-purpose engines",
+   "url": "https://shopping.yahoo.co.jp/search?p=汎用中型エンジン+GX160",
+   "retrieved": "2026-11-03",
+   "license": "unknown",
+   "read": "partial",
+   "note": "Page 1 read by a helper. Genuine Honda GX160 and GX200 engines alone."
+  },
+  {
+   "id": "M2",
+   "class": "M",
+   "title": "Yahoo Shopping search for go-kart centrifugal clutches, 19 mm bore",
+   "url": "https://shopping.yahoo.co.jp/search?p=遠心クラッチ+ゴーカート+19mm",
+   "retrieved": "2026-11-03",
+   "license": "unknown",
+   "read": "partial",
+   "note": "Page 1 read by a helper. The price used is a 3/4 inch bore, 10 tooth clutch for chain sizes 40, 41, or 420."
+  },
+  {
+   "id": "M3",
+   "class": "M",
+   "title": "Yahoo Shopping search for 48 V 1000 W motor, controller, and throttle kits",
+   "url": "https://shopping.yahoo.co.jp/search?p=48V+1000W+ブラシレスモーター+コントローラー+スロットル+キット",
+   "retrieved": "2026-11-03",
+   "license": "unknown",
+   "read": "partial",
+   "note": "Page 1 read by a helper. The price used is a 36/48 V 1000 W motor with a 30 A controller; its motor type is not the brushed MY1020 of M5."
+  },
+  {
+   "id": "M4",
+   "class": "M",
+   "title": "LVYUAN LiFePO4 12.8 V 30 Ah battery, Yahoo Shopping",
+   "url": "https://store.shopping.yahoo.co.jp/shoryu-store/12v-30ah-px.html",
+   "retrieved": "2026-11-03",
+   "license": "unknown",
+   "read": "partial",
+   "note": "Read by a helper. Price, mass, continuous current; charging temperature not stated."
+  },
+  {
+   "id": "M5",
+   "class": "M",
+   "title": "Motion Dynamics, Unite MY1020 1000 W 3000 rpm 48 V DC motor",
+   "url": "https://www.motiondynamics.com.au/unite-my1020-1000w-3000-rpm-48v-dc-motor.html",
+   "retrieved": "2026-11-03",
+   "license": "unknown",
+   "read": "partial",
+   "note": "Read by a helper. Rated speed, current, torque, and mass."
+  },
+  {
+   "id": "M6",
+   "class": "M",
+   "title": "Haganeya, STKM11A round steel tube 25.4 x 1.6",
+   "url": "https://haganeya.jp/products/detail/1093",
+   "retrieved": "2026-11-03",
+   "license": "unknown",
+   "read": "full",
+   "note": "Read by a helper. Price per metre with tax, mass per metre."
+  },
+  {
+   "id": "M7",
+   "class": "M",
+   "title": "Haganeya, STKM11A round steel tube 31.8 x 1.6",
+   "url": "https://haganeya.jp/products/detail/1091",
+   "retrieved": "2026-11-03",
+   "license": "unknown",
+   "read": "full",
+   "note": "Read by a helper. Price per metre with tax, mass per metre."
+  },
+  {
+   "id": "M8",
+   "class": "M",
+   "title": "Go-kart rear axle kit (axle, sprocket, brake, hubs), Yahoo Shopping",
+   "url": "https://store.shopping.yahoo.co.jp/pstokyo/231124v0698.html",
+   "retrieved": "2026-11-03",
+   "license": "unknown",
+   "read": "full",
+   "note": "Read by a helper. Free shipping shown; axle diameter and load rating not stated."
+  },
+  {
+   "id": "M9",
+   "class": "M",
+   "title": "AliExpress search for go-kart steering spindle kits",
+   "url": "https://ja.aliexpress.com/w/wholesale-go-kart-steering-spindle-kit.html",
+   "retrieved": "2026-11-03",
+   "license": "unknown",
+   "read": "partial",
+   "note": "Page 1 read by a helper. Steering wheel, shaft, tie rods, and knuckles; shipping mostly not shown."
+  },
+  {
+   "id": "M10",
+   "class": "M",
+   "title": "Yahoo Shopping search for 13x5.00-6 tyres with wheels",
+   "url": "https://shopping.yahoo.co.jp/search?p=13x5.00-6+タイヤ+ホイール",
+   "retrieved": "2026-11-03",
+   "license": "unknown",
+   "read": "partial",
+   "note": "Page 1 read by a helper. Sets of four with rims."
+  },
+  {
+   "id": "M11",
+   "class": "M",
+   "title": "TOAN TW-MIG100X 100 V no-gas welder, Yahoo Shopping",
+   "url": "https://store.shopping.yahoo.co.jp/toan-weld/tw-mig100x.html",
+   "retrieved": "2026-11-03",
+   "license": "unknown",
+   "read": "full",
+   "note": "Read by a helper. 30 to 80 A, duty cycle 35 % at 80 A."
+  },
+  {
+   "id": "M12",
+   "class": "M",
+   "title": "Yahoo Shopping search for 40 x 40 aluminium extrusion, 1000 mm",
+   "url": "https://shopping.yahoo.co.jp/search?p=アルミフレーム+40x40+1000mm",
+   "retrieved": "2026-11-03",
+   "license": "unknown",
+   "read": "partial",
+   "note": "Page 1 read by a helper. Several listings refuse delivery to private homes."
+  },
+  {
+   "id": "M13",
+   "class": "M",
+   "title": "Yahoo Shopping search for snowblower rubber tracks",
+   "url": "https://shopping.yahoo.co.jp/search?p=ゴムクローラー+除雪機",
+   "retrieved": "2026-11-03",
+   "license": "unknown",
+   "read": "partial",
+   "note": "Page 1 read by a helper. Tracks only, without sprockets or idlers."
+  },
+  {
+   "id": "M14",
+   "class": "M",
+   "title": "VXB rear axle rubber track kit for go-karts and ATVs",
+   "url": "https://vxb.com/fr/products/rear-axle-direct-replacement-rubber-track-kit-for",
+   "retrieved": "2026-11-03",
+   "license": "unknown",
+   "read": "partial",
+   "note": "Read by a helper through a fetch summary. Mass and load rating not stated; shipping to Japan not stated."
+  },
+  {
+   "id": "M15",
+   "class": "M",
+   "title": "Yahoo Shopping searches for snowblower tyre chains",
+   "url": "https://shopping.yahoo.co.jp/search?p=除雪機+タイヤチェーン",
+   "retrieved": "2026-11-03",
+   "license": "unknown",
+   "read": "partial",
+   "note": "Page 1 read by a helper. Tyre size of the cheapest chain not stated."
+  },
+  {
+   "id": "M16",
+   "class": "M",
+   "title": "Yahoo Auctions closed listings for racing kart frames",
+   "url": "https://auctions.yahoo.co.jp/closedsearch/closedsearch?p=レーシングカート+フレーム",
+   "retrieved": "2026-11-03",
+   "license": "unknown",
+   "read": "partial",
+   "note": "Read by a helper. Many are pickup only; the year is not shown."
+  },
+  {
+   "id": "M17",
+   "class": "M",
+   "title": "AliExpress search for go-kart seats",
+   "url": "https://ja.aliexpress.com/w/wholesale-go-kart-seat.html",
+   "retrieved": "2026-11-03",
+   "license": "unknown",
+   "read": "partial",
+   "note": "Page 1 read by a helper."
+  },
+  {
+   "id": "M18",
+   "class": "M",
+   "title": "kakaku.com search for 196 cc engines (OVAQUIXI 196 cc 6.5 HP OHV engine on Amazon.co.jp)",
+   "url": "https://search.kakaku.com/エンジン%20196cc/",
+   "retrieved": "2026-11-03",
+   "license": "unknown",
+   "read": "partial",
+   "note": "Read by a helper; the page text was partly garbled. Shaft diameter and governor not stated."
+  },
+  {
+   "id": "M19",
+   "class": "M",
+   "title": "VEVOR 48 V 2000 W brushless motor and controller kit (MY1020D type), eBay listing",
+   "url": "https://ebay.com/itm/126925715082",
+   "retrieved": "2026-11-03",
+   "license": "unknown",
+   "read": "excerpt",
+   "note": "Seen by a helper as a search excerpt. 4300 rpm, 4.8 N m, controller rated 34 A."
+  },
+  {
+   "id": "M20",
+   "class": "M",
+   "title": "kakaku.com search for 48 V 2000 W brushless motors (kit with 34 A controller and throttle on Amazon.co.jp)",
+   "url": "https://search.kakaku.com/48V%202000W%20ブラシレスモーター/",
+   "retrieved": "2026-11-03",
+   "license": "unknown",
+   "read": "partial",
+   "note": "Read by a helper; the page text was partly garbled."
+  },
+  {
+   "id": "M21",
+   "class": "M",
+   "title": "LiTime 51.2 V 30 Ah LiFePO4 battery, Yahoo Shopping",
+   "url": "https://store.shopping.yahoo.co.jp/uscire/930114.html",
+   "retrieved": "2026-11-03",
+   "license": "unknown",
+   "read": "partial",
+   "note": "Read by a helper. 1536 Wh, 13.17 kg, low-temperature cutoff (threshold not stated), free shipping shown."
+  },
+  {
+   "id": "M22",
+   "class": "M",
+   "title": "LiTime 58.4 V 10 A LiFePO4 charger L48V10A-BCHA-A, Yahoo Shopping",
+   "url": "https://store.shopping.yahoo.co.jp/uscire/930120.html",
+   "retrieved": "2026-11-03",
+   "license": "unknown",
+   "read": "partial",
+   "note": "Read by a helper. Free shipping shown."
+  },
+  {
+   "id": "M23",
+   "class": "M",
+   "title": "GoKartSupply, centrifugal clutches",
+   "url": "https://www.gokartsupply.com/clutches.htm",
+   "retrieved": "2026-11-03",
+   "license": "unknown",
+   "read": "full",
+   "note": "Read by a helper through a fetch summary with verbatim quotes. Engagement about 2200 rpm for a Max-Torque SS; a slipping clutch makes great heat, driving too slowly or restricting the throttle ruins it; hills and deep grass add strain; kart and driver up to 400 lb; rear wheels over 15 inch need a torque converter (quoting Max-Torque)."
+  },
+  {
+   "id": "M24",
+   "class": "M",
+   "title": "OMB Warehouse, Comet TAV2 torque converter drive 3/4 inch 10T",
+   "url": "https://www.ombwarehouse.com/comet-tav2-torque-converter-drive-3-4-40-41-420-10t.html",
+   "retrieved": "2026-11-03",
+   "license": "unknown",
+   "read": "full",
+   "note": "Read by a helper through a fetch summary. Comet's description - low ratio 2.7 to 1, high ratio 0.90 to 1, engagement 2200 rpm with the stock spring."
+  },
+  {
+   "id": "M25",
+   "class": "M",
+   "title": "Ameetaa 30-series torque converter kit AMT-GKC001, Yahoo Shopping",
+   "url": "https://store.shopping.yahoo.co.jp/allinone-d/hfayb07rql3yc4k.html",
+   "retrieved": "2026-11-03",
+   "license": "unknown",
+   "read": "full",
+   "note": "Read by a helper through a fetch summary. Clone kit for a 3/4 inch shaft, free shipping, 6.0 kg; contents not itemised."
+  },
+  {
+   "id": "F1",
+   "class": "F",
+   "title": "Motor1, a shifter kart turned into a snowmobile, 2025-02-02",
+   "url": "https://www.motor1.com/news/749286/shifter-kart-turned-into-snowmobile/",
+   "retrieved": "2026-11-03",
+   "license": "unknown",
+   "read": "partial",
+   "note": "Read by a helper through a fetch summary. Front skis bolted to the hubs and a rear rubber track; the tracks came off several times."
+  }
+ ],
+ "decisions": [
+  {
+   "id": "D-001",
+   "date": "2026-11-03",
+   "by": "owner",
+   "what": "Build one go-kart with one seat, for the owner's private land, to be driven mainly by a child and also by an adult, in summer and in winter. The power source is not preset; the form step compares an engine and an electric drive.",
+   "touches": [
+    "kart.seats",
+    "R-01",
+    "R-02",
+    "R-03"
+   ]
+  },
+  {
+   "id": "D-002",
+   "date": "2026-11-03",
+   "by": "owner",
+   "what": "Keep the record public in fujisato-koji/kart, created from the traceable-design template. The record is written in English and the conversation with the assistant is in Japanese. Private facts such as the place stay outside the repository.",
+   "touches": [
+    "D-001"
+   ]
+  },
+  {
+   "id": "D-003",
+   "date": "2026-11-03",
+   "by": "owner",
+   "what": "The top speed is set for a child, at 30 km/h.",
+   "touches": [
+    "kart.speed_max_kmh",
+    "R-01"
+   ]
+  },
+  {
+   "id": "D-004",
+   "date": "2026-11-03",
+   "by": "owner",
+   "what": "The speed is set for a child, but the strength and the seat and pedal positions must also fit an adult.",
+   "touches": [
+    "R-02",
+    "R-03"
+   ]
+  },
+  {
+   "id": "D-005",
+   "date": "2026-11-03",
+   "by": "owner",
+   "what": "The kart runs only on private land, on paved ground, gravel or dirt, and grass. It does not run on public roads.",
+   "touches": [
+    "R-04"
+   ]
+  },
+  {
+   "id": "D-006",
+   "date": "2026-11-03",
+   "by": "owner",
+   "what": "In winter the kart runs on private land on packed snow or ice and on fresh snow up to 30 cm deep.",
+   "touches": [
+    "snow.depth_max_cm",
+    "R-05",
+    "R-06"
+   ]
+  },
+  {
+   "id": "D-007",
+   "date": "2026-11-03",
+   "by": "owner",
+   "what": "The lowest air temperature in use is -10 degC.",
+   "touches": [
+    "ambient.temp_min_c",
+    "R-07"
+   ]
+  },
+  {
+   "id": "D-008",
+   "date": "2026-11-03",
+   "by": "owner",
+   "what": "The budget for parts and materials is 100,000 JPY, including tax, shipping, and the winter parts, and excluding tools. It is a guideline that may be passed a little; when it is likely to be passed, the assistant names the parts that drive it and the owner decides. The owner would buy a welder if the chosen form needs one.",
+   "touches": [
+    "budget.parts_jpy",
+    "R-08"
+   ]
+  },
+  {
+   "id": "D-009",
+   "date": "2026-11-03",
+   "by": "owner",
+   "what": "The heaviest adult who drives weighs 100 kg.",
+   "touches": [
+    "rider.mass_max_kg",
+    "R-02"
+   ]
+  },
+  {
+   "id": "D-010",
+   "date": "2026-11-03",
+   "by": "owner",
+   "what": "The youngest driver is a 5-year-old child.",
+   "touches": [
+    "rider.stature_min_cm",
+    "R-03"
+   ]
+  },
+  {
+   "id": "D-011",
+   "date": "2026-11-03",
+   "by": "owner",
+   "what": "On snow the kart may be slow. The top speed of 30 km/h applies on paved ground.",
+   "touches": [
+    "R-01",
+    "R-05",
+    "R-06"
+   ]
+  },
+  {
+   "id": "D-012",
+   "date": "2026-11-03",
+   "by": "owner",
+   "what": "The kart is kept outdoors under a roof, and is carried in a Mitsubishi Delica D:5, in which it should be easy to load and carry.",
+   "touches": [
+    "R-07",
+    "R-14"
+   ]
+  },
+  {
+   "id": "D-013",
+   "date": "2026-11-03",
+   "by": "owner",
+   "what": "With an engine, refuelling between runs is acceptable. With batteries, two to three hours of driving per charge is wanted, depending on the trade-off.",
+   "touches": [
+    "kart.run_time_min",
+    "R-07"
+   ]
+  },
+  {
+   "id": "D-014",
+   "date": "2026-11-03",
+   "by": "owner",
+   "what": "The kart must not be damaged on a fairly steep slope. It may climb slowly.",
+   "touches": [
+    "site.grade_max_pct",
+    "R-16"
+   ]
+  },
+  {
+   "id": "D-015",
+   "date": "2026-11-03",
+   "by": "owner",
+   "what": "The top speed on paved ground is lowered to 20 km/h, to see whether the kart can be made cheaper.",
+   "options": [
+    "30 km/h as in D-003",
+    "20 km/h"
+   ],
+   "touches": [
+    "kart.speed_max_kmh",
+    "R-01"
+   ],
+   "supersedes": "D-003"
+  }
+ ],
+ "open": [
+  {
+   "id": "Q-001",
+   "kind": "question",
+   "text": "How heavy is the heaviest adult who will drive? The strength is assumed for 100 kg until the owner answers.",
+   "waits_for": "owner",
+   "affects": [
+    "rider.mass_max_kg",
+    "R-02"
+   ],
+   "opened": "2026-11-03",
+   "phase": "design",
+   "closed_by": "D-009",
+   "closed": "2026-11-03"
+  },
+  {
+   "id": "Q-002",
+   "kind": "question",
+   "text": "How tall is the tallest adult who will drive? The youngest is a 5-year-old (D-010); the lower end of the seat and pedal range is set from the statistics of 5-year-olds. The upper end is assumed at 185 cm until the owner answers.",
+   "waits_for": "owner",
+   "affects": [
+    "rider.stature_min_cm",
+    "rider.stature_max_cm",
+    "R-03"
+   ],
+   "opened": "2026-11-03",
+   "phase": "design"
+  },
+  {
+   "id": "Q-003",
+   "kind": "question",
+   "text": "Does the top speed of 30 km/h have to be reached on snow, or is a lower speed enough on packed snow and in fresh snow? R-05 and R-06 ask only that the kart runs, turns, and stops on snow.",
+   "waits_for": "owner",
+   "affects": [
+    "R-05",
+    "R-06"
+   ],
+   "opened": "2026-11-03",
+   "phase": "design",
+   "closed_by": "D-011",
+   "closed": "2026-11-03"
+  },
+  {
+   "id": "Q-004",
+   "kind": "question",
+   "text": "Set the longest stopping distance from the top speed from a go-kart standard or kart rules. Until then it is assumed at 6 m, about 0.6 g.",
+   "waits_for": "assistant",
+   "affects": [
+    "kart.stop_distance_max_m",
+    "R-09"
+   ],
+   "opened": "2026-11-03",
+   "phase": "design"
+  },
+  {
+   "id": "Q-005",
+   "kind": "question",
+   "text": "Set the smallest ratio of half the track width to the height of the centre of mass, so that the kart slides before it tips, from tyre friction data and any standard. Until then it is assumed at 1.5. Also decide whether R-12 must hold standing sideways on site.grade_max_pct, which needs a wider track (form.track_min_slope_m, check K-001).",
+   "waits_for": "assistant",
+   "affects": [
+    "kart.tip_ratio_min",
+    "R-12"
+   ],
+   "opened": "2026-11-03",
+   "phase": "design"
+  },
+  {
+   "id": "Q-006",
+   "kind": "question",
+   "text": "Where is the kart kept (indoors, under a roof, outdoors), and must it be carried in a car or a truck? This sets the size and mass limits and whether it stands in the cold before a run.",
+   "waits_for": "owner",
+   "affects": [
+    "R-07"
+   ],
+   "opened": "2026-11-03",
+   "phase": "design",
+   "closed_by": "D-012",
+   "closed": "2026-11-03"
+  },
+  {
+   "id": "Q-007",
+   "kind": "question",
+   "text": "How often is the kart used, and by when should it be ready? The run time is settled by D-013.",
+   "waits_for": "owner",
+   "affects": [
+    "R-08"
+   ],
+   "opened": "2026-11-03",
+   "phase": "design"
+  },
+  {
+   "id": "Q-008",
+   "kind": "question",
+   "text": "How steep is the fairly steep slope of D-014? It is assumed at 20 % (about 11 degrees) until the owner gives a number or measures the steepest slope on the land.",
+   "waits_for": "owner",
+   "affects": [
+    "site.grade_max_pct"
+   ],
+   "opened": "2026-11-03",
+   "phase": "design"
+  },
+  {
+   "id": "Q-009",
+   "kind": "question",
+   "text": "The rough inputs of step 1.2 (kart mass and its rear share, tyre pressure, track wheel diameter, ski size, drive efficiency, tube lengths, ground clearance, heights of the centres of mass, and a mean speed, rolling resistance, electric efficiency, and usable battery fraction for the run time) are assumed so that forms can be compared. Step 1.3 replaces each with the chosen part's data or a calculation.",
+   "waits_for": "assistant",
+   "affects": [
+    "kart.mass_rough_kg",
+    "kart.rear_share",
+    "tyre.pressure_kpa",
+    "track.wheel_dia_mm",
+    "ski.width_mm",
+    "ski.contact_length_mm",
+    "drive.efficiency",
+    "frame.tube_25_m",
+    "frame.tube_32_m",
+    "kart.clearance_rough_mm",
+    "kart.axle_part_low_rough_mm",
+    "kart.cg_height_rough_m",
+    "seat.above_floor_rough_m",
+    "rider.cg_above_seat_m",
+    "kart.wheelbase_rough_mm",
+    "kart.length_rough_mm",
+    "rider.cg_above_seat_child_m",
+    "ground.crr_avg",
+    "drive.speed_avg_kmh",
+    "drive.efficiency_electric",
+    "battery.usable_fraction"
+   ],
+   "opened": "2026-11-03",
+   "phase": "design"
+  },
+  {
+   "id": "Q-010",
+   "kind": "question",
+   "text": "The price of the 12 V chargers for E2 and the allowances for shipping, small parts, a reduction stage, skis, the track running gear, pedals and cables and the stop switch, guards and mounts, drive chains, and electric wiring are assumed. Whether the snow chain price of M15 is for one tyre or a pair is not known; two are counted. Step 1.5 replaces each with a quoted price.",
+   "waits_for": "assistant",
+   "affects": [
+    "cost.charger_jpy",
+    "cost.allow_shipping_jpy",
+    "cost.allow_small_parts_jpy",
+    "cost.allow_reduction_jpy",
+    "cost.allow_skis_jpy",
+    "cost.allow_track_gear_jpy",
+    "cost.allow_controls_jpy",
+    "cost.allow_guards_mounts_jpy",
+    "cost.allow_drive_chains_jpy",
+    "cost.allow_electric_jpy"
+   ],
+   "opened": "2026-11-03",
+   "phase": "design"
+  },
+  {
+   "id": "Q-011",
+   "kind": "question",
+   "text": "What is the governed no-load speed of the chosen engine? The gearing for R-01 is set to it. It is assumed at 3850 rpm from a checker's recollection (K-001), not from a source; take it from the engine maker's data, or measure it on the engine when it arrives.",
+   "waits_for": "assistant",
+   "affects": [
+    "engine.speed_noload_rpm",
+    "R-01"
+   ],
+   "opened": "2026-11-03",
+   "phase": "design"
+  },
+  {
+   "id": "Q-012",
+   "kind": "question",
+   "text": "How far does the owner's fresh snow give under a loaded plate? A board of known area loaded to about 5 kPa and to about 16 kPa, set on undisturbed fresh snow and its sinkage measured, settles whether rear tracks (W2) clear snow.depth_max_cm before the frame is given mounts for them.",
+   "waits_for": "owner",
+   "affects": [
+    "snow.track_sinkage_max_cm",
+    "snow.track_sinkage_wheels_cm",
+    "R-06"
+   ],
+   "opened": "2026-11-03",
+   "phase": "design"
+  },
+  {
+   "id": "Q-013",
+   "kind": "question",
+   "text": "Should an adult be able to set a lower top speed for a small child? A 5-year-old drives (D-010), while US youth ATV guidance allows no ATVs under 6 and limits ages 6 and up to 10 mph with the restrictor (P25, S2). The child limit is assumed at 16 km/h, about 10 mph, until the owner decides R-17.",
+   "waits_for": "owner",
+   "affects": [
+    "kart.speed_child_kmh",
+    "R-17"
+   ],
+   "opened": "2026-11-03",
+   "phase": "design"
+  },
+  {
+   "id": "Q-014",
+   "kind": "question",
+   "text": "The 3D simulator needs the tyre grip on pavement, gravel, and grass, the sideways grip of the front skis, the resistance of tracks in fresh snow, and the resistance when the floor ploughs snow. No source was found; they are assumed so that the simulator can run, and a test run of the built kart settles them. Simulator results that rest on them are illustrations, not verification.",
+   "waits_for": "assistant",
+   "affects": [
+    "ground.mu_paved",
+    "ground.mu_gravel",
+    "ground.mu_grass",
+    "ski.mu_lateral",
+    "track.crr_snow_fresh",
+    "snow.plough_per_cm"
+   ],
+   "opened": "2026-11-03",
+   "phase": "design"
+  }
+ ],
+ "hazards": [
+  {
+   "id": "H-01",
+   "text": "The kart hits an obstacle, a building, a vehicle, or a person.",
+   "phases": [
+    "operate"
+   ],
+   "at_risk": "The driver and people nearby.",
+   "controls": [
+    "R-01",
+    "R-09",
+    "R-13"
+   ]
+  },
+  {
+   "id": "H-02",
+   "text": "The drive keeps pushing after the driver lets go or loses control.",
+   "phases": [
+    "operate"
+   ],
+   "at_risk": "The driver and people nearby.",
+   "controls": [
+    "R-10"
+   ]
+  },
+  {
+   "id": "H-03",
+   "text": "Hair, clothing such as a scarf, or fingers are caught in the chain, sprockets, belt, or turning axle.",
+   "phases": [
+    "build",
+    "operate"
+   ],
+   "at_risk": "The driver and helpers.",
+   "controls": [
+    "R-11"
+   ]
+  },
+  {
+   "id": "H-04",
+   "text": "The driver touches a hot engine, exhaust, or motor, or the battery overheats or burns.",
+   "phases": [
+    "operate"
+   ],
+   "at_risk": "The driver and helpers.",
+   "controls": [
+    "R-11"
+   ]
+  },
+  {
+   "id": "H-05",
+   "text": "The kart tips over in a turn or on a slope.",
+   "phases": [
+    "operate"
+   ],
+   "at_risk": "The driver.",
+   "controls": [
+    "R-12"
+   ]
+  },
+  {
+   "id": "H-06",
+   "text": "The steering, an axle, the frame, or the seat breaks under an adult.",
+   "phases": [
+    "operate"
+   ],
+   "at_risk": "The driver.",
+   "controls": [
+    "R-02"
+   ]
+  },
+  {
+   "id": "H-07",
+   "text": "Braking or steering is lost on snow or ice.",
+   "phases": [
+    "operate"
+   ],
+   "at_risk": "The driver and people nearby.",
+   "controls": [
+    "R-05",
+    "R-09"
+   ]
+  },
+  {
+   "id": "H-08",
+   "text": "A small child drives faster than the child can control.",
+   "phases": [
+    "operate"
+   ],
+   "at_risk": "The child and people nearby.",
+   "controls": [
+    "R-01",
+    "R-17"
+   ]
+  },
+  {
+   "id": "H-09",
+   "text": "The kart rolls off the ramp or falls while being loaded or unloaded.",
+   "phases": [
+    "operate"
+   ],
+   "at_risk": "The person loading it and people nearby.",
+   "controls": [
+    "R-15"
+   ]
+  }
+ ],
+ "parts": [],
+ "interfaces": [],
+ "checks": [
+  {
+   "id": "K-001",
+   "target": [
+    "snow.wheel_sinkage_max_cm",
+    "snow.wheel_depth_limit_cm",
+    "snow.track_sinkage_max_cm",
+    "drive.engine_thrust_n",
+    "drive.motor_thrust_n",
+    "drive.motor2_thrust_n",
+    "drive.sprocket_reach_mm",
+    "form.track_min_m",
+    "cost.total_l2_e1_w1_jpy",
+    "cost.total_l2_e1_w2_jpy"
+   ],
+   "tier": "T2",
+   "method": "refute",
+   "result": "partial",
+   "by": "assistant",
+   "date": "2026-11-03",
+   "detail": "An independent helper recomputed every claim by hand and then read calc/form_rough.py; the arithmetic held, the method did not in places. Found (1) P1's pmax is the contact pressure, not the inflation pressure, which does not change the conclusion; the sinkage exceeds the tyre radius, and the lowest part is the axle hardware, not the floor. (2) Tracks without road wheels carry the load under the sprocket and idler, so the even-belt pressure understates their sinkage; W2 passing R-06 was not shown, and P1 excludes tracked vehicles. (3) The climb needs rolling resistance on grass and gravel; a motor's force is limited by its controller current; 3600 rpm is P4's rated speed, not the governed no-load speed, so gearing to it may break R-01. (4) Whole teeth and tooth tips put the single-stage sprocket lower still. (5) The track width was rounded down, and R-12 on level ground does not cover the slope sideways. (6) Pedals, cables, stop switch, drive chains, guards, mounts, and electric wiring were missing from the cost, and two snow chains may be counted where one pair was priced. The script and record were changed on each point on the same day; see docs/02-form.md."
+  },
+  {
+   "id": "K-002",
+   "target": [
+    "snow.track_sinkage_wheels_cm",
+    "snow.wheel_depth_limit_cm",
+    "snow.wheel_depth_limit_axle_cm",
+    "form.track_min_m",
+    "form.track_min_slope_m",
+    "drive.engine_thrust_n",
+    "drive.motor_thrust_n",
+    "drive.motor2_thrust_n",
+    "drive.climb_force_n",
+    "drive.sprocket_reach_mm",
+    "cost.total_l2_e1_w1_jpy",
+    "cost.total_l2_e1_w2_jpy"
+   ],
+   "tier": "T2",
+   "method": "refute",
+   "result": "partial",
+   "by": "assistant",
+   "date": "2026-11-03",
+   "detail": "A second independent helper rechecked the repairs of K-001 by hand; all seven figures reproduce, and the script matches the record. Partial on the motors - the 2 kW kit's torque, speed, and current disagree (its rated current is probably the controller's rating), the text wrongly said the electric kits climb on pavement, and whether the controllers limit battery or motor current is not assessed. Also noted - the track wheel relation is used beyond its small-sinkage range, tracks on smaller wheels lower the rear axle, E1h has the same margin as E1, and the gearing limits speed only on level ground and uphill. The text of docs/02-form.md was corrected on each point the same day; no number changed."
+  }
+ ]
+}

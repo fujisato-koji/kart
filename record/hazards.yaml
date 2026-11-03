@@ -54,3 +54,18 @@ items:
     controls:
       - R-05
       - R-09
+  - id: H-08
+    text: A small child drives faster than the child can control.
+    phases:
+      - operate
+    at_risk: The child and people nearby.
+    controls:
+      - R-01
+      - R-17
+  - id: H-09
+    text: The kart rolls off the ramp or falls while being loaded or unloaded.
+    phases:
+      - operate
+    at_risk: The person loading it and people nearby.
+    controls:
+      - R-15

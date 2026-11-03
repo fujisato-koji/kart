@@ -168,7 +168,7 @@ items:
     retrieved: 2026-11-03
     license: e-Stat terms of use (not checked)
     read: full
-    note: The URL is formed from the statInfId the helper gave. Read by a helper for ages 6 to 12. Stature and mass of children by age; the 5th percentile of a 6-year-old is about 108 cm (derived by the helper from the 1 cm distribution).
+    note: The URL is formed from the statInfId the helper gave. Read by helpers for ages 5 to 12. Stature and mass of children by age; the 5th percentile stature is about 102 cm for a 5-year-old girl and 108 cm for a 6-year-old (interpolated by the helpers from the 1 cm distribution of table 2).
   - id: P22
     class: P
     title: AIST human body dimension database 1991-92
@@ -193,6 +193,38 @@ items:
     license: open access, licence not checked
     read: partial
     note: Read by a helper, sections 3.4 to 6 and tables 1 and 2. Seven ATV tyres on 8 to 14 inch rims at 34 kPa; rolling resistance over load 0.035 to 0.09 on a hard farm lane, 0.07 to 0.10 on short grass and 0.08 to 0.12 on long grass at 20 km/h.
+  - id: P25
+    class: P
+    title: US CPSC, Guidance for Youth ATVs
+    url: https://www.cpsc.gov/Business--Manufacturing/Business-Education/Business-Guidance/ATV/Guidance-for-Youth-ATVs
+    retrieved: 2026-11-03
+    license: US government work
+    read: full
+    note: Read by a helper. Youth ATV categories under ANSI/SVIA 1 with age bands and maximum speeds with and without the speed restrictor; no ATVs for children under 6.
+  - id: P26
+    class: P
+    title: Mitsubishi Motors FAQ No.762, cargo space dimensions of the Delica D:5
+    url: https://faq.mitsubishi-motors.co.jp/faq/show/762
+    retrieved: 2026-11-03
+    license: reproduction prohibited (stated on the FAQ pages); only numbers are cited
+    read: full
+    note: Read by a helper through a fetch summary with verbatim quotes. Reference values (design or measured) for the CV1W from 2019-02. Cargo length 1610 mm with the third row flipped up and the second row tipped up and slid forward; width 1245 mm at most and 770 mm between the flipped-up third-row seats; height 1130 mm.
+  - id: P27
+    class: P
+    title: Mitsubishi Motors FAQ No.440, opening dimensions of the Delica D:5
+    url: https://faq.mitsubishi-motors.co.jp/faq/show/440
+    retrieved: 2026-11-03
+    license: reproduction prohibited (stated on the FAQ pages); only numbers are cited
+    read: full
+    note: Read by a helper through a fetch summary; the diagram was not seen. Tailgate opening width about 900 mm at the narrowest and 1230 mm at the widest, height about 1130 mm, lip about 620 mm above the ground.
+  - id: P29
+    class: P
+    title: Stilwell, Gooch, Lafitte, Comparison of e-scooter tyre performance using rolling resistance trailer, DESIGN 2024, doi:10.1017/pds.2024.148
+    url: https://www.cambridge.org/core/services/aop-cambridge-core/content/view/A0ACD8D9A1291896748DA0C323AE6932/S2732527X24001482a.pdf/comparison-of-e-scooter-tyre-performance-using-rolling-resistance-trailer.pdf
+    retrieved: 2026-11-03
+    license: open access, licence not checked
+    read: partial
+    note: Read by a helper, tables 1 and 2 and the results. Pneumatic e-scooter tyres of 8.5 to 10 inch on painted concrete, rolling resistance over load 0.011 to 0.023.
   - id: S1
     class: S
     title: Scheibe, An Overview of Studded and Studless Tire Traction and Safety, WSDOT WA-RD 551.1, 2002
@@ -201,6 +233,14 @@ items:
     license: unknown
     read: partial
     note: Read by a helper, pages 12 to 16. Reviews car tyre friction on ice and snow with and without studs and chains; chains roughly double the friction on ice.
+  - id: S2
+    class: S
+    title: University of Iowa, Parents Guide To ATV Safety (patient and family handout)
+    url: https://uiowa.cloud-cme.com/assets/uiowa/activities/41694/ATV%20Safety%20Patient-Family%20Handout.pdf
+    retrieved: 2026-11-03
+    license: unknown
+    read: full
+    note: Read by a helper. Youth ATV category Y-6+ at 10 mph with the restrictor and 15 mph without.
   - id: M1
     class: M
     title: Yahoo Shopping search for Honda GX160 general-purpose engines
@@ -377,6 +417,30 @@ items:
     license: unknown
     read: partial
     note: Read by a helper. Free shipping shown.
+  - id: M23
+    class: M
+    title: GoKartSupply, centrifugal clutches
+    url: https://www.gokartsupply.com/clutches.htm
+    retrieved: 2026-11-03
+    license: unknown
+    read: full
+    note: Read by a helper through a fetch summary with verbatim quotes. Engagement about 2200 rpm for a Max-Torque SS; a slipping clutch makes great heat, driving too slowly or restricting the throttle ruins it; hills and deep grass add strain; kart and driver up to 400 lb; rear wheels over 15 inch need a torque converter (quoting Max-Torque).
+  - id: M24
+    class: M
+    title: OMB Warehouse, Comet TAV2 torque converter drive 3/4 inch 10T
+    url: https://www.ombwarehouse.com/comet-tav2-torque-converter-drive-3-4-40-41-420-10t.html
+    retrieved: 2026-11-03
+    license: unknown
+    read: full
+    note: Read by a helper through a fetch summary. Comet's description - low ratio 2.7 to 1, high ratio 0.90 to 1, engagement 2200 rpm with the stock spring.
+  - id: M25
+    class: M
+    title: Ameetaa 30-series torque converter kit AMT-GKC001, Yahoo Shopping
+    url: https://store.shopping.yahoo.co.jp/allinone-d/hfayb07rql3yc4k.html
+    retrieved: 2026-11-03
+    license: unknown
+    read: full
+    note: Read by a helper through a fetch summary. Clone kit for a 3/4 inch shaft, free shipping, 6.0 kg; contents not itemised.
   - id: F1
     class: F
     title: Motor1, a shifter kart turned into a snowmobile, 2025-02-02

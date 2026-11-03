@@ -10,9 +10,11 @@ items:
       - R-02
     opened: 2026-11-03
     phase: design
+    closed_by: D-009
+    closed: 2026-11-03
   - id: Q-002
     kind: question
-    text: How old and how tall is the youngest child who will drive, and how tall is the tallest adult? The seat and pedal range is assumed from 120 cm to 185 cm stature until the owner answers, and is then set from body dimension data.
+    text: How tall is the tallest adult who will drive? The youngest is a 5-year-old (D-010); the lower end of the seat and pedal range is set from the statistics of 5-year-olds. The upper end is assumed at 185 cm until the owner answers.
     waits_for: owner
     affects:
       - rider.stature_min_cm
@@ -29,6 +31,8 @@ items:
       - R-06
     opened: 2026-11-03
     phase: design
+    closed_by: D-011
+    closed: 2026-11-03
   - id: Q-004
     kind: question
     text: Set the longest stopping distance from the top speed from a go-kart standard or kart rules. Until then it is assumed at 6 m, about 0.6 g.
@@ -55,17 +59,19 @@ items:
       - R-07
     opened: 2026-11-03
     phase: design
+    closed_by: D-012
+    closed: 2026-11-03
   - id: Q-007
     kind: question
-    text: How long is one session of driving, how often is the kart used, and by when should it be ready? The run time per charge or tank is assumed at 30 min until the owner answers.
+    text: How often is the kart used, and by when should it be ready? The run time is settled by D-013.
     waits_for: owner
     affects:
-      - kart.run_time_min
+      - R-08
     opened: 2026-11-03
     phase: design
   - id: Q-008
     kind: question
-    text: What is the steepest slope the kart must climb on the land? It is assumed at 10 % until the owner answers.
+    text: How steep is the fairly steep slope of D-014? It is assumed at 20 % (about 11 degrees) until the owner gives a number or measures the steepest slope on the land.
     waits_for: owner
     affects:
       - site.grade_max_pct
@@ -73,7 +79,7 @@ items:
     phase: design
   - id: Q-009
     kind: question
-    text: The rough inputs of step 1.2 (kart mass and its rear share, tyre pressure, track wheel diameter, ski size, drive efficiency, tube lengths, ground clearance, and heights of the centres of mass) are assumed so that forms can be compared. Step 1.3 replaces each with the chosen part's data or a calculation.
+    text: The rough inputs of step 1.2 (kart mass and its rear share, tyre pressure, track wheel diameter, ski size, drive efficiency, tube lengths, ground clearance, heights of the centres of mass, and a mean speed, rolling resistance, electric efficiency, and usable battery fraction for the run time) are assumed so that forms can be compared. Step 1.3 replaces each with the chosen part's data or a calculation.
     waits_for: assistant
     affects:
       - kart.mass_rough_kg
@@ -90,6 +96,13 @@ items:
       - kart.cg_height_rough_m
       - seat.above_floor_rough_m
       - rider.cg_above_seat_m
+      - kart.wheelbase_rough_mm
+      - kart.length_rough_mm
+      - rider.cg_above_seat_child_m
+      - ground.crr_avg
+      - drive.speed_avg_kmh
+      - drive.efficiency_electric
+      - battery.usable_fraction
     opened: 2026-11-03
     phase: design
   - id: Q-010
@@ -126,5 +139,27 @@ items:
       - snow.track_sinkage_max_cm
       - snow.track_sinkage_wheels_cm
       - R-06
+    opened: 2026-11-03
+    phase: design
+  - id: Q-013
+    kind: question
+    text: Should an adult be able to set a lower top speed for a small child? A 5-year-old drives (D-010), while US youth ATV guidance allows no ATVs under 6 and limits ages 6 and up to 10 mph with the restrictor (P25, S2). The child limit is assumed at 16 km/h, about 10 mph, until the owner decides R-17.
+    waits_for: owner
+    affects:
+      - kart.speed_child_kmh
+      - R-17
+    opened: 2026-11-03
+    phase: design
+  - id: Q-014
+    kind: question
+    text: The 3D simulator needs the tyre grip on pavement, gravel, and grass, the sideways grip of the front skis, the resistance of tracks in fresh snow, and the resistance when the floor ploughs snow. No source was found; they are assumed so that the simulator can run, and a test run of the built kart settles them. Simulator results that rest on them are illustrations, not verification.
+    waits_for: assistant
+    affects:
+      - ground.mu_paved
+      - ground.mu_gravel
+      - ground.mu_grass
+      - ski.mu_lateral
+      - track.crr_snow_fresh
+      - snow.plough_per_cm
     opened: 2026-11-03
     phase: design
