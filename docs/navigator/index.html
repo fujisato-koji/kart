@@ -9,12 +9,12 @@
 <body>
 <header>
   <h1>Kart — design record navigator</h1>
-  <nav><a href="../">Docs home</a><a href="../viewer/">3D simulator</a></nav>
+  <nav><a href="../">Docs home</a><a href="#/?m=3d" id="link3d">3D simulator</a></nav>
   <button id="theme" type="button" aria-label="Toggle theme">Theme</button>
 </header>
 <div id="tabs" role="navigation" aria-label="Modes"></div>
 <div id="layout">
-  <main id="view"><p>Loading the record…</p></main>
+  <main id="view"><div id="content"><p>Loading the record…</p></div><div id="pane3d" hidden></div></main>
   <aside id="card" class="empty" aria-live="polite">Select an item to see its fields and relations.</aside>
 </div>
 <script type="module" src="app.js"></script>

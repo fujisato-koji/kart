@@ -143,7 +143,7 @@ export function buildKart(THREE, p, opts = {}) {
     const steer = new THREE.Group();
     steer.name = 'front-steer-' + side;
     steer.position.set(wbH, R, s * halfTrack);
-    steer.add(useSkis ? ski('ski-' + side) : wheel(R, g.tyreW, 'tyre-F' + side));
+    steer.add(useSkis ? ski('ski-' + side) : wheel(R, g.tyreW, 'wheel-F' + side));
     root.add(steer); steerGroups.push(steer);
 
     // rear
@@ -174,7 +174,7 @@ export function buildKart(THREE, p, opts = {}) {
       }
       root.add(pod);
     } else {
-      const wh = wheel(R, g.tyreW, 'tyre-R' + side);
+      const wh = wheel(R, g.tyreW, 'wheel-R' + side);
       wh.position.set(-wbH, R, s * halfTrack);
       root.add(wh);
       if (setup === 'w1') {

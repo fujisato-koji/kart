@@ -4,6 +4,7 @@ import * as THREE from 'three';
 import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
 import { loadRecord, makeParams, cgHeight } from './params.js';
 import { buildKart, ILLUSTRATIVE } from './kart-model.js';
+import { PARTS, partOfObject } from './parts.js';
 
 // Drawing constants of this screen that are not in the record: model constant, not in the record
 export const VIEW_CONSTANTS = {
@@ -17,6 +18,11 @@ export const VIEW_CONSTANTS = {
   maxSteer: 0.6,         // clamp for the drawn front wheel angle (rad)
   tipBarFull: 3,         // tip margin that fills the HUD bar
   gravity: 9.81,         // to show lateral acceleration in g
+  focusColour: 0xffb000, // emissive tint of a focused part
+  focusEmissive: 0.75,   // strength of that tint (0..1)
+  dimOpacity: 0.55,      // opacity of the parts that are not in focus
+  pickMovePx: 6,         // a press that moves more than this is a drag, not a click
+  pickMaxMs: 600,        // a press that lasts longer than this is not a click
 };
 const VC = VIEW_CONSTANTS;
 const SCENES = ['yard', 'inspect', 'delica'];
@@ -44,7 +50,12 @@ const ui = {
   setup: 'summer', rider: pick1(q.get('rider'), RIDERS, 'adult'),
   child: q.get('child') === '1', sink: q.get('sink') === 'belt' ? 'belt' : 'wheels',
 };
-if (q.get('embed') === '1') document.body.classList.add('embed');
+const embed = q.get('embed') === '1';
+if (embed) document.body.classList.add('embed');
+const partIds = PARTS.map((x) => x.id);
+let focusIds = (q.get('focus') || '').split(',').filter((x) => partIds.includes(x));
+if (embed) $('banner').textContent = 'Illustration from rough values; grip assumed (Q-014)';
+const toParent = (m) => { if (inFrame) window.parent.postMessage(m, '*'); };
 
 // theme
 function applyTheme(t) { if (t) document.documentElement.setAttribute('data-theme', t); updateBackground?.(); }
@@ -154,12 +165,13 @@ async function main() {
   // ---- scenes --------------------------------------------------------------------------------
   let delicaFitResult = null;
   function buildScene() {
-    if (root) { scene.remove(root); disposeTree(root); }
+    if (root) { clearFocus(); scene.remove(root); disposeTree(root); }
     root = new THREE.Group(); scene.add(root);
     kartModel = buildKart(THREE, p, { setup: ui.setup, rider: ui.rider });
     const g = p.geom, hT = g.track / 2, wbH = g.wheelbase / 2, h = cgHeight(p, ui.rider);
     controls.enabled = ui.scene !== 'yard';
     $('hud').hidden = ui.scene !== 'yard';
+    $('hudToggle').hidden = !embed || ui.scene !== 'yard';
     $('touch').hidden = ui.scene !== 'yard';
     $('fit').hidden = ui.scene !== 'delica';
     $('hint').textContent = ui.scene === 'yard'
@@ -231,32 +243,34 @@ async function main() {
     } else {
       const d = p.delica, L = d.cargoLength, H = d.cargoHeight, lip = d.lip;
       const fit = delicaFit(p, ui.setup); delicaFitResult = fit;
+      const dg = new THREE.Group(); dg.name = 'delica'; root.add(dg);
       const okc = (b) => (b ? OK : BAD);
       const W = fit.width;
-      const boxMax = edges(L, H, d.cargoWidthMax, okc(W.okCargoMax)); boxMax.position.set(L / 2, lip + H / 2, 0); root.add(boxMax);
-      const boxMin = edges(L, H * 0.98, d.cargoWidthMin, okc(W.okCargoMin)); boxMin.position.set(L / 2, lip + H / 2, 0); root.add(boxMin);
-      const opMax = edges(0.01, H, d.openingWidthMax, okc(W.okOpeningMax)); opMax.position.set(0, lip + H / 2, 0); root.add(opMax);
-      const opMin = edges(0.01, H * 0.96, d.openingWidthMin, okc(W.okOpeningMin)); opMin.position.set(0, lip + H / 2, 0); root.add(opMin);
+      const boxMax = edges(L, H, d.cargoWidthMax, okc(W.okCargoMax)); boxMax.position.set(L / 2, lip + H / 2, 0); dg.add(boxMax);
+      const boxMin = edges(L, H * 0.98, d.cargoWidthMin, okc(W.okCargoMin)); boxMin.position.set(L / 2, lip + H / 2, 0); dg.add(boxMin);
+      const opMax = edges(0.01, H, d.openingWidthMax, okc(W.okOpeningMax)); opMax.position.set(0, lip + H / 2, 0); dg.add(opMax);
+      const opMin = edges(0.01, H * 0.96, d.openingWidthMin, okc(W.okOpeningMin)); opMin.position.set(0, lip + H / 2, 0); dg.add(opMin);
       const kl = fit.length;
-      root.add(dim([0, lip + 0.02, -d.cargoWidthMax / 2 - 0.1], [L, lip + 0.02, -d.cargoWidthMax / 2 - 0.1],
+      dg.add(dim([0, lip + 0.02, -d.cargoWidthMax / 2 - 0.1], [L, lip + 0.02, -d.cargoWidthMax / 2 - 0.1],
         `cargo length ${fmt(L * 1000, 0)} mm`, okc(kl.ok), [0, 0, 0.04]));
-      root.add(dim([0, lip + H + 0.05, -d.openingWidthMax / 2], [0, lip + H + 0.05, d.openingWidthMax / 2],
+      dg.add(dim([0, lip + H + 0.05, -d.openingWidthMax / 2], [0, lip + H + 0.05, d.openingWidthMax / 2],
         `opening ${fmt(d.openingWidthMin * 1000, 0)}-${fmt(d.openingWidthMax * 1000, 0)} mm`, okc(W.okOpeningMin && W.okOpeningMax), [0.04, 0, 0]));
-      root.add(dim([L * 0.5, lip + H + 0.12, -d.cargoWidthMax / 2], [L * 0.5, lip + H + 0.12, d.cargoWidthMax / 2],
+      dg.add(dim([L * 0.5, lip + H + 0.12, -d.cargoWidthMax / 2], [L * 0.5, lip + H + 0.12, d.cargoWidthMax / 2],
         `cargo width ${fmt(d.cargoWidthMin * 1000, 0)}-${fmt(d.cargoWidthMax * 1000, 0)} mm`, okc(W.okCargoMin && W.okCargoMax), [0.04, 0, 0]));
       // floor and ramp
       const floor = new THREE.Mesh(new THREE.BoxGeometry(L, 0.02, d.cargoWidthMax), new THREE.MeshLambertMaterial({ color: 0x9aa0a6 }));
-      floor.position.set(L / 2, lip - 0.01, 0); root.add(floor);
+      floor.position.set(L / 2, lip - 0.01, 0); dg.add(floor);
       const rl = Math.hypot(VC.rampLength, lip);
       const ramp = new THREE.Mesh(new THREE.BoxGeometry(rl, 0.03, VC.rampWidth), new THREE.MeshLambertMaterial({ color: 0xc58b2a }));
-      ramp.position.set(-VC.rampLength / 2, lip / 2, 0); ramp.rotation.z = Math.atan2(lip, VC.rampLength); root.add(ramp);
-      const lipLabel = label(`lip ${fmt(lip * 1000, 0)} mm`, 0.1); lipLabel.position.set(-0.1, lip + 0.1, d.openingWidthMax / 2 + 0.1); root.add(lipLabel);
+      ramp.position.set(-VC.rampLength / 2, lip / 2, 0); ramp.rotation.z = Math.atan2(lip, VC.rampLength); dg.add(ramp);
+      const lipLabel = label(`lip ${fmt(lip * 1000, 0)} mm`, 0.1); lipLabel.position.set(-0.1, lip + 0.1, d.openingWidthMax / 2 + 0.1); dg.add(lipLabel);
       const grid = new THREE.GridHelper(8, 32, 0x888888, 0xaaaaaa); grid.position.set(1, -0.001, 0); root.add(grid);
       kartModel.position.set(g.length / 2, lip, 0); root.add(kartModel);
       camera.position.set(-2.8, 1.9, 2.8); controls.target.set(L * 0.35, lip + 0.4, 0); controls.update();
       renderFit(fit);
     }
     if (ui.scene === 'yard') { controls.target.set(0, 0, 0); }
+    applyFocus();
     syncUrl();
   }
 
@@ -271,6 +285,62 @@ async function main() {
       <tr><td>Width vs cargo, narrow</td><td>${mm(W.kart)}</td><td>${mm(W.cargoMin)}</td><td>${yn(W.okCargoMin)}</td></tr>
       <tr><td>Width vs cargo, wide</td><td>${mm(W.kart)}</td><td>${mm(W.cargoMax)}</td><td>${yn(W.okCargoMax)}</td></tr>
       <tr><td>Lip above ground</td><td></td><td>${typeof lip === 'number' ? mm(lip) : ''}</td><td></td></tr></table>`;
+  }
+
+  // ---- parts: focus and listing -----------------------------------------------------------------
+  const isDrawn = (o) => o.isMesh || o.isLine;
+  function presentParts() {
+    const seen = new Set();
+    if (root) root.traverse((o) => { if (isDrawn(o)) { const id = partOfObject(o); if (id) seen.add(id); } });
+    return PARTS.filter((x) => seen.has(x.id)).map((x) => ({ id: x.id, label: x.label }));
+  }
+  function sendReady() { toParent({ type: 'kart3d:ready', parts: presentParts() }); }
+  // Same treatment for every material: a lit part gets an emissive tint (a colour tint for the
+  // materials that have no emissive), the others turn a little transparent. Originals are kept
+  // on the object and put back when the focus changes.
+  function clearFocus() {
+    if (!root) return;
+    root.traverse((o) => {
+      if (o.userData.origMaterial) { o.material.dispose(); o.material = o.userData.origMaterial; delete o.userData.origMaterial; }
+    });
+  }
+  function applyFocus() {
+    clearFocus();
+    if (!root || !focusIds.length) return;
+    const present = new Set(presentParts().map((x) => x.id));
+    if (!focusIds.some((id) => present.has(id))) return;
+    const tint = new THREE.Color(VC.focusColour);
+    root.traverse((o) => {
+      if (!isDrawn(o)) return;
+      const id = partOfObject(o); if (!id) return;
+      const m = o.material.clone();
+      if (focusIds.includes(id)) {
+        if ('emissive' in m) { m.emissive = tint.clone(); m.emissiveIntensity = VC.focusEmissive; }
+        else m.color.lerp(tint, 0.7);
+      } else { m.transparent = true; m.opacity = VC.dimOpacity; m.depthWrite = false; }
+      o.userData.origMaterial = o.material; o.material = m;
+    });
+  }
+
+  // ---- click or tap on the model ------------------------------------------------------------
+  const ray = new THREE.Raycaster(), ndc = new THREE.Vector2();
+  let down = null;
+  renderer.domElement.addEventListener('pointerdown', (e) => { down = { x: e.clientX, y: e.clientY, t: performance.now() }; });
+  renderer.domElement.addEventListener('pointerup', (e) => {
+    const d0 = down; down = null;
+    if (!d0 || Math.hypot(e.clientX - d0.x, e.clientY - d0.y) > VC.pickMovePx || performance.now() - d0.t > VC.pickMaxMs) return;
+    const r = renderer.domElement.getBoundingClientRect();
+    ndc.set(((e.clientX - r.left) / r.width) * 2 - 1, -((e.clientY - r.top) / r.height) * 2 + 1);
+    ray.setFromCamera(ndc, camera);
+    for (const h of ray.intersectObject(root, true)) {
+      if (!h.object.isMesh || !h.object.visible) continue;
+      const id = partOfObject(h.object);
+      if (id) { pickPart(id); return; }
+    }
+  });
+  function pickPart(id) {
+    if (inFrame) toParent({ type: 'kart3d:pick', part: id });
+    else window.open(`../navigator/#/?m=3d&k=part&i=${encodeURIComponent(id)}`, '_blank');
   }
 
   // ---- kart pose ---------------------------------------------------------------------------
@@ -386,11 +456,11 @@ async function main() {
     panel.addEventListener('click', (e) => {
       const b = e.target.closest('[data-pick]'); if (b) pick(b.dataset.pick, b.dataset.id);
     });
-    $('selScene').onchange = (e) => set({ scene: e.target.value });
-    $('selSetup').onchange = (e) => set({ setup: e.target.value });
-    $('selSink').onchange = (e) => set({ sink: e.target.value });
-    $('selRider').onchange = (e) => set({ rider: e.target.value });
-    $('chkChild').onchange = (e) => set({ child: e.target.checked });
+    $('selScene').onchange = (e) => set({ scene: e.target.value }, true);
+    $('selSetup').onchange = (e) => set({ setup: e.target.value }, true);
+    $('selSink').onchange = (e) => set({ sink: e.target.value }, true);
+    $('selRider').onchange = (e) => set({ rider: e.target.value }, true);
+    $('chkChild').onchange = (e) => set({ child: e.target.checked }, true);
     $('btnTests').onclick = runAndShowTests;
   }
   function syncPanel() {
@@ -420,7 +490,7 @@ async function main() {
     if (ui.setup === 'w2') u.set('sink', ui.sink); else u.delete('sink');
     history.replaceState(null, '', location.pathname + '?' + u.toString() + location.hash);
   }
-  function set(ch) {
+  function set(ch, fromUser = false) {
     let simChange = false, sceneChange = false;
     if (ch.scene && SCENES.includes(ch.scene) && ch.scene !== ui.scene) { ui.scene = ch.scene; sceneChange = true; }
     if (ch.setup && SETUPS.includes(ch.setup) && ch.setup !== ui.setup) { ui.setup = ch.setup; simChange = true; sceneChange = true; }
@@ -430,11 +500,26 @@ async function main() {
     if (simChange) newSim();
     if (sceneChange) buildScene();
     syncPanel(); syncUrl();
+    if (sceneChange) sendReady();
+    if (fromUser) toParent({ type: 'kart3d:state', scene: ui.scene, setup: ui.setup, rider: ui.rider, child: ui.child });
   }
 
   window.addEventListener('message', (e) => {
     const d = e.data;
-    if (d && d.type === 'kart3d:set') set({ scene: d.scene, setup: d.setup, rider: d.rider, child: d.child });
+    if (!d || typeof d !== 'object') return;
+    if (d.type === 'kart3d:set') set({ scene: d.scene, setup: d.setup, rider: d.rider, child: d.child });
+    else if (d.type === 'kart3d:focus') {
+      focusIds = Array.isArray(d.parts) ? d.parts.filter((x) => partIds.includes(x)) : [];
+      applyFocus();
+    }
+  });
+
+  // ---- embedded: drawer and HUD toggle -----------------------------------------------------
+  const setDrawer = (open) => { document.body.classList.toggle('drawer', open); $('panelBtn').textContent = open ? 'Close' : 'Panel'; $('panelBtn').setAttribute('aria-expanded', String(open)); };
+  $('panelBtn').addEventListener('click', () => setDrawer(!document.body.classList.contains('drawer')));
+  window.addEventListener('keydown', (e) => { if (e.key === 'Escape') setDrawer(false); });
+  $('hudToggle').addEventListener('click', () => {
+    const c = hud.classList.toggle('collapsed'); $('hudToggle').textContent = c ? 'HUD' : 'Hide HUD';
   });
 
   // ---- start -------------------------------------------------------------------------------
@@ -442,7 +527,7 @@ async function main() {
   buildScene();
   buildPanel();
   resize();
-  if (inFrame) window.parent.postMessage({ type: 'kart3d:ready' }, '*');
+  sendReady();
 
   const clock = new THREE.Clock();
   const chaseTarget = new THREE.Vector3(), chasePos = new THREE.Vector3();

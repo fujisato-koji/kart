@@ -238,6 +238,7 @@ export function createKart(p, opts = {}) {
   }
 
   function step(dt, input, yard) {
+    if (!(dt > 0)) return; // a zero step (a browser's first frame) would divide by zero
     const n = Math.max(1, Math.ceil(dt / MODEL.maxDt - 1e-9));
     const hh = dt / n;
     for (let i = 0; i < n; i++) sub(hh, input || {}, yard);

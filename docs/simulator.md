@@ -1,6 +1,6 @@
 # 3D simulator
 
-<a class="app-link" href="../viewer/">Open the 3D simulator</a>
+<a class="app-link" href="../navigator/#/?m=3d">Open the 3D simulator</a> <a href="../viewer/">Open the viewer alone</a>
 
 The simulator shows the kart in 3D and drives it over a test yard with paved, gravel, grass and snow areas and an incline. It also fits the kart against the loading space of the transport vehicle and runs the requirement tests.
 

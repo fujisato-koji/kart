@@ -17,7 +17,7 @@ The current state, generated from the record, is in [STATUS.md](https://github.c
 
 - **The record** (`record/*.yaml` in the repository) holds the facts: requirements, values, sources, decisions, open items, hazards, and checks. Every value has a status and a basis.
 - **These pages** hold the reasoning, one per step. They name values by key, such as kart.speed_max_kmh, and items by id, such as R-01 or P21. On this site a key shows its value beside it, and an id links to the navigator.
-- **The [navigator](navigator.md)** lets you move through the whole record: what each requirement rests on, what cites a source, which open items wait for whom, and the cost against the budget.
+- **The [navigator](navi.md)** lets you move through the whole record: what each requirement rests on, what cites a source, which open items wait for whom, and the cost against the budget.
 - **The [3D simulator](simulator.md)** builds the kart from the record's values and lets you drive it in a test yard, check it against the owner's car, and run rough tests of the requirements. Grip and plough values are assumed (Q-014), so its results are illustrations, not verification.
 
 Everything on this site comes from `record/` through `docs/data/record.json`, written by `python tools/gen_site_data.py`.

@@ -44,7 +44,21 @@ table{border-collapse:collapse;width:100%}
 th,td{text-align:left;padding:4px 8px;border-bottom:1px solid var(--line);vertical-align:top}
 td.num{text-align:right;font-variant-numeric:tabular-nums}
 .bar{height:10px;background:var(--bar);border-radius:3px}.bar.over{background:var(--bar2)}
-#pane3d iframe{width:100%;height:70vh;min-height:360px;border:1px solid var(--line);border-radius:8px;background:var(--card)}
+#pane3d iframe{width:100%;flex:1 1 auto;min-height:320px;border:1px solid var(--line);border-radius:8px;background:var(--card)}
+#pane3d{flex:1 1 auto;display:flex;flex-direction:column;min-height:0}
+#pane3d[hidden],#content[hidden]{display:none}
+.tb3d{gap:4px 12px;margin-bottom:6px;align-items:center}
+.tb3d .grp{display:inline-flex;flex-wrap:wrap;gap:4px;align-items:center}
+.tb3d button,.btn.small{padding:1px 8px;font-size:.85rem}
+button[aria-pressed="true"]{background:var(--infobg);border-color:var(--acc);color:var(--info)}
+.btn{display:inline-block;padding:4px 10px;border:1px solid var(--acc);border-radius:6px;text-decoration:none;background:var(--card);margin:6px 0}
+.btn.small{margin:0;border-radius:6px;border-color:var(--line);color:var(--fg)}
+.chip.part{background:var(--infobg);color:var(--info)}
+body{display:flex;flex-direction:column;min-height:100vh}
+body.m3d{height:100vh;overflow:hidden}
+body.m3d #layout{flex:1 1 auto;min-height:0;align-items:stretch;grid-template-rows:minmax(0,1fr)}
+body.m3d #view{display:flex;flex-direction:column;min-height:0}
+body.m3d #card{position:static;max-height:100%}
 svg{max-width:100%;height:auto}
 svg text{fill:var(--fg);font-size:12px}
 svg .bar{fill:var(--bar)}svg .bar.over{fill:var(--bar2)}svg .grid{stroke:var(--line)}svg .budget{stroke:var(--bad);stroke-width:2;stroke-dasharray:5 3}
@@ -54,4 +68,7 @@ svg a{cursor:pointer}
  #card{position:fixed;left:0;right:0;bottom:0;top:auto;max-height:55vh;border-radius:12px 12px 0 0;z-index:5}
  #card.empty{display:none}
  body.hascard #view{padding-bottom:55vh}
+ body.m3d #card{position:fixed;max-height:35vh}
+ body.m3d.hascard #view{padding-bottom:35vh}
 }
+header,#tabs{flex:none}

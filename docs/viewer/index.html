@@ -15,7 +15,8 @@
 <body>
 <header class="top">
   <h1 id="title">Go-kart 3D viewer</h1>
-  <button id="theme" type="button" aria-label="Toggle dark mode">Theme</button>
+  <span class="tools"><button id="theme" type="button" aria-label="Toggle dark mode">Theme</button>
+  <button id="panelBtn" type="button" aria-expanded="false" aria-controls="panel">Panel</button></span>
 </header>
 <div class="banner" id="banner">Rough values from step 1.2. Grip, ski grip, track resistance in fresh snow, and plough resistance are assumed (Q-014). An illustration, not a verification.</div>
 <div id="loading" class="loading">Loading the record and the 3D library...</div>
@@ -23,6 +24,7 @@
 <main class="layout" id="app" hidden>
   <section class="stage">
     <div id="view" class="view">
+      <button id="hudToggle" class="hud-toggle" type="button" hidden>Hide HUD</button>
       <div id="hud" class="hud" hidden></div>
       <div id="warn" class="warn"></div>
       <div id="fit" class="fit" hidden></div>

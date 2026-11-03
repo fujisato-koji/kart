@@ -1,18 +1,20 @@
 import { buildIndex, scan, docsHref, asArray, REF_FIELDS, PROSE_FIELDS } from './relations.js';
 import { makeParams } from '../viewer/params.js';
+import { PARTS, partById, partsForKey, keysForPart, viewForItem } from '../viewer/parts.js';
 
 const MODES = [
-  ['overview', 'Overview'], ['requirements', 'Requirements'], ['hazards', 'Hazards'], ['decisions', 'Decisions'],
-  ['open', 'Open items'], ['values', 'Values'], ['sources', 'Sources'], ['cost', 'Cost'], ['3d', '3D'],
+  ['overview', 'Overview'], ['requirements', 'Requirements'], ['3d', '3D'], ['hazards', 'Hazards'], ['decisions', 'Decisions'],
+  ['open', 'Open items'], ['values', 'Values'], ['sources', 'Sources'], ['cost', 'Cost'],
 ];
-const KIND_MODE = { req: 'requirements', dec: 'decisions', open: 'open', haz: 'hazards', check: 'overview', src: 'sources', value: 'values' };
-const KIND_LABEL = { req: 'Requirements', dec: 'Decisions', open: 'Open items', haz: 'Hazards', check: 'Checks', src: 'Sources', value: 'Values', docs: 'Docs' };
-const KIND_ORDER = ['req', 'haz', 'dec', 'open', 'check', 'src', 'value', 'docs'];
+const KIND_MODE = { req: 'requirements', dec: 'decisions', open: 'open', haz: 'hazards', check: 'overview', src: 'sources', value: 'values', part: '3d' };
+const KIND_LABEL = { req: 'Requirements', dec: 'Decisions', open: 'Open items', haz: 'Hazards', check: 'Checks', src: 'Sources', value: 'Values', docs: 'Docs', part: 'Parts' };
+const KIND_ORDER = ['part', 'req', 'haz', 'dec', 'open', 'check', 'src', 'value', 'docs'];
 const STATUS_CLASS = {
   decided: 'info', sourced: 'ok', calculated: 'info', measured: 'ok', assumed: 'warn',
   confirmed: 'ok', awaiting: 'warn', withdrawn: 'neu', pass: 'ok', partial: 'warn', fail: 'bad',
 };
 
+let kindOf = () => null;
 let record, idx, params, prov = {}, provRev = new Map();
 let state = { m: 'overview', k: '', i: '' };
 const filters = { vPrefix: '', vStatus: '', vQ: '', sClass: '', sRead: '', sQ: '' };
@@ -48,14 +50,14 @@ function parseHash() {
   const p = new URLSearchParams(q);
   let m = p.get('m') || '';
   const k = p.get('k') || '', i = p.get('i') || '';
-  const okSel = k && i && idx.kindOf(i) === k;
+  const okSel = k && i && kindOf(i) === k;
   if (!MODES.some(([id]) => id === m)) m = okSel ? KIND_MODE[k] : 'overview';
   return { m, k: okSel ? k : '', i: okSel ? i : '' };
 }
 // href that selects ref; mode defaults to the kind's own mode
 function hrefTo(ref, mode) {
-  const k = idx.kindOf(ref);
-  return hashFor({ m: mode || KIND_MODE[k] || state.m, k, i: ref });
+  const k = kindOf(ref);
+  return hashFor({ m: mode || (state.m === '3d' ? '3d' : KIND_MODE[k]) || state.m, k, i: ref });
 }
 function hrefMode(m) { return hashFor({ m, k: '', i: '' }); }
 
@@ -67,9 +69,10 @@ function brief(ref) {
   return t.length > 70 ? t.slice(0, 67) + '…' : t;
 }
 function refLink(ref, mode) {
-  const k = idx.kindOf(ref);
+  const k = kindOf(ref);
   if (k === 'docs') return h('a', { class: 'chip', href: docsHref(ref) }, ref.replace(/^docs\//, ''));
   if (!k) return chip(ref);
+  if (k === 'part') return h('a', { class: 'chip part', href: hrefTo(ref, mode), 'data-ref': ref }, partById(ref).label);
   const it = idx.get(ref);
   const sup = idx.superseded.has(ref) ? 'sup' : '';
   const label = k === 'value' ? `${ref} = ${valText(it)}` : ref;
@@ -87,6 +90,23 @@ function rich(text, mode) {
 }
 const refs = (list, mode) => asArray(list).map((r) => refLink(r, mode));
 
+// ---------- parts ----------
+function mentionedKeys(r) {
+  const out = new Set();
+  for (const f of ['design_point', 'text', 'expected']) for (const seg of scan(r[f], idx.valueKeys)) if (seg.t === 'key') out.add(seg.key);
+  return [...out];
+}
+function partsForItem(kind, id) {
+  if (kind === 'part') return [id];
+  if (kind === 'value') return partsForKey(id);
+  if (kind === 'req') {
+    const r = idx.get(id);
+    const set = new Set(r ? mentionedKeys(r).flatMap((x) => partsForKey(x)) : []);
+    return PARTS.map((p) => p.id).filter((x) => set.has(x));
+  }
+  return [];
+}
+
 // ---------- selection card ----------
 function renderCard() {
   const card = $('#card');
@@ -95,12 +115,26 @@ function renderCard() {
   if (!state.i) { card.className = 'empty'; card.replaceChildren('Select an item to see its fields and relations.'); return; }
   document.querySelectorAll('[data-row]').forEach((e) => { if (e.dataset.row === state.i) e.classList.add('sel'); });
   card.className = '';
-  const id = state.i, it = idx.get(id), kind = state.k;
+  const id = state.i, kind = state.k;
   const parts = [
     h('a', { id: 'closecard', href: hashFor({ m: state.m }), 'aria-label': 'Close (Esc)' }, 'Close ✕'),
-    h('h2', {}, kind === 'value' ? id : `${id}${idx.superseded.has(id) ? ' (superseded)' : ''}`),
+    h('h2', {}, kind === 'value' ? id : kind === 'part' ? partById(id).label : `${id}${idx.superseded.has(id) ? ' (superseded)' : ''}`),
     h('div', { class: 'meta' }, KIND_LABEL[kind].replace(/s$/, '')),
   ];
+  const show3d = (partsForItem(kind, id).length || viewForItem(kind, id))
+    ? h('a', { class: 'btn', href: hashFor({ m: '3d', k: kind, i: id }) }, 'Show in 3D') : null;
+  if (kind === 'part') {
+    const keys = keysForPart(id, [...idx.valueKeys]);
+    const reqs = record.requirements.filter((r) => mentionedKeys(r).some((x) => keys.includes(x)));
+    parts.push(show3d,
+      h('h3', {}, `Values (${keys.length})`), h('div', {}, keys.length ? keys.map((x) => refLink(x)) : h('span', { class: 'meta' }, 'none')),
+      h('h3', {}, `Requirements (${reqs.length})`), h('div', {}, reqs.length ? reqs.map((r) => refLink(r.id)) : h('span', { class: 'meta' }, 'none')));
+    card.replaceChildren(...parts.filter(Boolean));
+    card.scrollTop = 0;
+    return;
+  }
+  const it = idx.get(id);
+  if (show3d) parts.push(show3d);
   const dl = h('dl');
   for (const [f, v] of Object.entries(it)) {
     if (f === 'id' || f === 'key' || REF_FIELDS.includes(f)) continue;
@@ -117,6 +151,8 @@ function renderCard() {
   if (kind === 'value' && provRev.has(id)) {
     parts.push(h('h3', {}, '3D simulator'), h('div', {}, provRev.get(id).map((p) => h('div', {}, 'used in 3D as ', h('code', {}, p)))));
   }
+  const pl = partsForItem(kind, id);
+  if (pl.length) parts.push(h('h3', {}, 'Parts'), h('div', {}, pl.map((x) => refLink(x))));
   const own = REF_FIELDS.filter((f) => it[f] != null).map((f) => [f, asArray(it[f])]);
   if (own.length) {
     parts.push(h('h3', {}, 'Reference fields'));
@@ -124,13 +160,13 @@ function renderCard() {
   }
   const group = (list) => {
     const g = {};
-    for (const r of list) (g[idx.kindOf(r)] ||= []).push(r);
+    for (const r of list) (g[kindOf(r)] ||= []).push(r);
     return KIND_ORDER.filter((k) => g[k]).map((k) => h('div', {}, h('span', { class: 'meta' }, KIND_LABEL[k] + ': '), g[k].map((r) => refLink(r))));
   };
   const outs = idx.out.get(id) || [], ins = idx.inc.get(id) || [];
   parts.push(h('h3', {}, `References (${outs.length})`), ...(outs.length ? group(outs) : [h('div', { class: 'meta' }, 'none')]));
   parts.push(h('h3', {}, `Cited by (${ins.length})`), ...(ins.length ? group(ins) : [h('div', { class: 'meta' }, 'none')]));
-  const docs = outs.filter((r) => idx.kindOf(r) === 'docs');
+  const docs = outs.filter((r) => kindOf(r) === 'docs');
   if (docs.length) parts.push(h('h3', {}, 'Docs'), h('div', {}, docs.map((r) => refLink(r))));
   card.replaceChildren(...parts);
   card.scrollTop = 0;
@@ -283,29 +319,71 @@ function cost() {
     h('div', { class: 'meta' }, 'Bars in red exceed budget.parts_jpy. Click a bar to select its value.'), svg);
 }
 
-// 3D pane: created once and kept, so leaving the tab does not reload the simulator
-let pane3d = null;
+// 3D pane: the iframe is created once and kept (hidden, never detached) when the tab is left
+let pane3d = null, ready3d = false, pending3d = {}, tstate = {};
+const SCENES = [['yard', 'Yard'], ['inspect', 'Inspect'], ['delica', 'Delica']];
+const SETUPS = [['summer', 'Summer'], ['w1', 'W1'], ['w2', 'W2']];
+const RIDERS = [['adult', 'Adult'], ['child', 'Child']];
+function post(o) {
+  if (!pane3d || !pane3d.frame.contentWindow) return;
+  pane3d.frame.contentWindow.postMessage(o, '*');
+}
+function sendSet(o) {
+  if (!ready3d) { Object.assign(pending3d, o); return; }
+  post({ type: 'kart3d:set', ...o });
+}
 function ensure3d() {
   if (pane3d) return pane3d;
-  const frame = h('iframe', { src: '../viewer/index.html?embed=1', title: '3D simulator', loading: 'lazy' });
-  const send = (o) => frame.contentWindow && frame.contentWindow.postMessage({ type: 'kart3d:set', ...o }, '*');
-  const grp = (label, key, opts) => h('span', {}, label + ' ', opts.map(([v, t]) => h('button', { type: 'button', onclick: () => send({ [key]: v }) }, t)), ' ');
-  pane3d = h('div', { id: 'pane3d' },
-    h('div', { class: 'controls' }, grp('Scene', 'scene', [['yard', 'Yard'], ['inspect', 'Inspect'], ['delica', 'Delica']]),
-      grp('Setup', 'setup', [['summer', 'Summer'], ['w1', 'W1'], ['w2', 'W2']]), grp('Rider', 'rider', [['adult', 'Adult'], ['child', 'Child']])),
-    h('div', { class: 'meta' }, 'Pick a part in the 3D view to select its value in the record.'), frame);
+  const frame = h('iframe', { src: '../viewer/index.html?embed=1', title: '3D simulator' });
+  const grp = (label, key, opts) => h('span', { class: 'grp' }, label + ' ',
+    opts.map(([v, t]) => h('button', { type: 'button', 'data-set': key, 'data-v': v, onclick: () => sendSet({ [key]: v }) }, t)));
+  const child = h('button', { type: 'button', 'data-set': 'child', 'data-v': 'toggle', onclick: () => sendSet({ child: !tstate.child }) }, 'Child limit');
+  pane3d = document.getElementById('pane3d');
   pane3d.frame = frame;
+  pane3d.replaceChildren(
+    h('div', { class: 'controls tb3d' }, grp('Scene', 'scene', SCENES), grp('Setup', 'setup', SETUPS), grp('Rider', 'rider', RIDERS), child,
+      h('span', { id: 'partbtns', class: 'grp' })),
+    frame);
+  syncToolbar();
   return pane3d;
+}
+function syncToolbar() {
+  if (!pane3d) return;
+  pane3d.querySelectorAll('button[data-set]').forEach((b) => {
+    const key = b.dataset.set;
+    const on = key === 'child' ? !!tstate.child : tstate[key] === b.dataset.v;
+    b.setAttribute('aria-pressed', on ? 'true' : 'false');
+  });
+}
+function fillPartButtons(list) {
+  const box = document.getElementById('partbtns'); if (!box) return;
+  box.replaceChildren('Parts ', ...list.map((x) => {
+    const id = typeof x === 'string' ? x : x.id;
+    const label = (typeof x === 'object' && x.label) || (partById(id) && partById(id).label) || id;
+    return h('a', { class: 'btn small', href: hashFor({ m: '3d', k: 'part', i: id }), 'data-part': id, title: label }, label);
+  }));
+}
+// Tell the viewer what is selected: the parts to light, and the view when in the 3D mode
+function sync3d() {
+  if (!pane3d || !ready3d) return;
+  post({ type: 'kart3d:focus', parts: state.i ? partsForItem(state.k, state.i) : [] });
+  if (state.m === '3d' && state.i) {
+    const v = viewForItem(state.k, state.i);
+    if (v) { const o = {}; if (v.scene) o.scene = v.scene; if (v.setup) o.setup = v.setup; post({ type: 'kart3d:set', ...o }); }
+  }
 }
 
 const MODE_FN = { overview, requirements, hazards, decisions, open: openItems, values, sources, cost };
 let shownMode = null;
 function renderMode() {
-  const view = $('#view');
+  const view = $('#content');
+  document.body.classList.toggle('m3d', state.m === '3d');
+  $('#pane3d').hidden = state.m !== '3d';
+  view.hidden = state.m === '3d';
   document.querySelectorAll('#tabs a').forEach((a) => (a.dataset.m === state.m ? a.setAttribute('aria-current', 'page') : a.removeAttribute('aria-current')));
   if (shownMode === state.m && state.m !== 'overview') return;
   shownMode = state.m;
-  if (state.m === '3d') { view.replaceChildren(ensure3d()); return; }
+  if (state.m === '3d') { ensure3d(); return; }
   view.replaceChildren(MODE_FN[state.m]());
   fillValues(); fillSources();
 }
@@ -316,6 +394,8 @@ function apply() {
   state = next;
   if (modeChanged || shownMode !== state.m) renderMode(); else if (state.m === 'overview') renderMode();
   renderCard();
+  $('#link3d').setAttribute('href', hashFor({ m: '3d', k: state.k, i: state.i }));
+  sync3d();
 }
 
 // ---------- boot ----------
@@ -336,8 +416,9 @@ async function boot() {
     const res = await fetch('../data/record.json');
     if (!res.ok) throw new Error(`record.json: ${res.status}`);
     record = await res.json();
-  } catch (e) { $('#view').replaceChildren(h('p', {}, 'Cannot load the record: ' + e.message)); return; }
+  } catch (e) { $('#content').replaceChildren(h('p', {}, 'Cannot load the record: ' + e.message)); return; }
   idx = buildIndex(record);
+  kindOf = (ref) => (partById(ref) ? 'part' : idx.kindOf(ref));
   try { params = makeParams(record); prov = params.prov; } catch (e) { prov = {}; console.warn('makeParams failed', e); }
   for (const [path, key] of Object.entries(prov)) { if (!provRev.has(key)) provRev.set(key, []); provRev.get(key).push(path); }
   $('#tabs').replaceChildren(...MODES.map(([id, label]) => h('a', { href: hrefMode(id), 'data-m': id }, label)));
@@ -351,10 +432,20 @@ function hrefModeStatic(id) { return '#/?m=' + id; }
 function onMessage(ev) {
   if (!pane3d || ev.source !== pane3d.frame.contentWindow) return;
   const d = ev.data;
-  if (!d || d.type !== 'kart3d:pick') return;
-  const ref = d.key || d.id;
-  const k = ref && idx.kindOf(ref);
-  if (k && k !== 'docs') location.hash = hashFor({ m: '3d', k, i: ref });
+  if (!d || typeof d.type !== 'string') return;
+  if (d.type === 'kart3d:ready') {
+    ready3d = true;
+    fillPartButtons(Array.isArray(d.parts) ? d.parts : PARTS);
+    if (Object.keys(pending3d).length) { post({ type: 'kart3d:set', ...pending3d }); pending3d = {}; }
+    sync3d();
+  } else if (d.type === 'kart3d:state') {
+    tstate = { scene: d.scene, setup: d.setup, rider: d.rider, child: !!d.child };
+    syncToolbar();
+  } else if (d.type === 'kart3d:pick') {
+    const ref = d.part || d.key || d.id;
+    const k = ref && kindOf(ref);
+    if (k && k !== 'docs') location.hash = hashFor({ m: '3d', k, i: ref });
+  }
 }
 function onKey(e) {
   const t = e.target, typing = t && (t.tagName === 'INPUT' || t.tagName === 'SELECT' || t.tagName === 'TEXTAREA');
