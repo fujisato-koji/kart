@@ -1,3 +1,387 @@
 kind: source
 schema: 1
 items:
+  - id: P1
+    class: P
+    title: Richmond, Motion Resistance of Wheeled Vehicles in Snow, CRREL Report 95-7, 1995
+    url: https://rosap.ntl.bts.gov/view/dot/14081/dot_14081_DS1.pdf
+    retrieved: 2026-11-03
+    license: US government work, approved for public release
+    read: partial
+    note: Read by a helper through the abstract, Table 1, and equations 1 to 8. Sinkage z = h(1 - rho0/rhof) and final density rhof = 0.519 + 0.0023 pmax (Mg/m3, pmax in kPa), fitted to wheeled vehicles in snow 10 to 37 cm deep with initial density 0.11 to 0.25 Mg/m3.
+  - id: P2
+    class: P
+    title: Lines, Elliott, Ray, Rigid Wheel Design and Evaluation for Lightweight Snow Rover, ISTVS conference proceedings, 2021
+    url: https://par.nsf.gov/servlets/purl/10304353
+    retrieved: 2026-11-03
+    license: unknown
+    read: partial
+    note: Read by a helper, sections 2 to 4. Gives Bekker snow parameters for three snows taken from Wong (2001), and a snowmobile track ground pressure of 3.5 kPa observed in the field.
+  - id: P3
+    class: P
+    title: Lever et al., Advances in Antarctic Sled Technology, ERDC/CRREL TR-16-4, 2016
+    url: https://geo-summit.org/sites/default/files/docs/ERDC-CRREL_TR-16-4.pdf
+    retrieved: 2026-11-03
+    license: US government work, approved for public release
+    read: partial
+    note: Read by a helper. Sled resistance per weight on polar snow, and higher resistance at higher ground pressure.
+  - id: P4
+    class: P
+    title: Honda GX200 product page
+    url: https://www.honda.co.jp/engines/GX/GX200/
+    retrieved: 2026-11-03
+    license: unknown
+    read: partial
+    note: Read by a helper. Maximum net output, maximum torque, and dry mass.
+  - id: P5
+    class: P
+    title: Honda GX160 and GX200 Owner's Manual 00X37ZEE6000
+    url: https://cdn.powerequipment.honda.com/engines/pdf/manuals/00X37ZEE6000.pdf
+    retrieved: 2026-11-03
+    license: unknown
+    read: partial
+    note: Read by a helper, page 8 and the specifications. The oil chart for 5W-30 and 10W-30 reaches about -15 degC (read from the chart).
+  - id: P6
+    class: P
+    title: EVE Energy LF105 Product Specification Ver. F, 2019-12-02
+    url: https://files.batteryjunction.com/frontend/files/EVE/EVE-LF105-Datasheet.pdf
+    retrieved: 2026-11-03
+    license: unknown
+    read: partial
+    note: Maker document on a retailer host, read by a helper. LiFePO4 cell charging 0 to 55 degC, discharging -20 to 55 degC, at least 70 % of capacity at -20 degC.
+  - id: P7
+    class: P
+    title: Yuasa NP Valve Regulated Lead Acid Battery Manual
+    url: https://www.thierry-lequeu.fr/data/Yuasa3.pdf
+    retrieved: 2026-11-03
+    license: unknown
+    read: partial
+    note: Third-party mirror, read by a helper, page 12 figure 4. Cyclic use recommended at +5 to +35 degC; capacity falls steeply with cold at high discharge rates.
+  - id: P8
+    class: P
+    title: SUZUKID Buddy80 SBD-80 maker shop page
+    url: https://www.suzukid.shop/c/welding-machine/semi-auto-welding/semi-auto-welding-machine/sbd-80
+    retrieved: 2026-11-03
+    license: unknown
+    read: full
+    note: Read by a helper. 100 V no-gas semi-automatic welder, 30 to 80 A, duty cycle 35 %, input 24.4 A, steel 0.8 to 4.0 mm.
+  - id: P9
+    class: P
+    title: Toyota, GR KART release
+    url: https://global.toyota/jp/newsroom/corporate/44816979.html
+    retrieved: 2026-11-03
+    license: unknown
+    read: full
+    note: Read by a helper. Size, wheelbase, mass, and the driver height range of a leisure kart.
+  - id: P10
+    class: P
+    title: CIK-FIA Technical Regulations 2023
+    url: https://www.fiakarting.com/sites/default/files/2023-01/6.0_RT2023.pdf
+    retrieved: 2026-11-03
+    license: unknown
+    read: partial
+    note: Read by a helper by text search of articles 4.13, 8.1 to 8.2, 9.1, 10.1 to 10.2, 11.1. Track at least two thirds of the wheelbase.
+  - id: P11
+    class: P
+    title: Road Traffic Act of Japan (道路交通法), articles 1 and 2, e-Gov
+    url: https://laws.e-gov.go.jp/api/1/lawdata/335AC0000000105
+    retrieved: 2026-11-03
+    license: unknown
+    read: partial
+    note: Read by a helper. A road includes other places used for general traffic, and driving is defined as use on a road.
+  - id: P12
+    class: P
+    title: Sendai High Court judgment of 1963-12-23 on places used for general traffic
+    url: https://www.courts.go.jp/hanrei/24037/detail3/index.html
+    retrieved: 2026-11-03
+    license: unknown
+    read: partial
+    note: Read by a helper, summary page. A place counts as used for general traffic when the public in fact passes without asking permission each time; an enclosed site with permission required was held not to be a road.
+  - id: P13
+    class: P
+    title: Road Transport Vehicle Act of Japan (道路運送車両法), article 2, e-Gov
+    url: https://laws.e-gov.go.jp/api/1/lawdata/326AC0000000185
+    retrieved: 2026-11-03
+    license: unknown
+    read: partial
+    note: Read by a helper. Operation excludes use only in places other than roads.
+  - id: P14
+    class: P
+    title: Automobile Liability Security Act of Japan (自動車損害賠償保障法), articles 2, 3, 5, 10, e-Gov
+    url: https://laws.e-gov.go.jp/api/1/lawdata/330AC0000000097
+    retrieved: 2026-11-03
+    license: unknown
+    read: partial
+    note: Read by a helper. Compulsory insurance does not apply to use only off roads; article 3 liability is not in the exclusion list.
+  - id: P15
+    class: P
+    title: MLIT detailed technical notice, attachment 98 (braking of mopeds) and article 302
+    url: https://www.mlit.go.jp/jidosha/content/B098.pdf
+    retrieved: 2026-11-03
+    license: unknown
+    read: partial
+    note: Read by a helper. Stopping distance limit S = 0.1V + 0.0087V^2 for linked brakes and 0.1V + 0.0143V^2 for the rear brake alone, V = 0.9 Vmax in km/h; pedal force at most 350 N.
+  - id: P16
+    class: P
+    title: JAF guideline for go-kart and similar events, 2023-03-27
+    url: https://motorsports.jaf.or.jp/-/media/1/3375/3379/3402/3404/4128/20230214_3.pdf
+    retrieved: 2026-11-03
+    license: unknown
+    read: partial
+    note: Read by a helper, sections 3 to 6. Guards against hair and scarves, pedals and seat adjustable to body size, brakes on both rear wheels, emergency stop with remote speed limit or engine stop, run-off space or barriers, full-face helmet.
+  - id: P17
+    class: P
+    title: JAF national kart technical rules 2019
+    url: https://motorsports.jaf.or.jp/-/media/1/3375/3379/3402/3404/3408/1421_cms_20180821172045_28221_00001.pdf
+    retrieved: 2026-11-03
+    license: unknown
+    read: partial
+    note: Read by a helper, article 12 and the Mini class. The chain guard is required and covers the upper run of the chain.
+  - id: P18
+    class: P
+    title: JAF national kart technical rules 2026, comparison of old and new text
+    url: https://motorsports.jaf.or.jp/-/media/1/3375/3379/3402/3404/4350/20251204_03.pdf
+    retrieved: 2026-11-03
+    license: unknown
+    read: partial
+    note: Read by a helper. A foot brake acting on both rear wheels; seat belts are prohibited on race karts, which have no roll bar.
+  - id: P19
+    class: P
+    title: Adler, Go-Kart Related Injuries and Deaths to Children, US CPSC, 2000
+    url: https://www.cpsc.gov/s3fs-public/pdfs/go-kart.pdf
+    retrieved: 2026-11-03
+    license: US government work
+    read: partial
+    note: Read by a helper, summary, results, and conclusion. Most deaths came from hitting objects or vehicles and from tip-overs on bumps, ruts, and sharp turns; entrapment of hair or clothing in exposed chain, belt, or axle drives was fatal.
+  - id: P20
+    class: P
+    title: Consumer Affairs Agency of Japan, caution on go-kart and similar accidents, 2022-12-02
+    url: https://www.caa.go.jp/policies/policy/consumer_safety/caution/caution_065/assets/consumer_safety_cms205_221202_01.pdf
+    retrieved: 2026-11-03
+    license: unknown
+    read: partial
+    note: Read by a helper, sections 2 to 4. Advice to remove scarves and keep long hair inside the helmet.
+  - id: P21
+    class: P
+    title: MEXT school health statistics FY2025, national tables 1 to 3, e-Stat
+    url: https://www.e-stat.go.jp/stat-search/files?stat_infid=000040409507
+    retrieved: 2026-11-03
+    license: e-Stat terms of use (not checked)
+    read: full
+    note: The URL is formed from the statInfId the helper gave. Read by a helper for ages 6 to 12. Stature and mass of children by age; the 5th percentile of a 6-year-old is about 108 cm (derived by the helper from the 1 cm distribution).
+  - id: P22
+    class: P
+    title: AIST human body dimension database 1991-92
+    url: https://www.airc.aist.go.jp/dhrt/91-92/
+    retrieved: 2026-11-03
+    license: free to use with the credit 産総研 AIST人体寸法データベース1991-92
+    read: full
+    note: Read by a helper for stature, sitting height, buttock-heel length, and mass of adults aged 18 to 29. The 95th percentile male stature is about 182 cm.
+  - id: P23
+    class: P
+    title: ASTM F2011-02(2018), Standard Specification for Fun-Karts, abstract
+    url: https://store.astm.org/f2011-02r18.html
+    retrieved: 2026-11-03
+    license: unknown
+    read: abstract
+    note: Excludes home-made karts. The text is paywalled, and ASTM prohibits giving its standards to an AI.
+  - id: P24
+    class: P
+    title: Petterson and Gooch, Rolling resistance of ATV tyres in agriculture, DESIGN 2020, doi:10.1017/dsd.2020.75
+    url: https://www.cambridge.org/core/services/aop-cambridge-core/content/view/ECD7544F00543D596B2D0EB3DD639516/S2633776220000758a.pdf/rolling-resistance-of-atv-tyres-in-agriculture.pdf
+    retrieved: 2026-11-03
+    license: open access, licence not checked
+    read: partial
+    note: Read by a helper, sections 3.4 to 6 and tables 1 and 2. Seven ATV tyres on 8 to 14 inch rims at 34 kPa; rolling resistance over load 0.035 to 0.09 on a hard farm lane, 0.07 to 0.10 on short grass and 0.08 to 0.12 on long grass at 20 km/h.
+  - id: S1
+    class: S
+    title: Scheibe, An Overview of Studded and Studless Tire Traction and Safety, WSDOT WA-RD 551.1, 2002
+    url: https://www.wsdot.wa.gov/research/reports/fullreports/551.1.pdf
+    retrieved: 2026-11-03
+    license: unknown
+    read: partial
+    note: Read by a helper, pages 12 to 16. Reviews car tyre friction on ice and snow with and without studs and chains; chains roughly double the friction on ice.
+  - id: M1
+    class: M
+    title: Yahoo Shopping search for Honda GX160 general-purpose engines
+    url: https://shopping.yahoo.co.jp/search?p=汎用中型エンジン+GX160
+    retrieved: 2026-11-03
+    license: unknown
+    read: partial
+    note: Page 1 read by a helper. Genuine Honda GX160 and GX200 engines alone.
+  - id: M2
+    class: M
+    title: Yahoo Shopping search for go-kart centrifugal clutches, 19 mm bore
+    url: https://shopping.yahoo.co.jp/search?p=遠心クラッチ+ゴーカート+19mm
+    retrieved: 2026-11-03
+    license: unknown
+    read: partial
+    note: Page 1 read by a helper. The price used is a 3/4 inch bore, 10 tooth clutch for chain sizes 40, 41, or 420.
+  - id: M3
+    class: M
+    title: Yahoo Shopping search for 48 V 1000 W motor, controller, and throttle kits
+    url: https://shopping.yahoo.co.jp/search?p=48V+1000W+ブラシレスモーター+コントローラー+スロットル+キット
+    retrieved: 2026-11-03
+    license: unknown
+    read: partial
+    note: Page 1 read by a helper. The price used is a 36/48 V 1000 W motor with a 30 A controller; its motor type is not the brushed MY1020 of M5.
+  - id: M4
+    class: M
+    title: LVYUAN LiFePO4 12.8 V 30 Ah battery, Yahoo Shopping
+    url: https://store.shopping.yahoo.co.jp/shoryu-store/12v-30ah-px.html
+    retrieved: 2026-11-03
+    license: unknown
+    read: partial
+    note: Read by a helper. Price, mass, continuous current; charging temperature not stated.
+  - id: M5
+    class: M
+    title: Motion Dynamics, Unite MY1020 1000 W 3000 rpm 48 V DC motor
+    url: https://www.motiondynamics.com.au/unite-my1020-1000w-3000-rpm-48v-dc-motor.html
+    retrieved: 2026-11-03
+    license: unknown
+    read: partial
+    note: Read by a helper. Rated speed, current, torque, and mass.
+  - id: M6
+    class: M
+    title: Haganeya, STKM11A round steel tube 25.4 x 1.6
+    url: https://haganeya.jp/products/detail/1093
+    retrieved: 2026-11-03
+    license: unknown
+    read: full
+    note: Read by a helper. Price per metre with tax, mass per metre.
+  - id: M7
+    class: M
+    title: Haganeya, STKM11A round steel tube 31.8 x 1.6
+    url: https://haganeya.jp/products/detail/1091
+    retrieved: 2026-11-03
+    license: unknown
+    read: full
+    note: Read by a helper. Price per metre with tax, mass per metre.
+  - id: M8
+    class: M
+    title: Go-kart rear axle kit (axle, sprocket, brake, hubs), Yahoo Shopping
+    url: https://store.shopping.yahoo.co.jp/pstokyo/231124v0698.html
+    retrieved: 2026-11-03
+    license: unknown
+    read: full
+    note: Read by a helper. Free shipping shown; axle diameter and load rating not stated.
+  - id: M9
+    class: M
+    title: AliExpress search for go-kart steering spindle kits
+    url: https://ja.aliexpress.com/w/wholesale-go-kart-steering-spindle-kit.html
+    retrieved: 2026-11-03
+    license: unknown
+    read: partial
+    note: Page 1 read by a helper. Steering wheel, shaft, tie rods, and knuckles; shipping mostly not shown.
+  - id: M10
+    class: M
+    title: Yahoo Shopping search for 13x5.00-6 tyres with wheels
+    url: https://shopping.yahoo.co.jp/search?p=13x5.00-6+タイヤ+ホイール
+    retrieved: 2026-11-03
+    license: unknown
+    read: partial
+    note: Page 1 read by a helper. Sets of four with rims.
+  - id: M11
+    class: M
+    title: TOAN TW-MIG100X 100 V no-gas welder, Yahoo Shopping
+    url: https://store.shopping.yahoo.co.jp/toan-weld/tw-mig100x.html
+    retrieved: 2026-11-03
+    license: unknown
+    read: full
+    note: Read by a helper. 30 to 80 A, duty cycle 35 % at 80 A.
+  - id: M12
+    class: M
+    title: Yahoo Shopping search for 40 x 40 aluminium extrusion, 1000 mm
+    url: https://shopping.yahoo.co.jp/search?p=アルミフレーム+40x40+1000mm
+    retrieved: 2026-11-03
+    license: unknown
+    read: partial
+    note: Page 1 read by a helper. Several listings refuse delivery to private homes.
+  - id: M13
+    class: M
+    title: Yahoo Shopping search for snowblower rubber tracks
+    url: https://shopping.yahoo.co.jp/search?p=ゴムクローラー+除雪機
+    retrieved: 2026-11-03
+    license: unknown
+    read: partial
+    note: Page 1 read by a helper. Tracks only, without sprockets or idlers.
+  - id: M14
+    class: M
+    title: VXB rear axle rubber track kit for go-karts and ATVs
+    url: https://vxb.com/fr/products/rear-axle-direct-replacement-rubber-track-kit-for
+    retrieved: 2026-11-03
+    license: unknown
+    read: partial
+    note: Read by a helper through a fetch summary. Mass and load rating not stated; shipping to Japan not stated.
+  - id: M15
+    class: M
+    title: Yahoo Shopping searches for snowblower tyre chains
+    url: https://shopping.yahoo.co.jp/search?p=除雪機+タイヤチェーン
+    retrieved: 2026-11-03
+    license: unknown
+    read: partial
+    note: Page 1 read by a helper. Tyre size of the cheapest chain not stated.
+  - id: M16
+    class: M
+    title: Yahoo Auctions closed listings for racing kart frames
+    url: https://auctions.yahoo.co.jp/closedsearch/closedsearch?p=レーシングカート+フレーム
+    retrieved: 2026-11-03
+    license: unknown
+    read: partial
+    note: Read by a helper. Many are pickup only; the year is not shown.
+  - id: M17
+    class: M
+    title: AliExpress search for go-kart seats
+    url: https://ja.aliexpress.com/w/wholesale-go-kart-seat.html
+    retrieved: 2026-11-03
+    license: unknown
+    read: partial
+    note: Page 1 read by a helper.
+  - id: M18
+    class: M
+    title: kakaku.com search for 196 cc engines (OVAQUIXI 196 cc 6.5 HP OHV engine on Amazon.co.jp)
+    url: https://search.kakaku.com/エンジン%20196cc/
+    retrieved: 2026-11-03
+    license: unknown
+    read: partial
+    note: Read by a helper; the page text was partly garbled. Shaft diameter and governor not stated.
+  - id: M19
+    class: M
+    title: VEVOR 48 V 2000 W brushless motor and controller kit (MY1020D type), eBay listing
+    url: https://ebay.com/itm/126925715082
+    retrieved: 2026-11-03
+    license: unknown
+    read: excerpt
+    note: Seen by a helper as a search excerpt. 4300 rpm, 4.8 N m, controller rated 34 A.
+  - id: M20
+    class: M
+    title: kakaku.com search for 48 V 2000 W brushless motors (kit with 34 A controller and throttle on Amazon.co.jp)
+    url: https://search.kakaku.com/48V%202000W%20ブラシレスモーター/
+    retrieved: 2026-11-03
+    license: unknown
+    read: partial
+    note: Read by a helper; the page text was partly garbled.
+  - id: M21
+    class: M
+    title: LiTime 51.2 V 30 Ah LiFePO4 battery, Yahoo Shopping
+    url: https://store.shopping.yahoo.co.jp/uscire/930114.html
+    retrieved: 2026-11-03
+    license: unknown
+    read: partial
+    note: Read by a helper. 1536 Wh, 13.17 kg, low-temperature cutoff (threshold not stated), free shipping shown.
+  - id: M22
+    class: M
+    title: LiTime 58.4 V 10 A LiFePO4 charger L48V10A-BCHA-A, Yahoo Shopping
+    url: https://store.shopping.yahoo.co.jp/uscire/930120.html
+    retrieved: 2026-11-03
+    license: unknown
+    read: partial
+    note: Read by a helper. Free shipping shown.
+  - id: F1
+    class: F
+    title: Motor1, a shifter kart turned into a snowmobile, 2025-02-02
+    url: https://www.motor1.com/news/749286/shifter-kart-turned-into-snowmobile/
+    retrieved: 2026-11-03
+    license: unknown
+    read: partial
+    note: Read by a helper through a fetch summary. Front skis bolted to the hubs and a rear rubber track; the tracks came off several times.

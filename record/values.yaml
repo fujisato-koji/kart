@@ -71,3 +71,608 @@ items:
     status: assumed
     basis:
       - Q-005
+  - key: snow.density_initial_min
+    v: 0.11
+    unit: Mg/m3
+    status: sourced
+    basis:
+      - P1
+  - key: snow.density_initial_max
+    v: 0.25
+    unit: Mg/m3
+    status: sourced
+    basis:
+      - P1
+  - key: snow.crrel_rhof_a
+    v: 0.519
+    unit: Mg/m3
+    status: sourced
+    basis:
+      - P1
+  - key: snow.crrel_rhof_b
+    v: 0.0023
+    unit: Mg/m3/kPa
+    status: sourced
+    basis:
+      - P1
+  - key: snow.bekker_a_n
+    v: 1.6
+    status: sourced
+    basis:
+      - P2
+  - key: snow.bekker_a_kc
+    v: 4.37
+    unit: "kN/m^(n+1)"
+    status: sourced
+    basis:
+      - P2
+  - key: snow.bekker_a_kphi
+    v: 196.72
+    unit: "kN/m^(n+2)"
+    status: sourced
+    basis:
+      - P2
+  - key: snow.bekker_b_n
+    v: 1.6
+    status: sourced
+    basis:
+      - P2
+  - key: snow.bekker_b_kc
+    v: 2.49
+    unit: "kN/m^(n+1)"
+    status: sourced
+    basis:
+      - P2
+  - key: snow.bekker_b_kphi
+    v: 245.9
+    unit: "kN/m^(n+2)"
+    status: sourced
+    basis:
+      - P2
+  - key: snow.bekker_c_n
+    v: 1.44
+    status: sourced
+    basis:
+      - P2
+  - key: snow.bekker_c_kc
+    v: 10.55
+    unit: "kN/m^(n+1)"
+    status: sourced
+    basis:
+      - P2
+  - key: snow.bekker_c_kphi
+    v: 66.08
+    unit: "kN/m^(n+2)"
+    status: sourced
+    basis:
+      - P2
+  - key: snow.snowmobile_pressure_kpa
+    v: 3.5
+    unit: kPa
+    status: sourced
+    basis:
+      - P2
+  - key: track.width_mm
+    v: 180
+    unit: mm
+    status: sourced
+    basis:
+      - M13
+  - key: track.pitch_mm
+    v: 60
+    unit: mm
+    status: sourced
+    basis:
+      - M13
+  - key: track.links
+    v: 28
+    status: sourced
+    basis:
+      - M13
+  - key: engine.torque_max_nm
+    v: 12.4
+    unit: N m
+    status: sourced
+    basis:
+      - P4
+  - key: engine.speed_rated_rpm
+    v: 3600
+    unit: rpm
+    status: sourced
+    basis:
+      - P4
+  - key: motor.torque_rated_nm
+    v: 3.2
+    unit: N m
+    status: sourced
+    basis:
+      - M5
+  - key: motor.speed_rated_rpm
+    v: 3000
+    unit: rpm
+    status: sourced
+    basis:
+      - M5
+  - key: sprocket.engine_teeth
+    v: 10
+    status: sourced
+    basis:
+      - M2
+  - key: cost.tube_25_jpy_per_m
+    v: 924
+    unit: JPY/m
+    status: sourced
+    basis:
+      - M6
+  - key: cost.tube_32_jpy_per_m
+    v: 1133
+    unit: JPY/m
+    status: sourced
+    basis:
+      - M7
+  - key: cost.axle_kit_jpy
+    v: 21630
+    unit: JPY
+    status: sourced
+    basis:
+      - M8
+  - key: cost.steering_kit_jpy
+    v: 10052
+    unit: JPY
+    status: sourced
+    basis:
+      - M9
+  - key: cost.tyres_set_jpy
+    v: 15460
+    unit: JPY
+    status: sourced
+    basis:
+      - M10
+  - key: cost.seat_jpy
+    v: 3855
+    unit: JPY
+    status: sourced
+    basis:
+      - M17
+  - key: cost.clutch_jpy
+    v: 4960
+    unit: JPY
+    status: sourced
+    basis:
+      - M2
+  - key: cost.engine_genuine_jpy
+    v: 68980
+    unit: JPY
+    status: sourced
+    basis:
+      - M1
+  - key: cost.motor_kit_jpy
+    v: 18780
+    unit: JPY
+    status: sourced
+    basis:
+      - M3
+  - key: cost.battery_12v_jpy
+    v: 13998
+    unit: JPY
+    status: sourced
+    basis:
+      - M4
+  - key: cost.track_jpy
+    v: 24000
+    unit: JPY
+    status: sourced
+    basis:
+      - M13
+  - key: cost.snow_chain_jpy
+    v: 7480
+    unit: JPY
+    status: sourced
+    basis:
+      - M15
+  - key: tyre.dia_mm
+    v: 330
+    unit: mm
+    status: calculated
+    basis:
+      - docs/02-form.md#drive
+  - key: sprocket.pitch_mm
+    v: 12.7
+    unit: mm
+    status: calculated
+    basis:
+      - docs/02-form.md#drive
+  - key: kart.mass_rough_kg
+    v: 70
+    unit: kg
+    status: assumed
+    basis:
+      - Q-009
+  - key: kart.rear_share
+    v: 0.6
+    status: assumed
+    basis:
+      - Q-009
+  - key: tyre.pressure_kpa
+    v: 70
+    unit: kPa
+    status: assumed
+    basis:
+      - Q-009
+  - key: track.wheel_dia_mm
+    v: 200
+    unit: mm
+    status: assumed
+    basis:
+      - Q-009
+  - key: ski.width_mm
+    v: 120
+    unit: mm
+    status: assumed
+    basis:
+      - Q-009
+  - key: ski.contact_length_mm
+    v: 600
+    unit: mm
+    status: assumed
+    basis:
+      - Q-009
+  - key: drive.efficiency
+    v: 0.9
+    status: assumed
+    basis:
+      - Q-009
+  - key: frame.tube_25_m
+    v: 10
+    unit: m
+    status: assumed
+    basis:
+      - Q-009
+  - key: frame.tube_32_m
+    v: 5
+    unit: m
+    status: assumed
+    basis:
+      - Q-009
+  - key: cost.engine_clone_jpy
+    v: 19980
+    unit: JPY
+    status: sourced
+    basis:
+      - M18
+  - key: cost.charger_jpy
+    v: 10000
+    unit: JPY
+    status: assumed
+    basis:
+      - Q-010
+  - key: cost.allow_shipping_jpy
+    v: 5000
+    unit: JPY
+    status: assumed
+    basis:
+      - Q-010
+  - key: cost.allow_small_parts_jpy
+    v: 10000
+    unit: JPY
+    status: assumed
+    basis:
+      - Q-010
+  - key: cost.allow_reduction_jpy
+    v: 8000
+    unit: JPY
+    status: assumed
+    basis:
+      - Q-010
+  - key: cost.allow_skis_jpy
+    v: 8000
+    unit: JPY
+    status: assumed
+    basis:
+      - Q-010
+  - key: cost.allow_track_gear_jpy
+    v: 20000
+    unit: JPY
+    status: assumed
+    basis:
+      - Q-010
+  - key: kart.clearance_rough_mm
+    v: 150
+    unit: mm
+    status: assumed
+    basis:
+      - Q-009
+  - key: kart.cg_height_rough_m
+    v: 0.25
+    unit: m
+    status: assumed
+    basis:
+      - Q-009
+  - key: seat.above_floor_rough_m
+    v: 0.05
+    unit: m
+    status: assumed
+    basis:
+      - Q-009
+  - key: rider.cg_above_seat_m
+    v: 0.25
+    unit: m
+    status: assumed
+    basis:
+      - Q-009
+  - key: motor2.torque_rated_nm
+    v: 4.8
+    unit: N m
+    status: sourced
+    basis:
+      - M19
+  - key: motor2.speed_rated_rpm
+    v: 4300
+    unit: rpm
+    status: sourced
+    basis:
+      - M19
+  - key: cost.motor2_kit_jpy
+    v: 30994
+    unit: JPY
+    status: sourced
+    basis:
+      - M20
+  - key: cost.battery_48v_jpy
+    v: 74780
+    unit: JPY
+    status: sourced
+    basis:
+      - M21
+  - key: cost.charger_48v_jpy
+    v: 20900
+    unit: JPY
+    status: sourced
+    basis:
+      - M22
+  - key: engine.power_max_kw
+    v: 4.3
+    unit: kW
+    status: sourced
+    basis:
+      - P4
+  - key: engine.speed_noload_rpm
+    v: 3850
+    unit: rpm
+    status: assumed
+    basis:
+      - Q-011
+  - key: motor.current_rated_a
+    v: 26.7
+    unit: A
+    status: sourced
+    basis:
+      - M5
+  - key: motor.controller_a
+    v: 30
+    unit: A
+    status: sourced
+    basis:
+      - M3
+  - key: motor2.current_rated_a
+    v: 34
+    unit: A
+    status: sourced
+    basis:
+      - M19
+  - key: motor2.controller_a
+    v: 34
+    unit: A
+    status: sourced
+    basis:
+      - M19
+  - key: ground.crr_max
+    v: 0.12
+    status: sourced
+    basis:
+      - P24
+  - key: kart.axle_part_low_rough_mm
+    v: 75
+    unit: mm
+    status: assumed
+    basis:
+      - Q-009
+  - key: cost.allow_controls_jpy
+    v: 8000
+    unit: JPY
+    status: assumed
+    basis:
+      - Q-010
+  - key: cost.allow_guards_mounts_jpy
+    v: 5000
+    unit: JPY
+    status: assumed
+    basis:
+      - Q-010
+  - key: cost.allow_drive_chains_jpy
+    v: 5000
+    unit: JPY
+    status: assumed
+    basis:
+      - Q-010
+  - key: cost.allow_electric_jpy
+    v: 5000
+    unit: JPY
+    status: assumed
+    basis:
+      - Q-010
+  # begin: generated by calc/form_rough.py
+  - key: form.mass_total_kg
+    v: 170
+    unit: kg
+    status: calculated
+    basis:
+      - docs/02-form.md#mass
+  - key: snow.wheel_sinkage_min_cm
+    v: 19.0
+    unit: cm
+    status: calculated
+    basis:
+      - docs/02-form.md#snow
+  - key: snow.wheel_sinkage_max_cm
+    v: 25.1
+    unit: cm
+    status: calculated
+    basis:
+      - docs/02-form.md#snow
+  - key: snow.track_pressure_kpa
+    v: 5.3
+    unit: kPa
+    status: calculated
+    basis:
+      - docs/02-form.md#snow
+  - key: snow.ski_pressure_kpa
+    v: 4.6
+    unit: kPa
+    status: calculated
+    basis:
+      - docs/02-form.md#snow
+  - key: snow.track_sinkage_max_cm
+    v: 11.1
+    unit: cm
+    status: calculated
+    basis:
+      - docs/02-form.md#snow
+  - key: snow.ski_sinkage_max_cm
+    v: 8.8
+    unit: cm
+    status: calculated
+    basis:
+      - docs/02-form.md#snow
+  - key: snow.track_sinkage_wheels_cm
+    v: 20.9
+    unit: cm
+    status: calculated
+    basis:
+      - docs/02-form.md#snow
+  - key: snow.wheel_depth_limit_cm
+    v: 17.9
+    unit: cm
+    status: calculated
+    basis:
+      - docs/02-form.md#snow
+  - key: snow.wheel_depth_limit_axle_cm
+    v: 8.9
+    unit: cm
+    status: calculated
+    basis:
+      - docs/02-form.md#snow
+  - key: form.cg_height_m
+    v: 0.368
+    unit: m
+    status: calculated
+    basis:
+      - docs/02-form.md#stability
+  - key: form.track_min_m
+    v: 1.11
+    unit: m
+    status: calculated
+    basis:
+      - docs/02-form.md#stability
+  - key: form.track_min_slope_m
+    v: 1.39
+    unit: m
+    status: calculated
+    basis:
+      - docs/02-form.md#stability
+  - key: drive.engine_ratio
+    v: 7.98
+    status: calculated
+    basis:
+      - docs/02-form.md#drive
+  - key: drive.engine_thrust_n
+    v: 497
+    unit: N
+    status: calculated
+    basis:
+      - docs/02-form.md#drive
+  - key: drive.motor_thrust_n
+    v: 122
+    unit: N
+    status: calculated
+    basis:
+      - docs/02-form.md#drive
+  - key: drive.motor2_thrust_n
+    v: 233
+    unit: N
+    status: calculated
+    basis:
+      - docs/02-form.md#drive
+  - key: drive.climb_force_n
+    v: 365
+    unit: N
+    status: calculated
+    basis:
+      - docs/02-form.md#drive
+  - key: drive.grass_power_kw
+    v: 1.85
+    unit: kW
+    status: calculated
+    basis:
+      - docs/02-form.md#drive
+  - key: drive.sprocket_reach_mm
+    v: 0
+    unit: mm
+    status: calculated
+    basis:
+      - docs/02-form.md#drive
+  - key: cost.chassis_jpy
+    v: 93902
+    unit: JPY
+    status: calculated
+    basis:
+      - docs/02-form.md#cost
+  - key: cost.power_engine_clone_jpy
+    v: 37940
+    unit: JPY
+    status: calculated
+    basis:
+      - docs/02-form.md#cost
+  - key: cost.power_engine_genuine_jpy
+    v: 86940
+    unit: JPY
+    status: calculated
+    basis:
+      - docs/02-form.md#cost
+  - key: cost.power_electric_jpy
+    v: 94772
+    unit: JPY
+    status: calculated
+    basis:
+      - docs/02-form.md#cost
+  - key: cost.power_electric2_jpy
+    v: 136674
+    unit: JPY
+    status: calculated
+    basis:
+      - docs/02-form.md#cost
+  - key: cost.winter_skis_chains_jpy
+    v: 22960
+    unit: JPY
+    status: calculated
+    basis:
+      - docs/02-form.md#cost
+  - key: cost.winter_tracks_jpy
+    v: 76000
+    unit: JPY
+    status: calculated
+    basis:
+      - docs/02-form.md#cost
+  - key: cost.total_l2_e1_w1_jpy
+    v: 154802
+    unit: JPY
+    status: calculated
+    basis:
+      - docs/02-form.md#cost
+  - key: cost.total_l2_e1_w2_jpy
+    v: 207842
+    unit: JPY
+    status: calculated
+    basis:
+      - docs/02-form.md#cost
+  # end: generated by calc/form_rough.py

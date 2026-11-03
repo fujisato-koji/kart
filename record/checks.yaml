@@ -1,3 +1,41 @@
 kind: check
 schema: 1
 items:
+  - id: K-001
+    target:
+      - snow.wheel_sinkage_max_cm
+      - snow.wheel_depth_limit_cm
+      - snow.track_sinkage_max_cm
+      - drive.engine_thrust_n
+      - drive.motor_thrust_n
+      - drive.motor2_thrust_n
+      - drive.sprocket_reach_mm
+      - form.track_min_m
+      - cost.total_l2_e1_w1_jpy
+      - cost.total_l2_e1_w2_jpy
+    tier: T2
+    method: refute
+    result: partial
+    by: assistant
+    date: 2026-11-03
+    detail: An independent helper recomputed every claim by hand and then read calc/form_rough.py; the arithmetic held, the method did not in places. Found (1) P1's pmax is the contact pressure, not the inflation pressure, which does not change the conclusion; the sinkage exceeds the tyre radius, and the lowest part is the axle hardware, not the floor. (2) Tracks without road wheels carry the load under the sprocket and idler, so the even-belt pressure understates their sinkage; W2 passing R-06 was not shown, and P1 excludes tracked vehicles. (3) The climb needs rolling resistance on grass and gravel; a motor's force is limited by its controller current; 3600 rpm is P4's rated speed, not the governed no-load speed, so gearing to it may break R-01. (4) Whole teeth and tooth tips put the single-stage sprocket lower still. (5) The track width was rounded down, and R-12 on level ground does not cover the slope sideways. (6) Pedals, cables, stop switch, drive chains, guards, mounts, and electric wiring were missing from the cost, and two snow chains may be counted where one pair was priced. The script and record were changed on each point on the same day; see docs/02-form.md.
+  - id: K-002
+    target:
+      - snow.track_sinkage_wheels_cm
+      - snow.wheel_depth_limit_cm
+      - snow.wheel_depth_limit_axle_cm
+      - form.track_min_m
+      - form.track_min_slope_m
+      - drive.engine_thrust_n
+      - drive.motor_thrust_n
+      - drive.motor2_thrust_n
+      - drive.climb_force_n
+      - drive.sprocket_reach_mm
+      - cost.total_l2_e1_w1_jpy
+      - cost.total_l2_e1_w2_jpy
+    tier: T2
+    method: refute
+    result: partial
+    by: assistant
+    date: 2026-11-03
+    detail: A second independent helper rechecked the repairs of K-001 by hand; all seven figures reproduce, and the script matches the record. Partial on the motors - the 2 kW kit's torque, speed, and current disagree (its rated current is probably the controller's rating), the text wrongly said the electric kits climb on pavement, and whether the controllers limit battery or motor current is not assessed. Also noted - the track wheel relation is used beyond its small-sinkage range, tracks on smaller wheels lower the rear axle, E1h has the same margin as E1, and the gearing limits speed only on level ground and uphill. The text of docs/02-form.md was corrected on each point the same day; no number changed.

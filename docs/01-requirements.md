@@ -109,6 +109,108 @@ These are not decided here. 1.2 compares forms against them.
 | kart.run_time_min | 30 | min | assumed | Q-007 |
 | kart.stop_distance_max_m | 6 | m | assumed | Q-004 |
 | kart.tip_ratio_min | 1.5 |  | assumed | Q-005 |
+| snow.density_initial_min | 0.11 | Mg/m3 | sourced | P1 |
+| snow.density_initial_max | 0.25 | Mg/m3 | sourced | P1 |
+| snow.crrel_rhof_a | 0.519 | Mg/m3 | sourced | P1 |
+| snow.crrel_rhof_b | 0.0023 | Mg/m3/kPa | sourced | P1 |
+| snow.bekker_a_n | 1.6 |  | sourced | P2 |
+| snow.bekker_a_kc | 4.37 | kN/m^(n+1) | sourced | P2 |
+| snow.bekker_a_kphi | 196.72 | kN/m^(n+2) | sourced | P2 |
+| snow.bekker_b_n | 1.6 |  | sourced | P2 |
+| snow.bekker_b_kc | 2.49 | kN/m^(n+1) | sourced | P2 |
+| snow.bekker_b_kphi | 245.9 | kN/m^(n+2) | sourced | P2 |
+| snow.bekker_c_n | 1.44 |  | sourced | P2 |
+| snow.bekker_c_kc | 10.55 | kN/m^(n+1) | sourced | P2 |
+| snow.bekker_c_kphi | 66.08 | kN/m^(n+2) | sourced | P2 |
+| snow.snowmobile_pressure_kpa | 3.5 | kPa | sourced | P2 |
+| track.width_mm | 180 | mm | sourced | M13 |
+| track.pitch_mm | 60 | mm | sourced | M13 |
+| track.links | 28 |  | sourced | M13 |
+| engine.torque_max_nm | 12.4 | N m | sourced | P4 |
+| engine.speed_rated_rpm | 3600 | rpm | sourced | P4 |
+| motor.torque_rated_nm | 3.2 | N m | sourced | M5 |
+| motor.speed_rated_rpm | 3000 | rpm | sourced | M5 |
+| sprocket.engine_teeth | 10 |  | sourced | M2 |
+| cost.tube_25_jpy_per_m | 924 | JPY/m | sourced | M6 |
+| cost.tube_32_jpy_per_m | 1133 | JPY/m | sourced | M7 |
+| cost.axle_kit_jpy | 21630 | JPY | sourced | M8 |
+| cost.steering_kit_jpy | 10052 | JPY | sourced | M9 |
+| cost.tyres_set_jpy | 15460 | JPY | sourced | M10 |
+| cost.seat_jpy | 3855 | JPY | sourced | M17 |
+| cost.clutch_jpy | 4960 | JPY | sourced | M2 |
+| cost.engine_genuine_jpy | 68980 | JPY | sourced | M1 |
+| cost.motor_kit_jpy | 18780 | JPY | sourced | M3 |
+| cost.battery_12v_jpy | 13998 | JPY | sourced | M4 |
+| cost.track_jpy | 24000 | JPY | sourced | M13 |
+| cost.snow_chain_jpy | 7480 | JPY | sourced | M15 |
+| tyre.dia_mm | 330 | mm | calculated | docs/02-form.md#drive |
+| sprocket.pitch_mm | 12.7 | mm | calculated | docs/02-form.md#drive |
+| kart.mass_rough_kg | 70 | kg | assumed | Q-009 |
+| kart.rear_share | 0.6 |  | assumed | Q-009 |
+| tyre.pressure_kpa | 70 | kPa | assumed | Q-009 |
+| track.wheel_dia_mm | 200 | mm | assumed | Q-009 |
+| ski.width_mm | 120 | mm | assumed | Q-009 |
+| ski.contact_length_mm | 600 | mm | assumed | Q-009 |
+| drive.efficiency | 0.9 |  | assumed | Q-009 |
+| frame.tube_25_m | 10 | m | assumed | Q-009 |
+| frame.tube_32_m | 5 | m | assumed | Q-009 |
+| cost.engine_clone_jpy | 19980 | JPY | sourced | M18 |
+| cost.charger_jpy | 10000 | JPY | assumed | Q-010 |
+| cost.allow_shipping_jpy | 5000 | JPY | assumed | Q-010 |
+| cost.allow_small_parts_jpy | 10000 | JPY | assumed | Q-010 |
+| cost.allow_reduction_jpy | 8000 | JPY | assumed | Q-010 |
+| cost.allow_skis_jpy | 8000 | JPY | assumed | Q-010 |
+| cost.allow_track_gear_jpy | 20000 | JPY | assumed | Q-010 |
+| kart.clearance_rough_mm | 150 | mm | assumed | Q-009 |
+| kart.cg_height_rough_m | 0.25 | m | assumed | Q-009 |
+| seat.above_floor_rough_m | 0.05 | m | assumed | Q-009 |
+| rider.cg_above_seat_m | 0.25 | m | assumed | Q-009 |
+| motor2.torque_rated_nm | 4.8 | N m | sourced | M19 |
+| motor2.speed_rated_rpm | 4300 | rpm | sourced | M19 |
+| cost.motor2_kit_jpy | 30994 | JPY | sourced | M20 |
+| cost.battery_48v_jpy | 74780 | JPY | sourced | M21 |
+| cost.charger_48v_jpy | 20900 | JPY | sourced | M22 |
+| engine.power_max_kw | 4.3 | kW | sourced | P4 |
+| engine.speed_noload_rpm | 3850 | rpm | assumed | Q-011 |
+| motor.current_rated_a | 26.7 | A | sourced | M5 |
+| motor.controller_a | 30 | A | sourced | M3 |
+| motor2.current_rated_a | 34 | A | sourced | M19 |
+| motor2.controller_a | 34 | A | sourced | M19 |
+| ground.crr_max | 0.12 |  | sourced | P24 |
+| kart.axle_part_low_rough_mm | 75 | mm | assumed | Q-009 |
+| cost.allow_controls_jpy | 8000 | JPY | assumed | Q-010 |
+| cost.allow_guards_mounts_jpy | 5000 | JPY | assumed | Q-010 |
+| cost.allow_drive_chains_jpy | 5000 | JPY | assumed | Q-010 |
+| cost.allow_electric_jpy | 5000 | JPY | assumed | Q-010 |
+| form.mass_total_kg | 170 | kg | calculated | docs/02-form.md#mass |
+| snow.wheel_sinkage_min_cm | 19.0 | cm | calculated | docs/02-form.md#snow |
+| snow.wheel_sinkage_max_cm | 25.1 | cm | calculated | docs/02-form.md#snow |
+| snow.track_pressure_kpa | 5.3 | kPa | calculated | docs/02-form.md#snow |
+| snow.ski_pressure_kpa | 4.6 | kPa | calculated | docs/02-form.md#snow |
+| snow.track_sinkage_max_cm | 11.1 | cm | calculated | docs/02-form.md#snow |
+| snow.ski_sinkage_max_cm | 8.8 | cm | calculated | docs/02-form.md#snow |
+| snow.track_sinkage_wheels_cm | 20.9 | cm | calculated | docs/02-form.md#snow |
+| snow.wheel_depth_limit_cm | 17.9 | cm | calculated | docs/02-form.md#snow |
+| snow.wheel_depth_limit_axle_cm | 8.9 | cm | calculated | docs/02-form.md#snow |
+| form.cg_height_m | 0.368 | m | calculated | docs/02-form.md#stability |
+| form.track_min_m | 1.11 | m | calculated | docs/02-form.md#stability |
+| form.track_min_slope_m | 1.39 | m | calculated | docs/02-form.md#stability |
+| drive.engine_ratio | 7.98 |  | calculated | docs/02-form.md#drive |
+| drive.engine_thrust_n | 497 | N | calculated | docs/02-form.md#drive |
+| drive.motor_thrust_n | 122 | N | calculated | docs/02-form.md#drive |
+| drive.motor2_thrust_n | 233 | N | calculated | docs/02-form.md#drive |
+| drive.climb_force_n | 365 | N | calculated | docs/02-form.md#drive |
+| drive.grass_power_kw | 1.85 | kW | calculated | docs/02-form.md#drive |
+| drive.sprocket_reach_mm | 0 | mm | calculated | docs/02-form.md#drive |
+| cost.chassis_jpy | 93902 | JPY | calculated | docs/02-form.md#cost |
+| cost.power_engine_clone_jpy | 37940 | JPY | calculated | docs/02-form.md#cost |
+| cost.power_engine_genuine_jpy | 86940 | JPY | calculated | docs/02-form.md#cost |
+| cost.power_electric_jpy | 94772 | JPY | calculated | docs/02-form.md#cost |
+| cost.power_electric2_jpy | 136674 | JPY | calculated | docs/02-form.md#cost |
+| cost.winter_skis_chains_jpy | 22960 | JPY | calculated | docs/02-form.md#cost |
+| cost.winter_tracks_jpy | 76000 | JPY | calculated | docs/02-form.md#cost |
+| cost.total_l2_e1_w1_jpy | 154802 | JPY | calculated | docs/02-form.md#cost |
+| cost.total_l2_e1_w2_jpy | 207842 | JPY | calculated | docs/02-form.md#cost |
 <!-- tdr:end -->
 
 ## 1.1.7 Open items {#open}
@@ -120,8 +222,12 @@ These are not decided here. 1.2 compares forms against them.
 | Q-002 | How old and how tall is the youngest child who will drive, and how tall is the tallest adult? The seat and pedal range is assumed from 120 cm to 185 cm stature until the owner answers, and is then set from body dimension data. | owner |
 | Q-003 | Does the top speed of 30 km/h have to be reached on snow, or is a lower speed enough on packed snow and in fresh snow? R-05 and R-06 ask only that the kart runs, turns, and stops on snow. | owner |
 | Q-004 | Set the longest stopping distance from the top speed from a go-kart standard or kart rules. Until then it is assumed at 6 m, about 0.6 g. | assistant |
-| Q-005 | Set the smallest ratio of half the track width to the height of the centre of mass, so that the kart slides before it tips, from tyre friction data and any standard. Until then it is assumed at 1.5. | assistant |
+| Q-005 | Set the smallest ratio of half the track width to the height of the centre of mass, so that the kart slides before it tips, from tyre friction data and any standard. Until then it is assumed at 1.5. Also decide whether R-12 must hold standing sideways on site.grade_max_pct, which needs a wider track (form.track_min_slope_m, check K-001). | assistant |
 | Q-006 | Where is the kart kept (indoors, under a roof, outdoors), and must it be carried in a car or a truck? This sets the size and mass limits and whether it stands in the cold before a run. | owner |
 | Q-007 | How long is one session of driving, how often is the kart used, and by when should it be ready? The run time per charge or tank is assumed at 30 min until the owner answers. | owner |
 | Q-008 | What is the steepest slope the kart must climb on the land? It is assumed at 10 % until the owner answers. | owner |
+| Q-009 | The rough inputs of step 1.2 (kart mass and its rear share, tyre pressure, track wheel diameter, ski size, drive efficiency, tube lengths, ground clearance, and heights of the centres of mass) are assumed so that forms can be compared. Step 1.3 replaces each with the chosen part's data or a calculation. | assistant |
+| Q-010 | The price of the 12 V chargers for E2 and the allowances for shipping, small parts, a reduction stage, skis, the track running gear, pedals and cables and the stop switch, guards and mounts, drive chains, and electric wiring are assumed. Whether the snow chain price of M15 is for one tyre or a pair is not known; two are counted. Step 1.5 replaces each with a quoted price. | assistant |
+| Q-011 | What is the governed no-load speed of the chosen engine? The gearing for R-01 is set to it. It is assumed at 3850 rpm from a checker's recollection (K-001), not from a source; take it from the engine maker's data, or measure it on the engine when it arrives. | assistant |
+| Q-012 | How far does the owner's fresh snow give under a loaded plate? A board of known area loaded to about 5 kPa and to about 16 kPa, set on undisturbed fresh snow and its sinkage measured, settles whether rear tracks (W2) clear snow.depth_max_cm before the frame is given mounts for them. | owner |
 <!-- tdr:end -->

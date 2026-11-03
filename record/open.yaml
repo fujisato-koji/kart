@@ -40,7 +40,7 @@ items:
     phase: design
   - id: Q-005
     kind: question
-    text: Set the smallest ratio of half the track width to the height of the centre of mass, so that the kart slides before it tips, from tyre friction data and any standard. Until then it is assumed at 1.5.
+    text: Set the smallest ratio of half the track width to the height of the centre of mass, so that the kart slides before it tips, from tyre friction data and any standard. Until then it is assumed at 1.5. Also decide whether R-12 must hold standing sideways on site.grade_max_pct, which needs a wider track (form.track_min_slope_m, check K-001).
     waits_for: assistant
     affects:
       - kart.tip_ratio_min
@@ -69,5 +69,62 @@ items:
     waits_for: owner
     affects:
       - site.grade_max_pct
+    opened: 2026-11-03
+    phase: design
+  - id: Q-009
+    kind: question
+    text: The rough inputs of step 1.2 (kart mass and its rear share, tyre pressure, track wheel diameter, ski size, drive efficiency, tube lengths, ground clearance, and heights of the centres of mass) are assumed so that forms can be compared. Step 1.3 replaces each with the chosen part's data or a calculation.
+    waits_for: assistant
+    affects:
+      - kart.mass_rough_kg
+      - kart.rear_share
+      - tyre.pressure_kpa
+      - track.wheel_dia_mm
+      - ski.width_mm
+      - ski.contact_length_mm
+      - drive.efficiency
+      - frame.tube_25_m
+      - frame.tube_32_m
+      - kart.clearance_rough_mm
+      - kart.axle_part_low_rough_mm
+      - kart.cg_height_rough_m
+      - seat.above_floor_rough_m
+      - rider.cg_above_seat_m
+    opened: 2026-11-03
+    phase: design
+  - id: Q-010
+    kind: question
+    text: The price of the 12 V chargers for E2 and the allowances for shipping, small parts, a reduction stage, skis, the track running gear, pedals and cables and the stop switch, guards and mounts, drive chains, and electric wiring are assumed. Whether the snow chain price of M15 is for one tyre or a pair is not known; two are counted. Step 1.5 replaces each with a quoted price.
+    waits_for: assistant
+    affects:
+      - cost.charger_jpy
+      - cost.allow_shipping_jpy
+      - cost.allow_small_parts_jpy
+      - cost.allow_reduction_jpy
+      - cost.allow_skis_jpy
+      - cost.allow_track_gear_jpy
+      - cost.allow_controls_jpy
+      - cost.allow_guards_mounts_jpy
+      - cost.allow_drive_chains_jpy
+      - cost.allow_electric_jpy
+    opened: 2026-11-03
+    phase: design
+  - id: Q-011
+    kind: question
+    text: What is the governed no-load speed of the chosen engine? The gearing for R-01 is set to it. It is assumed at 3850 rpm from a checker's recollection (K-001), not from a source; take it from the engine maker's data, or measure it on the engine when it arrives.
+    waits_for: assistant
+    affects:
+      - engine.speed_noload_rpm
+      - R-01
+    opened: 2026-11-03
+    phase: design
+  - id: Q-012
+    kind: question
+    text: How far does the owner's fresh snow give under a loaded plate? A board of known area loaded to about 5 kPa and to about 16 kPa, set on undisturbed fresh snow and its sinkage measured, settles whether rear tracks (W2) clear snow.depth_max_cm before the frame is given mounts for them.
+    waits_for: owner
+    affects:
+      - snow.track_sinkage_max_cm
+      - snow.track_sinkage_wheels_cm
+      - R-06
     opened: 2026-11-03
     phase: design
