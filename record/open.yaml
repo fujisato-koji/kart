@@ -22,6 +22,8 @@ items:
       - R-03
     opened: 2026-11-03
     phase: design
+    closed_by: D-016
+    closed: 2026-11-03
   - id: Q-003
     kind: question
     text: Does the top speed of 30 km/h have to be reached on snow, or is a lower speed enough on packed snow and in fresh snow? R-05 and R-06 ask only that the kart runs, turns, and stops on snow.

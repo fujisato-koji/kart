@@ -119,7 +119,7 @@ The cargo floor lip is at delica.lip_height_mm, so one adult loading alone (R-15
 - **No seat belt.** Race karts have no roll bar and prohibit seat belts (P18). The kart follows that: no belt without a roll bar.
 - **Braking distance.** No kart standard with a stopping distance could be read; ASTM's fun-kart standard excludes home-made karts and may not be given to an AI (P23). The Japanese rule for mopeds (P15) gives, at the top speed, a limit for linked brakes that is longer than the assumed kart.stop_distance_max_m. Section 1.2.12 proposes which to use.
 - **A young driver.** The youngest driver is 5 (D-010). US youth ATV guidance allows no ATVs under 6 and limits ages 6 and up to a low speed with the restrictor (P25, S2), which is why R-17 proposes a child limit of kart.speed_child_kmh that an adult sets (Q-013).
-- **Body sizes.** The seat and pedals reach down to rider.stature_min_cm, the small end for a 5-year-old (P21), and up to rider.stature_max_cm (Q-002).
+- **Body sizes.** The seat and pedals reach down to rider.stature_min_cm, the small end for a 5-year-old (P21), and up to rider.stature_max_cm, the tallest adult (D-016).
 
 ## 1.2.10 Cost {#cost}
 

@@ -261,11 +261,11 @@
   },
   {
    "key": "rider.stature_max_cm",
-   "v": 185,
+   "v": 170,
    "unit": "cm",
-   "status": "assumed",
+   "status": "decided",
    "basis": [
-    "Q-002"
+    "D-016"
    ]
   },
   {
@@ -2522,6 +2522,16 @@
     "R-01"
    ],
    "supersedes": "D-003"
+  },
+  {
+   "id": "D-016",
+   "date": "2026-11-03",
+   "by": "owner",
+   "what": "The tallest adult who drives is about 170 cm tall.",
+   "touches": [
+    "rider.stature_max_cm",
+    "R-03"
+   ]
   }
  ],
  "open": [
@@ -2550,7 +2560,9 @@
     "R-03"
    ],
    "opened": "2026-11-03",
-   "phase": "design"
+   "phase": "design",
+   "closed_by": "D-016",
+   "closed": "2026-11-03"
   },
   {
    "id": "Q-003",

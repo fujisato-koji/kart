@@ -43,11 +43,11 @@ items:
     basis:
       - P21
   - key: rider.stature_max_cm
-    v: 185
+    v: 170
     unit: cm
-    status: assumed
+    status: decided
     basis:
-      - Q-002
+      - D-016
   - key: site.grade_max_pct
     v: 20
     unit: "%"

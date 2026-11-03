@@ -12,7 +12,7 @@ Asked on 2026-11-03, before any form was compared; a second round of answers cam
 | Question | Answer recorded as |
 |----------|--------------------|
 | Where the kart runs, and the law there | D-005 (private land only, no public road), D-006 (snow) |
-| Who drives | D-001, D-004 (child speed, adult strength and fit), D-009 (the heaviest adult), D-010 (the youngest driver), Q-002 |
+| Who drives | D-001, D-004 (child speed, adult strength and fit), D-009 (the heaviest adult), D-010 (the youngest driver), D-016 (the tallest adult) |
 | Top speed | D-003, lowered by D-015; on snow, D-011 |
 | Ground in summer | D-005 |
 | Snow in winter | D-006, Q-003 |
@@ -59,7 +59,7 @@ R-09 to R-13, R-15, and R-17 are derived from the hazards in 1.1.4 and wait for 
 
 - **R-01 speed.** The owner set the speed for a child (D-003) and then lowered it to see whether the kart can be made cheaper (D-015). It applies on paved ground; on snow the kart may be slow (D-011). The limit holds with the lightest rider too, because a light rider makes the kart faster on the same drive.
 - **R-02 strength.** The owner wants an adult to drive (D-004), up to rider.mass_max_kg (D-009). The load cases (bumps, braking, a kerb hit, a slope) are set in 1.3.
-- **R-03 fit.** One kart must fit both a child and an adult (D-004). Adjustment without welding or cutting lets the owner switch drivers on the spot. The youngest driver is 5 (D-010), so the small end rider.stature_min_cm comes from the school health statistics for 5-year-olds (P21); the large end rider.stature_max_cm is assumed until Q-002 is answered.
+- **R-03 fit.** One kart must fit both a child and an adult (D-004). Adjustment without welding or cutting lets the owner switch drivers on the spot. The youngest driver is 5 (D-010), so the small end rider.stature_min_cm comes from the school health statistics for 5-year-olds (P21); the large end rider.stature_max_cm is the tallest adult who drives (D-016).
 - **R-04 ground.** The owner named three grounds (D-005). Gravel and grass set the tyre size and the clearance; slopes set the drive (Q-008).
 - **R-05 and R-06 snow.** The owner wants both packed snow and fresh snow up to snow.depth_max_cm (D-006). The requirement on snow is only that the kart runs, turns, and stops, at any speed (D-011).
 - **R-07 cold.** The owner set ambient.temp_min_c (D-007). The kart is kept outdoors under a roof (D-012), so it stands in the cold before a run. With an engine, refuelling between runs is fine; with batteries the owner wants kart.run_time_min or more per charge, depending on the trade-off (D-013).
@@ -117,7 +117,7 @@ These are not decided here. 1.2 compares forms against them.
 | budget.parts_jpy | 100000 | JPY | decided | D-008 |
 | rider.mass_max_kg | 100 | kg | decided | D-009 |
 | rider.stature_min_cm | 102 | cm | sourced | P21 |
-| rider.stature_max_cm | 185 | cm | assumed | Q-002 |
+| rider.stature_max_cm | 170 | cm | decided | D-016 |
 | site.grade_max_pct | 20 | % | assumed | Q-008 |
 | kart.run_time_min | 120 | min | decided | D-013 |
 | kart.stop_distance_max_m | 6 | m | assumed | Q-004 |
