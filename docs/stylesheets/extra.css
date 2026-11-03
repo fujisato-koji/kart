@@ -1,0 +1,35 @@
+.rec-badge {
+  display: inline-block;
+  padding: 0 0.4em;
+  margin: 0 0.1em;
+  border: 1px solid var(--md-default-fg-color--lighter);
+  border-radius: 0.6em;
+  background: var(--md-code-bg-color);
+  color: var(--md-default-fg-color);
+  font-size: 0.8em;
+  line-height: 1.5;
+  white-space: nowrap;
+  cursor: help;
+}
+.rec-badge[data-status="assumed"] {
+  border-style: dashed;
+  border-color: var(--md-accent-fg-color);
+}
+.rec-badge[data-status="decided"] { border-color: var(--md-primary-fg-color); }
+a.rec-id {
+  font-family: var(--md-code-font, monospace);
+  font-size: 0.92em;
+  color: var(--md-typeset-a-color);
+  border-bottom: 1px dotted var(--md-typeset-a-color);
+}
+a.rec-id:hover { color: var(--md-accent-fg-color); border-bottom-style: solid; }
+.md-typeset a.app-link {
+  display: block;
+  margin: 1.2em 0;
+  padding: 0.9em 1em;
+  border: 2px solid var(--md-primary-fg-color);
+  border-radius: 0.3em;
+  font-size: 1.1em;
+  font-weight: 700;
+  text-align: center;
+}

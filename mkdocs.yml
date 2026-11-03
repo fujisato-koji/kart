@@ -1,0 +1,53 @@
+site_name: "Kart: a traceable design record"
+site_url: https://fujisato-koji.github.io/kart/
+site_description: Design record of a home-built off-road go-kart
+repo_url: https://github.com/fujisato-koji/kart
+edit_uri: edit/main/docs/
+
+theme:
+  name: material
+  language: en
+  features:
+    - navigation.sections
+    - navigation.top
+    - navigation.instant
+    - content.code.copy
+  palette:
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      toggle:
+        icon: material/weather-night
+        name: Switch to dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      toggle:
+        icon: material/weather-sunny
+        name: Switch to light mode
+
+markdown_extensions:
+  - tables
+  - admonition
+  - attr_list
+  - md_in_html
+  - toc:
+      permalink: true
+
+# docs/navigator/, docs/viewer/ and docs/data/ hold only non-Markdown files
+# (html, js, css, json); MkDocs copies them to the site as they are.
+extra_javascript:
+  - javascripts/record-links.js
+
+extra_css:
+  - stylesheets/extra.css
+
+nav:
+  - Home: index.md
+  - 1.1 Requirements: 01-requirements.md
+  - 1.2 Form: 02-form.md
+  - 1.3 Design: 03-design.md
+  - 1.4 Availability: 04-availability.md
+  - 1.5 Parts and cost: 05-parts-and-cost.md
+  - Build: 06-build.md
+  - Operation: 07-operation.md
+  - Navigator: navigator.md
+  - 3D simulator: simulator.md

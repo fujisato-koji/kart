@@ -24,6 +24,13 @@ jobs:
           fi
       - name: Check the record
         run: python tools/tdr.py check
+      - name: Check the site data
+        run: python tools/gen_site_data.py --check
+      - uses: actions/setup-node@v5
+        with:
+          node-version: 24
+      - name: Test the simulator
+        run: node tools/test_sim.mjs
       - name: Check the tier of the change
         if: github.event_name == 'pull_request'
         env:

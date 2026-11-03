@@ -34,3 +34,16 @@ python tools/tdr.py brief bracket R-02
 python tools/tdr.py tier --message change.txt
 python tools/tdr.py mcp               # MCP server over stdio
 ```
+
+## Site
+
+The record is published as a MkDocs Material site at https://fujisato-koji.github.io/kart/ by `.github/workflows/pages.yml`. It holds the reasoning pages in `docs/`, a navigator over the record (`docs/navigator/`) and a 3D simulator (`docs/viewer/`). In the pages, value keys get badges and item ids link to the navigator.
+
+```bash
+pip install -r requirements-site.txt
+python tools/gen_site_data.py   # regenerate docs/data/record.json from record/
+mkdocs serve                    # preview at http://127.0.0.1:8000/kart/
+mkdocs build --strict
+```
+
+`docs/data/record.json` is generated from `record/`; do not edit it by hand (`python tools/gen_site_data.py --check` fails if it is stale).
