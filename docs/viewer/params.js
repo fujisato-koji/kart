@@ -54,6 +54,7 @@ export function makeParams(record) {
     rpmRated: val('drive.rpmRated', 'engine.speed_rated_rpm'),
     rpmNoLoad: val('drive.rpmNoLoad', 'engine.speed_noload_rpm'),
     rpmEngage: val('drive.rpmEngage', 'clutch.engage_rpm'),
+    rpmLock: val('drive.rpmLock', 'clutch.lock_rpm'),
     ratio: val('drive.ratio', 'drive.engine_ratio'),
     eta: val('drive.eta', 'drive.efficiency'),
     vMax: val('drive.vMax', 'kart.speed_max_kmh', 1 / 3.6), // m/s

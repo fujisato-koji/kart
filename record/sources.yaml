@@ -424,7 +424,7 @@ items:
     retrieved: 2026-11-03
     license: unknown
     read: full
-    note: Read by a helper through a fetch summary with verbatim quotes. Engagement about 2200 rpm for a Max-Torque SS; a slipping clutch makes great heat, driving too slowly or restricting the throttle ruins it; hills and deep grass add strain; kart and driver up to 400 lb; rear wheels over 15 inch need a torque converter (quoting Max-Torque).
+    note: Read by a helper through a fetch summary with verbatim quotes. A generic clutch starts to engage at about 2000 rpm and locks up at about 2600 rpm; engagement about 2200 rpm for a Max-Torque SS; a slipping clutch makes great heat, driving too slowly or restricting the throttle ruins it; hills and deep grass add strain; kart and driver up to 400 lb; rear wheels over 15 inch need a torque converter (quoting Max-Torque).
   - id: M24
     class: M
     title: OMB Warehouse, Comet TAV2 torque converter drive 3/4 inch 10T

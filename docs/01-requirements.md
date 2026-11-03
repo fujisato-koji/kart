@@ -225,6 +225,7 @@ These are not decided here. 1.2 compares forms against them.
 | kart.length_rough_mm | 1550 | mm | assumed | Q-009 |
 | rider.cg_above_seat_child_m | 0.15 | m | assumed | Q-009 |
 | tyre.width_mm | 127 | mm | calculated | docs/02-form.md#drive |
+| clutch.lock_rpm | 2600 | rpm | sourced | M23 |
 | form.mass_total_kg | 170 | kg | calculated | docs/02-form.md#mass |
 | snow.wheel_sinkage_min_cm | 19.0 | cm | calculated | docs/02-form.md#snow |
 | snow.wheel_sinkage_max_cm | 25.1 | cm | calculated | docs/02-form.md#snow |
