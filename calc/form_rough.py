@@ -93,6 +93,8 @@ def compute(v):
     cg = ((v["kart.mass_rough_kg"] * v["kart.cg_height_rough_m"]
            + v["rider.mass_max_kg"] * (seat + v["rider.cg_above_seat_m"])) / m)
     put("form.cg_height_m", round(cg, 3), "m", "stability")
+    put("form.width_overall_m", round(math.ceil(200 * cg * v["kart.tip_ratio_min"]) / 100 + v["tyre.width_mm"] / 1000, 2),
+        "m", "transport")
     put("form.track_min_m", math.ceil(200 * cg * v["kart.tip_ratio_min"]) / 100, "m", "stability")
     # The same margin kept across the steepest slope, standing sideways on it
     slope = math.atan(v["site.grade_max_pct"] / 100)
@@ -109,13 +111,16 @@ def compute(v):
     put("drive.engine_ratio", round(ratio_e, 2), None, "drive")
     t_e = v["engine.power_max_kw"] * 1000 / (v["engine.speed_rated_rpm"] * 2 * math.pi / 60)
     put("drive.engine_thrust_n", round(t_e * ratio_e * eta / r), "N", "drive")
+    t_c = v["engine.power_cont_kw"] * 1000 / (v["engine.speed_rated_rpm"] * 2 * math.pi / 60)
+    put("drive.engine_thrust_cont_n", round(t_c * ratio_e * eta / r), "N", "drive")
     for tag, pre in (("motor", "motor"), ("motor2", "motor2")):
         ratio_m = v[f"{pre}.speed_rated_rpm"] / wheel_rpm
         t_m = v[f"{pre}.torque_rated_nm"] * v[f"{pre}.controller_a"] / v[f"{pre}.current_rated_a"]
         put(f"drive.{tag}_thrust_n", round(t_m * ratio_m * eta / r), "N", "drive")
-    # Below this speed the centrifugal clutch slips
-    put("drive.clutch_lock_kmh", round(v["kart.speed_max_kmh"] * v["clutch.engage_rpm"] / v["engine.speed_noload_rpm"], 1),
-        "km/h", "drive")
+    # The centrifugal clutch starts to drive at the first speed and slips below the second
+    for tag, rpm in (("engage", "clutch.engage_rpm"), ("lock", "clutch.lock_rpm")):
+        put(f"drive.clutch_{tag}_kmh", round(v["kart.speed_max_kmh"] * v[rpm] / v["engine.speed_noload_rpm"], 1),
+            "km/h", "drive")
     crr = v["ground.crr_max"]
     put("drive.climb_force_n", round(w * (math.sin(slope) + crr * math.cos(slope))), "N", "drive")
     put("drive.grass_power_kw", round(crr * w * v["kart.speed_max_kmh"] / 3.6 / eta / 1000, 2), "kW", "drive")
@@ -151,6 +156,26 @@ def compute(v):
     put("cost.total_l2_e1_w1_jpy", round(base + v["cost.allow_skis_jpy"] + 2 * v["cost.snow_chain_jpy"]), "JPY", "cost")
     put("cost.total_l2_e1_w2_jpy", round(base + v["cost.allow_skis_jpy"] + 2 * v["cost.track_jpy"]
                                          + v["cost.allow_track_gear_jpy"]), "JPY", "cost")
+    # Cheaper routes, both with W1: the cheapest new parts seen, and a used buggy as donor
+    # of axle, hubs, brake, wheels, steering, and engine with its gearbox
+    common = (frame + v["cost.allow_small_parts_jpy"] + v["cost.allow_controls_jpy"]
+              + v["cost.allow_guards_mounts_jpy"] + v["cost.allow_skis_jpy"] + 2 * v["cost.snow_chain_jpy"])
+    cheap = (common + v["cost.axle_parts_cheap_jpy"] + v["cost.steering_cheap_jpy"]
+             + 4 * v["cost.tyre_each_cheap_jpy"] + v["cost.brake_cheap_jpy"] + v["cost.seat_cheap_jpy"]
+             + v["cost.engine_clone_jpy"] + engine_drive)
+    put("cost.total_cheap_new_w1_jpy", round(cheap), "JPY", "cost")
+    # A donor's axle is narrower than R-12 asks and does not let the track narrow (T1), so a new
+    # axle with hubs and a brake is added; the donor's own engine and gearbox are kept (K-003)
+    axle = v["cost.axle_parts_cheap_jpy"] + v["cost.brake_cheap_jpy"]
+    put("cost.total_donor_min_w1_jpy", round(common + v["cost.seat_cheap_jpy"] + v["cost.donor_buggy_running_min_jpy"] + axle),
+        "JPY", "cost")
+    put("cost.total_donor_w1_jpy", round(common + v["cost.seat_cheap_jpy"] + v["cost.donor_buggy_max_jpy"] + axle), "JPY", "cost")
+    put("cost.total_donor_e1_w1_jpy", round(common + v["cost.seat_cheap_jpy"] + v["cost.donor_buggy_running_min_jpy"] + axle
+                                            + v["cost.engine_clone_jpy"] + engine_drive), "JPY", "cost")
+    # The least kart: a running donor's axle and wheels as they are, the owner's frame, no winter parts
+    put("cost.total_donor_narrow_summer_jpy", round(common - v["cost.allow_skis_jpy"] - 2 * v["cost.snow_chain_jpy"]
+                                                    + v["cost.seat_cheap_jpy"] + v["cost.donor_buggy_running_min_jpy"]),
+        "JPY", "cost")
     return out
 
 

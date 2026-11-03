@@ -39,3 +39,22 @@ items:
     by: assistant
     date: 2026-11-03
     detail: A second independent helper rechecked the repairs of K-001 by hand; all seven figures reproduce, and the script matches the record. Partial on the motors - the 2 kW kit's torque, speed, and current disagree (its rated current is probably the controller's rating), the text wrongly said the electric kits climb on pavement, and whether the controllers limit battery or motor current is not assessed. Also noted - the track wheel relation is used beyond its small-sinkage range, tracks on smaller wheels lower the rear axle, E1h has the same margin as E1, and the gearing limits speed only on level ground and uphill. The text of docs/02-form.md was corrected on each point the same day; no number changed.
+  - id: K-003
+    target:
+      - drive.engine_thrust_n
+      - drive.climb_force_n
+      - drive.clutch_engage_kmh
+      - drive.clutch_lock_kmh
+      - form.width_overall_m
+      - form.track_min_slope_m
+      - battery.run_time_heavy_min
+      - cost.total_l2_e1_w1_jpy
+      - cost.total_cheap_new_w1_jpy
+      - cost.total_donor_min_w1_jpy
+      - cost.total_donor_w1_jpy
+    tier: T2
+    method: refute
+    result: partial
+    by: assistant
+    date: 2026-11-03
+    detail: A third independent helper recomputed the claims after the owner's second answers; every number matched its formula. Partial on what the text claimed - the climb was not checked for grip; the clutch's engagement and lock-up speeds came from two different clutches; a low child limit keeps a centrifugal clutch slipping; climbing at the lock speed is not slow; the overall width exceeded the widest opening only by rounding, and the narrowest opening was in the record but not cited; the battery margin is small; and the donor route left out a new wide axle and brake and treated the donor's ungoverned engine as E1. The record, calc/form_rough.py, and docs/02-form.md were changed on each point the same day; the simulator (with load transfer and rear-wheel spin) shows grip limiting the climb on grass.

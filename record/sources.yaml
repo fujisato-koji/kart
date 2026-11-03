@@ -32,7 +32,7 @@ items:
     retrieved: 2026-11-03
     license: unknown
     read: partial
-    note: Read by a helper. Maximum net output, maximum torque, and dry mass.
+    note: Read by a helper. Maximum net output, continuous rated output, maximum torque, and dry mass.
   - id: P5
     class: P
     title: Honda GX160 and GX200 Owner's Manual 00X37ZEE6000
@@ -72,7 +72,7 @@ items:
     retrieved: 2026-11-03
     license: unknown
     read: full
-    note: Read by a helper. Size, wheelbase, mass, and the driver height range of a leisure kart.
+    note: Read by a helper. Size (overall width 1160 mm), wheelbase, mass, and the driver height range of a leisure kart.
   - id: P10
     class: P
     title: CIK-FIA Technical Regulations 2023
@@ -441,6 +441,54 @@ items:
     license: unknown
     read: full
     note: Read by a helper through a fetch summary. Clone kit for a 3/4 inch shaft, free shipping, 6.0 kg; contents not itemised.
+  - id: M26
+    class: M
+    title: Yahoo Auctions closed listings for used four-wheel buggies (四輪バギー, バギー 中古, バギー 110cc)
+    url: https://auctions.yahoo.co.jp/closedsearch/closedsearch?p=四輪バギー
+    retrieved: 2026-11-03
+    license: unknown
+    read: partial
+    note: Read by a helper, part of the long lists. Chinese and Taiwanese 50 to 125 cc buggies sold as junk or restoration bases for 12,000 to 45,000 JPY, runners for 21,870 to 50,000 JPY; several pickup only; contents not itemised; load rating not stated.
+  - id: M27
+    class: M
+    title: Yahoo Auctions closed listings for used general-purpose engines (GX160 中古, 汎用エンジン 中古)
+    url: https://auctions.yahoo.co.jp/closedsearch/closedsearch?p=GX160+中古
+    retrieved: 2026-11-03
+    license: unknown
+    read: partial
+    note: Read by a helper, part of the lists. Used 160 to 200 cc engines sold for 11,000 to 33,000 JPY.
+  - id: M28
+    class: M
+    title: AliExpress search for 13x5.00-6 tyres on rims
+    url: https://ja.aliexpress.com/w/wholesale-13x5.00-6-tire-rim.html
+    retrieved: 2026-11-03
+    license: unknown
+    read: partial
+    note: Search page read by a helper; the price shown may be the cheapest option. 2,911 JPY each with free shipping shown.
+  - id: M29
+    class: M
+    title: AliExpress search for go-kart mechanical disc brakes
+    url: https://ja.aliexpress.com/w/wholesale-go-kart-mechanical-disc-brake.html
+    retrieved: 2026-11-03
+    license: unknown
+    read: partial
+    note: Search page read by a helper. Cable-operated caliper with bracket 6,390 JPY, free shipping shown.
+  - id: M30
+    class: M
+    title: AliExpress search for 25 mm go-kart rear axle parts
+    url: https://ja.aliexpress.com/w/wholesale-go-kart-rear-axle-25mm.html
+    retrieved: 2026-11-03
+    license: unknown
+    read: partial
+    note: Search page read by a helper. A 25 mm axle, a pair of 25 mm hubs, and two bearing blocks add up to about 17,000 JPY before shipping; shipping not confirmed.
+  - id: M31
+    class: M
+    title: AliExpress search for go-kart steering knuckle kits
+    url: https://ja.aliexpress.com/w/wholesale-go-kart-steering-knuckle-kit.html
+    retrieved: 2026-11-03
+    license: unknown
+    read: partial
+    note: Search page read by a helper. Rack and pinion with 320 mm tie rods 9,179 JPY, free shipping shown.
   - id: F1
     class: F
     title: Motor1, a shifter kart turned into a snowmobile, 2025-02-02

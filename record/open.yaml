@@ -163,3 +163,11 @@ items:
       - snow.plough_per_cm
     opened: 2026-11-03
     phase: design
+  - id: Q-015
+    kind: question
+    text: In the owner's Delica D:5, with the third row flipped up and the second row tipped up and slid forward, how wide is the clear space at the floor and at 40 cm above it, and how wide is the tailgate opening at the height of the cargo floor? The sources give only the narrowest and widest widths.
+    waits_for: owner
+    affects:
+      - R-14
+    opened: 2026-11-03
+    phase: design
