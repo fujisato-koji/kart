@@ -28,6 +28,7 @@ jobs:
       - run: pip install -r requirements-site.txt
       - run: python tools/tdr.py check
       - run: python tools/gen_site_data.py --check
+      - run: python calc/design.py --check
       - run: node tools/test_sim.mjs
       - run: mkdocs build --strict
       - uses: actions/upload-pages-artifact@v4

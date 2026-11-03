@@ -49,5 +49,6 @@ nav:
   - 1.5 Parts and cost: 05-parts-and-cost.md
   - Build: 06-build.md
   - Operation: 07-operation.md
+  - The record: record.md
   - Navigator: navi.md
-  - 3D simulator: simulator.md
+  - 3D view: simulator.md

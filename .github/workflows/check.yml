@@ -25,7 +25,9 @@ jobs:
       - name: Check the record
         run: python tools/tdr.py check
       - name: Check the site data
-        run: python tools/gen_site_data.py --check
+        run: |
+          python tools/gen_site_data.py --check
+          python calc/design.py --check
       - uses: actions/setup-node@v5
         with:
           node-version: 24

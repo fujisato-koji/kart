@@ -6,9 +6,9 @@
 schema: 1
 lines:
   - part: frame
-    item: STKM11A round tube 31.8 x 1.6, main rails (m)
+    item: STKM11A round tube 31.8 x 2.3, main rails (m)
     qty: 4
-    price: cost.tube_32_jpy_per_m
+    price: cost.tube_32x23_jpy_per_m
     need: b1
   - part: frame
     item: STKM11A round tube 25.4 x 1.6, cross members, hoop, bumpers (m)
@@ -36,8 +36,8 @@ lines:
     price: cost.axle_shaft_jpy
     need: b3
   - part: axle_bearings
-    item: Pillow block UCP205 (FYH or NTN)
-    qty: 2
+    item: Pillow block UCP205 (FYH or NTN), two outer and one beside the sprocket
+    qty: 3
     price: cost.ucp205_jpy
     need: b3
   - part: rear_hubs

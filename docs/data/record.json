@@ -1880,7 +1880,7 @@
   },
   {
    "key": "lay.track_rear_narrow_mm",
-   "v": 1000,
+   "v": 1040,
    "unit": "mm",
    "status": "calculated",
    "basis": [
@@ -1943,7 +1943,7 @@
   },
   {
    "key": "lay.hpoint_y_mm",
-   "v": -40,
+   "v": -90,
    "unit": "mm",
    "status": "calculated",
    "basis": [
@@ -1961,7 +1961,7 @@
   },
   {
    "key": "lay.pedal_x_far_mm",
-   "v": 1010,
+   "v": 930,
    "unit": "mm",
    "status": "calculated",
    "basis": [
@@ -2015,7 +2015,7 @@
   },
   {
    "key": "lay.engine_y_mm",
-   "v": 400,
+   "v": 430,
    "unit": "mm",
    "status": "calculated",
    "basis": [
@@ -2042,7 +2042,7 @@
   },
   {
    "key": "lay.chain1_y_mm",
-   "v": 205,
+   "v": 225,
    "unit": "mm",
    "status": "calculated",
    "basis": [
@@ -2051,7 +2051,7 @@
   },
   {
    "key": "lay.chain2_y_mm",
-   "v": 140,
+   "v": 155,
    "unit": "mm",
    "status": "calculated",
    "basis": [
@@ -2060,7 +2060,7 @@
   },
   {
    "key": "lay.bearing_y_mm",
-   "v": 420,
+   "v": 400,
    "unit": "mm",
    "status": "calculated",
    "basis": [
@@ -2069,7 +2069,7 @@
   },
   {
    "key": "lay.brake_y_mm",
-   "v": -150,
+   "v": -350,
    "unit": "mm",
    "status": "calculated",
    "basis": [
@@ -2078,7 +2078,7 @@
   },
   {
    "key": "lay.axle_length_mm",
-   "v": 1220,
+   "v": 1210,
    "unit": "mm",
    "status": "calculated",
    "basis": [
@@ -2146,7 +2146,7 @@
   },
   {
    "key": "dsn.rail_t_mm",
-   "v": 1.6,
+   "v": 2.3,
    "unit": "mm",
    "status": "calculated",
    "basis": [
@@ -2435,6 +2435,42 @@
    "status": "sourced",
    "basis": [
     "M11"
+   ]
+  },
+  {
+   "key": "lay.bearing_mid_y_mm",
+   "v": 245,
+   "unit": "mm",
+   "status": "calculated",
+   "basis": [
+    "docs/03-design.md#axle"
+   ]
+  },
+  {
+   "key": "lay.axle_gap_mm",
+   "v": 30,
+   "unit": "mm",
+   "status": "calculated",
+   "basis": [
+    "docs/03-design.md#frame"
+   ]
+  },
+  {
+   "key": "lay.kick_x_mm",
+   "v": 250,
+   "unit": "mm",
+   "status": "calculated",
+   "basis": [
+    "docs/03-design.md#frame"
+   ]
+  },
+  {
+   "key": "cost.tube_32x23_jpy_per_m",
+   "v": 1700,
+   "unit": "JPY/m",
+   "status": "assumed",
+   "basis": [
+    "Q-018"
    ]
   },
   {
@@ -2816,7 +2852,7 @@
   },
   {
    "key": "dsn.width_transport_m",
-   "v": 1.187,
+   "v": 1.21,
    "unit": "m",
    "status": "calculated",
    "basis": [
@@ -2824,8 +2860,17 @@
    ]
   },
   {
+   "key": "dsn.axle_rail_gap_mm",
+   "v": 30,
+   "unit": "mm",
+   "status": "calculated",
+   "basis": [
+    "docs/03-design.md#frame"
+   ]
+  },
+  {
    "key": "dsn.tube_main_m",
-   "v": 3.35,
+   "v": 3.37,
    "unit": "m",
    "status": "calculated",
    "basis": [
@@ -2834,11 +2879,20 @@
   },
   {
    "key": "dsn.tube_cross_m",
-   "v": 8.95,
+   "v": 8.66,
    "unit": "m",
    "status": "calculated",
    "basis": [
     "docs/03-design.md#frame"
+   ]
+  },
+  {
+   "key": "dsn.hub_bearing_gap_mm",
+   "v": 39,
+   "unit": "mm",
+   "status": "calculated",
+   "basis": [
+    "docs/03-design.md#transport"
    ]
   },
   {
@@ -2860,7 +2914,7 @@
   },
   {
    "key": "dsn.chain1_centre_mm",
-   "v": 243,
+   "v": 240.0,
    "unit": "mm",
    "status": "calculated",
    "basis": [
@@ -2869,7 +2923,7 @@
   },
   {
    "key": "dsn.chain2_centre_mm",
-   "v": 159,
+   "v": 157.6,
    "unit": "mm",
    "status": "calculated",
    "basis": [
@@ -2878,7 +2932,7 @@
   },
   {
    "key": "dsn.chain1_links",
-   "v": 66,
+   "v": 64,
    "status": "calculated",
    "basis": [
     "docs/03-design.md#drive"
@@ -2886,7 +2940,7 @@
   },
   {
    "key": "dsn.chain2_links",
-   "v": 52,
+   "v": 50,
    "status": "calculated",
    "basis": [
     "docs/03-design.md#drive"
@@ -2894,7 +2948,7 @@
   },
   {
    "key": "dsn.chain1_gap_mm",
-   "v": 105,
+   "v": 102,
    "unit": "mm",
    "status": "calculated",
    "basis": [
@@ -2903,7 +2957,25 @@
   },
   {
    "key": "dsn.chain2_gap_mm",
-   "v": 55,
+   "v": 54,
+   "unit": "mm",
+   "status": "calculated",
+   "basis": [
+    "docs/03-design.md#drive"
+   ]
+  },
+  {
+   "key": "dsn.engine_x_mm",
+   "v": 375,
+   "unit": "mm",
+   "status": "calculated",
+   "basis": [
+    "docs/03-design.md#drive"
+   ]
+  },
+  {
+   "key": "dsn.jack_x_mm",
+   "v": 149,
    "unit": "mm",
    "status": "calculated",
    "basis": [
@@ -2930,7 +3002,7 @@
   },
   {
    "key": "dsn.leg_margin_adult_mm",
-   "v": 68,
+   "v": 148,
    "unit": "mm",
    "status": "calculated",
    "basis": [
@@ -2948,7 +3020,7 @@
   },
   {
    "key": "dsn.mass_kg",
-   "v": 87.6,
+   "v": 94.5,
    "unit": "kg",
    "status": "calculated",
    "basis": [
@@ -2957,7 +3029,16 @@
   },
   {
    "key": "dsn.cg_x_m",
-   "v": 0.378,
+   "v": 0.368,
+   "unit": "m",
+   "status": "calculated",
+   "basis": [
+    "docs/03-design.md#mass"
+   ]
+  },
+  {
+   "key": "dsn.cg_y_m",
+   "v": 0.097,
    "unit": "m",
    "status": "calculated",
    "basis": [
@@ -2966,7 +3047,7 @@
   },
   {
    "key": "dsn.cg_z_m",
-   "v": 0.235,
+   "v": 0.231,
    "unit": "m",
    "status": "calculated",
    "basis": [
@@ -2975,7 +3056,7 @@
   },
   {
    "key": "dsn.frame_mass_kg",
-   "v": 12.4,
+   "v": 13.8,
    "unit": "kg",
    "status": "calculated",
    "basis": [
@@ -2984,7 +3065,16 @@
   },
   {
    "key": "dsn.rear_share_adult",
-   "v": 0.728,
+   "v": 0.729,
+   "status": "calculated",
+   "basis": [
+    "docs/03-design.md#mass"
+   ]
+  },
+  {
+   "key": "dsn.cg_side_adult_mm",
+   "v": 1,
+   "unit": "mm",
    "status": "calculated",
    "basis": [
     "docs/03-design.md#mass"
@@ -2992,7 +3082,7 @@
   },
   {
    "key": "dsn.cg_height_adult_m",
-   "v": 0.356,
+   "v": 0.35,
    "unit": "m",
    "status": "calculated",
    "basis": [
@@ -3001,7 +3091,7 @@
   },
   {
    "key": "dsn.tip_ratio_adult",
-   "v": 1.58,
+   "v": 1.61,
    "status": "calculated",
    "basis": [
     "docs/03-design.md#stability"
@@ -3009,7 +3099,16 @@
   },
   {
    "key": "dsn.rear_share_child",
-   "v": 0.636,
+   "v": 0.644,
+   "status": "calculated",
+   "basis": [
+    "docs/03-design.md#mass"
+   ]
+  },
+  {
+   "key": "dsn.cg_side_child_mm",
+   "v": 66,
+   "unit": "mm",
    "status": "calculated",
    "basis": [
     "docs/03-design.md#mass"
@@ -3017,7 +3116,7 @@
   },
   {
    "key": "dsn.cg_height_child_m",
-   "v": 0.257,
+   "v": 0.253,
    "unit": "m",
    "status": "calculated",
    "basis": [
@@ -3026,7 +3125,7 @@
   },
   {
    "key": "dsn.tip_ratio_child",
-   "v": 2.17,
+   "v": 1.95,
    "status": "calculated",
    "basis": [
     "docs/03-design.md#stability"
@@ -3034,7 +3133,7 @@
   },
   {
    "key": "dsn.climb_force_n",
-   "v": 577,
+   "v": 599,
    "unit": "N",
    "status": "calculated",
    "basis": [
@@ -3043,7 +3142,7 @@
   },
   {
    "key": "dsn.climb_grip_n",
-   "v": 649,
+   "v": 672,
    "unit": "N",
    "status": "calculated",
    "basis": [
@@ -3060,8 +3159,17 @@
    ]
   },
   {
+   "key": "dsn.axle_chain_pull_n",
+   "v": 1691,
+   "unit": "N",
+   "status": "calculated",
+   "basis": [
+    "docs/03-design.md#axle"
+   ]
+  },
+  {
    "key": "dsn.axle_stress_mpa",
-   "v": 169,
+   "v": 222,
    "unit": "MPa",
    "status": "calculated",
    "basis": [
@@ -3070,15 +3178,24 @@
   },
   {
    "key": "dsn.axle_safety",
-   "v": 2.04,
+   "v": 1.56,
    "status": "calculated",
    "basis": [
     "docs/03-design.md#axle"
    ]
   },
   {
+   "key": "dsn.frame_moment_nm",
+   "v": 559,
+   "unit": "N m",
+   "status": "calculated",
+   "basis": [
+    "docs/03-design.md#frame"
+   ]
+  },
+  {
    "key": "dsn.rail_stress_mpa",
-   "v": 126,
+   "v": 191,
    "unit": "MPa",
    "status": "calculated",
    "basis": [
@@ -3087,7 +3204,7 @@
   },
   {
    "key": "dsn.rail_safety",
-   "v": 2.29,
+   "v": 1.52,
    "status": "calculated",
    "basis": [
     "docs/03-design.md#frame"
@@ -3095,7 +3212,7 @@
   },
   {
    "key": "dsn.bearing_load_n",
-   "v": 669,
+   "v": 695,
    "unit": "N",
    "status": "calculated",
    "basis": [
@@ -3113,7 +3230,7 @@
   },
   {
    "key": "dsn.brake_torque_needed_nm",
-   "v": 78,
+   "v": 81,
    "unit": "N m",
    "status": "calculated",
    "basis": [
@@ -3122,8 +3239,26 @@
   },
   {
    "key": "dsn.brake_clamp_needed_n",
-   "v": 1750,
+   "v": 1814,
    "unit": "N",
+   "status": "calculated",
+   "basis": [
+    "docs/03-design.md#brake"
+   ]
+  },
+  {
+   "key": "dsn.brake_downhill_decel",
+   "v": 0.93,
+   "unit": "m/s2",
+   "status": "calculated",
+   "basis": [
+    "docs/03-design.md#brake"
+   ]
+  },
+  {
+   "key": "dsn.brake_downhill_stop_m",
+   "v": 16.6,
+   "unit": "m",
    "status": "calculated",
    "basis": [
     "docs/03-design.md#brake"
@@ -3140,7 +3275,7 @@
   },
   {
    "key": "dsn.delica_width_margin_mm",
-   "v": 43,
+   "v": 20,
    "unit": "mm",
    "status": "calculated",
    "basis": [
@@ -3158,7 +3293,7 @@
   },
   {
    "key": "dsn.bom_parts_jpy",
-   "v": 224104,
+   "v": 228130,
    "unit": "JPY",
    "status": "calculated",
    "basis": [
@@ -4599,7 +4734,8 @@
     "cost.plate_allow_jpy",
     "cost.machining_allow_jpy",
     "cost.rear_hub_make_jpy",
-    "cost.axle_shaft_jpy"
+    "cost.axle_shaft_jpy",
+    "cost.tube_32x23_jpy_per_m"
    ],
    "opened": "2026-11-03",
    "phase": "design",
@@ -4619,6 +4755,26 @@
    ],
    "opened": "2026-11-03",
    "phase": "build",
+   "blocks": "design_build"
+  },
+  {
+   "id": "Q-020",
+   "kind": "finding",
+   "text": "The layout of step 1.3 is not yet buildable (K-005). Rearrange the drive so that the chains, the jackshaft and its bearings, the middle axle bearing, and the guard fit between the seat and the left rail, or move the drive outboard; redesign the column support so it holds the column at its lower flange bearing and clears the legs; route the pedal box rails clear of the cross members; raise the steering arms and tie rods clear of the front rails; join every plate, the floor, and the seat slide to the frame; widen the seat space; and add the cornering side force to the axle and the engine's offset to the left rail.",
+   "waits_for": "assistant",
+   "affects": [
+    "frame",
+    "jackshaft",
+    "axle_bearings",
+    "guards",
+    "steering_column",
+    "pedal_box",
+    "tie_rods",
+    "seat"
+   ],
+   "opened": "2026-11-03",
+   "raised_by": "assistant",
+   "phase": "design",
    "blocks": "design_build"
   }
  ],
@@ -5201,6 +5357,47 @@
    "by": "assistant",
    "date": "2026-11-03",
    "detail": "A third independent helper recomputed the claims after the owner's second answers; every number matched its formula. Partial on what the text claimed - the climb was not checked for grip; the clutch's engagement and lock-up speeds came from two different clutches; a low child limit keeps a centrifugal clutch slipping; climbing at the lock speed is not slow; the overall width exceeded the widest opening only by rounding, and the narrowest opening was in the record but not cited; the battery margin is small; and the donor route left out a new wide axle and brake and treated the donor's ungoverned engine as E1. The record, calc/form_rough.py, and docs/02-form.md were changed on each point the same day; the simulator (with load transfer and rear-wheel spin) shows grip limiting the climb on grass."
+  },
+  {
+   "id": "K-004",
+   "target": [
+    "dsn.ratio",
+    "dsn.chain1_links",
+    "dsn.chain2_links",
+    "dsn.tip_ratio_adult",
+    "dsn.axle_stress_mpa",
+    "dsn.rail_stress_mpa",
+    "dsn.climb_grip_n",
+    "dsn.brake_clamp_needed_n",
+    "dsn.width_transport_m",
+    "dsn.bom_parts_jpy"
+   ],
+   "tier": "T2",
+   "method": "refute",
+   "result": "fail",
+   "by": "assistant",
+   "date": "2026-11-03",
+   "detail": "An independent helper recomputed step 1.3 and searched docs/data/design.json for parts that collide. The arithmetic held, but the layout could not be built - the rear axle passed through the main rails and the axle cross member, the outer bearings were not joined to the frame, the seat sat on the drive and the brake, sprockets pierced the floor, the left side bar passed through the engine, the front tyre touched a side bar at full lock, the adult pedals lay inside the front cross member, and the hubs could not reach the transport track. Also the chains were rounded up and slack, the axle case left out the chain pull, the rail case was unfair, the sideways offset of the centre of mass and the downhill stop were left out, the transport width ignored the axle ends, and the text put the engine on the wrong side. calc/design.py, the design values, and docs/03-design.md were changed on each point the same day; the repairs wait for a re-check."
+  },
+  {
+   "id": "K-005",
+   "target": [
+    "dsn.axle_rail_gap_mm",
+    "dsn.hub_bearing_gap_mm",
+    "dsn.axle_stress_mpa",
+    "dsn.rail_stress_mpa",
+    "dsn.brake_downhill_stop_m",
+    "dsn.tip_ratio_adult",
+    "dsn.chain1_links",
+    "dsn.chain2_links",
+    "dsn.width_transport_m"
+   ],
+   "tier": "T2",
+   "method": "refute",
+   "result": "fail",
+   "by": "assistant",
+   "date": "2026-11-03",
+   "detail": "A second independent helper re-checked the repairs of K-004. The rear rails now clear the axle, the seat and the rider clear the drive and the brake, the floor clears the sprockets, the chains are whole even links, and the load cases reproduce. Still not buildable - between the seat and the left rail there is no room for both chains, the jackshaft and its bearings, the middle axle bearing, and the guard, which overlap by up to about 10 mm; the column support runs through the column and the adult's shins; the pedal box rail runs through two cross members, so it cannot slide to the child position; the steering arms and tie rod ends touch the front rails; the middle bearing plate, the jackshaft plate, the floor, and the seat slide are joined to nothing, and the outer bearing plates miss the outriggers by 3 mm. Also the left rail carrying the overhung engine is at a safety factor of about 1.3, the cornering side force on the axle is not yet a load case, and the downhill stop is about 19 m with the braking load shift. These are left open in Q-020 for the next design pass."
   }
  ],
  "procedures": [
@@ -5314,7 +5511,7 @@
     },
     {
      "id": "OP-02.04",
-     "action": "Climb and descend slopes straight, at full throttle uphill; never turn across a slope.",
+     "action": "Climb and descend slopes straight, at full throttle uphill and at walking pace downhill; never turn across a slope.",
      "values": [
       "site.grade_max_pct"
      ],
@@ -5988,9 +6185,9 @@
   "lines": [
    {
     "part": "frame",
-    "item": "STKM11A round tube 31.8 x 1.6, main rails (m)",
+    "item": "STKM11A round tube 31.8 x 2.3, main rails (m)",
     "qty": 4,
-    "price": "cost.tube_32_jpy_per_m",
+    "price": "cost.tube_32x23_jpy_per_m",
     "need": "b1"
    },
    {
@@ -6030,8 +6227,8 @@
    },
    {
     "part": "axle_bearings",
-    "item": "Pillow block UCP205 (FYH or NTN)",
-    "qty": 2,
+    "item": "Pillow block UCP205 (FYH or NTN), two outer and one beside the sprocket",
+    "qty": 3,
     "price": "cost.ucp205_jpy",
     "need": "b3"
    },
@@ -6433,6 +6630,12 @@
    "doc": "docs/03-design.md",
    "id": "safety",
    "title": "1.3.13 Guards and stopping",
+   "level": 2
+  },
+  {
+   "doc": "docs/03-design.md",
+   "id": "issues",
+   "title": "1.3.14 Layout issues still open",
    "level": 2
   },
   {

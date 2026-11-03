@@ -212,6 +212,7 @@ items:
       - cost.machining_allow_jpy
       - cost.rear_hub_make_jpy
       - cost.axle_shaft_jpy
+      - cost.tube_32x23_jpy_per_m
     opened: 2026-11-03
     phase: design
     blocks: design_build
@@ -227,4 +228,21 @@ items:
       - seat
     opened: 2026-11-03
     phase: build
+    blocks: design_build
+  - id: Q-020
+    kind: finding
+    text: The layout of step 1.3 is not yet buildable (K-005). Rearrange the drive so that the chains, the jackshaft and its bearings, the middle axle bearing, and the guard fit between the seat and the left rail, or move the drive outboard; redesign the column support so it holds the column at its lower flange bearing and clears the legs; route the pedal box rails clear of the cross members; raise the steering arms and tie rods clear of the front rails; join every plate, the floor, and the seat slide to the frame; widen the seat space; and add the cornering side force to the axle and the engine's offset to the left rail.
+    waits_for: assistant
+    affects:
+      - frame
+      - jackshaft
+      - axle_bearings
+      - guards
+      - steering_column
+      - pedal_box
+      - tie_rods
+      - seat
+    opened: 2026-11-03
+    raised_by: assistant
+    phase: design
     blocks: design_build

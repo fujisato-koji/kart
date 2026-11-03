@@ -58,3 +58,38 @@ items:
     by: assistant
     date: 2026-11-03
     detail: A third independent helper recomputed the claims after the owner's second answers; every number matched its formula. Partial on what the text claimed - the climb was not checked for grip; the clutch's engagement and lock-up speeds came from two different clutches; a low child limit keeps a centrifugal clutch slipping; climbing at the lock speed is not slow; the overall width exceeded the widest opening only by rounding, and the narrowest opening was in the record but not cited; the battery margin is small; and the donor route left out a new wide axle and brake and treated the donor's ungoverned engine as E1. The record, calc/form_rough.py, and docs/02-form.md were changed on each point the same day; the simulator (with load transfer and rear-wheel spin) shows grip limiting the climb on grass.
+  - id: K-004
+    target:
+      - dsn.ratio
+      - dsn.chain1_links
+      - dsn.chain2_links
+      - dsn.tip_ratio_adult
+      - dsn.axle_stress_mpa
+      - dsn.rail_stress_mpa
+      - dsn.climb_grip_n
+      - dsn.brake_clamp_needed_n
+      - dsn.width_transport_m
+      - dsn.bom_parts_jpy
+    tier: T2
+    method: refute
+    result: fail
+    by: assistant
+    date: 2026-11-03
+    detail: An independent helper recomputed step 1.3 and searched docs/data/design.json for parts that collide. The arithmetic held, but the layout could not be built - the rear axle passed through the main rails and the axle cross member, the outer bearings were not joined to the frame, the seat sat on the drive and the brake, sprockets pierced the floor, the left side bar passed through the engine, the front tyre touched a side bar at full lock, the adult pedals lay inside the front cross member, and the hubs could not reach the transport track. Also the chains were rounded up and slack, the axle case left out the chain pull, the rail case was unfair, the sideways offset of the centre of mass and the downhill stop were left out, the transport width ignored the axle ends, and the text put the engine on the wrong side. calc/design.py, the design values, and docs/03-design.md were changed on each point the same day; the repairs wait for a re-check.
+  - id: K-005
+    target:
+      - dsn.axle_rail_gap_mm
+      - dsn.hub_bearing_gap_mm
+      - dsn.axle_stress_mpa
+      - dsn.rail_stress_mpa
+      - dsn.brake_downhill_stop_m
+      - dsn.tip_ratio_adult
+      - dsn.chain1_links
+      - dsn.chain2_links
+      - dsn.width_transport_m
+    tier: T2
+    method: refute
+    result: fail
+    by: assistant
+    date: 2026-11-03
+    detail: A second independent helper re-checked the repairs of K-004. The rear rails now clear the axle, the seat and the rider clear the drive and the brake, the floor clears the sprockets, the chains are whole even links, and the load cases reproduce. Still not buildable - between the seat and the left rail there is no room for both chains, the jackshaft and its bearings, the middle axle bearing, and the guard, which overlap by up to about 10 mm; the column support runs through the column and the adult's shins; the pedal box rail runs through two cross members, so it cannot slide to the child position; the steering arms and tie rod ends touch the front rails; the middle bearing plate, the jackshaft plate, the floor, and the seat slide are joined to nothing, and the outer bearing plates miss the outriggers by 3 mm. Also the left rail carrying the overhung engine is at a safety factor of about 1.3, the cornering side force on the axle is not yet a load case, and the downhill stop is about 19 m with the braking load shift. These are left open in Q-020 for the next design pass.

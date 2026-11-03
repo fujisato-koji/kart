@@ -21,7 +21,7 @@ items:
         limits:
           - kart.speed_max_kmh
       - id: OP-02.04
-        action: Climb and descend slopes straight, at full throttle uphill; never turn across a slope.
+        action: Climb and descend slopes straight, at full throttle uphill and at walking pace downhill; never turn across a slope.
         values:
           - site.grade_max_pct
         controls:

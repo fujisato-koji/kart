@@ -1,21 +1,21 @@
 <!doctype html>
-<html lang="en">
+<html lang="ja">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Kart — design record navigator</title>
+<title>ゴーカート 設計ナビゲータ</title>
 <link rel="stylesheet" href="nav.css">
 </head>
 <body>
 <header>
-  <h1>Kart — design record navigator</h1>
-  <nav><a href="../">Docs home</a><a href="#/?m=3d" id="link3d">3D simulator</a></nav>
-  <button id="theme" type="button" aria-label="Toggle theme">Theme</button>
+  <h1>ゴーカート 設計ナビゲータ</h1>
+  <nav><a href="../">ドキュメント</a><a href="../record/">記録</a></nav>
+  <button id="theme" type="button" aria-label="明暗の切り替え">明暗</button>
 </header>
-<div id="tabs" role="navigation" aria-label="Modes"></div>
+<div id="tabs" role="navigation" aria-label="モード"></div>
 <div id="layout">
-  <main id="view"><div id="content"><p>Loading the record…</p></div><div id="pane3d" hidden></div></main>
-  <aside id="card" class="empty" aria-live="polite">Select an item to see its fields and relations.</aside>
+  <main id="view"><p>記録を読み込んでいます…</p></main>
+  <aside id="card" class="empty" aria-live="polite">項目を選ぶと、ここに中身と関係が出ます。</aside>
 </div>
 <script type="module" src="app.js"></script>
 </body>

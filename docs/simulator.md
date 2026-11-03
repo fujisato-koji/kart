@@ -1,10 +1,12 @@
-# 3D simulator
+# 3D view of the design
 
-<a class="app-link" href="../navigator/#/?m=3d">Open the 3D simulator</a> <a href="../viewer/">Open the viewer alone</a>
+<a class="app-link" href="../navigator/#/?m=v3d">Open the 3D view</a> <a href="../viewer/">Open the viewer alone</a>
 
-The simulator shows the kart in 3D and drives it over a test yard with paved, gravel, grass and snow areas and an incline. It also fits the kart against the loading space of the transport vehicle and runs the requirement tests.
+The 3D view shows the kart as designed. It is drawn from `docs/data/design.json`, which `calc/design.py` writes from the values of the record. It does not hold numbers of its own.
 
-Every number comes from `record/` through `docs/data/record.json`. The app states which record value each parameter came from. Drawing and model constants that are not in the record are labelled "model constant, not in the record".
+In the navigator you can switch between the summer, winter, and transport configurations, put an adult, a child, or no rider on the seat, show the loading space of the Delica D:5, show dimensions, and look from an oblique, side, top, or front view.
+
+Selecting a requirement, value, hazard, or part in the navigator lights the parts it concerns in the 3D view. Picking a part in the 3D view selects that part in the navigator and shows its values and requirements.
 
 !!! warning "Illustrations, not verification"
-    Grip and plough values are assumed (Q-014). The results are illustrations of how the design behaves under those assumptions. They do not verify any requirement.
+    The view shows the designed geometry. It does not verify any requirement. Checks are recorded in the record, not here.

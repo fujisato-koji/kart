@@ -301,29 +301,29 @@ These are not decided here. 1.2 compares forms against them.
 | lay.wheelbase_mm | 1000 | mm | calculated | docs/03-design.md#layout |
 | lay.track_front_mm | 1060 | mm | calculated | docs/03-design.md#layout |
 | lay.track_rear_mm | 1150 | mm | calculated | docs/03-design.md#layout |
-| lay.track_rear_narrow_mm | 1000 | mm | calculated | docs/03-design.md#transport |
+| lay.track_rear_narrow_mm | 1040 | mm | calculated | docs/03-design.md#transport |
 | lay.rail_bottom_mm | 150 | mm | calculated | docs/03-design.md#layout |
 | lay.rail_half_width_mm | 300 | mm | calculated | docs/03-design.md#frame |
 | lay.front_half_width_mm | 430 | mm | calculated | docs/03-design.md#frame |
 | lay.front_overhang_mm | 300 | mm | calculated | docs/03-design.md#layout |
 | lay.rear_overhang_mm | 230 | mm | calculated | docs/03-design.md#layout |
 | lay.hpoint_x_mm | 80 | mm | calculated | docs/03-design.md#fit |
-| lay.hpoint_y_mm | -40 | mm | calculated | docs/03-design.md#fit |
+| lay.hpoint_y_mm | -90 | mm | calculated | docs/03-design.md#fit |
 | lay.seat_slide_mm | 120 | mm | calculated | docs/03-design.md#fit |
-| lay.pedal_x_far_mm | 1010 | mm | calculated | docs/03-design.md#fit |
+| lay.pedal_x_far_mm | 930 | mm | calculated | docs/03-design.md#fit |
 | lay.pedal_x_near_mm | 560 | mm | calculated | docs/03-design.md#fit |
 | lay.wheel_x_mm | 600 | mm | calculated | docs/03-design.md#steering |
 | lay.wheel_z_mm | 560 | mm | calculated | docs/03-design.md#steering |
 | lay.steer_max_deg | 30 | deg | calculated | docs/03-design.md#steering |
 | lay.engine_x_mm | 380 | mm | calculated | docs/03-design.md#drive |
-| lay.engine_y_mm | 400 | mm | calculated | docs/03-design.md#drive |
+| lay.engine_y_mm | 430 | mm | calculated | docs/03-design.md#drive |
 | lay.jack_x_mm | 150 | mm | calculated | docs/03-design.md#drive |
 | lay.jack_z_mm | 215 | mm | calculated | docs/03-design.md#drive |
-| lay.chain1_y_mm | 205 | mm | calculated | docs/03-design.md#drive |
-| lay.chain2_y_mm | 140 | mm | calculated | docs/03-design.md#drive |
-| lay.bearing_y_mm | 420 | mm | calculated | docs/03-design.md#axle |
-| lay.brake_y_mm | -150 | mm | calculated | docs/03-design.md#brake |
-| lay.axle_length_mm | 1220 | mm | calculated | docs/03-design.md#axle |
+| lay.chain1_y_mm | 225 | mm | calculated | docs/03-design.md#drive |
+| lay.chain2_y_mm | 155 | mm | calculated | docs/03-design.md#drive |
+| lay.bearing_y_mm | 400 | mm | calculated | docs/03-design.md#axle |
+| lay.brake_y_mm | -350 | mm | calculated | docs/03-design.md#brake |
+| lay.axle_length_mm | 1210 | mm | calculated | docs/03-design.md#axle |
 | lay.disc_dia_mm | 152 | mm | calculated | docs/03-design.md#brake |
 | gear.t_clutch | 10 |  | calculated | docs/03-design.md#drive |
 | gear.t_jack_in | 40 |  | calculated | docs/03-design.md#drive |
@@ -331,7 +331,7 @@ These are not decided here. 1.2 compares forms against them.
 | gear.t_axle | 36 |  | calculated | docs/03-design.md#drive |
 | dsn.axle_dia_mm | 25 | mm | calculated | docs/03-design.md#axle |
 | dsn.rail_od_mm | 31.8 | mm | calculated | docs/03-design.md#frame |
-| dsn.rail_t_mm | 1.6 | mm | calculated | docs/03-design.md#frame |
+| dsn.rail_t_mm | 2.3 | mm | calculated | docs/03-design.md#frame |
 | dsn.cross_od_mm | 25.4 | mm | calculated | docs/03-design.md#frame |
 | dsn.cross_t_mm | 1.6 | mm | calculated | docs/03-design.md#frame |
 | dsn.floor_t_mm | 2.3 | mm | calculated | docs/03-design.md#frame |
@@ -364,6 +364,10 @@ These are not decided here. 1.2 compares forms against them.
 | cost.rear_hub_make_jpy | 3000 | JPY | assumed | Q-018 |
 | cost.axle_shaft_jpy | 5000 | JPY | assumed | Q-018 |
 | cost.welder_jpy | 9900 | JPY | sourced | M11 |
+| lay.bearing_mid_y_mm | 245 | mm | calculated | docs/03-design.md#axle |
+| lay.axle_gap_mm | 30 | mm | calculated | docs/03-design.md#frame |
+| lay.kick_x_mm | 250 | mm | calculated | docs/03-design.md#frame |
+| cost.tube_32x23_jpy_per_m | 1700 | JPY/m | assumed | Q-018 |
 | form.mass_total_kg | 170 | kg | calculated | docs/02-form.md#mass |
 | snow.wheel_sinkage_min_cm | 19.0 | cm | calculated | docs/02-form.md#snow |
 | snow.wheel_sinkage_max_cm | 25.1 | cm | calculated | docs/02-form.md#snow |
@@ -406,46 +410,57 @@ These are not decided here. 1.2 compares forms against them.
 | cost.total_donor_narrow_summer_jpy | 66551 | JPY | calculated | docs/02-form.md#cost |
 | dsn.length_m | 1.53 | m | calculated | docs/03-design.md#layout |
 | dsn.width_m | 1.277 | m | calculated | docs/03-design.md#layout |
-| dsn.width_transport_m | 1.187 | m | calculated | docs/03-design.md#transport |
-| dsn.tube_main_m | 3.35 | m | calculated | docs/03-design.md#frame |
-| dsn.tube_cross_m | 8.95 | m | calculated | docs/03-design.md#frame |
+| dsn.width_transport_m | 1.21 | m | calculated | docs/03-design.md#transport |
+| dsn.axle_rail_gap_mm | 30 | mm | calculated | docs/03-design.md#frame |
+| dsn.tube_main_m | 3.37 | m | calculated | docs/03-design.md#frame |
+| dsn.tube_cross_m | 8.66 | m | calculated | docs/03-design.md#frame |
+| dsn.hub_bearing_gap_mm | 39 | mm | calculated | docs/03-design.md#transport |
 | dsn.ratio | 12.0 |  | calculated | docs/03-design.md#drive |
 | dsn.top_speed_kmh | 19.65 | km/h | calculated | docs/03-design.md#drive |
-| dsn.chain1_centre_mm | 243 | mm | calculated | docs/03-design.md#drive |
-| dsn.chain2_centre_mm | 159 | mm | calculated | docs/03-design.md#drive |
-| dsn.chain1_links | 66 |  | calculated | docs/03-design.md#drive |
-| dsn.chain2_links | 52 |  | calculated | docs/03-design.md#drive |
-| dsn.chain1_gap_mm | 105 | mm | calculated | docs/03-design.md#drive |
-| dsn.chain2_gap_mm | 55 | mm | calculated | docs/03-design.md#drive |
+| dsn.chain1_centre_mm | 240.0 | mm | calculated | docs/03-design.md#drive |
+| dsn.chain2_centre_mm | 157.6 | mm | calculated | docs/03-design.md#drive |
+| dsn.chain1_links | 64 |  | calculated | docs/03-design.md#drive |
+| dsn.chain2_links | 50 |  | calculated | docs/03-design.md#drive |
+| dsn.chain1_gap_mm | 102 | mm | calculated | docs/03-design.md#drive |
+| dsn.chain2_gap_mm | 54 | mm | calculated | docs/03-design.md#drive |
+| dsn.engine_x_mm | 375 | mm | calculated | docs/03-design.md#drive |
+| dsn.jack_x_mm | 149 | mm | calculated | docs/03-design.md#drive |
 | dsn.low_point_mm | 86 | mm | calculated | docs/03-design.md#axle |
 | dsn.turn_radius_m | 2.26 | m | calculated | docs/03-design.md#steering |
-| dsn.leg_margin_adult_mm | 68 | mm | calculated | docs/03-design.md#fit |
+| dsn.leg_margin_adult_mm | 148 | mm | calculated | docs/03-design.md#fit |
 | dsn.leg_margin_child_mm | 149 | mm | calculated | docs/03-design.md#fit |
-| dsn.mass_kg | 87.6 | kg | calculated | docs/03-design.md#mass |
-| dsn.cg_x_m | 0.378 | m | calculated | docs/03-design.md#mass |
-| dsn.cg_z_m | 0.235 | m | calculated | docs/03-design.md#mass |
-| dsn.frame_mass_kg | 12.4 | kg | calculated | docs/03-design.md#frame |
-| dsn.rear_share_adult | 0.728 |  | calculated | docs/03-design.md#mass |
-| dsn.cg_height_adult_m | 0.356 | m | calculated | docs/03-design.md#mass |
-| dsn.tip_ratio_adult | 1.58 |  | calculated | docs/03-design.md#stability |
-| dsn.rear_share_child | 0.636 |  | calculated | docs/03-design.md#mass |
-| dsn.cg_height_child_m | 0.257 | m | calculated | docs/03-design.md#mass |
-| dsn.tip_ratio_child | 2.17 |  | calculated | docs/03-design.md#stability |
-| dsn.climb_force_n | 577 | N | calculated | docs/03-design.md#climb |
-| dsn.climb_grip_n | 649 | N | calculated | docs/03-design.md#climb |
+| dsn.mass_kg | 94.5 | kg | calculated | docs/03-design.md#mass |
+| dsn.cg_x_m | 0.368 | m | calculated | docs/03-design.md#mass |
+| dsn.cg_y_m | 0.097 | m | calculated | docs/03-design.md#mass |
+| dsn.cg_z_m | 0.231 | m | calculated | docs/03-design.md#mass |
+| dsn.frame_mass_kg | 13.8 | kg | calculated | docs/03-design.md#frame |
+| dsn.rear_share_adult | 0.729 |  | calculated | docs/03-design.md#mass |
+| dsn.cg_side_adult_mm | 1 | mm | calculated | docs/03-design.md#mass |
+| dsn.cg_height_adult_m | 0.35 | m | calculated | docs/03-design.md#mass |
+| dsn.tip_ratio_adult | 1.61 |  | calculated | docs/03-design.md#stability |
+| dsn.rear_share_child | 0.644 |  | calculated | docs/03-design.md#mass |
+| dsn.cg_side_child_mm | 66 | mm | calculated | docs/03-design.md#mass |
+| dsn.cg_height_child_m | 0.253 | m | calculated | docs/03-design.md#mass |
+| dsn.tip_ratio_child | 1.95 |  | calculated | docs/03-design.md#stability |
+| dsn.climb_force_n | 599 | N | calculated | docs/03-design.md#climb |
+| dsn.climb_grip_n | 672 | N | calculated | docs/03-design.md#climb |
 | dsn.climb_thrust_n | 758 | N | calculated | docs/03-design.md#climb |
-| dsn.axle_stress_mpa | 169 | MPa | calculated | docs/03-design.md#axle |
-| dsn.axle_safety | 2.04 |  | calculated | docs/03-design.md#axle |
-| dsn.rail_stress_mpa | 126 | MPa | calculated | docs/03-design.md#frame |
-| dsn.rail_safety | 2.29 |  | calculated | docs/03-design.md#frame |
-| dsn.bearing_load_n | 669 | N | calculated | docs/03-design.md#axle |
+| dsn.axle_chain_pull_n | 1691 | N | calculated | docs/03-design.md#axle |
+| dsn.axle_stress_mpa | 222 | MPa | calculated | docs/03-design.md#axle |
+| dsn.axle_safety | 1.56 |  | calculated | docs/03-design.md#axle |
+| dsn.frame_moment_nm | 559 | N m | calculated | docs/03-design.md#frame |
+| dsn.rail_stress_mpa | 191 | MPa | calculated | docs/03-design.md#frame |
+| dsn.rail_safety | 1.52 |  | calculated | docs/03-design.md#frame |
+| dsn.bearing_load_n | 695 | N | calculated | docs/03-design.md#axle |
 | dsn.brake_decel_needed | 2.57 | m/s2 | calculated | docs/03-design.md#brake |
-| dsn.brake_torque_needed_nm | 78 | N m | calculated | docs/03-design.md#brake |
-| dsn.brake_clamp_needed_n | 1750 | N | calculated | docs/03-design.md#brake |
+| dsn.brake_torque_needed_nm | 81 | N m | calculated | docs/03-design.md#brake |
+| dsn.brake_clamp_needed_n | 1814 | N | calculated | docs/03-design.md#brake |
+| dsn.brake_downhill_decel | 0.93 | m/s2 | calculated | docs/03-design.md#brake |
+| dsn.brake_downhill_stop_m | 16.6 | m | calculated | docs/03-design.md#brake |
 | dsn.delica_length_margin_mm | 80 | mm | calculated | docs/03-design.md#transport |
-| dsn.delica_width_margin_mm | 43 | mm | calculated | docs/03-design.md#transport |
+| dsn.delica_width_margin_mm | 20 | mm | calculated | docs/03-design.md#transport |
 | dsn.height_m | 0.71 | m | calculated | docs/03-design.md#layout |
-| dsn.bom_parts_jpy | 224104 | JPY | calculated | docs/03-design.md#cost |
+| dsn.bom_parts_jpy | 228130 | JPY | calculated | docs/03-design.md#cost |
 | dsn.bom_tools_jpy | 34056 | JPY | calculated | docs/03-design.md#cost |
 <!-- tdr:end -->
 
@@ -473,4 +488,5 @@ These are not decided here. 1.2 compares forms against them.
 | Q-017 | Step 1.3 assumes, without a source yet, the dynamic load factor on the frame and axle, the density and strength of S45C and STKM11A steel, the masses of a wheel with its tyre, the clutch, the seat, the steering, the brake, the fuel, and small parts, the brake pad friction, and the ratio of buttock-to-heel length to stature for an adult and for a 5-year-old. Cite a standard, a maker's data, or a weighing for each before the gate from design to build. | assistant |
 | Q-018 | The parts list assumes the price of steel plate cut to size, of machining by a local shop (keyways on the axle and the jackshaft, boring the 36 tooth sprocket, cross holes for the hub pins, the brake disc carrier), of making the two rear hubs, and of a 25 mm axle shaft of 1.22 m. Get quotes before the gate from design to build. | assistant |
 | Q-019 | The fit of bought parts to each other is not stated by their sellers and is checked when they arrive, before the frame is welded to them - the rim's three-hole pattern against the front hubs and the made rear hubs, the front hubs' bore against the 17 mm spindles, the engine's shaft (3/4 inch Q-type) and base holes, the ladder chains on 13x5.00-6 tyres, and the seat's rail bolt spacing. | assistant |
+| Q-020 | The layout of step 1.3 is not yet buildable (K-005). Rearrange the drive so that the chains, the jackshaft and its bearings, the middle axle bearing, and the guard fit between the seat and the left rail, or move the drive outboard; redesign the column support so it holds the column at its lower flange bearing and clears the legs; route the pedal box rails clear of the cross members; raise the steering arms and tie rods clear of the front rails; join every plate, the floor, and the seat slide to the frame; widen the seat space; and add the cornering side force to the axle and the engine's offset to the left rail. | assistant |
 <!-- tdr:end -->

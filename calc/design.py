@@ -66,49 +66,69 @@ def build(v):
     put("dsn.length_m", round(length, 3), "m", "layout")
     width = max(tf, tr) + tyre_w
     put("dsn.width_m", round(width, 3), "m", "layout")
-    width_t = max(tf, trn) + tyre_w
+    width_t = max(tf + tyre_w, trn + tyre_w, mm("lay.axle_length_mm"))  # the axle ends stick out when narrowed
     put("dsn.width_transport_m", round(width_t, 3), "m", "transport")
 
+    # ---- rear axle position and bearings (sizes needed by the frame) ---------------------------
+    da = mm("dsn.axle_dia_mm")
+    La = mm("lay.axle_length_mm")
+    yb, ybm = mm("lay.bearing_y_mm"), mm("lay.bearing_mid_y_mm")
+    h205, l205, h2_205 = mm("brg.ucp205_h_mm"), mm("brg.ucp205_l_mm"), mm("brg.ucp205_h2_mm")
+    # The bearings hang upside down under plates; the rear rails rise over the axle to them
+    z_bplate = r + h205                                 # top of the bearing base
+    zc_hi = z_bplate + 0.006 + rail_od / 2              # centre of the raised rear rails
+    put("dsn.axle_rail_gap_mm", round((zc_hi - rail_od / 2 - (r + da / 2)) * 1000), "mm", "frame")
+    xk = mm("lay.kick_x_mm")
+
     # ---- frame -----------------------------------------------------------------------------
-    # Nodes of a ladder frame: two main rails, a front section that widens to the spindle
-    # brackets, cross members at the rear axle, the seat, the pedal box, and the front axle,
-    # a seat back hoop, and a front bumper with side nerf bars (R-13).
+    # Two main rails low under the driver, rising behind x = kick to pass over the rear axle,
+    # cross members, outriggers to the outer axle bearings, a seat back hoop, a front bumper,
+    # side nerf bars (R-13; the left one only ahead of the engine), and a column support.
+    xh_, yh_ = mm("lay.hpoint_x_mm"), mm("lay.hpoint_y_mm")
+    xw_, zw_ = mm("lay.wheel_x_mm"), mm("lay.wheel_z_mm")
+    x_colsup = 0.75
+    z_colsup = zw_ - (x_colsup - xw_) / (wb - 0.05 - xw_) * (zw_ - (zc + 0.04))
     N = {
-        "rl0": (xb + 0.03, yr, zc), "rr0": (xb + 0.03, -yr, zc),
-        "rl1": (0.0, yr, zc), "rr1": (0.0, -yr, zc),
-        "rl2": (0.45, yr, zc), "rr2": (0.45, -yr, zc),
+        "rl0": (xb + 0.03, yr, zc_hi), "rr0": (xb + 0.03, -yr, zc_hi),
+        "rlk": (0.10, yr, zc_hi), "rrk": (0.10, -yr, zc_hi),
+        "rl1": (xk, yr, zc), "rr1": (xk, -yr, zc),
+        "rl2": (0.50, yr, zc), "rr2": (0.50, -yr, zc),
         "rl3": (0.75, yr, zc), "rr3": (0.75, -yr, zc),
         "fl": (wb, yf, zc + 0.02), "fr": (wb, -yf, zc + 0.02),
         "fl2": (wb + 0.12, yr * 0.7, zc), "fr2": (wb + 0.12, -yr * 0.7, zc),
         "bl": (xf - 0.02, yr * 0.75, zc + 0.10), "br": (xf - 0.02, -yr * 0.75, zc + 0.10),
-        "hb_l": (-0.04, 0.17, zc + 0.48), "hb_r": (-0.04, -0.21, zc + 0.48),
-        "hb_lb": (0.02, 0.17, zc), "hb_rb": (0.02, -0.21, zc),
-        "nl0": (0.18, yr + 0.20, zc + 0.05), "nl1": (0.80, yr + 0.15, zc + 0.05),
-        "nr0": (0.18, -yr - 0.20, zc + 0.05), "nr1": (0.80, -yr - 0.15, zc + 0.05),
-        "col0": (wb - 0.05, 0.0, zc + 0.02), "col1": (wb - 0.05, 0.0, zc + 0.30),
+        "ol0": (-0.09, yr, zc_hi), "ol1": (-0.09, yb + 0.03, zc_hi), "ol2": (0.09, yb + 0.03, zc_hi), "ol3": (0.09, yr, zc_hi),
+        "or0": (-0.09, -yr, zc_hi), "or1": (-0.09, -yb - 0.03, zc_hi), "or2": (0.09, -yb - 0.03, zc_hi), "or3": (0.09, -yr, zc_hi),
+        "hb_lb": (xh_ - 0.13, yh_ + 0.17, zc_hi), "hb_rb": (xh_ - 0.13, yh_ - 0.17, zc_hi),
+        "hb_l": (xh_ - 0.17, yh_ + 0.17, zc_hi + 0.42), "hb_r": (xh_ - 0.17, yh_ - 0.17, zc_hi + 0.42),
+        "nl0": (0.62, yr, zc), "nl1": (0.70, yr + 0.12, zc + 0.04),
+        "nr0": (0.20, -yr - 0.17, zc + 0.04), "nr1": (0.70, -yr - 0.12, zc + 0.04),
+        "col0": (x_colsup, yh_, zc), "col1": (x_colsup, yh_, z_colsup),
     }
-    main = [("rl0", "rl1"), ("rl1", "rl2"), ("rl2", "rl3"), ("rl3", "fl"), ("fl", "fl2"), ("fl2", "bl"),
-            ("rr0", "rr1"), ("rr1", "rr2"), ("rr2", "rr3"), ("rr3", "fr"), ("fr", "fr2"), ("fr2", "br")]
+    main = [("rl0", "rlk"), ("rlk", "rl1"), ("rl1", "rl2"), ("rl2", "rl3"), ("rl3", "fl"), ("fl", "fl2"), ("fl2", "bl"),
+            ("rr0", "rrk"), ("rrk", "rr1"), ("rr1", "rr2"), ("rr2", "rr3"), ("rr3", "fr"), ("fr", "fr2"), ("fr2", "br")]
     cross = [("rl0", "rr0"), ("rl1", "rr1"), ("rl2", "rr2"), ("rl3", "rr3"), ("fl", "fr"), ("fl2", "fr2"), ("bl", "br"),
-             ("hb_lb", "hb_l"), ("hb_l", "hb_r"), ("hb_r", "hb_rb"),
-             ("rl2", "nl0"), ("nl0", "nl1"), ("nl1", "rl3"), ("rr2", "nr0"), ("nr0", "nr1"), ("nr1", "rr3"),
+             ("ol0", "ol1"), ("ol1", "ol2"), ("ol2", "ol3"), ("or0", "or1"), ("or1", "or2"), ("or2", "or3"),
+             ("hb_lb", "hb_l"), ("hb_l", "hb_r"), ("hb_r", "hb_rb"), ("hb_lb", "hb_rb"),
+             ("nl0", "nl1"), ("nl1", "rl3"), ("rr1", "nr0"), ("nr0", "nr1"), ("nr1", "rr3"),
              ("col0", "col1"), ("rl3", "col1"), ("rr3", "col1")]
     tube_len = {"main": 0.0, "cross": 0.0}
     for a, b in main:
         members.append({"part": "frame", "a": rnd(N[a]), "b": rnd(N[b]), "od": rail_od, "t": rail_t})
         tube_len["main"] += math.dist(N[a], N[b])
     for a, b in cross:
-        part = "bumpers" if a.startswith("n") or b.startswith("n") or a in ("bl",) else "frame"
+        part = "bumpers" if a[0] == "n" or b[0] == "n" or a == "bl" else "frame"
         members.append({"part": part, "a": rnd(N[a]), "b": rnd(N[b]), "od": cross_od, "t": cross_t})
         tube_len["cross"] += math.dist(N[a], N[b])
     put("dsn.tube_main_m", round(tube_len["main"], 2), "m", "frame")
     put("dsn.tube_cross_m", round(tube_len["cross"], 2), "m", "frame")
     rho = v["dsn.steel_density_kg_m3"]
-    tube_mass = lambda od, t, L: rho * math.pi * (od * od - (od - 2 * t) ** 2) / 4 * L
+    tube_mass = lambda od_, t_, L: rho * math.pi * (od_ * od_ - (od_ - 2 * t_) ** 2) / 4 * L
     m_frame = tube_mass(rail_od, rail_t, tube_len["main"]) + tube_mass(cross_od, cross_t, tube_len["cross"])
-    floor_area = 0.75 * (2 * yr - 0.02)
-    m_floor = rho * floor_area * mm("dsn.floor_t_mm")
-    item("floor", "plate", pos=[0.375, 0.0, zr - 0.002], size=[0.75, 2 * yr - 0.02, v["dsn.floor_t_mm"] / 1000])
+    # the floor covers the driver side only, clear of the drive on the left
+    fx0, fx1, fy0, fy1 = 0.10, 0.90, -yr + 0.02, yh_ + 0.19
+    m_floor = rho * (fx1 - fx0) * (fy1 - fy0) * mm("dsn.floor_t_mm")
+    item("floor", "plate", pos=[(fx0 + fx1) / 2, (fy0 + fy1) / 2, zr - 0.002], size=[fx1 - fx0, fy1 - fy0, v["dsn.floor_t_mm"] / 1000])
 
     # ---- masses and centre of mass ---------------------------------------------------------
     masses = []   # (part, kg, (x, y, z))
@@ -117,32 +137,30 @@ def build(v):
         masses.append((part, kg, pos))
 
     mass("frame", m_frame, (0.45, 0.0, zc + 0.05))
-    mass("floor", m_floor, (0.375, 0.0, zr))
+    mass("floor", m_floor, ((fx0 + fx1) / 2, (fy0 + fy1) / 2, zr))
 
     # ---- rear axle, hubs, wheels, bearings, brake --------------------------------------------
-    da = mm("dsn.axle_dia_mm")
-    La = mm("lay.axle_length_mm")
-    yb = mm("lay.bearing_y_mm")
     item("axle_shaft", "cyl", pos=[0.0, 0.0, r], axis="y", d=da, l=La)
     mass("axle_shaft", rho * math.pi * da * da / 4 * La, (0.0, 0.0, r))
-    h205, l205, h2_205 = mm("brg.ucp205_h_mm"), mm("brg.ucp205_l_mm"), mm("brg.ucp205_h2_mm")
-    for s in (1, -1):
-        item("axle_bearings", "pillow", pos=[0.0, s * yb, r - h205], h=h205, l=l205, h2=h2_205, bore=da, axis="y")
-        mass("axle_bearings", v["brg.ucp205_mass_kg"], (0.0, s * yb, r))
-        # bearing hanger plate from the rail down to the bearing base
-        item("frame", "plate", pos=[0.0, s * yb, r - h205 - 0.003], size=[l205 + 0.02, 0.06, 0.006])
-    low_bearing = r - h205 - 0.006
+    plates = 0.0
+    for yy in (yb, ybm, -yb):
+        item("axle_bearings", "pillow", pos=[0.0, yy, z_bplate], h=h205, l=l205, h2=h2_205, bore=da, axis="y", inverted=True)
+        mass("axle_bearings", v["brg.ucp205_mass_kg"], (0.0, yy, r))
+        item("frame", "plate", pos=[0.0, yy, z_bplate + 0.003], size=[0.20, 0.07, 0.006])
+        plates += rho * 0.20 * 0.07 * 0.006
+    low_bearing = r - (h2_205 - h205)
     for cfg in CONFIGS:
-        t = trn if cfg == "transport" else tr
+        t_ = trn if cfg == "transport" else tr
         for s in (1, -1):
-            item("rear_hubs", "hub", configs=[cfg], pos=[0.0, s * (t / 2 - 0.035), r], axis="y", d=0.07, l=0.06)
-            item("rear_wheels", "wheel", configs=[cfg], pos=[0.0, s * t / 2, r], axis="y", od=tyre_d, width=tyre_w,
+            item("rear_hubs", "hub", configs=[cfg], pos=[0.0, s * (t_ / 2 - 0.02), r], axis="y", d=0.07, l=0.05)
+            item("rear_wheels", "wheel", configs=[cfg], pos=[0.0, s * t_ / 2, r], axis="y", od=tyre_d, width=tyre_w,
                  rim=0.152)
             if cfg == "winter":
-                item("snow_chains", "chains", configs=[cfg], pos=[0.0, s * t / 2, r], axis="y", od=tyre_d, width=tyre_w)
+                item("snow_chains", "chains", configs=[cfg], pos=[0.0, s * t_ / 2, r], axis="y", od=tyre_d, width=tyre_w)
+    put("dsn.hub_bearing_gap_mm", round((trn / 2 - tyre_w / 2 - (yb + 0.0171)) * 1000), "mm", "transport")
     for s in (1, -1):
         mass("rear_wheels", v["dsn.wheel_mass_kg"], (0.0, s * tr / 2, r))
-        mass("rear_hubs", 0.8, (0.0, s * (tr / 2 - 0.035), r))
+        mass("rear_hubs", 0.8, (0.0, s * (tr / 2 - 0.02), r))
     dd = mm("lay.disc_dia_mm")
     yd = mm("lay.brake_y_mm")
     item("brake", "disc", pos=[0.0, yd, r], axis="y", d=dd, t=0.004)
@@ -156,17 +174,40 @@ def build(v):
     put("dsn.ratio", round(ratio, 3), None, "drive")
     v_top = v["engine.speed_noload_rpm"] / ratio / 60 * math.pi * tyre_d * 3.6
     put("dsn.top_speed_kmh", round(v_top, 2), "km/h", "drive")
-    xe, ye = mm("lay.engine_x_mm"), mm("lay.engine_y_mm")
+    p = 0.0127
+
+    def exact_links(c, n1_, n2_):
+        return 2 * c / p + (n1_ + n2_) / 2 + p * (n2_ - n1_) ** 2 / (4 * math.pi ** 2 * c)
+
+    def centre_for(links, n1_, n2_):
+        lo, hi = 0.05, 1.0
+        for _ in range(60):
+            mid = (lo + hi) / 2
+            lo, hi = (mid, hi) if exact_links(mid, n1_, n2_) < links else (lo, mid)
+        return (lo + hi) / 2
+
+    # The jackshaft and the engine sit where whole even numbers of links fit their chains;
+    # slotted bearing and engine holes give the adjustment (1.3.4).
+    zj = mm("lay.jack_z_mm")
+    x_guess = mm("lay.jack_x_mm")
+    n2 = math.floor(exact_links(math.hypot(x_guess, zj - r), t3, t4) / 2) * 2
+    c2 = centre_for(n2, t3, t4)
+    xj = math.sqrt(c2 ** 2 - (zj - r) ** 2)
     el, ew, eh = mm("eng.length_mm"), mm("eng.width_mm"), mm("eng.height_mm")
     z_base = zr + rail_od + 0.006                      # engine plate on the rails
     z_crank = z_base + mm("eng.shaft_height_mm")
+    xe_guess = mm("lay.engine_x_mm")
+    n1 = math.floor(exact_links(math.hypot(xe_guess - xj, z_crank - zj), t1, t2) / 2) * 2
+    c1 = centre_for(n1, t1, t2)
+    xe = xj + math.sqrt(c1 ** 2 - (z_crank - zj) ** 2)
+    ye = mm("lay.engine_y_mm")
     item("frame", "plate", pos=[xe, ye, z_base - 0.003], size=[ew * 0.75, el * 0.85, 0.006])
-    # the engine's crank lies across the kart; its output end faces inward (toward -y)
+    plates += rho * ew * 0.75 * el * 0.85 * 0.006
+    # the crank lies across the kart; its output end faces the seat (toward -y)
     item("engine", "engine", pos=[xe, ye, z_base], length=el, width=ew, height=eh, shaft_h=mm("eng.shaft_height_mm"),
          pto="-y")
     mass("engine", v["eng.mass_kg"], (xe, ye, z_base + eh * 0.4))
     y1, y2 = mm("lay.chain1_y_mm"), mm("lay.chain2_y_mm")
-    xj, zj = mm("lay.jack_x_mm"), mm("lay.jack_z_mm")
     cl_od, cl_w = mm("clutch.od_mm"), mm("clutch.width_mm")
     item("clutch", "clutch", pos=[xe, y1 + cl_w / 2, z_crank], axis="y", od=cl_od, l=cl_w)
     mass("clutch", v["dsn.clutch_mass_kg"], (xe, y1 + 0.03, z_crank))
@@ -178,28 +219,25 @@ def build(v):
         item(part, "sprocket", pos=list(pos), axis="y", teeth=n, pd=pd[n], od=od[n], t=0.0072)
     mass("jackshaft", v["spr.t40_mass_kg"] + 0.22, (xj, y1, zj))
     mass("chain_final", v["spr.t36_mass_kg"], (0.0, y2, r))
-    yj0, yj1 = min(y1, y2) - 0.06, max(y1, y2) + 0.08
+    yj0, yj1 = y2 - 0.035, yr - 0.02
     item("jackshaft", "cyl", pos=[xj, (yj0 + yj1) / 2, zj], axis="y", d=0.020, l=yj1 - yj0)
+    mass("jackshaft", rho * math.pi * 0.01 ** 2 * (yj1 - yj0), (xj, (yj0 + yj1) / 2, zj))
     h204, l204, h2_204 = mm("brg.ucp204_h_mm"), mm("brg.ucp204_l_mm"), mm("brg.ucp204_h2_mm")
-    for yy in (yj0 + 0.02, yj1 - 0.02):
+    for yy in (yj0 + 0.017, yj1 - 0.017):
         item("jackshaft", "pillow", pos=[xj, yy, zj - h204], h=h204, l=l204, h2=h2_204, bore=0.020, axis="y")
         mass("jackshaft", v["brg.ucp204_mass_kg"], (xj, yy, zj))
     item("frame", "plate", pos=[xj, (yj0 + yj1) / 2, zj - h204 - 0.003], size=[l204 + 0.02, yj1 - yj0, 0.006])
+    plates += rho * (l204 + 0.02) * (yj1 - yj0) * 0.006
+    mass("frame", plates, (0.2, 0.2, zc))
 
-    p = 0.0127
-
-    def chain_links(c, n1, n2):
-        links = 2 * c / p + (n1 + n2) / 2 + p * (n2 - n1) ** 2 / (4 * math.pi ** 2 * c)
-        return math.ceil(links / 2) * 2
-
-    c1 = math.dist((xe, z_crank), (xj, zj))
-    c2 = math.dist((xj, zj), (0.0, r))
-    put("dsn.chain1_centre_mm", round(c1 * 1000), "mm", "drive")
-    put("dsn.chain2_centre_mm", round(c2 * 1000), "mm", "drive")
-    put("dsn.chain1_links", chain_links(c1, t1, t2), None, "drive")
-    put("dsn.chain2_links", chain_links(c2, t3, t4), None, "drive")
+    put("dsn.chain1_centre_mm", round(c1 * 1000, 1), "mm", "drive")
+    put("dsn.chain2_centre_mm", round(c2 * 1000, 1), "mm", "drive")
+    put("dsn.chain1_links", n1, None, "drive")
+    put("dsn.chain2_links", n2, None, "drive")
     put("dsn.chain1_gap_mm", round((c1 - cl_od / 2 - od[t2] / 2) * 1000), "mm", "drive")
     put("dsn.chain2_gap_mm", round((c2 - od[t3] / 2 - od[t4] / 2) * 1000), "mm", "drive")
+    put("dsn.engine_x_mm", round(xe * 1000), "mm", "drive")
+    put("dsn.jack_x_mm", round(xj * 1000), "mm", "drive")
     item("chain_primary", "chain", pos=[xe, y1, z_crank], to=[xj, y1, zj], r1=pd[t1] / 2, r2=pd[t2] / 2, axis="y")
     item("chain_final", "chain", pos=[xj, y2, zj], to=[0.0, y2, r], r1=pd[t3] / 2, r2=pd[t4] / 2, axis="y")
     low_spr = r - od[t4] / 2
@@ -269,25 +307,30 @@ def build(v):
     # ---- totals: mass and centre of mass ----------------------------------------------------
     M = sum(m for _, m, _ in masses)
     cx = sum(m * p_[0] for _, m, p_ in masses) / M
+    cy = sum(m * p_[1] for _, m, p_ in masses) / M
     cz = sum(m * p_[2] for _, m, p_ in masses) / M
     put("dsn.mass_kg", round(M, 1), "kg", "mass")
     put("dsn.cg_x_m", round(cx, 3), "m", "mass")
+    put("dsn.cg_y_m", round(cy, 3), "m", "mass")
     put("dsn.cg_z_m", round(cz, 3), "m", "mass")
     put("dsn.frame_mass_kg", round(m_frame, 1), "kg", "frame")
     for who in ("adult", "child"):
         rd = riders[who]
         mt = M + rd["mass"]
-        x_r, z_r = rd["hip"][0] + 0.10, rd["hip"][2] + rd["cg_above_seat"] - 0.06
+        x_r, y_r, z_r = rd["hip"][0] + 0.10, rd["hip"][1], rd["hip"][2] + rd["cg_above_seat"] - 0.06
         cxt = (M * cx + rd["mass"] * x_r) / mt
+        cyt = (M * cy + rd["mass"] * y_r) / mt
         czt = (M * cz + rd["mass"] * z_r) / mt
         rear = 1 - cxt / wb
-        # effective half track at the centre of mass, between the rear and front tracks
-        half = tr / 2 + (tf / 2 - tr / 2) * (cxt / wb)
+        # half track at the centre of mass, between the rear and front tracks, less the
+        # sideways offset of the centre toward the side it would tip to (the worse side)
+        half = tr / 2 + (tf / 2 - tr / 2) * (cxt / wb) - abs(cyt)
         put(f"dsn.rear_share_{who}", round(rear, 3), None, "mass")
+        put(f"dsn.cg_side_{who}_mm", round(cyt * 1000), "mm", "mass")
         put(f"dsn.cg_height_{who}_m", round(czt, 3), "m", "mass")
         put(f"dsn.tip_ratio_{who}", round(half / czt, 2), None, "stability")
         if who == "adult":
-            m_adult, rear_adult = mt, rear
+            m_adult, rear_adult, x_adult = mt, rear, x_r
 
     # ---- climbing the slope on long grass with the adult (R-16) -------------------------------
     th = math.atan(v["site.grade_max_pct"] / 100)
@@ -303,21 +346,40 @@ def build(v):
 
     # ---- strength -----------------------------------------------------------------------------
     k = v["dsn.load_factor"]
-    w_rear = m_adult * G * rear_adult / 2 * k          # per rear wheel, with the load factor
+    # Axle: a bump on each rear wheel bends it at the outer bearing (wheel load x overhang);
+    # the final chain pulls on its sprocket next to the middle bearing at full engine torque.
+    # The two act in roughly perpendicular planes and are combined as a vector.
+    w_rear = m_adult * G * rear_adult / 2 * k
     arm = tr / 2 - yb
+    m_bump = w_rear * arm
+    f_chain = t_eng * ratio * v["drive.efficiency"] / (pd[t4] / 2)
+    m_chain = f_chain * abs(y2 - ybm)
+    m_axle = math.hypot(m_bump, m_chain)
     z_axle = math.pi * da ** 3 / 32
-    sigma_axle = w_rear * arm / z_axle / 1e6
+    sigma_axle = m_axle / z_axle / 1e6
+    put("dsn.axle_chain_pull_n", round(f_chain), "N", "axle")
     put("dsn.axle_stress_mpa", round(sigma_axle), "MPa", "axle")
     put("dsn.axle_safety", round(v["dsn.s45c_yield_mpa"] / sigma_axle, 2), None, "axle")
+    # Frame: the rails as a beam between the rear axle and the kingpins carrying every sprung
+    # mass and the rider at their x, times the load factor; half on each rail (the cross
+    # members, the floor, and the nerf bars that share the load are left out).
+    unsprung = {"rear_wheels", "rear_hubs", "axle_shaft", "axle_bearings", "front_wheels", "spindles", "brake"}
+    loads = [(p_[0], m * G * k) for pt, m, p_ in masses if pt not in unsprung]
+    loads.append((x_adult, v["rider.mass_max_kg"] * G * k))
+    loads = [(min(max(x, 0.0), wb), f) for x, f in loads]
+    r_front = sum(f * x for x, f in loads) / wb
+    m_max = 0.0
+    for i in range(201):
+        xs = wb * i / 200
+        mom = r_front * (wb - xs) - sum(f * (x - xs) for x, f in loads if x > xs)
+        m_max = max(m_max, abs(mom))
     d_in = rail_od - 2 * rail_t
     z_rail = math.pi * (rail_od ** 4 - d_in ** 4) / (32 * rail_od)
-    span = 0.45                                         # seat cross members to the axle cross member
-    p_rail = v["rider.mass_max_kg"] * G * k / 2         # the rider on two rails
-    sigma_rail = p_rail * span / 4 / z_rail / 1e6
+    sigma_rail = m_max / 2 / z_rail / 1e6
+    put("dsn.frame_moment_nm", round(m_max), "N m", "frame")
     put("dsn.rail_stress_mpa", round(sigma_rail), "MPa", "frame")
     put("dsn.rail_safety", round(v["dsn.stkm11a_tensile_mpa"] / sigma_rail, 2), None, "frame")
-    c_eq = w_rear / k * 1.0                             # bearing load without the factor
-    put("dsn.bearing_load_n", round(c_eq), "N", "axle")
+    put("dsn.bearing_load_n", round(w_rear / k), "N", "axle")
 
     # ---- brake --------------------------------------------------------------------------------
     vt = v["kart.speed_max_kmh"] / 3.6
@@ -327,6 +389,11 @@ def build(v):
     put("dsn.brake_torque_needed_nm", round(torque), "N m", "brake")
     r_eff = dd / 2 - 0.012
     put("dsn.brake_clamp_needed_n", round(torque / (2 * v["dsn.pad_mu"] * r_eff)), "N", "brake")
+    # Downhill on the grass slope with rear brakes only: the load moves forward off the rear
+    n_rear_dn = m_adult * G * (math.cos(th) * rear_adult - math.sin(th) * h_adult / wb)
+    a_dn = v["ground.mu_grass"] * n_rear_dn / m_adult - G * math.sin(th)
+    put("dsn.brake_downhill_decel", round(a_dn, 2), "m/s2", "brake")
+    put("dsn.brake_downhill_stop_m", round(vt * vt / (2 * a_dn), 1) if a_dn > 0 else 999, "m", "brake")
 
     # ---- the Delica ---------------------------------------------------------------------------
     put("dsn.delica_length_margin_mm", round((mm("delica.cargo_length_mm") - length) * 1000), "mm", "transport")
