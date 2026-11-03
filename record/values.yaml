@@ -782,6 +782,706 @@ items:
     status: sourced
     basis:
       - P9
+  - key: eng.length_mm
+    v: 313
+    unit: mm
+    status: sourced
+    basis:
+      - P30
+  - key: eng.width_mm
+    v: 376
+    unit: mm
+    status: sourced
+    basis:
+      - P30
+  - key: eng.height_mm
+    v: 339
+    unit: mm
+    status: sourced
+    basis:
+      - P30
+  - key: eng.mass_kg
+    v: 16.1
+    unit: kg
+    status: sourced
+    basis:
+      - P30
+  - key: eng.shaft_height_mm
+    v: 106
+    unit: mm
+    status: sourced
+    basis:
+      - P30
+  - key: eng.shaft_dia_mm
+    v: 19.05
+    unit: mm
+    status: sourced
+    basis:
+      - P30
+  - key: eng.base_across_mm
+    v: 162
+    unit: mm
+    status: sourced
+    basis:
+      - P30
+  - key: eng.base_along_mm
+    v: 80
+    unit: mm
+    status: sourced
+    basis:
+      - P30
+  - key: whl.tyre_od_mm
+    v: 325
+    unit: mm
+    status: sourced
+    basis:
+      - M32
+  - key: whl.tyre_width_mm
+    v: 127
+    unit: mm
+    status: sourced
+    basis:
+      - M32
+  - key: brg.ucp205_h_mm
+    v: 36.5
+    unit: mm
+    status: sourced
+    basis:
+      - P32
+  - key: brg.ucp205_l_mm
+    v: 140
+    unit: mm
+    status: sourced
+    basis:
+      - P32
+  - key: brg.ucp205_j_mm
+    v: 105
+    unit: mm
+    status: sourced
+    basis:
+      - P32
+  - key: brg.ucp205_h2_mm
+    v: 71
+    unit: mm
+    status: sourced
+    basis:
+      - P32
+  - key: brg.ucp205_mass_kg
+    v: 0.9
+    unit: kg
+    status: sourced
+    basis:
+      - P32
+  - key: brg.ucp205_cr_kn
+    v: 14.0
+    unit: kN
+    status: sourced
+    basis:
+      - P32
+  - key: brg.ucp204_h_mm
+    v: 33.3
+    unit: mm
+    status: sourced
+    basis:
+      - P33
+  - key: brg.ucp204_l_mm
+    v: 127
+    unit: mm
+    status: sourced
+    basis:
+      - P33
+  - key: brg.ucp204_h2_mm
+    v: 65
+    unit: mm
+    status: sourced
+    basis:
+      - P33
+  - key: brg.ucp204_mass_kg
+    v: 0.66
+    unit: kg
+    status: sourced
+    basis:
+      - P33
+  - key: spr.t10_pd_mm
+    v: 41.098
+    unit: mm
+    status: sourced
+    basis:
+      - P31
+  - key: spr.t12_pd_mm
+    v: 49.069
+    unit: mm
+    status: sourced
+    basis:
+      - P31
+  - key: spr.t12_od_mm
+    v: 55
+    unit: mm
+    status: sourced
+    basis:
+      - P31
+  - key: spr.t36_pd_mm
+    v: 145.716
+    unit: mm
+    status: sourced
+    basis:
+      - P31
+  - key: spr.t36_od_mm
+    v: 153
+    unit: mm
+    status: sourced
+    basis:
+      - P31
+  - key: spr.t36_mass_kg
+    v: 1.5
+    unit: kg
+    status: sourced
+    basis:
+      - P31
+  - key: spr.t40_pd_mm
+    v: 161.868
+    unit: mm
+    status: sourced
+    basis:
+      - P31
+  - key: spr.t40_od_mm
+    v: 169
+    unit: mm
+    status: sourced
+    basis:
+      - P31
+  - key: spr.t40_mass_kg
+    v: 1.7
+    unit: kg
+    status: sourced
+    basis:
+      - P31
+  - key: clutch.od_mm
+    v: 107
+    unit: mm
+    status: sourced
+    basis:
+      - M51
+  - key: clutch.width_mm
+    v: 64
+    unit: mm
+    status: sourced
+    basis:
+      - M52
+  - key: rod.phs10_cs_n
+    v: 13200
+    unit: N
+    status: sourced
+    basis:
+      - P34
+  - key: cost.tyre_pair_jpy
+    v: 11770
+    unit: JPY
+    status: sourced
+    basis:
+      - M32
+  - key: cost.rim_each_jpy
+    v: 6480
+    unit: JPY
+    status: sourced
+    basis:
+      - M33
+  - key: cost.ucp205_jpy
+    v: 1758
+    unit: JPY
+    status: sourced
+    basis:
+      - M34
+  - key: cost.shaft25_short_jpy
+    v: 2088
+    unit: JPY
+    status: sourced
+    basis:
+      - M35
+  - key: cost.spindle_pair_jpy
+    v: 9220
+    unit: JPY
+    status: sourced
+    basis:
+      - M36
+  - key: cost.front_hub_jpy
+    v: 9390
+    unit: JPY
+    status: sourced
+    basis:
+      - M37
+  - key: cost.rod_end_jpy
+    v: 1758
+    unit: JPY
+    status: sourced
+    basis:
+      - M38
+  - key: cost.steering_wheel_jpy
+    v: 7280
+    unit: JPY
+    status: sourced
+    basis:
+      - M39
+  - key: cost.ucfl204_jpy
+    v: 1640
+    unit: JPY
+    status: sourced
+    basis:
+      - M40
+  - key: cost.disc_jpy
+    v: 5426
+    unit: JPY
+    status: sourced
+    basis:
+      - M41
+  - key: cost.brake_hyd_jpy
+    v: 17640
+    unit: JPY
+    status: sourced
+    basis:
+      - M42
+  - key: cost.pedal_kit_jpy
+    v: 8994
+    unit: JPY
+    status: sourced
+    basis:
+      - M43
+  - key: cost.spr_t12_jpy
+    v: 1032
+    unit: JPY
+    status: sourced
+    basis:
+      - M45
+  - key: cost.spr_t40_jpy
+    v: 2824
+    unit: JPY
+    status: sourced
+    basis:
+      - M45
+  - key: cost.spr_t36_jpy
+    v: 1798
+    unit: JPY
+    status: sourced
+    basis:
+      - M45
+  - key: cost.chain_3m_jpy
+    v: 3298
+    unit: JPY
+    status: sourced
+    basis:
+      - M46
+  - key: cost.ucp204_jpy
+    v: 1648
+    unit: JPY
+    status: sourced
+    basis:
+      - M47
+  - key: cost.shaft20_jpy
+    v: 2418
+    unit: JPY
+    status: sourced
+    basis:
+      - M48
+  - key: cost.throttle_cable_jpy
+    v: 6680
+    unit: JPY
+    status: sourced
+    basis:
+      - M49
+  - key: cost.kill_switch_jpy
+    v: 1135
+    unit: JPY
+    status: sourced
+    basis:
+      - M50
+  - key: lay.wheelbase_mm
+    v: 1000
+    unit: mm
+    status: calculated
+    basis:
+      - docs/03-design.md#layout
+  - key: lay.track_front_mm
+    v: 1060
+    unit: mm
+    status: calculated
+    basis:
+      - docs/03-design.md#layout
+  - key: lay.track_rear_mm
+    v: 1150
+    unit: mm
+    status: calculated
+    basis:
+      - docs/03-design.md#layout
+  - key: lay.track_rear_narrow_mm
+    v: 1000
+    unit: mm
+    status: calculated
+    basis:
+      - docs/03-design.md#transport
+  - key: lay.rail_bottom_mm
+    v: 150
+    unit: mm
+    status: calculated
+    basis:
+      - docs/03-design.md#layout
+  - key: lay.rail_half_width_mm
+    v: 300
+    unit: mm
+    status: calculated
+    basis:
+      - docs/03-design.md#frame
+  - key: lay.front_half_width_mm
+    v: 430
+    unit: mm
+    status: calculated
+    basis:
+      - docs/03-design.md#frame
+  - key: lay.front_overhang_mm
+    v: 300
+    unit: mm
+    status: calculated
+    basis:
+      - docs/03-design.md#layout
+  - key: lay.rear_overhang_mm
+    v: 230
+    unit: mm
+    status: calculated
+    basis:
+      - docs/03-design.md#layout
+  - key: lay.hpoint_x_mm
+    v: 80
+    unit: mm
+    status: calculated
+    basis:
+      - docs/03-design.md#fit
+  - key: lay.hpoint_y_mm
+    v: -40
+    unit: mm
+    status: calculated
+    basis:
+      - docs/03-design.md#fit
+  - key: lay.seat_slide_mm
+    v: 120
+    unit: mm
+    status: calculated
+    basis:
+      - docs/03-design.md#fit
+  - key: lay.pedal_x_far_mm
+    v: 1010
+    unit: mm
+    status: calculated
+    basis:
+      - docs/03-design.md#fit
+  - key: lay.pedal_x_near_mm
+    v: 560
+    unit: mm
+    status: calculated
+    basis:
+      - docs/03-design.md#fit
+  - key: lay.wheel_x_mm
+    v: 600
+    unit: mm
+    status: calculated
+    basis:
+      - docs/03-design.md#steering
+  - key: lay.wheel_z_mm
+    v: 560
+    unit: mm
+    status: calculated
+    basis:
+      - docs/03-design.md#steering
+  - key: lay.steer_max_deg
+    v: 30
+    unit: deg
+    status: calculated
+    basis:
+      - docs/03-design.md#steering
+  - key: lay.engine_x_mm
+    v: 380
+    unit: mm
+    status: calculated
+    basis:
+      - docs/03-design.md#drive
+  - key: lay.engine_y_mm
+    v: 400
+    unit: mm
+    status: calculated
+    basis:
+      - docs/03-design.md#drive
+  - key: lay.jack_x_mm
+    v: 150
+    unit: mm
+    status: calculated
+    basis:
+      - docs/03-design.md#drive
+  - key: lay.jack_z_mm
+    v: 215
+    unit: mm
+    status: calculated
+    basis:
+      - docs/03-design.md#drive
+  - key: lay.chain1_y_mm
+    v: 205
+    unit: mm
+    status: calculated
+    basis:
+      - docs/03-design.md#drive
+  - key: lay.chain2_y_mm
+    v: 140
+    unit: mm
+    status: calculated
+    basis:
+      - docs/03-design.md#drive
+  - key: lay.bearing_y_mm
+    v: 420
+    unit: mm
+    status: calculated
+    basis:
+      - docs/03-design.md#axle
+  - key: lay.brake_y_mm
+    v: -150
+    unit: mm
+    status: calculated
+    basis:
+      - docs/03-design.md#brake
+  - key: lay.axle_length_mm
+    v: 1220
+    unit: mm
+    status: calculated
+    basis:
+      - docs/03-design.md#axle
+  - key: lay.disc_dia_mm
+    v: 152
+    unit: mm
+    status: calculated
+    basis:
+      - docs/03-design.md#brake
+  - key: gear.t_clutch
+    v: 10
+    status: calculated
+    basis:
+      - docs/03-design.md#drive
+  - key: gear.t_jack_in
+    v: 40
+    status: calculated
+    basis:
+      - docs/03-design.md#drive
+  - key: gear.t_jack_out
+    v: 12
+    status: calculated
+    basis:
+      - docs/03-design.md#drive
+  - key: gear.t_axle
+    v: 36
+    status: calculated
+    basis:
+      - docs/03-design.md#drive
+  - key: dsn.axle_dia_mm
+    v: 25
+    unit: mm
+    status: calculated
+    basis:
+      - docs/03-design.md#axle
+  - key: dsn.rail_od_mm
+    v: 31.8
+    unit: mm
+    status: calculated
+    basis:
+      - docs/03-design.md#frame
+  - key: dsn.rail_t_mm
+    v: 1.6
+    unit: mm
+    status: calculated
+    basis:
+      - docs/03-design.md#frame
+  - key: dsn.cross_od_mm
+    v: 25.4
+    unit: mm
+    status: calculated
+    basis:
+      - docs/03-design.md#frame
+  - key: dsn.cross_t_mm
+    v: 1.6
+    unit: mm
+    status: calculated
+    basis:
+      - docs/03-design.md#frame
+  - key: dsn.floor_t_mm
+    v: 2.3
+    unit: mm
+    status: calculated
+    basis:
+      - docs/03-design.md#frame
+  - key: dsn.load_factor
+    v: 2.5
+    status: assumed
+    basis:
+      - Q-017
+  - key: dsn.steel_density_kg_m3
+    v: 7850
+    unit: kg/m3
+    status: assumed
+    basis:
+      - Q-017
+  - key: dsn.s45c_yield_mpa
+    v: 345
+    unit: MPa
+    status: assumed
+    basis:
+      - Q-017
+  - key: dsn.stkm11a_tensile_mpa
+    v: 290
+    unit: MPa
+    status: assumed
+    basis:
+      - Q-017
+  - key: dsn.wheel_mass_kg
+    v: 3.5
+    unit: kg
+    status: assumed
+    basis:
+      - Q-017
+  - key: dsn.clutch_mass_kg
+    v: 1.2
+    unit: kg
+    status: assumed
+    basis:
+      - Q-017
+  - key: dsn.seat_mass_kg
+    v: 3.0
+    unit: kg
+    status: assumed
+    basis:
+      - Q-017
+  - key: dsn.steering_mass_kg
+    v: 4.0
+    unit: kg
+    status: assumed
+    basis:
+      - Q-017
+  - key: dsn.brake_mass_kg
+    v: 2.0
+    unit: kg
+    status: assumed
+    basis:
+      - Q-017
+  - key: dsn.misc_mass_kg
+    v: 5.0
+    unit: kg
+    status: assumed
+    basis:
+      - Q-017
+  - key: dsn.fuel_mass_kg
+    v: 2.0
+    unit: kg
+    status: assumed
+    basis:
+      - Q-017
+  - key: dsn.pad_mu
+    v: 0.35
+    status: assumed
+    basis:
+      - Q-017
+  - key: dsn.buttock_heel_ratio_adult
+    v: 0.587
+    status: calculated
+    basis:
+      - docs/03-design.md#fit
+  - key: dsn.buttock_heel_ratio_child
+    v: 0.5
+    status: assumed
+    basis:
+      - Q-017
+  - key: cost.seat_kart_jpy
+    v: 16240
+    unit: JPY
+    status: sourced
+    basis:
+      - M53
+  - key: cost.seat_rail_pair_jpy
+    v: 2900
+    unit: JPY
+    status: sourced
+    basis:
+      - M54
+  - key: cost.sq_tube_25_jpy_per_m
+    v: 1078
+    unit: JPY
+    status: sourced
+    basis:
+      - M55
+  - key: cost.flat_bar_jpy_per_m
+    v: 1012
+    unit: JPY
+    status: sourced
+    basis:
+      - M56
+  - key: cost.uhmw_order_jpy
+    v: 2806
+    unit: JPY
+    status: sourced
+    basis:
+      - M57
+  - key: cost.punched_sheet_jpy
+    v: 3628
+    unit: JPY
+    status: sourced
+    basis:
+      - M58
+  - key: cost.padding_jpy
+    v: 1538
+    unit: JPY
+    status: sourced
+    basis:
+      - M59
+  - key: cost.kill_lanyard_jpy
+    v: 1919
+    unit: JPY
+    status: sourced
+    basis:
+      - M60
+  - key: cost.ramp_rail_jpy
+    v: 12078
+    unit: JPY
+    status: sourced
+    basis:
+      - M61
+  - key: cost.seat_operator_jpy
+    v: 5460
+    unit: JPY
+    status: sourced
+    basis:
+      - M62
+  - key: cost.plate_allow_jpy
+    v: 6000
+    unit: JPY
+    status: assumed
+    basis:
+      - Q-018
+  - key: cost.machining_allow_jpy
+    v: 12000
+    unit: JPY
+    status: assumed
+    basis:
+      - Q-018
+  - key: cost.rear_hub_make_jpy
+    v: 3000
+    unit: JPY
+    status: assumed
+    basis:
+      - Q-018
+  - key: cost.axle_shaft_jpy
+    v: 5000
+    unit: JPY
+    status: assumed
+    basis:
+      - Q-018
+  - key: cost.welder_jpy
+    v: 9900
+    unit: JPY
+    status: sourced
+    basis:
+      - M11
   # begin: generated by calc/form_rough.py
   - key: form.mass_total_kg
     v: 170
@@ -1023,3 +1723,254 @@ items:
     basis:
       - docs/02-form.md#cost
   # end: generated by calc/form_rough.py
+  # begin: generated by calc/design.py
+  - key: dsn.length_m
+    v: 1.53
+    unit: m
+    status: calculated
+    basis:
+      - docs/03-design.md#layout
+  - key: dsn.width_m
+    v: 1.277
+    unit: m
+    status: calculated
+    basis:
+      - docs/03-design.md#layout
+  - key: dsn.width_transport_m
+    v: 1.187
+    unit: m
+    status: calculated
+    basis:
+      - docs/03-design.md#transport
+  - key: dsn.tube_main_m
+    v: 3.35
+    unit: m
+    status: calculated
+    basis:
+      - docs/03-design.md#frame
+  - key: dsn.tube_cross_m
+    v: 8.95
+    unit: m
+    status: calculated
+    basis:
+      - docs/03-design.md#frame
+  - key: dsn.ratio
+    v: 12.0
+    status: calculated
+    basis:
+      - docs/03-design.md#drive
+  - key: dsn.top_speed_kmh
+    v: 19.65
+    unit: km/h
+    status: calculated
+    basis:
+      - docs/03-design.md#drive
+  - key: dsn.chain1_centre_mm
+    v: 243
+    unit: mm
+    status: calculated
+    basis:
+      - docs/03-design.md#drive
+  - key: dsn.chain2_centre_mm
+    v: 159
+    unit: mm
+    status: calculated
+    basis:
+      - docs/03-design.md#drive
+  - key: dsn.chain1_links
+    v: 66
+    status: calculated
+    basis:
+      - docs/03-design.md#drive
+  - key: dsn.chain2_links
+    v: 52
+    status: calculated
+    basis:
+      - docs/03-design.md#drive
+  - key: dsn.chain1_gap_mm
+    v: 105
+    unit: mm
+    status: calculated
+    basis:
+      - docs/03-design.md#drive
+  - key: dsn.chain2_gap_mm
+    v: 55
+    unit: mm
+    status: calculated
+    basis:
+      - docs/03-design.md#drive
+  - key: dsn.low_point_mm
+    v: 86
+    unit: mm
+    status: calculated
+    basis:
+      - docs/03-design.md#axle
+  - key: dsn.turn_radius_m
+    v: 2.26
+    unit: m
+    status: calculated
+    basis:
+      - docs/03-design.md#steering
+  - key: dsn.leg_margin_adult_mm
+    v: 68
+    unit: mm
+    status: calculated
+    basis:
+      - docs/03-design.md#fit
+  - key: dsn.leg_margin_child_mm
+    v: 149
+    unit: mm
+    status: calculated
+    basis:
+      - docs/03-design.md#fit
+  - key: dsn.mass_kg
+    v: 87.6
+    unit: kg
+    status: calculated
+    basis:
+      - docs/03-design.md#mass
+  - key: dsn.cg_x_m
+    v: 0.378
+    unit: m
+    status: calculated
+    basis:
+      - docs/03-design.md#mass
+  - key: dsn.cg_z_m
+    v: 0.235
+    unit: m
+    status: calculated
+    basis:
+      - docs/03-design.md#mass
+  - key: dsn.frame_mass_kg
+    v: 12.4
+    unit: kg
+    status: calculated
+    basis:
+      - docs/03-design.md#frame
+  - key: dsn.rear_share_adult
+    v: 0.728
+    status: calculated
+    basis:
+      - docs/03-design.md#mass
+  - key: dsn.cg_height_adult_m
+    v: 0.356
+    unit: m
+    status: calculated
+    basis:
+      - docs/03-design.md#mass
+  - key: dsn.tip_ratio_adult
+    v: 1.58
+    status: calculated
+    basis:
+      - docs/03-design.md#stability
+  - key: dsn.rear_share_child
+    v: 0.636
+    status: calculated
+    basis:
+      - docs/03-design.md#mass
+  - key: dsn.cg_height_child_m
+    v: 0.257
+    unit: m
+    status: calculated
+    basis:
+      - docs/03-design.md#mass
+  - key: dsn.tip_ratio_child
+    v: 2.17
+    status: calculated
+    basis:
+      - docs/03-design.md#stability
+  - key: dsn.climb_force_n
+    v: 577
+    unit: N
+    status: calculated
+    basis:
+      - docs/03-design.md#climb
+  - key: dsn.climb_grip_n
+    v: 649
+    unit: N
+    status: calculated
+    basis:
+      - docs/03-design.md#climb
+  - key: dsn.climb_thrust_n
+    v: 758
+    unit: N
+    status: calculated
+    basis:
+      - docs/03-design.md#climb
+  - key: dsn.axle_stress_mpa
+    v: 169
+    unit: MPa
+    status: calculated
+    basis:
+      - docs/03-design.md#axle
+  - key: dsn.axle_safety
+    v: 2.04
+    status: calculated
+    basis:
+      - docs/03-design.md#axle
+  - key: dsn.rail_stress_mpa
+    v: 126
+    unit: MPa
+    status: calculated
+    basis:
+      - docs/03-design.md#frame
+  - key: dsn.rail_safety
+    v: 2.29
+    status: calculated
+    basis:
+      - docs/03-design.md#frame
+  - key: dsn.bearing_load_n
+    v: 669
+    unit: N
+    status: calculated
+    basis:
+      - docs/03-design.md#axle
+  - key: dsn.brake_decel_needed
+    v: 2.57
+    unit: m/s2
+    status: calculated
+    basis:
+      - docs/03-design.md#brake
+  - key: dsn.brake_torque_needed_nm
+    v: 78
+    unit: N m
+    status: calculated
+    basis:
+      - docs/03-design.md#brake
+  - key: dsn.brake_clamp_needed_n
+    v: 1750
+    unit: N
+    status: calculated
+    basis:
+      - docs/03-design.md#brake
+  - key: dsn.delica_length_margin_mm
+    v: 80
+    unit: mm
+    status: calculated
+    basis:
+      - docs/03-design.md#transport
+  - key: dsn.delica_width_margin_mm
+    v: 43
+    unit: mm
+    status: calculated
+    basis:
+      - docs/03-design.md#transport
+  - key: dsn.height_m
+    v: 0.71
+    unit: m
+    status: calculated
+    basis:
+      - docs/03-design.md#layout
+  - key: dsn.bom_parts_jpy
+    v: 224104
+    unit: JPY
+    status: calculated
+    basis:
+      - docs/03-design.md#cost
+  - key: dsn.bom_tools_jpy
+    v: 34056
+    unit: JPY
+    status: calculated
+    basis:
+      - docs/03-design.md#cost
+  # end: generated by calc/design.py

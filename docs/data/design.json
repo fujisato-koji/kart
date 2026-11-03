@@ -1,0 +1,1727 @@
+{
+ "schema": 1,
+ "axes": "x forward, y left, z up, metres; origin on the ground under the rear axle centre",
+ "configs": [
+  "summer",
+  "winter",
+  "transport"
+ ],
+ "dims": {
+  "length": 1.53,
+  "width": 1.277,
+  "width_transport": 1.187,
+  "height": 0.71,
+  "wheelbase": 1.0,
+  "track_front": 1.06,
+  "track_rear": 1.15,
+  "track_rear_narrow": 1.0,
+  "clearance": 0.15,
+  "low_point": 0.086,
+  "axle_height": 0.1625,
+  "x_front": 1.3,
+  "x_back": -0.23
+ },
+ "riders": {
+  "adult": {
+   "stature": 1.7,
+   "mass": 100,
+   "hip": [
+    0.08,
+    -0.04,
+    0.2718
+   ],
+   "heel": [
+    0.99,
+    -0.04,
+    0.25
+   ],
+   "leg_reach": 0.998,
+   "leg_needed": 0.93,
+   "cg_above_seat": 0.25
+  },
+  "child": {
+   "stature": 1.02,
+   "mass": 19,
+   "hip": [
+    0.2,
+    -0.04,
+    0.2718
+   ],
+   "heel": [
+    0.54,
+    -0.04,
+    0.25
+   ],
+   "leg_reach": 0.51,
+   "leg_needed": 0.361,
+   "cg_above_seat": 0.15
+  }
+ },
+ "members": [
+  {
+   "part": "frame",
+   "a": [
+    -0.2,
+    0.3,
+    0.1659
+   ],
+   "b": [
+    0.0,
+    0.3,
+    0.1659
+   ],
+   "od": 0.0318,
+   "t": 0.0016
+  },
+  {
+   "part": "frame",
+   "a": [
+    0.0,
+    0.3,
+    0.1659
+   ],
+   "b": [
+    0.45,
+    0.3,
+    0.1659
+   ],
+   "od": 0.0318,
+   "t": 0.0016
+  },
+  {
+   "part": "frame",
+   "a": [
+    0.45,
+    0.3,
+    0.1659
+   ],
+   "b": [
+    0.75,
+    0.3,
+    0.1659
+   ],
+   "od": 0.0318,
+   "t": 0.0016
+  },
+  {
+   "part": "frame",
+   "a": [
+    0.75,
+    0.3,
+    0.1659
+   ],
+   "b": [
+    1.0,
+    0.43,
+    0.1859
+   ],
+   "od": 0.0318,
+   "t": 0.0016
+  },
+  {
+   "part": "frame",
+   "a": [
+    1.0,
+    0.43,
+    0.1859
+   ],
+   "b": [
+    1.12,
+    0.21,
+    0.1659
+   ],
+   "od": 0.0318,
+   "t": 0.0016
+  },
+  {
+   "part": "frame",
+   "a": [
+    1.12,
+    0.21,
+    0.1659
+   ],
+   "b": [
+    1.28,
+    0.225,
+    0.2659
+   ],
+   "od": 0.0318,
+   "t": 0.0016
+  },
+  {
+   "part": "frame",
+   "a": [
+    -0.2,
+    -0.3,
+    0.1659
+   ],
+   "b": [
+    0.0,
+    -0.3,
+    0.1659
+   ],
+   "od": 0.0318,
+   "t": 0.0016
+  },
+  {
+   "part": "frame",
+   "a": [
+    0.0,
+    -0.3,
+    0.1659
+   ],
+   "b": [
+    0.45,
+    -0.3,
+    0.1659
+   ],
+   "od": 0.0318,
+   "t": 0.0016
+  },
+  {
+   "part": "frame",
+   "a": [
+    0.45,
+    -0.3,
+    0.1659
+   ],
+   "b": [
+    0.75,
+    -0.3,
+    0.1659
+   ],
+   "od": 0.0318,
+   "t": 0.0016
+  },
+  {
+   "part": "frame",
+   "a": [
+    0.75,
+    -0.3,
+    0.1659
+   ],
+   "b": [
+    1.0,
+    -0.43,
+    0.1859
+   ],
+   "od": 0.0318,
+   "t": 0.0016
+  },
+  {
+   "part": "frame",
+   "a": [
+    1.0,
+    -0.43,
+    0.1859
+   ],
+   "b": [
+    1.12,
+    -0.21,
+    0.1659
+   ],
+   "od": 0.0318,
+   "t": 0.0016
+  },
+  {
+   "part": "frame",
+   "a": [
+    1.12,
+    -0.21,
+    0.1659
+   ],
+   "b": [
+    1.28,
+    -0.225,
+    0.2659
+   ],
+   "od": 0.0318,
+   "t": 0.0016
+  },
+  {
+   "part": "frame",
+   "a": [
+    -0.2,
+    0.3,
+    0.1659
+   ],
+   "b": [
+    -0.2,
+    -0.3,
+    0.1659
+   ],
+   "od": 0.0254,
+   "t": 0.0016
+  },
+  {
+   "part": "frame",
+   "a": [
+    0.0,
+    0.3,
+    0.1659
+   ],
+   "b": [
+    0.0,
+    -0.3,
+    0.1659
+   ],
+   "od": 0.0254,
+   "t": 0.0016
+  },
+  {
+   "part": "frame",
+   "a": [
+    0.45,
+    0.3,
+    0.1659
+   ],
+   "b": [
+    0.45,
+    -0.3,
+    0.1659
+   ],
+   "od": 0.0254,
+   "t": 0.0016
+  },
+  {
+   "part": "frame",
+   "a": [
+    0.75,
+    0.3,
+    0.1659
+   ],
+   "b": [
+    0.75,
+    -0.3,
+    0.1659
+   ],
+   "od": 0.0254,
+   "t": 0.0016
+  },
+  {
+   "part": "frame",
+   "a": [
+    1.0,
+    0.43,
+    0.1859
+   ],
+   "b": [
+    1.0,
+    -0.43,
+    0.1859
+   ],
+   "od": 0.0254,
+   "t": 0.0016
+  },
+  {
+   "part": "frame",
+   "a": [
+    1.12,
+    0.21,
+    0.1659
+   ],
+   "b": [
+    1.12,
+    -0.21,
+    0.1659
+   ],
+   "od": 0.0254,
+   "t": 0.0016
+  },
+  {
+   "part": "bumpers",
+   "a": [
+    1.28,
+    0.225,
+    0.2659
+   ],
+   "b": [
+    1.28,
+    -0.225,
+    0.2659
+   ],
+   "od": 0.0254,
+   "t": 0.0016
+  },
+  {
+   "part": "frame",
+   "a": [
+    0.02,
+    0.17,
+    0.1659
+   ],
+   "b": [
+    -0.04,
+    0.17,
+    0.6459
+   ],
+   "od": 0.0254,
+   "t": 0.0016
+  },
+  {
+   "part": "frame",
+   "a": [
+    -0.04,
+    0.17,
+    0.6459
+   ],
+   "b": [
+    -0.04,
+    -0.21,
+    0.6459
+   ],
+   "od": 0.0254,
+   "t": 0.0016
+  },
+  {
+   "part": "frame",
+   "a": [
+    -0.04,
+    -0.21,
+    0.6459
+   ],
+   "b": [
+    0.02,
+    -0.21,
+    0.1659
+   ],
+   "od": 0.0254,
+   "t": 0.0016
+  },
+  {
+   "part": "bumpers",
+   "a": [
+    0.45,
+    0.3,
+    0.1659
+   ],
+   "b": [
+    0.18,
+    0.5,
+    0.2159
+   ],
+   "od": 0.0254,
+   "t": 0.0016
+  },
+  {
+   "part": "bumpers",
+   "a": [
+    0.18,
+    0.5,
+    0.2159
+   ],
+   "b": [
+    0.8,
+    0.45,
+    0.2159
+   ],
+   "od": 0.0254,
+   "t": 0.0016
+  },
+  {
+   "part": "bumpers",
+   "a": [
+    0.8,
+    0.45,
+    0.2159
+   ],
+   "b": [
+    0.75,
+    0.3,
+    0.1659
+   ],
+   "od": 0.0254,
+   "t": 0.0016
+  },
+  {
+   "part": "bumpers",
+   "a": [
+    0.45,
+    -0.3,
+    0.1659
+   ],
+   "b": [
+    0.18,
+    -0.5,
+    0.2159
+   ],
+   "od": 0.0254,
+   "t": 0.0016
+  },
+  {
+   "part": "bumpers",
+   "a": [
+    0.18,
+    -0.5,
+    0.2159
+   ],
+   "b": [
+    0.8,
+    -0.45,
+    0.2159
+   ],
+   "od": 0.0254,
+   "t": 0.0016
+  },
+  {
+   "part": "bumpers",
+   "a": [
+    0.8,
+    -0.45,
+    0.2159
+   ],
+   "b": [
+    0.75,
+    -0.3,
+    0.1659
+   ],
+   "od": 0.0254,
+   "t": 0.0016
+  },
+  {
+   "part": "frame",
+   "a": [
+    0.95,
+    0.0,
+    0.1859
+   ],
+   "b": [
+    0.95,
+    0.0,
+    0.4659
+   ],
+   "od": 0.0254,
+   "t": 0.0016
+  },
+  {
+   "part": "frame",
+   "a": [
+    0.75,
+    0.3,
+    0.1659
+   ],
+   "b": [
+    0.95,
+    0.0,
+    0.4659
+   ],
+   "od": 0.0254,
+   "t": 0.0016
+  },
+  {
+   "part": "frame",
+   "a": [
+    0.75,
+    -0.3,
+    0.1659
+   ],
+   "b": [
+    0.95,
+    0.0,
+    0.4659
+   ],
+   "od": 0.0254,
+   "t": 0.0016
+  }
+ ],
+ "items": [
+  {
+   "part": "floor",
+   "type": "plate",
+   "configs": [
+    "summer",
+    "winter",
+    "transport"
+   ],
+   "pos": [
+    0.375,
+    0.0,
+    0.148
+   ],
+   "size": [
+    0.75,
+    0.58,
+    0.0023
+   ]
+  },
+  {
+   "part": "axle_shaft",
+   "type": "cyl",
+   "configs": [
+    "summer",
+    "winter",
+    "transport"
+   ],
+   "pos": [
+    0.0,
+    0.0,
+    0.1625
+   ],
+   "axis": "y",
+   "d": 0.025,
+   "l": 1.22
+  },
+  {
+   "part": "axle_bearings",
+   "type": "pillow",
+   "configs": [
+    "summer",
+    "winter",
+    "transport"
+   ],
+   "pos": [
+    0.0,
+    0.42,
+    0.126
+   ],
+   "h": 0.0365,
+   "l": 0.14,
+   "h2": 0.071,
+   "bore": 0.025,
+   "axis": "y"
+  },
+  {
+   "part": "frame",
+   "type": "plate",
+   "configs": [
+    "summer",
+    "winter",
+    "transport"
+   ],
+   "pos": [
+    0.0,
+    0.42,
+    0.123
+   ],
+   "size": [
+    0.16,
+    0.06,
+    0.006
+   ]
+  },
+  {
+   "part": "axle_bearings",
+   "type": "pillow",
+   "configs": [
+    "summer",
+    "winter",
+    "transport"
+   ],
+   "pos": [
+    0.0,
+    -0.42,
+    0.126
+   ],
+   "h": 0.0365,
+   "l": 0.14,
+   "h2": 0.071,
+   "bore": 0.025,
+   "axis": "y"
+  },
+  {
+   "part": "frame",
+   "type": "plate",
+   "configs": [
+    "summer",
+    "winter",
+    "transport"
+   ],
+   "pos": [
+    0.0,
+    -0.42,
+    0.123
+   ],
+   "size": [
+    0.16,
+    0.06,
+    0.006
+   ]
+  },
+  {
+   "part": "rear_hubs",
+   "type": "hub",
+   "configs": [
+    "summer"
+   ],
+   "pos": [
+    0.0,
+    0.5399999999999999,
+    0.1625
+   ],
+   "axis": "y",
+   "d": 0.07,
+   "l": 0.06
+  },
+  {
+   "part": "rear_wheels",
+   "type": "wheel",
+   "configs": [
+    "summer"
+   ],
+   "pos": [
+    0.0,
+    0.575,
+    0.1625
+   ],
+   "axis": "y",
+   "od": 0.325,
+   "width": 0.127,
+   "rim": 0.152
+  },
+  {
+   "part": "rear_hubs",
+   "type": "hub",
+   "configs": [
+    "summer"
+   ],
+   "pos": [
+    0.0,
+    -0.5399999999999999,
+    0.1625
+   ],
+   "axis": "y",
+   "d": 0.07,
+   "l": 0.06
+  },
+  {
+   "part": "rear_wheels",
+   "type": "wheel",
+   "configs": [
+    "summer"
+   ],
+   "pos": [
+    0.0,
+    -0.575,
+    0.1625
+   ],
+   "axis": "y",
+   "od": 0.325,
+   "width": 0.127,
+   "rim": 0.152
+  },
+  {
+   "part": "rear_hubs",
+   "type": "hub",
+   "configs": [
+    "winter"
+   ],
+   "pos": [
+    0.0,
+    0.5399999999999999,
+    0.1625
+   ],
+   "axis": "y",
+   "d": 0.07,
+   "l": 0.06
+  },
+  {
+   "part": "rear_wheels",
+   "type": "wheel",
+   "configs": [
+    "winter"
+   ],
+   "pos": [
+    0.0,
+    0.575,
+    0.1625
+   ],
+   "axis": "y",
+   "od": 0.325,
+   "width": 0.127,
+   "rim": 0.152
+  },
+  {
+   "part": "snow_chains",
+   "type": "chains",
+   "configs": [
+    "winter"
+   ],
+   "pos": [
+    0.0,
+    0.575,
+    0.1625
+   ],
+   "axis": "y",
+   "od": 0.325,
+   "width": 0.127
+  },
+  {
+   "part": "rear_hubs",
+   "type": "hub",
+   "configs": [
+    "winter"
+   ],
+   "pos": [
+    0.0,
+    -0.5399999999999999,
+    0.1625
+   ],
+   "axis": "y",
+   "d": 0.07,
+   "l": 0.06
+  },
+  {
+   "part": "rear_wheels",
+   "type": "wheel",
+   "configs": [
+    "winter"
+   ],
+   "pos": [
+    0.0,
+    -0.575,
+    0.1625
+   ],
+   "axis": "y",
+   "od": 0.325,
+   "width": 0.127,
+   "rim": 0.152
+  },
+  {
+   "part": "snow_chains",
+   "type": "chains",
+   "configs": [
+    "winter"
+   ],
+   "pos": [
+    0.0,
+    -0.575,
+    0.1625
+   ],
+   "axis": "y",
+   "od": 0.325,
+   "width": 0.127
+  },
+  {
+   "part": "rear_hubs",
+   "type": "hub",
+   "configs": [
+    "transport"
+   ],
+   "pos": [
+    0.0,
+    0.46499999999999997,
+    0.1625
+   ],
+   "axis": "y",
+   "d": 0.07,
+   "l": 0.06
+  },
+  {
+   "part": "rear_wheels",
+   "type": "wheel",
+   "configs": [
+    "transport"
+   ],
+   "pos": [
+    0.0,
+    0.5,
+    0.1625
+   ],
+   "axis": "y",
+   "od": 0.325,
+   "width": 0.127,
+   "rim": 0.152
+  },
+  {
+   "part": "rear_hubs",
+   "type": "hub",
+   "configs": [
+    "transport"
+   ],
+   "pos": [
+    0.0,
+    -0.46499999999999997,
+    0.1625
+   ],
+   "axis": "y",
+   "d": 0.07,
+   "l": 0.06
+  },
+  {
+   "part": "rear_wheels",
+   "type": "wheel",
+   "configs": [
+    "transport"
+   ],
+   "pos": [
+    0.0,
+    -0.5,
+    0.1625
+   ],
+   "axis": "y",
+   "od": 0.325,
+   "width": 0.127,
+   "rim": 0.152
+  },
+  {
+   "part": "brake",
+   "type": "disc",
+   "configs": [
+    "summer",
+    "winter",
+    "transport"
+   ],
+   "pos": [
+    0.0,
+    -0.15,
+    0.1625
+   ],
+   "axis": "y",
+   "d": 0.152,
+   "t": 0.004
+  },
+  {
+   "part": "brake",
+   "type": "caliper",
+   "configs": [
+    "summer",
+    "winter",
+    "transport"
+   ],
+   "pos": [
+    0.0,
+    -0.15,
+    0.2185
+   ],
+   "size": [
+    0.06,
+    0.04,
+    0.05
+   ]
+  },
+  {
+   "part": "frame",
+   "type": "plate",
+   "configs": [
+    "summer",
+    "winter",
+    "transport"
+   ],
+   "pos": [
+    0.38,
+    0.4,
+    0.1848
+   ],
+   "size": [
+    0.28200000000000003,
+    0.26605,
+    0.006
+   ]
+  },
+  {
+   "part": "engine",
+   "type": "engine",
+   "configs": [
+    "summer",
+    "winter",
+    "transport"
+   ],
+   "pos": [
+    0.38,
+    0.4,
+    0.1878
+   ],
+   "length": 0.313,
+   "width": 0.376,
+   "height": 0.339,
+   "shaft_h": 0.106,
+   "pto": "-y"
+  },
+  {
+   "part": "clutch",
+   "type": "clutch",
+   "configs": [
+    "summer",
+    "winter",
+    "transport"
+   ],
+   "pos": [
+    0.38,
+    0.237,
+    0.2938
+   ],
+   "axis": "y",
+   "od": 0.107,
+   "l": 0.064
+  },
+  {
+   "part": "clutch",
+   "type": "sprocket",
+   "configs": [
+    "summer",
+    "winter",
+    "transport"
+   ],
+   "pos": [
+    0.38,
+    0.205,
+    0.2938
+   ],
+   "axis": "y",
+   "teeth": 10,
+   "pd": 0.0411,
+   "od": 0.0487,
+   "t": 0.0072
+  },
+  {
+   "part": "jackshaft",
+   "type": "sprocket",
+   "configs": [
+    "summer",
+    "winter",
+    "transport"
+   ],
+   "pos": [
+    0.15,
+    0.205,
+    0.215
+   ],
+   "axis": "y",
+   "teeth": 40,
+   "pd": 0.1619,
+   "od": 0.169,
+   "t": 0.0072
+  },
+  {
+   "part": "jackshaft",
+   "type": "sprocket",
+   "configs": [
+    "summer",
+    "winter",
+    "transport"
+   ],
+   "pos": [
+    0.15,
+    0.14,
+    0.215
+   ],
+   "axis": "y",
+   "teeth": 12,
+   "pd": 0.0491,
+   "od": 0.055,
+   "t": 0.0072
+  },
+  {
+   "part": "chain_final",
+   "type": "sprocket",
+   "configs": [
+    "summer",
+    "winter",
+    "transport"
+   ],
+   "pos": [
+    0.0,
+    0.14,
+    0.1625
+   ],
+   "axis": "y",
+   "teeth": 36,
+   "pd": 0.1457,
+   "od": 0.153,
+   "t": 0.0072
+  },
+  {
+   "part": "jackshaft",
+   "type": "cyl",
+   "configs": [
+    "summer",
+    "winter",
+    "transport"
+   ],
+   "pos": [
+    0.15,
+    0.1825,
+    0.215
+   ],
+   "axis": "y",
+   "d": 0.02,
+   "l": 0.205
+  },
+  {
+   "part": "jackshaft",
+   "type": "pillow",
+   "configs": [
+    "summer",
+    "winter",
+    "transport"
+   ],
+   "pos": [
+    0.15,
+    0.10000000000000002,
+    0.1817
+   ],
+   "h": 0.0333,
+   "l": 0.127,
+   "h2": 0.065,
+   "bore": 0.02,
+   "axis": "y"
+  },
+  {
+   "part": "jackshaft",
+   "type": "pillow",
+   "configs": [
+    "summer",
+    "winter",
+    "transport"
+   ],
+   "pos": [
+    0.15,
+    0.26499999999999996,
+    0.1817
+   ],
+   "h": 0.0333,
+   "l": 0.127,
+   "h2": 0.065,
+   "bore": 0.02,
+   "axis": "y"
+  },
+  {
+   "part": "frame",
+   "type": "plate",
+   "configs": [
+    "summer",
+    "winter",
+    "transport"
+   ],
+   "pos": [
+    0.15,
+    0.1825,
+    0.1787
+   ],
+   "size": [
+    0.147,
+    0.20499999999999996,
+    0.006
+   ]
+  },
+  {
+   "part": "chain_primary",
+   "type": "chain",
+   "configs": [
+    "summer",
+    "winter",
+    "transport"
+   ],
+   "pos": [
+    0.38,
+    0.205,
+    0.2938
+   ],
+   "to": [
+    0.15,
+    0.205,
+    0.215
+   ],
+   "r1": 0.0205,
+   "r2": 0.0809,
+   "axis": "y"
+  },
+  {
+   "part": "chain_final",
+   "type": "chain",
+   "configs": [
+    "summer",
+    "winter",
+    "transport"
+   ],
+   "pos": [
+    0.15,
+    0.14,
+    0.215
+   ],
+   "to": [
+    0.0,
+    0.14,
+    0.1625
+   ],
+   "r1": 0.0245,
+   "r2": 0.0729,
+   "axis": "y"
+  },
+  {
+   "part": "guards",
+   "type": "guard",
+   "configs": [
+    "summer",
+    "winter",
+    "transport"
+   ],
+   "pos": [
+    0.19,
+    0.13249999999999998,
+    0.25815
+   ],
+   "size": [
+    0.52,
+    0.004,
+    0.22
+   ]
+  },
+  {
+   "part": "spindles",
+   "type": "spindle",
+   "configs": [
+    "summer",
+    "winter",
+    "transport"
+   ],
+   "pos": [
+    1.0,
+    0.43,
+    0.1859
+   ],
+   "side": 1,
+   "to": [
+    1.0,
+    0.53,
+    0.1625
+   ],
+   "arm": 0.09
+  },
+  {
+   "part": "front_wheels",
+   "type": "wheel",
+   "configs": [
+    "summer"
+   ],
+   "pos": [
+    1.0,
+    0.53,
+    0.1625
+   ],
+   "axis": "y",
+   "od": 0.325,
+   "width": 0.127,
+   "rim": 0.152
+  },
+  {
+   "part": "front_wheels",
+   "type": "wheel",
+   "configs": [
+    "transport"
+   ],
+   "pos": [
+    1.0,
+    0.53,
+    0.1625
+   ],
+   "axis": "y",
+   "od": 0.325,
+   "width": 0.127,
+   "rim": 0.152
+  },
+  {
+   "part": "skis",
+   "type": "ski",
+   "configs": [
+    "winter"
+   ],
+   "pos": [
+    1.0,
+    0.53,
+    0.0
+   ],
+   "l": 0.96,
+   "w": 0.12
+  },
+  {
+   "part": "spindles",
+   "type": "spindle",
+   "configs": [
+    "summer",
+    "winter",
+    "transport"
+   ],
+   "pos": [
+    1.0,
+    -0.43,
+    0.1859
+   ],
+   "side": -1,
+   "to": [
+    1.0,
+    -0.53,
+    0.1625
+   ],
+   "arm": 0.09
+  },
+  {
+   "part": "front_wheels",
+   "type": "wheel",
+   "configs": [
+    "summer"
+   ],
+   "pos": [
+    1.0,
+    -0.53,
+    0.1625
+   ],
+   "axis": "y",
+   "od": 0.325,
+   "width": 0.127,
+   "rim": 0.152
+  },
+  {
+   "part": "front_wheels",
+   "type": "wheel",
+   "configs": [
+    "transport"
+   ],
+   "pos": [
+    1.0,
+    -0.53,
+    0.1625
+   ],
+   "axis": "y",
+   "od": 0.325,
+   "width": 0.127,
+   "rim": 0.152
+  },
+  {
+   "part": "skis",
+   "type": "ski",
+   "configs": [
+    "winter"
+   ],
+   "pos": [
+    1.0,
+    -0.53,
+    0.0
+   ],
+   "l": 0.96,
+   "w": 0.12
+  },
+  {
+   "part": "steering_column",
+   "type": "rod",
+   "configs": [
+    "summer",
+    "winter",
+    "transport"
+   ],
+   "pos": [
+    0.6,
+    -0.04,
+    0.56
+   ],
+   "to": [
+    0.95,
+    -0.04,
+    0.2059
+   ],
+   "d": 0.02
+  },
+  {
+   "part": "steering_wheel",
+   "type": "steering_wheel",
+   "configs": [
+    "summer",
+    "winter",
+    "transport"
+   ],
+   "pos": [
+    0.58,
+    -0.04,
+    0.5700000000000001
+   ],
+   "d": 0.3,
+   "tilt_deg": 60
+  },
+  {
+   "part": "tie_rods",
+   "type": "rod",
+   "configs": [
+    "summer",
+    "winter",
+    "transport"
+   ],
+   "pos": [
+    0.95,
+    -0.04,
+    0.2059
+   ],
+   "to": [
+    0.91,
+    0.41,
+    0.1959
+   ],
+   "d": 0.01
+  },
+  {
+   "part": "tie_rods",
+   "type": "rod",
+   "configs": [
+    "summer",
+    "winter",
+    "transport"
+   ],
+   "pos": [
+    0.95,
+    -0.04,
+    0.2059
+   ],
+   "to": [
+    0.91,
+    -0.41,
+    0.1959
+   ],
+   "d": 0.01
+  },
+  {
+   "part": "seat",
+   "type": "seat",
+   "configs": [
+    "summer",
+    "winter",
+    "transport"
+   ],
+   "pos": [
+    -0.020000000000000004,
+    -0.04,
+    0.2118
+   ],
+   "w": 0.38,
+   "l": 0.42,
+   "h": 0.5
+  },
+  {
+   "part": "seat_slide",
+   "type": "plate",
+   "configs": [
+    "summer",
+    "winter",
+    "transport"
+   ],
+   "pos": [
+    0.08,
+    -0.04,
+    0.1918
+   ],
+   "size": [
+    0.42,
+    0.3,
+    0.01
+   ]
+  },
+  {
+   "part": "pedal_box",
+   "type": "rail",
+   "configs": [
+    "summer",
+    "winter",
+    "transport"
+   ],
+   "pos": [
+    0.51,
+    -0.04,
+    0.16999999999999998
+   ],
+   "to": [
+    1.06,
+    -0.04,
+    0.16999999999999998
+   ],
+   "d": 0.025
+  },
+  {
+   "part": "pedal_box",
+   "type": "pedals",
+   "configs": [
+    "summer",
+    "winter",
+    "transport"
+   ],
+   "rider": "adult",
+   "pos": [
+    1.01,
+    -0.04,
+    0.18
+   ],
+   "spacing": 0.14
+  },
+  {
+   "part": "pedal_box",
+   "type": "pedals",
+   "configs": [
+    "summer",
+    "winter",
+    "transport"
+   ],
+   "rider": "child",
+   "pos": [
+    0.56,
+    -0.04,
+    0.18
+   ],
+   "spacing": 0.14
+  }
+ ],
+ "masses": [
+  {
+   "part": "frame",
+   "kg": 12.39,
+   "pos": [
+    0.45,
+    0.0,
+    0.2159
+   ]
+  },
+  {
+   "part": "floor",
+   "kg": 7.85,
+   "pos": [
+    0.375,
+    0.0,
+    0.15
+   ]
+  },
+  {
+   "part": "axle_shaft",
+   "kg": 4.7,
+   "pos": [
+    0.0,
+    0.0,
+    0.1625
+   ]
+  },
+  {
+   "part": "axle_bearings",
+   "kg": 0.9,
+   "pos": [
+    0.0,
+    0.42,
+    0.1625
+   ]
+  },
+  {
+   "part": "axle_bearings",
+   "kg": 0.9,
+   "pos": [
+    0.0,
+    -0.42,
+    0.1625
+   ]
+  },
+  {
+   "part": "rear_wheels",
+   "kg": 3.5,
+   "pos": [
+    0.0,
+    0.575,
+    0.1625
+   ]
+  },
+  {
+   "part": "rear_hubs",
+   "kg": 0.8,
+   "pos": [
+    0.0,
+    0.54,
+    0.1625
+   ]
+  },
+  {
+   "part": "rear_wheels",
+   "kg": 3.5,
+   "pos": [
+    0.0,
+    -0.575,
+    0.1625
+   ]
+  },
+  {
+   "part": "rear_hubs",
+   "kg": 0.8,
+   "pos": [
+    0.0,
+    -0.54,
+    0.1625
+   ]
+  },
+  {
+   "part": "brake",
+   "kg": 2.0,
+   "pos": [
+    0.0,
+    -0.15,
+    0.1625
+   ]
+  },
+  {
+   "part": "engine",
+   "kg": 16.1,
+   "pos": [
+    0.38,
+    0.4,
+    0.3234
+   ]
+  },
+  {
+   "part": "clutch",
+   "kg": 1.2,
+   "pos": [
+    0.38,
+    0.235,
+    0.2938
+   ]
+  },
+  {
+   "part": "jackshaft",
+   "kg": 1.92,
+   "pos": [
+    0.15,
+    0.205,
+    0.215
+   ]
+  },
+  {
+   "part": "chain_final",
+   "kg": 1.5,
+   "pos": [
+    0.0,
+    0.14,
+    0.1625
+   ]
+  },
+  {
+   "part": "jackshaft",
+   "kg": 0.66,
+   "pos": [
+    0.15,
+    0.1,
+    0.215
+   ]
+  },
+  {
+   "part": "jackshaft",
+   "kg": 0.66,
+   "pos": [
+    0.15,
+    0.265,
+    0.215
+   ]
+  },
+  {
+   "part": "guards",
+   "kg": 1.5,
+   "pos": [
+    0.19,
+    0.1725,
+    0.2125
+   ]
+  },
+  {
+   "part": "chain_primary",
+   "kg": 0.7,
+   "pos": [
+    0.265,
+    0.205,
+    0.2544
+   ]
+  },
+  {
+   "part": "chain_final",
+   "kg": 0.6,
+   "pos": [
+    0.075,
+    0.14,
+    0.1888
+   ]
+  },
+  {
+   "part": "fuel",
+   "kg": 2.0,
+   "pos": [
+    0.38,
+    0.4,
+    0.4759
+   ]
+  },
+  {
+   "part": "spindles",
+   "kg": 1.2,
+   "pos": [
+    1.0,
+    0.48,
+    0.1625
+   ]
+  },
+  {
+   "part": "front_wheels",
+   "kg": 3.5,
+   "pos": [
+    1.0,
+    0.53,
+    0.1625
+   ]
+  },
+  {
+   "part": "spindles",
+   "kg": 1.2,
+   "pos": [
+    1.0,
+    -0.48,
+    0.1625
+   ]
+  },
+  {
+   "part": "front_wheels",
+   "kg": 3.5,
+   "pos": [
+    1.0,
+    -0.53,
+    0.1625
+   ]
+  },
+  {
+   "part": "steering",
+   "kg": 4.0,
+   "pos": [
+    0.8,
+    -0.04,
+    0.3629
+   ]
+  },
+  {
+   "part": "seat",
+   "kg": 3.0,
+   "pos": [
+    0.03,
+    -0.04,
+    0.3618
+   ]
+  },
+  {
+   "part": "pedal_box",
+   "kg": 2.0,
+   "pos": [
+    0.785,
+    -0.04,
+    0.23
+   ]
+  },
+  {
+   "part": "misc",
+   "kg": 5.0,
+   "pos": [
+    0.4,
+    0.0,
+    0.2659
+   ]
+  }
+ ],
+ "cg": {
+  "x": 0.3781,
+  "z": 0.2346,
+  "mass": 87.59
+ },
+ "delica": {
+  "length": 1.61,
+  "width_max": 1.245,
+  "width_min": 0.77,
+  "height": 1.13,
+  "opening_min": 0.9,
+  "opening_max": 1.23,
+  "lip": 0.62
+ }
+}

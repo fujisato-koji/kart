@@ -1384,6 +1384,1060 @@
    ]
   },
   {
+   "key": "eng.length_mm",
+   "v": 313,
+   "unit": "mm",
+   "status": "sourced",
+   "basis": [
+    "P30"
+   ]
+  },
+  {
+   "key": "eng.width_mm",
+   "v": 376,
+   "unit": "mm",
+   "status": "sourced",
+   "basis": [
+    "P30"
+   ]
+  },
+  {
+   "key": "eng.height_mm",
+   "v": 339,
+   "unit": "mm",
+   "status": "sourced",
+   "basis": [
+    "P30"
+   ]
+  },
+  {
+   "key": "eng.mass_kg",
+   "v": 16.1,
+   "unit": "kg",
+   "status": "sourced",
+   "basis": [
+    "P30"
+   ]
+  },
+  {
+   "key": "eng.shaft_height_mm",
+   "v": 106,
+   "unit": "mm",
+   "status": "sourced",
+   "basis": [
+    "P30"
+   ]
+  },
+  {
+   "key": "eng.shaft_dia_mm",
+   "v": 19.05,
+   "unit": "mm",
+   "status": "sourced",
+   "basis": [
+    "P30"
+   ]
+  },
+  {
+   "key": "eng.base_across_mm",
+   "v": 162,
+   "unit": "mm",
+   "status": "sourced",
+   "basis": [
+    "P30"
+   ]
+  },
+  {
+   "key": "eng.base_along_mm",
+   "v": 80,
+   "unit": "mm",
+   "status": "sourced",
+   "basis": [
+    "P30"
+   ]
+  },
+  {
+   "key": "whl.tyre_od_mm",
+   "v": 325,
+   "unit": "mm",
+   "status": "sourced",
+   "basis": [
+    "M32"
+   ]
+  },
+  {
+   "key": "whl.tyre_width_mm",
+   "v": 127,
+   "unit": "mm",
+   "status": "sourced",
+   "basis": [
+    "M32"
+   ]
+  },
+  {
+   "key": "brg.ucp205_h_mm",
+   "v": 36.5,
+   "unit": "mm",
+   "status": "sourced",
+   "basis": [
+    "P32"
+   ]
+  },
+  {
+   "key": "brg.ucp205_l_mm",
+   "v": 140,
+   "unit": "mm",
+   "status": "sourced",
+   "basis": [
+    "P32"
+   ]
+  },
+  {
+   "key": "brg.ucp205_j_mm",
+   "v": 105,
+   "unit": "mm",
+   "status": "sourced",
+   "basis": [
+    "P32"
+   ]
+  },
+  {
+   "key": "brg.ucp205_h2_mm",
+   "v": 71,
+   "unit": "mm",
+   "status": "sourced",
+   "basis": [
+    "P32"
+   ]
+  },
+  {
+   "key": "brg.ucp205_mass_kg",
+   "v": 0.9,
+   "unit": "kg",
+   "status": "sourced",
+   "basis": [
+    "P32"
+   ]
+  },
+  {
+   "key": "brg.ucp205_cr_kn",
+   "v": 14.0,
+   "unit": "kN",
+   "status": "sourced",
+   "basis": [
+    "P32"
+   ]
+  },
+  {
+   "key": "brg.ucp204_h_mm",
+   "v": 33.3,
+   "unit": "mm",
+   "status": "sourced",
+   "basis": [
+    "P33"
+   ]
+  },
+  {
+   "key": "brg.ucp204_l_mm",
+   "v": 127,
+   "unit": "mm",
+   "status": "sourced",
+   "basis": [
+    "P33"
+   ]
+  },
+  {
+   "key": "brg.ucp204_h2_mm",
+   "v": 65,
+   "unit": "mm",
+   "status": "sourced",
+   "basis": [
+    "P33"
+   ]
+  },
+  {
+   "key": "brg.ucp204_mass_kg",
+   "v": 0.66,
+   "unit": "kg",
+   "status": "sourced",
+   "basis": [
+    "P33"
+   ]
+  },
+  {
+   "key": "spr.t10_pd_mm",
+   "v": 41.098,
+   "unit": "mm",
+   "status": "sourced",
+   "basis": [
+    "P31"
+   ]
+  },
+  {
+   "key": "spr.t12_pd_mm",
+   "v": 49.069,
+   "unit": "mm",
+   "status": "sourced",
+   "basis": [
+    "P31"
+   ]
+  },
+  {
+   "key": "spr.t12_od_mm",
+   "v": 55,
+   "unit": "mm",
+   "status": "sourced",
+   "basis": [
+    "P31"
+   ]
+  },
+  {
+   "key": "spr.t36_pd_mm",
+   "v": 145.716,
+   "unit": "mm",
+   "status": "sourced",
+   "basis": [
+    "P31"
+   ]
+  },
+  {
+   "key": "spr.t36_od_mm",
+   "v": 153,
+   "unit": "mm",
+   "status": "sourced",
+   "basis": [
+    "P31"
+   ]
+  },
+  {
+   "key": "spr.t36_mass_kg",
+   "v": 1.5,
+   "unit": "kg",
+   "status": "sourced",
+   "basis": [
+    "P31"
+   ]
+  },
+  {
+   "key": "spr.t40_pd_mm",
+   "v": 161.868,
+   "unit": "mm",
+   "status": "sourced",
+   "basis": [
+    "P31"
+   ]
+  },
+  {
+   "key": "spr.t40_od_mm",
+   "v": 169,
+   "unit": "mm",
+   "status": "sourced",
+   "basis": [
+    "P31"
+   ]
+  },
+  {
+   "key": "spr.t40_mass_kg",
+   "v": 1.7,
+   "unit": "kg",
+   "status": "sourced",
+   "basis": [
+    "P31"
+   ]
+  },
+  {
+   "key": "clutch.od_mm",
+   "v": 107,
+   "unit": "mm",
+   "status": "sourced",
+   "basis": [
+    "M51"
+   ]
+  },
+  {
+   "key": "clutch.width_mm",
+   "v": 64,
+   "unit": "mm",
+   "status": "sourced",
+   "basis": [
+    "M52"
+   ]
+  },
+  {
+   "key": "rod.phs10_cs_n",
+   "v": 13200,
+   "unit": "N",
+   "status": "sourced",
+   "basis": [
+    "P34"
+   ]
+  },
+  {
+   "key": "cost.tyre_pair_jpy",
+   "v": 11770,
+   "unit": "JPY",
+   "status": "sourced",
+   "basis": [
+    "M32"
+   ]
+  },
+  {
+   "key": "cost.rim_each_jpy",
+   "v": 6480,
+   "unit": "JPY",
+   "status": "sourced",
+   "basis": [
+    "M33"
+   ]
+  },
+  {
+   "key": "cost.ucp205_jpy",
+   "v": 1758,
+   "unit": "JPY",
+   "status": "sourced",
+   "basis": [
+    "M34"
+   ]
+  },
+  {
+   "key": "cost.shaft25_short_jpy",
+   "v": 2088,
+   "unit": "JPY",
+   "status": "sourced",
+   "basis": [
+    "M35"
+   ]
+  },
+  {
+   "key": "cost.spindle_pair_jpy",
+   "v": 9220,
+   "unit": "JPY",
+   "status": "sourced",
+   "basis": [
+    "M36"
+   ]
+  },
+  {
+   "key": "cost.front_hub_jpy",
+   "v": 9390,
+   "unit": "JPY",
+   "status": "sourced",
+   "basis": [
+    "M37"
+   ]
+  },
+  {
+   "key": "cost.rod_end_jpy",
+   "v": 1758,
+   "unit": "JPY",
+   "status": "sourced",
+   "basis": [
+    "M38"
+   ]
+  },
+  {
+   "key": "cost.steering_wheel_jpy",
+   "v": 7280,
+   "unit": "JPY",
+   "status": "sourced",
+   "basis": [
+    "M39"
+   ]
+  },
+  {
+   "key": "cost.ucfl204_jpy",
+   "v": 1640,
+   "unit": "JPY",
+   "status": "sourced",
+   "basis": [
+    "M40"
+   ]
+  },
+  {
+   "key": "cost.disc_jpy",
+   "v": 5426,
+   "unit": "JPY",
+   "status": "sourced",
+   "basis": [
+    "M41"
+   ]
+  },
+  {
+   "key": "cost.brake_hyd_jpy",
+   "v": 17640,
+   "unit": "JPY",
+   "status": "sourced",
+   "basis": [
+    "M42"
+   ]
+  },
+  {
+   "key": "cost.pedal_kit_jpy",
+   "v": 8994,
+   "unit": "JPY",
+   "status": "sourced",
+   "basis": [
+    "M43"
+   ]
+  },
+  {
+   "key": "cost.spr_t12_jpy",
+   "v": 1032,
+   "unit": "JPY",
+   "status": "sourced",
+   "basis": [
+    "M45"
+   ]
+  },
+  {
+   "key": "cost.spr_t40_jpy",
+   "v": 2824,
+   "unit": "JPY",
+   "status": "sourced",
+   "basis": [
+    "M45"
+   ]
+  },
+  {
+   "key": "cost.spr_t36_jpy",
+   "v": 1798,
+   "unit": "JPY",
+   "status": "sourced",
+   "basis": [
+    "M45"
+   ]
+  },
+  {
+   "key": "cost.chain_3m_jpy",
+   "v": 3298,
+   "unit": "JPY",
+   "status": "sourced",
+   "basis": [
+    "M46"
+   ]
+  },
+  {
+   "key": "cost.ucp204_jpy",
+   "v": 1648,
+   "unit": "JPY",
+   "status": "sourced",
+   "basis": [
+    "M47"
+   ]
+  },
+  {
+   "key": "cost.shaft20_jpy",
+   "v": 2418,
+   "unit": "JPY",
+   "status": "sourced",
+   "basis": [
+    "M48"
+   ]
+  },
+  {
+   "key": "cost.throttle_cable_jpy",
+   "v": 6680,
+   "unit": "JPY",
+   "status": "sourced",
+   "basis": [
+    "M49"
+   ]
+  },
+  {
+   "key": "cost.kill_switch_jpy",
+   "v": 1135,
+   "unit": "JPY",
+   "status": "sourced",
+   "basis": [
+    "M50"
+   ]
+  },
+  {
+   "key": "lay.wheelbase_mm",
+   "v": 1000,
+   "unit": "mm",
+   "status": "calculated",
+   "basis": [
+    "docs/03-design.md#layout"
+   ]
+  },
+  {
+   "key": "lay.track_front_mm",
+   "v": 1060,
+   "unit": "mm",
+   "status": "calculated",
+   "basis": [
+    "docs/03-design.md#layout"
+   ]
+  },
+  {
+   "key": "lay.track_rear_mm",
+   "v": 1150,
+   "unit": "mm",
+   "status": "calculated",
+   "basis": [
+    "docs/03-design.md#layout"
+   ]
+  },
+  {
+   "key": "lay.track_rear_narrow_mm",
+   "v": 1000,
+   "unit": "mm",
+   "status": "calculated",
+   "basis": [
+    "docs/03-design.md#transport"
+   ]
+  },
+  {
+   "key": "lay.rail_bottom_mm",
+   "v": 150,
+   "unit": "mm",
+   "status": "calculated",
+   "basis": [
+    "docs/03-design.md#layout"
+   ]
+  },
+  {
+   "key": "lay.rail_half_width_mm",
+   "v": 300,
+   "unit": "mm",
+   "status": "calculated",
+   "basis": [
+    "docs/03-design.md#frame"
+   ]
+  },
+  {
+   "key": "lay.front_half_width_mm",
+   "v": 430,
+   "unit": "mm",
+   "status": "calculated",
+   "basis": [
+    "docs/03-design.md#frame"
+   ]
+  },
+  {
+   "key": "lay.front_overhang_mm",
+   "v": 300,
+   "unit": "mm",
+   "status": "calculated",
+   "basis": [
+    "docs/03-design.md#layout"
+   ]
+  },
+  {
+   "key": "lay.rear_overhang_mm",
+   "v": 230,
+   "unit": "mm",
+   "status": "calculated",
+   "basis": [
+    "docs/03-design.md#layout"
+   ]
+  },
+  {
+   "key": "lay.hpoint_x_mm",
+   "v": 80,
+   "unit": "mm",
+   "status": "calculated",
+   "basis": [
+    "docs/03-design.md#fit"
+   ]
+  },
+  {
+   "key": "lay.hpoint_y_mm",
+   "v": -40,
+   "unit": "mm",
+   "status": "calculated",
+   "basis": [
+    "docs/03-design.md#fit"
+   ]
+  },
+  {
+   "key": "lay.seat_slide_mm",
+   "v": 120,
+   "unit": "mm",
+   "status": "calculated",
+   "basis": [
+    "docs/03-design.md#fit"
+   ]
+  },
+  {
+   "key": "lay.pedal_x_far_mm",
+   "v": 1010,
+   "unit": "mm",
+   "status": "calculated",
+   "basis": [
+    "docs/03-design.md#fit"
+   ]
+  },
+  {
+   "key": "lay.pedal_x_near_mm",
+   "v": 560,
+   "unit": "mm",
+   "status": "calculated",
+   "basis": [
+    "docs/03-design.md#fit"
+   ]
+  },
+  {
+   "key": "lay.wheel_x_mm",
+   "v": 600,
+   "unit": "mm",
+   "status": "calculated",
+   "basis": [
+    "docs/03-design.md#steering"
+   ]
+  },
+  {
+   "key": "lay.wheel_z_mm",
+   "v": 560,
+   "unit": "mm",
+   "status": "calculated",
+   "basis": [
+    "docs/03-design.md#steering"
+   ]
+  },
+  {
+   "key": "lay.steer_max_deg",
+   "v": 30,
+   "unit": "deg",
+   "status": "calculated",
+   "basis": [
+    "docs/03-design.md#steering"
+   ]
+  },
+  {
+   "key": "lay.engine_x_mm",
+   "v": 380,
+   "unit": "mm",
+   "status": "calculated",
+   "basis": [
+    "docs/03-design.md#drive"
+   ]
+  },
+  {
+   "key": "lay.engine_y_mm",
+   "v": 400,
+   "unit": "mm",
+   "status": "calculated",
+   "basis": [
+    "docs/03-design.md#drive"
+   ]
+  },
+  {
+   "key": "lay.jack_x_mm",
+   "v": 150,
+   "unit": "mm",
+   "status": "calculated",
+   "basis": [
+    "docs/03-design.md#drive"
+   ]
+  },
+  {
+   "key": "lay.jack_z_mm",
+   "v": 215,
+   "unit": "mm",
+   "status": "calculated",
+   "basis": [
+    "docs/03-design.md#drive"
+   ]
+  },
+  {
+   "key": "lay.chain1_y_mm",
+   "v": 205,
+   "unit": "mm",
+   "status": "calculated",
+   "basis": [
+    "docs/03-design.md#drive"
+   ]
+  },
+  {
+   "key": "lay.chain2_y_mm",
+   "v": 140,
+   "unit": "mm",
+   "status": "calculated",
+   "basis": [
+    "docs/03-design.md#drive"
+   ]
+  },
+  {
+   "key": "lay.bearing_y_mm",
+   "v": 420,
+   "unit": "mm",
+   "status": "calculated",
+   "basis": [
+    "docs/03-design.md#axle"
+   ]
+  },
+  {
+   "key": "lay.brake_y_mm",
+   "v": -150,
+   "unit": "mm",
+   "status": "calculated",
+   "basis": [
+    "docs/03-design.md#brake"
+   ]
+  },
+  {
+   "key": "lay.axle_length_mm",
+   "v": 1220,
+   "unit": "mm",
+   "status": "calculated",
+   "basis": [
+    "docs/03-design.md#axle"
+   ]
+  },
+  {
+   "key": "lay.disc_dia_mm",
+   "v": 152,
+   "unit": "mm",
+   "status": "calculated",
+   "basis": [
+    "docs/03-design.md#brake"
+   ]
+  },
+  {
+   "key": "gear.t_clutch",
+   "v": 10,
+   "status": "calculated",
+   "basis": [
+    "docs/03-design.md#drive"
+   ]
+  },
+  {
+   "key": "gear.t_jack_in",
+   "v": 40,
+   "status": "calculated",
+   "basis": [
+    "docs/03-design.md#drive"
+   ]
+  },
+  {
+   "key": "gear.t_jack_out",
+   "v": 12,
+   "status": "calculated",
+   "basis": [
+    "docs/03-design.md#drive"
+   ]
+  },
+  {
+   "key": "gear.t_axle",
+   "v": 36,
+   "status": "calculated",
+   "basis": [
+    "docs/03-design.md#drive"
+   ]
+  },
+  {
+   "key": "dsn.axle_dia_mm",
+   "v": 25,
+   "unit": "mm",
+   "status": "calculated",
+   "basis": [
+    "docs/03-design.md#axle"
+   ]
+  },
+  {
+   "key": "dsn.rail_od_mm",
+   "v": 31.8,
+   "unit": "mm",
+   "status": "calculated",
+   "basis": [
+    "docs/03-design.md#frame"
+   ]
+  },
+  {
+   "key": "dsn.rail_t_mm",
+   "v": 1.6,
+   "unit": "mm",
+   "status": "calculated",
+   "basis": [
+    "docs/03-design.md#frame"
+   ]
+  },
+  {
+   "key": "dsn.cross_od_mm",
+   "v": 25.4,
+   "unit": "mm",
+   "status": "calculated",
+   "basis": [
+    "docs/03-design.md#frame"
+   ]
+  },
+  {
+   "key": "dsn.cross_t_mm",
+   "v": 1.6,
+   "unit": "mm",
+   "status": "calculated",
+   "basis": [
+    "docs/03-design.md#frame"
+   ]
+  },
+  {
+   "key": "dsn.floor_t_mm",
+   "v": 2.3,
+   "unit": "mm",
+   "status": "calculated",
+   "basis": [
+    "docs/03-design.md#frame"
+   ]
+  },
+  {
+   "key": "dsn.load_factor",
+   "v": 2.5,
+   "status": "assumed",
+   "basis": [
+    "Q-017"
+   ]
+  },
+  {
+   "key": "dsn.steel_density_kg_m3",
+   "v": 7850,
+   "unit": "kg/m3",
+   "status": "assumed",
+   "basis": [
+    "Q-017"
+   ]
+  },
+  {
+   "key": "dsn.s45c_yield_mpa",
+   "v": 345,
+   "unit": "MPa",
+   "status": "assumed",
+   "basis": [
+    "Q-017"
+   ]
+  },
+  {
+   "key": "dsn.stkm11a_tensile_mpa",
+   "v": 290,
+   "unit": "MPa",
+   "status": "assumed",
+   "basis": [
+    "Q-017"
+   ]
+  },
+  {
+   "key": "dsn.wheel_mass_kg",
+   "v": 3.5,
+   "unit": "kg",
+   "status": "assumed",
+   "basis": [
+    "Q-017"
+   ]
+  },
+  {
+   "key": "dsn.clutch_mass_kg",
+   "v": 1.2,
+   "unit": "kg",
+   "status": "assumed",
+   "basis": [
+    "Q-017"
+   ]
+  },
+  {
+   "key": "dsn.seat_mass_kg",
+   "v": 3.0,
+   "unit": "kg",
+   "status": "assumed",
+   "basis": [
+    "Q-017"
+   ]
+  },
+  {
+   "key": "dsn.steering_mass_kg",
+   "v": 4.0,
+   "unit": "kg",
+   "status": "assumed",
+   "basis": [
+    "Q-017"
+   ]
+  },
+  {
+   "key": "dsn.brake_mass_kg",
+   "v": 2.0,
+   "unit": "kg",
+   "status": "assumed",
+   "basis": [
+    "Q-017"
+   ]
+  },
+  {
+   "key": "dsn.misc_mass_kg",
+   "v": 5.0,
+   "unit": "kg",
+   "status": "assumed",
+   "basis": [
+    "Q-017"
+   ]
+  },
+  {
+   "key": "dsn.fuel_mass_kg",
+   "v": 2.0,
+   "unit": "kg",
+   "status": "assumed",
+   "basis": [
+    "Q-017"
+   ]
+  },
+  {
+   "key": "dsn.pad_mu",
+   "v": 0.35,
+   "status": "assumed",
+   "basis": [
+    "Q-017"
+   ]
+  },
+  {
+   "key": "dsn.buttock_heel_ratio_adult",
+   "v": 0.587,
+   "status": "calculated",
+   "basis": [
+    "docs/03-design.md#fit"
+   ]
+  },
+  {
+   "key": "dsn.buttock_heel_ratio_child",
+   "v": 0.5,
+   "status": "assumed",
+   "basis": [
+    "Q-017"
+   ]
+  },
+  {
+   "key": "cost.seat_kart_jpy",
+   "v": 16240,
+   "unit": "JPY",
+   "status": "sourced",
+   "basis": [
+    "M53"
+   ]
+  },
+  {
+   "key": "cost.seat_rail_pair_jpy",
+   "v": 2900,
+   "unit": "JPY",
+   "status": "sourced",
+   "basis": [
+    "M54"
+   ]
+  },
+  {
+   "key": "cost.sq_tube_25_jpy_per_m",
+   "v": 1078,
+   "unit": "JPY",
+   "status": "sourced",
+   "basis": [
+    "M55"
+   ]
+  },
+  {
+   "key": "cost.flat_bar_jpy_per_m",
+   "v": 1012,
+   "unit": "JPY",
+   "status": "sourced",
+   "basis": [
+    "M56"
+   ]
+  },
+  {
+   "key": "cost.uhmw_order_jpy",
+   "v": 2806,
+   "unit": "JPY",
+   "status": "sourced",
+   "basis": [
+    "M57"
+   ]
+  },
+  {
+   "key": "cost.punched_sheet_jpy",
+   "v": 3628,
+   "unit": "JPY",
+   "status": "sourced",
+   "basis": [
+    "M58"
+   ]
+  },
+  {
+   "key": "cost.padding_jpy",
+   "v": 1538,
+   "unit": "JPY",
+   "status": "sourced",
+   "basis": [
+    "M59"
+   ]
+  },
+  {
+   "key": "cost.kill_lanyard_jpy",
+   "v": 1919,
+   "unit": "JPY",
+   "status": "sourced",
+   "basis": [
+    "M60"
+   ]
+  },
+  {
+   "key": "cost.ramp_rail_jpy",
+   "v": 12078,
+   "unit": "JPY",
+   "status": "sourced",
+   "basis": [
+    "M61"
+   ]
+  },
+  {
+   "key": "cost.seat_operator_jpy",
+   "v": 5460,
+   "unit": "JPY",
+   "status": "sourced",
+   "basis": [
+    "M62"
+   ]
+  },
+  {
+   "key": "cost.plate_allow_jpy",
+   "v": 6000,
+   "unit": "JPY",
+   "status": "assumed",
+   "basis": [
+    "Q-018"
+   ]
+  },
+  {
+   "key": "cost.machining_allow_jpy",
+   "v": 12000,
+   "unit": "JPY",
+   "status": "assumed",
+   "basis": [
+    "Q-018"
+   ]
+  },
+  {
+   "key": "cost.rear_hub_make_jpy",
+   "v": 3000,
+   "unit": "JPY",
+   "status": "assumed",
+   "basis": [
+    "Q-018"
+   ]
+  },
+  {
+   "key": "cost.axle_shaft_jpy",
+   "v": 5000,
+   "unit": "JPY",
+   "status": "assumed",
+   "basis": [
+    "Q-018"
+   ]
+  },
+  {
+   "key": "cost.welder_jpy",
+   "v": 9900,
+   "unit": "JPY",
+   "status": "sourced",
+   "basis": [
+    "M11"
+   ]
+  },
+  {
    "key": "form.mass_total_kg",
    "v": 170,
    "unit": "kg",
@@ -1741,6 +2795,384 @@
    "basis": [
     "docs/02-form.md#cost"
    ]
+  },
+  {
+   "key": "dsn.length_m",
+   "v": 1.53,
+   "unit": "m",
+   "status": "calculated",
+   "basis": [
+    "docs/03-design.md#layout"
+   ]
+  },
+  {
+   "key": "dsn.width_m",
+   "v": 1.277,
+   "unit": "m",
+   "status": "calculated",
+   "basis": [
+    "docs/03-design.md#layout"
+   ]
+  },
+  {
+   "key": "dsn.width_transport_m",
+   "v": 1.187,
+   "unit": "m",
+   "status": "calculated",
+   "basis": [
+    "docs/03-design.md#transport"
+   ]
+  },
+  {
+   "key": "dsn.tube_main_m",
+   "v": 3.35,
+   "unit": "m",
+   "status": "calculated",
+   "basis": [
+    "docs/03-design.md#frame"
+   ]
+  },
+  {
+   "key": "dsn.tube_cross_m",
+   "v": 8.95,
+   "unit": "m",
+   "status": "calculated",
+   "basis": [
+    "docs/03-design.md#frame"
+   ]
+  },
+  {
+   "key": "dsn.ratio",
+   "v": 12.0,
+   "status": "calculated",
+   "basis": [
+    "docs/03-design.md#drive"
+   ]
+  },
+  {
+   "key": "dsn.top_speed_kmh",
+   "v": 19.65,
+   "unit": "km/h",
+   "status": "calculated",
+   "basis": [
+    "docs/03-design.md#drive"
+   ]
+  },
+  {
+   "key": "dsn.chain1_centre_mm",
+   "v": 243,
+   "unit": "mm",
+   "status": "calculated",
+   "basis": [
+    "docs/03-design.md#drive"
+   ]
+  },
+  {
+   "key": "dsn.chain2_centre_mm",
+   "v": 159,
+   "unit": "mm",
+   "status": "calculated",
+   "basis": [
+    "docs/03-design.md#drive"
+   ]
+  },
+  {
+   "key": "dsn.chain1_links",
+   "v": 66,
+   "status": "calculated",
+   "basis": [
+    "docs/03-design.md#drive"
+   ]
+  },
+  {
+   "key": "dsn.chain2_links",
+   "v": 52,
+   "status": "calculated",
+   "basis": [
+    "docs/03-design.md#drive"
+   ]
+  },
+  {
+   "key": "dsn.chain1_gap_mm",
+   "v": 105,
+   "unit": "mm",
+   "status": "calculated",
+   "basis": [
+    "docs/03-design.md#drive"
+   ]
+  },
+  {
+   "key": "dsn.chain2_gap_mm",
+   "v": 55,
+   "unit": "mm",
+   "status": "calculated",
+   "basis": [
+    "docs/03-design.md#drive"
+   ]
+  },
+  {
+   "key": "dsn.low_point_mm",
+   "v": 86,
+   "unit": "mm",
+   "status": "calculated",
+   "basis": [
+    "docs/03-design.md#axle"
+   ]
+  },
+  {
+   "key": "dsn.turn_radius_m",
+   "v": 2.26,
+   "unit": "m",
+   "status": "calculated",
+   "basis": [
+    "docs/03-design.md#steering"
+   ]
+  },
+  {
+   "key": "dsn.leg_margin_adult_mm",
+   "v": 68,
+   "unit": "mm",
+   "status": "calculated",
+   "basis": [
+    "docs/03-design.md#fit"
+   ]
+  },
+  {
+   "key": "dsn.leg_margin_child_mm",
+   "v": 149,
+   "unit": "mm",
+   "status": "calculated",
+   "basis": [
+    "docs/03-design.md#fit"
+   ]
+  },
+  {
+   "key": "dsn.mass_kg",
+   "v": 87.6,
+   "unit": "kg",
+   "status": "calculated",
+   "basis": [
+    "docs/03-design.md#mass"
+   ]
+  },
+  {
+   "key": "dsn.cg_x_m",
+   "v": 0.378,
+   "unit": "m",
+   "status": "calculated",
+   "basis": [
+    "docs/03-design.md#mass"
+   ]
+  },
+  {
+   "key": "dsn.cg_z_m",
+   "v": 0.235,
+   "unit": "m",
+   "status": "calculated",
+   "basis": [
+    "docs/03-design.md#mass"
+   ]
+  },
+  {
+   "key": "dsn.frame_mass_kg",
+   "v": 12.4,
+   "unit": "kg",
+   "status": "calculated",
+   "basis": [
+    "docs/03-design.md#frame"
+   ]
+  },
+  {
+   "key": "dsn.rear_share_adult",
+   "v": 0.728,
+   "status": "calculated",
+   "basis": [
+    "docs/03-design.md#mass"
+   ]
+  },
+  {
+   "key": "dsn.cg_height_adult_m",
+   "v": 0.356,
+   "unit": "m",
+   "status": "calculated",
+   "basis": [
+    "docs/03-design.md#mass"
+   ]
+  },
+  {
+   "key": "dsn.tip_ratio_adult",
+   "v": 1.58,
+   "status": "calculated",
+   "basis": [
+    "docs/03-design.md#stability"
+   ]
+  },
+  {
+   "key": "dsn.rear_share_child",
+   "v": 0.636,
+   "status": "calculated",
+   "basis": [
+    "docs/03-design.md#mass"
+   ]
+  },
+  {
+   "key": "dsn.cg_height_child_m",
+   "v": 0.257,
+   "unit": "m",
+   "status": "calculated",
+   "basis": [
+    "docs/03-design.md#mass"
+   ]
+  },
+  {
+   "key": "dsn.tip_ratio_child",
+   "v": 2.17,
+   "status": "calculated",
+   "basis": [
+    "docs/03-design.md#stability"
+   ]
+  },
+  {
+   "key": "dsn.climb_force_n",
+   "v": 577,
+   "unit": "N",
+   "status": "calculated",
+   "basis": [
+    "docs/03-design.md#climb"
+   ]
+  },
+  {
+   "key": "dsn.climb_grip_n",
+   "v": 649,
+   "unit": "N",
+   "status": "calculated",
+   "basis": [
+    "docs/03-design.md#climb"
+   ]
+  },
+  {
+   "key": "dsn.climb_thrust_n",
+   "v": 758,
+   "unit": "N",
+   "status": "calculated",
+   "basis": [
+    "docs/03-design.md#climb"
+   ]
+  },
+  {
+   "key": "dsn.axle_stress_mpa",
+   "v": 169,
+   "unit": "MPa",
+   "status": "calculated",
+   "basis": [
+    "docs/03-design.md#axle"
+   ]
+  },
+  {
+   "key": "dsn.axle_safety",
+   "v": 2.04,
+   "status": "calculated",
+   "basis": [
+    "docs/03-design.md#axle"
+   ]
+  },
+  {
+   "key": "dsn.rail_stress_mpa",
+   "v": 126,
+   "unit": "MPa",
+   "status": "calculated",
+   "basis": [
+    "docs/03-design.md#frame"
+   ]
+  },
+  {
+   "key": "dsn.rail_safety",
+   "v": 2.29,
+   "status": "calculated",
+   "basis": [
+    "docs/03-design.md#frame"
+   ]
+  },
+  {
+   "key": "dsn.bearing_load_n",
+   "v": 669,
+   "unit": "N",
+   "status": "calculated",
+   "basis": [
+    "docs/03-design.md#axle"
+   ]
+  },
+  {
+   "key": "dsn.brake_decel_needed",
+   "v": 2.57,
+   "unit": "m/s2",
+   "status": "calculated",
+   "basis": [
+    "docs/03-design.md#brake"
+   ]
+  },
+  {
+   "key": "dsn.brake_torque_needed_nm",
+   "v": 78,
+   "unit": "N m",
+   "status": "calculated",
+   "basis": [
+    "docs/03-design.md#brake"
+   ]
+  },
+  {
+   "key": "dsn.brake_clamp_needed_n",
+   "v": 1750,
+   "unit": "N",
+   "status": "calculated",
+   "basis": [
+    "docs/03-design.md#brake"
+   ]
+  },
+  {
+   "key": "dsn.delica_length_margin_mm",
+   "v": 80,
+   "unit": "mm",
+   "status": "calculated",
+   "basis": [
+    "docs/03-design.md#transport"
+   ]
+  },
+  {
+   "key": "dsn.delica_width_margin_mm",
+   "v": 43,
+   "unit": "mm",
+   "status": "calculated",
+   "basis": [
+    "docs/03-design.md#transport"
+   ]
+  },
+  {
+   "key": "dsn.height_m",
+   "v": 0.71,
+   "unit": "m",
+   "status": "calculated",
+   "basis": [
+    "docs/03-design.md#layout"
+   ]
+  },
+  {
+   "key": "dsn.bom_parts_jpy",
+   "v": 224104,
+   "unit": "JPY",
+   "status": "calculated",
+   "basis": [
+    "docs/03-design.md#cost"
+   ]
+  },
+  {
+   "key": "dsn.bom_tools_jpy",
+   "v": 34056,
+   "unit": "JPY",
+   "status": "calculated",
+   "basis": [
+    "docs/03-design.md#cost"
+   ]
   }
  ],
  "sources": [
@@ -1962,7 +3394,7 @@
    "retrieved": "2026-11-03",
    "license": "free to use with the credit 産総研 AIST人体寸法データベース1991-92",
    "read": "full",
-   "note": "Read by a helper for stature, sitting height, buttock-heel length, and mass of adults aged 18 to 29. The 95th percentile male stature is about 182 cm."
+   "note": "Read by helpers for stature, sitting height, buttock-heel length, and mass of adults aged 18 to 29. The 95th percentile male stature is about 182 cm; mean male stature 172.19 cm, buttock-heel length (J4) 50th percentile 1010 mm."
   },
   {
    "id": "P23",
@@ -2023,6 +3455,56 @@
    "license": "open access, licence not checked",
    "read": "partial",
    "note": "Read by a helper, tables 1 and 2 and the results. Pneumatic e-scooter tyres of 8.5 to 10 inch on painted concrete, rolling resistance over load 0.011 to 0.023."
+  },
+  {
+   "id": "P30",
+   "class": "P",
+   "title": "Honda, GX200 equipment drawing, June 2022",
+   "url": "https://www.honda.co.jp/engines/pdf/GX200.pdf",
+   "retrieved": "2026-11-03",
+   "license": "unknown",
+   "read": "full",
+   "note": "Read by a helper. Overall 313 x 376 x 339 mm (S-type), dry 16.1 kg, shaft centre 106 mm above the base; S-type shaft 20 mm with a 5 mm key, Q-type 3/4 inch; base holes about 162 mm across the crank and 80 mm along it, read from the drawing (to be measured)."
+  },
+  {
+   "id": "P31",
+   "class": "P",
+   "title": "Katayama Chain (KANA), catalogue pages 162 to 171, FB sprockets No.40",
+   "url": "https://www.monet.asia/media/pdf/kana-162-171.pdf",
+   "retrieved": "2026-11-03",
+   "license": "unknown",
+   "read": "partial",
+   "note": "Read by a helper, the No.40 rows. Pitch and outside diameters, hub sizes, and masses of finished-bore sprockets; a 10 tooth sprocket takes at most an 18 mm bore."
+  },
+  {
+   "id": "P32",
+   "class": "P",
+   "title": "NTN bearing finder, S-UCP205D1 pillow block unit",
+   "url": "https://bearingfinder.ntnamericas.com/item/pillow-block-unit-with-set-screw/t-screw-pressed-steel-dust-cover-open-end-ucp-type/s-ucp205d1",
+   "retrieved": "2026-11-03",
+   "license": "unknown",
+   "read": "full",
+   "note": "Read by a helper. Bore 25, shaft height 36.5, base length 140, bolt spacing 105, total height 71 mm; Cr 14.0 kN; 0.90 kg."
+  },
+  {
+   "id": "P33",
+   "class": "P",
+   "title": "FYH mounted units catalogue, pages 84 to 88",
+   "url": "https://aimsindustrial.com.au/cdn/shop/files/FYH-Mounted-Bearing-Units-Catalogue-Pages-84-88.pdf",
+   "retrieved": "2026-11-03",
+   "license": "unknown",
+   "read": "partial",
+   "note": "Read by a helper, the UCP204 row. Bore 20, shaft height 33.3, base length 127, bolt spacing 95, total height 65 mm, M10 bolts, 0.66 kg."
+  },
+  {
+   "id": "P34",
+   "class": "P",
+   "title": "THK, rod ends PHS and POS, catalogue A23",
+   "url": "https://tech.thk.com/en/products/pdf/en_a23_006.pdf",
+   "retrieved": "2026-11-03",
+   "license": "unknown",
+   "read": "partial",
+   "note": "Read by a helper, the PHS and POS tables. PHS10 M10, length 56, head diameter 26, static rating 13,200 N, 72 g."
   },
   {
    "id": "S1",
@@ -2355,6 +3837,316 @@
    "note": "Search page read by a helper. Rack and pinion with 320 mm tie rods 9,179 JPY, free shipping shown."
   },
   {
+   "id": "M32",
+   "class": "M",
+   "title": "BKT LG-RIB 13x5.00-6 4PR tubeless tyres, pair, Yahoo Shopping",
+   "url": "https://store.shopping.yahoo.co.jp/sangyosyarin/28130lib04-2.html",
+   "retrieved": "2026-11-03",
+   "license": "unknown",
+   "read": "full",
+   "note": "Read by a helper. Outside diameter 325 mm, width 127 mm, rim 3.5 inch; 11,770 JPY for two; load rating not stated."
+  },
+  {
+   "id": "M33",
+   "class": "M",
+   "title": "6 inch three-hole rims for 13x5.00-6, Yahoo Shopping",
+   "url": "https://store.shopping.yahoo.co.jp/tousyou-net/810s152423.html",
+   "retrieved": "2026-11-03",
+   "license": "unknown",
+   "read": "full",
+   "note": "Read by a helper with two similar listings. 6,480 to 14,580 JPY; hole spacing, bore, and offset not stated."
+  },
+  {
+   "id": "M34",
+   "class": "M",
+   "title": "FYH UCP205 pillow block, MonotaRO",
+   "url": "https://www.monotaro.com/p/0719/1895/",
+   "retrieved": "2026-11-03",
+   "license": "unknown",
+   "read": "excerpt",
+   "note": "Seen by a helper as a search excerpt. 1,758 JPY with tax; M10 bolts."
+  },
+  {
+   "id": "M35",
+   "class": "M",
+   "title": "S45CD bright bar 25 mm cut to length, MonotaRO",
+   "url": "https://www.monotaro.com/p/0651/6283/",
+   "retrieved": "2026-11-03",
+   "license": "unknown",
+   "read": "excerpt",
+   "note": "Seen as an excerpt. 2,088 JPY for 301 to 400 mm; no keyway; price for 1 m not shown."
+  },
+  {
+   "id": "M36",
+   "class": "M",
+   "title": "Go-kart spindle pair 17 mm, Yahoo Shopping",
+   "url": "https://shopping.yahoo.co.jp/search?p=ゴーカート+スピンドル",
+   "retrieved": "2026-11-03",
+   "license": "unknown",
+   "read": "partial",
+   "note": "Search titles read by a helper. 9,220 JPY a pair; kingpin size not stated."
+  },
+  {
+   "id": "M37",
+   "class": "M",
+   "title": "Go-kart front hub 78 mm three studs, Yahoo Shopping",
+   "url": "https://store.shopping.yahoo.co.jp/pstokyo/231124v0306.html",
+   "retrieved": "2026-11-03",
+   "license": "unknown",
+   "read": "full",
+   "note": "Read by a helper. 9,390 JPY; bore not stated."
+  },
+  {
+   "id": "M38",
+   "class": "M",
+   "title": "THK PHS10 rod end, MonotaRO",
+   "url": "https://www.monotaro.com/p/0633/4815/",
+   "retrieved": "2026-11-03",
+   "license": "unknown",
+   "read": "excerpt",
+   "note": "Seen as an excerpt. 1,758 JPY."
+  },
+  {
+   "id": "M39",
+   "class": "M",
+   "title": "300 mm kart steering wheel, Yahoo Shopping",
+   "url": "https://store.shopping.yahoo.co.jp/tousyou-net/810s152384.html",
+   "retrieved": "2026-11-03",
+   "license": "unknown",
+   "read": "full",
+   "note": "Read by a helper. 7,280 JPY; hole pattern not stated."
+  },
+  {
+   "id": "M40",
+   "class": "M",
+   "title": "FYH UCFL204 flange unit, Askul",
+   "url": "https://www.askul.co.jp/p/N645230/",
+   "retrieved": "2026-11-03",
+   "license": "unknown",
+   "read": "excerpt",
+   "note": "Seen as an excerpt. 1,640 JPY; bolt spacing 90 mm, M10."
+  },
+  {
+   "id": "M41",
+   "class": "M",
+   "title": "JOIQEXJ 6 inch brake disc, 1 inch bore with 1/4 inch key, Amazon.co.jp",
+   "url": "https://www.amazon.co.jp/dp/B0BLCLF7NY",
+   "retrieved": "2026-11-03",
+   "license": "unknown",
+   "read": "excerpt",
+   "note": "Seen as an excerpt. 5,426 JPY."
+  },
+  {
+   "id": "M42",
+   "class": "M",
+   "title": "Go-kart hydraulic brake caliper with disc, Yahoo Shopping",
+   "url": "https://store.shopping.yahoo.co.jp/pstokyo/231124v0696.html",
+   "retrieved": "2026-11-03",
+   "license": "unknown",
+   "read": "excerpt",
+   "note": "Seen as an excerpt. 17,640 JPY; dimensions not stated."
+  },
+  {
+   "id": "M43",
+   "class": "M",
+   "title": "GREHUA go-kart pedal kit with throttle cable, Amazon.co.jp",
+   "url": "https://www.amazon.co.jp/dp/B0BL32Z8JX",
+   "retrieved": "2026-11-03",
+   "license": "unknown",
+   "read": "excerpt",
+   "note": "Seen as an excerpt. 8,994 JPY; brake and throttle pedals, 71 inch cable, springs."
+  },
+  {
+   "id": "M44",
+   "class": "M",
+   "title": "Centrifugal clutch 3/4 inch 10T for chain 40, Trade Journey, Yahoo Shopping",
+   "url": "https://store.shopping.yahoo.co.jp/trade-journey/b07qfw55q4.html",
+   "retrieved": "2026-11-03",
+   "license": "unknown",
+   "read": "partial",
+   "note": "Read by a helper. About 11,000 to 12,400 JPY; dimensions not stated."
+  },
+  {
+   "id": "M45",
+   "class": "M",
+   "title": "KANA finished-bore sprockets No.40, Askul and MonotaRO",
+   "url": "https://www.askul.co.jp/v/000250046/",
+   "retrieved": "2026-11-03",
+   "license": "unknown",
+   "read": "excerpt",
+   "note": "Seen as excerpts. 12T bore 20 1,032 JPY; 40T 2,824 JPY; 36T pilot-bore NK40B36 1,798 JPY (to be bored to 25)."
+  },
+  {
+   "id": "M46",
+   "class": "M",
+   "title": "KANA roller chain No.40, 3 m, MonotaRO",
+   "url": "https://www.monotaro.com/p/0574/9527/",
+   "retrieved": "2026-11-03",
+   "license": "unknown",
+   "read": "excerpt",
+   "note": "Seen as an excerpt. 3,298 JPY for 240 links with a joint."
+  },
+  {
+   "id": "M47",
+   "class": "M",
+   "title": "FYH UCP204 pillow block, MonotaRO",
+   "url": "https://www.monotaro.com/p/0719/1886/",
+   "retrieved": "2026-11-03",
+   "license": "unknown",
+   "read": "excerpt",
+   "note": "Seen as an excerpt. 1,648 JPY."
+  },
+  {
+   "id": "M48",
+   "class": "M",
+   "title": "S45CD bright bar 20 mm cut to length, MonotaRO",
+   "url": "https://www.monotaro.com/g/01126801/",
+   "retrieved": "2026-11-03",
+   "license": "unknown",
+   "read": "excerpt",
+   "note": "Seen as an excerpt. 2,418 JPY for 401 to 500 mm; no keyway."
+  },
+  {
+   "id": "M49",
+   "class": "M",
+   "title": "Throttle cable with return spring for GX160 and GX200, Yahoo Shopping",
+   "url": "https://shopping.yahoo.co.jp/search?p=汎用エンジン+196cc",
+   "retrieved": "2026-11-03",
+   "license": "unknown",
+   "read": "partial",
+   "note": "Read by a helper. 6,680 JPY."
+  },
+  {
+   "id": "M50",
+   "class": "M",
+   "title": "Kill switch with a tether cord, Amazon.co.jp",
+   "url": "https://www.amazon.co.jp/dp/B0B7WK8YJ7",
+   "retrieved": "2026-11-03",
+   "license": "unknown",
+   "read": "excerpt",
+   "note": "Seen as an excerpt. 1,135 to 1,920 JPY."
+  },
+  {
+   "id": "M51",
+   "class": "M",
+   "title": "Centrifugal clutch 3/4 inch 10T, STK-shop, Yahoo Shopping",
+   "url": "https://store.shopping.yahoo.co.jp/stk-shop/67022090.html",
+   "retrieved": "2026-11-03",
+   "license": "unknown",
+   "read": "partial",
+   "note": "Read by a helper. 4,960 JPY; outside diameter about 107 mm."
+  },
+  {
+   "id": "M52",
+   "class": "M",
+   "title": "GoPowerSports KD1041SHD heavy-duty clutch 3/4 inch 10T",
+   "url": "https://gopowersports.com/3-4-bore-clutch-heavy-duty",
+   "retrieved": "2026-11-03",
+   "license": "unknown",
+   "read": "partial",
+   "note": "Read by a helper; US reference for size. Outside 121 mm, overall width 64 mm."
+  },
+  {
+   "id": "M53",
+   "class": "M",
+   "title": "Go-kart seat, kabuon, Rakuten",
+   "url": "https://item.rakuten.co.jp/kabuon/m20386763a0a/",
+   "retrieved": "2026-11-03",
+   "license": "unknown",
+   "read": "partial",
+   "note": "Read by a helper. 16,240 JPY, 1.6 kg, ships from abroad in 2 to 3 weeks."
+  },
+  {
+   "id": "M54",
+   "class": "M",
+   "title": "Seat slide rail pair amr-199-g, Rakuten",
+   "url": "https://item.rakuten.co.jp/auc-green/g0000311891/",
+   "retrieved": "2026-11-03",
+   "license": "unknown",
+   "read": "partial",
+   "note": "Read by a helper. 2,900 JPY a pair; fixed rail 303 mm, 10 positions of 15 mm."
+  },
+  {
+   "id": "M55",
+   "class": "M",
+   "title": "Haganeya square tube 25 x 25 x 1.6 cut to length",
+   "url": "https://haganeya.jp/products/detail/202",
+   "retrieved": "2026-11-03",
+   "license": "unknown",
+   "read": "partial",
+   "note": "Read by a helper. 1,078 JPY per metre; 1.28 kg/m."
+  },
+  {
+   "id": "M56",
+   "class": "M",
+   "title": "Haganeya flat bar 6 x 32 cut to length",
+   "url": "https://haganeya.jp/products/detail/50",
+   "retrieved": "2026-11-03",
+   "license": "unknown",
+   "read": "partial",
+   "note": "Read by a helper. 1,012 JPY per metre."
+  },
+  {
+   "id": "M57",
+   "class": "M",
+   "title": "Takiron UHMW polyethylene sheet cut to order, MonotaRO",
+   "url": "https://www.monotaro.com/g/07485487/",
+   "retrieved": "2026-11-03",
+   "license": "unknown",
+   "read": "partial",
+   "note": "Read by a helper. From 606 JPY plus 2,200 JPY shipping, 5 to 20 mm thick."
+  },
+  {
+   "id": "M58",
+   "class": "M",
+   "title": "TRUSCO punched steel sheet SPCC 1.0 mm 450 x 450, MonotaRO",
+   "url": "https://www.monotaro.com/g/06100425/",
+   "retrieved": "2026-11-03",
+   "license": "unknown",
+   "read": "partial",
+   "note": "Read by a helper. 3,628 JPY."
+  },
+  {
+   "id": "M59",
+   "class": "M",
+   "title": "TRUSCO tube cushion TAC-81Y, MonotaRO",
+   "url": "https://www.monotaro.com/g/00396259/",
+   "retrieved": "2026-11-03",
+   "license": "unknown",
+   "read": "partial",
+   "note": "Read by a helper. 1,538 JPY for 0.9 m, inner 27 mm."
+  },
+  {
+   "id": "M60",
+   "class": "M",
+   "title": "Kill switch with lanyard, the-apex, Rakuten",
+   "url": "https://item.rakuten.co.jp/the-apex/mrni-00000200/",
+   "retrieved": "2026-11-03",
+   "license": "unknown",
+   "read": "partial",
+   "note": "Read by a helper. 1,919 JPY; lanyard 130 cm extended."
+  },
+  {
+   "id": "M61",
+   "class": "M",
+   "title": "MonotaRO folding aluminium ladder rail 1820 mm",
+   "url": "https://www.monotaro.com/g/03750387/",
+   "retrieved": "2026-11-03",
+   "license": "unknown",
+   "read": "partial",
+   "note": "Read by a helper. 12,078 JPY per rail, 200 kg, 6.5 kg."
+  },
+  {
+   "id": "M62",
+   "class": "M",
+   "title": "KYU B11S small operator seat with slide rails, Rakuten",
+   "url": "https://item.rakuten.co.jp/kyu-web/se-1-s/",
+   "retrieved": "2026-11-03",
+   "license": "unknown",
+   "read": "partial",
+   "note": "Read by a helper. 5,460 JPY; rail bolt spacing 180 mm from a buyer review."
+  },
+  {
    "id": "F1",
    "class": "F",
    "title": "Motor1, a shifter kart turned into a snowmobile, 2025-02-02",
@@ -2531,6 +4323,16 @@
    "touches": [
     "rider.stature_max_cm",
     "R-03"
+   ]
+  },
+  {
+   "id": "D-017",
+   "date": "2026-11-03",
+   "by": "owner",
+   "what": "Make the design concrete with new parts that are readily available in Japan, with realistic shapes, and show the designed kart in 3D to grasp what will be built; the 3D view need not be a driving game. This settles item 1 of docs/02-form.md#proposal as new parts (L2). The other items of that proposal are taken as the working basis of step 1.3 until the owner decides them.",
+   "touches": [
+    "R-08",
+    "cost.total_l2_e1_w1_jpy"
    ]
   }
  ],
@@ -2751,6 +4553,73 @@
    ],
    "opened": "2026-11-03",
    "phase": "design"
+  },
+  {
+   "id": "Q-016",
+   "kind": "question",
+   "text": "How many hours a day can the owner work on the kart? The plan in docs/data/plan.yaml assumes two to three hours a day for its task lengths.",
+   "waits_for": "owner",
+   "affects": [
+    "R-08"
+   ],
+   "opened": "2026-11-03",
+   "phase": "design"
+  },
+  {
+   "id": "Q-017",
+   "kind": "question",
+   "text": "Step 1.3 assumes, without a source yet, the dynamic load factor on the frame and axle, the density and strength of S45C and STKM11A steel, the masses of a wheel with its tyre, the clutch, the seat, the steering, the brake, the fuel, and small parts, the brake pad friction, and the ratio of buttock-to-heel length to stature for an adult and for a 5-year-old. Cite a standard, a maker's data, or a weighing for each before the gate from design to build.",
+   "waits_for": "assistant",
+   "affects": [
+    "dsn.load_factor",
+    "dsn.steel_density_kg_m3",
+    "dsn.s45c_yield_mpa",
+    "dsn.stkm11a_tensile_mpa",
+    "dsn.wheel_mass_kg",
+    "dsn.clutch_mass_kg",
+    "dsn.seat_mass_kg",
+    "dsn.steering_mass_kg",
+    "dsn.brake_mass_kg",
+    "dsn.misc_mass_kg",
+    "dsn.fuel_mass_kg",
+    "dsn.pad_mu",
+    "dsn.buttock_heel_ratio_adult",
+    "dsn.buttock_heel_ratio_child"
+   ],
+   "opened": "2026-11-03",
+   "phase": "design",
+   "blocks": "design_build"
+  },
+  {
+   "id": "Q-018",
+   "kind": "question",
+   "text": "The parts list assumes the price of steel plate cut to size, of machining by a local shop (keyways on the axle and the jackshaft, boring the 36 tooth sprocket, cross holes for the hub pins, the brake disc carrier), of making the two rear hubs, and of a 25 mm axle shaft of 1.22 m. Get quotes before the gate from design to build.",
+   "waits_for": "assistant",
+   "affects": [
+    "cost.plate_allow_jpy",
+    "cost.machining_allow_jpy",
+    "cost.rear_hub_make_jpy",
+    "cost.axle_shaft_jpy"
+   ],
+   "opened": "2026-11-03",
+   "phase": "design",
+   "blocks": "design_build"
+  },
+  {
+   "id": "Q-019",
+   "kind": "question",
+   "text": "The fit of bought parts to each other is not stated by their sellers and is checked when they arrive, before the frame is welded to them - the rim's three-hole pattern against the front hubs and the made rear hubs, the front hubs' bore against the 17 mm spindles, the engine's shaft (3/4 inch Q-type) and base holes, the ladder chains on 13x5.00-6 tyres, and the seat's rail bolt spacing.",
+   "waits_for": "assistant",
+   "affects": [
+    "front_wheels",
+    "rear_hubs",
+    "engine",
+    "snow_chains",
+    "seat"
+   ],
+   "opened": "2026-11-03",
+   "phase": "build",
+   "blocks": "design_build"
   }
  ],
  "hazards": [
@@ -2857,10 +4726,415 @@
    "controls": [
     "R-15"
    ]
+  },
+  {
+   "id": "H-10",
+   "text": "Petrol catches fire while refuelling or near the hot engine, or exhaust gas builds up when the engine runs in a closed shed.",
+   "phases": [
+    "operate"
+   ],
+   "at_risk": "The driver, helpers, and children nearby.",
+   "controls": [
+    "OP-03.02",
+    "OP-03.03"
+   ]
   }
  ],
- "parts": [],
- "interfaces": [],
+ "parts": [
+  {
+   "id": "kart",
+   "name": "Kart"
+  },
+  {
+   "id": "chassis",
+   "name": "Chassis",
+   "parent": "kart"
+  },
+  {
+   "id": "frame",
+   "name": "Welded tube frame",
+   "parent": "chassis"
+  },
+  {
+   "id": "floor",
+   "name": "Floor plate",
+   "parent": "chassis"
+  },
+  {
+   "id": "bumpers",
+   "name": "Front bumper and side nerf bars",
+   "parent": "chassis"
+  },
+  {
+   "id": "seat",
+   "name": "Seat",
+   "parent": "chassis"
+  },
+  {
+   "id": "seat_slide",
+   "name": "Seat slide with pin positions",
+   "parent": "chassis"
+  },
+  {
+   "id": "pedal_box",
+   "name": "Pedal box with throttle and brake pedals, sliding on pin positions",
+   "parent": "chassis"
+  },
+  {
+   "id": "guards",
+   "name": "Chain and axle guards",
+   "parent": "chassis"
+  },
+  {
+   "id": "steering",
+   "name": "Steering",
+   "parent": "kart"
+  },
+  {
+   "id": "steering_wheel",
+   "name": "Steering wheel",
+   "parent": "steering"
+  },
+  {
+   "id": "steering_column",
+   "name": "Steering column with its bearings",
+   "parent": "steering"
+  },
+  {
+   "id": "tie_rods",
+   "name": "Tie rods with rod ends",
+   "parent": "steering"
+  },
+  {
+   "id": "spindles",
+   "name": "Kingpins, spindles, and steering arms",
+   "parent": "steering"
+  },
+  {
+   "id": "front_wheels",
+   "name": "Front wheels and tyres",
+   "parent": "kart"
+  },
+  {
+   "id": "rear_axle",
+   "name": "Rear live axle",
+   "parent": "kart"
+  },
+  {
+   "id": "axle_shaft",
+   "name": "Axle shaft",
+   "parent": "rear_axle"
+  },
+  {
+   "id": "axle_bearings",
+   "name": "Axle bearings",
+   "parent": "rear_axle"
+  },
+  {
+   "id": "rear_hubs",
+   "name": "Rear wheel hubs that slide along the axle",
+   "parent": "rear_axle"
+  },
+  {
+   "id": "rear_wheels",
+   "name": "Rear wheels and tyres",
+   "parent": "kart"
+  },
+  {
+   "id": "brake",
+   "name": "Rear disc brake with its carrier",
+   "parent": "kart"
+  },
+  {
+   "id": "powertrain",
+   "name": "Powertrain",
+   "parent": "kart"
+  },
+  {
+   "id": "engine",
+   "name": "Engine",
+   "parent": "powertrain"
+  },
+  {
+   "id": "clutch",
+   "name": "Centrifugal clutch",
+   "parent": "powertrain"
+  },
+  {
+   "id": "jackshaft",
+   "name": "Jackshaft with its bearings and sprockets",
+   "parent": "powertrain"
+  },
+  {
+   "id": "chain_primary",
+   "name": "Primary chain from the clutch to the jackshaft",
+   "parent": "powertrain"
+  },
+  {
+   "id": "chain_final",
+   "name": "Final chain from the jackshaft to the axle, with the axle sprocket and its carrier",
+   "parent": "powertrain"
+  },
+  {
+   "id": "throttle",
+   "name": "Throttle cable with a return spring",
+   "parent": "powertrain"
+  },
+  {
+   "id": "kill_switch",
+   "name": "Engine stop switches, one on the steering and one with a tether",
+   "parent": "powertrain"
+  },
+  {
+   "id": "winter",
+   "name": "Winter parts",
+   "parent": "kart"
+  },
+  {
+   "id": "skis",
+   "name": "Front skis on the spindles",
+   "parent": "winter"
+  },
+  {
+   "id": "snow_chains",
+   "name": "Rear tyre chains",
+   "parent": "winter"
+  }
+ ],
+ "interfaces": [
+  {
+   "id": "I-01",
+   "between": [
+    "engine",
+    "clutch"
+   ],
+   "carries": "power"
+  },
+  {
+   "id": "I-02",
+   "between": [
+    "clutch",
+    "chain_primary"
+   ],
+   "carries": "power"
+  },
+  {
+   "id": "I-03",
+   "between": [
+    "chain_primary",
+    "jackshaft"
+   ],
+   "carries": "power"
+  },
+  {
+   "id": "I-04",
+   "between": [
+    "jackshaft",
+    "chain_final"
+   ],
+   "carries": "power"
+  },
+  {
+   "id": "I-05",
+   "between": [
+    "chain_final",
+    "axle_shaft"
+   ],
+   "carries": "power"
+  },
+  {
+   "id": "I-06",
+   "between": [
+    "axle_shaft",
+    "rear_hubs"
+   ],
+   "carries": "power"
+  },
+  {
+   "id": "I-07",
+   "between": [
+    "rear_hubs",
+    "rear_wheels"
+   ],
+   "carries": "power"
+  },
+  {
+   "id": "I-08",
+   "between": [
+    "brake",
+    "axle_shaft"
+   ],
+   "carries": "power"
+  },
+  {
+   "id": "I-09",
+   "between": [
+    "seat",
+    "seat_slide"
+   ],
+   "carries": "load"
+  },
+  {
+   "id": "I-10",
+   "between": [
+    "seat_slide",
+    "frame"
+   ],
+   "carries": "load"
+  },
+  {
+   "id": "I-11",
+   "between": [
+    "engine",
+    "frame"
+   ],
+   "carries": "load"
+  },
+  {
+   "id": "I-12",
+   "between": [
+    "axle_bearings",
+    "frame"
+   ],
+   "carries": "load"
+  },
+  {
+   "id": "I-13",
+   "between": [
+    "axle_shaft",
+    "axle_bearings"
+   ],
+   "carries": "load"
+  },
+  {
+   "id": "I-14",
+   "between": [
+    "spindles",
+    "frame"
+   ],
+   "carries": "load"
+  },
+  {
+   "id": "I-15",
+   "between": [
+    "front_wheels",
+    "spindles"
+   ],
+   "carries": "load"
+  },
+  {
+   "id": "I-16",
+   "between": [
+    "jackshaft",
+    "frame"
+   ],
+   "carries": "load"
+  },
+  {
+   "id": "I-17",
+   "between": [
+    "pedal_box",
+    "frame"
+   ],
+   "carries": "load"
+  },
+  {
+   "id": "I-18",
+   "between": [
+    "pedal_box",
+    "throttle"
+   ],
+   "carries": "other"
+  },
+  {
+   "id": "I-19",
+   "between": [
+    "throttle",
+    "engine"
+   ],
+   "carries": "other"
+  },
+  {
+   "id": "I-20",
+   "between": [
+    "pedal_box",
+    "brake"
+   ],
+   "carries": "other"
+  },
+  {
+   "id": "I-21",
+   "between": [
+    "steering_wheel",
+    "steering_column"
+   ],
+   "carries": "other"
+  },
+  {
+   "id": "I-22",
+   "between": [
+    "steering_column",
+    "tie_rods"
+   ],
+   "carries": "other"
+  },
+  {
+   "id": "I-23",
+   "between": [
+    "tie_rods",
+    "spindles"
+   ],
+   "carries": "other"
+  },
+  {
+   "id": "I-24",
+   "between": [
+    "kill_switch",
+    "engine"
+   ],
+   "carries": "signal"
+  },
+  {
+   "id": "I-25",
+   "between": [
+    "skis",
+    "spindles"
+   ],
+   "carries": "load"
+  },
+  {
+   "id": "I-26",
+   "between": [
+    "snow_chains",
+    "rear_wheels"
+   ],
+   "carries": "load"
+  },
+  {
+   "id": "I-27",
+   "between": [
+    "bumpers",
+    "frame"
+   ],
+   "carries": "load"
+  },
+  {
+   "id": "I-28",
+   "between": [
+    "guards",
+    "frame"
+   ],
+   "carries": "load"
+  },
+  {
+   "id": "I-29",
+   "between": [
+    "steering_column",
+    "frame"
+   ],
+   "carries": "load"
+  }
+ ],
  "checks": [
   {
    "id": "K-001",
@@ -2927,6 +5201,1275 @@
    "by": "assistant",
    "date": "2026-11-03",
    "detail": "A third independent helper recomputed the claims after the owner's second answers; every number matched its formula. Partial on what the text claimed - the climb was not checked for grip; the clutch's engagement and lock-up speeds came from two different clutches; a low child limit keeps a centrifugal clutch slipping; climbing at the lock speed is not slow; the overall width exceeded the widest opening only by rounding, and the narrowest opening was in the record but not cited; the battery margin is small; and the donor route left out a new wide axle and brake and treated the donor's ungoverned engine as E1. The record, calc/form_rough.py, and docs/02-form.md were changed on each point the same day; the simulator (with load transfer and rear-wheel spin) shows grip limiting the climb on grass."
+  }
+ ],
+ "procedures": [
+  {
+   "id": "OP-01",
+   "title": "Check before a run",
+   "steps": [
+    {
+     "id": "OP-01.01",
+     "action": "Check the tyres for damage and their pressure.",
+     "values": [
+      "tyre.pressure_kpa"
+     ]
+    },
+    {
+     "id": "OP-01.02",
+     "action": "Check that the chain and axle guards are on and the chains are tight.",
+     "controls": [
+      "H-03"
+     ]
+    },
+    {
+     "id": "OP-01.03",
+     "action": "Push the kart and press the brake pedal; the rear wheels must lock.",
+     "controls": [
+      "H-01",
+      "H-07"
+     ]
+    },
+    {
+     "id": "OP-01.04",
+     "action": "Work the throttle pedal; it must spring back to idle on its own.",
+     "controls": [
+      "H-02"
+     ]
+    },
+    {
+     "id": "OP-01.05",
+     "action": "Test both stop switches, the one on the steering and the tether.",
+     "controls": [
+      "H-02"
+     ]
+    },
+    {
+     "id": "OP-01.06",
+     "action": "Set the seat and the pedals for the driver with their pins.",
+     "values": [
+      "rider.stature_min_cm",
+      "rider.stature_max_cm"
+     ]
+    },
+    {
+     "id": "OP-01.07",
+     "action": "For the child, set the child speed limit on the governor.",
+     "values": [
+      "kart.speed_child_kmh"
+     ],
+     "controls": [
+      "H-08"
+     ],
+     "limits": [
+      "kart.speed_child_kmh"
+     ]
+    },
+    {
+     "id": "OP-01.08",
+     "action": "Check that the driver wears a full-face helmet with long hair inside it, and no scarf.",
+     "controls": [
+      "H-03"
+     ]
+    },
+    {
+     "id": "OP-01.09",
+     "action": "Clear the driving area of people, vehicles, and objects.",
+     "controls": [
+      "H-01"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "OP-02",
+   "title": "Start and drive",
+   "steps": [
+    {
+     "id": "OP-02.01",
+     "action": "An adult starts the engine outdoors with the recoil starter, the kart held by its brake.",
+     "controls": [
+      "H-10"
+     ]
+    },
+    {
+     "id": "OP-02.02",
+     "action": "The driver sits, clips the tether to the clothing, and holds the steering wheel.",
+     "controls": [
+      "H-02"
+     ]
+    },
+    {
+     "id": "OP-02.03",
+     "action": "Drive on level ground first; keep to kart.speed_max_kmh, or the child limit.",
+     "values": [
+      "kart.speed_max_kmh"
+     ],
+     "controls": [
+      "H-08"
+     ],
+     "limits": [
+      "kart.speed_max_kmh"
+     ]
+    },
+    {
+     "id": "OP-02.04",
+     "action": "Climb and descend slopes straight, at full throttle uphill; never turn across a slope.",
+     "values": [
+      "site.grade_max_pct"
+     ],
+     "controls": [
+      "H-05"
+     ],
+     "limits": [
+      "site.grade_max_pct"
+     ]
+    },
+    {
+     "id": "OP-02.05",
+     "action": "To stop on a slope, use the brake, not the throttle.",
+     "controls": [
+      "H-05"
+     ]
+    },
+    {
+     "id": "OP-02.06",
+     "action": "In winter, drive slowly and brake early on snow and ice.",
+     "controls": [
+      "H-07"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "OP-03",
+   "title": "Stop and refuel",
+   "steps": [
+    {
+     "id": "OP-03.01",
+     "action": "Stop the engine with the stop switch and let it cool.",
+     "controls": [
+      "H-04"
+     ]
+    },
+    {
+     "id": "OP-03.02",
+     "action": "Refuel outdoors, with the engine stopped and cool, away from children and flames.",
+     "controls": [
+      "H-10"
+     ]
+    },
+    {
+     "id": "OP-03.03",
+     "action": "Never run or warm up the engine in a closed shed.",
+     "controls": [
+      "H-10"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "OP-04",
+   "title": "Change to the winter setup",
+   "steps": [
+    {
+     "id": "OP-04.01",
+     "action": "Lift the front, take off the front wheels, and bolt the skis onto the spindles.",
+     "values": [
+      "ski.width_mm",
+      "ski.contact_length_mm"
+     ]
+    },
+    {
+     "id": "OP-04.02",
+     "action": "Fit the chains on the rear tyres and tighten them.",
+     "controls": [
+      "H-07"
+     ]
+    },
+    {
+     "id": "OP-04.03",
+     "action": "Check the steering moves freely from lock to lock with the skis.",
+     "controls": [
+      "H-07"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "OP-05",
+   "title": "Load into the Delica D:5",
+   "steps": [
+    {
+     "id": "OP-05.01",
+     "action": "Fold the third row up and tip and slide the second row forward.",
+     "values": [
+      "delica.cargo_length_mm"
+     ]
+    },
+    {
+     "id": "OP-05.02",
+     "action": "Pull the pins, slide the rear hubs inward to the transport track, and pin them."
+    },
+    {
+     "id": "OP-05.03",
+     "action": "Hook the ramps on the cargo floor lip.",
+     "values": [
+      "delica.lip_height_mm"
+     ],
+     "controls": [
+      "H-09"
+     ]
+    },
+    {
+     "id": "OP-05.04",
+     "action": "Push the kart up the ramps, with the engine stopped and the fuel tap closed.",
+     "controls": [
+      "H-09",
+      "H-10"
+     ]
+    },
+    {
+     "id": "OP-05.05",
+     "action": "Tie the kart down at the frame with two straps.",
+     "controls": [
+      "H-09"
+     ]
+    }
+   ]
+  }
+ ],
+ "states": {
+  "schema": 1,
+  "groups": [
+   {
+    "id": "setup",
+    "label": "Configuration"
+   },
+   {
+    "id": "run",
+    "label": "Running"
+   }
+  ],
+  "states": [
+   {
+    "id": "stored",
+    "group": "setup",
+    "label": "Stored under the roof"
+   },
+   {
+    "id": "transport",
+    "group": "setup",
+    "label": "Narrowed and loaded in the car",
+    "refs": [
+     "OP-05",
+     "R-14",
+     "R-15"
+    ]
+   },
+   {
+    "id": "summer",
+    "group": "setup",
+    "label": "Summer setup (tyres)"
+   },
+   {
+    "id": "winter",
+    "group": "setup",
+    "label": "Winter setup (skis and chains)",
+    "refs": [
+     "OP-04",
+     "R-05",
+     "R-06"
+    ]
+   },
+   {
+    "id": "checked",
+    "group": "run",
+    "label": "Checked and set for the driver",
+    "refs": [
+     "OP-01"
+    ]
+   },
+   {
+    "id": "idle",
+    "group": "run",
+    "label": "Engine idling, clutch open",
+    "refs": [
+     "OP-02.01"
+    ]
+   },
+   {
+    "id": "slipping",
+    "group": "run",
+    "label": "Moving off, clutch slipping",
+    "refs": [
+     "R-16"
+    ]
+   },
+   {
+    "id": "driving",
+    "group": "run",
+    "label": "Driving, clutch locked, speed held by the governor",
+    "refs": [
+     "R-01",
+     "R-17"
+    ]
+   },
+   {
+    "id": "braking",
+    "group": "run",
+    "label": "Braking on the rear wheels",
+    "refs": [
+     "R-09"
+    ]
+   },
+   {
+    "id": "stopped",
+    "group": "run",
+    "label": "Stopped, engine off",
+    "refs": [
+     "OP-03.01"
+    ]
+   }
+  ],
+  "transitions": [
+   {
+    "from": "stored",
+    "to": "summer",
+    "trigger": "Take out for a run in summer"
+   },
+   {
+    "from": "stored",
+    "to": "winter",
+    "trigger": "Fit skis and chains",
+    "refs": [
+     "OP-04"
+    ]
+   },
+   {
+    "from": "summer",
+    "to": "winter",
+    "trigger": "Fit skis and chains",
+    "refs": [
+     "OP-04"
+    ]
+   },
+   {
+    "from": "winter",
+    "to": "summer",
+    "trigger": "Fit the front wheels, take off the chains"
+   },
+   {
+    "from": "stored",
+    "to": "transport",
+    "trigger": "Narrow the rear track and load",
+    "refs": [
+     "OP-05"
+    ]
+   },
+   {
+    "from": "transport",
+    "to": "summer",
+    "trigger": "Unload and widen the rear track"
+   },
+   {
+    "from": "summer",
+    "to": "checked",
+    "trigger": "Check before a run",
+    "refs": [
+     "OP-01"
+    ]
+   },
+   {
+    "from": "winter",
+    "to": "checked",
+    "trigger": "Check before a run",
+    "refs": [
+     "OP-01"
+    ]
+   },
+   {
+    "from": "checked",
+    "to": "idle",
+    "trigger": "Start the engine outdoors",
+    "refs": [
+     "OP-02.01"
+    ]
+   },
+   {
+    "from": "idle",
+    "to": "slipping",
+    "trigger": "Press the throttle"
+   },
+   {
+    "from": "slipping",
+    "to": "driving",
+    "trigger": "Speed above the clutch lock-up",
+    "refs": [
+     "drive.clutch_lock_kmh"
+    ]
+   },
+   {
+    "from": "driving",
+    "to": "slipping",
+    "trigger": "Speed falls below the clutch lock-up under throttle",
+    "refs": [
+     "drive.clutch_lock_kmh"
+    ]
+   },
+   {
+    "from": "driving",
+    "to": "braking",
+    "trigger": "Release the throttle and press the brake"
+   },
+   {
+    "from": "slipping",
+    "to": "braking",
+    "trigger": "Release the throttle and press the brake"
+   },
+   {
+    "from": "braking",
+    "to": "idle",
+    "trigger": "The kart stops, the engine idles"
+   },
+   {
+    "from": "idle",
+    "to": "stopped",
+    "trigger": "Stop switch",
+    "refs": [
+     "OP-03.01"
+    ]
+   },
+   {
+    "from": "driving",
+    "to": "stopped",
+    "trigger": "Stop switch or tether pulled",
+    "refs": [
+     "R-10",
+     "H-02"
+    ]
+   },
+   {
+    "from": "slipping",
+    "to": "stopped",
+    "trigger": "Stop switch or tether pulled",
+    "refs": [
+     "R-10",
+     "H-02"
+    ]
+   },
+   {
+    "from": "stopped",
+    "to": "stored",
+    "trigger": "Refuel outdoors, cool, and put away",
+    "refs": [
+     "OP-03.02"
+    ]
+   }
+  ]
+ },
+ "plan": {
+  "schema": 1,
+  "start": "2026-11-03",
+  "tasks": [
+   {
+    "id": "d1",
+    "phase": "design",
+    "title": "Owner decides the open items of step 1.2",
+    "kind": "wait",
+    "days": 7
+   },
+   {
+    "id": "d2",
+    "phase": "design",
+    "title": "Design calculation, drawings, availability, parts list (1.3 to 1.5)",
+    "kind": "work",
+    "days": 5,
+    "after": [
+     "d1"
+    ]
+   },
+   {
+    "id": "d3",
+    "phase": "design",
+    "title": "Gate from design to build",
+    "kind": "work",
+    "days": 1,
+    "after": [
+     "d2"
+    ]
+   },
+   {
+    "id": "p1",
+    "phase": "procure",
+    "title": "Order steel tube, plate, and shafts",
+    "kind": "work",
+    "days": 1,
+    "after": [
+     "d3"
+    ],
+    "parts": [
+     "frame",
+     "floor",
+     "axle_shaft"
+    ]
+   },
+   {
+    "id": "p2",
+    "phase": "procure",
+    "title": "Delivery of steel and shafts",
+    "kind": "wait",
+    "days": 7,
+    "after": [
+     "p1"
+    ]
+   },
+   {
+    "id": "p3",
+    "phase": "procure",
+    "title": "Order engine, clutch, sprockets, chain, bearings, wheels, brake, steering parts",
+    "kind": "work",
+    "days": 1,
+    "after": [
+     "d3"
+    ],
+    "parts": [
+     "engine",
+     "clutch",
+     "jackshaft",
+     "chain_primary",
+     "chain_final",
+     "axle_bearings",
+     "rear_hubs",
+     "front_wheels",
+     "rear_wheels",
+     "brake",
+     "spindles",
+     "tie_rods",
+     "steering_wheel"
+    ]
+   },
+   {
+    "id": "p4",
+    "phase": "procure",
+    "title": "Delivery of bought parts, some from abroad",
+    "kind": "wait",
+    "days": 14,
+    "after": [
+     "p3"
+    ]
+   },
+   {
+    "id": "p5",
+    "phase": "procure",
+    "title": "Buy a 100 V welder and practise on scrap tube",
+    "kind": "work",
+    "days": 3,
+    "after": [
+     "d3"
+    ]
+   },
+   {
+    "id": "b1",
+    "phase": "build",
+    "title": "Cut and notch the frame tubes, tack the frame on a flat jig",
+    "kind": "work",
+    "days": 4,
+    "after": [
+     "p2",
+     "p5"
+    ],
+    "parts": [
+     "frame"
+    ]
+   },
+   {
+    "id": "b2",
+    "phase": "build",
+    "title": "Weld the frame, bumpers, and mounts; check it is square",
+    "kind": "work",
+    "days": 4,
+    "after": [
+     "b1"
+    ],
+    "parts": [
+     "frame",
+     "bumpers"
+    ]
+   },
+   {
+    "id": "b3",
+    "phase": "build",
+    "title": "Fit the rear axle, bearings, hubs, and brake",
+    "kind": "work",
+    "days": 2,
+    "after": [
+     "b2",
+     "p4"
+    ],
+    "parts": [
+     "rear_axle",
+     "brake"
+    ]
+   },
+   {
+    "id": "b4",
+    "phase": "build",
+    "title": "Fit the spindles, steering column, tie rods, and front wheels",
+    "kind": "work",
+    "days": 3,
+    "after": [
+     "b2",
+     "p4"
+    ],
+    "parts": [
+     "steering",
+     "front_wheels"
+    ]
+   },
+   {
+    "id": "b5",
+    "phase": "build",
+    "title": "Mount the engine, clutch, and jackshaft; align and fit both chains",
+    "kind": "work",
+    "days": 3,
+    "after": [
+     "b3"
+    ],
+    "parts": [
+     "powertrain"
+    ]
+   },
+   {
+    "id": "b6",
+    "phase": "build",
+    "title": "Fit the seat slide, seat, pedal box, throttle cable, and stop switches",
+    "kind": "work",
+    "days": 2,
+    "after": [
+     "b4",
+     "b5"
+    ],
+    "parts": [
+     "seat",
+     "seat_slide",
+     "pedal_box",
+     "throttle",
+     "kill_switch"
+    ]
+   },
+   {
+    "id": "b7",
+    "phase": "build",
+    "title": "Make and fit the chain and axle guards and the floor plate",
+    "kind": "work",
+    "days": 2,
+    "after": [
+     "b6"
+    ],
+    "parts": [
+     "guards",
+     "floor"
+    ]
+   },
+   {
+    "id": "b8",
+    "phase": "build",
+    "title": "Paint the frame",
+    "kind": "work",
+    "days": 1,
+    "after": [
+     "b7"
+    ]
+   },
+   {
+    "id": "b9",
+    "phase": "build",
+    "title": "Paint dries",
+    "kind": "wait",
+    "days": 3,
+    "after": [
+     "b8"
+    ]
+   },
+   {
+    "id": "t1",
+    "phase": "test",
+    "title": "Static checks - fit for the child and the adult, guards, stop switches",
+    "kind": "work",
+    "days": 1,
+    "after": [
+     "b9"
+    ],
+    "reqs": [
+     "R-03",
+     "R-10",
+     "R-11",
+     "R-13"
+    ]
+   },
+   {
+    "id": "t2",
+    "phase": "test",
+    "title": "First runs on level pavement - top speed, child limit, braking",
+    "kind": "work",
+    "days": 1,
+    "after": [
+     "t1"
+    ],
+    "reqs": [
+     "R-01",
+     "R-09",
+     "R-17"
+    ]
+   },
+   {
+    "id": "t3",
+    "phase": "test",
+    "title": "Runs on gravel, grass, and the slope",
+    "kind": "work",
+    "days": 1,
+    "after": [
+     "t2"
+    ],
+    "reqs": [
+     "R-04",
+     "R-12",
+     "R-16"
+    ]
+   },
+   {
+    "id": "t4",
+    "phase": "test",
+    "title": "Load into the Delica and unload",
+    "kind": "work",
+    "days": 1,
+    "after": [
+     "t2"
+    ],
+    "reqs": [
+     "R-14",
+     "R-15"
+    ]
+   },
+   {
+    "id": "w1",
+    "phase": "build",
+    "title": "Make the skis and fit the chains",
+    "kind": "work",
+    "days": 3,
+    "after": [
+     "t3"
+    ],
+    "parts": [
+     "skis",
+     "snow_chains"
+    ]
+   },
+   {
+    "id": "t5",
+    "phase": "test",
+    "title": "Runs on packed and fresh snow, cold start",
+    "kind": "work",
+    "days": 1,
+    "after": [
+     "w1"
+    ],
+    "reqs": [
+     "R-05",
+     "R-06",
+     "R-07"
+    ]
+   }
+  ]
+ },
+ "bom": {
+  "schema": 1,
+  "lines": [
+   {
+    "part": "frame",
+    "item": "STKM11A round tube 31.8 x 1.6, main rails (m)",
+    "qty": 4,
+    "price": "cost.tube_32_jpy_per_m",
+    "need": "b1"
+   },
+   {
+    "part": "frame",
+    "item": "STKM11A round tube 25.4 x 1.6, cross members, hoop, bumpers (m)",
+    "qty": 10,
+    "price": "cost.tube_25_jpy_per_m",
+    "need": "b1"
+   },
+   {
+    "part": "frame",
+    "item": "Square tube 25 x 25 x 1.6, seat and pedal rails, engine mount (m)",
+    "qty": 2,
+    "price": "cost.sq_tube_25_jpy_per_m",
+    "need": "b1"
+   },
+   {
+    "part": "frame",
+    "item": "Flat bar 6 x 32, brackets and kingpin bosses (m)",
+    "qty": 2,
+    "price": "cost.flat_bar_jpy_per_m",
+    "need": "b1"
+   },
+   {
+    "part": "floor",
+    "item": "Steel plate 2.3 to 4.5 mm cut to size, floor, bearing and engine plates",
+    "qty": 1,
+    "price": "cost.plate_allow_jpy",
+    "need": "b1"
+   },
+   {
+    "part": "axle_shaft",
+    "item": "Axle shaft S45C 25 mm, 1.22 m, keyway and pin holes",
+    "qty": 1,
+    "price": "cost.axle_shaft_jpy",
+    "need": "b3"
+   },
+   {
+    "part": "axle_bearings",
+    "item": "Pillow block UCP205 (FYH or NTN)",
+    "qty": 2,
+    "price": "cost.ucp205_jpy",
+    "need": "b3"
+   },
+   {
+    "part": "rear_hubs",
+    "item": "Rear hub, keyed 25 mm boss with a flange for the rim, made",
+    "qty": 2,
+    "price": "cost.rear_hub_make_jpy",
+    "need": "b3"
+   },
+   {
+    "part": "rear_wheels",
+    "item": "Wheels 13x5.00-6 with tyres and rims, set of four",
+    "qty": 1,
+    "price": "cost.tyres_set_jpy",
+    "need": "b3"
+   },
+   {
+    "part": "brake",
+    "item": "Hydraulic brake kit, caliper, master cylinder, disc",
+    "qty": 1,
+    "price": "cost.brake_hyd_jpy",
+    "need": "b3"
+   },
+   {
+    "part": "spindles",
+    "item": "Spindle pair 17 mm",
+    "qty": 1,
+    "price": "cost.spindle_pair_jpy",
+    "need": "b4"
+   },
+   {
+    "part": "front_wheels",
+    "item": "Front hub with three studs for 17 mm spindles",
+    "qty": 2,
+    "price": "cost.front_hub_jpy",
+    "need": "b4"
+   },
+   {
+    "part": "tie_rods",
+    "item": "Rod end THK PHS10",
+    "qty": 4,
+    "price": "cost.rod_end_jpy",
+    "need": "b4"
+   },
+   {
+    "part": "steering_wheel",
+    "item": "Steering wheel 300 mm",
+    "qty": 1,
+    "price": "cost.steering_wheel_jpy",
+    "need": "b4"
+   },
+   {
+    "part": "steering_column",
+    "item": "Flange unit UCFL204 for the column",
+    "qty": 1,
+    "price": "cost.ucfl204_jpy",
+    "need": "b4"
+   },
+   {
+    "part": "engine",
+    "item": "Engine GX200 class 196 cc, 3/4 inch shaft",
+    "qty": 1,
+    "price": "cost.engine_clone_jpy",
+    "need": "b5"
+   },
+   {
+    "part": "clutch",
+    "item": "Centrifugal clutch 3/4 inch, 10T, chain 40",
+    "qty": 1,
+    "price": "cost.clutch_jpy",
+    "need": "b5"
+   },
+   {
+    "part": "jackshaft",
+    "item": "Sprocket KANA 40T bore 20",
+    "qty": 1,
+    "price": "cost.spr_t40_jpy",
+    "need": "b5"
+   },
+   {
+    "part": "jackshaft",
+    "item": "Sprocket KANA 12T bore 20",
+    "qty": 1,
+    "price": "cost.spr_t12_jpy",
+    "need": "b5"
+   },
+   {
+    "part": "chain_final",
+    "item": "Sprocket KANA 36T pilot bore, bored to 25",
+    "qty": 1,
+    "price": "cost.spr_t36_jpy",
+    "need": "b5"
+   },
+   {
+    "part": "chain_primary",
+    "item": "Roller chain 40, 3 m with joint links (both chains)",
+    "qty": 1,
+    "price": "cost.chain_3m_jpy",
+    "need": "b5"
+   },
+   {
+    "part": "jackshaft",
+    "item": "Shaft S45C 20 mm, keyed",
+    "qty": 1,
+    "price": "cost.shaft20_jpy",
+    "need": "b5"
+   },
+   {
+    "part": "jackshaft",
+    "item": "Pillow block UCP204 (FYH)",
+    "qty": 2,
+    "price": "cost.ucp204_jpy",
+    "need": "b5"
+   },
+   {
+    "part": "rear_axle",
+    "item": "Machining by a local shop (keyways, boring, pin holes, disc carrier)",
+    "qty": 1,
+    "price": "cost.machining_allow_jpy",
+    "need": "b3"
+   },
+   {
+    "part": "pedal_box",
+    "item": "Pedal kit with brake and throttle pedals and throttle cable",
+    "qty": 1,
+    "price": "cost.pedal_kit_jpy",
+    "need": "b6"
+   },
+   {
+    "part": "seat",
+    "item": "Seat with slide rails (small operator seat)",
+    "qty": 1,
+    "price": "cost.seat_operator_jpy",
+    "need": "b6"
+   },
+   {
+    "part": "kill_switch",
+    "item": "Stop switch on the steering",
+    "qty": 1,
+    "price": "cost.kill_switch_jpy",
+    "need": "b6"
+   },
+   {
+    "part": "kill_switch",
+    "item": "Stop switch with tether lanyard",
+    "qty": 1,
+    "price": "cost.kill_lanyard_jpy",
+    "need": "b6"
+   },
+   {
+    "part": "guards",
+    "item": "Punched steel sheet 1.0 mm 450 x 450 for the chain guard",
+    "qty": 1,
+    "price": "cost.punched_sheet_jpy",
+    "need": "b7"
+   },
+   {
+    "part": "bumpers",
+    "item": "Tube padding for the bumper and the seat hoop (0.9 m)",
+    "qty": 2,
+    "price": "cost.padding_jpy",
+    "need": "b7"
+   },
+   {
+    "part": "kart",
+    "item": "Bolts, nuts, pins, paint, small parts",
+    "qty": 1,
+    "price": "cost.allow_small_parts_jpy",
+    "need": "b1"
+   },
+   {
+    "part": "kart",
+    "item": "Shipping",
+    "qty": 1,
+    "price": "cost.allow_shipping_jpy",
+    "need": "p1"
+   },
+   {
+    "part": "skis",
+    "item": "UHMW polyethylene sheet cut to size for ski runners",
+    "qty": 1,
+    "price": "cost.uhmw_order_jpy",
+    "need": "w1"
+   },
+   {
+    "part": "snow_chains",
+    "item": "Ladder chains for small tyres, adjustable",
+    "qty": 2,
+    "price": "cost.snow_chain_jpy",
+    "need": "w1"
+   },
+   {
+    "part": "kart",
+    "item": "Welder, 100 V no-gas",
+    "qty": 1,
+    "price": "cost.welder_jpy",
+    "need": "p5",
+    "group": "tools"
+   },
+   {
+    "part": "kart",
+    "item": "Aluminium ladder rail 1820 mm for loading",
+    "qty": 2,
+    "price": "cost.ramp_rail_jpy",
+    "need": "t4",
+    "group": "tools"
+   }
+  ]
+ },
+ "sections": [
+  {
+   "doc": "docs/01-requirements.md",
+   "id": "questions",
+   "title": "1.1.1 Questions that can rule a form out",
+   "level": 2
+  },
+  {
+   "doc": "docs/01-requirements.md",
+   "id": "list",
+   "title": "1.1.2 Requirements",
+   "level": 2
+  },
+  {
+   "doc": "docs/01-requirements.md",
+   "id": "why",
+   "title": "1.1.3 Why each requirement is as it is",
+   "level": 2
+  },
+  {
+   "doc": "docs/01-requirements.md",
+   "id": "hazards",
+   "title": "1.1.4 Hazards",
+   "level": 2
+  },
+  {
+   "doc": "docs/01-requirements.md",
+   "id": "tensions",
+   "title": "1.1.5 Tensions the form must resolve",
+   "level": 2
+  },
+  {
+   "doc": "docs/01-requirements.md",
+   "id": "values",
+   "title": "1.1.6 Values used by the requirements",
+   "level": 2
+  },
+  {
+   "doc": "docs/01-requirements.md",
+   "id": "open",
+   "title": "1.1.7 Open items",
+   "level": 2
+  },
+  {
+   "doc": "docs/02-form.md",
+   "id": "yardsticks",
+   "title": "1.2.1 Yardsticks",
+   "level": 2
+  },
+  {
+   "doc": "docs/02-form.md",
+   "id": "candidates",
+   "title": "1.2.2 Candidates",
+   "level": 2
+  },
+  {
+   "doc": "docs/02-form.md",
+   "id": "mass",
+   "title": "1.2.3 Mass",
+   "level": 2
+  },
+  {
+   "doc": "docs/02-form.md",
+   "id": "snow",
+   "title": "1.2.4 Snow",
+   "level": 2
+  },
+  {
+   "doc": "docs/02-form.md",
+   "id": "drive",
+   "title": "1.2.5 Drive",
+   "level": 2
+  },
+  {
+   "doc": "docs/02-form.md",
+   "id": "stability",
+   "title": "1.2.6 Stability",
+   "level": 2
+  },
+  {
+   "doc": "docs/02-form.md",
+   "id": "transport",
+   "title": "1.2.7 Transport",
+   "level": 2
+  },
+  {
+   "doc": "docs/02-form.md",
+   "id": "cold",
+   "title": "1.2.8 Cold",
+   "level": 2
+  },
+  {
+   "doc": "docs/02-form.md",
+   "id": "safety",
+   "title": "1.2.9 What the safety sources add",
+   "level": 2
+  },
+  {
+   "doc": "docs/02-form.md",
+   "id": "cost",
+   "title": "1.2.10 Cost",
+   "level": 2
+  },
+  {
+   "doc": "docs/02-form.md",
+   "id": "comparison",
+   "title": "1.2.11 Comparison",
+   "level": 2
+  },
+  {
+   "doc": "docs/02-form.md",
+   "id": "proposal",
+   "title": "1.2.12 Proposal and the owner's decisions",
+   "level": 2
+  },
+  {
+   "doc": "docs/03-design.md",
+   "id": "layout",
+   "title": "1.3.1 Layout",
+   "level": 2
+  },
+  {
+   "doc": "docs/03-design.md",
+   "id": "frame",
+   "title": "1.3.2 Frame",
+   "level": 2
+  },
+  {
+   "doc": "docs/03-design.md",
+   "id": "axle",
+   "title": "1.3.3 Rear axle",
+   "level": 2
+  },
+  {
+   "doc": "docs/03-design.md",
+   "id": "drive",
+   "title": "1.3.4 Drive",
+   "level": 2
+  },
+  {
+   "doc": "docs/03-design.md",
+   "id": "brake",
+   "title": "1.3.5 Brake",
+   "level": 2
+  },
+  {
+   "doc": "docs/03-design.md",
+   "id": "steering",
+   "title": "1.3.6 Steering",
+   "level": 2
+  },
+  {
+   "doc": "docs/03-design.md",
+   "id": "fit",
+   "title": "1.3.7 Seat, pedals, and fit",
+   "level": 2
+  },
+  {
+   "doc": "docs/03-design.md",
+   "id": "mass",
+   "title": "1.3.8 Mass",
+   "level": 2
+  },
+  {
+   "doc": "docs/03-design.md",
+   "id": "stability",
+   "title": "1.3.9 Stability",
+   "level": 2
+  },
+  {
+   "doc": "docs/03-design.md",
+   "id": "climb",
+   "title": "1.3.10 Climbing",
+   "level": 2
+  },
+  {
+   "doc": "docs/03-design.md",
+   "id": "transport",
+   "title": "1.3.11 Transport",
+   "level": 2
+  },
+  {
+   "doc": "docs/03-design.md",
+   "id": "winter",
+   "title": "1.3.12 Winter",
+   "level": 2
+  },
+  {
+   "doc": "docs/03-design.md",
+   "id": "safety",
+   "title": "1.3.13 Guards and stopping",
+   "level": 2
+  },
+  {
+   "doc": "docs/04-availability.md",
+   "id": "catalogue",
+   "title": "1.4.1 Found as catalogue parts",
+   "level": 2
+  },
+  {
+   "doc": "docs/04-availability.md",
+   "id": "made",
+   "title": "1.4.2 Not found, made instead",
+   "level": 2
+  },
+  {
+   "doc": "docs/04-availability.md",
+   "id": "confirm",
+   "title": "1.4.3 To confirm when bought",
+   "level": 2
+  },
+  {
+   "doc": "docs/04-availability.md",
+   "id": "feedback",
+   "title": "1.4.4 Back to the design",
+   "level": 2
+  },
+  {
+   "doc": "docs/05-parts-and-cost.md",
+   "id": "totals",
+   "title": "1.5.1 Totals",
+   "level": 2
+  },
+  {
+   "doc": "docs/05-parts-and-cost.md",
+   "id": "drivers",
+   "title": "1.5.2 What drives the cost",
+   "level": 2
   }
  ]
 }

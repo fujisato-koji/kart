@@ -1,0 +1,48 @@
+kind: procedure
+schema: 1
+items:
+  - id: OP-01
+    title: Check before a run
+    steps:
+      - id: OP-01.01
+        action: Check the tyres for damage and their pressure.
+        values:
+          - tyre.pressure_kpa
+      - id: OP-01.02
+        action: Check that the chain and axle guards are on and the chains are tight.
+        controls:
+          - H-03
+      - id: OP-01.03
+        action: Push the kart and press the brake pedal; the rear wheels must lock.
+        controls:
+          - H-01
+          - H-07
+      - id: OP-01.04
+        action: Work the throttle pedal; it must spring back to idle on its own.
+        controls:
+          - H-02
+      - id: OP-01.05
+        action: Test both stop switches, the one on the steering and the tether.
+        controls:
+          - H-02
+      - id: OP-01.06
+        action: Set the seat and the pedals for the driver with their pins.
+        values:
+          - rider.stature_min_cm
+          - rider.stature_max_cm
+      - id: OP-01.07
+        action: For the child, set the child speed limit on the governor.
+        values:
+          - kart.speed_child_kmh
+        controls:
+          - H-08
+        limits:
+          - kart.speed_child_kmh
+      - id: OP-01.08
+        action: Check that the driver wears a full-face helmet with long hair inside it, and no scarf.
+        controls:
+          - H-03
+      - id: OP-01.09
+        action: Clear the driving area of people, vehicles, and objects.
+        controls:
+          - H-01

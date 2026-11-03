@@ -1,0 +1,38 @@
+kind: procedure
+schema: 1
+items:
+  - id: OP-02
+    title: Start and drive
+    steps:
+      - id: OP-02.01
+        action: An adult starts the engine outdoors with the recoil starter, the kart held by its brake.
+        controls:
+          - H-10
+      - id: OP-02.02
+        action: The driver sits, clips the tether to the clothing, and holds the steering wheel.
+        controls:
+          - H-02
+      - id: OP-02.03
+        action: Drive on level ground first; keep to kart.speed_max_kmh, or the child limit.
+        values:
+          - kart.speed_max_kmh
+        controls:
+          - H-08
+        limits:
+          - kart.speed_max_kmh
+      - id: OP-02.04
+        action: Climb and descend slopes straight, at full throttle uphill; never turn across a slope.
+        values:
+          - site.grade_max_pct
+        controls:
+          - H-05
+        limits:
+          - site.grade_max_pct
+      - id: OP-02.05
+        action: To stop on a slope, use the brake, not the throttle.
+        controls:
+          - H-05
+      - id: OP-02.06
+        action: In winter, drive slowly and brake early on snow and ice.
+        controls:
+          - H-07

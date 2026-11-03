@@ -1,0 +1,18 @@
+kind: procedure
+schema: 1
+items:
+  - id: OP-03
+    title: Stop and refuel
+    steps:
+      - id: OP-03.01
+        action: Stop the engine with the stop switch and let it cool.
+        controls:
+          - H-04
+      - id: OP-03.02
+        action: Refuel outdoors, with the engine stopped and cool, away from children and flames.
+        controls:
+          - H-10
+      - id: OP-03.03
+        action: Never run or warm up the engine in a closed shed.
+        controls:
+          - H-10

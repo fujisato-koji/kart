@@ -69,3 +69,11 @@ items:
     at_risk: The person loading it and people nearby.
     controls:
       - R-15
+  - id: H-10
+    text: Petrol catches fire while refuelling or near the hot engine, or exhaust gas builds up when the engine runs in a closed shed.
+    phases:
+      - operate
+    at_risk: The driver, helpers, and children nearby.
+    controls:
+      - OP-03.02
+      - OP-03.03

@@ -1,3 +1,148 @@
 kind: interface
 schema: 1
 items:
+  - id: I-01
+    between:
+      - engine
+      - clutch
+    carries: power
+  - id: I-02
+    between:
+      - clutch
+      - chain_primary
+    carries: power
+  - id: I-03
+    between:
+      - chain_primary
+      - jackshaft
+    carries: power
+  - id: I-04
+    between:
+      - jackshaft
+      - chain_final
+    carries: power
+  - id: I-05
+    between:
+      - chain_final
+      - axle_shaft
+    carries: power
+  - id: I-06
+    between:
+      - axle_shaft
+      - rear_hubs
+    carries: power
+  - id: I-07
+    between:
+      - rear_hubs
+      - rear_wheels
+    carries: power
+  - id: I-08
+    between:
+      - brake
+      - axle_shaft
+    carries: power
+  - id: I-09
+    between:
+      - seat
+      - seat_slide
+    carries: load
+  - id: I-10
+    between:
+      - seat_slide
+      - frame
+    carries: load
+  - id: I-11
+    between:
+      - engine
+      - frame
+    carries: load
+  - id: I-12
+    between:
+      - axle_bearings
+      - frame
+    carries: load
+  - id: I-13
+    between:
+      - axle_shaft
+      - axle_bearings
+    carries: load
+  - id: I-14
+    between:
+      - spindles
+      - frame
+    carries: load
+  - id: I-15
+    between:
+      - front_wheels
+      - spindles
+    carries: load
+  - id: I-16
+    between:
+      - jackshaft
+      - frame
+    carries: load
+  - id: I-17
+    between:
+      - pedal_box
+      - frame
+    carries: load
+  - id: I-18
+    between:
+      - pedal_box
+      - throttle
+    carries: other
+  - id: I-19
+    between:
+      - throttle
+      - engine
+    carries: other
+  - id: I-20
+    between:
+      - pedal_box
+      - brake
+    carries: other
+  - id: I-21
+    between:
+      - steering_wheel
+      - steering_column
+    carries: other
+  - id: I-22
+    between:
+      - steering_column
+      - tie_rods
+    carries: other
+  - id: I-23
+    between:
+      - tie_rods
+      - spindles
+    carries: other
+  - id: I-24
+    between:
+      - kill_switch
+      - engine
+    carries: signal
+  - id: I-25
+    between:
+      - skis
+      - spindles
+    carries: load
+  - id: I-26
+    between:
+      - snow_chains
+      - rear_wheels
+    carries: load
+  - id: I-27
+    between:
+      - bumpers
+      - frame
+    carries: load
+  - id: I-28
+    between:
+      - guards
+      - frame
+    carries: load
+  - id: I-29
+    between:
+      - steering_column
+      - frame
+    carries: load

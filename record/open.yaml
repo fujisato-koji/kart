@@ -173,3 +173,58 @@ items:
       - R-14
     opened: 2026-11-03
     phase: design
+  - id: Q-016
+    kind: question
+    text: How many hours a day can the owner work on the kart? The plan in docs/data/plan.yaml assumes two to three hours a day for its task lengths.
+    waits_for: owner
+    affects:
+      - R-08
+    opened: 2026-11-03
+    phase: design
+  - id: Q-017
+    kind: question
+    text: Step 1.3 assumes, without a source yet, the dynamic load factor on the frame and axle, the density and strength of S45C and STKM11A steel, the masses of a wheel with its tyre, the clutch, the seat, the steering, the brake, the fuel, and small parts, the brake pad friction, and the ratio of buttock-to-heel length to stature for an adult and for a 5-year-old. Cite a standard, a maker's data, or a weighing for each before the gate from design to build.
+    waits_for: assistant
+    affects:
+      - dsn.load_factor
+      - dsn.steel_density_kg_m3
+      - dsn.s45c_yield_mpa
+      - dsn.stkm11a_tensile_mpa
+      - dsn.wheel_mass_kg
+      - dsn.clutch_mass_kg
+      - dsn.seat_mass_kg
+      - dsn.steering_mass_kg
+      - dsn.brake_mass_kg
+      - dsn.misc_mass_kg
+      - dsn.fuel_mass_kg
+      - dsn.pad_mu
+      - dsn.buttock_heel_ratio_adult
+      - dsn.buttock_heel_ratio_child
+    opened: 2026-11-03
+    phase: design
+    blocks: design_build
+  - id: Q-018
+    kind: question
+    text: The parts list assumes the price of steel plate cut to size, of machining by a local shop (keyways on the axle and the jackshaft, boring the 36 tooth sprocket, cross holes for the hub pins, the brake disc carrier), of making the two rear hubs, and of a 25 mm axle shaft of 1.22 m. Get quotes before the gate from design to build.
+    waits_for: assistant
+    affects:
+      - cost.plate_allow_jpy
+      - cost.machining_allow_jpy
+      - cost.rear_hub_make_jpy
+      - cost.axle_shaft_jpy
+    opened: 2026-11-03
+    phase: design
+    blocks: design_build
+  - id: Q-019
+    kind: question
+    text: The fit of bought parts to each other is not stated by their sellers and is checked when they arrive, before the frame is welded to them - the rim's three-hole pattern against the front hubs and the made rear hubs, the front hubs' bore against the 17 mm spindles, the engine's shaft (3/4 inch Q-type) and base holes, the ladder chains on 13x5.00-6 tyres, and the seat's rail bolt spacing.
+    waits_for: assistant
+    affects:
+      - front_wheels
+      - rear_hubs
+      - engine
+      - snow_chains
+      - seat
+    opened: 2026-11-03
+    phase: build
+    blocks: design_build

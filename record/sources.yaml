@@ -176,7 +176,7 @@ items:
     retrieved: 2026-11-03
     license: free to use with the credit 産総研 AIST人体寸法データベース1991-92
     read: full
-    note: Read by a helper for stature, sitting height, buttock-heel length, and mass of adults aged 18 to 29. The 95th percentile male stature is about 182 cm.
+    note: Read by helpers for stature, sitting height, buttock-heel length, and mass of adults aged 18 to 29. The 95th percentile male stature is about 182 cm; mean male stature 172.19 cm, buttock-heel length (J4) 50th percentile 1010 mm.
   - id: P23
     class: P
     title: ASTM F2011-02(2018), Standard Specification for Fun-Karts, abstract
@@ -225,6 +225,46 @@ items:
     license: open access, licence not checked
     read: partial
     note: Read by a helper, tables 1 and 2 and the results. Pneumatic e-scooter tyres of 8.5 to 10 inch on painted concrete, rolling resistance over load 0.011 to 0.023.
+  - id: P30
+    class: P
+    title: Honda, GX200 equipment drawing, June 2022
+    url: https://www.honda.co.jp/engines/pdf/GX200.pdf
+    retrieved: 2026-11-03
+    license: unknown
+    read: full
+    note: Read by a helper. Overall 313 x 376 x 339 mm (S-type), dry 16.1 kg, shaft centre 106 mm above the base; S-type shaft 20 mm with a 5 mm key, Q-type 3/4 inch; base holes about 162 mm across the crank and 80 mm along it, read from the drawing (to be measured).
+  - id: P31
+    class: P
+    title: Katayama Chain (KANA), catalogue pages 162 to 171, FB sprockets No.40
+    url: https://www.monet.asia/media/pdf/kana-162-171.pdf
+    retrieved: 2026-11-03
+    license: unknown
+    read: partial
+    note: Read by a helper, the No.40 rows. Pitch and outside diameters, hub sizes, and masses of finished-bore sprockets; a 10 tooth sprocket takes at most an 18 mm bore.
+  - id: P32
+    class: P
+    title: NTN bearing finder, S-UCP205D1 pillow block unit
+    url: https://bearingfinder.ntnamericas.com/item/pillow-block-unit-with-set-screw/t-screw-pressed-steel-dust-cover-open-end-ucp-type/s-ucp205d1
+    retrieved: 2026-11-03
+    license: unknown
+    read: full
+    note: Read by a helper. Bore 25, shaft height 36.5, base length 140, bolt spacing 105, total height 71 mm; Cr 14.0 kN; 0.90 kg.
+  - id: P33
+    class: P
+    title: FYH mounted units catalogue, pages 84 to 88
+    url: https://aimsindustrial.com.au/cdn/shop/files/FYH-Mounted-Bearing-Units-Catalogue-Pages-84-88.pdf
+    retrieved: 2026-11-03
+    license: unknown
+    read: partial
+    note: Read by a helper, the UCP204 row. Bore 20, shaft height 33.3, base length 127, bolt spacing 95, total height 65 mm, M10 bolts, 0.66 kg.
+  - id: P34
+    class: P
+    title: THK, rod ends PHS and POS, catalogue A23
+    url: https://tech.thk.com/en/products/pdf/en_a23_006.pdf
+    retrieved: 2026-11-03
+    license: unknown
+    read: partial
+    note: Read by a helper, the PHS and POS tables. PHS10 M10, length 56, head diameter 26, static rating 13,200 N, 72 g.
   - id: S1
     class: S
     title: Scheibe, An Overview of Studded and Studless Tire Traction and Safety, WSDOT WA-RD 551.1, 2002
@@ -489,6 +529,254 @@ items:
     license: unknown
     read: partial
     note: Search page read by a helper. Rack and pinion with 320 mm tie rods 9,179 JPY, free shipping shown.
+  - id: M32
+    class: M
+    title: BKT LG-RIB 13x5.00-6 4PR tubeless tyres, pair, Yahoo Shopping
+    url: https://store.shopping.yahoo.co.jp/sangyosyarin/28130lib04-2.html
+    retrieved: 2026-11-03
+    license: unknown
+    read: full
+    note: Read by a helper. Outside diameter 325 mm, width 127 mm, rim 3.5 inch; 11,770 JPY for two; load rating not stated.
+  - id: M33
+    class: M
+    title: 6 inch three-hole rims for 13x5.00-6, Yahoo Shopping
+    url: https://store.shopping.yahoo.co.jp/tousyou-net/810s152423.html
+    retrieved: 2026-11-03
+    license: unknown
+    read: full
+    note: Read by a helper with two similar listings. 6,480 to 14,580 JPY; hole spacing, bore, and offset not stated.
+  - id: M34
+    class: M
+    title: FYH UCP205 pillow block, MonotaRO
+    url: https://www.monotaro.com/p/0719/1895/
+    retrieved: 2026-11-03
+    license: unknown
+    read: excerpt
+    note: Seen by a helper as a search excerpt. 1,758 JPY with tax; M10 bolts.
+  - id: M35
+    class: M
+    title: S45CD bright bar 25 mm cut to length, MonotaRO
+    url: https://www.monotaro.com/p/0651/6283/
+    retrieved: 2026-11-03
+    license: unknown
+    read: excerpt
+    note: Seen as an excerpt. 2,088 JPY for 301 to 400 mm; no keyway; price for 1 m not shown.
+  - id: M36
+    class: M
+    title: Go-kart spindle pair 17 mm, Yahoo Shopping
+    url: https://shopping.yahoo.co.jp/search?p=ゴーカート+スピンドル
+    retrieved: 2026-11-03
+    license: unknown
+    read: partial
+    note: Search titles read by a helper. 9,220 JPY a pair; kingpin size not stated.
+  - id: M37
+    class: M
+    title: Go-kart front hub 78 mm three studs, Yahoo Shopping
+    url: https://store.shopping.yahoo.co.jp/pstokyo/231124v0306.html
+    retrieved: 2026-11-03
+    license: unknown
+    read: full
+    note: Read by a helper. 9,390 JPY; bore not stated.
+  - id: M38
+    class: M
+    title: THK PHS10 rod end, MonotaRO
+    url: https://www.monotaro.com/p/0633/4815/
+    retrieved: 2026-11-03
+    license: unknown
+    read: excerpt
+    note: Seen as an excerpt. 1,758 JPY.
+  - id: M39
+    class: M
+    title: 300 mm kart steering wheel, Yahoo Shopping
+    url: https://store.shopping.yahoo.co.jp/tousyou-net/810s152384.html
+    retrieved: 2026-11-03
+    license: unknown
+    read: full
+    note: Read by a helper. 7,280 JPY; hole pattern not stated.
+  - id: M40
+    class: M
+    title: FYH UCFL204 flange unit, Askul
+    url: https://www.askul.co.jp/p/N645230/
+    retrieved: 2026-11-03
+    license: unknown
+    read: excerpt
+    note: Seen as an excerpt. 1,640 JPY; bolt spacing 90 mm, M10.
+  - id: M41
+    class: M
+    title: JOIQEXJ 6 inch brake disc, 1 inch bore with 1/4 inch key, Amazon.co.jp
+    url: https://www.amazon.co.jp/dp/B0BLCLF7NY
+    retrieved: 2026-11-03
+    license: unknown
+    read: excerpt
+    note: Seen as an excerpt. 5,426 JPY.
+  - id: M42
+    class: M
+    title: Go-kart hydraulic brake caliper with disc, Yahoo Shopping
+    url: https://store.shopping.yahoo.co.jp/pstokyo/231124v0696.html
+    retrieved: 2026-11-03
+    license: unknown
+    read: excerpt
+    note: Seen as an excerpt. 17,640 JPY; dimensions not stated.
+  - id: M43
+    class: M
+    title: GREHUA go-kart pedal kit with throttle cable, Amazon.co.jp
+    url: https://www.amazon.co.jp/dp/B0BL32Z8JX
+    retrieved: 2026-11-03
+    license: unknown
+    read: excerpt
+    note: Seen as an excerpt. 8,994 JPY; brake and throttle pedals, 71 inch cable, springs.
+  - id: M44
+    class: M
+    title: Centrifugal clutch 3/4 inch 10T for chain 40, Trade Journey, Yahoo Shopping
+    url: https://store.shopping.yahoo.co.jp/trade-journey/b07qfw55q4.html
+    retrieved: 2026-11-03
+    license: unknown
+    read: partial
+    note: Read by a helper. About 11,000 to 12,400 JPY; dimensions not stated.
+  - id: M45
+    class: M
+    title: KANA finished-bore sprockets No.40, Askul and MonotaRO
+    url: https://www.askul.co.jp/v/000250046/
+    retrieved: 2026-11-03
+    license: unknown
+    read: excerpt
+    note: Seen as excerpts. 12T bore 20 1,032 JPY; 40T 2,824 JPY; 36T pilot-bore NK40B36 1,798 JPY (to be bored to 25).
+  - id: M46
+    class: M
+    title: KANA roller chain No.40, 3 m, MonotaRO
+    url: https://www.monotaro.com/p/0574/9527/
+    retrieved: 2026-11-03
+    license: unknown
+    read: excerpt
+    note: Seen as an excerpt. 3,298 JPY for 240 links with a joint.
+  - id: M47
+    class: M
+    title: FYH UCP204 pillow block, MonotaRO
+    url: https://www.monotaro.com/p/0719/1886/
+    retrieved: 2026-11-03
+    license: unknown
+    read: excerpt
+    note: Seen as an excerpt. 1,648 JPY.
+  - id: M48
+    class: M
+    title: S45CD bright bar 20 mm cut to length, MonotaRO
+    url: https://www.monotaro.com/g/01126801/
+    retrieved: 2026-11-03
+    license: unknown
+    read: excerpt
+    note: Seen as an excerpt. 2,418 JPY for 401 to 500 mm; no keyway.
+  - id: M49
+    class: M
+    title: Throttle cable with return spring for GX160 and GX200, Yahoo Shopping
+    url: https://shopping.yahoo.co.jp/search?p=汎用エンジン+196cc
+    retrieved: 2026-11-03
+    license: unknown
+    read: partial
+    note: Read by a helper. 6,680 JPY.
+  - id: M50
+    class: M
+    title: Kill switch with a tether cord, Amazon.co.jp
+    url: https://www.amazon.co.jp/dp/B0B7WK8YJ7
+    retrieved: 2026-11-03
+    license: unknown
+    read: excerpt
+    note: Seen as an excerpt. 1,135 to 1,920 JPY.
+  - id: M51
+    class: M
+    title: Centrifugal clutch 3/4 inch 10T, STK-shop, Yahoo Shopping
+    url: https://store.shopping.yahoo.co.jp/stk-shop/67022090.html
+    retrieved: 2026-11-03
+    license: unknown
+    read: partial
+    note: Read by a helper. 4,960 JPY; outside diameter about 107 mm.
+  - id: M52
+    class: M
+    title: GoPowerSports KD1041SHD heavy-duty clutch 3/4 inch 10T
+    url: https://gopowersports.com/3-4-bore-clutch-heavy-duty
+    retrieved: 2026-11-03
+    license: unknown
+    read: partial
+    note: Read by a helper; US reference for size. Outside 121 mm, overall width 64 mm.
+  - id: M53
+    class: M
+    title: Go-kart seat, kabuon, Rakuten
+    url: https://item.rakuten.co.jp/kabuon/m20386763a0a/
+    retrieved: 2026-11-03
+    license: unknown
+    read: partial
+    note: Read by a helper. 16,240 JPY, 1.6 kg, ships from abroad in 2 to 3 weeks.
+  - id: M54
+    class: M
+    title: Seat slide rail pair amr-199-g, Rakuten
+    url: https://item.rakuten.co.jp/auc-green/g0000311891/
+    retrieved: 2026-11-03
+    license: unknown
+    read: partial
+    note: Read by a helper. 2,900 JPY a pair; fixed rail 303 mm, 10 positions of 15 mm.
+  - id: M55
+    class: M
+    title: Haganeya square tube 25 x 25 x 1.6 cut to length
+    url: https://haganeya.jp/products/detail/202
+    retrieved: 2026-11-03
+    license: unknown
+    read: partial
+    note: Read by a helper. 1,078 JPY per metre; 1.28 kg/m.
+  - id: M56
+    class: M
+    title: Haganeya flat bar 6 x 32 cut to length
+    url: https://haganeya.jp/products/detail/50
+    retrieved: 2026-11-03
+    license: unknown
+    read: partial
+    note: Read by a helper. 1,012 JPY per metre.
+  - id: M57
+    class: M
+    title: Takiron UHMW polyethylene sheet cut to order, MonotaRO
+    url: https://www.monotaro.com/g/07485487/
+    retrieved: 2026-11-03
+    license: unknown
+    read: partial
+    note: Read by a helper. From 606 JPY plus 2,200 JPY shipping, 5 to 20 mm thick.
+  - id: M58
+    class: M
+    title: TRUSCO punched steel sheet SPCC 1.0 mm 450 x 450, MonotaRO
+    url: https://www.monotaro.com/g/06100425/
+    retrieved: 2026-11-03
+    license: unknown
+    read: partial
+    note: Read by a helper. 3,628 JPY.
+  - id: M59
+    class: M
+    title: TRUSCO tube cushion TAC-81Y, MonotaRO
+    url: https://www.monotaro.com/g/00396259/
+    retrieved: 2026-11-03
+    license: unknown
+    read: partial
+    note: Read by a helper. 1,538 JPY for 0.9 m, inner 27 mm.
+  - id: M60
+    class: M
+    title: Kill switch with lanyard, the-apex, Rakuten
+    url: https://item.rakuten.co.jp/the-apex/mrni-00000200/
+    retrieved: 2026-11-03
+    license: unknown
+    read: partial
+    note: Read by a helper. 1,919 JPY; lanyard 130 cm extended.
+  - id: M61
+    class: M
+    title: MonotaRO folding aluminium ladder rail 1820 mm
+    url: https://www.monotaro.com/g/03750387/
+    retrieved: 2026-11-03
+    license: unknown
+    read: partial
+    note: Read by a helper. 12,078 JPY per rail, 200 kg, 6.5 kg.
+  - id: M62
+    class: M
+    title: KYU B11S small operator seat with slide rails, Rakuten
+    url: https://item.rakuten.co.jp/kyu-web/se-1-s/
+    retrieved: 2026-11-03
+    license: unknown
+    read: partial
+    note: Read by a helper. 5,460 JPY; rail bolt spacing 180 mm from a buyer review.
   - id: F1
     class: F
     title: Motor1, a shifter kart turned into a snowmobile, 2025-02-02

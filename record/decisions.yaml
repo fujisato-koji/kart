@@ -119,3 +119,10 @@ items:
     touches:
       - rider.stature_max_cm
       - R-03
+  - id: D-017
+    date: 2026-11-03
+    by: owner
+    what: Make the design concrete with new parts that are readily available in Japan, with realistic shapes, and show the designed kart in 3D to grasp what will be built; the 3D view need not be a driving game. This settles item 1 of docs/02-form.md#proposal as new parts (L2). The other items of that proposal are taken as the working basis of step 1.3 until the owner decides them.
+    touches:
+      - R-08
+      - cost.total_l2_e1_w1_jpy

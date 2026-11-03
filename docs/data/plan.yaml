@@ -1,0 +1,234 @@
+# Development plan for the navigator's schedule. Work is done every day (owner,
+# 2026-11-03) and nothing is urgent, so the plan follows the amount of work.
+# Days are assumed for about two to three hours of work a day (Q-016).
+# kind: work counts working days; wait counts calendar days (deliveries, paint drying).
+# parts: the parts a task builds or needs; reqs: the requirements a test task verifies.
+schema: 1
+start: 2026-11-03
+tasks:
+  - id: d1
+    phase: design
+    title: Owner decides the open items of step 1.2
+    kind: wait
+    days: 7
+  - id: d2
+    phase: design
+    title: Design calculation, drawings, availability, parts list (1.3 to 1.5)
+    kind: work
+    days: 5
+    after:
+      - d1
+  - id: d3
+    phase: design
+    title: Gate from design to build
+    kind: work
+    days: 1
+    after:
+      - d2
+  - id: p1
+    phase: procure
+    title: Order steel tube, plate, and shafts
+    kind: work
+    days: 1
+    after:
+      - d3
+    parts:
+      - frame
+      - floor
+      - axle_shaft
+  - id: p2
+    phase: procure
+    title: Delivery of steel and shafts
+    kind: wait
+    days: 7
+    after:
+      - p1
+  - id: p3
+    phase: procure
+    title: Order engine, clutch, sprockets, chain, bearings, wheels, brake, steering parts
+    kind: work
+    days: 1
+    after:
+      - d3
+    parts:
+      - engine
+      - clutch
+      - jackshaft
+      - chain_primary
+      - chain_final
+      - axle_bearings
+      - rear_hubs
+      - front_wheels
+      - rear_wheels
+      - brake
+      - spindles
+      - tie_rods
+      - steering_wheel
+  - id: p4
+    phase: procure
+    title: Delivery of bought parts, some from abroad
+    kind: wait
+    days: 14
+    after:
+      - p3
+  - id: p5
+    phase: procure
+    title: Buy a 100 V welder and practise on scrap tube
+    kind: work
+    days: 3
+    after:
+      - d3
+  - id: b1
+    phase: build
+    title: Cut and notch the frame tubes, tack the frame on a flat jig
+    kind: work
+    days: 4
+    after:
+      - p2
+      - p5
+    parts:
+      - frame
+  - id: b2
+    phase: build
+    title: Weld the frame, bumpers, and mounts; check it is square
+    kind: work
+    days: 4
+    after:
+      - b1
+    parts:
+      - frame
+      - bumpers
+  - id: b3
+    phase: build
+    title: Fit the rear axle, bearings, hubs, and brake
+    kind: work
+    days: 2
+    after:
+      - b2
+      - p4
+    parts:
+      - rear_axle
+      - brake
+  - id: b4
+    phase: build
+    title: Fit the spindles, steering column, tie rods, and front wheels
+    kind: work
+    days: 3
+    after:
+      - b2
+      - p4
+    parts:
+      - steering
+      - front_wheels
+  - id: b5
+    phase: build
+    title: Mount the engine, clutch, and jackshaft; align and fit both chains
+    kind: work
+    days: 3
+    after:
+      - b3
+    parts:
+      - powertrain
+  - id: b6
+    phase: build
+    title: Fit the seat slide, seat, pedal box, throttle cable, and stop switches
+    kind: work
+    days: 2
+    after:
+      - b4
+      - b5
+    parts:
+      - seat
+      - seat_slide
+      - pedal_box
+      - throttle
+      - kill_switch
+  - id: b7
+    phase: build
+    title: Make and fit the chain and axle guards and the floor plate
+    kind: work
+    days: 2
+    after:
+      - b6
+    parts:
+      - guards
+      - floor
+  - id: b8
+    phase: build
+    title: Paint the frame
+    kind: work
+    days: 1
+    after:
+      - b7
+  - id: b9
+    phase: build
+    title: Paint dries
+    kind: wait
+    days: 3
+    after:
+      - b8
+  - id: t1
+    phase: test
+    title: Static checks - fit for the child and the adult, guards, stop switches
+    kind: work
+    days: 1
+    after:
+      - b9
+    reqs:
+      - R-03
+      - R-10
+      - R-11
+      - R-13
+  - id: t2
+    phase: test
+    title: First runs on level pavement - top speed, child limit, braking
+    kind: work
+    days: 1
+    after:
+      - t1
+    reqs:
+      - R-01
+      - R-09
+      - R-17
+  - id: t3
+    phase: test
+    title: Runs on gravel, grass, and the slope
+    kind: work
+    days: 1
+    after:
+      - t2
+    reqs:
+      - R-04
+      - R-12
+      - R-16
+  - id: t4
+    phase: test
+    title: Load into the Delica and unload
+    kind: work
+    days: 1
+    after:
+      - t2
+    reqs:
+      - R-14
+      - R-15
+  - id: w1
+    phase: build
+    title: Make the skis and fit the chains
+    kind: work
+    days: 3
+    after:
+      - t3
+    parts:
+      - skis
+      - snow_chains
+  - id: t5
+    phase: test
+    title: Runs on packed and fresh snow, cold start
+    kind: work
+    days: 1
+    after:
+      - w1
+    reqs:
+      - R-05
+      - R-06
+      - R-07

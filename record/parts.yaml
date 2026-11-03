@@ -1,3 +1,98 @@
 kind: part
 schema: 1
 items:
+  - id: kart
+    name: Kart
+  - id: chassis
+    name: Chassis
+    parent: kart
+  - id: frame
+    name: Welded tube frame
+    parent: chassis
+  - id: floor
+    name: Floor plate
+    parent: chassis
+  - id: bumpers
+    name: Front bumper and side nerf bars
+    parent: chassis
+  - id: seat
+    name: Seat
+    parent: chassis
+  - id: seat_slide
+    name: Seat slide with pin positions
+    parent: chassis
+  - id: pedal_box
+    name: Pedal box with throttle and brake pedals, sliding on pin positions
+    parent: chassis
+  - id: guards
+    name: Chain and axle guards
+    parent: chassis
+  - id: steering
+    name: Steering
+    parent: kart
+  - id: steering_wheel
+    name: Steering wheel
+    parent: steering
+  - id: steering_column
+    name: Steering column with its bearings
+    parent: steering
+  - id: tie_rods
+    name: Tie rods with rod ends
+    parent: steering
+  - id: spindles
+    name: Kingpins, spindles, and steering arms
+    parent: steering
+  - id: front_wheels
+    name: Front wheels and tyres
+    parent: kart
+  - id: rear_axle
+    name: Rear live axle
+    parent: kart
+  - id: axle_shaft
+    name: Axle shaft
+    parent: rear_axle
+  - id: axle_bearings
+    name: Axle bearings
+    parent: rear_axle
+  - id: rear_hubs
+    name: Rear wheel hubs that slide along the axle
+    parent: rear_axle
+  - id: rear_wheels
+    name: Rear wheels and tyres
+    parent: kart
+  - id: brake
+    name: Rear disc brake with its carrier
+    parent: kart
+  - id: powertrain
+    name: Powertrain
+    parent: kart
+  - id: engine
+    name: Engine
+    parent: powertrain
+  - id: clutch
+    name: Centrifugal clutch
+    parent: powertrain
+  - id: jackshaft
+    name: Jackshaft with its bearings and sprockets
+    parent: powertrain
+  - id: chain_primary
+    name: Primary chain from the clutch to the jackshaft
+    parent: powertrain
+  - id: chain_final
+    name: Final chain from the jackshaft to the axle, with the axle sprocket and its carrier
+    parent: powertrain
+  - id: throttle
+    name: Throttle cable with a return spring
+    parent: powertrain
+  - id: kill_switch
+    name: Engine stop switches, one on the steering and one with a tether
+    parent: powertrain
+  - id: winter
+    name: Winter parts
+    parent: kart
+  - id: skis
+    name: Front skis on the spindles
+    parent: winter
+  - id: snow_chains
+    name: Rear tyre chains
+    parent: winter

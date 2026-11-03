@@ -1,0 +1,146 @@
+# States of the kart for the navigator's state diagram.
+# The traceable-design standard has no kind for states, so this drawing data lives here
+# and cites the record by id (procedure steps OP-nn.nn, hazards H-nn, requirements R-nn).
+# Each transition names what triggers it and the record items behind it.
+schema: 1
+groups:
+  - id: setup
+    label: Configuration
+  - id: run
+    label: Running
+states:
+  - id: stored
+    group: setup
+    label: Stored under the roof
+  - id: transport
+    group: setup
+    label: Narrowed and loaded in the car
+    refs:
+      - OP-05
+      - R-14
+      - R-15
+  - id: summer
+    group: setup
+    label: Summer setup (tyres)
+  - id: winter
+    group: setup
+    label: Winter setup (skis and chains)
+    refs:
+      - OP-04
+      - R-05
+      - R-06
+  - id: checked
+    group: run
+    label: Checked and set for the driver
+    refs:
+      - OP-01
+  - id: idle
+    group: run
+    label: Engine idling, clutch open
+    refs:
+      - OP-02.01
+  - id: slipping
+    group: run
+    label: Moving off, clutch slipping
+    refs:
+      - R-16
+  - id: driving
+    group: run
+    label: Driving, clutch locked, speed held by the governor
+    refs:
+      - R-01
+      - R-17
+  - id: braking
+    group: run
+    label: Braking on the rear wheels
+    refs:
+      - R-09
+  - id: stopped
+    group: run
+    label: Stopped, engine off
+    refs:
+      - OP-03.01
+transitions:
+  - from: stored
+    to: summer
+    trigger: Take out for a run in summer
+  - from: stored
+    to: winter
+    trigger: Fit skis and chains
+    refs:
+      - OP-04
+  - from: summer
+    to: winter
+    trigger: Fit skis and chains
+    refs:
+      - OP-04
+  - from: winter
+    to: summer
+    trigger: Fit the front wheels, take off the chains
+  - from: stored
+    to: transport
+    trigger: Narrow the rear track and load
+    refs:
+      - OP-05
+  - from: transport
+    to: summer
+    trigger: Unload and widen the rear track
+  - from: summer
+    to: checked
+    trigger: Check before a run
+    refs:
+      - OP-01
+  - from: winter
+    to: checked
+    trigger: Check before a run
+    refs:
+      - OP-01
+  - from: checked
+    to: idle
+    trigger: Start the engine outdoors
+    refs:
+      - OP-02.01
+  - from: idle
+    to: slipping
+    trigger: Press the throttle
+  - from: slipping
+    to: driving
+    trigger: Speed above the clutch lock-up
+    refs:
+      - drive.clutch_lock_kmh
+  - from: driving
+    to: slipping
+    trigger: Speed falls below the clutch lock-up under throttle
+    refs:
+      - drive.clutch_lock_kmh
+  - from: driving
+    to: braking
+    trigger: Release the throttle and press the brake
+  - from: slipping
+    to: braking
+    trigger: Release the throttle and press the brake
+  - from: braking
+    to: idle
+    trigger: The kart stops, the engine idles
+  - from: idle
+    to: stopped
+    trigger: Stop switch
+    refs:
+      - OP-03.01
+  - from: driving
+    to: stopped
+    trigger: Stop switch or tether pulled
+    refs:
+      - R-10
+      - H-02
+  - from: slipping
+    to: stopped
+    trigger: Stop switch or tether pulled
+    refs:
+      - R-10
+      - H-02
+  - from: stopped
+    to: stored
+    trigger: Refuel outdoors, cool, and put away
+    refs:
+      - OP-03.02

@@ -88,6 +88,7 @@ R-09 to R-13, R-15, and R-17 are derived from the hazards in 1.1.4 and wait for 
 | H-07 | Braking or steering is lost on snow or ice. | The driver and people nearby. | R-05, R-09 |
 | H-08 | A small child drives faster than the child can control. | The child and people nearby. | R-01, R-17 |
 | H-09 | The kart rolls off the ramp or falls while being loaded or unloaded. | The person loading it and people nearby. | R-15 |
+| H-10 | Petrol catches fire while refuelling or near the hot engine, or exhaust gas builds up when the engine runs in a closed shed. | The driver, helpers, and children nearby. | OP-03.02, OP-03.03 |
 <!-- tdr:end -->
 
 H-04 covers both an engine and a battery; the hazards particular to the chosen power source (exhaust gas in a closed shed, fuel, charging) are added when 1.2 selects it.
@@ -245,6 +246,124 @@ These are not decided here. 1.2 compares forms against them.
 | engine.power_cont_kw | 3.7 | kW | sourced | P4 |
 | cost.donor_buggy_running_min_jpy | 21870 | JPY | sourced | M26 |
 | kart.ref_leisure_width_mm | 1160 | mm | sourced | P9 |
+| eng.length_mm | 313 | mm | sourced | P30 |
+| eng.width_mm | 376 | mm | sourced | P30 |
+| eng.height_mm | 339 | mm | sourced | P30 |
+| eng.mass_kg | 16.1 | kg | sourced | P30 |
+| eng.shaft_height_mm | 106 | mm | sourced | P30 |
+| eng.shaft_dia_mm | 19.05 | mm | sourced | P30 |
+| eng.base_across_mm | 162 | mm | sourced | P30 |
+| eng.base_along_mm | 80 | mm | sourced | P30 |
+| whl.tyre_od_mm | 325 | mm | sourced | M32 |
+| whl.tyre_width_mm | 127 | mm | sourced | M32 |
+| brg.ucp205_h_mm | 36.5 | mm | sourced | P32 |
+| brg.ucp205_l_mm | 140 | mm | sourced | P32 |
+| brg.ucp205_j_mm | 105 | mm | sourced | P32 |
+| brg.ucp205_h2_mm | 71 | mm | sourced | P32 |
+| brg.ucp205_mass_kg | 0.9 | kg | sourced | P32 |
+| brg.ucp205_cr_kn | 14.0 | kN | sourced | P32 |
+| brg.ucp204_h_mm | 33.3 | mm | sourced | P33 |
+| brg.ucp204_l_mm | 127 | mm | sourced | P33 |
+| brg.ucp204_h2_mm | 65 | mm | sourced | P33 |
+| brg.ucp204_mass_kg | 0.66 | kg | sourced | P33 |
+| spr.t10_pd_mm | 41.098 | mm | sourced | P31 |
+| spr.t12_pd_mm | 49.069 | mm | sourced | P31 |
+| spr.t12_od_mm | 55 | mm | sourced | P31 |
+| spr.t36_pd_mm | 145.716 | mm | sourced | P31 |
+| spr.t36_od_mm | 153 | mm | sourced | P31 |
+| spr.t36_mass_kg | 1.5 | kg | sourced | P31 |
+| spr.t40_pd_mm | 161.868 | mm | sourced | P31 |
+| spr.t40_od_mm | 169 | mm | sourced | P31 |
+| spr.t40_mass_kg | 1.7 | kg | sourced | P31 |
+| clutch.od_mm | 107 | mm | sourced | M51 |
+| clutch.width_mm | 64 | mm | sourced | M52 |
+| rod.phs10_cs_n | 13200 | N | sourced | P34 |
+| cost.tyre_pair_jpy | 11770 | JPY | sourced | M32 |
+| cost.rim_each_jpy | 6480 | JPY | sourced | M33 |
+| cost.ucp205_jpy | 1758 | JPY | sourced | M34 |
+| cost.shaft25_short_jpy | 2088 | JPY | sourced | M35 |
+| cost.spindle_pair_jpy | 9220 | JPY | sourced | M36 |
+| cost.front_hub_jpy | 9390 | JPY | sourced | M37 |
+| cost.rod_end_jpy | 1758 | JPY | sourced | M38 |
+| cost.steering_wheel_jpy | 7280 | JPY | sourced | M39 |
+| cost.ucfl204_jpy | 1640 | JPY | sourced | M40 |
+| cost.disc_jpy | 5426 | JPY | sourced | M41 |
+| cost.brake_hyd_jpy | 17640 | JPY | sourced | M42 |
+| cost.pedal_kit_jpy | 8994 | JPY | sourced | M43 |
+| cost.spr_t12_jpy | 1032 | JPY | sourced | M45 |
+| cost.spr_t40_jpy | 2824 | JPY | sourced | M45 |
+| cost.spr_t36_jpy | 1798 | JPY | sourced | M45 |
+| cost.chain_3m_jpy | 3298 | JPY | sourced | M46 |
+| cost.ucp204_jpy | 1648 | JPY | sourced | M47 |
+| cost.shaft20_jpy | 2418 | JPY | sourced | M48 |
+| cost.throttle_cable_jpy | 6680 | JPY | sourced | M49 |
+| cost.kill_switch_jpy | 1135 | JPY | sourced | M50 |
+| lay.wheelbase_mm | 1000 | mm | calculated | docs/03-design.md#layout |
+| lay.track_front_mm | 1060 | mm | calculated | docs/03-design.md#layout |
+| lay.track_rear_mm | 1150 | mm | calculated | docs/03-design.md#layout |
+| lay.track_rear_narrow_mm | 1000 | mm | calculated | docs/03-design.md#transport |
+| lay.rail_bottom_mm | 150 | mm | calculated | docs/03-design.md#layout |
+| lay.rail_half_width_mm | 300 | mm | calculated | docs/03-design.md#frame |
+| lay.front_half_width_mm | 430 | mm | calculated | docs/03-design.md#frame |
+| lay.front_overhang_mm | 300 | mm | calculated | docs/03-design.md#layout |
+| lay.rear_overhang_mm | 230 | mm | calculated | docs/03-design.md#layout |
+| lay.hpoint_x_mm | 80 | mm | calculated | docs/03-design.md#fit |
+| lay.hpoint_y_mm | -40 | mm | calculated | docs/03-design.md#fit |
+| lay.seat_slide_mm | 120 | mm | calculated | docs/03-design.md#fit |
+| lay.pedal_x_far_mm | 1010 | mm | calculated | docs/03-design.md#fit |
+| lay.pedal_x_near_mm | 560 | mm | calculated | docs/03-design.md#fit |
+| lay.wheel_x_mm | 600 | mm | calculated | docs/03-design.md#steering |
+| lay.wheel_z_mm | 560 | mm | calculated | docs/03-design.md#steering |
+| lay.steer_max_deg | 30 | deg | calculated | docs/03-design.md#steering |
+| lay.engine_x_mm | 380 | mm | calculated | docs/03-design.md#drive |
+| lay.engine_y_mm | 400 | mm | calculated | docs/03-design.md#drive |
+| lay.jack_x_mm | 150 | mm | calculated | docs/03-design.md#drive |
+| lay.jack_z_mm | 215 | mm | calculated | docs/03-design.md#drive |
+| lay.chain1_y_mm | 205 | mm | calculated | docs/03-design.md#drive |
+| lay.chain2_y_mm | 140 | mm | calculated | docs/03-design.md#drive |
+| lay.bearing_y_mm | 420 | mm | calculated | docs/03-design.md#axle |
+| lay.brake_y_mm | -150 | mm | calculated | docs/03-design.md#brake |
+| lay.axle_length_mm | 1220 | mm | calculated | docs/03-design.md#axle |
+| lay.disc_dia_mm | 152 | mm | calculated | docs/03-design.md#brake |
+| gear.t_clutch | 10 |  | calculated | docs/03-design.md#drive |
+| gear.t_jack_in | 40 |  | calculated | docs/03-design.md#drive |
+| gear.t_jack_out | 12 |  | calculated | docs/03-design.md#drive |
+| gear.t_axle | 36 |  | calculated | docs/03-design.md#drive |
+| dsn.axle_dia_mm | 25 | mm | calculated | docs/03-design.md#axle |
+| dsn.rail_od_mm | 31.8 | mm | calculated | docs/03-design.md#frame |
+| dsn.rail_t_mm | 1.6 | mm | calculated | docs/03-design.md#frame |
+| dsn.cross_od_mm | 25.4 | mm | calculated | docs/03-design.md#frame |
+| dsn.cross_t_mm | 1.6 | mm | calculated | docs/03-design.md#frame |
+| dsn.floor_t_mm | 2.3 | mm | calculated | docs/03-design.md#frame |
+| dsn.load_factor | 2.5 |  | assumed | Q-017 |
+| dsn.steel_density_kg_m3 | 7850 | kg/m3 | assumed | Q-017 |
+| dsn.s45c_yield_mpa | 345 | MPa | assumed | Q-017 |
+| dsn.stkm11a_tensile_mpa | 290 | MPa | assumed | Q-017 |
+| dsn.wheel_mass_kg | 3.5 | kg | assumed | Q-017 |
+| dsn.clutch_mass_kg | 1.2 | kg | assumed | Q-017 |
+| dsn.seat_mass_kg | 3.0 | kg | assumed | Q-017 |
+| dsn.steering_mass_kg | 4.0 | kg | assumed | Q-017 |
+| dsn.brake_mass_kg | 2.0 | kg | assumed | Q-017 |
+| dsn.misc_mass_kg | 5.0 | kg | assumed | Q-017 |
+| dsn.fuel_mass_kg | 2.0 | kg | assumed | Q-017 |
+| dsn.pad_mu | 0.35 |  | assumed | Q-017 |
+| dsn.buttock_heel_ratio_adult | 0.587 |  | calculated | docs/03-design.md#fit |
+| dsn.buttock_heel_ratio_child | 0.5 |  | assumed | Q-017 |
+| cost.seat_kart_jpy | 16240 | JPY | sourced | M53 |
+| cost.seat_rail_pair_jpy | 2900 | JPY | sourced | M54 |
+| cost.sq_tube_25_jpy_per_m | 1078 | JPY | sourced | M55 |
+| cost.flat_bar_jpy_per_m | 1012 | JPY | sourced | M56 |
+| cost.uhmw_order_jpy | 2806 | JPY | sourced | M57 |
+| cost.punched_sheet_jpy | 3628 | JPY | sourced | M58 |
+| cost.padding_jpy | 1538 | JPY | sourced | M59 |
+| cost.kill_lanyard_jpy | 1919 | JPY | sourced | M60 |
+| cost.ramp_rail_jpy | 12078 | JPY | sourced | M61 |
+| cost.seat_operator_jpy | 5460 | JPY | sourced | M62 |
+| cost.plate_allow_jpy | 6000 | JPY | assumed | Q-018 |
+| cost.machining_allow_jpy | 12000 | JPY | assumed | Q-018 |
+| cost.rear_hub_make_jpy | 3000 | JPY | assumed | Q-018 |
+| cost.axle_shaft_jpy | 5000 | JPY | assumed | Q-018 |
+| cost.welder_jpy | 9900 | JPY | sourced | M11 |
 | form.mass_total_kg | 170 | kg | calculated | docs/02-form.md#mass |
 | snow.wheel_sinkage_min_cm | 19.0 | cm | calculated | docs/02-form.md#snow |
 | snow.wheel_sinkage_max_cm | 25.1 | cm | calculated | docs/02-form.md#snow |
@@ -285,6 +404,49 @@ These are not decided here. 1.2 compares forms against them.
 | cost.total_donor_w1_jpy | 136031 | JPY | calculated | docs/02-form.md#cost |
 | cost.total_donor_e1_w1_jpy | 150841 | JPY | calculated | docs/02-form.md#cost |
 | cost.total_donor_narrow_summer_jpy | 66551 | JPY | calculated | docs/02-form.md#cost |
+| dsn.length_m | 1.53 | m | calculated | docs/03-design.md#layout |
+| dsn.width_m | 1.277 | m | calculated | docs/03-design.md#layout |
+| dsn.width_transport_m | 1.187 | m | calculated | docs/03-design.md#transport |
+| dsn.tube_main_m | 3.35 | m | calculated | docs/03-design.md#frame |
+| dsn.tube_cross_m | 8.95 | m | calculated | docs/03-design.md#frame |
+| dsn.ratio | 12.0 |  | calculated | docs/03-design.md#drive |
+| dsn.top_speed_kmh | 19.65 | km/h | calculated | docs/03-design.md#drive |
+| dsn.chain1_centre_mm | 243 | mm | calculated | docs/03-design.md#drive |
+| dsn.chain2_centre_mm | 159 | mm | calculated | docs/03-design.md#drive |
+| dsn.chain1_links | 66 |  | calculated | docs/03-design.md#drive |
+| dsn.chain2_links | 52 |  | calculated | docs/03-design.md#drive |
+| dsn.chain1_gap_mm | 105 | mm | calculated | docs/03-design.md#drive |
+| dsn.chain2_gap_mm | 55 | mm | calculated | docs/03-design.md#drive |
+| dsn.low_point_mm | 86 | mm | calculated | docs/03-design.md#axle |
+| dsn.turn_radius_m | 2.26 | m | calculated | docs/03-design.md#steering |
+| dsn.leg_margin_adult_mm | 68 | mm | calculated | docs/03-design.md#fit |
+| dsn.leg_margin_child_mm | 149 | mm | calculated | docs/03-design.md#fit |
+| dsn.mass_kg | 87.6 | kg | calculated | docs/03-design.md#mass |
+| dsn.cg_x_m | 0.378 | m | calculated | docs/03-design.md#mass |
+| dsn.cg_z_m | 0.235 | m | calculated | docs/03-design.md#mass |
+| dsn.frame_mass_kg | 12.4 | kg | calculated | docs/03-design.md#frame |
+| dsn.rear_share_adult | 0.728 |  | calculated | docs/03-design.md#mass |
+| dsn.cg_height_adult_m | 0.356 | m | calculated | docs/03-design.md#mass |
+| dsn.tip_ratio_adult | 1.58 |  | calculated | docs/03-design.md#stability |
+| dsn.rear_share_child | 0.636 |  | calculated | docs/03-design.md#mass |
+| dsn.cg_height_child_m | 0.257 | m | calculated | docs/03-design.md#mass |
+| dsn.tip_ratio_child | 2.17 |  | calculated | docs/03-design.md#stability |
+| dsn.climb_force_n | 577 | N | calculated | docs/03-design.md#climb |
+| dsn.climb_grip_n | 649 | N | calculated | docs/03-design.md#climb |
+| dsn.climb_thrust_n | 758 | N | calculated | docs/03-design.md#climb |
+| dsn.axle_stress_mpa | 169 | MPa | calculated | docs/03-design.md#axle |
+| dsn.axle_safety | 2.04 |  | calculated | docs/03-design.md#axle |
+| dsn.rail_stress_mpa | 126 | MPa | calculated | docs/03-design.md#frame |
+| dsn.rail_safety | 2.29 |  | calculated | docs/03-design.md#frame |
+| dsn.bearing_load_n | 669 | N | calculated | docs/03-design.md#axle |
+| dsn.brake_decel_needed | 2.57 | m/s2 | calculated | docs/03-design.md#brake |
+| dsn.brake_torque_needed_nm | 78 | N m | calculated | docs/03-design.md#brake |
+| dsn.brake_clamp_needed_n | 1750 | N | calculated | docs/03-design.md#brake |
+| dsn.delica_length_margin_mm | 80 | mm | calculated | docs/03-design.md#transport |
+| dsn.delica_width_margin_mm | 43 | mm | calculated | docs/03-design.md#transport |
+| dsn.height_m | 0.71 | m | calculated | docs/03-design.md#layout |
+| dsn.bom_parts_jpy | 224104 | JPY | calculated | docs/03-design.md#cost |
+| dsn.bom_tools_jpy | 34056 | JPY | calculated | docs/03-design.md#cost |
 <!-- tdr:end -->
 
 ## 1.1.7 Open items {#open}
@@ -307,4 +469,8 @@ These are not decided here. 1.2 compares forms against them.
 | Q-013 | Should an adult be able to set a lower top speed for a small child? A 5-year-old drives (D-010), while US youth ATV guidance allows no ATVs under 6 and limits ages 6 and up to 10 mph with the restrictor (P25, S2). The child limit is assumed at 16 km/h, about 10 mph, until the owner decides R-17. | owner |
 | Q-014 | The 3D simulator needs the tyre grip on pavement, gravel, and grass, the sideways grip of the front skis, the resistance of tracks in fresh snow, and the resistance when the floor ploughs snow. No source was found; they are assumed so that the simulator can run, and a test run of the built kart settles them. Simulator results that rest on them are illustrations, not verification. | assistant |
 | Q-015 | In the owner's Delica D:5, with the third row flipped up and the second row tipped up and slid forward, how wide is the clear space at the floor and at 40 cm above it, and how wide is the tailgate opening at the height of the cargo floor? The sources give only the narrowest and widest widths. | owner |
+| Q-016 | How many hours a day can the owner work on the kart? The plan in docs/data/plan.yaml assumes two to three hours a day for its task lengths. | owner |
+| Q-017 | Step 1.3 assumes, without a source yet, the dynamic load factor on the frame and axle, the density and strength of S45C and STKM11A steel, the masses of a wheel with its tyre, the clutch, the seat, the steering, the brake, the fuel, and small parts, the brake pad friction, and the ratio of buttock-to-heel length to stature for an adult and for a 5-year-old. Cite a standard, a maker's data, or a weighing for each before the gate from design to build. | assistant |
+| Q-018 | The parts list assumes the price of steel plate cut to size, of machining by a local shop (keyways on the axle and the jackshaft, boring the 36 tooth sprocket, cross holes for the hub pins, the brake disc carrier), of making the two rear hubs, and of a 25 mm axle shaft of 1.22 m. Get quotes before the gate from design to build. | assistant |
+| Q-019 | The fit of bought parts to each other is not stated by their sellers and is checked when they arrive, before the frame is welded to them - the rim's three-hole pattern against the front hubs and the made rear hubs, the front hubs' bore against the 17 mm spindles, the engine's shaft (3/4 inch Q-type) and base holes, the ladder chains on 13x5.00-6 tyres, and the seat's rail bolt spacing. | assistant |
 <!-- tdr:end -->

@@ -1,0 +1,189 @@
+# Parts list (bill of materials) for the navigator's procurement mode and docs/05.
+# Each line names the part it belongs to (record/parts.yaml), how many, and the value key
+# that holds its unit price (record/values.yaml), so that every price lives in one place.
+# group: parts (counted against budget.parts_jpy) or tools (outside the budget, D-008).
+# need: the task of docs/data/plan.yaml that first needs it.
+schema: 1
+lines:
+  - part: frame
+    item: STKM11A round tube 31.8 x 1.6, main rails (m)
+    qty: 4
+    price: cost.tube_32_jpy_per_m
+    need: b1
+  - part: frame
+    item: STKM11A round tube 25.4 x 1.6, cross members, hoop, bumpers (m)
+    qty: 10
+    price: cost.tube_25_jpy_per_m
+    need: b1
+  - part: frame
+    item: Square tube 25 x 25 x 1.6, seat and pedal rails, engine mount (m)
+    qty: 2
+    price: cost.sq_tube_25_jpy_per_m
+    need: b1
+  - part: frame
+    item: Flat bar 6 x 32, brackets and kingpin bosses (m)
+    qty: 2
+    price: cost.flat_bar_jpy_per_m
+    need: b1
+  - part: floor
+    item: Steel plate 2.3 to 4.5 mm cut to size, floor, bearing and engine plates
+    qty: 1
+    price: cost.plate_allow_jpy
+    need: b1
+  - part: axle_shaft
+    item: Axle shaft S45C 25 mm, 1.22 m, keyway and pin holes
+    qty: 1
+    price: cost.axle_shaft_jpy
+    need: b3
+  - part: axle_bearings
+    item: Pillow block UCP205 (FYH or NTN)
+    qty: 2
+    price: cost.ucp205_jpy
+    need: b3
+  - part: rear_hubs
+    item: Rear hub, keyed 25 mm boss with a flange for the rim, made
+    qty: 2
+    price: cost.rear_hub_make_jpy
+    need: b3
+  - part: rear_wheels
+    item: Wheels 13x5.00-6 with tyres and rims, set of four
+    qty: 1
+    price: cost.tyres_set_jpy
+    need: b3
+  - part: brake
+    item: Hydraulic brake kit, caliper, master cylinder, disc
+    qty: 1
+    price: cost.brake_hyd_jpy
+    need: b3
+  - part: spindles
+    item: Spindle pair 17 mm
+    qty: 1
+    price: cost.spindle_pair_jpy
+    need: b4
+  - part: front_wheels
+    item: Front hub with three studs for 17 mm spindles
+    qty: 2
+    price: cost.front_hub_jpy
+    need: b4
+  - part: tie_rods
+    item: Rod end THK PHS10
+    qty: 4
+    price: cost.rod_end_jpy
+    need: b4
+  - part: steering_wheel
+    item: Steering wheel 300 mm
+    qty: 1
+    price: cost.steering_wheel_jpy
+    need: b4
+  - part: steering_column
+    item: Flange unit UCFL204 for the column
+    qty: 1
+    price: cost.ucfl204_jpy
+    need: b4
+  - part: engine
+    item: Engine GX200 class 196 cc, 3/4 inch shaft
+    qty: 1
+    price: cost.engine_clone_jpy
+    need: b5
+  - part: clutch
+    item: Centrifugal clutch 3/4 inch, 10T, chain 40
+    qty: 1
+    price: cost.clutch_jpy
+    need: b5
+  - part: jackshaft
+    item: Sprocket KANA 40T bore 20
+    qty: 1
+    price: cost.spr_t40_jpy
+    need: b5
+  - part: jackshaft
+    item: Sprocket KANA 12T bore 20
+    qty: 1
+    price: cost.spr_t12_jpy
+    need: b5
+  - part: chain_final
+    item: Sprocket KANA 36T pilot bore, bored to 25
+    qty: 1
+    price: cost.spr_t36_jpy
+    need: b5
+  - part: chain_primary
+    item: Roller chain 40, 3 m with joint links (both chains)
+    qty: 1
+    price: cost.chain_3m_jpy
+    need: b5
+  - part: jackshaft
+    item: Shaft S45C 20 mm, keyed
+    qty: 1
+    price: cost.shaft20_jpy
+    need: b5
+  - part: jackshaft
+    item: Pillow block UCP204 (FYH)
+    qty: 2
+    price: cost.ucp204_jpy
+    need: b5
+  - part: rear_axle
+    item: Machining by a local shop (keyways, boring, pin holes, disc carrier)
+    qty: 1
+    price: cost.machining_allow_jpy
+    need: b3
+  - part: pedal_box
+    item: Pedal kit with brake and throttle pedals and throttle cable
+    qty: 1
+    price: cost.pedal_kit_jpy
+    need: b6
+  - part: seat
+    item: Seat with slide rails (small operator seat)
+    qty: 1
+    price: cost.seat_operator_jpy
+    need: b6
+  - part: kill_switch
+    item: Stop switch on the steering
+    qty: 1
+    price: cost.kill_switch_jpy
+    need: b6
+  - part: kill_switch
+    item: Stop switch with tether lanyard
+    qty: 1
+    price: cost.kill_lanyard_jpy
+    need: b6
+  - part: guards
+    item: Punched steel sheet 1.0 mm 450 x 450 for the chain guard
+    qty: 1
+    price: cost.punched_sheet_jpy
+    need: b7
+  - part: bumpers
+    item: Tube padding for the bumper and the seat hoop (0.9 m)
+    qty: 2
+    price: cost.padding_jpy
+    need: b7
+  - part: kart
+    item: Bolts, nuts, pins, paint, small parts
+    qty: 1
+    price: cost.allow_small_parts_jpy
+    need: b1
+  - part: kart
+    item: Shipping
+    qty: 1
+    price: cost.allow_shipping_jpy
+    need: p1
+  - part: skis
+    item: UHMW polyethylene sheet cut to size for ski runners
+    qty: 1
+    price: cost.uhmw_order_jpy
+    need: w1
+  - part: snow_chains
+    item: Ladder chains for small tyres, adjustable
+    qty: 2
+    price: cost.snow_chain_jpy
+    need: w1
+  - part: kart
+    item: Welder, 100 V no-gas
+    qty: 1
+    price: cost.welder_jpy
+    need: p5
+    group: tools
+  - part: kart
+    item: Aluminium ladder rail 1820 mm for loading
+    qty: 2
+    price: cost.ramp_rail_jpy
+    need: t4
+    group: tools

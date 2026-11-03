@@ -1,0 +1,19 @@
+kind: procedure
+schema: 1
+items:
+  - id: OP-04
+    title: Change to the winter setup
+    steps:
+      - id: OP-04.01
+        action: Lift the front, take off the front wheels, and bolt the skis onto the spindles.
+        values:
+          - ski.width_mm
+          - ski.contact_length_mm
+      - id: OP-04.02
+        action: Fit the chains on the rear tyres and tighten them.
+        controls:
+          - H-07
+      - id: OP-04.03
+        action: Check the steering moves freely from lock to lock with the skis.
+        controls:
+          - H-07

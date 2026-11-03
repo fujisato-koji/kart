@@ -1,0 +1,27 @@
+kind: procedure
+schema: 1
+items:
+  - id: OP-05
+    title: Load into the Delica D:5
+    steps:
+      - id: OP-05.01
+        action: Fold the third row up and tip and slide the second row forward.
+        values:
+          - delica.cargo_length_mm
+      - id: OP-05.02
+        action: Pull the pins, slide the rear hubs inward to the transport track, and pin them.
+      - id: OP-05.03
+        action: Hook the ramps on the cargo floor lip.
+        values:
+          - delica.lip_height_mm
+        controls:
+          - H-09
+      - id: OP-05.04
+        action: Push the kart up the ramps, with the engine stopped and the fuel tap closed.
+        controls:
+          - H-09
+          - H-10
+      - id: OP-05.05
+        action: Tie the kart down at the frame with two straps.
+        controls:
+          - H-09
