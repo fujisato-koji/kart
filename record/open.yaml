@@ -1,3 +1,73 @@
 kind: open
 schema: 1
 items:
+  - id: Q-001
+    kind: question
+    text: How heavy is the heaviest adult who will drive? The strength is assumed for 100 kg until the owner answers.
+    waits_for: owner
+    affects:
+      - rider.mass_max_kg
+      - R-02
+    opened: 2026-11-03
+    phase: design
+  - id: Q-002
+    kind: question
+    text: How old and how tall is the youngest child who will drive, and how tall is the tallest adult? The seat and pedal range is assumed from 120 cm to 185 cm stature until the owner answers, and is then set from body dimension data.
+    waits_for: owner
+    affects:
+      - rider.stature_min_cm
+      - rider.stature_max_cm
+      - R-03
+    opened: 2026-11-03
+    phase: design
+  - id: Q-003
+    kind: question
+    text: Does the top speed of 30 km/h have to be reached on snow, or is a lower speed enough on packed snow and in fresh snow? R-05 and R-06 ask only that the kart runs, turns, and stops on snow.
+    waits_for: owner
+    affects:
+      - R-05
+      - R-06
+    opened: 2026-11-03
+    phase: design
+  - id: Q-004
+    kind: question
+    text: Set the longest stopping distance from the top speed from a go-kart standard or kart rules. Until then it is assumed at 6 m, about 0.6 g.
+    waits_for: assistant
+    affects:
+      - kart.stop_distance_max_m
+      - R-09
+    opened: 2026-11-03
+    phase: design
+  - id: Q-005
+    kind: question
+    text: Set the smallest ratio of half the track width to the height of the centre of mass, so that the kart slides before it tips, from tyre friction data and any standard. Until then it is assumed at 1.5.
+    waits_for: assistant
+    affects:
+      - kart.tip_ratio_min
+      - R-12
+    opened: 2026-11-03
+    phase: design
+  - id: Q-006
+    kind: question
+    text: Where is the kart kept (indoors, under a roof, outdoors), and must it be carried in a car or a truck? This sets the size and mass limits and whether it stands in the cold before a run.
+    waits_for: owner
+    affects:
+      - R-07
+    opened: 2026-11-03
+    phase: design
+  - id: Q-007
+    kind: question
+    text: How long is one session of driving, how often is the kart used, and by when should it be ready? The run time per charge or tank is assumed at 30 min until the owner answers.
+    waits_for: owner
+    affects:
+      - kart.run_time_min
+    opened: 2026-11-03
+    phase: design
+  - id: Q-008
+    kind: question
+    text: What is the steepest slope the kart must climb on the land? It is assumed at 10 % until the owner answers.
+    waits_for: owner
+    affects:
+      - site.grade_max_pct
+    opened: 2026-11-03
+    phase: design

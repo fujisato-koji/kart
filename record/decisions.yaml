@@ -1,3 +1,60 @@
 kind: decision
 schema: 1
 items:
+  - id: D-001
+    date: 2026-11-03
+    by: owner
+    what: Build one go-kart with one seat, for the owner's private land, to be driven mainly by a child and also by an adult, in summer and in winter. The power source is not preset; the form step compares an engine and an electric drive.
+    touches:
+      - kart.seats
+      - R-01
+      - R-02
+      - R-03
+  - id: D-002
+    date: 2026-11-03
+    by: owner
+    what: Keep the record public in fujisato-koji/kart, created from the traceable-design template. The record is written in English and the conversation with the assistant is in Japanese. Private facts such as the place stay outside the repository.
+    touches:
+      - D-001
+  - id: D-003
+    date: 2026-11-03
+    by: owner
+    what: The top speed is set for a child, at 30 km/h.
+    touches:
+      - kart.speed_max_kmh
+      - R-01
+  - id: D-004
+    date: 2026-11-03
+    by: owner
+    what: The speed is set for a child, but the strength and the seat and pedal positions must also fit an adult.
+    touches:
+      - R-02
+      - R-03
+  - id: D-005
+    date: 2026-11-03
+    by: owner
+    what: The kart runs only on private land, on paved ground, gravel or dirt, and grass. It does not run on public roads.
+    touches:
+      - R-04
+  - id: D-006
+    date: 2026-11-03
+    by: owner
+    what: In winter the kart runs on private land on packed snow or ice and on fresh snow up to 30 cm deep.
+    touches:
+      - snow.depth_max_cm
+      - R-05
+      - R-06
+  - id: D-007
+    date: 2026-11-03
+    by: owner
+    what: The lowest air temperature in use is -10 degC.
+    touches:
+      - ambient.temp_min_c
+      - R-07
+  - id: D-008
+    date: 2026-11-03
+    by: owner
+    what: The budget for parts and materials is 100,000 JPY, including tax, shipping, and the winter parts, and excluding tools. It is a guideline that may be passed a little; when it is likely to be passed, the assistant names the parts that drive it and the owner decides. The owner would buy a welder if the chosen form needs one.
+    touches:
+      - budget.parts_jpy
+      - R-08

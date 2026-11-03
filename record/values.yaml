@@ -1,3 +1,73 @@
 kind: value
 schema: 1
 items:
+  - key: kart.seats
+    v: 1
+    status: decided
+    basis:
+      - D-001
+  - key: kart.speed_max_kmh
+    v: 30
+    unit: km/h
+    status: decided
+    basis:
+      - D-003
+  - key: snow.depth_max_cm
+    v: 30
+    unit: cm
+    status: decided
+    basis:
+      - D-006
+  - key: ambient.temp_min_c
+    v: -10
+    unit: degC
+    status: decided
+    basis:
+      - D-007
+  - key: budget.parts_jpy
+    v: 100000
+    unit: JPY
+    status: decided
+    basis:
+      - D-008
+  - key: rider.mass_max_kg
+    v: 100
+    unit: kg
+    status: assumed
+    basis:
+      - Q-001
+  - key: rider.stature_min_cm
+    v: 120
+    unit: cm
+    status: assumed
+    basis:
+      - Q-002
+  - key: rider.stature_max_cm
+    v: 185
+    unit: cm
+    status: assumed
+    basis:
+      - Q-002
+  - key: site.grade_max_pct
+    v: 10
+    unit: "%"
+    status: assumed
+    basis:
+      - Q-008
+  - key: kart.run_time_min
+    v: 30
+    unit: min
+    status: assumed
+    basis:
+      - Q-007
+  - key: kart.stop_distance_max_m
+    v: 6
+    unit: m
+    status: assumed
+    basis:
+      - Q-004
+  - key: kart.tip_ratio_min
+    v: 1.5
+    status: assumed
+    basis:
+      - Q-005

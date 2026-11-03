@@ -1,3 +1,56 @@
 kind: hazard
 schema: 1
 items:
+  - id: H-01
+    text: The kart hits an obstacle, a building, a vehicle, or a person.
+    phases:
+      - operate
+    at_risk: The driver and people nearby.
+    controls:
+      - R-01
+      - R-09
+      - R-13
+  - id: H-02
+    text: The drive keeps pushing after the driver lets go or loses control.
+    phases:
+      - operate
+    at_risk: The driver and people nearby.
+    controls:
+      - R-10
+  - id: H-03
+    text: Hair, clothing such as a scarf, or fingers are caught in the chain, sprockets, belt, or turning axle.
+    phases:
+      - build
+      - operate
+    at_risk: The driver and helpers.
+    controls:
+      - R-11
+  - id: H-04
+    text: The driver touches a hot engine, exhaust, or motor, or the battery overheats or burns.
+    phases:
+      - operate
+    at_risk: The driver and helpers.
+    controls:
+      - R-11
+  - id: H-05
+    text: The kart tips over in a turn or on a slope.
+    phases:
+      - operate
+    at_risk: The driver.
+    controls:
+      - R-12
+  - id: H-06
+    text: The steering, an axle, the frame, or the seat breaks under an adult.
+    phases:
+      - operate
+    at_risk: The driver.
+    controls:
+      - R-02
+  - id: H-07
+    text: Braking or steering is lost on snow or ice.
+    phases:
+      - operate
+    at_risk: The driver and people nearby.
+    controls:
+      - R-05
+      - R-09

@@ -1,3 +1,109 @@
 kind: requirement
 schema: 1
 items:
+  - id: R-01
+    text: The kart is not faster than a speed set for a child.
+    origin: owner
+    design_point: Top speed on level paved ground, with the lightest and with the heaviest rider, is at most kart.speed_max_kmh.
+    verify: test
+    basis:
+      - D-003
+    status: confirmed
+  - id: R-02
+    text: The kart carries an adult.
+    origin: owner
+    design_point: Frame, axles, steering, seat, and their joints carry a rider of rider.mass_max_kg under the load cases of docs/03-design.md without yield or loosening.
+    verify: analysis
+    basis:
+      - D-004
+    status: confirmed
+  - id: R-03
+    text: The seat and pedals fit a child and an adult.
+    origin: owner
+    design_point: Without welding or cutting, the seat-to-pedal distance and the seat height adjust so that riders from rider.stature_min_cm to rider.stature_max_cm reach the pedals fully and hold the steering wheel with bent arms.
+    verify: demonstration
+    basis:
+      - D-004
+    status: confirmed
+  - id: R-04
+    text: The kart runs on paved ground, gravel or dirt, and grass.
+    origin: owner
+    design_point: With the heaviest rider, on each of the three surfaces, the kart starts from rest, runs, turns, and stops, climbs site.grade_max_pct, and no part other than the tyres touches the ground.
+    verify: test
+    basis:
+      - D-005
+    status: confirmed
+  - id: R-05
+    text: The kart runs on packed snow and ice.
+    origin: owner
+    design_point: With the heaviest rider, on level packed snow, the kart starts from rest, runs, turns, and stops.
+    verify: test
+    basis:
+      - D-006
+    status: confirmed
+  - id: R-06
+    text: The kart runs in fresh snow.
+    origin: owner
+    design_point: With the heaviest rider, on level fresh snow of depth snow.depth_max_cm, the kart starts from rest, runs, and turns without getting stuck.
+    verify: test
+    basis:
+      - D-006
+    status: confirmed
+  - id: R-07
+    text: The kart works in the cold.
+    origin: owner
+    design_point: After standing at ambient.temp_min_c, the kart starts and runs for kart.run_time_min.
+    verify: test
+    basis:
+      - D-007
+    status: confirmed
+  - id: R-08
+    text: The kart is built within the budget.
+    origin: owner
+    design_point: The parts list of docs/05-parts-and-cost.md, with tax, shipping, and winter parts, totals at most budget.parts_jpy, or the owner has accepted the excess.
+    verify: inspection
+    basis:
+      - D-008
+    status: confirmed
+  - id: R-09
+    text: The kart stops in a short distance.
+    origin: derived
+    design_point: With the heaviest rider, from kart.speed_max_kmh on level dry paved ground, the kart stops within kart.stop_distance_max_m.
+    verify: test
+    basis:
+      - H-01
+      - H-07
+    status: awaiting
+  - id: R-10
+    text: The drive stops when the driver lets go.
+    origin: derived
+    design_point: The throttle returns to zero by a spring when released, and a stop switch that the driver reaches from the seat, and a helper reaches from beside the kart, cuts the drive.
+    verify: demonstration
+    basis:
+      - H-02
+    status: awaiting
+  - id: R-11
+    text: Moving and hot parts cannot be touched.
+    origin: derived
+    design_point: Chain, sprockets, belt, the turning axle near the seat, and any hot part are covered so that the driver's hands, feet, hair, and clothing cannot reach them from the seat.
+    verify: inspection
+    basis:
+      - H-03
+      - H-04
+    status: awaiting
+  - id: R-12
+    text: The kart slides before it tips over.
+    origin: derived
+    design_point: With the heaviest rider, half the track width divided by the height of the centre of mass is at least kart.tip_ratio_min, on every wheel or ski setup.
+    verify: analysis
+    basis:
+      - H-05
+    status: awaiting
+  - id: R-13
+    text: The frame shields the driver's legs and feet.
+    origin: derived
+    design_point: Seen from the front and the sides, the driver's feet and legs are inside the frame or a bumper.
+    verify: inspection
+    basis:
+      - H-01
+    status: awaiting

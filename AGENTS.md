@@ -11,7 +11,7 @@ For every task, follow `.claude/skills/traceable-design/SKILL.md`.
 
 Fill these in when the project starts.
 
-- Owner:
-- What the thing is:
-- Language of the record:
-- Where the owner keeps private facts (outside this repository):
+- Owner: Koji Fujisato (fujisato-koji)
+- What the thing is: one go-kart for the owner's private land, driven mainly by a child and also by an adult, on paved ground, gravel, grass, packed snow, and fresh snow (D-001).
+- Language of the record: English. The owner talks with the assistant in Japanese (D-002).
+- Where the owner keeps private facts (outside this repository): a folder on the owner's computer next to this repository, named kart-private. Nothing private is needed yet.
