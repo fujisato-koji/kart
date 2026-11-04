@@ -446,7 +446,7 @@ def build(v):
         item("lighting", "lamp", pos=[xh_ + 0.01, s * 0.21, zt - 0.20], role="turn", color="amber", facing="-x", d=0.05)
         item("mirrors", "mirror", pos=[xbar + 0.03, s * (wbar / 2 + 0.03), zbar + 0.14],
              stem=[xbar, s * (wbar / 2 - 0.13), zbar + 0.01], d=0.10, facing="-x")
-    item("lighting", "lamp", pos=[xbk - 0.02, 0.0, z_u + 0.05], role="tail_stop", color="red", facing="-x", size=[0.02, 0.12, 0.05])
+    item("lighting", "lamp", pos=[xbk - 0.02, 0.0, z_u + 0.06], role="tail_stop", color="red", facing="-x", size=[0.02, 0.12, 0.05])
     item("lighting", "lamp", pos=[xbk - 0.035, 0.0, z_u + 0.005], role="reflector", color="red", facing="-x", size=[0.01, 0.06, 0.03])
     item("number_plate", "plate_number", pos=[xbk - 0.03, 0.0, z_u - 0.10], size=[0.004, 0.17, 0.10])
     item("lighting", "lamp", pos=[xbk - 0.01, 0.0, z_u - 0.035], role="plate", color="white", facing="-z", d=0.03)
