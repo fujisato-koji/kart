@@ -54,7 +54,8 @@
    "verify": "test",
    "basis": [
     "D-006",
-    "D-011"
+    "D-011",
+    "D-023"
    ],
    "status": "confirmed"
   },
@@ -303,6 +304,39 @@
    ],
    "status": "awaiting",
    "parent": "R-18"
+  },
+  {
+   "id": "R-27",
+   "text": "The kart goes into calm water from a shore, floats and moves on it, and drives out again.",
+   "origin": "owner",
+   "design_point": "With the heaviest rider, in calm fresh water, the kart floats upright with a freeboard of at least water.freeboard_min_mm, moves at water.speed_min_kmh or more and steers, and drives out up a shore of water.shore_grade_pct.",
+   "verify": "test",
+   "basis": [
+    "D-024"
+   ],
+   "status": "awaiting"
+  },
+  {
+   "id": "R-28",
+   "text": "The kart changes between a summer form on tyres and a winter form on skis and a track.",
+   "origin": "derived",
+   "design_point": "Two people change the kart from one form to the other with hand tools in at most kart.swap_time_h, without cutting or welding.",
+   "verify": "test",
+   "basis": [
+    "D-023"
+   ],
+   "status": "awaiting"
+  },
+  {
+   "id": "R-29",
+   "text": "A driver whose kart capsizes or swamps in water, or breaks through ice, gets free and stays afloat.",
+   "origin": "derived",
+   "design_point": "On water and on ice the driver wears a life jacket and no seat belt; nothing of the kart holds a driver under it when it floats upside down; and the kart's foam floats the swamped kart with its engine and fuel at water.reserve_ratio times their weight.",
+   "verify": "analysis",
+   "basis": [
+    "H-11"
+   ],
+   "status": "awaiting"
   }
  ],
  "values": [
@@ -325,11 +359,11 @@
   },
   {
    "key": "snow.depth_max_cm",
-   "v": 30,
+   "v": 100,
    "unit": "cm",
    "status": "decided",
    "basis": [
-    "D-006"
+    "D-023"
    ]
   },
   {
@@ -3037,6 +3071,335 @@
    ]
   },
   {
+   "key": "sm.track_width_mm",
+   "v": 381,
+   "unit": "mm",
+   "status": "sourced",
+   "basis": [
+    "P51"
+   ]
+  },
+  {
+   "key": "sm.track_contact_mm",
+   "v": 1110,
+   "unit": "mm",
+   "status": "sourced",
+   "basis": [
+    "P51"
+   ]
+  },
+  {
+   "key": "sm.track_x_mm",
+   "v": 0,
+   "unit": "mm",
+   "status": "assumed",
+   "basis": [
+    "Q-027"
+   ]
+  },
+  {
+   "key": "sm.track_unit_kg",
+   "v": 30,
+   "unit": "kg",
+   "status": "assumed",
+   "basis": [
+    "Q-027"
+   ]
+  },
+  {
+   "key": "sm.removed_kg",
+   "v": 21,
+   "unit": "kg",
+   "status": "assumed",
+   "basis": [
+    "Q-027"
+   ]
+  },
+  {
+   "key": "ski.pair_kg",
+   "v": 6,
+   "unit": "kg",
+   "status": "assumed",
+   "basis": [
+    "Q-027"
+   ]
+  },
+  {
+   "key": "sm.drive_dia_mm",
+   "v": 180,
+   "unit": "mm",
+   "status": "assumed",
+   "basis": [
+    "Q-027"
+   ]
+  },
+  {
+   "key": "sm.seat_raise_mm",
+   "v": 150,
+   "unit": "mm",
+   "status": "assumed",
+   "basis": [
+    "Q-027"
+   ]
+  },
+  {
+   "key": "sm.speed_snow_kmh",
+   "v": 10,
+   "unit": "km/h",
+   "status": "assumed",
+   "basis": [
+    "Q-027"
+   ]
+  },
+  {
+   "key": "su.clutch_lock_rpm",
+   "v": 4000,
+   "unit": "rpm",
+   "status": "assumed",
+   "basis": [
+    "Q-023"
+   ]
+  },
+  {
+   "key": "hull.length_mm",
+   "v": 1500,
+   "unit": "mm",
+   "status": "assumed",
+   "basis": [
+    "Q-027"
+   ]
+  },
+  {
+   "key": "hull.beam_mm",
+   "v": 900,
+   "unit": "mm",
+   "status": "assumed",
+   "basis": [
+    "Q-027"
+   ]
+  },
+  {
+   "key": "hull.depth_mm",
+   "v": 350,
+   "unit": "mm",
+   "status": "assumed",
+   "basis": [
+    "Q-027"
+   ]
+  },
+  {
+   "key": "hull.bottom_clear_mm",
+   "v": 100,
+   "unit": "mm",
+   "status": "assumed",
+   "basis": [
+    "Q-027"
+   ]
+  },
+  {
+   "key": "hull.foam_share_max",
+   "v": 0.4,
+   "status": "assumed",
+   "basis": [
+    "Q-027"
+   ]
+  },
+  {
+   "key": "water.freeboard_min_mm",
+   "v": 150,
+   "unit": "mm",
+   "status": "assumed",
+   "basis": [
+    "Q-027"
+   ]
+  },
+  {
+   "key": "water.speed_min_kmh",
+   "v": 2,
+   "unit": "km/h",
+   "status": "assumed",
+   "basis": [
+    "Q-027"
+   ]
+  },
+  {
+   "key": "water.shore_grade_pct",
+   "v": 15,
+   "unit": "%",
+   "status": "assumed",
+   "basis": [
+    "Q-027"
+   ]
+  },
+  {
+   "key": "water.reserve_ratio",
+   "v": 1.2,
+   "status": "assumed",
+   "basis": [
+    "Q-027"
+   ]
+  },
+  {
+   "key": "kart.swap_time_h",
+   "v": 2,
+   "unit": "h",
+   "status": "assumed",
+   "basis": [
+    "Q-027"
+   ]
+  },
+  {
+   "key": "kart.tip_ratio_snow_min",
+   "v": 0.6,
+   "status": "assumed",
+   "basis": [
+    "Q-027"
+   ]
+  },
+  {
+   "key": "hull.bottom_t_mm",
+   "v": 6,
+   "unit": "mm",
+   "status": "assumed",
+   "basis": [
+    "Q-027"
+   ]
+  },
+  {
+   "key": "hull.side_t_mm",
+   "v": 3,
+   "unit": "mm",
+   "status": "assumed",
+   "basis": [
+    "Q-027"
+   ]
+  },
+  {
+   "key": "hull.sheet_density_kg_m3",
+   "v": 940,
+   "unit": "kg/m3",
+   "status": "assumed",
+   "basis": [
+    "Q-027"
+   ]
+  },
+  {
+   "key": "cost.allow_winter_mounts_jpy",
+   "v": 15000,
+   "unit": "JPY",
+   "status": "assumed",
+   "basis": [
+    "Q-027"
+   ]
+  },
+  {
+   "key": "foam.density_kg_m3",
+   "v": 27,
+   "unit": "kg/m3",
+   "status": "sourced",
+   "basis": [
+    "M83"
+   ]
+  },
+  {
+   "key": "cost.xps_jpy_per_m3",
+   "v": 43200,
+   "unit": "JPY",
+   "status": "sourced",
+   "basis": [
+    "M83"
+   ]
+  },
+  {
+   "key": "cost.hull_bottom_jpy_per_m2",
+   "v": 29100,
+   "unit": "JPY",
+   "status": "sourced",
+   "basis": [
+    "M82"
+   ]
+  },
+  {
+   "key": "cost.hull_side_jpy_per_m2",
+   "v": 21800,
+   "unit": "JPY",
+   "status": "sourced",
+   "basis": [
+    "M82"
+   ]
+  },
+  {
+   "key": "cost.donor_bravo_jpy",
+   "v": 131000,
+   "unit": "JPY",
+   "status": "sourced",
+   "basis": [
+    "M80"
+   ]
+  },
+  {
+   "key": "cost.outboard_jpy",
+   "v": 40990,
+   "unit": "JPY",
+   "status": "sourced",
+   "basis": [
+    "M84"
+   ]
+  },
+  {
+   "key": "outboard.mass_kg",
+   "v": 8.2,
+   "unit": "kg",
+   "status": "sourced",
+   "basis": [
+    "M84"
+   ]
+  },
+  {
+   "key": "outboard.power_max_w",
+   "v": 660,
+   "unit": "W",
+   "status": "sourced",
+   "basis": [
+    "M84"
+   ]
+  },
+  {
+   "key": "water.load_share_manual",
+   "v": 0.3,
+   "status": "sourced",
+   "basis": [
+    "P52"
+   ]
+  },
+  {
+   "key": "snow.skip_kmh_per_100kg",
+   "v": 12,
+   "unit": "km/h",
+   "status": "sourced",
+   "basis": [
+    "S5"
+   ]
+  },
+  {
+   "key": "outboard.battery_kg",
+   "v": 20,
+   "unit": "kg",
+   "status": "assumed",
+   "basis": [
+    "Q-027"
+   ]
+  },
+  {
+   "key": "cost.allow_outboard_battery_jpy",
+   "v": 20000,
+   "unit": "JPY",
+   "status": "assumed",
+   "basis": [
+    "Q-027"
+   ]
+  },
+  {
    "key": "form.mass_total_kg",
    "v": 170,
    "unit": "kg",
@@ -3047,7 +3410,7 @@
   },
   {
    "key": "snow.wheel_sinkage_min_cm",
-   "v": 19.0,
+   "v": 63.2,
    "unit": "cm",
    "status": "calculated",
    "basis": [
@@ -3056,7 +3419,7 @@
   },
   {
    "key": "snow.wheel_sinkage_max_cm",
-   "v": 25.1,
+   "v": 83.8,
    "unit": "cm",
    "status": "calculated",
    "basis": [
@@ -3267,6 +3630,237 @@
    "status": "calculated",
    "basis": [
     "docs/02-form.md#drive"
+   ]
+  },
+  {
+   "key": "hull.sheet_kg",
+   "v": 12.4,
+   "unit": "kg",
+   "status": "calculated",
+   "basis": [
+    "docs/02-form.md#water"
+   ]
+  },
+  {
+   "key": "hull.foam_m3",
+   "v": 0.164,
+   "unit": "m3",
+   "status": "calculated",
+   "basis": [
+    "docs/02-form.md#water"
+   ]
+  },
+  {
+   "key": "hull.foam_share",
+   "v": 0.35,
+   "status": "calculated",
+   "basis": [
+    "docs/02-form.md#water"
+   ]
+  },
+  {
+   "key": "hull.mass_kg",
+   "v": 16.8,
+   "unit": "kg",
+   "status": "calculated",
+   "basis": [
+    "docs/02-form.md#water"
+   ]
+  },
+  {
+   "key": "water.draft_mm",
+   "v": 186,
+   "unit": "mm",
+   "status": "calculated",
+   "basis": [
+    "docs/02-form.md#water"
+   ]
+  },
+  {
+   "key": "water.freeboard_mm",
+   "v": 164,
+   "unit": "mm",
+   "status": "calculated",
+   "basis": [
+    "docs/02-form.md#water"
+   ]
+  },
+  {
+   "key": "water.gm_m",
+   "v": 0.191,
+   "unit": "m",
+   "status": "calculated",
+   "basis": [
+    "docs/02-form.md#water"
+   ]
+  },
+  {
+   "key": "water.load_rating_kg",
+   "v": 97,
+   "unit": "kg",
+   "status": "calculated",
+   "basis": [
+    "docs/02-form.md#water"
+   ]
+  },
+  {
+   "key": "water.depth_for_rider_mm",
+   "v": 358,
+   "unit": "mm",
+   "status": "calculated",
+   "basis": [
+    "docs/02-form.md#water"
+   ]
+  },
+  {
+   "key": "sm.mass_kg",
+   "v": 137.4,
+   "unit": "kg",
+   "status": "calculated",
+   "basis": [
+    "docs/02-form.md#snowmobile"
+   ]
+  },
+  {
+   "key": "sm.rear_share",
+   "v": 0.73,
+   "status": "calculated",
+   "basis": [
+    "docs/02-form.md#snowmobile"
+   ]
+  },
+  {
+   "key": "sm.track_pressure_kpa",
+   "v": 4.0,
+   "unit": "kPa",
+   "status": "calculated",
+   "basis": [
+    "docs/02-form.md#snowmobile"
+   ]
+  },
+  {
+   "key": "sm.ski_pressure_kpa",
+   "v": 4.43,
+   "unit": "kPa",
+   "status": "calculated",
+   "basis": [
+    "docs/02-form.md#snowmobile"
+   ]
+  },
+  {
+   "key": "sm.hull_pressure_kpa",
+   "v": 1.72,
+   "unit": "kPa",
+   "status": "calculated",
+   "basis": [
+    "docs/02-form.md#snowmobile"
+   ]
+  },
+  {
+   "key": "sm.track_sinkage_max_cm",
+   "v": 11.2,
+   "unit": "cm",
+   "status": "calculated",
+   "basis": [
+    "docs/02-form.md#snowmobile"
+   ]
+  },
+  {
+   "key": "sm.ski_sinkage_max_cm",
+   "v": 8.5,
+   "unit": "cm",
+   "status": "calculated",
+   "basis": [
+    "docs/02-form.md#snowmobile"
+   ]
+  },
+  {
+   "key": "sm.hull_sinkage_max_cm",
+   "v": 7.1,
+   "unit": "cm",
+   "status": "calculated",
+   "basis": [
+    "docs/02-form.md#snowmobile"
+   ]
+  },
+  {
+   "key": "sm.clutch_lock_kmh",
+   "v": 2.3,
+   "unit": "km/h",
+   "status": "calculated",
+   "basis": [
+    "docs/02-form.md#snowmobile"
+   ]
+  },
+  {
+   "key": "sm.top_speed_kmh",
+   "v": 16.0,
+   "unit": "km/h",
+   "status": "calculated",
+   "basis": [
+    "docs/02-form.md#snowmobile"
+   ]
+  },
+  {
+   "key": "sm.power_snow_kw",
+   "v": 0.72,
+   "unit": "kW",
+   "status": "calculated",
+   "basis": [
+    "docs/02-form.md#snowmobile"
+   ]
+  },
+  {
+   "key": "sm.cg_height_m",
+   "v": 0.492,
+   "unit": "m",
+   "status": "calculated",
+   "basis": [
+    "docs/02-form.md#snowmobile"
+   ]
+  },
+  {
+   "key": "sm.tip_ratio",
+   "v": 0.81,
+   "status": "calculated",
+   "basis": [
+    "docs/02-form.md#snowmobile"
+   ]
+  },
+  {
+   "key": "sm.length_min_m",
+   "v": 1.85,
+   "unit": "m",
+   "status": "calculated",
+   "basis": [
+    "docs/02-form.md#snowmobile"
+   ]
+  },
+  {
+   "key": "sm.skip_speed_kmh",
+   "v": 28,
+   "unit": "km/h",
+   "status": "calculated",
+   "basis": [
+    "docs/02-form.md#snowmobile"
+   ]
+  },
+  {
+   "key": "cost.tub_jpy",
+   "v": 82992,
+   "unit": "JPY",
+   "status": "calculated",
+   "basis": [
+    "docs/02-form.md#water"
+   ]
+  },
+  {
+   "key": "cost.winter_sm_jpy",
+   "v": 236992,
+   "unit": "JPY",
+   "status": "calculated",
+   "basis": [
+    "docs/02-form.md#snowmobile"
    ]
   },
   {
@@ -5078,6 +5672,226 @@
    "note": "Read by a helper. Belts 3,036 to 3,190 JPY, none marked JIS D4604; anchor bolts 2,772 JPY."
   },
   {
+   "id": "P45",
+   "class": "P",
+   "title": "Ordinance for Enforcement of the Act on Ship Officers and Boat Operators (326M50000800091), article 2 paragraph 2 item 1, and MLIT Notice 1528 of 2003",
+   "url": "https://laws.e-gov.go.jp/api/1/lawdata/326M50000800091",
+   "retrieved": "2026-11-04",
+   "license": "unknown (laws and notices are not subject to copyright, Copyright Act article 13)",
+   "read": "partial",
+   "note": "Read by a helper; the notice at https://www.mlit.go.jp/notice/noticedata/sgml/2003/66aa5536/66aa5536.html read in full. No boat licence is needed for a vessel shorter than 3 m whose propulsion output is under 1.5 kW and which has a structure that prevents propeller injuries (a mechanism that stops the propeller at once, or similar). The output is not defined in this rule."
+  },
+  {
+   "id": "P46",
+   "class": "P",
+   "title": "Ordinance for Enforcement of the Ship Safety Act (338M50000800041), article 1 paragraph 4 and article 2 paragraph 2 item 1, with Ministry of Transport Notice 56 of 1980",
+   "url": "https://laws.e-gov.go.jp/api/1/lawdata/338M50000800041",
+   "retrieved": "2026-11-04",
+   "license": "unknown (laws and notices are not subject to copyright, Copyright Act article 13)",
+   "read": "partial",
+   "note": "Read by a helper and the assistant; the notice PDF at https://www.mlit.go.jp/maritime/content/001321417.pdf read in full by a helper. Ship inspection is not needed for a powered vessel under 12 m 'excluding special ships' that is shorter than 3 m with a continuous maximum propulsion output under 1.5 kW (item 1 ro), or that carries at most three people on an outboard on a lake of at most 50 km2 (item 1 i). Special ships include ships of special structure named by notice, and Notice 56 names amphibious vessels first; their inspection is by the regional transport bureau (article 14)."
+  },
+  {
+   "id": "P47",
+   "class": "P",
+   "title": "Ordinance on the Registration of Small Vessels (414M60000800004), article 2 item 1",
+   "url": "https://laws.e-gov.go.jp/api/1/lawdata/414M60000800004",
+   "retrieved": "2026-11-04",
+   "license": "unknown (laws and notices are not subject to copyright, Copyright Act article 13)",
+   "read": "partial",
+   "note": "Read by a helper. Registration is not needed for a powered vessel shorter than 3 m whose continuous maximum output is under 20 horsepower."
+  },
+  {
+   "id": "P48",
+   "class": "P",
+   "title": "MLIT and JCI pages on licence-free boats, inspection, and life jackets",
+   "url": "https://jci.go.jp/question/kensa_qa.html",
+   "retrieved": "2026-11-04",
+   "license": "Copyright JCI, all rights reserved; MLIT pages under the Public Data License 1.0",
+   "read": "partial",
+   "note": "Read by a helper, with https://jci.go.jp/inspection/kensataishou.html and the MLIT maritime pages. Outputs of several propulsion engines are added; an electric motor under 1.5 kW on a boat of 3 m or more still needs a licence; the length is about 0.9 of the overall length; life jackets must be worn on the exposed deck of boats that need a licence (from 2018), and licence-free boats have no legal equipment (Japan Coast Guard mini boat page)."
+  },
+  {
+   "id": "P49",
+   "class": "P",
+   "title": "Kinki District Transport Bureau, modified mini boats",
+   "url": "https://wwwtb.mlit.go.jp/kinki/koutsu/hune/kaizo.htm",
+   "retrieved": "2026-11-04",
+   "license": "unknown",
+   "read": "full",
+   "note": "Read by a helper (updated 2021-03-10). A licence-free boat whose engine is modified to 1.5 kW or more needs a licence and an inspection; operating an uninspected boat is punishable by up to one year in prison or a fine of up to 500,000 JPY."
+  },
+  {
+   "id": "P50",
+   "class": "P",
+   "title": "Vehicle Restriction Order (336CO0000000265), article 8, and the River Act (339AC0000000167) article 29 with its Enforcement Order (340CO0000000014) article 16-4",
+   "url": "https://laws.e-gov.go.jp/api/1/lawdata/336CO0000000265",
+   "retrieved": "2026-11-04",
+   "license": "unknown (laws and notices are not subject to copyright, Copyright Act article 13)",
+   "read": "partial",
+   "note": "Read by a helper. Motor vehicles on paved roads must not have tracks unless the tracks cannot damage the surface (the order's motor vehicles exclude mopeds by its wording). Lakes designated as rivers are under the River Act, so the river manager may designate waters where vehicles may not enter, and prefectural ordinances may restrict use of class B rivers."
+  },
+  {
+   "id": "P51",
+   "class": "P",
+   "title": "Yamaha BR250F service manual, specifications, on manualslib",
+   "url": "https://www.manualslib.com/manual/654433/Yamaha-Br250f.html",
+   "retrieved": "2026-11-04",
+   "license": "unknown",
+   "read": "excerpt",
+   "note": "Read by a helper, pages 135, 136, and 176. Bravo BR250 has a track 381 mm wide, ground contact 1,110 to 1,126 mm; BR250TJ 184 kg with oil and full fuel."
+  },
+  {
+   "id": "S3",
+   "class": "S",
+   "title": "Wikipedia, Yamaha Bravo",
+   "url": "https://en.wikipedia.org/wiki/Yamaha_Bravo",
+   "retrieved": "2026-11-04",
+   "license": "CC BY-SA 4.0",
+   "read": "full",
+   "note": "Read by a helper. A 246 cc two-stroke of 18 hp (13.4 kW), about 150 kg short-track and 168 kg long-track, a 15 in track, top speed about 55 to 70 km/h."
+  },
+  {
+   "id": "S4",
+   "class": "S",
+   "title": "Wikipedia, Ground pressure",
+   "url": "https://en.wikipedia.org/wiki/Ground_pressure",
+   "retrieved": "2026-11-04",
+   "license": "CC BY-SA 4.0",
+   "read": "full",
+   "note": "Read by a helper. Reference values are snowshoes 3.5 kPa, a rubber-tracked ATV 5.2 kPa, a wheeled ATV 13.8 kPa."
+  },
+  {
+   "id": "S7",
+   "class": "S",
+   "title": "PowerSportsGuide, 120 cc snowmobiles and Yamaha snowmobile horsepower",
+   "url": "https://powersportsguide.com/120-snowmobiles",
+   "retrieved": "2026-11-04",
+   "license": "unknown",
+   "read": "partial",
+   "note": "Read by a helper, with https://powersportsguide.com/yamaha-snowmobile-horsepower. Kids' 120 cc snowmobiles (Polaris 120 Indy, Arctic Cat ZR120, Yamaha SRX120R, Ski-Doo Mini Z) have 10 in (254 mm) tracks and 4 to 6 hp, and are made for children; the Ski-Doo Mini Z's rider limit is 100 lb (45 kg)."
+  },
+  {
+   "id": "M79",
+   "class": "M",
+   "title": "Micromobility Japan, electric snow bike SIN EV, seated and standing models",
+   "url": "https://micromobilityjapan.com/products/%E9%9B%BB%E5%8B%95%E3%82%B9%E3%83%8E%E3%83%BC%E3%83%90%E3%82%A4%E3%82%AF-%E3%82%B9%E3%83%8E%E3%83%BC%E3%83%A2%E3%83%BC%E3%83%93%E3%83%AB-sin-ev-%E5%BA%A7%E3%82%8A%E4%B9%97%E3%82%8A%E3%83%A2%E3%83%87%E3%83%AB-%E7%AB%8B%E3%81%A1%E4%B9%97%E3%82%8A%E3%83%A2%E3%83%87%E3%83%AB",
+   "retrieved": "2026-11-04",
+   "license": "unknown",
+   "read": "full",
+   "note": "Given by the owner; read by the assistant through the shop's product data. Motor 4,000 W (rated or peak not stated), 72 V 65 Ah, 160 kg seated (145 kg standing), payload 270 kg, climbs 40 %, 70 km/h, 2,310,000 JPY with tax (2,200,000 standing); the front ski changes to a tyre and the track to suit the snow; not for public roads. Track size and snow depth not stated."
+  },
+  {
+   "id": "M80",
+   "class": "M",
+   "title": "Yahoo Auctions closed listings for used snowmobiles, tracks, and sprockets",
+   "url": "https://auctions.yahoo.co.jp/closedsearch/closedsearch?p=%E3%82%B9%E3%83%8E%E3%83%BC%E3%83%A2%E3%83%BC%E3%83%93%E3%83%AB+%E3%83%96%E3%83%A9%E3%83%9C%E3%83%BC",
+   "retrieved": "2026-11-04",
+   "license": "unknown",
+   "read": "partial",
+   "note": "Read by a helper, the first page of about 30 searches over the last 180 days, titles and prices only. Yamaha Bravo BR250 running 131,000 JPY, not running 56,000 to 226,000; other small Yamahas running 70,000 to 150,000; large sleds as junk 5,750 to 83,200 (tracks 136 to 166 in, too long); a used track alone 10,000 to 36,500; a 7T drive sprocket 12,500. No skid frame or drive shaft found sold alone."
+  },
+  {
+   "id": "M81",
+   "class": "M",
+   "title": "Sharmax S500 motor tug, rolf.ru",
+   "url": "https://www.rolf.ru/agregator/mototexnika/motobuksirovshhiki/item-2944/",
+   "retrieved": "2026-11-04",
+   "license": "unknown",
+   "read": "full",
+   "note": "Read by a helper. A single-track tug that pulls a sled with the driver on the sled; 18 hp, 440 cc, 90 kg, track 500 x 1,450 mm, pulls 250 to 300 kg."
+  },
+  {
+   "id": "P52",
+   "class": "P",
+   "title": "33 CFR 183 Subpart C, safe loading of monohull boats under 20 ft (eCFR)",
+   "url": "https://www.ecfr.gov/current/title-33/chapter-I/subchapter-S/part-183/subpart-C",
+   "retrieved": "2026-11-04",
+   "license": "US government work, public domain",
+   "read": "full",
+   "note": "Read by a helper. The persons capacity of an outboard boat is at most one fifth of the maximum displacement less the boat's weight, and of a boat for manual propulsion or 2 hp or less three tenths; the maximum displacement is the boat floating level in calm water with no water coming aboard."
+  },
+  {
+   "id": "P53",
+   "class": "P",
+   "title": "US8002596B2, amphibious vehicle track propulsion (Google Patents)",
+   "url": "https://patents.google.com/patent/US8002596B2/en",
+   "retrieved": "2026-11-04",
+   "license": "unknown",
+   "read": "partial",
+   "note": "Read by a helper. Near zero speed submerged tracks re-circulate the water, throwing as much forward as rearward, and give little forward thrust."
+  },
+  {
+   "id": "P54",
+   "class": "P",
+   "title": "Milcon, EPS method technical data",
+   "url": "https://www.milcon.co.jp/data/pdf/product_2539.pdf",
+   "retrieved": "2026-11-04",
+   "license": "unknown",
+   "read": "full",
+   "note": "Read by a helper. EPS blocks of 16 to 45 kg/m3 take up about 6 % of their volume in water at 1 m depth; petrol dissolves polystyrene foam."
+  },
+  {
+   "id": "S5",
+   "class": "S",
+   "title": "Wikipedia, Snowmobile skipping",
+   "url": "https://en.wikipedia.org/wiki/Snowmobile_skipping",
+   "retrieved": "2026-11-04",
+   "license": "CC BY-SA 4.0",
+   "read": "full",
+   "note": "Read by a helper. Skipping over water needs about 12 km/h per 100 kg; if the rider backs off, or the sled bogs or floods out, the sled sinks."
+  },
+  {
+   "id": "S6",
+   "class": "S",
+   "title": "Wikipedia, M113 armored personnel carrier and Bandvagn 206",
+   "url": "https://en.wikipedia.org/wiki/Bandvagn_206",
+   "retrieved": "2026-11-04",
+   "license": "CC BY-SA 4.0",
+   "read": "excerpt",
+   "note": "Read by a helper, the infoboxes. Tracked amphibians swim on their tracks at 5.8 km/h (M113) and 4.7 km/h (Bv206)."
+  },
+  {
+   "id": "M82",
+   "class": "M",
+   "title": "MonotaRO, Takiron UHMW-PE sheet",
+   "url": "https://www.monotaro.com/g/08591247/",
+   "retrieved": "2026-11-04",
+   "license": "unknown",
+   "read": "partial",
+   "note": "Read by a helper. 980 x 1,900 x 3 mm 40,678 JPY (about 21,800 JPY/m2); 1,000 x 2,000 x 6 mm 58,278 JPY (about 29,100 JPY/m2); with tax."
+  },
+  {
+   "id": "M83",
+   "class": "M",
+   "title": "Cainz, Styrofoam IB extruded polystyrene board 910 x 1,820 mm",
+   "url": "https://www.cainz.com/g/4984931100182.html",
+   "retrieved": "2026-11-04",
+   "license": "unknown",
+   "read": "full",
+   "note": "Read by a helper. 50 mm 3,580 JPY, 75 mm 5,380 JPY, 100 mm 7,080 JPY with tax (about 43,000 JPY/m3); the listed weight gives about 27 kg/m3. JIS A 9511 type 1b, water absorption at most 0.01 g/100 cm2."
+  },
+  {
+   "id": "M84",
+   "class": "M",
+   "title": "HAIGE electric outboard HS-50703-90, Yahoo Shopping",
+   "url": "https://store.shopping.yahoo.co.jp/haige/hs-50703-90.html",
+   "retrieved": "2026-11-04",
+   "license": "unknown",
+   "read": "partial",
+   "note": "Read by a helper. 12 V, thrust 55 lb (24.6 kgf), 540 W mean and 660 W at most, 8.2 kg, 40,990 JPY; the seller states it needs no licence below 2 hp on a boat under 3 m (the law says under 1.5 kW)."
+  },
+  {
+   "id": "M85",
+   "class": "M",
+   "title": "Argo Frontier 650 6x6 2023 and Sherp Pro specifications",
+   "url": "https://psxdigital.com/powersports-marketing-automation/productDetails/8/2023/ARGO/UTV/FRONTIER/650%206x6",
+   "retrieved": "2026-11-04",
+   "license": "unknown",
+   "read": "full",
+   "note": "Read by a helper, with https://sherpusadealer.com/sherp-pro/. Argo 650 6x6 - 17 kW, 440 kg, 168 kg load on water, moved in water by its tyres with paddle rims (about 5 km/h on dealer pages). Sherp Pro - 1,300 kg, 33 kW, about 6 km/h on water."
+  },
+  {
    "id": "F1",
    "class": "F",
    "title": "Motor1, a shifter kart turned into a snowmobile, 2025-02-02",
@@ -5086,6 +5900,16 @@
    "license": "unknown",
    "read": "partial",
    "note": "Read by a helper through a fetch summary. Front skis bolted to the hubs and a rear rubber track; the tracks came off several times."
+  },
+  {
+   "id": "F2",
+   "class": "F",
+   "title": "6x6world forum, Argo open water speed with outboard",
+   "url": "https://www.6x6world.com/forums/forum/6x6-atvs/argo-atvs/594-argo-open-water-speed-with-outboard",
+   "retrieved": "2026-11-04",
+   "license": "unknown",
+   "read": "full",
+   "note": "Read by a helper. Owners report 16 km/h at most with a 7.5 hp outboard and 6 to 7 mph with a 35 lb electric trolling motor on an Argo; the stern rides high, so a long shaft is needed."
   }
  ],
  "decisions": [
@@ -5326,6 +6150,31 @@
     "R-18",
     "R-19"
    ]
+  },
+  {
+   "id": "D-023",
+   "date": "2026-11-04",
+   "by": "owner",
+   "what": "The kart is to be a personal vehicle for the far outdoors, in the owner's words like a kick scooter for the far outdoors. In winter it is changed into a snowmobile form - two front skis, one rear rubber track, and a sled bottom - to cross fresh snow that may lie about 1 m deep where nobody clears it, and in summer it is changed back to tyres for roads and private land. Aim at fresh snow 1 m deep and confirm it by the snowshoe test of Q-012. This raises the 30 cm of D-006 and starts a new pass of step 1.2.",
+   "options": [
+    "fresh snow up to 30 cm with skis and chains or a pair of tracks (D-006)",
+    "a snowmobile form changed each winter, aiming at 1 m of fresh snow"
+   ],
+   "touches": [
+    "D-006",
+    "snow.depth_max_cm",
+    "R-06",
+    "R-28"
+   ]
+  },
+  {
+   "id": "D-024",
+   "date": "2026-11-04",
+   "by": "owner",
+   "what": "The owner would like the kart, if it can be done, to drive from a shore straight into a lake, move on as a boat, and drive out again. Step 1.2 finds what that takes and what it costs before the owner confirms it.",
+   "touches": [
+    "R-27"
+   ]
   }
  ],
  "open": [
@@ -5497,7 +6346,7 @@
   {
    "id": "Q-012",
    "kind": "question",
-   "text": "How far does the owner's fresh snow give under a loaded plate? A board of known area loaded to about 5 kPa and to about 16 kPa, set on undisturbed fresh snow and its sinkage measured, settles whether rear tracks (W2) clear snow.depth_max_cm before the frame is given mounts for them.",
+   "text": "How far does the owner's fresh snow give under a loaded plate? A board of known area loaded to about 5 kPa and to about 16 kPa, set on undisturbed fresh snow and its sinkage measured, settles whether rear tracks (W2) clear snow.depth_max_cm before the frame is given mounts for them. A person on snowshoes presses about 3.5 kPa (S4), the same order as a sled bottom (D-023), so the depth a snowshoe sinks in the deepest fresh snow is a first measure of whether the snowmobile form floats.",
    "waits_for": "owner",
    "affects": [
     "snow.track_sinkage_max_cm",
@@ -5672,6 +6521,7 @@
     "su.mass_kg",
     "su.final_ratio",
     "su.rev_limit_rpm",
+    "su.clutch_lock_rpm",
     "dsn.road_kit_mass_kg"
    ],
    "opened": "2026-11-04",
@@ -5710,6 +6560,63 @@
    "raised_by": "assistant",
    "phase": "design",
    "blocks": "design_build"
+  },
+  {
+   "id": "Q-026",
+   "kind": "question",
+   "text": "The owner described the kart as like a kick scooter for the far outdoors (D-023). Does that ask for a standing ride, or for a light personal vehicle that is still seated? A standing ride conflicts with the seat, seat belt, and head restraint the law asks of a minicar on roads (R-22), and with a child driving.",
+   "waits_for": "owner",
+   "affects": [
+    "D-023",
+    "R-22"
+   ],
+   "opened": "2026-11-04",
+   "phase": "design"
+  },
+  {
+   "id": "Q-027",
+   "kind": "question",
+   "text": "The rough inputs of the snowmobile form and the hull - the track's place and mass (its size is a Yamaha Bravo's, P51), the parts removed and added at each change, the drive sprocket, the seat's rise over the track, the hull's size, foam share, and plating, the water design points, the outboard's battery, the change time, and the tipping margin on snow - are assumed until a donor is chosen and the hull is laid out in step 1.3.",
+   "waits_for": "assistant",
+   "affects": [
+    "sm.track_x_mm",
+    "sm.track_unit_kg",
+    "sm.removed_kg",
+    "ski.pair_kg",
+    "sm.drive_dia_mm",
+    "sm.seat_raise_mm",
+    "sm.speed_snow_kmh",
+    "hull.length_mm",
+    "hull.beam_mm",
+    "hull.depth_mm",
+    "hull.bottom_clear_mm",
+    "hull.foam_share_max",
+    "hull.bottom_t_mm",
+    "hull.side_t_mm",
+    "hull.sheet_density_kg_m3",
+    "cost.allow_winter_mounts_jpy",
+    "outboard.battery_kg",
+    "cost.allow_outboard_battery_jpy",
+    "water.freeboard_min_mm",
+    "water.speed_min_kmh",
+    "water.shore_grade_pct",
+    "water.reserve_ratio",
+    "kart.swap_time_h",
+    "kart.tip_ratio_snow_min"
+   ],
+   "opened": "2026-11-04",
+   "phase": "design"
+  },
+  {
+   "id": "Q-028",
+   "kind": "question",
+   "text": "A kart that moves on a lake is an amphibious vessel, a special ship, which the small-boat exemption from ship inspection does not cover (P46). Ask the regional transport bureau whether a home-built amphibious kart moved on water only by an electric outboard under 1.5 kW, with its engine stopped, can be inspected, what the inspection asks (buoyancy, stability, freeboard, equipment) and costs, and whether a pond on private land is outside the Ship Safety Act. No official page on a small amphibious vessel was found.",
+   "waits_for": "owner",
+   "affects": [
+    "R-27"
+   ],
+   "opened": "2026-11-04",
+   "phase": "design"
   }
  ],
  "hazards": [
@@ -5827,6 +6734,17 @@
    "controls": [
     "OP-03.02",
     "OP-03.03"
+   ]
+  },
+  {
+   "id": "H-11",
+   "text": "On water or on ice the kart capsizes, swamps, or breaks through the ice, and the driver is held under by the seat belt or the roll bar, drowns, or is chilled in cold water.",
+   "phases": [
+    "operate"
+   ],
+   "at_risk": "The driver.",
+   "controls": [
+    "R-29"
    ]
   }
  ],
@@ -6435,6 +7353,27 @@
    "by": "assistant",
    "date": "2026-11-04",
    "detail": "A third independent helper checked the road-going design of D-022. The arithmetic reproduces, but the layout cannot be built - the left side bar, a column brace, and the rising left rail pass through the scooter unit; the axle sprocket and chain pass through the middle bearing plate; the guard is cut by the axle; the roll bar is no higher than a 170 cm adult's head, and a bar that clears it does not fit the Delica unless it folds; the rear turn signals and mirror stems collide with the braces; the mirrors face backward behind the eyes; the horn passes through a cross member and the battery through the seat; the hand-brake caliper and lever, the belt anchors, the head restraint, and several plates are joined to nothing; the fuel tank, ECU, regulator, and key switch are not placed; the silencer is placed where the donor's may not fit. The roll bar's mass was counted at the wrong tube size, corrected the same day. The 25 mm axle is marginal under a cornering load and the left rail carries the engine unit at a safety factor of about 1.2. The rest is open in Q-025."
+  },
+  {
+   "id": "K-007",
+   "target": [
+    "hull.foam_m3",
+    "water.draft_mm",
+    "water.freeboard_mm",
+    "water.gm_m",
+    "water.load_rating_kg",
+    "sm.track_pressure_kpa",
+    "sm.tip_ratio",
+    "sm.clutch_lock_kmh",
+    "sm.top_speed_kmh",
+    "cost.winter_sm_jpy"
+   ],
+   "tier": "T2",
+   "method": "refute",
+   "result": "pass",
+   "by": "assistant",
+   "date": "2026-11-04",
+   "detail": "An independent helper recomputed every value of 1.2.14 and 1.2.15 by hand and checked the physics, the sources, and the comparisons in the text. The first round found five faults, all fixed the same day and passed on a second round - the foam was sized for the summer kart and is now sized for the heavier winter form; the outboard's battery was missing, which brings the tub's load rating just under the heaviest rider; P50 does not bar tracks for a moped and the text now says so; the kids' tracks and the smallest adult snowmobile lacked a source (S7 added, the claim limited to the listings); and the skipping speed was overstated as far beyond the top speed. The rear share ignores the skis and tub (about 0.71, not 0.73), within rough accuracy."
   }
  ],
  "procedures": [
@@ -7709,6 +8648,24 @@
    "doc": "docs/02-form.md",
    "id": "road",
    "title": "1.2.13 Road use and the engine",
+   "level": 2
+  },
+  {
+   "doc": "docs/02-form.md",
+   "id": "snowmobile",
+   "title": "1.2.14 The snowmobile form",
+   "level": 2
+  },
+  {
+   "doc": "docs/02-form.md",
+   "id": "water",
+   "title": "1.2.15 Water",
+   "level": 2
+  },
+  {
+   "doc": "docs/02-form.md",
+   "id": "outdoor",
+   "title": "1.2.16 Proposal and the owner's decisions",
    "level": 2
   },
   {

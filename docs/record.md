@@ -30,6 +30,8 @@ The current state, with open items grouped by whom they wait for, is in [STATUS.
 | D-020 | 2026-11-04 | owner | The top speed is about 30 km/h, on public roads and on private land alike (one top speed, D-018). This replaces the 20 km/h of D-015. |
 | D-021 | 2026-11-04 | owner | Road use comes first. The slope the kart must climb is lowered to what the engine allowed on public roads can do, instead of choosing a larger engine for the slope. |
 | D-022 | 2026-11-04 | owner | Reflect the proposal of docs/02-form.md#road in the design and the 3D view. The working basis becomes a used 50 cc four-stroke scooter engine with its CVT, centrifugal clutch, and final reduction in one unit, driving the rear axle by one chain; a roll bar over the driver's head that also serves as the 1 m marker; and the equipment the law asks for road use. The owner may still change the engine choice. |
+| D-023 | 2026-11-04 | owner | The kart is to be a personal vehicle for the far outdoors, in the owner's words like a kick scooter for the far outdoors. In winter it is changed into a snowmobile form - two front skis, one rear rubber track, and a sled bottom - to cross fresh snow that may lie about 1 m deep where nobody clears it, and in summer it is changed back to tyres for roads and private land. Aim at fresh snow 1 m deep and confirm it by the snowshoe test of Q-012. This raises the 30 cm of D-006 and starts a new pass of step 1.2. |
+| D-024 | 2026-11-04 | owner | The owner would like the kart, if it can be done, to drive from a shore straight into a lake, move on as a boat, and drive out again. Step 1.2 finds what that takes and what it costs before the owner confirms it. |
 <!-- tdr:end -->
 
 ## Open items {#open}
@@ -48,7 +50,7 @@ The current state, with open items grouped by whom they wait for, is in [STATUS.
 | Q-009 | The rough inputs of step 1.2 (kart mass and its rear share, tyre pressure, track wheel diameter, ski size, drive efficiency, tube lengths, ground clearance, heights of the centres of mass, and a mean speed, rolling resistance, electric efficiency, and usable battery fraction for the run time) are assumed so that forms can be compared. Step 1.3 replaces each with the chosen part's data or a calculation. | assistant |  |
 | Q-010 | The price of the 12 V chargers for E2 and the allowances for shipping, small parts, a reduction stage, skis, the track running gear, pedals and cables and the stop switch, guards and mounts, drive chains, and electric wiring are assumed. Whether the snow chain price of M15 is for one tyre or a pair is not known; two are counted. Step 1.5 replaces each with a quoted price. | assistant |  |
 | Q-011 | What is the governed no-load speed of the chosen engine? The gearing for R-01 is set to it. It is assumed at 3850 rpm from a checker's recollection (K-001), not from a source; take it from the engine maker's data, or measure it on the engine when it arrives. | assistant |  |
-| Q-012 | How far does the owner's fresh snow give under a loaded plate? A board of known area loaded to about 5 kPa and to about 16 kPa, set on undisturbed fresh snow and its sinkage measured, settles whether rear tracks (W2) clear snow.depth_max_cm before the frame is given mounts for them. | owner |  |
+| Q-012 | How far does the owner's fresh snow give under a loaded plate? A board of known area loaded to about 5 kPa and to about 16 kPa, set on undisturbed fresh snow and its sinkage measured, settles whether rear tracks (W2) clear snow.depth_max_cm before the frame is given mounts for them. A person on snowshoes presses about 3.5 kPa (S4), the same order as a sled bottom (D-023), so the depth a snowshoe sinks in the deepest fresh snow is a first measure of whether the snowmobile form floats. | owner |  |
 | Q-013 | Should an adult be able to set a lower top speed for a small child? A 5-year-old drives (D-010), while US youth ATV guidance allows no ATVs under 6 and limits ages 6 and up to 10 mph with the restrictor (P25, S2). The child limit is assumed at 16 km/h, about 10 mph, until the owner decides R-17. | owner | D-018 |
 | Q-014 | The 3D simulator needs the tyre grip on pavement, gravel, and grass, the sideways grip of the front skis, the resistance of tracks in fresh snow, and the resistance when the floor ploughs snow. No source was found; they are assumed so that the simulator can run, and a test run of the built kart settles them. Simulator results that rest on them are illustrations, not verification. | assistant |  |
 | Q-015 | In the owner's Delica D:5, with the third row flipped up and the second row tipped up and slid forward, how wide is the clear space at the floor and at 40 cm above it, and how wide is the tailgate opening at the height of the cargo floor? The sources give only the narrowest and widest widths. | owner |  |
@@ -62,6 +64,9 @@ The current state, with open items grouped by whom they wait for, is in [STATUS.
 | Q-023 | The size and mass of a 50 cc scooter's engine and transmission unit, its final reduction, and its ECU's rev limit are not stated in any source found; the design assumes them. Measure the donor unit when it arrives, and set the drive sprockets so the top speed at the rev limit is kart.speed_max_kmh. | assistant |  |
 | Q-024 | No seat belt marked JIS D4604, which the safety standards accept (P36 article 66-2), was found for sale to individuals; generic belts (M78) are not marked. A belt with its anchors from a scrapped kei car carries its approval; find one and its price, and check how it mounts on the kart's frame and seat. | assistant |  |
 | Q-025 | The road-going layout is not yet buildable (K-006). Move the left side bar and the column braces clear of the scooter unit and the adult's shins; give the unit a plate on both rails; keep the axle sprocket and chain clear of the middle bearing plate; raise the roll bar above the tallest driver's head with a folding or bolted top for the car, with a front structure for a rollover; mount the hand brake, belt anchors, head restraint, battery, horn, and mirrors (facing the driver) on the frame; place the fuel tank, ECU, regulator, key switch, and the donor's silencer; add the cornering load to the axle and check a 30 mm axle; and carry the engine unit's mass on both rails. Build the collision search into calc/design.py so each change is checked. | assistant |  |
+| Q-026 | The owner described the kart as like a kick scooter for the far outdoors (D-023). Does that ask for a standing ride, or for a light personal vehicle that is still seated? A standing ride conflicts with the seat, seat belt, and head restraint the law asks of a minicar on roads (R-22), and with a child driving. | owner |  |
+| Q-027 | The rough inputs of the snowmobile form and the hull - the track's place and mass (its size is a Yamaha Bravo's, P51), the parts removed and added at each change, the drive sprocket, the seat's rise over the track, the hull's size, foam share, and plating, the water design points, the outboard's battery, the change time, and the tipping margin on snow - are assumed until a donor is chosen and the hull is laid out in step 1.3. | assistant |  |
+| Q-028 | A kart that moves on a lake is an amphibious vessel, a special ship, which the small-boat exemption from ship inspection does not cover (P46). Ask the regional transport bureau whether a home-built amphibious kart moved on water only by an electric outboard under 1.5 kW, with its engine stopped, can be inspected, what the inspection asks (buoyancy, stability, freeboard, equipment) and costs, and whether a pond on private land is outside the Ship Safety Act. No official page on a small amphibious vessel was found. | owner |  |
 <!-- tdr:end -->
 
 ## Values {#values}
@@ -71,7 +76,7 @@ The current state, with open items grouped by whom they wait for, is in [STATUS.
 |---|---|---|---|---|
 | kart.seats | 1 |  | decided | D-001 |
 | kart.speed_max_kmh | 30 | km/h | decided | D-020 |
-| snow.depth_max_cm | 30 | cm | decided | D-006 |
+| snow.depth_max_cm | 100 | cm | decided | D-023 |
 | ambient.temp_min_c | -10 | degC | decided | D-007 |
 | budget.parts_jpy | 100000 | JPY | decided | D-008 |
 | rider.mass_max_kg | 100 | kg | decided | D-009 |
@@ -377,9 +382,46 @@ The current state, with open items grouped by whom they wait for, is in [STATUS.
 | cost.plate_stay_jpy | 2617 | JPY | sourced | M77 |
 | cost.belt_anchor_jpy | 2772 | JPY | sourced | M78 |
 | cost.belt_used_car_jpy | 3000 | JPY | assumed | Q-024 |
+| sm.track_width_mm | 381 | mm | sourced | P51 |
+| sm.track_contact_mm | 1110 | mm | sourced | P51 |
+| sm.track_x_mm | 0 | mm | assumed | Q-027 |
+| sm.track_unit_kg | 30 | kg | assumed | Q-027 |
+| sm.removed_kg | 21 | kg | assumed | Q-027 |
+| ski.pair_kg | 6 | kg | assumed | Q-027 |
+| sm.drive_dia_mm | 180 | mm | assumed | Q-027 |
+| sm.seat_raise_mm | 150 | mm | assumed | Q-027 |
+| sm.speed_snow_kmh | 10 | km/h | assumed | Q-027 |
+| su.clutch_lock_rpm | 4000 | rpm | assumed | Q-023 |
+| hull.length_mm | 1500 | mm | assumed | Q-027 |
+| hull.beam_mm | 900 | mm | assumed | Q-027 |
+| hull.depth_mm | 350 | mm | assumed | Q-027 |
+| hull.bottom_clear_mm | 100 | mm | assumed | Q-027 |
+| hull.foam_share_max | 0.4 |  | assumed | Q-027 |
+| water.freeboard_min_mm | 150 | mm | assumed | Q-027 |
+| water.speed_min_kmh | 2 | km/h | assumed | Q-027 |
+| water.shore_grade_pct | 15 | % | assumed | Q-027 |
+| water.reserve_ratio | 1.2 |  | assumed | Q-027 |
+| kart.swap_time_h | 2 | h | assumed | Q-027 |
+| kart.tip_ratio_snow_min | 0.6 |  | assumed | Q-027 |
+| hull.bottom_t_mm | 6 | mm | assumed | Q-027 |
+| hull.side_t_mm | 3 | mm | assumed | Q-027 |
+| hull.sheet_density_kg_m3 | 940 | kg/m3 | assumed | Q-027 |
+| cost.allow_winter_mounts_jpy | 15000 | JPY | assumed | Q-027 |
+| foam.density_kg_m3 | 27 | kg/m3 | sourced | M83 |
+| cost.xps_jpy_per_m3 | 43200 | JPY | sourced | M83 |
+| cost.hull_bottom_jpy_per_m2 | 29100 | JPY | sourced | M82 |
+| cost.hull_side_jpy_per_m2 | 21800 | JPY | sourced | M82 |
+| cost.donor_bravo_jpy | 131000 | JPY | sourced | M80 |
+| cost.outboard_jpy | 40990 | JPY | sourced | M84 |
+| outboard.mass_kg | 8.2 | kg | sourced | M84 |
+| outboard.power_max_w | 660 | W | sourced | M84 |
+| water.load_share_manual | 0.3 |  | sourced | P52 |
+| snow.skip_kmh_per_100kg | 12 | km/h | sourced | S5 |
+| outboard.battery_kg | 20 | kg | assumed | Q-027 |
+| cost.allow_outboard_battery_jpy | 20000 | JPY | assumed | Q-027 |
 | form.mass_total_kg | 170 | kg | calculated | docs/02-form.md#mass |
-| snow.wheel_sinkage_min_cm | 19.0 | cm | calculated | docs/02-form.md#snow |
-| snow.wheel_sinkage_max_cm | 25.1 | cm | calculated | docs/02-form.md#snow |
+| snow.wheel_sinkage_min_cm | 63.2 | cm | calculated | docs/02-form.md#snow |
+| snow.wheel_sinkage_max_cm | 83.8 | cm | calculated | docs/02-form.md#snow |
 | snow.track_pressure_kpa | 5.3 | kPa | calculated | docs/02-form.md#snow |
 | snow.ski_pressure_kpa | 4.6 | kPa | calculated | docs/02-form.md#snow |
 | snow.track_sinkage_max_cm | 11.1 | cm | calculated | docs/02-form.md#snow |
@@ -403,6 +445,32 @@ The current state, with open items grouped by whom they wait for, is in [STATUS.
 | drive.power_avg_heavy_w | 556 | W | calculated | docs/02-form.md#drive |
 | battery.run_time_heavy_min | 133 | min | calculated | docs/02-form.md#drive |
 | drive.sprocket_reach_mm | 0 | mm | calculated | docs/02-form.md#drive |
+| hull.sheet_kg | 12.4 | kg | calculated | docs/02-form.md#water |
+| hull.foam_m3 | 0.164 | m3 | calculated | docs/02-form.md#water |
+| hull.foam_share | 0.35 |  | calculated | docs/02-form.md#water |
+| hull.mass_kg | 16.8 | kg | calculated | docs/02-form.md#water |
+| water.draft_mm | 186 | mm | calculated | docs/02-form.md#water |
+| water.freeboard_mm | 164 | mm | calculated | docs/02-form.md#water |
+| water.gm_m | 0.191 | m | calculated | docs/02-form.md#water |
+| water.load_rating_kg | 97 | kg | calculated | docs/02-form.md#water |
+| water.depth_for_rider_mm | 358 | mm | calculated | docs/02-form.md#water |
+| sm.mass_kg | 137.4 | kg | calculated | docs/02-form.md#snowmobile |
+| sm.rear_share | 0.73 |  | calculated | docs/02-form.md#snowmobile |
+| sm.track_pressure_kpa | 4.0 | kPa | calculated | docs/02-form.md#snowmobile |
+| sm.ski_pressure_kpa | 4.43 | kPa | calculated | docs/02-form.md#snowmobile |
+| sm.hull_pressure_kpa | 1.72 | kPa | calculated | docs/02-form.md#snowmobile |
+| sm.track_sinkage_max_cm | 11.2 | cm | calculated | docs/02-form.md#snowmobile |
+| sm.ski_sinkage_max_cm | 8.5 | cm | calculated | docs/02-form.md#snowmobile |
+| sm.hull_sinkage_max_cm | 7.1 | cm | calculated | docs/02-form.md#snowmobile |
+| sm.clutch_lock_kmh | 2.3 | km/h | calculated | docs/02-form.md#snowmobile |
+| sm.top_speed_kmh | 16.0 | km/h | calculated | docs/02-form.md#snowmobile |
+| sm.power_snow_kw | 0.72 | kW | calculated | docs/02-form.md#snowmobile |
+| sm.cg_height_m | 0.492 | m | calculated | docs/02-form.md#snowmobile |
+| sm.tip_ratio | 0.81 |  | calculated | docs/02-form.md#snowmobile |
+| sm.length_min_m | 1.85 | m | calculated | docs/02-form.md#snowmobile |
+| sm.skip_speed_kmh | 28 | km/h | calculated | docs/02-form.md#snowmobile |
+| cost.tub_jpy | 82992 | JPY | calculated | docs/02-form.md#water |
+| cost.winter_sm_jpy | 236992 | JPY | calculated | docs/02-form.md#snowmobile |
 | cost.chassis_jpy | 93902 | JPY | calculated | docs/02-form.md#cost |
 | cost.power_engine_clone_jpy | 37940 | JPY | calculated | docs/02-form.md#cost |
 | cost.power_engine_genuine_jpy | 86940 | JPY | calculated | docs/02-form.md#cost |
@@ -598,7 +666,30 @@ The current state, with open items grouped by whom they wait for, is in [STATUS.
 | M76 | M | Yahoo Auctions closed listings for AF79 parts vehicles (Honda Tact) | partial |
 | M77 | M | Generic moped number plate stay CL935, Yahoo Shopping | partial |
 | M78 | M | Generic three-point seat belts and anchor bolts, Yahoo Shopping | partial |
+| P45 | P | Ordinance for Enforcement of the Act on Ship Officers and Boat Operators (326M50000800091), article 2 paragraph 2 item 1, and MLIT Notice 1528 of 2003 | partial |
+| P46 | P | Ordinance for Enforcement of the Ship Safety Act (338M50000800041), article 1 paragraph 4 and article 2 paragraph 2 item 1, with Ministry of Transport Notice 56 of 1980 | partial |
+| P47 | P | Ordinance on the Registration of Small Vessels (414M60000800004), article 2 item 1 | partial |
+| P48 | P | MLIT and JCI pages on licence-free boats, inspection, and life jackets | partial |
+| P49 | P | Kinki District Transport Bureau, modified mini boats | full |
+| P50 | P | Vehicle Restriction Order (336CO0000000265), article 8, and the River Act (339AC0000000167) article 29 with its Enforcement Order (340CO0000000014) article 16-4 | partial |
+| P51 | P | Yamaha BR250F service manual, specifications, on manualslib | excerpt |
+| S3 | S | Wikipedia, Yamaha Bravo | full |
+| S4 | S | Wikipedia, Ground pressure | full |
+| S7 | S | PowerSportsGuide, 120 cc snowmobiles and Yamaha snowmobile horsepower | partial |
+| M79 | M | Micromobility Japan, electric snow bike SIN EV, seated and standing models | full |
+| M80 | M | Yahoo Auctions closed listings for used snowmobiles, tracks, and sprockets | partial |
+| M81 | M | Sharmax S500 motor tug, rolf.ru | full |
+| P52 | P | 33 CFR 183 Subpart C, safe loading of monohull boats under 20 ft (eCFR) | full |
+| P53 | P | US8002596B2, amphibious vehicle track propulsion (Google Patents) | partial |
+| P54 | P | Milcon, EPS method technical data | full |
+| S5 | S | Wikipedia, Snowmobile skipping | full |
+| S6 | S | Wikipedia, M113 armored personnel carrier and Bandvagn 206 | excerpt |
+| M82 | M | MonotaRO, Takiron UHMW-PE sheet | partial |
+| M83 | M | Cainz, Styrofoam IB extruded polystyrene board 910 x 1,820 mm | full |
+| M84 | M | HAIGE electric outboard HS-50703-90, Yahoo Shopping | partial |
+| M85 | M | Argo Frontier 650 6x6 2023 and Sherp Pro specifications | full |
 | F1 | F | Motor1, a shifter kart turned into a snowmobile, 2025-02-02 | partial |
+| F2 | F | 6x6world forum, Argo open water speed with outboard | full |
 <!-- tdr:end -->
 
 ## Checks {#checks}
@@ -612,6 +703,7 @@ The current state, with open items grouped by whom they wait for, is in [STATUS.
 | K-004 | T2 | refute | fail | 2026-11-03 |
 | K-005 | T2 | refute | fail | 2026-11-03 |
 | K-006 | T2 | refute | fail | 2026-11-04 |
+| K-007 | T2 | refute | pass | 2026-11-04 |
 <!-- tdr:end -->
 
 ## Parts {#parts}

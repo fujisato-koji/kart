@@ -170,3 +170,21 @@ items:
       - engine
       - R-18
       - R-19
+  - id: D-023
+    date: 2026-11-04
+    by: owner
+    what: The kart is to be a personal vehicle for the far outdoors, in the owner's words like a kick scooter for the far outdoors. In winter it is changed into a snowmobile form - two front skis, one rear rubber track, and a sled bottom - to cross fresh snow that may lie about 1 m deep where nobody clears it, and in summer it is changed back to tyres for roads and private land. Aim at fresh snow 1 m deep and confirm it by the snowshoe test of Q-012. This raises the 30 cm of D-006 and starts a new pass of step 1.2.
+    options:
+      - fresh snow up to 30 cm with skis and chains or a pair of tracks (D-006)
+      - a snowmobile form changed each winter, aiming at 1 m of fresh snow
+    touches:
+      - D-006
+      - snow.depth_max_cm
+      - R-06
+      - R-28
+  - id: D-024
+    date: 2026-11-04
+    by: owner
+    what: The owner would like the kart, if it can be done, to drive from a shore straight into a lake, move on as a boat, and drive out again. Step 1.2 finds what that takes and what it costs before the owner confirms it.
+    touches:
+      - R-27

@@ -135,7 +135,7 @@ items:
     phase: design
   - id: Q-012
     kind: question
-    text: How far does the owner's fresh snow give under a loaded plate? A board of known area loaded to about 5 kPa and to about 16 kPa, set on undisturbed fresh snow and its sinkage measured, settles whether rear tracks (W2) clear snow.depth_max_cm before the frame is given mounts for them.
+    text: How far does the owner's fresh snow give under a loaded plate? A board of known area loaded to about 5 kPa and to about 16 kPa, set on undisturbed fresh snow and its sinkage measured, settles whether rear tracks (W2) clear snow.depth_max_cm before the frame is given mounts for them. A person on snowshoes presses about 3.5 kPa (S4), the same order as a sled bottom (D-023), so the depth a snowshoe sinks in the deepest fresh snow is a first measure of whether the snowmobile form floats.
     waits_for: owner
     affects:
       - snow.track_sinkage_max_cm
@@ -277,6 +277,7 @@ items:
       - su.mass_kg
       - su.final_ratio
       - su.rev_limit_rpm
+      - su.clutch_lock_rpm
       - dsn.road_kit_mass_kg
     opened: 2026-11-04
     phase: design
@@ -308,3 +309,51 @@ items:
     raised_by: assistant
     phase: design
     blocks: design_build
+  - id: Q-026
+    kind: question
+    text: The owner described the kart as like a kick scooter for the far outdoors (D-023). Does that ask for a standing ride, or for a light personal vehicle that is still seated? A standing ride conflicts with the seat, seat belt, and head restraint the law asks of a minicar on roads (R-22), and with a child driving.
+    waits_for: owner
+    affects:
+      - D-023
+      - R-22
+    opened: 2026-11-04
+    phase: design
+  - id: Q-027
+    kind: question
+    text: The rough inputs of the snowmobile form and the hull - the track's place and mass (its size is a Yamaha Bravo's, P51), the parts removed and added at each change, the drive sprocket, the seat's rise over the track, the hull's size, foam share, and plating, the water design points, the outboard's battery, the change time, and the tipping margin on snow - are assumed until a donor is chosen and the hull is laid out in step 1.3.
+    waits_for: assistant
+    affects:
+      - sm.track_x_mm
+      - sm.track_unit_kg
+      - sm.removed_kg
+      - ski.pair_kg
+      - sm.drive_dia_mm
+      - sm.seat_raise_mm
+      - sm.speed_snow_kmh
+      - hull.length_mm
+      - hull.beam_mm
+      - hull.depth_mm
+      - hull.bottom_clear_mm
+      - hull.foam_share_max
+      - hull.bottom_t_mm
+      - hull.side_t_mm
+      - hull.sheet_density_kg_m3
+      - cost.allow_winter_mounts_jpy
+      - outboard.battery_kg
+      - cost.allow_outboard_battery_jpy
+      - water.freeboard_min_mm
+      - water.speed_min_kmh
+      - water.shore_grade_pct
+      - water.reserve_ratio
+      - kart.swap_time_h
+      - kart.tip_ratio_snow_min
+    opened: 2026-11-04
+    phase: design
+  - id: Q-028
+    kind: question
+    text: A kart that moves on a lake is an amphibious vessel, a special ship, which the small-boat exemption from ship inspection does not cover (P46). Ask the regional transport bureau whether a home-built amphibious kart moved on water only by an electric outboard under 1.5 kW, with its engine stopped, can be inspected, what the inspection asks (buoyancy, stability, freeboard, equipment) and costs, and whether a pond on private land is outside the Ship Safety Act. No official page on a small amphibious vessel was found.
+    waits_for: owner
+    affects:
+      - R-27
+    opened: 2026-11-04
+    phase: design

@@ -42,6 +42,7 @@ items:
     basis:
       - D-006
       - D-011
+      - D-023
     status: confirmed
   - id: R-06
     text: The kart runs in fresh snow.
@@ -226,3 +227,27 @@ items:
       - R-18
     status: awaiting
     parent: R-18
+  - id: R-27
+    text: The kart goes into calm water from a shore, floats and moves on it, and drives out again.
+    origin: owner
+    design_point: With the heaviest rider, in calm fresh water, the kart floats upright with a freeboard of at least water.freeboard_min_mm, moves at water.speed_min_kmh or more and steers, and drives out up a shore of water.shore_grade_pct.
+    verify: test
+    basis:
+      - D-024
+    status: awaiting
+  - id: R-28
+    text: The kart changes between a summer form on tyres and a winter form on skis and a track.
+    origin: derived
+    design_point: Two people change the kart from one form to the other with hand tools in at most kart.swap_time_h, without cutting or welding.
+    verify: test
+    basis:
+      - D-023
+    status: awaiting
+  - id: R-29
+    text: A driver whose kart capsizes or swamps in water, or breaks through ice, gets free and stays afloat.
+    origin: derived
+    design_point: On water and on ice the driver wears a life jacket and no seat belt; nothing of the kart holds a driver under it when it floats upside down; and the kart's foam floats the swamped kart with its engine and fuel at water.reserve_ratio times their weight.
+    verify: analysis
+    basis:
+      - H-11
+    status: awaiting

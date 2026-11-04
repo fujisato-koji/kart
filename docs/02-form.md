@@ -4,7 +4,7 @@ Candidate forms, the yardsticks, rough availability and cost of each, the compar
 
 Numbers are cited by key and listed in [docs/01-requirements.md#values](01-requirements.md#values).
 The rough numbers come from `python calc/form_rough.py`, which reads its inputs from the record and writes its outputs back as calculated values.
-Inputs that are only assumed so that forms can be compared wait in Q-009 (shapes and masses), Q-010 (prices), and Q-014 (grip for the simulator); 1.3 and 1.5 replace them.
+Inputs that are only assumed so that forms can be compared wait in Q-009 (shapes and masses), Q-010 (prices), Q-014 (grip for the simulator), and Q-027 (the snowmobile form and the tub); 1.3 and 1.5 replace them.
 
 ## 1.2.1 Yardsticks {#yardsticks}
 
@@ -211,3 +211,59 @@ The owner wants the kart on public roads too (D-019) at about kart.speed_max_kmh
 - The road limit and R-01 meet: the CVT's top ratio and the final chain set the top speed at the engine's limited speed, since a scooter has no governor.
 
 These are rough; the next pass chooses the engine, turns the law's list into requirements (R-18, Q-021), and redesigns 1.3.
+
+## 1.2.14 The snowmobile form {#snowmobile}
+
+The owner wants a personal vehicle for the far outdoors, changed each winter into a snowmobile form that crosses fresh snow of about snow.depth_max_cm where nobody clears it, and back to tyres in summer (D-023). This pass adds a third winter setup to the two of 1.2.2 and sizes it roughly. The summer form stays the road-going design of 1.3 (D-022). Helpers read the market, the law, and the materials on 2026-11-04.
+
+**Candidates.** W1 (skis and chains) and W2 (skis and a pair of snowblower tracks) of 1.2.4 sink deeper than snow.depth_max_cm allows and are kept only for packed snow. The new setup is:
+
+- **W3, the snowmobile form.** Two skis on the front spindles, as in W1, and the rear axle with its wheels replaced by one centre track unit from a used snowmobile (track, slide rails with idler wheels, and drive shaft with sprockets), bolted where the axle's bearing plates are. The floor becomes a sled bottom: an open tub of plastic sheet over closed-cell foam around the seat (1.2.15), which spreads the load when the kart sinks to its floor and floats it in water.
+
+**Donor.** No skid frame or drive shaft was found sold on its own in Japan. The smallest adult snowmobile found among the listings (M80), Yamaha's Bravo, has a track sm.track_width_mm wide touching the snow over sm.track_contact_mm (P51), and sells running for about cost.donor_bravo_jpy (M80); its whole rear half is the track unit of W3. Kids' snowmobiles have tracks of 254 mm and are made for children (S7); large sleds sold as junk are cheap but their tracks are far too long for the kart (M80).
+
+**Masses and pressures.** The winter kart is sm.mass_kg: the summer kart of dsn.mass_kg less sm.removed_kg of wheels and axle, plus a track unit of sm.track_unit_kg, skis of ski.pair_kg, and the tub of hull.mass_kg. With the track's centre under the summer axle (sm.track_x_mm), the track carries sm.rear_share of the weight with the heaviest rider. It presses sm.track_pressure_kpa, close to a snowmobile's snow.snowmobile_pressure_kpa (P2); the skis press sm.ski_pressure_kpa; and the tub's bottom, if the kart sinks onto it, spreads the whole weight at sm.hull_pressure_kpa, below a person on snowshoes (S4). Bekker's relation with the snows of P2 gives sinkages of at most sm.track_sinkage_max_cm, sm.ski_sinkage_max_cm, and sm.hull_sinkage_max_cm. P2's snows are denser than new powder, and P1 covers neither tracks nor such low pressures, so these figures say only that W3 is in the range where snowmobiles work. Whether it floats on the owner's deepest snow is settled by the snowshoe test of Q-012.
+
+**What the figures leave out.** Snow higher than the tub's bow is pushed ahead or must be climbed. In about 1 m of new powder a snowmobile stays on top by its speed; a slow machine sinks until the snow under it bears it. The bow is therefore raised and curved like a sled's. The traction of one track in loose snow is not estimated, for lack of shear data for the owner's snow.
+
+**Power.** The scooter unit gives eng50.kw to sm.mass_kg with an adult of rider.mass_max_kg, about a quarter of the power per mass of a Bravo with the same adult (18 hp, about 150 to 168 kg, S3; 184 kg with oil and fuel, P51), the least powerful adult snowmobile found in the listings. The electric snow bike SIN EV the owner pointed to carries up to 270 kg on a 4 kW motor (M79), close to the scooter unit per mass, but its makers state no snow depth. Running at sm.speed_snow_kmh in fresh snow takes about sm.power_snow_kw with the assumed resistance track.crr_snow_fresh, well within eng50.kw; the doubt is deep powder, where the snowmobiles that work have about four times the power per mass. Two drives are therefore candidates:
+
+- **D1, the summer engine.** The CVT and the summer chain turn the track's drive sprocket of sm.drive_dia_mm. The centrifugal clutch locks at about sm.clutch_lock_kmh (with su.clutch_lock_rpm assumed, Q-023), so it slips only when starting, and the top speed is sm.top_speed_kmh, slow as D-011 allows. One engine serves both forms.
+- **D2, the donor's engine.** The donor's own engine, CVT, and drive come with its track, and the winter form runs only on private land, where the moped's limit of law.minicar_cc_max does not apply. About four times the power, at the cost of a second engine to keep and a heavier change.
+
+**Tipping.** Two skis and one track stand on three supports. Raised by sm.seat_raise_mm over the track, the centre of mass is at sm.cg_height_m, and the ratio of its distance to the tipping edge over its height is sm.tip_ratio, below the kart.tip_ratio_min that R-12 asks on every setup. On snow, however, the sideways force is limited by the snow's grip (ski.mu_lateral for the skis, ground.mu_snow_chains at most), so the winter form slides before it tips if the ratio is above about kart.tip_ratio_snow_min. R-12 should say so for the winter form. Side slopes in deep snow are crossed straight up and down (OP-02.04), and the driver leans as on a snowmobile.
+
+**Transport and the road.** From the skis' front ends to the rear of the track's contact the winter form is at least sm.length_min_m long, more than delica.cargo_length_mm: the kart travels in its summer form and the change is made on site (R-28). Tracks are barred from paved roads for motor vehicles, a word that by its wording leaves mopeds out (P50), and no rule on a tracked moped was found; the winter form is therefore kept to private land, as the snow it is for lies there.
+
+## 1.2.15 Water {#water}
+
+The owner would like the kart to drive into a lake and on as a boat, if it can be done (D-024).
+
+**Floating.** A kart floats when what is under the waterline displaces its weight. Two forms of hull are candidates:
+
+- **H1, an open tub.** A tub of hull.length_mm by hull.beam_mm by hull.depth_mm, within the car's cargo length, around the seat and between the wheels, its bottom hull.bottom_clear_mm above the ground. The rear axle crosses it in a sealed tunnel so that the seat stays where it is in 1.3; raising the seat onto a deck would cost R-12 its margin on land.
+- **H2, side pontoons.** Foam floats bolted outside the wheels for water days. They float well and keep the kart low, but widen it beyond what the car carries, and do nothing for snow.
+
+H1 serves snow and water together and is carried here. Plating of UHMW polyethylene, hull.bottom_t_mm on the bottom and hull.side_t_mm on the sides (M82), weighs hull.sheet_kg. The foam that floats the swamped kart, its engine, and fuel at water.reserve_ratio times their weight (R-29), in the heavier winter form, is hull.foam_m3 of extruded polystyrene (M83), hull.foam_share of the tub's volume, which leaves the tub open for the driver. The tub adds hull.mass_kg and costs about cost.tub_jpy, most of it the plastic sheet at retail prices; a cheaper skin for the sides is a 1.3 item. Petrol dissolves polystyrene (P54), so the foam is sealed in the plating and kept away from the fuel tank. With the heaviest rider, the outboard, and its battery it floats at a draft of water.draft_mm, leaving water.freeboard_mm against water.freeboard_min_mm, and its initial stability is water.gm_m. These treat the tub as a watertight box; a tub that leaks or is swamped floats on its foam only, low in the water, and must be bailed or towed.
+
+**Moving on water.** Tyres and tracks push water weakly. Large amphibians that swim on tyres with paddle rims or on their tracks reach about 5 to 6 km/h (M85, S6), but a track near zero speed throws as much water forward as back and gives little thrust (P53), and the kart's small tyres have no paddles. A snowmobile skims open water only above about snow.skip_kmh_per_100kg per 100 kg (S5), sm.skip_speed_kmh for the winter kart, well above its top speed of sm.top_speed_kmh. On water the kart is therefore moved by an electric outboard at the stern, under 1.5 kW at outboard.power_max_w (M84), on a long shaft because such a stern rides high (F2), with its engine stopped; owners report 6 to 7 mph with a smaller trolling motor on an Argo (F2), well above water.speed_min_kmh. The outboard and its 12 V battery of about outboard.battery_kg ride in the tub. By a US rule for boats of 2 hp or less (P52) the tub may then carry water.load_rating_kg, a little less than the heaviest rider; a tub water.depth_for_rider_mm deep carries rider.mass_max_kg. No Japanese rule was found.
+
+**The law.** A vessel needs no boat licence if it is shorter than 3 m and its propulsion is under 1.5 kW with a guard against propeller injuries (P45); registration is not needed below 3 m and 20 horsepower (P47). But the exemption from ship inspection for such small boats excludes special ships, and an amphibious vessel is a special ship, inspected by the regional transport bureau whatever its size (P46). The outputs of all propulsion engines are added (P48), so the scooter unit driving the wheels or the track on water would also need a licence. A home-built kart that is to move on a lake is therefore an amphibious vessel that needs an inspection, which may or may not be granted; no official page on a small amphibious vessel was found (Q-028). Lakes designated as rivers may also bar vehicles from entering (P50).
+
+**Hazards.** In water the seat belt and the roll bar of the road form trap a driver who capsizes (H-11). On water and on ice the belt stays off and a life jacket is worn (R-29). The scooter unit's air intake, its CVT cooling inlet, and its exhaust must sit above the waterline, and the battery and ECU in a dry box.
+
+**What the tub gives without the water.** Even if the kart never goes onto a lake, the tub's foam keeps it afloat if it breaks through ice or slides into a stream or a snow-covered ditch with water under it, which serves R-29 and H-11 at little extra cost, since the tub is there for the snow.
+
+## 1.2.16 Proposal and the owner's decisions {#outdoor}
+
+The assistant proposes the snowmobile form W3 on a Bravo-class donor's rear half with the tub H1, driven first by the summer engine (D1), with the donor's own engine kept as the fallback (D2) if the kart bogs down in deep snow; the snowshoe test of Q-012 this winter before the donor is bought; and the tub's foam as safety buoyancy, without boat use until the transport bureau has answered Q-028. The winter parts cost about cost.winter_sm_jpy (the donor cost.donor_bravo_jpy, skis, mounts, and the tub cost.tub_jpy), on top of the summer kart's parts list of 1.5; an electric outboard for the water would add cost.outboard_jpy and a battery of about cost.allow_outboard_battery_jpy. Against budget.parts_jpy (R-08) the parts that drive the excess are the donor, the tub's plastic sheet, and, from 1.5, the donor scooter and the road equipment.
+
+The owner decides:
+
+1. **Winter form.** W3 as proposed, or W1 kept for packed snow only.
+2. **Winter drive.** D1, the summer engine in both forms (proposed, a lighter change, a quarter of a snowmobile's power per mass), or D2, the donor's engine in winter.
+3. **Water.** (a) The tub floats the kart for safety, and the owner asks the regional transport bureau whether and how a home-built amphibious kart is inspected (Q-028) before any boat use (proposed). (b) R-27 is withdrawn and the tub stays for snow and safety. (c) Boat use on an inspection is pursued now.
+4. **Kick scooter.** What "like a kick scooter" asks: a standing ride, or a light personal vehicle that stays seated (Q-026).
+5. **Tipping on snow.** R-12 for the winter form at kart.tip_ratio_snow_min, against the snow's grip (proposed), or the full kart.tip_ratio_min on every setup, which W3 cannot meet.
+
+After the owner decides, 1.3 lays out the tub, the track's mounts, and the change of form, and the 3D view shows both forms.

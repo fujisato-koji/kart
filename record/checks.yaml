@@ -105,3 +105,21 @@ items:
     by: assistant
     date: 2026-11-04
     detail: A third independent helper checked the road-going design of D-022. The arithmetic reproduces, but the layout cannot be built - the left side bar, a column brace, and the rising left rail pass through the scooter unit; the axle sprocket and chain pass through the middle bearing plate; the guard is cut by the axle; the roll bar is no higher than a 170 cm adult's head, and a bar that clears it does not fit the Delica unless it folds; the rear turn signals and mirror stems collide with the braces; the mirrors face backward behind the eyes; the horn passes through a cross member and the battery through the seat; the hand-brake caliper and lever, the belt anchors, the head restraint, and several plates are joined to nothing; the fuel tank, ECU, regulator, and key switch are not placed; the silencer is placed where the donor's may not fit. The roll bar's mass was counted at the wrong tube size, corrected the same day. The 25 mm axle is marginal under a cornering load and the left rail carries the engine unit at a safety factor of about 1.2. The rest is open in Q-025.
+  - id: K-007
+    target:
+      - hull.foam_m3
+      - water.draft_mm
+      - water.freeboard_mm
+      - water.gm_m
+      - water.load_rating_kg
+      - sm.track_pressure_kpa
+      - sm.tip_ratio
+      - sm.clutch_lock_kmh
+      - sm.top_speed_kmh
+      - cost.winter_sm_jpy
+    tier: T2
+    method: refute
+    result: pass
+    by: assistant
+    date: 2026-11-04
+    detail: An independent helper recomputed every value of 1.2.14 and 1.2.15 by hand and checked the physics, the sources, and the comparisons in the text. The first round found five faults, all fixed the same day and passed on a second round - the foam was sized for the summer kart and is now sized for the heavier winter form; the outboard's battery was missing, which brings the tub's load rating just under the heaviest rider; P50 does not bar tracks for a moped and the text now says so; the kids' tracks and the smallest adult snowmobile lacked a source (S7 added, the claim limited to the listings); and the skipping speed was overstated as far beyond the top speed. The rear share ignores the skis and tub (about 0.71, not 0.73), within rough accuracy.

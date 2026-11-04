@@ -1,15 +1,16 @@
 # Kart: a traceable design record
 
-One go-kart with one seat, for the owner's private land, driven mainly by a child and also by an adult, on pavement, gravel, grass, packed snow, and fresh snow (D-001).
+One go-kart with one seat, a personal vehicle for the far outdoors (D-023): driven by a child and an adult on private land (D-001) and by an adult on roads near home as a minicar (D-019), on pavement, gravel, grass, and packed snow, and changed each winter into a snowmobile form for deep fresh snow. Driving on into a lake as a boat is under study (D-024).
 It is designed under the [traceable-design](https://github.com/traceable-design/traceable-design) standard: an AI assistant researches, calculates, and writes the record, and the owner decides.
 
 ## Where the design stands
 
 | Step | State |
 |------|-------|
-| [1.1 Requirements](01-requirements.md) | Written from the owner's answers (D-001 to D-015). Derived requirements wait for the owner. |
-| [1.2 Form](02-form.md) | Forms compared and a proposal made; the owner's decisions are listed in [1.2.12](02-form.md#proposal). |
-| 1.3 Design, 1.4 Availability, 1.5 Parts and cost | Not started. |
+| [1.1 Requirements](01-requirements.md) | Written from the owner's answers (D-001 to D-024). Derived requirements wait for the owner. |
+| [1.2 Form](02-form.md) | Forms compared; the latest pass, the snowmobile form and water, waits for the owner's decisions in [1.2.16](02-form.md#outdoor). |
+| [1.3 Design](03-design.md) | The road-going summer form (D-022); not yet buildable (K-006, Q-025). |
+| [1.4 Availability](04-availability.md), [1.5 Parts and cost](05-parts-and-cost.md) | Parts of the summer form, found in Japan and priced. |
 
 The current state, generated from the record, is in [STATUS.md](https://github.com/fujisato-koji/kart/blob/main/STATUS.md).
 

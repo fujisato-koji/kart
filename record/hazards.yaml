@@ -77,3 +77,10 @@ items:
     controls:
       - OP-03.02
       - OP-03.03
+  - id: H-11
+    text: On water or on ice the kart capsizes, swamps, or breaks through the ice, and the driver is held under by the seat belt or the roll bar, drowns, or is chilled in cold water.
+    phases:
+      - operate
+    at_risk: The driver.
+    controls:
+      - R-29

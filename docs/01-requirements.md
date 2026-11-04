@@ -59,6 +59,9 @@ Whether a piece of private land counts as a road when other people pass through 
 | R-24 | Other road users can see the low kart. | A structure at least law.marker_height_mm above the ground (P36 article 61-2), which the roll bar provides. | inspection | awaiting |
 | R-25 | The kart is within the size of a moped. | Overall length at most law.length_max_mm and width at most law.width_max_mm (P36 article 59). | inspection | awaiting |
 | R-26 | The engine is within the moped limit. | Displacement at most law.minicar_cc_max (P35). | inspection | awaiting |
+| R-27 | The kart goes into calm water from a shore, floats and moves on it, and drives out again. | With the heaviest rider, in calm fresh water, the kart floats upright with a freeboard of at least water.freeboard_min_mm, moves at water.speed_min_kmh or more and steers, and drives out up a shore of water.shore_grade_pct. | test | awaiting |
+| R-28 | The kart changes between a summer form on tyres and a winter form on skis and a track. | Two people change the kart from one form to the other with hand tools in at most kart.swap_time_h, without cutting or welding. | test | awaiting |
+| R-29 | A driver whose kart capsizes or swamps in water, or breaks through ice, gets free and stays afloat. | On water and on ice the driver wears a life jacket and no seat belt; nothing of the kart holds a driver under it when it floats upside down; and the kart's foam floats the swamped kart with its engine and fuel at water.reserve_ratio times their weight. | analysis | awaiting |
 <!-- tdr:end -->
 
 R-01 to R-08, R-14, and R-16 restate the owner's answers.
@@ -70,7 +73,7 @@ R-09 to R-13 and R-15 are derived from the hazards in 1.1.4 and wait for the own
 - **R-02 strength.** The owner wants an adult to drive (D-004), up to rider.mass_max_kg (D-009). The load cases (bumps, braking, a kerb hit, a slope) are set in 1.3.
 - **R-03 fit.** One kart must fit both a child and an adult (D-004). Adjustment without welding or cutting lets the owner switch drivers on the spot. The youngest driver is 5 (D-010), so the small end rider.stature_min_cm comes from the school health statistics for 5-year-olds (P21); the large end rider.stature_max_cm is the tallest adult who drives (D-016).
 - **R-04 ground.** The owner named three grounds (D-005). Gravel and grass set the tyre size and the clearance; slopes set the drive (Q-008).
-- **R-05 and R-06 snow.** The owner wants both packed snow and fresh snow up to snow.depth_max_cm (D-006). The requirement on snow is only that the kart runs, turns, and stops, at any speed (D-011).
+- **R-05 and R-06 snow.** The owner wants both packed snow and fresh snow up to snow.depth_max_cm (D-006), raised from 30 cm to about 1 m of fresh snow where nobody clears it, to be confirmed by the snowshoe test of Q-012 (D-023). The requirement on snow is only that the kart runs, turns, and stops, at any speed (D-011).
 - **R-07 cold.** The owner set ambient.temp_min_c (D-007). The kart is kept outdoors under a roof (D-012), so it stands in the cold before a run. With an engine, refuelling between runs is fine; with batteries the owner wants kart.run_time_min or more per charge, depending on the trade-off (D-013).
 - **R-08 budget.** budget.parts_jpy covers parts and materials with tax, shipping, and winter parts, and excludes tools (D-008). It is a guideline: when the total is likely to pass it, the assistant names the parts that drive it and the owner decides.
 - **R-09 braking.** A child at speed near people and buildings needs a short stop (H-01), and snow lowers the grip (H-07). The value kart.stop_distance_max_m is assumed until Q-004 settles it from a standard.
@@ -82,6 +85,10 @@ R-09 to R-13 and R-15 are derived from the hazards in 1.1.4 and wait for the own
 - **R-15 loading alone.** "Easy to load" is read as one adult rolling the kart up a ramp without lifting it, which also controls a kart rolling off the ramp (H-09). It waits for the owner.
 - **R-16 slope.** The owner wants the kart not to be damaged on a fairly steep slope, and accepts a slow climb (D-014). The slope is assumed at site.grade_max_pct until Q-008. "Without damage" covers a slipping clutch, which a slow climb can cause (1.2.5).
 - **R-17 child limit (withdrawn).** A 5-year-old drives (D-010), and US youth ATV guidance allows no ATVs under 6 and limits older children to a low speed with a restrictor (P25, S2). R-17 proposed a lower top speed that an adult sets for the child; the owner decided that none is needed (D-018), so every driver has the top speed of R-01, and H-08 rests on R-01 and the operating rules.
+
+- **R-27 water.** The owner would like the kart to drive from a shore into a lake and on as a boat, if it can be done (D-024); it awaits the owner until 1.2.15 shows what it takes. The freeboard, speed, and shore grade of its design point are assumed until Q-027.
+- **R-28 change of form.** The owner wants the kart changed into a snowmobile form each winter and back to tyres in summer (D-023). A change that needs no cutting or welding is what makes one kart serve both, instead of two vehicles; whether the winter form keeps the summer engine is left to 1.2.16. The time kart.swap_time_h is assumed until Q-027.
+- **R-29 free and afloat.** On water or thin ice a capsize or a swamped kart is likely sooner or later (H-11). The seat belt and roll bar that protect a driver on land (R-19, R-22) would hold the driver under water, so on water the belt stays off and a life jacket is worn, and the kart's own foam keeps it afloat so that it can be righted or towed.
 
 ## 1.1.4 Hazards {#hazards}
 
@@ -98,6 +105,7 @@ R-09 to R-13 and R-15 are derived from the hazards in 1.1.4 and wait for the own
 | H-08 | A small child drives faster than the child can control. | The child and people nearby. | R-01 |
 | H-09 | The kart rolls off the ramp or falls while being loaded or unloaded. | The person loading it and people nearby. | R-15 |
 | H-10 | Petrol catches fire while refuelling or near the hot engine, or exhaust gas builds up when the engine runs in a closed shed. | The driver, helpers, and children nearby. | OP-03.02, OP-03.03 |
+| H-11 | On water or on ice the kart capsizes, swamps, or breaks through the ice, and the driver is held under by the seat belt or the roll bar, drowns, or is chilled in cold water. | The driver. | R-29 |
 <!-- tdr:end -->
 
 H-04 covers both an engine and a battery; the hazards particular to the chosen power source (exhaust gas in a closed shed, fuel, charging) are added when 1.2 selects it.
@@ -114,6 +122,9 @@ These are not decided here. 1.2 compares forms against them.
 5. **The car against stability.** R-14 limits the width that goes into the car, while R-12 asks for a wide track, and R-16 on a slope sideways asks for a wider one still.
 6. **A slow climb against a simple clutch.** R-16 accepts a slow climb, but a centrifugal clutch slips and heats below its lock speed.
 7. **A young driver against the top speed.** R-01 is set for the kart; the owner decided against a lower limit for the youngest driver (D-018).
+8. **Deep snow and water against the road.** A sled bottom and a floating tub (R-06 at snow.depth_max_cm, R-27) add mass and height, while the road equipment, the roll bar, and the seat belt (R-18, R-19, R-22) fit a low wheeled kart; and a belt that protects on land traps a driver in water (R-29).
+9. **The snowmobile form against tipping.** Two skis and one centre track stand on three supports, narrower at the rear than four wheels, while R-12 asks the same margin on every setup.
+10. **Two forms against the car.** A track that floats on deep snow is long, and a tub that floats is long and wide, while R-14 limits what goes into the car.
 
 ## 1.1.6 Values used by the requirements {#values}
 
@@ -122,7 +133,7 @@ These are not decided here. 1.2 compares forms against them.
 |---|---|---|---|---|
 | kart.seats | 1 |  | decided | D-001 |
 | kart.speed_max_kmh | 30 | km/h | decided | D-020 |
-| snow.depth_max_cm | 30 | cm | decided | D-006 |
+| snow.depth_max_cm | 100 | cm | decided | D-023 |
 | ambient.temp_min_c | -10 | degC | decided | D-007 |
 | budget.parts_jpy | 100000 | JPY | decided | D-008 |
 | rider.mass_max_kg | 100 | kg | decided | D-009 |
@@ -428,9 +439,46 @@ These are not decided here. 1.2 compares forms against them.
 | cost.plate_stay_jpy | 2617 | JPY | sourced | M77 |
 | cost.belt_anchor_jpy | 2772 | JPY | sourced | M78 |
 | cost.belt_used_car_jpy | 3000 | JPY | assumed | Q-024 |
+| sm.track_width_mm | 381 | mm | sourced | P51 |
+| sm.track_contact_mm | 1110 | mm | sourced | P51 |
+| sm.track_x_mm | 0 | mm | assumed | Q-027 |
+| sm.track_unit_kg | 30 | kg | assumed | Q-027 |
+| sm.removed_kg | 21 | kg | assumed | Q-027 |
+| ski.pair_kg | 6 | kg | assumed | Q-027 |
+| sm.drive_dia_mm | 180 | mm | assumed | Q-027 |
+| sm.seat_raise_mm | 150 | mm | assumed | Q-027 |
+| sm.speed_snow_kmh | 10 | km/h | assumed | Q-027 |
+| su.clutch_lock_rpm | 4000 | rpm | assumed | Q-023 |
+| hull.length_mm | 1500 | mm | assumed | Q-027 |
+| hull.beam_mm | 900 | mm | assumed | Q-027 |
+| hull.depth_mm | 350 | mm | assumed | Q-027 |
+| hull.bottom_clear_mm | 100 | mm | assumed | Q-027 |
+| hull.foam_share_max | 0.4 |  | assumed | Q-027 |
+| water.freeboard_min_mm | 150 | mm | assumed | Q-027 |
+| water.speed_min_kmh | 2 | km/h | assumed | Q-027 |
+| water.shore_grade_pct | 15 | % | assumed | Q-027 |
+| water.reserve_ratio | 1.2 |  | assumed | Q-027 |
+| kart.swap_time_h | 2 | h | assumed | Q-027 |
+| kart.tip_ratio_snow_min | 0.6 |  | assumed | Q-027 |
+| hull.bottom_t_mm | 6 | mm | assumed | Q-027 |
+| hull.side_t_mm | 3 | mm | assumed | Q-027 |
+| hull.sheet_density_kg_m3 | 940 | kg/m3 | assumed | Q-027 |
+| cost.allow_winter_mounts_jpy | 15000 | JPY | assumed | Q-027 |
+| foam.density_kg_m3 | 27 | kg/m3 | sourced | M83 |
+| cost.xps_jpy_per_m3 | 43200 | JPY | sourced | M83 |
+| cost.hull_bottom_jpy_per_m2 | 29100 | JPY | sourced | M82 |
+| cost.hull_side_jpy_per_m2 | 21800 | JPY | sourced | M82 |
+| cost.donor_bravo_jpy | 131000 | JPY | sourced | M80 |
+| cost.outboard_jpy | 40990 | JPY | sourced | M84 |
+| outboard.mass_kg | 8.2 | kg | sourced | M84 |
+| outboard.power_max_w | 660 | W | sourced | M84 |
+| water.load_share_manual | 0.3 |  | sourced | P52 |
+| snow.skip_kmh_per_100kg | 12 | km/h | sourced | S5 |
+| outboard.battery_kg | 20 | kg | assumed | Q-027 |
+| cost.allow_outboard_battery_jpy | 20000 | JPY | assumed | Q-027 |
 | form.mass_total_kg | 170 | kg | calculated | docs/02-form.md#mass |
-| snow.wheel_sinkage_min_cm | 19.0 | cm | calculated | docs/02-form.md#snow |
-| snow.wheel_sinkage_max_cm | 25.1 | cm | calculated | docs/02-form.md#snow |
+| snow.wheel_sinkage_min_cm | 63.2 | cm | calculated | docs/02-form.md#snow |
+| snow.wheel_sinkage_max_cm | 83.8 | cm | calculated | docs/02-form.md#snow |
 | snow.track_pressure_kpa | 5.3 | kPa | calculated | docs/02-form.md#snow |
 | snow.ski_pressure_kpa | 4.6 | kPa | calculated | docs/02-form.md#snow |
 | snow.track_sinkage_max_cm | 11.1 | cm | calculated | docs/02-form.md#snow |
@@ -454,6 +502,32 @@ These are not decided here. 1.2 compares forms against them.
 | drive.power_avg_heavy_w | 556 | W | calculated | docs/02-form.md#drive |
 | battery.run_time_heavy_min | 133 | min | calculated | docs/02-form.md#drive |
 | drive.sprocket_reach_mm | 0 | mm | calculated | docs/02-form.md#drive |
+| hull.sheet_kg | 12.4 | kg | calculated | docs/02-form.md#water |
+| hull.foam_m3 | 0.164 | m3 | calculated | docs/02-form.md#water |
+| hull.foam_share | 0.35 |  | calculated | docs/02-form.md#water |
+| hull.mass_kg | 16.8 | kg | calculated | docs/02-form.md#water |
+| water.draft_mm | 186 | mm | calculated | docs/02-form.md#water |
+| water.freeboard_mm | 164 | mm | calculated | docs/02-form.md#water |
+| water.gm_m | 0.191 | m | calculated | docs/02-form.md#water |
+| water.load_rating_kg | 97 | kg | calculated | docs/02-form.md#water |
+| water.depth_for_rider_mm | 358 | mm | calculated | docs/02-form.md#water |
+| sm.mass_kg | 137.4 | kg | calculated | docs/02-form.md#snowmobile |
+| sm.rear_share | 0.73 |  | calculated | docs/02-form.md#snowmobile |
+| sm.track_pressure_kpa | 4.0 | kPa | calculated | docs/02-form.md#snowmobile |
+| sm.ski_pressure_kpa | 4.43 | kPa | calculated | docs/02-form.md#snowmobile |
+| sm.hull_pressure_kpa | 1.72 | kPa | calculated | docs/02-form.md#snowmobile |
+| sm.track_sinkage_max_cm | 11.2 | cm | calculated | docs/02-form.md#snowmobile |
+| sm.ski_sinkage_max_cm | 8.5 | cm | calculated | docs/02-form.md#snowmobile |
+| sm.hull_sinkage_max_cm | 7.1 | cm | calculated | docs/02-form.md#snowmobile |
+| sm.clutch_lock_kmh | 2.3 | km/h | calculated | docs/02-form.md#snowmobile |
+| sm.top_speed_kmh | 16.0 | km/h | calculated | docs/02-form.md#snowmobile |
+| sm.power_snow_kw | 0.72 | kW | calculated | docs/02-form.md#snowmobile |
+| sm.cg_height_m | 0.492 | m | calculated | docs/02-form.md#snowmobile |
+| sm.tip_ratio | 0.81 |  | calculated | docs/02-form.md#snowmobile |
+| sm.length_min_m | 1.85 | m | calculated | docs/02-form.md#snowmobile |
+| sm.skip_speed_kmh | 28 | km/h | calculated | docs/02-form.md#snowmobile |
+| cost.tub_jpy | 82992 | JPY | calculated | docs/02-form.md#water |
+| cost.winter_sm_jpy | 236992 | JPY | calculated | docs/02-form.md#snowmobile |
 | cost.chassis_jpy | 93902 | JPY | calculated | docs/02-form.md#cost |
 | cost.power_engine_clone_jpy | 37940 | JPY | calculated | docs/02-form.md#cost |
 | cost.power_engine_genuine_jpy | 86940 | JPY | calculated | docs/02-form.md#cost |
@@ -537,7 +611,7 @@ These are not decided here. 1.2 compares forms against them.
 | Q-009 | The rough inputs of step 1.2 (kart mass and its rear share, tyre pressure, track wheel diameter, ski size, drive efficiency, tube lengths, ground clearance, heights of the centres of mass, and a mean speed, rolling resistance, electric efficiency, and usable battery fraction for the run time) are assumed so that forms can be compared. Step 1.3 replaces each with the chosen part's data or a calculation. | assistant |
 | Q-010 | The price of the 12 V chargers for E2 and the allowances for shipping, small parts, a reduction stage, skis, the track running gear, pedals and cables and the stop switch, guards and mounts, drive chains, and electric wiring are assumed. Whether the snow chain price of M15 is for one tyre or a pair is not known; two are counted. Step 1.5 replaces each with a quoted price. | assistant |
 | Q-011 | What is the governed no-load speed of the chosen engine? The gearing for R-01 is set to it. It is assumed at 3850 rpm from a checker's recollection (K-001), not from a source; take it from the engine maker's data, or measure it on the engine when it arrives. | assistant |
-| Q-012 | How far does the owner's fresh snow give under a loaded plate? A board of known area loaded to about 5 kPa and to about 16 kPa, set on undisturbed fresh snow and its sinkage measured, settles whether rear tracks (W2) clear snow.depth_max_cm before the frame is given mounts for them. | owner |
+| Q-012 | How far does the owner's fresh snow give under a loaded plate? A board of known area loaded to about 5 kPa and to about 16 kPa, set on undisturbed fresh snow and its sinkage measured, settles whether rear tracks (W2) clear snow.depth_max_cm before the frame is given mounts for them. A person on snowshoes presses about 3.5 kPa (S4), the same order as a sled bottom (D-023), so the depth a snowshoe sinks in the deepest fresh snow is a first measure of whether the snowmobile form floats. | owner |
 | Q-013 | Should an adult be able to set a lower top speed for a small child? A 5-year-old drives (D-010), while US youth ATV guidance allows no ATVs under 6 and limits ages 6 and up to 10 mph with the restrictor (P25, S2). The child limit is assumed at 16 km/h, about 10 mph, until the owner decides R-17. | owner |
 | Q-014 | The 3D simulator needs the tyre grip on pavement, gravel, and grass, the sideways grip of the front skis, the resistance of tracks in fresh snow, and the resistance when the floor ploughs snow. No source was found; they are assumed so that the simulator can run, and a test run of the built kart settles them. Simulator results that rest on them are illustrations, not verification. | assistant |
 | Q-015 | In the owner's Delica D:5, with the third row flipped up and the second row tipped up and slid forward, how wide is the clear space at the floor and at 40 cm above it, and how wide is the tailgate opening at the height of the cargo floor? The sources give only the narrowest and widest widths. | owner |
@@ -551,4 +625,7 @@ These are not decided here. 1.2 compares forms against them.
 | Q-023 | The size and mass of a 50 cc scooter's engine and transmission unit, its final reduction, and its ECU's rev limit are not stated in any source found; the design assumes them. Measure the donor unit when it arrives, and set the drive sprockets so the top speed at the rev limit is kart.speed_max_kmh. | assistant |
 | Q-024 | No seat belt marked JIS D4604, which the safety standards accept (P36 article 66-2), was found for sale to individuals; generic belts (M78) are not marked. A belt with its anchors from a scrapped kei car carries its approval; find one and its price, and check how it mounts on the kart's frame and seat. | assistant |
 | Q-025 | The road-going layout is not yet buildable (K-006). Move the left side bar and the column braces clear of the scooter unit and the adult's shins; give the unit a plate on both rails; keep the axle sprocket and chain clear of the middle bearing plate; raise the roll bar above the tallest driver's head with a folding or bolted top for the car, with a front structure for a rollover; mount the hand brake, belt anchors, head restraint, battery, horn, and mirrors (facing the driver) on the frame; place the fuel tank, ECU, regulator, key switch, and the donor's silencer; add the cornering load to the axle and check a 30 mm axle; and carry the engine unit's mass on both rails. Build the collision search into calc/design.py so each change is checked. | assistant |
+| Q-026 | The owner described the kart as like a kick scooter for the far outdoors (D-023). Does that ask for a standing ride, or for a light personal vehicle that is still seated? A standing ride conflicts with the seat, seat belt, and head restraint the law asks of a minicar on roads (R-22), and with a child driving. | owner |
+| Q-027 | The rough inputs of the snowmobile form and the hull - the track's place and mass (its size is a Yamaha Bravo's, P51), the parts removed and added at each change, the drive sprocket, the seat's rise over the track, the hull's size, foam share, and plating, the water design points, the outboard's battery, the change time, and the tipping margin on snow - are assumed until a donor is chosen and the hull is laid out in step 1.3. | assistant |
+| Q-028 | A kart that moves on a lake is an amphibious vessel, a special ship, which the small-boat exemption from ship inspection does not cover (P46). Ask the regional transport bureau whether a home-built amphibious kart moved on water only by an electric outboard under 1.5 kW, with its engine stopped, can be inspected, what the inspection asks (buoyancy, stability, freeboard, equipment) and costs, and whether a pond on private land is outside the Ship Safety Act. No official page on a small amphibious vessel was found. | owner |
 <!-- tdr:end -->
