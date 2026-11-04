@@ -40,6 +40,7 @@ export const PART_KEYS = {
   hand_brake: ['cost.hand_brake_jpy', 'law.parking_grade_pct'],
   battery: ['cost.battery12_jpy'],
   number_plate: ['cost.plate_bracket_jpy', 'cost.tax_year_jpy', 'cost.cali_year_jpy'],
+  snow_chains: ['ground.mu_snow_chains', 'ground.mu_ice_chains', 'cost.snow_chain_jpy', 'w4.*'],
   track_unit: ['sm.track_*', 'sm.idler_dia_mm', 'sm.drive_*', 'dsn.winter_*', 'cost.donor_bravo_jpy', 'cost.allow_winter_mounts_jpy'],
   winter_chain: ['dsn.winter_chain_*', 'cost.chain420_jpy', 'cost.spr420_30t_jpy'],
   sled_pan: ['lay.pan_*', 'lay.bow_*', 'lay.tunnel_*', 'hull.bottom_t_mm', 'hull.side_t_mm', 'dsn.pan_mass_kg', 'dsn.belly_*', 'cost.hull_*', 'cost.xps_jpy_per_m3'],

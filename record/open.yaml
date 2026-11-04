@@ -339,6 +339,7 @@ items:
       - hull.side_t_mm
       - hull.sheet_density_kg_m3
       - cost.allow_winter_mounts_jpy
+      - w4.wheel_share
       - outboard.battery_kg
       - cost.allow_outboard_battery_jpy
       - water.freeboard_min_mm

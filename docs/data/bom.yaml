@@ -272,3 +272,8 @@ lines:
     qty: 2
     price: cost.hull_bottom_jpy_per_m2
     need: w2
+  - part: snow_chains
+    item: Ladder chains for small tyres, adjustable, for the W4 trial
+    qty: 2
+    price: cost.snow_chain_jpy
+    need: t6

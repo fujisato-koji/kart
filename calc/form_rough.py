@@ -223,6 +223,39 @@ def compute(v):
     # Length from the skis' front ends to the rear end of the track's contact
     put("sm.length_min_m", round(wb + v["ski.contact_length_mm"] / 2000 - (x_t - tl / 2), 2), "m", "snowmobile")
     put("sm.skip_speed_kmh", round(v["snow.skip_kmh_per_100kg"] * (m_w + v["rider.mass_max_kg"]) / 100), "km/h", "snowmobile")
+    # W4: the sled pan carries most of the weight in fresh snow and the rear tyres, pressed down
+    # with a share of it and wearing chains, push. Their sinkage by Bekker's wheel relation (P2),
+    # their grip by CRREL's fit for shallow undisturbed snow (P59), against the pan sliding
+    # (sled.mu_packed, P60) and the tyres' own resistance (ground.crr_snow_fresh, P1)
+    w4w = (v["dsn.mass_kg"] + v["rider.mass_max_kg"]) * G
+    td, tw4 = v["whl.tyre_od_mm"], v["whl.tyre_width_mm"]
+
+    def w4(f, tyres=2):
+        load = f * w4w / tyres
+        z = bekker_wheel(load, tw4, td) / 100
+        arc = min(math.sqrt(td / 1000 * z), td / 2000)
+        n_ = load / (tw4 / 1000 * arc) / 1000
+        grip = tyres * v["snow.crrel_trac_shallow_a"] * n_ ** v["snow.crrel_trac_shallow_b"] * tw4 / 1000 * arc * 1000
+        res = v["sled.mu_packed"] * (1 - f) * w4w + v["ground.crr_snow_fresh"] * f * w4w
+        return z, grip, res
+
+    put("w4.share_min", next(f / 100 for f in range(5, 100, 5) if w4(f / 100)[1] >= w4(f / 100)[2]), None, "snowmobile")
+    z4, g4, r4 = w4(v["w4.wheel_share"])
+    put("w4.wheel_sink_cm", round(z4 * 100, 1), "cm", "snowmobile")
+    put("w4.grip_n", round(g4), "N", "snowmobile")
+    put("w4.resistance_n", round(r4), "N", "snowmobile")
+    # the pan's own sinkage under the rest of the weight; the tyres must reach that much deeper
+    z_pan = bekker((1 - v["w4.wheel_share"]) * w4w / (hl * hb) / 1000, v["hull.beam_mm"]) / 100
+    put("w4.wheel_drop_mm", round((z4 - z_pan) * 1000), "mm", "snowmobile")
+    put("w4.tyre_dia_min_mm", round(2 * z4 * 1000), "mm", "snowmobile")
+    # W4 with a second tyre bolted outside each rear tyre in winter, like a tractor's duals
+    zd, gd, rd = w4(v["w4.wheel_share"], 4)
+    put("w4.dual_share_min", next(f / 100 for f in range(5, 100, 5) if w4(f / 100, 4)[1] >= w4(f / 100, 4)[2]), None,
+        "snowmobile")
+    put("w4.dual_wheel_sink_cm", round(zd * 100, 1), "cm", "snowmobile")
+    put("w4.dual_grip_n", round(gd), "N", "snowmobile")
+    put("w4.dual_width_m", round(v["lay.track_rear_mm"] / 1000 + 3 * v["whl.tyre_width_mm"] / 1000 + 0.02, 2), "m", "snowmobile")
+
     # Winter parts: a running donor for its rear half, skis, mounts, and the tub
     tub = (bottom * v["cost.hull_bottom_jpy_per_m2"] + sides * v["cost.hull_side_jpy_per_m2"]
            + foam * v["cost.xps_jpy_per_m3"])

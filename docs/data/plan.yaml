@@ -221,14 +221,26 @@ tasks:
       - d3
     reqs:
       - R-06
-  - id: w1
-    phase: build
-    title: Buy the donor snowmobile, strip its track unit, and measure it (Q-029)
+  - id: t6
+    phase: test
+    title: W4 trial - the summer form with chains on its sled pan in fresh snow
     kind: work
-    days: 3
+    days: 1
     after:
       - w0
       - t3
+    parts:
+      - snow_chains
+      - sled_pan
+    reqs:
+      - R-06
+  - id: w1
+    phase: build
+    title: Buy the donor snowmobile, strip its track unit, and measure it (Q-029), if W4 falls short
+    kind: work
+    days: 3
+    after:
+      - t6
     parts:
       - track_unit
   - id: w2

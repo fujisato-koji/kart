@@ -3694,6 +3694,30 @@
    ]
   },
   {
+   "key": "snow.crrel_trac_shallow_a",
+   "v": 0.851,
+   "status": "sourced",
+   "basis": [
+    "P59"
+   ]
+  },
+  {
+   "key": "snow.crrel_trac_shallow_b",
+   "v": 0.823,
+   "status": "sourced",
+   "basis": [
+    "P59"
+   ]
+  },
+  {
+   "key": "w4.wheel_share",
+   "v": 0.35,
+   "status": "assumed",
+   "basis": [
+    "Q-027"
+   ]
+  },
+  {
    "key": "form.mass_total_kg",
    "v": 170,
    "unit": "kg",
@@ -4159,6 +4183,94 @@
    "key": "sm.skip_speed_kmh",
    "v": 28,
    "unit": "km/h",
+   "status": "calculated",
+   "basis": [
+    "docs/02-form.md#snowmobile"
+   ]
+  },
+  {
+   "key": "w4.share_min",
+   "v": 0.25,
+   "status": "calculated",
+   "basis": [
+    "docs/02-form.md#snowmobile"
+   ]
+  },
+  {
+   "key": "w4.wheel_sink_cm",
+   "v": 24.2,
+   "unit": "cm",
+   "status": "calculated",
+   "basis": [
+    "docs/02-form.md#snowmobile"
+   ]
+  },
+  {
+   "key": "w4.grip_n",
+   "v": 368,
+   "unit": "N",
+   "status": "calculated",
+   "basis": [
+    "docs/02-form.md#snowmobile"
+   ]
+  },
+  {
+   "key": "w4.resistance_n",
+   "v": 262,
+   "unit": "N",
+   "status": "calculated",
+   "basis": [
+    "docs/02-form.md#snowmobile"
+   ]
+  },
+  {
+   "key": "w4.wheel_drop_mm",
+   "v": 194,
+   "unit": "mm",
+   "status": "calculated",
+   "basis": [
+    "docs/02-form.md#snowmobile"
+   ]
+  },
+  {
+   "key": "w4.tyre_dia_min_mm",
+   "v": 484,
+   "unit": "mm",
+   "status": "calculated",
+   "basis": [
+    "docs/02-form.md#snowmobile"
+   ]
+  },
+  {
+   "key": "w4.dual_share_min",
+   "v": 0.2,
+   "status": "calculated",
+   "basis": [
+    "docs/02-form.md#snowmobile"
+   ]
+  },
+  {
+   "key": "w4.dual_wheel_sink_cm",
+   "v": 16.9,
+   "unit": "cm",
+   "status": "calculated",
+   "basis": [
+    "docs/02-form.md#snowmobile"
+   ]
+  },
+  {
+   "key": "w4.dual_grip_n",
+   "v": 416,
+   "unit": "N",
+   "status": "calculated",
+   "basis": [
+    "docs/02-form.md#snowmobile"
+   ]
+  },
+  {
+   "key": "w4.dual_width_m",
+   "v": 1.55,
+   "unit": "m",
    "status": "calculated",
    "basis": [
     "docs/02-form.md#snowmobile"
@@ -4964,7 +5076,7 @@
   },
   {
    "key": "dsn.bom_parts_jpy",
-   "v": 529684,
+   "v": 544644,
    "unit": "JPY",
    "status": "calculated",
    "basis": [
@@ -6904,6 +7016,16 @@
     "Q-030",
     "sled_pan"
    ]
+  },
+  {
+   "id": "D-029",
+   "date": "2026-11-04",
+   "by": "owner",
+   "what": "Record W4 - the sled pan carrying most of the weight in snow and the rear tyres, pressed down and wearing chains, pushing - as a winter candidate beside the snowmobile form, and test the summer form with chains in fresh snow before the donor snowmobile is bought.",
+   "touches": [
+    "R-06",
+    "D-025"
+   ]
   }
  ],
  "open": [
@@ -7324,6 +7446,7 @@
     "hull.side_t_mm",
     "hull.sheet_density_kg_m3",
     "cost.allow_winter_mounts_jpy",
+    "w4.wheel_share",
     "outboard.battery_kg",
     "cost.allow_outboard_battery_jpy",
     "water.freeboard_min_mm",
@@ -7657,6 +7780,11 @@
   {
    "id": "skis",
    "name": "Front skis on stanchions as tall as the winter lift, bolted to the spindles",
+   "parent": "winter"
+  },
+  {
+   "id": "snow_chains",
+   "name": "Rear tyre chains, for the W4 trial in fresh snow",
    "parent": "winter"
   },
   {
@@ -8063,6 +8191,14 @@
    "between": [
     "sled_pan",
     "frame"
+   ],
+   "carries": "load"
+  },
+  {
+   "id": "I-47",
+   "between": [
+    "snow_chains",
+    "rear_wheels"
    ],
    "carries": "load"
   }
@@ -9078,14 +9214,31 @@
     ]
    },
    {
-    "id": "w1",
-    "phase": "build",
-    "title": "Buy the donor snowmobile, strip its track unit, and measure it (Q-029)",
+    "id": "t6",
+    "phase": "test",
+    "title": "W4 trial - the summer form with chains on its sled pan in fresh snow",
     "kind": "work",
-    "days": 3,
+    "days": 1,
     "after": [
      "w0",
      "t3"
+    ],
+    "parts": [
+     "snow_chains",
+     "sled_pan"
+    ],
+    "reqs": [
+     "R-06"
+    ]
+   },
+   {
+    "id": "w1",
+    "phase": "build",
+    "title": "Buy the donor snowmobile, strip its track unit, and measure it (Q-029), if W4 falls short",
+    "kind": "work",
+    "days": 3,
+    "after": [
+     "t6"
     ],
     "parts": [
      "track_unit"
@@ -9536,6 +9689,13 @@
     "qty": 2,
     "price": "cost.hull_bottom_jpy_per_m2",
     "need": "w2"
+   },
+   {
+    "part": "snow_chains",
+    "item": "Ladder chains for small tyres, adjustable, for the W4 trial",
+    "qty": 2,
+    "price": "cost.snow_chain_jpy",
+    "need": "t6"
    }
   ]
  },

@@ -36,6 +36,7 @@ The current state, with open items grouped by whom they wait for, is in [STATUS.
 | D-026 | 2026-11-04 | owner | The driver may sit or stand, but if standing would keep the kart off public roads, the kart is ridden seated. A minicar needs a seat with a seat belt and a head restraint (R-22), so the kart stays seated. This settles Q-026. |
 | D-027 | 2026-11-04 | owner | Settles item 3 of docs/02-form.md#outdoor. The water requirement R-27 is withdrawn. Water use is kept only as a future development, shown in the 3D view as an option (side floats and an electric outboard on the tub) without a requirement; the tub stays for the snow and as safety buoyancy (R-29). Q-028 is closed until such a version is taken up. |
 | D-028 | 2026-11-04 | owner | R-29 keeps only the driver's safety - on ice and near water a life jacket and no seat belt, and nothing of the kart holding the driver. The kart need not float. This settles Q-030; the sled pan keeps its bottom strips and bow and loses its foam and the right pod, which were there only to float the kart. |
+| D-029 | 2026-11-04 | owner | Record W4 - the sled pan carrying most of the weight in snow and the rear tyres, pressed down and wearing chains, pushing - as a winter candidate beside the snowmobile form, and test the summer form with chains in fresh snow before the donor snowmobile is bought. |
 <!-- tdr:end -->
 
 ## Open items {#open}
@@ -459,6 +460,9 @@ The current state, with open items grouped by whom they wait for, is in [STATUS.
 | cost.crawler300_jpy | 65200 | JPY | sourced | M87 |
 | lay.seat_cushion_mm | 30 | mm | calculated | docs/03-design.md#rollbar |
 | lay.rollbar_clear_mm | 50 | mm | calculated | docs/03-design.md#rollbar |
+| snow.crrel_trac_shallow_a | 0.851 |  | sourced | P59 |
+| snow.crrel_trac_shallow_b | 0.823 |  | sourced | P59 |
+| w4.wheel_share | 0.35 |  | assumed | Q-027 |
 | form.mass_total_kg | 170 | kg | calculated | docs/02-form.md#mass |
 | snow.wheel_sinkage_min_cm | 63.2 | cm | calculated | docs/02-form.md#snow |
 | snow.wheel_sinkage_max_cm | 83.8 | cm | calculated | docs/02-form.md#snow |
@@ -512,6 +516,16 @@ The current state, with open items grouped by whom they wait for, is in [STATUS.
 | sm.tip_ratio | 0.74 |  | calculated | docs/02-form.md#snowmobile |
 | sm.length_min_m | 1.85 | m | calculated | docs/02-form.md#snowmobile |
 | sm.skip_speed_kmh | 28 | km/h | calculated | docs/02-form.md#snowmobile |
+| w4.share_min | 0.25 |  | calculated | docs/02-form.md#snowmobile |
+| w4.wheel_sink_cm | 24.2 | cm | calculated | docs/02-form.md#snowmobile |
+| w4.grip_n | 368 | N | calculated | docs/02-form.md#snowmobile |
+| w4.resistance_n | 262 | N | calculated | docs/02-form.md#snowmobile |
+| w4.wheel_drop_mm | 194 | mm | calculated | docs/02-form.md#snowmobile |
+| w4.tyre_dia_min_mm | 484 | mm | calculated | docs/02-form.md#snowmobile |
+| w4.dual_share_min | 0.2 |  | calculated | docs/02-form.md#snowmobile |
+| w4.dual_wheel_sink_cm | 16.9 | cm | calculated | docs/02-form.md#snowmobile |
+| w4.dual_grip_n | 416 | N | calculated | docs/02-form.md#snowmobile |
+| w4.dual_width_m | 1.55 | m | calculated | docs/02-form.md#snowmobile |
 | cost.tub_jpy | 82992 | JPY | calculated | docs/02-form.md#water |
 | cost.winter_sm_jpy | 236992 | JPY | calculated | docs/02-form.md#snowmobile |
 | cost.chassis_jpy | 93902 | JPY | calculated | docs/02-form.md#cost |
@@ -602,7 +616,7 @@ The current state, with open items grouped by whom they wait for, is in [STATUS.
 | dsn.height_m | 1.05 | m | calculated | docs/03-design.md#layout |
 | dsn.winter_length_m | 2.15 | m | calculated | docs/03-design.md#winter |
 | dsn.winter_height_m | 1.268 | m | calculated | docs/03-design.md#winter |
-| dsn.bom_parts_jpy | 529684 | JPY | calculated | docs/03-design.md#cost |
+| dsn.bom_parts_jpy | 544644 | JPY | calculated | docs/03-design.md#cost |
 | dsn.bom_tools_jpy | 34056 | JPY | calculated | docs/03-design.md#cost |
 <!-- tdr:end -->
 
@@ -823,6 +837,7 @@ The current state, with open items grouped by whom they wait for, is in [STATUS.
 | kill_switch | Engine stop switches, one on the steering and one with a tether | powertrain |
 | winter | Winter parts | kart |
 | skis | Front skis on stanchions as tall as the winter lift, bolted to the spindles | winter |
+| snow_chains | Rear tyre chains, for the W4 trial in fresh snow | winter |
 | track_unit | Centre track unit from a used snowmobile - track, slide rails with idler wheels and arms, drive shaft with its bearings and brackets, and a pivot shaft in the pillow blocks | winter |
 | winter_chain | Longer 420 chain and the 30T sprocket on the track's drive shaft | winter |
 | roll_bar | Roll bar over the driver's head, also the 1 m marker | chassis |
@@ -887,4 +902,5 @@ The current state, with open items grouped by whom they wait for, is in [STATUS.
 | I-44 | winter_chain, track_unit | power |
 | I-45 | brake, track_unit | load |
 | I-46 | sled_pan, frame | load |
+| I-47 | snow_chains, rear_wheels | load |
 <!-- tdr:end -->

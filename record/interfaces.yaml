@@ -201,3 +201,8 @@ items:
       - sled_pan
       - frame
     carries: load
+  - id: I-47
+    between:
+      - snow_chains
+      - rear_wheels
+    carries: load

@@ -84,6 +84,9 @@ items:
   - id: skis
     name: Front skis on stanchions as tall as the winter lift, bolted to the spindles
     parent: winter
+  - id: snow_chains
+    name: Rear tyre chains, for the W4 trial in fresh snow
+    parent: winter
   - id: track_unit
     name: Centre track unit from a used snowmobile - track, slide rails with idler wheels and arms, drive shaft with its bearings and brackets, and a pivot shaft in the pillow blocks
     parent: winter
