@@ -429,7 +429,7 @@ These are not decided here. 1.2 compares forms against them.
 | cost.chain420_jpy | 1928 | JPY | sourced | M75 |
 | cost.spr420_30t_jpy | 2090 | JPY | sourced | M75 |
 | cost.spr420_15t_jpy | 1270 | JPY | sourced | M75 |
-| cost.donor_scooter_jpy | 61000 | JPY | sourced | M76 |
+| cost.donor_scooter_jpy | 32000 | JPY | sourced | M76 |
 | cost.plate_stay_jpy | 2617 | JPY | sourced | M77 |
 | cost.belt_anchor_jpy | 2772 | JPY | sourced | M78 |
 | cost.belt_used_car_jpy | 3000 | JPY | assumed | Q-024 |
@@ -539,7 +539,6 @@ These are not decided here. 1.2 compares forms against them.
 | lay.child_hip_x_mm | 550 | mm | calculated | docs/03-design.md#fit |
 | lay.child_foot_raise_mm | 70 | mm | calculated | docs/03-design.md#fit |
 | dsn.fender_mass_kg | 2.0 | kg | assumed | Q-033 |
-| cost.allow_fenders_jpy | 8000 | JPY | assumed | Q-033 |
 | w5.tyre_dia_mm | 635 | mm | assumed | Q-034 |
 | w5.tyre_width_mm | 300 | mm | assumed | Q-034 |
 | w5.wheel_mass_kg | 9 | kg | assumed | Q-034 |
@@ -547,8 +546,7 @@ These are not decided here. 1.2 compares forms against them.
 | cost.w5_wheel_jpy | 12000 | JPY | assumed | Q-034 |
 | cost.spr420_45t_jpy | 3000 | JPY | assumed | Q-034 |
 | sm.lift_mm | 218 | mm | assumed | Q-029 |
-| lay.front_disc_dia_mm | 120 | mm | calculated | docs/03-design.md#brake |
-| cost.front_brakes_jpy | 15000 | JPY | assumed | Q-033 |
+| lay.front_drum_dia_mm | 110 | mm | assumed | Q-037 |
 | w5.out_teeth | 12 |  | assumed | Q-034 |
 | dsn.battery_mass_kg | 2.1 | kg | sourced | M74 |
 | yr.tyre_dia_mm | 470 | mm | assumed | Q-036 |
@@ -557,8 +555,19 @@ These are not decided here. 1.2 compares forms against them.
 | lay.ski_gap_mm | 30 | mm | calculated | docs/03-design.md#winter |
 | yr.wheel_mass_kg | 6 | kg | assumed | Q-036 |
 | w6.chain_mass_kg | 2 | kg | assumed | Q-036 |
-| cost.buggy_tyres_set_jpy | 32000 | JPY | assumed | Q-036 |
 | cost.spr420_42t_jpy | 3000 | JPY | assumed | Q-036 |
+| cost.atv_wheels_set_jpy | 26800 | JPY | sourced | M96 |
+| cost.atv_knuckle_pair_jpy | 9380 | JPY | sourced | M92 |
+| cost.atv_drum_hub_jpy | 9080 | JPY | sourced | M93 |
+| cost.front_drum_allow_jpy | 3000 | JPY | assumed | Q-037 |
+| cost.lcd_meter_jpy | 3980 | JPY | sourced | M94 |
+| cost.atv_fender_pair_jpy | 4660 | JPY | sourced | M95 |
+| cost.ski_bracket_make_jpy | 6000 | JPY | assumed | Q-037 |
+| cost.atv_sporty50_jpy | 298000 | JPY | sourced | M97 |
+| cost.atv_sl50w_kit_jpy | 168000 | JPY | sourced | M98 |
+| cost.atv_sl50w_built_jpy | 198000 | JPY | sourced | M98 |
+| cost.atv_used_low_jpy | 60000 | JPY | sourced | M99 |
+| cost.atv_used_high_jpy | 160000 | JPY | sourced | M99 |
 | form.mass_total_kg | 170 | kg | calculated | docs/02-form.md#mass |
 | snow.wheel_sinkage_min_cm | 63.2 | cm | calculated | docs/02-form.md#snow |
 | snow.wheel_sinkage_max_cm | 83.8 | cm | calculated | docs/02-form.md#snow |
@@ -693,32 +702,32 @@ These are not decided here. 1.2 compares forms against them.
 | dsn.child_fit_margin_mm | 23 | mm | calculated | docs/03-design.md#fit |
 | dsn.pan_mass_kg | 2.4 | kg | calculated | docs/03-design.md#winter |
 | dsn.ski_y_mm | 261 | mm | calculated | docs/03-design.md#winter |
-| dsn.mass_kg | 115.6 | kg | calculated | docs/03-design.md#mass |
-| dsn.cg_x_m | 0.426 | m | calculated | docs/03-design.md#mass |
+| dsn.mass_kg | 116.6 | kg | calculated | docs/03-design.md#mass |
+| dsn.cg_x_m | 0.432 | m | calculated | docs/03-design.md#mass |
 | dsn.cg_y_m | -0.002 | m | calculated | docs/03-design.md#mass |
 | dsn.cg_z_m | 0.298 | m | calculated | docs/03-design.md#mass |
 | dsn.frame_mass_kg | 11.4 | kg | calculated | docs/03-design.md#frame |
-| dsn.rear_share_adult | 0.561 |  | calculated | docs/03-design.md#mass |
+| dsn.rear_share_adult | 0.558 |  | calculated | docs/03-design.md#mass |
 | dsn.cg_side_adult_mm | -1 | mm | calculated | docs/03-design.md#mass |
-| dsn.cg_height_adult_m | 0.554 | m | calculated | docs/03-design.md#mass |
+| dsn.cg_height_adult_m | 0.553 | m | calculated | docs/03-design.md#mass |
 | dsn.tip_ratio_adult | 0.79 |  | calculated | docs/03-design.md#stability |
 | dsn.pitch_ratio_adult | 0.86 |  | calculated | docs/03-design.md#stability |
-| dsn.rear_share_child | 0.591 |  | calculated | docs/03-design.md#mass |
+| dsn.rear_share_child | 0.587 |  | calculated | docs/03-design.md#mass |
 | dsn.cg_side_child_mm | -1 | mm | calculated | docs/03-design.md#mass |
-| dsn.cg_height_child_m | 0.355 | m | calculated | docs/03-design.md#mass |
+| dsn.cg_height_child_m | 0.354 | m | calculated | docs/03-design.md#mass |
 | dsn.tip_ratio_child | 1.24 |  | calculated | docs/03-design.md#stability |
-| dsn.pitch_ratio_child | 1.24 |  | calculated | docs/03-design.md#stability |
-| dsn.winter_mass_kg | 125.6 | kg | calculated | docs/03-design.md#winter |
-| dsn.winter_cg_height_m | 0.536 | m | calculated | docs/03-design.md#winter |
-| dsn.winter_rear_share | 0.554 |  | calculated | docs/03-design.md#winter |
+| dsn.pitch_ratio_child | 1.26 |  | calculated | docs/03-design.md#stability |
+| dsn.winter_mass_kg | 126.6 | kg | calculated | docs/03-design.md#winter |
+| dsn.winter_cg_height_m | 0.535 | m | calculated | docs/03-design.md#winter |
+| dsn.winter_rear_share | 0.551 |  | calculated | docs/03-design.md#winter |
 | dsn.winter_tip_ratio | 0.67 |  | calculated | docs/03-design.md#stability |
-| dsn.winter_pitch_ratio | 0.9 |  | calculated | docs/03-design.md#stability |
-| dsn.winter_ski_pressure_kpa | 6.86 | kPa | calculated | docs/03-design.md#winter |
+| dsn.winter_pitch_ratio | 0.91 |  | calculated | docs/03-design.md#stability |
+| dsn.winter_ski_pressure_kpa | 6.93 | kPa | calculated | docs/03-design.md#winter |
 | dsn.belly_height_mm | 100 | mm | calculated | docs/03-design.md#winter |
-| dsn.climb_force_n | 664 | N | calculated | docs/03-design.md#climb |
+| dsn.climb_force_n | 667 | N | calculated | docs/03-design.md#climb |
 | dsn.climb_grip_n | 619 | N | calculated | docs/03-design.md#climb |
 | dsn.climb_thrust_n | 1316 | N | calculated | docs/03-design.md#climb |
-| dsn.climb_grade_max_pct | 17.2 | % | calculated | docs/03-design.md#climb |
+| dsn.climb_grade_max_pct | 17.0 | % | calculated | docs/03-design.md#climb |
 | dsn.axle_chain_pull_n | 3639 | N | calculated | docs/03-design.md#axle |
 | dsn.axle_stress_mpa | 236 | MPa | calculated | docs/03-design.md#axle |
 | dsn.axle_safety | 1.46 |  | calculated | docs/03-design.md#axle |
@@ -727,11 +736,11 @@ These are not decided here. 1.2 compares forms against them.
 | dsn.rail_safety | 0.85 |  | calculated | docs/03-design.md#frame |
 | dsn.bearing_load_n | 593 | N | calculated | docs/03-design.md#axle |
 | dsn.brake_decel_needed | 5.79 | m/s2 | calculated | docs/03-design.md#brake |
-| dsn.brake_torque_needed_nm | 293 | N m | calculated | docs/03-design.md#brake |
-| dsn.brake_rear_alone_decel | 3.12 | m/s2 | calculated | docs/03-design.md#brake |
-| dsn.brake_clamp_needed_n | 2292 | N | calculated | docs/03-design.md#brake |
-| dsn.brake_front_clamp_needed_n | 2836 | N | calculated | docs/03-design.md#brake |
-| dsn.brake_downhill_decel_rear | 0.06 | m/s2 | calculated | docs/03-design.md#brake |
+| dsn.brake_torque_needed_nm | 295 | N m | calculated | docs/03-design.md#brake |
+| dsn.brake_rear_alone_decel | 3.11 | m/s2 | calculated | docs/03-design.md#brake |
+| dsn.brake_clamp_needed_n | 2287 | N | calculated | docs/03-design.md#brake |
+| dsn.brake_front_torque_needed_nm | 96 | N m | calculated | docs/03-design.md#brake |
+| dsn.brake_downhill_decel_rear | 0.05 | m/s2 | calculated | docs/03-design.md#brake |
 | dsn.brake_downhill_decel | 2.4 | m/s2 | calculated | docs/03-design.md#brake |
 | dsn.brake_downhill_stop_m | 14.4 | m | calculated | docs/03-design.md#brake |
 | dsn.delica_width_margin_mm | 50 | mm | calculated | docs/03-design.md#transport |
@@ -739,7 +748,7 @@ These are not decided here. 1.2 compares forms against them.
 | dsn.delica_height_margin_mm | 60 | mm | calculated | docs/03-design.md#transport |
 | dsn.length_m | 1.585 | m | calculated | docs/03-design.md#layout |
 | dsn.delica_length_margin_mm | 25 | mm | calculated | docs/03-design.md#transport |
-| dsn.bom_parts_jpy | 356777 | JPY | calculated | docs/03-design.md#cost |
+| dsn.bom_parts_jpy | 268379 | JPY | calculated | docs/03-design.md#cost |
 | dsn.bom_tools_jpy | 34056 | JPY | calculated | docs/03-design.md#cost |
 <!-- tdr:end -->
 
@@ -783,5 +792,7 @@ These are not decided here. 1.2 compares forms against them.
 | Q-033 | The straddle kart of 1.2.18 is sized from assumed numbers - its seat and footrest heights, track, wheelbase, overhangs, mass and centre of mass, fender margin, and a 6-year-old's crotch height as a share of stature (no Japanese data for that age was found) - until it is laid out in 1.3. | assistant |
 | Q-034 | The winter form W5 (dropped for W6 by D-032) assumes large low-pressure tyres of the 25x12-9 class with rims, their mass and price, and a 12T output and 45T axle sprocket and their price, until a tyre that fits the rear hubs is chosen. | assistant |
 | Q-035 | The straddle kart of 1.3 is placed by hand and has had no collision search. K-013 left the spine too weak (a truss under the seat or a larger tube), the tie rods 4 mm from the front rails, the footboards held at one edge, the axle sprocket and axle uncovered, and the battery and the stem's foot without supports. The next pass builds a collision search into calc/design.py for the summer and winter forms and resolves these. | assistant |
-| Q-036 | The buggy-size tyres of 1.2.19 (about 19x7-8 at the front and 18x9.5-8 at the rear, as on the MAGMAX50 of M90) are taken at a common diameter, their widths, mass, and price, with the chains for them and the 42T axle sprocket the larger tyres need, until a set that fits the hubs and the road rules is chosen and priced. | assistant |
+| Q-036 | The buggy-size tyres of 1.2.19 (about 19x7-8 at the front and 18x9.5-8 at the rear, as on the MAGMAX50 of M90) are taken at a common diameter, their widths and mass, with the chains for them and the 42T axle sprocket the larger tyres need, until a set that fits the hubs and the road rules is chosen; a set of four is priced in M96. | assistant |
+| Q-037 | The cheaper parts of D-033 are taken from shop listings that leave their fit unstated - whether the ATV knuckles (M92) turn on kingpins as 1.3.6 draws them or need two ball joints on brackets; whether the drum hubs (M93) come with shoes and a backing plate, their drum size, and whether their three studs on 78 mm match the wheels (M96 gives PCD 110, or 88 at the front); the cable and splitter from the left lever; whether the LCD meter (M94) is lit at night and how its sensor reads the wheel; the fenders' width (M95); and the cost of making the ski brackets. They are settled before the parts are ordered, and checked on arrival as Q-019 says. | assistant |
+| Q-038 | The owner asked whether the wheels should follow the ground on springs. The kart of 1.3 is rigid and rides on its low-pressure tyres alone, as small karts and the cheapest youth quads do, while road-registered 50 cc ATVs have shocks front and rear (M97). Springs would keep the tyres pressing on rough ground for steering and braking, cut the shock loads on the spine that Q-035 already finds weak, and spare the rider. The candidates are a rear swing arm with one shock carrying the axle, pivoted at the engine unit's output so that the chain keeps its length; ATV A-arms with shocks at the front; and a front beam pivoting on the centre line, which is cheap but tips sideways like the one front wheel of 1.2.19 unless stopped. Studied with the frame in the pass of Q-035. | assistant |
 <!-- tdr:end -->

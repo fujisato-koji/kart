@@ -32,13 +32,13 @@ This step designs the straddle kart the owner chose (D-030): ridden astride by r
 
 ## 1.3.5 Brake {#brake}
 
-- Two systems as on the scooter (R-21): the right lever works a hydraulic caliper on a disc of lay.disc_dia_mm on the axle at lay.brake_y_mm (M42); the left lever works cable calipers on small discs of lay.front_disc_dia_mm on both front hubs (an allowance, Q-033); a lock on the right lever holds the kart parked.
-- To stop from kart.speed_max_kmh within kart.stop_distance_max_m with the adult (R-09) needs dsn.brake_decel_needed. Braking moves load onto the front wheels, so the rear tyres pass only part of it: the rear caliper then clamps dsn.brake_clamp_needed_n and each front caliper dsn.brake_front_clamp_needed_n, with pad friction dsn.pad_mu; both levers are used together. The rear brake alone stops at dsn.brake_rear_alone_decel on pavement. Whether cable calipers on the front give that force is a 1.4 item (Q-033).
+- Two systems as on the scooter (R-21): the right lever works a hydraulic caliper on a disc of lay.disc_dia_mm on the axle at lay.brake_y_mm (M42); the left lever works, through a cable splitter, drum brakes of about lay.front_drum_dia_mm in the ATV front hubs (M93; Q-037); a lock on the right lever holds the kart parked.
+- To stop from kart.speed_max_kmh within kart.stop_distance_max_m with the adult (R-09) needs dsn.brake_decel_needed. Braking moves load onto the front wheels, so the rear tyres pass only part of it: the rear caliper then clamps dsn.brake_clamp_needed_n, with pad friction dsn.pad_mu, and each front drum brakes its wheel with dsn.brake_front_torque_needed_nm; both levers are used together. The rear brake alone stops at dsn.brake_rear_alone_decel on pavement. Whether the front drums give that torque is a 1.4 item (Q-037); on ATVs of this size they are the front brakes (M97).
 - Downhill on the grass slope the straddle kart carries less on its rear wheels than the seated kart did: the rear brake alone decelerates at dsn.brake_downhill_decel_rear, which does not stop it. With the front brakes too, every wheel brakes, giving dsn.brake_downhill_decel and a stop of dsn.brake_downhill_stop_m from top speed. This is why the second system is on the front wheels. That stop is longer than kart.stop_distance_max_m, which R-09 sets on level pavement; slopes are descended at walking pace (OP-02.04).
 
 ## 1.3.6 Steering {#steering}
 
-- The donor scooter's handlebar, lay.bar_width_mm wide, at lay.bar_x_mm and lay.bar_z_mm, on a raked stem in two UCFL204 flange units (M40), a drop arm at its foot, and tie rods of M10 rod ends PHS10 (P34, M38) to spindles of 17 mm (M36) on kingpins at ±lay.kingpin_y_mm. A bar handle needs no impact-absorbing steering (P70).
+- The donor scooter's handlebar, lay.bar_width_mm wide, at lay.bar_x_mm and lay.bar_z_mm, on a raked stem in two UCFL204 flange units (M40), a drop arm at its foot, and tie rods of M10 rod ends PHS10 (P34, M38) to ATV steering knuckles with 17 mm spindles (M92) on kingpins at ±lay.kingpin_y_mm; if the knuckles are made for ball joints, two brackets on the front beam take their place (Q-037). A bar handle needs no impact-absorbing steering (P70).
 - With a steering lock of lay.steer_max_deg the smallest turning radius is dsn.turn_radius_m.
 
 ## 1.3.7 Seat, footrests, and fit {#fit}
@@ -78,7 +78,7 @@ The winter form is W6 of [1.2.19](02-form.md#tyres) (D-032): the kart keeps its 
 ## 1.3.13 Protective hoop and road equipment {#rollbar}
 
 - A hoop of dsn.rail_od_mm tube behind the seat at lay.hoop_x_mm, braced to the rear of the spine, rising to lay.rollbar_top_mm, meant to hold the kart off a rider it lands on, as the protection devices that Australia requires on quad bikes do (P66, P68); dsn.tube_roll_m of tube. A straddled seat needs no seat belt, head restraint, or 1 m marker (P70).
-- The road equipment of R-20, R-21, and R-23 comes from the donor scooter where it can: the head lamp and speedometer on the handlebar, mirrors on the bar ends, front turn signals by the bumper, the tail and stop lamp, rear turn signals, reflector, and number plate with its lamp at the rear, the horn at the front, and the battery behind the seat over the axle. Fenders cover the tyres (R-30); their mass dsn.fender_mass_kg and the road kit's dsn.road_kit_mass_kg are assumed (Q-033, Q-023).
+- The road equipment of R-20, R-21, and R-23 comes from the donor scooter where it can: the head lamp on the handlebar, beside an LCD meter with its own wheel sensor (M94), mirrors on the bar ends, front turn signals by the bumper, the tail and stop lamp, rear turn signals, reflector, and number plate with its lamp at the rear, the horn at the front, and the battery behind the seat over the axle. Fenders cover the tyres (R-30); they are ATV fenders as sold (M95), their mass dsn.fender_mass_kg and the road kit's dsn.road_kit_mass_kg assumed (Q-033, Q-023).
 
 ## 1.3.14 Guards and stopping {#safety}
 
@@ -93,5 +93,5 @@ The winter form is W6 of [1.2.19](02-form.md#tyres) (D-032): the kart keeps its 
 ## 1.3.16 Layout issues still open {#issues}
 
 - The straddle kart is placed by hand and has had no collision search; an independent helper checks this layout (K-013) and the next pass builds a collision search into `calc/design.py` for the summer and winter forms (Q-035).
-- The spine alone is too weak for the rider (dsn.rail_safety, 1.3.2); the grass slope it climbs is less than assumed (1.3.10); the front brakes, fenders, buggy tyres, ski brackets, and the axle sprocket are allowances until quoted (Q-033, Q-036).
+- The spine alone is too weak for the rider (dsn.rail_safety, 1.3.2); the grass slope it climbs is less than assumed (1.3.10); the fit of the ATV front knuckles, drum hubs, wheels, and meter is unstated by their sellers, and the drum brakes' parts, the ski brackets, and the axle sprocket are allowances (Q-036, Q-037).
 - The rider's thighs pass round the engine unit, which is wider than the seat; the adult's knees bend well, about as on a youth quad. Both are to be tried on the built kart.

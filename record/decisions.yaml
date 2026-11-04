@@ -276,3 +276,16 @@ items:
       - D-029
       - R-28
       - yr.tyre_dia_mm
+  - id: D-033
+    date: 2026-11-04
+    by: owner
+    what: The kart stays a home build, and its parts list is cut. A road-registered 50 cc ATV costs about 198,000 to 298,000 JPY new and mostly 60,000 to 160,000 JPY used with papers (1.5.3), less than the kart's parts were. The list now takes the cheaper running donor, ATV knuckles and drum brake hubs in place of kart spindles, hubs, and cable discs, an LCD meter with its own sensor, ATV wheels with tyres and fenders as sold, the pan's sheet cut to order, and ski brackets made in house.
+    options:
+      - build with new parts as listed before
+      - build with the parts list cut
+      - buy a new road-registered 50 cc ATV
+      - buy a used one with papers
+    touches:
+      - R-08
+      - D-008
+      - D-030

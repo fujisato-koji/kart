@@ -25,8 +25,8 @@ lines:
     qty: 2
     price: cost.flat_bar_jpy_per_m
     need: b1
-  - part: floor
-    item: Steel plate 2.3 to 4.5 mm cut to size, floor, bearing and engine plates
+  - part: footrests
+    item: Steel plate 2.3 to 4.5 mm cut to size, footboards, bearing and engine plates
     qty: 1
     price: cost.plate_allow_jpy
     need: b1
@@ -46,9 +46,9 @@ lines:
     price: cost.rear_hub_make_jpy
     need: b3
   - part: rear_wheels
-    item: Buggy tyres about 19x7-8 front and 18x9.5-8 rear on 8 in rims, set of four
+    item: ATV wheels with tyres, 19x7.00-8 front and 18x9.50-8 rear on 8 in rims, set of four
     qty: 1
-    price: cost.buggy_tyres_set_jpy
+    price: cost.atv_wheels_set_jpy
     need: b3
   - part: brake
     item: Hydraulic brake kit, caliper, master cylinder, disc
@@ -56,14 +56,14 @@ lines:
     price: cost.brake_hyd_jpy
     need: b3
   - part: spindles
-    item: Spindle pair 17 mm
+    item: ATV steering knuckles with 17 mm spindles, pair
     qty: 1
-    price: cost.spindle_pair_jpy
+    price: cost.atv_knuckle_pair_jpy
     need: b4
   - part: front_wheels
-    item: Front hub with three studs for 17 mm spindles
+    item: ATV front hub with brake drum, three studs on 78 mm
     qty: 2
-    price: cost.front_hub_jpy
+    price: cost.atv_drum_hub_jpy
     need: b4
   - part: tie_rods
     item: Rod end THK PHS10
@@ -133,9 +133,9 @@ lines:
     price: cost.tube_32x23_jpy_per_m
     need: b1
   - part: hand_brake
-    item: Front brakes - small discs and cable calipers on both front hubs, from the donor's left lever (second system)
+    item: Front brake shoes, cables, and a splitter from the donor's left lever (second system, allowance)
     qty: 1
-    price: cost.front_brakes_jpy
+    price: cost.front_drum_allow_jpy
     need: b6
   - part: engine
     item: Running 50 cc scooter (Tact AF79 class) as donor of the engine unit, ECU, fuel pump, wiring, and silencer
@@ -158,14 +158,9 @@ lines:
     price: cost.spr420_42t_jpy
     need: b5
   - part: speedometer
-    item: Speedometer with odometer, lit
+    item: LCD meter 12 V with odometer and its own speed sensor
     qty: 1
-    price: cost.speedo_jpy
-    need: r1
-  - part: speedometer
-    item: Non-contact speed sensor
-    qty: 1
-    price: cost.speed_sensor_jpy
+    price: cost.lcd_meter_jpy
     need: r1
   - part: battery
     item: Battery GTZ6V
@@ -178,8 +173,8 @@ lines:
     price: cost.plate_stay_jpy
     need: r1
   - part: sled_pan
-    item: UHMW polyethylene sheet 6 mm for the pan's bottom and bow (m2)
-    qty: 1
+    item: UHMW polyethylene sheet 6 mm cut to order for the pan's bottom and bow (m2)
+    qty: 0.5
     price: cost.hull_bottom_jpy_per_m2
     need: w2
   - part: snow_chains
@@ -188,12 +183,12 @@ lines:
     price: cost.snow_chain_jpy
     need: t6
   - part: fenders
-    item: Plastic fenders for four wheels and their stays (allowance)
-    qty: 1
-    price: cost.allow_fenders_jpy
+    item: Plastic ATV fenders, pair (one pair front, one rear)
+    qty: 2
+    price: cost.atv_fender_pair_jpy
     need: b7
   - part: skis
-    item: Ski brackets on the steering knuckles, adjustable in height, with pivots and rubber stops (allowance)
+    item: Ski brackets on the steering knuckles, welded in house from flat bar and tube, with pivot bolts, bushes, and rubber stops (allowance)
     qty: 1
-    price: cost.allow_winter_mounts_jpy
+    price: cost.ski_bracket_make_jpy
     need: w2

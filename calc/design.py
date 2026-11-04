@@ -241,12 +241,10 @@ def build(v):
         for cfg in WHEELED:
             item("front_wheels", "wheel", configs=[cfg], pos=[wb, s * tf / 2, r], axis="y", od=tyre_d, width=tyre_wf, rim=0.203)
         mass("front_wheels", v["yr.wheel_mass_kg"], (wb, s * tf / 2, r))
-        # the second brake system: small discs on the front hubs from the left lever (R-21)
-        item("hand_brake", "disc", configs=WHEELED, pos=[wb, s * (tf / 2 - 0.07), r], axis="y", d=mm("lay.front_disc_dia_mm"), t=0.003)
-        item("hand_brake", "caliper", configs=WHEELED, pos=[wb - mm("lay.front_disc_dia_mm") / 2 + 0.015, s * (tf / 2 - 0.07), r],
-             size=[0.04, 0.035, 0.05])
-        mass("front_hubs", 0.8, (wb, s * (tf / 2 - 0.02), r))
-        mass("hand_brake", 0.5, (wb, s * (tf / 2 - 0.07), r))
+        # the second brake system: cable drum brakes in the ATV front hubs from the left lever (R-21, M93)
+        item("hand_brake", "disc", configs=WHEELED, pos=[wb, s * (tf / 2 - 0.06), r], axis="y", d=mm("lay.front_drum_dia_mm"), t=0.035)
+        mass("front_hubs", 1.6, (wb, s * (tf / 2 - 0.04), r))
+        mass("hand_brake", 0.2, (wb, s * (tf / 2 - 0.06), r))
         # fenders over all four tyres (R-30)
         for xw in (0.0, wb):
             item("fenders", "fender", configs=WHEELED, pos=[xw, s * tf / 2 if xw else s * tr / 2, r], od=tyre_d + 2 * fender,
@@ -473,8 +471,7 @@ def build(v):
         round(v["ground.mu_paved"] * G * rear_adult / (1 + v["ground.mu_paved"] * h_adult / wb), 2), "m/s2", "brake")
     r_eff = dd / 2 - 0.012
     put("dsn.brake_clamp_needed_n", round(f_rear * r / (2 * v["dsn.pad_mu"] * r_eff)), "N", "brake")
-    r_eff_f = mm("lay.front_disc_dia_mm") / 2 - 0.012
-    put("dsn.brake_front_clamp_needed_n", round(f_front / 2 * r / (2 * v["dsn.pad_mu"] * r_eff_f)), "N", "brake")
+    put("dsn.brake_front_torque_needed_nm", round(f_front / 2 * r), "N m", "brake")
     # Downhill on the grass slope: with the rear brake alone the load moves forward off the
     # rear; with the front brakes too every wheel brakes
     n_rear_dn = m_adult * G * (math.cos(th) * rear_adult - math.sin(th) * h_adult / wb)

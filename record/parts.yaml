@@ -25,7 +25,7 @@ items:
     name: Tie rods with rod ends
     parent: steering
   - id: spindles
-    name: Kingpins, spindles, and steering arms
+    name: Kingpins and ATV steering knuckles with 17 mm spindles and steering arms
     parent: steering
   - id: front_wheels
     name: Front wheels and tyres
@@ -97,7 +97,7 @@ items:
     name: Speedometer with odometer
     parent: road
   - id: hand_brake
-    name: Second brake system - small discs on the front hubs from the left lever, and a lock on the rear lever as the parking brake
+    name: Second brake system - cable drum brakes in the front hubs from the left lever, and a lock on the rear lever as the parking brake
     parent: road
   - id: battery
     name: 12 V battery for the engine's ECU and the lamps

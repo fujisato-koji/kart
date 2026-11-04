@@ -19,7 +19,7 @@ These parts were not found for a 25 mm shaft in Japan, so they are made or machi
 
 ## 1.4.3 To confirm when bought {#confirm}
 
-Sellers do not state how these parts fit each other; each is checked on arrival before the frame is welded to it (Q-019): the rims' hole pattern against the hubs, the front hubs' bore against the 17 mm spindles, the engine's 3/4 inch shaft and base holes (P30 gives the Honda pattern), the ladder chains on 13x5.00-6 tyres (no chain of that size was found in Japan; the adjustable one is M15), and the seat's rail bolt spacing.
+Sellers do not state how these parts fit each other; each is checked on arrival before the frame is welded to it (Q-019): the rims' hole pattern against the hubs, the front hubs' bore against the 17 mm spindles, the engine's 3/4 inch shaft and base holes (P30 gives the Honda pattern), the ladder chains on 13x5.00-6 tyres (no chain of that size was found in Japan; the adjustable one is M15), and the seat's rail bolt spacing. The ATV parts of the cheaper list (D-033) are settled before ordering: the knuckles' mounting, the drum hubs' studs against the wheels, and the meter's lighting (Q-037).
 
 ## 1.4.4 Back to the design {#feedback}
 

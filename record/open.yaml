@@ -422,8 +422,6 @@ items:
       - st.kart_cg_x_share
       - st.fender_mm
       - dsn.fender_mass_kg
-      - cost.allow_fenders_jpy
-      - cost.front_brakes_jpy
       - rider.child_crotch_ratio
     opened: 2026-11-04
     phase: design
@@ -456,7 +454,7 @@ items:
     blocks: design_build
   - id: Q-036
     kind: question
-    text: The buggy-size tyres of 1.2.19 (about 19x7-8 at the front and 18x9.5-8 at the rear, as on the MAGMAX50 of M90) are taken at a common diameter, their widths, mass, and price, with the chains for them and the 42T axle sprocket the larger tyres need, until a set that fits the hubs and the road rules is chosen and priced.
+    text: The buggy-size tyres of 1.2.19 (about 19x7-8 at the front and 18x9.5-8 at the rear, as on the MAGMAX50 of M90) are taken at a common diameter, their widths and mass, with the chains for them and the 42T axle sprocket the larger tyres need, until a set that fits the hubs and the road rules is chosen; a set of four is priced in M96.
     waits_for: assistant
     affects:
       - yr.tyre_dia_mm
@@ -464,7 +462,30 @@ items:
       - yr.front_width_mm
       - yr.wheel_mass_kg
       - w6.chain_mass_kg
-      - cost.buggy_tyres_set_jpy
       - cost.spr420_42t_jpy
     opened: 2026-11-04
+    phase: design
+  - id: Q-037
+    kind: question
+    text: The cheaper parts of D-033 are taken from shop listings that leave their fit unstated - whether the ATV knuckles (M92) turn on kingpins as 1.3.6 draws them or need two ball joints on brackets; whether the drum hubs (M93) come with shoes and a backing plate, their drum size, and whether their three studs on 78 mm match the wheels (M96 gives PCD 110, or 88 at the front); the cable and splitter from the left lever; whether the LCD meter (M94) is lit at night and how its sensor reads the wheel; the fenders' width (M95); and the cost of making the ski brackets. They are settled before the parts are ordered, and checked on arrival as Q-019 says.
+    waits_for: assistant
+    affects:
+      - lay.front_drum_dia_mm
+      - cost.front_drum_allow_jpy
+      - cost.ski_bracket_make_jpy
+      - cost.atv_drum_hub_jpy
+      - cost.atv_wheels_set_jpy
+      - cost.lcd_meter_jpy
+    opened: 2026-11-04
+    phase: design
+  - id: Q-038
+    kind: question
+    text: The owner asked whether the wheels should follow the ground on springs. The kart of 1.3 is rigid and rides on its low-pressure tyres alone, as small karts and the cheapest youth quads do, while road-registered 50 cc ATVs have shocks front and rear (M97). Springs would keep the tyres pressing on rough ground for steering and braking, cut the shock loads on the spine that Q-035 already finds weak, and spare the rider. The candidates are a rear swing arm with one shock carrying the axle, pivoted at the engine unit's output so that the chain keeps its length; ATV A-arms with shocks at the front; and a front beam pivoting on the centre line, which is cheap but tips sideways like the one front wheel of 1.2.19 unless stopped. Studied with the frame in the pass of Q-035.
+    waits_for: assistant
+    affects:
+      - frame
+      - rear_axle
+      - spindles
+    opened: 2026-11-04
+    raised_by: owner
     phase: design

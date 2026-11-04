@@ -1345,6 +1345,70 @@ items:
     license: unknown
     read: full
     note: Read by a helper with the makers' other spec pages. Youth 50 cc quads - 1,250 to 1,400 mm long, 820 to 866 mm wide, wheelbase 831 to 965 mm, seat 584 to 635 mm, track about 0.69 to 0.70 m, 100 to 113 kg. Small adult quads (230 to 270 cc) - 1,740 to 1,915 mm long, about 1,070 mm wide, wheelbase 1,125 to 1,166 mm, seat 798 to 846 mm, track about 0.84 m, 175 to 243 kg.
+  - id: M92
+    class: M
+    title: ATV steering knuckles with 17 mm spindles for drum brake hubs, pair, Yahoo Shopping
+    url: https://store.shopping.yahoo.co.jp/tousyou-net/810s11711.html
+    retrieved: 2026-11-04
+    license: unknown
+    read: partial
+    note: Read by a helper. 9,380 JPY a pair, free shipping, for 50 to 110 cc ATVs. The page lists no contents and does not say whether the knuckles turn on kingpins or ball joints; a kit of knuckle, spindle, drum, and hub for 110 to 150 cc is 27,780 JPY (810s11495), one side or a pair not stated.
+  - id: M93
+    class: M
+    title: ATV front brake drum hub, three studs on 78 mm, one side, Yahoo Shopping
+    url: https://store.shopping.yahoo.co.jp/tousyou-net/810s11726.html
+    retrieved: 2026-11-04
+    license: unknown
+    read: partial
+    note: Read by a helper. 9,080 JPY each, left and right sold separately, for 50 to 110 cc ATVs; shoes and backing plate not mentioned. A four-stud 110 mm drum hub for 125 to 200 cc is 7,780 JPY (koumu-hiryu-en neka130763).
+  - id: M94
+    class: M
+    title: LCD motorcycle meter DC 12 V with odometer and speed sensor, Yahoo Shopping
+    url: https://store.shopping.yahoo.co.jp/droneshop/moterled143.html
+    retrieved: 2026-11-04
+    license: unknown
+    read: partial
+    note: Read by a helper. 3,980 JPY, free shipping, with a stay and a speed sensor; speed, ODO, and TRIP. Backlight and how the sensor reads are not stated; not fully waterproof.
+  - id: M95
+    class: M
+    title: Plastic rear fenders for trikes and ATVs, pair, Yahoo Shopping
+    url: https://store.shopping.yahoo.co.jp/horidashi/1049.html
+    retrieved: 2026-11-04
+    license: unknown
+    read: partial
+    note: Read by a helper. 4,660 JPY a pair in black, free shipping; 3,660 JPY plus shipping in white (1047). Width and tyre size not stated.
+  - id: M96
+    class: M
+    title: ATV 8 in tubeless wheels with tyres, 19x7.00-8 front and 18x9.50-8 rear, set of four, Yahoo Shopping
+    url: https://store.shopping.yahoo.co.jp/kaino/p210051369f30.html
+    retrieved: 2026-11-04
+    license: unknown
+    read: partial
+    note: Read by a helper. 26,800 JPY, free shipping. The page gives PCD 110 but its contents list gives 88 mm for the front wheels; stud count not stated. Other PCD 110 sets were seen at 32,999 and 33,999 JPY.
+  - id: M97
+    class: M
+    title: Access Motor Sporty 50, road-legal 50 cc ATV, Loft Japan
+    url: https://www.loft-japan.co.jp/SHOP/8000-0001.html
+    retrieved: 2026-11-04
+    license: unknown
+    read: full
+    note: Read by a helper. 298,000 JPY with tax, out of stock, plus 21,000 JPY to set it up as a complete vehicle. Water-cooled two-stroke 49.2 cc, CVT with reverse, electric and kick start, dry 136 kg, 1,600 x 980 x 980 mm, wheelbase 1,100 mm, 19x7-8 and 18x9.5-8 tyres, front drums, rear disc, adjustable shocks front and rear. Registered as a minicar with the shop's sales certificate (buggy_introduction.html).
+  - id: M98
+    class: M
+    title: ATV-MAX SL50W at an ATV shop, GooBike stock list
+    url: https://www.goobike.com/shop/client_8400807/zaiko.html
+    retrieved: 2026-11-04
+    license: unknown
+    read: full
+    note: Read by a helper. Kit 168,000 to 178,000 JPY, assembled 198,000 JPY, sales certificate for registration free, shipping extra. Four-stroke 49 cc, three speeds and reverse, LED lamps, LCD meter, 8 in tyres, 110 kg, 1,560 x 980 x 950 mm.
+  - id: M99
+    class: M
+    title: Yahoo Auctions closed listings for 50 cc ATVs and buggies with papers
+    url: https://auctions.yahoo.co.jp/closedsearch/closedsearch?p=バギー+50cc+公道
+    retrieved: 2026-11-04
+    license: unknown
+    read: partial
+    note: Read by a helper, titles and prices only, with five other queries. Running with papers or a plate 34,833 to 206,000 JPY, most 60,000 to 160,000 JPY; non-running restoration bases 10,500 to 50,000 JPY.
   - id: F1
     class: F
     title: Motor1, a shifter kart turned into a snowmobile, 2025-02-02
