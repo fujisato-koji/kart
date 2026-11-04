@@ -365,7 +365,7 @@ items:
     closed: 2026-11-04
   - id: Q-029
     kind: question
-    text: The donor's track unit is drawn from assumed sizes - the track's thickness with its lugs, the rear idler's diameter, the drive shaft's height and its place ahead of the slide rails - which set the winter lift. Measure them on the donor (a Yamaha Bravo class) when it is bought, with its mass and mounting points, and check that a pivot shaft through the pillow blocks and brackets hanging from the rails can hold it.
+    text: (W3, given up for W6 by D-032; its part left the record.) The donor's track unit is drawn from assumed sizes - the track's thickness with its lugs, the rear idler's diameter, the drive shaft's height and its place ahead of the slide rails - which set the winter lift. Measure them on the donor (a Yamaha Bravo class) when it is bought, with its mass and mounting points, and check that a pivot shaft through the pillow blocks and brackets hanging from the rails can hold it.
     waits_for: assistant
     affects:
       - sm.track_t_mm
@@ -373,7 +373,6 @@ items:
       - sm.drive_z_mm
       - sm.drive_ahead_mm
       - sm.lift_mm
-      - track_unit
     opened: 2026-11-04
     phase: design
   - id: Q-030
@@ -451,6 +450,8 @@ items:
     opened: 2026-11-04
     raised_by: assistant
     phase: design
+    closed: 2026-11-04
+    closed_by: D-037
     blocks: design_build
   - id: Q-036
     kind: question
@@ -488,4 +489,19 @@ items:
       - spindles
     opened: 2026-11-04
     raised_by: owner
+    phase: design
+    closed: 2026-11-04
+    closed_by: D-036
+  - id: Q-039
+    kind: question
+    text: The frame pass of D-036 and D-037 assumes the UCP206 pillow block's sizes and mass (the common sizes of the series; check them against the FYH catalogue P33 when bought), the rear shock's stroke (its seller states the eye-to-eye length only, M100), and a rear natural frequency of 2.5 Hz for a short-travel kart, until the shock is bought, measured, and its spring chosen.
+    waits_for: assistant
+    affects:
+      - brg.ucp206_h_mm
+      - brg.ucp206_l_mm
+      - brg.ucp206_h2_mm
+      - brg.ucp206_mass_kg
+      - shock.stroke_mm
+      - sus.freq_hz
+    opened: 2026-11-04
     phase: design

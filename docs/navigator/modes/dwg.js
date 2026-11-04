@@ -16,7 +16,7 @@ export const ILLUSTRATIVE = {
   zoom: { min: 0.6, max: 12, step: 1.25 },
 };
 const I = ILLUSTRATIVE;
-const CONFIG_LABEL = { summer: '夏', winter: '冬（スノーモービル型）', transport: '搬送', water: '水（将来版）' };
+const CONFIG_LABEL = { summer: '夏', winter: '冬', transport: '搬送', water: '水（将来版）' };
 const PART_JA = {
   frame: 'フレーム', bumpers: 'バンパー・サイドバー', seat: '座席（スクーターのもの）', handlebar: 'ハンドル（スクーターのもの）', footrests: '足置き', fenders: '泥よけ',
   guards: 'チェーンガード', tie_rods: 'タイロッド', spindles: 'スピンドル',
@@ -269,6 +269,13 @@ export default function create(api) {
         const x0 = Math.min(...xs), x1 = Math.max(...xs), z0 = Math.min(...zs), z1 = Math.max(...zs);
         if (view === 'side') return poly(hull.map((p) => P(p[0], 0, p[1]))) + it.wheels.map(([cx, cz, r]) => circ(P(cx, 0, cz), r * s, 'thin')).join('');
         return boxRect(P, [(x0 + x1) / 2, 0, (z0 + z1) / 2], x1 - x0, it.width, z1 - z0);
+      }
+      case 'shock': { // body at the fixed eye, thinner rod, spring between the eyes (zigzag), eye rings
+        const a = P(...it.to), b = P(...pos), m = [(a[0] + b[0]) / 2, (a[1] + b[1]) / 2];
+        const dx = b[0] - a[0], dy = b[1] - a[1], L = Math.hypot(dx, dy) || 1, nx = -dy / L, ny = dx / L, w = it.spring_d / 2 * s, zig = [];
+        for (let i = 0; i <= 16; i++) { const q = 0.06 + 0.88 * i / 16, o = i % 2 ? w : -w; zig.push([a[0] + dx * q + nx * o, a[1] + dy * q + ny * o]); }
+        return thick(a, m, it.d * s) + thick(m, b, it.rod_d * s) + `<polyline class="thin" points="${zig.map((p) => f(p[0]) + ',' + f(p[1])).join(' ')}"/>`
+          + circ(a, 0.012 * s, 'thin') + circ(b, 0.012 * s, 'thin');
       }
       case 'sheet': return poly(it.corners.map((c) => P(...c)));
       case 'float': return view === 'front' ? circ(P(...pos), it.d / 2 * s) : boxRect(P, pos, it.l, it.d, it.d);

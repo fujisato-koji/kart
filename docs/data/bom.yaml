@@ -6,19 +6,14 @@
 schema: 1
 lines:
   - part: frame
-    item: STKM11A round tube 31.8 x 2.3, main rails (m)
-    qty: 4
-    price: cost.tube_32x23_jpy_per_m
+    item: STKM11A round tube 38.1 x 2.3, spine rails, posts, struts, pivot tube, swing arm, and hoop (m)
+    qty: 9
+    price: cost.tube_38x23_jpy_per_m
     need: b1
   - part: frame
-    item: STKM11A round tube 25.4 x 1.6, cross members, hoop, bumpers (m)
-    qty: 10
+    item: STKM11A round tube 25.4 x 1.6, cross members, footboard supports, upper rails, bumpers (m)
+    qty: 7
     price: cost.tube_25_jpy_per_m
-    need: b1
-  - part: frame
-    item: Square tube 25 x 25 x 1.6, engine mount and footrest steps (m)
-    qty: 2
-    price: cost.sq_tube_25_jpy_per_m
     need: b1
   - part: frame
     item: Flat bar 6 x 32, brackets and kingpin bosses (m)
@@ -26,19 +21,19 @@ lines:
     price: cost.flat_bar_jpy_per_m
     need: b1
   - part: footrests
-    item: Steel plate 2.3 to 4.5 mm cut to size, footboards, bearing and engine plates
+    item: Steel plate 2.3 to 4.5 mm cut to size, footboards, toe boards, child steps, bearing and engine plates
     qty: 1
     price: cost.plate_allow_jpy
     need: b1
   - part: axle_shaft
-    item: Axle shaft S45C 25 mm, 1.22 m, keyway and pin holes
+    item: Axle shaft S45C 30 mm, 0.85 m, keyways
     qty: 1
     price: cost.axle_shaft_jpy
     need: b3
   - part: axle_bearings
-    item: Pillow block UCP205 (FYH or NTN), two outer and one beside the sprocket
-    qty: 3
-    price: cost.ucp205_jpy
+    item: Pillow block UCP206 (FYH), one each side under the swing arm
+    qty: 2
+    price: cost.ucp206_jpy
     need: b3
   - part: rear_hubs
     item: Rear hub, keyed 25 mm boss with a flange for the rim, made
@@ -127,11 +122,11 @@ lines:
     price: cost.ramp_rail_jpy
     need: t4
     group: tools
-  - part: roll_bar
-    item: STKM11A round tube 31.8 x 2.3 for the protective hoop and its braces (m)
-    qty: 3.5
-    price: cost.tube_32x23_jpy_per_m
-    need: b1
+  - part: rear_shock
+    item: Rear shock absorber 250 mm with its coil spring (spring to suit, Q-039)
+    qty: 1
+    price: cost.rear_shock_jpy
+    need: b3
   - part: hand_brake
     item: Front brake shoes, cables, and a splitter from the donor's left lever (second system, allowance)
     qty: 1

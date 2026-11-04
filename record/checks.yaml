@@ -136,7 +136,7 @@ items:
     detail: An independent helper checked the persons formula against the text of articles 102 and 103 of the Small Vessel Safety Rules (P55) and recomputed it by hand - index 0.607 (0.822 by the second formula), so nobody, and one person first at a beam of 1,160 mm. Taking the stern freeboard equal to the freeboard amidships is right for a level box; whether other articles limit the persons of a small boat was not checked.
   - id: K-009
     target:
-      - track_unit
+      - sm.track_unit_kg
     tier: T2
     method: refute
     result: pass

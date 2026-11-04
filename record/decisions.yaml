@@ -298,3 +298,36 @@ items:
       - navigator in Japanese, record in English
     touches:
       - D-002
+  - id: D-035
+    date: 2026-11-04
+    by: owner
+    what: R-03 is reworded for the straddle kart (D-030) - the seat, footrests, and handlebar fit riders from a 6-year-old child to an adult, the child on bolt-on steps - in place of the seat and pedals of the seated kart.
+    options:
+      - keep the seated kart's wording
+      - reword for the straddle kart
+    touches:
+      - R-03
+      - D-030
+  - id: D-036
+    date: 2026-11-04
+    by: owner
+    what: The rear wheels follow the ground on springs - the axle in two bearings on a swing arm pivoted just behind the engine unit, level with its output so that the chain keeps its length, and one shock between the arm and the frame. The front stays rigid on its low-pressure tyres; ATV A-arms and a pivoting front beam were not taken.
+    options:
+      - rigid on the tyres alone
+      - rear swing arm with one shock, front rigid
+      - springs front and rear
+      - a front beam pivoting on the centre line
+    touches:
+      - Q-038
+      - D-030
+  - id: D-037
+    date: 2026-11-04
+    by: owner
+    what: The frame is made low and small and cheaper where its shape allows. The engine unit sits on spine rails just above the sled pan, which lowers the seat and the centre of mass; with that the track, the hoop, and the handlebar come down and in, and the rear overhang shortens. The bearing outriggers and the middle bearing go; the frame is of two tube sizes, the rear triangulated so that the shock's load closes within it, and is checked as a space frame and for interferences.
+    options:
+      - keep the frame of 1.3 and reinforce the spine
+      - lower and smaller, of two tube sizes
+    touches:
+      - Q-035
+      - D-030
+      - R-14

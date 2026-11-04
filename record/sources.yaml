@@ -1409,6 +1409,30 @@ items:
     license: unknown
     read: partial
     note: Read by a helper, titles and prices only, with five other queries. Running with papers or a plate 34,833 to 206,000 JPY, most 60,000 to 160,000 JPY; non-running restoration bases 10,500 to 50,000 JPY.
+  - id: M100
+    class: M
+    title: Rear shock absorber for motorcycles, scooters, and ATVs, 240 to 290 mm, Yahoo Shopping
+    url: https://store.shopping.yahoo.co.jp/ykn-sutoa/ykn16129.html
+    retrieved: 2026-11-04
+    license: unknown
+    read: partial
+    note: Read by a helper. 7,980 JPY, free shipping; eye-to-eye 240, 250, 260, 270, or 290 mm, eye bore 10 mm, 1,200 lb (not said to be the spring rate). Stroke, spring rate, preload, and quantity not stated. Similar 250 mm shocks at 6,280 to 7,081 JPY.
+  - id: M101
+    class: M
+    title: FYH pillow block UCP206, Yahoo Shopping
+    url: https://store.shopping.yahoo.co.jp/e-kikai/bu-fyh-ucp206.html
+    retrieved: 2026-11-04
+    license: unknown
+    read: excerpt
+    note: Seen by a helper in search results. 1,903 JPY each; others 1,895 to 2,473 JPY. Bore taken from the code.
+  - id: M103
+    class: M
+    title: Chain tensioner with a spring roller for 420, 428, and 530 chain, Yahoo Shopping
+    url: https://store.shopping.yahoo.co.jp/import-express-net/28357-3273256806137101989.html
+    retrieved: 2026-11-04
+    license: unknown
+    read: partial
+    note: Read by a helper. 2,600 JPY, free shipping; roller on a spring arm; quantity not stated. Others 4,580 JPY.
   - id: F1
     class: F
     title: Motor1, a shifter kart turned into a snowmobile, 2025-02-02

@@ -36,9 +36,9 @@ export const PART_KEYS = {
   hand_brake: ['lay.front_drum_dia_mm', 'cost.atv_drum_hub_jpy', 'cost.front_drum_allow_jpy', 'law.parking_grade_pct'],
   battery: [],
   number_plate: ['cost.tax_year_jpy', 'cost.cali_year_jpy'],
+  swing_arm: ['lay.pivot_x_mm', 'lay.bearing_y_mm', 'dsn.tube_arm_m', 'dsn.arm_*', 'sus.*', 'dsn.chain_centre_change_mm', 'dsn.axle_rail_gap_mm'],
+  rear_shock: ['shock.*', 'lay.shock_*', 'dsn.shock_*', 'dsn.motion_ratio', 'dsn.rear_*', 'cost.rear_shock_jpy'],
   snow_chains: ['ground.mu_snow_chains', 'ground.mu_ice_chains', 'cost.snow_chain_jpy', 'w4.*'],
-  track_unit: ['sm.track_*', 'sm.idler_dia_mm', 'sm.drive_*', 'dsn.winter_*', 'cost.donor_bravo_jpy', 'cost.allow_winter_mounts_jpy'],
-  winter_chain: ['dsn.winter_chain_*', 'cost.chain420_jpy', 'cost.spr420_30t_jpy'],
   sled_pan: ['lay.pan_*', 'lay.bow_*', 'lay.tunnel_*', 'hull.bottom_t_mm', 'hull.side_t_mm', 'dsn.pan_mass_kg', 'dsn.belly_*', 'cost.hull_*', 'cost.xps_jpy_per_m3'],
   side_floats: ['lay.float_dia_mm', 'water.*'],
   outboard: ['outboard.*', 'cost.outboard_jpy', 'cost.allow_outboard_battery_jpy'],
@@ -66,7 +66,7 @@ export function partOfObject(obj) {
 // The setup of the 3D view that shows an item best
 export function viewForItem(kind, id) {
   if (kind === 'part') {
-    if (id === 'skis' || id === 'track_unit' || id === 'winter_chain') return { config: 'winter' };
+    if (id === 'skis' || id === 'snow_chains') return { config: 'winter' };
     if (id === 'side_floats' || id === 'outboard') return { config: 'water' };
     if (id === 'rear_hubs') return { config: 'transport' };
     return null;

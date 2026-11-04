@@ -14,9 +14,11 @@ The list is the cut one of D-033. It is still above the guideline; the owner cho
 - The donor scooter, a running Tact of the AF79 class at cost.donor_scooter_jpy, the cheaper of the running donors seen (M76); it brings the engine unit, seat, handlebar, levers, lamps, mirrors, and horn.
 - The ATV wheels with tyres, cost.atv_wheels_set_jpy for four (M96).
 - The front end: ATV knuckles with 17 mm spindles (cost.atv_knuckle_pair_jpy a pair, M92) and two drum brake hubs (cost.atv_drum_hub_jpy each, M93), which carry the second brake system as on the ATVs of 1.5.3, with an allowance for shoes, cables, and a splitter.
-- The rear: the hydraulic brake kit (M42), the axle, its three bearings, the made hubs, and machining (Q-018).
+- The rear: the hydraulic brake kit (M42), the axle, its two bearings on the swing arm, the shock (M100, D-036), the made hubs, and machining (Q-018).
 - The winter parts: the pan's sheet cut to order (half a square metre, M57, M82), ski runners, the ski brackets made in house, and the rear chains (M15).
-- The steel for the frame and the hoop.
+- The steel for the frame, the swing arm, and the hoop, in two tube sizes (D-037); the larger tube's price is assumed (Q-018).
+
+The frame pass of D-036 and D-037 added the shock and a larger spine tube and took away a bearing, the bearing outriggers, and the square tube: the parts list rose by the shock's price less those savings.
 
 What the cut list changed, against the list before D-033: the donor at the lower price (M76), the front end on ATV parts in place of kart spindles, hubs, and an allowance for cable discs, an LCD meter with its own sensor (M94) in place of a meter and sensor bought apart, ATV fenders as sold (M95), the pan's sheet bought by the area it needs, and the ski brackets welded from the frame's steel. The wheels with tyres were priced and came below their allowance.
 

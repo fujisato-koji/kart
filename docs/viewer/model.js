@@ -818,6 +818,29 @@ function fenderItem(it) {
   return g;
 }
 
+// ---- rear shock: body cylinder at the fixed (upper) eye, a thinner rod, a coil spring between the eyes
+function shockItem(it) {
+  const M = mats(); const g = new THREE.Group();
+  const lo = V(it.pos), up = V(it.to), ax = up.clone().sub(lo), len = ax.length(), dir = ax.clone().normalize();
+  const mid = up.clone().addScaledVector(dir, -len / 2);
+  g.add(cylBetween(up, mid, it.d / 2, M.darkSteel, 20));
+  g.add(cylBetween(mid, lo, it.rod_d / 2, M.steel, 12));
+  for (const p of [lo, up]) { // eyes, bore across the kart (y)
+    const eye = mesh(new THREE.TorusGeometry(0.012, 0.005, 8, 18), M.darkSteel); eye.position.copy(p); eye.rotation.set(Math.PI / 2, 0, 0); g.add(eye);
+  }
+  // coil: a helix tube round the axis from just inside each eye
+  const r = it.spring_d / 2, turns = Math.max(4, Math.round(len / 0.02)), N = turns * 12;
+  const side = Math.abs(dir.y) < 0.9 ? new THREE.Vector3(0, 1, 0) : new THREE.Vector3(1, 0, 0);
+  const u = new THREE.Vector3().crossVectors(dir, side).normalize(), w = new THREE.Vector3().crossVectors(dir, u);
+  const a0 = lo.clone().addScaledVector(dir, 0.03), a1 = up.clone().addScaledVector(dir, -0.03), pts = [];
+  for (let i = 0; i <= N; i++) {
+    const t = i / N, a = t * turns * Math.PI * 2;
+    pts.push(a0.clone().lerp(a1, t).addScaledVector(u, Math.cos(a) * (r - 0.0035)).addScaledVector(w, Math.sin(a) * (r - 0.0035)));
+  }
+  g.add(mesh(new THREE.TubeGeometry(new THREE.CatmullRomCurve3(pts), N, 0.0035, 6), std(0xd0a020, 0.4, 0.6)));
+  return g;
+}
+
 function buildItem(it, ctx) {
   switch (it.type) {
     case 'plate': return plateFor(it);
@@ -850,6 +873,7 @@ function buildItem(it, ctx) {
     case 'saddle': return saddleItem(it);
     case 'handlebar': return handlebarItem(it);
     case 'fender': return fenderItem(it);
+    case 'shock': return shockItem(it);
     default: return null;
   }
 }

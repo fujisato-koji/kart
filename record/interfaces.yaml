@@ -29,7 +29,7 @@ items:
   - id: I-12
     between:
       - axle_bearings
-      - frame
+      - swing_arm
     carries: load
   - id: I-13
     between:
@@ -121,31 +121,6 @@ items:
       - number_plate
       - frame
     carries: load
-  - id: I-41
-    between:
-      - track_unit
-      - axle_bearings
-    carries: load
-  - id: I-42
-    between:
-      - track_unit
-      - frame
-    carries: load
-  - id: I-43
-    between:
-      - engine
-      - winter_chain
-    carries: power
-  - id: I-44
-    between:
-      - winter_chain
-      - track_unit
-    carries: power
-  - id: I-45
-    between:
-      - brake
-      - track_unit
-    carries: load
   - id: I-46
     between:
       - sled_pan
@@ -180,4 +155,19 @@ items:
     between:
       - seat
       - engine
+    carries: load
+  - id: I-53
+    between:
+      - swing_arm
+      - frame
+    carries: load
+  - id: I-54
+    between:
+      - rear_shock
+      - swing_arm
+    carries: load
+  - id: I-55
+    between:
+      - rear_shock
+      - frame
     carries: load

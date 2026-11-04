@@ -19,12 +19,13 @@ items:
       - D-004
     status: confirmed
   - id: R-03
-    text: The seat and pedals fit a child and an adult.
+    text: The seat, footrests, and handlebar fit riders from a 6-year-old child to an adult.
     origin: owner
-    design_point: Without welding or cutting, the seat-to-pedal distance and the seat height adjust so that riders from rider.stature_min_cm to rider.stature_max_cm reach the pedals fully and hold the steering wheel with bent arms.
+    design_point: Without welding or cutting - the child's steps bolt on - riders from rider.stature_min_cm to rider.stature_max_cm sit astride with both feet on the footboards or the steps, hold the grips with bent arms, and, standing on the footrests, clear the seat by at least rider.child_fit_clear_mm.
     verify: demonstration
     basis:
       - D-004
+      - D-035
     status: confirmed
   - id: R-04
     text: The kart runs on paved ground, gravel or dirt, and grass.

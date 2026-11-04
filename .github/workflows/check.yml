@@ -22,6 +22,8 @@ jobs:
             printf '%s\n' "$NAMES" > "$RUNNER_TEMP/private-names.txt"
             echo "TDR_PRIVATE_NAMES=$RUNNER_TEMP/private-names.txt" >> "$GITHUB_ENV"
           fi
+      - name: Install the calculation's libraries
+        run: pip install -r requirements-calc.txt
       - name: Check the record
         run: python tools/tdr.py check
       - name: Check the site data
