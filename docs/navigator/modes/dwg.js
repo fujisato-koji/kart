@@ -244,6 +244,7 @@ export default function create(api) {
         return view === 'plan' ? boxRect(P, [pos[0], y, 0], l, it.w, 0.01) : boxRect(P, [pos[0], y, t / 2], 0, it.w, t);
       }
       case 'rod': return thick(P(...it.pos), P(...it.to), Math.max(it.d * s, 0.8));
+      case 'arm': return thick(P(...pos), P(...it.to), Math.max((view === 'side' ? it.t : it.w) * s, 0.8)); // flat bar: thickness seen from the side, width from above and the front
       case 'saddle': return boxRect(P, [pos[0], y, pos[2] + it.h / 2], it.l, it.w, it.h);
       case 'handlebar': {
         const half = it.width / 2, gl = it.grips;

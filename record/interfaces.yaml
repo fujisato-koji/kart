@@ -171,3 +171,23 @@ items:
       - rear_shock
       - frame
     carries: load
+  - id: I-56
+    between:
+      - front_arms
+      - frame
+    carries: load
+  - id: I-57
+    between:
+      - front_arms
+      - spindles
+    carries: load
+  - id: I-58
+    between:
+      - front_shocks
+      - front_arms
+    carries: load
+  - id: I-59
+    between:
+      - front_shocks
+      - frame
+    carries: load

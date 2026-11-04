@@ -26,6 +26,13 @@ Steering. The front wheels, the front brake drums, the spindles and the skis tur
 kingpin axis of their side; the handlebar, stem arm, lever, mirrors, gauge and head lamp turn with the
 stem about its raked axis by the same angle; each tie rod runs from the stem foot (turned with the
 stem) to the spindle's steering arm (turned with the spindle). The fenders stay fixed.
+
+Front suspension. If design.json has front_suspension (pivots l and r, axis x, bump_deg, droop_deg),
+items and members marked front_arm "l" or "r" turn about the line parallel to x through that side's
+pivot (a positive angle raises the outer end, the kingpin), one side at a time, at +bump and -droop
+with straight steering, and at +-steer with that side at +bump. Steering is applied after the
+suspension, about the kingpin as it stands then. Tie rod outer ends follow the arm, inner ends stay with
+the stem; front shocks move their lower eye (pos) with the arm.
 """
 import argparse
 import json
@@ -71,8 +78,9 @@ ALLOWANCES = [
     ("A13 front drum and stub", "front brake drum with the front wheel and the spindle stub axle on its side; the stub axle (and web) with the front wheel"),
     ("A14 fender", "fenders with any frame tube (fixed to the frame)"),
     ("A15 NOT allowed", "wheel with its own fender is still checked (a fender must clear the tyre; a front fender marked steers turns with the knuckle)"),
-    ("A16 steering", "handlebar with the stem tube; stem tube with its flange bearings and pitman arm; flange bearings with frame tubes; tie rods with the pitman arm and the spindle steering arm on their side, and with each other where both start at the same point on the drop arm"),
-    ("A17 rider", "any rider part with the saddle; foot and shin with footrests plates and tubes; arms with the handlebar (grips) and the brake levers (fingers rest on them)"),
+    ("A16 steering", "handlebar with the stem tube; stem tube with its flange bearings; flange bearings with frame tubes; the pitman arm (items of type arm, part handlebar) with the stem tube and with each other (bolted, welded); tie rods with the pitman arm near their inner end (50 mm) and with the spindle steering arm on their side, and with each other where both start at the same point on the drop arm"),
+    ("A22 seat", "the saddle with the frame tubes it rests on (the upper and seat rails)"),
+    ("A17 rider", "any rider part with the saddle, or with anything under the saddle's footprint, which the saddle covers; foot and shin with footrests plates and tubes; arms with the handlebar (grips) and the brake levers (fingers rest on them)"),
     ("A19 joints", "any contact whose two closest points both lie in one design.json joint sphere (pivot sleeves, posts through the tube, welded clusters); a joint with arm:true turns with the swing arm"),
     ("A20 axle covers", "guards items of type cyl with the axle_shaft (they are covers round it)"),
     ("A21 kingpin", "a kingpin with every frame tube that has an end within 30 mm of the kingpin axis (beam and brace end at the boss)"),
@@ -156,6 +164,8 @@ class Body:
         self.prims = []
         self.steer = None    # None, ("king", side) or ("stem",)
         self.arm = False     # turns with the swing arm
+        self.farm = None     # "l" or "r": turns with that front suspension arm
+        self.ends = None     # tie rod: (inner end, outer end)
         self.member = None
         self._trees = None
         self._bb = None
@@ -225,7 +235,7 @@ class Body:
         b = Body(self.kind, self.part, self.typ, self.idx, self.sub, self.rider, self.item, self.side)
         b.parts = [(r, (p - piv) @ Rt.T + piv) for r, p in self.parts]
         b.prims = [p.moved(Rt, piv) for p in self.prims]
-        b.steer, b.member, b.arm = self.steer, self.member, self.arm
+        b.steer, b.member, b.arm, b.farm, b.ends = self.steer, self.member, self.arm, self.farm, self.ends
         if b.member is not None:
             b.member = tuple((Rt @ (np.asarray(e) - piv) + piv) for e in b.member)
         return b
@@ -449,7 +459,15 @@ def build_item(i, it, items):
                 p = a + (e - a) * (1 - tt)
                 b.box(p, [0.07, 0.07, 0.012], frame(d)); b.cyl_c(p, d, 0.02, 0.026)
             bodies.append(b)
-            b = mk("pitman", ("stem",)); b.box(e, [0.028, 0.12, 0.01]); bodies.append(b)
+    elif t == "arm":                                     # flat bar, width kept horizontal (as armItem in model.js)
+        b = mk(steer=("stem",) if part == "handlebar" else None); e = np.asarray(it["to"], float)
+        L = np.linalg.norm(e - pos); u = (e - pos) / L
+        w = np.cross([0, 0, 1.0], u)
+        if np.linalg.norm(w) < 0.2:
+            w = Y_AX - (Y_AX @ u) * u
+        w = unit(w)
+        b.box((pos + e) / 2, [L, it["w"], it["t"]], np.column_stack([u, w, np.cross(u, w)]))
+        bodies.append(b)
     elif t == "saddle":
         b = mk(); l, w, h = it["l"], it["w"], it["h"]
         b.box(pos + [-l * 0.35 / 2, 0, h / 2], [l * 0.65, w, h])
@@ -544,6 +562,7 @@ def _mk(i, it, sub, steer):
     b = Body("item", it["part"], it["type"], i, sub, it.get("rider"), it, side=SIDE(it["pos"]) if "pos" in it else 0)
     b.steer = steer or (("king", SIDE(it["pos"])) if it.get("steers") else None)   # "steers": turns with its front wheel
     b.arm = it.get("arm") is True and it["type"] not in ("chain", "shock")            # chain and shock are rebuilt, not rotated
+    b.farm = it.get("front_arm")
     return b
 
 
@@ -553,6 +572,7 @@ def tie_rod_body(i, it, a, e):
     r, d = it["d"] / 2, unit(e - a)
     b.cap(a, e, r); b.cap(a, a + d * 0.032, r * 1.25); b.cap(e - d * 0.032, e, r * 1.25)
     b.cap(a, a, 0.0075); b.cap(e, e, 0.0075)
+    b.ends = (np.asarray(a, float), np.asarray(e, float))
     return b.finish()
 
 
@@ -562,6 +582,7 @@ def member_body(i, m):
     b.cap(a, e, m["od"] / 2)
     b.member = (a, e)
     b.arm = m.get("arm") is True
+    b.farm = m.get("front_arm")
     return b.finish()
 
 
@@ -680,6 +701,10 @@ def _allowed_ordered(a, b, ctx):
     if a.kind == "rider":
         if b.kind == "item" and b.typ == "saddle":
             return "A17 rider"
+        pb = ctx.get("pt", {}).get(id(b))
+        for s in ctx.get("saddles", ()):
+            if pb is not None and abs(pb[0] - s["pos"][0]) <= s["l"] / 2 and abs(pb[1] - s["pos"][1]) <= s["w"] / 2                     and pb[2] <= s["pos"][2] + 0.005:
+                return "A17 rider (under the saddle)"
         if a.typ in ("foot", "shin") and b.part == "footrests":
             return "A17 rider"
         if a.typ == "arm" and (b.typ == "handlebar" or (b.part == "hand_brake" and b.typ == "lever")):
@@ -691,6 +716,8 @@ def _allowed_ordered(a, b, ctx):
             return "A21 kingpin"
     if a.kind == "item" and a.part == "guards" and a.typ == "cyl" and b.kind == "item" and b.part == "axle_shaft":
         return "A20 axle covers"
+    if a.kind == "item" and a.typ == "saddle" and b.kind == "member" and b.part == "frame":
+        return "A22 seat on its rails"
     if a.kind == "item" and a.typ == "shock" and b.key() in ctx["eyes"].get(a.key(), ()):
         return "A18 shock eyes"
     if a.kind == "item" and ctx["mount"].get(a.key()) == b.key():
@@ -745,14 +772,21 @@ def _allowed_ordered(a, b, ctx):
     if a.part == "handlebar" and a.typ == "handlebar" and b.part == "handlebar" and b.sub == "tube":
         return "A16 steering"
     if a.part == "handlebar" and a.typ == "rod":
-        if a.sub == "tube" and b.part == "handlebar" and b.typ == "rod" and b.sub in ("flange", "pitman"):
+        if a.sub == "tube" and b.part == "handlebar" and b.typ == "rod" and b.sub == "flange":
+            return "A16 steering"
+    if a.part == "handlebar" and a.typ == "arm":
+        if b.part == "handlebar" and ((b.typ == "rod" and b.sub == "tube") or b.typ == "arm"):
             return "A16 steering"
     if a.part == "handlebar" and a.sub == "flange" and b.kind == "member":
         return "A16 steering"
     if a.part == "tie_rods" and b.part == "tie_rods" and np.linalg.norm(np.asarray(a.item["pos"]) - np.asarray(b.item["pos"])) < JOINT_TOL:
         return "A16 steering"          # two rods on the one drop arm at the stem foot
-    if a.part == "tie_rods" and ((b.part == "handlebar" and b.sub == "pitman") or (b.typ == "spindle" and b.sub == "arm" and b.side == a.side)):
+    if a.part == "tie_rods" and b.typ == "spindle" and b.sub == "arm" and b.side == a.side:
         return "A16 steering"
+    if a.part == "tie_rods" and b.part == "handlebar" and b.typ == "arm":
+        pt = ctx.get("pt", {}).get(id(a))              # the contact must lie at the tie rod's inner end (pinned there)
+        if pt is None or (a.ends is not None and np.linalg.norm(pt - a.ends[0]) <= 0.05):
+            return "A16 steering"
     return None
 
 
@@ -791,20 +825,45 @@ def _steer_setup(design):
     return spindles, foot, axis
 
 
-def _tie_ends(it, ang, spindles, foot, axis):
-    """Inner end (turned with the stem) and outer end (turned with the spindle) of a tie rod at a steer angle."""
+def _front(design):
+    """(pivots {"l","r"} as arrays, bump deg, droop deg) of the front suspension, or None."""
+    fs = design.get("front_suspension")
+    if not fs:
+        return None
+    return {k: np.asarray(v, float) for k, v in fs["pivots"].items()}, abs(fs["bump_deg"]), -abs(fs["droop_deg"])
+
+
+def _frot(design, spindles, letter, deg):
+    """(rotation, pivot) of a front arm at deg: about x through the pivot, positive lifting the outer end (kingpin)."""
+    piv = _front(design)[0][letter]
+    k = np.asarray(spindles[1 if letter == "l" else -1]["pos"], float)
+    out = 1.0 if k[1] >= piv[1] else -1.0
+    return rot_axis([1.0, 0, 0], math.radians(deg) * out), piv
+
+
+def _tie_ends(it, ang, spindles, foot, axis, fs=None, design=None):
+    """Inner end (turned with the stem) and outer end (moved with the front arm, then turned about the
+    kingpin where it stands) of a tie rod at a steer angle; fs = {"l"/"r": arm angle in deg}."""
     a, e = np.asarray(it["pos"], float), np.asarray(it["to"], float)
+    s = int(np.sign(e[1]))
+    k = np.asarray(spindles[s]["pos"], float)
+    zax = np.array([0, 0, 1.0])
+    letter = "l" if s > 0 else "r"
+    if fs and letter in fs:
+        R, pv = _frot(design, spindles, letter, fs[letter])
+        e, k, zax = R @ (e - pv) + pv, R @ (k - pv) + pv, R @ zax
     if ang:
         th = math.radians(ang)
-        k = np.asarray(spindles[int(np.sign(e[1]))]["pos"], float)
         a = rot_axis(axis, th) @ (a - foot) + foot
-        e = rot_z(th) @ (e - [k[0], k[1], 0.0]) + [k[0], k[1], 0.0]
+        e = rot_axis(zax, th) @ (e - k) + k
     return a, e
 
 
 def steering_report(design, steer_deg=30.0):
     """Tie rod lengths (m) straight and at +-steer_deg, and the largest change from straight.
-    {"steer_deg", "rods": [{"index", "straight", "plus", "minus"}], "max_change"}"""
+    {"steer_deg", "rods": [{"index", "straight", "plus", "minus"}], "max_change"}; with front_suspension also
+    per rod "bump" and "droop" (both sides together, straight steering) and "max_change_heave" (m), plus
+    "max_change_single" (one side moved alone)."""
     spindles, foot, axis = _steer_setup(design)
     rods = []
     for i, it in enumerate(design["items"]):
@@ -815,7 +874,21 @@ def steering_report(design, steer_deg=30.0):
                 ln[k] = float(np.linalg.norm(e - a))
             rods.append({"index": i, **ln})
     ch = max([abs(r[k] - r["straight"]) for r in rods for k in ("plus", "minus")] or [0.0])
-    return {"steer_deg": steer_deg, "rods": rods, "max_change": ch}
+    out = {"steer_deg": steer_deg, "rods": rods, "max_change": ch}
+    fr = _front(design)
+    if fr:
+        single = 0.0
+        for r in rods:
+            it = design["items"][r["index"]]
+            for k, u in (("bump", fr[1]), ("droop", fr[2])):
+                a, e = _tie_ends(it, 0.0, spindles, foot, axis, {"l": u, "r": u}, design)
+                r[k] = float(np.linalg.norm(e - a))
+                a, e = _tie_ends(it, 0.0, spindles, foot, axis, {"l": u} if it["to"][1] > 0 else {"r": u}, design)
+                single = max(single, abs(float(np.linalg.norm(e - a)) - r["straight"]))
+        out["max_change_heave"] = max([abs(r[k] - r["straight"]) for r in rods for k in ("bump", "droop")] or [0.0])
+        out["max_change_single"] = single
+        out["bump_deg"], out["droop_deg"] = fr[1], fr[2]
+    return out
 
 
 def _susp_angles(design):
@@ -847,9 +920,24 @@ def find(design, configs=("summer", "winter"), limit=0.005, steer_deg=30.0):
     spindles, foot, stem_axis = _steer_setup(design)
     ties = [i for i in need if items[i]["part"] == "tie_rods"]
     piv, susp = _susp_angles(design)
-    states = [(a, 0.0) for a in (0.0, steer_deg, -steer_deg)] + [(0.0, u) for u in susp]
+    fr = _front(design)
+    states = [(a, 0.0, {}) for a in (0.0, steer_deg, -steer_deg)] + [(0.0, u, {}) for u in susp]
+    if fr:                               # one side at a time: +bump and -droop straight; +bump at +-steer
+        states += [(0.0, 0.0, {L: u}) for L in fr[0] for u in (fr[1], fr[2])]
+        states += [(a, 0.0, {L: fr[1]}) for L in fr[0] for a in (steer_deg, -steer_deg)]
+    for i in need:                       # shock length at each front angle
+        if items[i]["type"] == "shock" and items[i].get("front_arm") and fr:
+            ls = []
+            for u in [0.0, fr[1], fr[2]]:
+                it = items[i]
+                if u:
+                    R, pv = _frot(design, spindles, items[i]["front_arm"], u)
+                    it = _dyn(it, R, pv)
+                ls.append(f"{np.linalg.norm(np.asarray(it['to']) - np.asarray(it['pos'])) * 1000:.0f} mm at {u:+g} deg")
+            free = items[i].get("eye")
+            LAST_NOTES.append(("shock", f"front shock #{i} ({items[i]['front_arm']}) length " + ", ".join(ls) + (f" (free length {free * 1000:.0f} mm)" if free else ""), None, 0.0))
     for i in need:                       # shock length at each rear angle
-        if items[i]["type"] == "shock":
+        if items[i]["type"] == "shock" and not items[i].get("front_arm"):
             ls = []
             for u in [0.0] + susp:
                 it = _dyn(items[i], rot_axis([0, 1, 0], math.radians(u)), piv) if u else items[i]
@@ -876,24 +964,47 @@ def find(design, configs=("summer", "winter"), limit=0.005, steer_deg=30.0):
                     LAST_NOTES.append((cfg, sh.label() + " eye", cand[best[1]].label(), best[0]))
                 else:
                     LAST_NOTES.append((cfg, sh.label() + " eye", None, best[0]))
-        ctx = {"mount": mount, "eyes": eyes}
-        for ang, sus in states:
+        # the saddle's footprint: what lies under it is covered by it, so a rider resting on the
+        # saddle cannot touch it (A17)
+        saddles = [it for it in design["items"] if it.get("type") == "saddle" and cfg in it.get("configs", [cfg])]
+        ctx = {"mount": mount, "eyes": eyes, "saddles": saddles}
+        for ang, sus, fsd in states:
             th = math.radians(ang)
+            FR = {L: _frot(design, spindles, L, u) for L, u in fsd.items()}
             if ang not in rider_cache:
                 turn = (rot_axis(stem_axis, th), foot) if ang else None
                 rider_cache[ang] = {k: rider_bodies(design, k, turn) for k in design["riders"]}
             riders = rider_cache[ang]
-            ctx["joints"] = [(np.asarray(j["at"], float) if not (sus and j.get("arm") is True)
-                              else rot_axis([0, 1, 0], math.radians(sus)) @ (np.asarray(j["at"], float) - piv) + piv, j["r"])
-                             for j in design.get("joints", [])]
+            def jat(j):
+                at = np.asarray(j["at"], float)
+                if sus and j.get("arm") is True:
+                    return rot_axis([0, 1, 0], math.radians(sus)) @ (at - piv) + piv
+                if j.get("front_arm") in FR:
+                    R, pv = FR[j["front_arm"]]
+                    return R @ (at - pv) + pv
+                return at
+            ctx["joints"] = [(jat(j), j["r"]) for j in design.get("joints", [])]
             Ry = rot_axis([0, 1, 0], math.radians(sus))
             moved, changed = [], set()
             for b in fixed0:
-                if sus and b.kind == "item" and b.typ in ("chain", "shock"):
-                    continue
+                if b.kind == "item" and b.typ in ("chain", "shock"):
+                    fa = b.item.get("front_arm")
+                    if (sus and not fa) or (fa in FR):
+                        continue                                 # rebuilt below
+                fa = b.farm or (("l" if b.steer[1] > 0 else "r") if b.steer and b.steer[0] == "king" else None)
                 if sus and b.arm:
                     nb = b.moved(Ry, piv)
                     changed.add(id(nb))
+                elif fa in FR:                                   # suspension first, then steering about the moved kingpin
+                    R, pv = FR[fa]
+                    nb = b.moved(R, pv)
+                    changed.add(id(nb))
+                    if ang and b.steer is not None:
+                        if b.steer[0] == "king":
+                            k = np.asarray(spindles[b.steer[1]]["pos"], float)
+                            nb = nb.moved(rot_axis(R @ np.array([0, 0, 1.0]), th), R @ (k - pv) + pv)
+                        else:
+                            nb = nb.moved(rot_axis(stem_axis, th), foot)
                 elif ang and b.steer is not None:
                     if b.steer[0] == "king":
                         k = np.asarray(spindles[b.steer[1]]["pos"], float)
@@ -903,21 +1014,30 @@ def find(design, configs=("summer", "winter"), limit=0.005, steer_deg=30.0):
                 else:
                     nb = b
                 moved.append(nb)
-            if sus:
-                for i in idx:
-                    if items[i]["type"] in ("chain", "shock"):
-                        for nb in build_item(i, _dyn(items[i], Ry, piv), items):
+            for i in idx:
+                if items[i]["type"] in ("chain", "shock"):
+                    fa = items[i].get("front_arm")
+                    dyn = None
+                    if fa in FR:
+                        dyn = _dyn(items[i], *FR[fa])
+                    elif sus and not fa:
+                        dyn = _dyn(items[i], Ry, piv)
+                    if dyn is not None:
+                        for nb in build_item(i, dyn, items):
                             nb.item = items[i]
                             moved.append(nb)
                             changed.add(id(nb))
             for i in ties:
                 if i in idx:
-                    a, e = _tie_ends(items[i], ang, spindles, foot, stem_axis)
-                    moved.append(tie_rod_body(i, items[i], a, e))
-            if not ang and not sus:
+                    a, e = _tie_ends(items[i], ang, spindles, foot, stem_axis, fsd, design)
+                    nb = tie_rod_body(i, items[i], a, e)
+                    moved.append(nb)
+                    if fsd:
+                        changed.add(id(nb))
+            if not ang and not sus and not fsd:
                 todo_ids = {id(b) for b in moved}
-            elif sus:
-                todo_ids = changed
+            elif sus or fsd:
+                todo_ids = changed | ({id(b) for b in moved if b.steer is not None} if ang else set())
             else:
                 todo_ids = {id(b) for b in moved if b.steer is not None}
             checks = []
@@ -942,12 +1062,13 @@ def find(design, configs=("summer", "winter"), limit=0.005, steer_deg=30.0):
                 res = pair_gap(x, y, limit)
                 if res is None:
                     continue
+                ctx["pt"] = {id(x): res[1], id(y): res[2]}
                 if allowed(x, y, ctx):
                     continue
                 gap, pa, pb = res
                 if any(np.linalg.norm(pa - c) <= r and np.linalg.norm(pb - c) <= r for c, r in ctx["joints"]):
                     continue                                   # A19 joints
-                out.append({"config": cfg, "steer_deg": ang, "susp_deg": sus, "a": x.info(), "b": y.info(), "gap": float(gap),
+                out.append({"config": cfg, "steer_deg": ang, "susp_deg": sus, "front": ({"side": next(iter(fsd)), "deg": next(iter(fsd.values()))} if fsd else None), "a": x.info(), "b": y.info(), "gap": float(gap),
                             "point_a": [round(float(v), 4) for v in pa], "point_b": [round(float(v), 4) for v in pb],
                             "overlap": bool(gap < 0)})
     return out
@@ -977,7 +1098,9 @@ def report(clashes, configs, limit, steer, secs, design):
                 continue
             key = (c["a"]["label"], c["b"]["label"], c["a"]["rider"] if c["a"]["kind"] == "rider" else c["b"]["rider"] if c["b"]["kind"] == "rider" else None)
             g = groups.setdefault(key, {"gap": 1e9, "angles": []})
-            g["angles"].append(f"rear {c['susp_deg']:+g}" if c.get("susp_deg") else f"{c['steer_deg']:+g}")
+            fnt = c.get("front")
+            g["angles"].append((f"front {fnt['side']}{fnt['deg']:+g}" + (f" steer {c['steer_deg']:+g}" if c["steer_deg"] else "")) if fnt
+                               else f"rear {c['susp_deg']:+g}" if c.get("susp_deg") else f"{c['steer_deg']:+g}")
             if c["gap"] < g["gap"]:
                 g["gap"], g["pt"] = c["gap"], c["point_a"]
         print(f"  {len(groups)} pairs ({sum(1 for c in clashes if c['config'] == cfg)} entries)")
@@ -991,6 +1114,10 @@ def report(clashes, configs, limit, steer, secs, design):
     for r in sr["rods"]:
         print(f"\nnote: tie rod #{r['index']} length {r['straight'] * 1000:.0f} mm straight, {r['plus'] * 1000:.0f} mm at +{steer:g}, {r['minus'] * 1000:.0f} mm at -{steer:g}")
     print(f"note: largest tie rod length change {sr['max_change'] * 1000:.0f} mm")
+    if "max_change_heave" in sr:
+        for r in sr["rods"]:
+            print(f"note: tie rod #{r['index']} length {r['bump'] * 1000:.1f} mm at +{sr['bump_deg']:g} and {r['droop'] * 1000:.1f} mm at {sr['droop_deg']:g} front suspension (both sides)")
+        print(f"note: bump steer: largest tie rod length change over the front suspension travel (heave) {sr['max_change_heave'] * 1000:.1f} mm (one side alone {sr['max_change_single'] * 1000:.1f} mm)")
     print(f"\nsummary: {summary(clashes)}   ({secs:.1f} s)")
 
 

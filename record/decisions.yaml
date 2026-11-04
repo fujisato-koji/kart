@@ -342,3 +342,27 @@ items:
       - D-037
       - Q-042
       - R-04
+  - id: D-039
+    date: 2026-11-04
+    by: owner
+    what: The front wheels follow the ground on springs too, by the cheapest of the means compared in 1.3.20 - the front beam cut into two swing axles, each turning on a pivot near the centre line level with the tie rods' inner ends, with one shock each of the rear's kind to a cross tube over the front. ATV A-arms bought as a kit (about 70,000 to 73,000 JPY, M104) were judged too dear.
+    options:
+      - stay rigid and ride drops slowly
+      - softer, larger front tyres
+      - swing axles with two shocks, made in house
+      - double A-arms made in house with two shocks
+      - an ATV A-arm kit with two shocks
+    touches:
+      - Q-042
+      - D-036
+      - R-04
+  - id: D-040
+    date: 2026-11-04
+    by: owner
+    what: The frame meets fatigue on rough ground by its shape and its joints - seat rails of the larger tube under the saddle, from the upper rails down to the spine ahead of the footboards, so that spine and seat rails work as a truss; tubes fitted to each other and welded all round, no intermediate plates fillet-welded on the spine, the posts, or the footboards' supports, and gussets where the posts and struts meet; and the welds looked over for cracks before each day's riding (OP-01).
+    options:
+      - a thicker spine tube
+      - seat rails as a truss, with the joints detailed and inspected
+    touches:
+      - Q-041
+      - H-06

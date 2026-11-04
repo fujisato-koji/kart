@@ -36,6 +36,8 @@ export const PART_KEYS = {
   hand_brake: ['lay.front_drum_dia_mm', 'cost.atv_drum_hub_jpy', 'cost.front_drum_allow_jpy', 'law.parking_grade_pct'],
   battery: [],
   number_plate: ['cost.tax_year_jpy', 'cost.cali_year_jpy'],
+  front_arms: ['lay.front_pivot_y_mm', 'lay.kingpin_y_mm', 'dsn.front_camber_change_deg', 'dsn.landing_front_g'],
+  front_shocks: ['lay.front_shock_*', 'dsn.front_*', 'shock.*', 'cost.rear_shock_jpy'],
   swing_arm: ['lay.pivot_x_mm', 'lay.bearing_y_mm', 'dsn.tube_arm_m', 'dsn.arm_*', 'sus.*', 'dsn.chain_centre_change_mm', 'dsn.axle_rail_gap_mm'],
   rear_shock: ['shock.*', 'lay.shock_*', 'dsn.shock_*', 'dsn.motion_ratio', 'dsn.rear_*', 'cost.rear_shock_jpy'],
   snow_chains: ['ground.mu_snow_chains', 'ground.mu_ice_chains', 'cost.snow_chain_jpy', 'w4.*'],

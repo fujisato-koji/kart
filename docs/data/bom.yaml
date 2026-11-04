@@ -11,6 +11,11 @@ lines:
     price: cost.tube_48x23_jpy_per_m
     need: b1
   - part: frame
+    item: STKM11A round tube 60.5 x 3.2, the keel and the rails' front cross tube (m)
+    qty: 1
+    price: cost.tube_60x32_jpy_per_m
+    need: b1
+  - part: frame
     item: STKM11A round tube 25.4 x 1.6, cross members, footboard supports, upper rails, bumpers (m)
     qty: 7
     price: cost.tube_25_jpy_per_m
@@ -122,6 +127,11 @@ lines:
     price: cost.ramp_rail_jpy
     need: t4
     group: tools
+  - part: front_shocks
+    item: Front shock absorbers 250 mm with coil springs, of the rear's kind (springs to suit, Q-039)
+    qty: 2
+    price: cost.rear_shock_jpy
+    need: b4
   - part: rear_shock
     item: Rear shock absorber 250 mm with its coil spring (spring to suit, Q-039)
     qty: 1

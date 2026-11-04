@@ -2,7 +2,7 @@
 
 Calculations, one section per item, each with an id that values and checks can cite.
 
-This step designs the straddle kart the owner chose (D-030): ridden astride by riders of 6 and up, leaning into turns, with the engine unit under the seat. The seated kart that stood here before is in the repository's history; its checks K-004 to K-006 and K-009 judged that kart. Where the owner has not yet decided the proposals of [1.2.18](02-form.md#straddle), this step takes them as its working basis: R-12 at kart.tip_ratio_snow_min sideways and law.quad_pitch_ratio_min fore and aft (Q-032), and a protective hoop behind the seat for R-19; the children's speed is left open. The owner chose buggy-size tyres all year with skis inside the front wheels in winter (D-032), springs at the rear (D-036), a frame made low, small, and cheaper where its shape allows (D-037), and 150 mm under the frame for rough ground (D-038). A change there comes back to this step.
+This step designs the straddle kart the owner chose (D-030): ridden astride by riders of 6 and up, leaning into turns, with the engine unit under the seat. The seated kart that stood here before is in the repository's history; its checks K-004 to K-006 and K-009 judged that kart. Where the owner has not yet decided the proposals of [1.2.18](02-form.md#straddle), this step takes them as its working basis: R-12 at kart.tip_ratio_snow_min sideways and law.quad_pitch_ratio_min fore and aft (Q-032), and a protective hoop behind the seat for R-19; the children's speed is left open. The owner chose buggy-size tyres all year with skis inside the front wheels in winter (D-032), springs at the rear (D-036), a frame made low, small, and cheaper where its shape allows (D-037), 150 mm under the frame for rough ground (D-038), springs at the front too (D-039), and a frame shaped and detailed for fatigue (D-040). A change there comes back to this step.
 
 `python calc/design.py --write` reads every input from the record and writes the calculated values (keys starting with `dsn.`) and `docs/data/design.json`, the geometry that the navigator's drawings and 3D view draw. It solves the frame as a space frame of tubes (`calc/frame.py`) and searches the geometry for interferences (`calc/clash.py`). Axes are x forward, y left, z up, with the origin on the ground under the rear axle centre. Inputs that have no source yet are assumed in Q-017, Q-023, Q-033, Q-036, Q-039, and Q-040.
 
@@ -18,14 +18,15 @@ This step designs the straddle kart the owner chose (D-030): ridden astride by r
 
 - **Tubes.** The frame is of two tube sizes, dsn.rail_od_mm by dsn.rail_t_mm and dsn.cross_od_mm by dsn.cross_t_mm STKM11A (M6), so that the steel comes in two kinds; the bearing outriggers and the kick of the spine over the axle are gone. It has:
     - two spine rails at ±lay.spine_half_width_mm under the engine unit, from the swing arm's pivot at lay.pivot_x_mm to the front beam, of the larger tube because the spine carries the standing rider (1.3.18);
-    - the front beam rising to the kingpin bosses at ±lay.kingpin_y_mm, braced to the rails, with the stem's lower bearing on the bosses, and the bumper ahead of the larger tube, braced back to the bosses, to stop the kart against a post (1.3.18);
+    - at the front, the rails stop short of the front swing axles of 1.3.20. A keel on the centre line runs from their front cross tube under the front pivots to the bumper's middle, the only way past the swing axles and the tie rods' sweep; it and that cross tube are of a still larger tube, dsn.keel_od_mm by dsn.keel_t_mm, since everything at the front reaches the spine through them. The pivots sit on the keel. A front tower stands on the bumper and, inboard of the shocks, on the pivots; it carries the front shocks' tops and, ahead of the stem, the stem's lower bearing. The bumper, of the larger tube braced to the keel, stands ahead of the front tyres (lay.front_overhang_mm), so that it, not the swing axles, meets a post or a wall (1.3.18);
     - a tower from the rails to the stem's upper bearing;
+    - seat rails of the larger tube under the saddle, from the upper rails forward and down to the spine ahead of the engine unit, which carry the seat and make the spine and the seat rails work as a truss (D-040);
     - three cross tubes and an outer tube either side under each footboard;
-    - behind the unit, posts at ±lay.post_y_mm rising from the rails' ends through the pivot tube to two upper rails under the seat's rear;
+    - behind the unit, posts at ±lay.post_y_mm rising upright from the rails' rear cross tube through the pivot tube to two upper rails under the seat's rear, clear of the swing arm's sides;
     - struts from the posts to a cross tube on the shock's axis just beyond its upper eye, so each side closes into a triangle and the shock's load closes within it; the struts cross the upper rails at a joint;
     - the protective hoop of 1.3.13 on the struts' tops.
 - **Lengths and mass.** dsn.tube_main_m of the larger tube and dsn.tube_cross_m of the smaller go into the frame, dsn.tube_roll_m into the hoop, and dsn.tube_arm_m into the swing arm of 1.3.17. The frame weighs dsn.frame_mass_kg, with more in plates.
-- **Strength (R-02).** The tubes are solved as a space frame (`calc/frame.py`): each tube a beam, the swing arm pinned on the pivot tube and held by the shock taken as a rigid link, the kart standing on its kingpins and the arm's bearings. The load cases are those of 1.3.18, for rough ground. In the driving cases the largest stress is dsn.rail_stress_mpa, with the adult standing in a bump, in the spine between the footboards: a safety factor of dsn.rail_safety on the tensile strength dsn.stkm11a_tensile_mpa, against the dsn.frame_safety_min taken so that the tubes stay below yield (STKM11A has no stated yield; Q-017). It sags dsn.frame_deflection_mm in the seated bump. Its welded joints still have a limited fatigue life on rough ground (1.3.18, Q-041).
+- **Strength (R-02).** The tubes are solved as a space frame (`calc/frame.py`): each tube a beam, the swing arms pinned on their pivots and held by the shocks taken as rigid links, the kart standing on its front wheels' centres - reached through stiff stubs for the knuckles, so that the front swing axles get the wheels' lever (K-015) - and on the rear arm's bearings. The load cases are those of 1.3.18, for rough ground. In the driving cases the largest stress is dsn.rail_stress_mpa, with the adult standing in a bump, in the spine between the footboards: a safety factor of dsn.rail_safety on the tensile strength dsn.stkm11a_tensile_mpa, against the dsn.frame_safety_min taken so that the tubes stay below yield (STKM11A has no stated yield; Q-017). It sags dsn.frame_deflection_mm in the seated bump. Its fatigue life is in 1.3.18.
 
 ## 1.3.3 Rear axle {#axle}
 
@@ -47,8 +48,8 @@ This step designs the straddle kart the owner chose (D-030): ridden astride by r
 
 ## 1.3.6 Steering {#steering}
 
-- The donor scooter's handlebar, lay.bar_width_mm wide, at lay.bar_x_mm and lay.bar_z_mm, on a stem raked dsn.stem_rake_deg in two UCFL204 flange units (M40). The ATV steering knuckles with 17 mm spindles (M92) turn on kingpins at ±lay.kingpin_y_mm, inside the brake drums; if the knuckles are made for ball joints, two brackets on the front beam take their place (Q-037). A bar handle needs no impact-absorbing steering (P70).
-- The knuckles' arms point back at the rear axle's centre (Ackermann) at the spindles' height, well above the spine and the front beam. A pitman arm at the stem's foot, as long as the knuckles' arms, reaches back to the inner ends of the two tie rods of M10 rod ends PHS10 (P34, M38), dsn.tie_rod_length_mm long. They lie across the kart, so turning bar and wheels alike to full lock changes their length by only dsn.tie_rod_change_mm; the wheels take that up by turning a little more or less than the bar.
+- The donor scooter's handlebar, lay.bar_width_mm wide, at lay.bar_x_mm and lay.bar_z_mm, on a stem raked dsn.stem_rake_deg in two UCFL204 flange units (M40). The ATV steering knuckles with 17 mm spindles (M92) turn on kingpins at ±lay.kingpin_y_mm, inside the brake drums, at the ends of the front swing axles (1.3.20); if the knuckles are made for ball joints, two brackets on each swing axle take their place (Q-037). A bar handle needs no impact-absorbing steering (P70).
+- The knuckles' arms point back at the rear axle's centre (Ackermann) at the spindles' height, well above the spine and the front beam. A pitman arm at the stem's foot, as long as the knuckles' arms, with a cross bar at its end, reaches back to the inner ends of the two tie rods of M10 rod ends PHS10 (P34, M38), dsn.tie_rod_length_mm long. They lie across the kart, so turning bar and wheels alike to full lock changes their length by only dsn.tie_rod_change_mm; the wheels take that up by turning a little more or less than the bar. Their inner ends lie close to the front pivots' axes, so as the front springs move the tie rods change length by only dsn.tie_rod_change_heave_mm and the wheels hardly steer.
 - With a steering lock of lay.steer_max_deg the smallest turning radius is dsn.turn_radius_m.
 
 ## 1.3.7 Seat, footrests, and fit {#fit}
@@ -102,9 +103,9 @@ The winter form is W6 of [1.2.19](02-form.md#tyres) (D-032): the kart keeps its 
 
 ## 1.3.16 Layout checks and issues still open {#issues}
 
-- **Interference search (Q-035).** `calc/clash.py` builds every part as the 3D view draws it, the frame tubes and the riders as capsules, and measures the smallest gap between every pair that is not mounted on each other. It runs in the summer and winter forms, straight and at ±lay.steer_max_deg of steering with the front wheels, knuckles, skis, fenders, tie rods, and handlebar turned, and at the ends of the rear suspension's travel (sus.bump_mm up and sus.droop_mm down). It finds dsn.clashes_summer pairs closer than 5 mm in summer and dsn.clashes_winter in winter.
+- **Interference search (Q-035).** `calc/clash.py` builds every part as the 3D view draws it, the frame tubes and the riders as capsules, and measures the smallest gap between every pair that is not mounted on each other. It runs in the summer and winter forms, straight and at ±lay.steer_max_deg of steering with the front wheels, knuckles, skis, fenders, tie rods, and handlebar turned, and at the ends of the rear suspension's travel (sus.bump_mm up and sus.droop_mm down), and turns each front swing axle through the same travel, straight and at full lock. It finds dsn.clashes_summer pairs closer than 5 mm in summer and dsn.clashes_winter in winter.
 - **What it found and changed.** The first search of the earlier layout found the bearing outriggers inside the rear tyres, the riders' feet, the front fenders, and the turn signals in the front tyres' sweep at full lock, the skis' brackets through the front beam, and tie rods that changed length by about 45 mm. The layout of 1.3.1 to 1.3.17 answers these: the arm's bearings sit inside the tyres, the front fenders turn with the knuckles, the feet stop at a toe board, the skis' brackets stay under the beam, and the pitman arm sets the tie rods' length.
-- **Still open.** On rough ground the frame's welded joints have a limited fatigue life (1.3.18, Q-041), the rigid front lands hard from drops, and the owner decides the front's springing (Q-042). The stability margins are just at the working basis with the higher frame (1.3.9). The grass slope the kart climbs is less than assumed (1.3.10). The fit of the ATV front knuckles, drum hubs, wheels, and meter is unstated by their sellers, and the drum brakes' parts, the ski brackets, and the axle sprocket are allowances (Q-036, Q-037). The bearings' sizes, the shock's stroke, and the target frequency are assumed (Q-039).
+- **Still open.** The stability margins are just at the working basis with the higher frame (1.3.9), and the fatigue life rests on the joints being made as 1.3.18 says. The grass slope the kart climbs is less than assumed (1.3.10). The fit of the ATV front knuckles, drum hubs, wheels, and meter is unstated by their sellers, and the drum brakes' parts, the ski brackets, and the axle sprocket are allowances (Q-036, Q-037). The bearings' sizes, the shock's stroke, and the target frequency are assumed (Q-039).
 - The rider's thighs pass round the engine unit, which is wider than the seat; the adult's knees bend well, about as on a youth quad. Both are to be tried on the built kart.
 
 ## 1.3.17 Rear suspension {#suspension}
@@ -137,7 +138,7 @@ The owner asked whether the load cases were right for a kart that also runs on r
     - braking at load.brake_g and cornering at load.lateral_g, each with the weight (P72);
     - combined: load.combined_vert_g vertical with load.combined_brake_g braking and load.combined_lat_g sideways (Q-040).
 - **Accident cases**, each checked against load.accident_safety_min - the tubes may bend but must not break (Q-040):
-    - a frontal impact at load.impact_g against a post or tree that the bumper meets and the tyres miss. Baja cars are designed for 8 to 10 g at 56 km/h head on (P74, P75); scaled to this kart's speed with the same stopping time this is 4.3 to 5.4 g (Q-040). Against a wall the front tyres strike first and the load is less (K-014).
+    - a frontal impact at load.impact_g, met by the whole bumper or by one end of it against a post or tree. Baja cars are designed for 8 to 10 g at 56 km/h head on (P74, P75); scaled to this kart's speed with the same stopping time this is 4.3 to 5.4 g (Q-040). The bumper stands ahead of the front tyres, so it meets a wall first (K-015).
     - the hoop crushed from above by load.hoop_crush_n_per_kg per kilogram of the kart, as tractor rollover structures are tested (P76);
     - the hoop pushed sideways by load.hoop_side_g of the kart's weight (Q-040).
 
@@ -152,8 +153,8 @@ The owner asked whether the load cases were right for a kart that also runs on r
     - in the frontal impact the frame's safety factor is dsn.impact_safety;
     - the hoop takes the crush at dsn.hoop_crush_safety and the push at dsn.hoop_side_safety.
 - **Drops.** A wheel landing from a drop stops within the stroke it has: the tyre's usable deflection land.tyre_defl_mm (Q-040), and at the rear also the shock's travel from full droop to full bump. A tyre takes the energy at an efficiency of land.tyre_eff, a coil-spring shock at land.shock_eff (S9).
-    - From a drop of land.drop_ref_mm the rigid front lands at dsn.landing_front_g and the sprung rear at dsn.landing_rear_g.
-    - The front reaches the bump case at a drop of only dsn.drop_front_at_bump_mm, the rear at dsn.drop_rear_at_bump_mm. On rough ground the rigid front is the weak point; the owner decides whether it gets springs (Q-042).
+    - From a drop of land.drop_ref_mm the front lands at dsn.landing_front_g and the rear at dsn.landing_rear_g.
+    - Rigid, the front landed at about 8.5 g and reached the bump case at a drop of about 3 cm. With the springs of 1.3.20 (D-039) both ends reach it at a drop of dsn.drop_front_at_bump_mm and dsn.drop_rear_at_bump_mm.
 - **Fatigue.** Rough ground loads the frame over and over. Welded joints last without limit below their fatigue limit, (2/5)^(1/3) of the detail category divided by a partial factor of fat.gamma_mf, the factor for a long life with grave consequences (S10, S11).
     - The limits:
         - for a tube butt-welded or welded to a plate (category fat.cat_tube_mpa) the limit is dsn.fatigue_limit_tube_mpa;
@@ -162,7 +163,13 @@ The owner asked whether the load cases were right for a kart that also runs on r
     - The worst of the bump and lifted-wheel cases, per g, gives dsn.fatigue_range_mpa in the worst tube for a repeated range of fat.range_g.
     - That is unlimited only for ranges up to dsn.fatigue_g_tube at the first kind of joint and dsn.fatigue_g_fillet at the second.
     - At fat.range_g the first kind lasts about dsn.fatigue_kcycles_tube thousand cycles, as many kilometres at one such bump a metre, and the second about dsn.fatigue_kcycles_fillet thousand.
-    - The joints are to be detailed with gussets and fitted ends for the better categories, and the frame tried on its ground (Q-041).
+    - The frame was shaped and its joints set for this (D-040):
+        - the seat rails of 1.3.2 make the spine a truss, and the swing arm's rear cross tube and the keel, which one lifted wheel loads most, are of the larger tubes (K-015);
+        - the tubes are fitted to each other and welded all round, the first kind of joint;
+        - no intermediate plates are fillet-welded on the spine, the posts, or the footboards' supports, so the second kind does not occur there;
+        - gussets go where the posts and struts meet.
+    - The frame is to last fat.life_kcycles_min thousand such ranges; at the first kind of joint it lasts dsn.fatigue_life_ratio times that.
+    - Before each day's riding the welds are looked over for cracks (OP-01.07), since a fatigue crack shows long before it breaks.
 
 ## 1.3.19 Ground clearance {#clearance}
 
@@ -173,3 +180,30 @@ The owner asked whether the load cases were right for a kart that also runs on r
     - a crest under the middle of the wheelbase is cleared up to dsn.breakover_deg, leaving out the tyres' radius;
     - in a full bump of the rear springs the pan's rear end comes down to dsn.clearance_bump_rear_mm.
 - **What it cost.** The seat is higher than D-037 made it. The stability margins are just at the working basis, dsn.tip_ratio_adult sideways in summer, dsn.winter_tip_ratio in winter, and dsn.pitch_ratio_adult fore and aft (1.3.9). The child's fit margin is dsn.child_fit_margin_mm (1.3.7).
+
+## 1.3.20 Front suspension {#front-suspension}
+
+With a rigid front, a front wheel landing from a drop stopped within its tyre alone, at about 8.5 g from 150 mm (1.3.18). The owner asked for springs at the front too, by a cheaper means than an ATV A-arm kit (D-039).
+
+- **Means compared.** The landing from a drop of land.drop_ref_mm, by the energy balance of 1.3.18:
+
+    | Means | Landing | Cost |
+    |---|---|---|
+    | Rigid, drops ridden slowly | about 8.5 g | none |
+    | Softer, larger front tyres, about 75 mm usable | about 6.4 g | new tyres; not enough |
+    | Swing axles made in house, two shocks | dsn.landing_front_g | two shocks of the rear's kind (cost.rear_shock_jpy each, M100), pivot bolts and bushes |
+    | Double A-arms made in house, two shocks | dsn.landing_front_g | as above, with four ball joints and more welding |
+    | An ATV A-arm kit with shocks | dsn.landing_front_g | cost.atv_aarm_kit_jpy (M104) |
+
+    Rubber torsion units for trailers were not found priced. The swing axles cost least of the sprung means and fit the layout. Their camber change is acceptable at the kart's speed on low-pressure tyres.
+- **Swing axles.** The front beam is cut into two halves.
+    - Each half turns on a pivot lay.front_pivot_y_mm from the centre line, level with the tie rods' inner ends, and carries a kingpin boss at its end.
+    - As the springs move, the tie rods change length by dsn.tie_rod_change_heave_mm with the wheels straight, and by about 1 mm at full lock (K-015), so the wheels hardly steer.
+    - The wheels lean by dsn.front_camber_change_deg in a full bump.
+- **Shocks.** One shock of the rear's kind per side runs from a lug lay.front_shock_y_mm from the centre line, lay.front_shock_x_mm ahead of the swing axle, up to the front tower's cross tube, placed as at the rear so that its lug only pulls.
+    - Its motion ratio is dsn.front_motion_ratio.
+    - Laden it is dsn.front_shock_length_static_mm long and uses dsn.front_shock_stroke_used_mm of its stroke in a full bump of sus.bump_mm.
+- **Spring.**
+    - Each side carries dsn.front_sprung_kg sprung. At sus.freq_hz that needs a wheel rate of dsn.front_wheel_rate_n_mm, a spring of dsn.front_shock_spring_n_mm at the shock, and dsn.front_shock_force_static_n on it at rest (Q-039).
+    - The front springs are softer than the rear's, since less weight is on them; the spring is chosen when the shocks are bought.
+- **Frame.** The swing axles block the space at the front axle's line between the pivots and the kingpins, and the tie rods sweep the space just behind it. So the front is built round them (1.3.2): a keel on the centre line under the pivots, a tower on the bumper and the pivots, and the stem's lower bearing on the tower, ahead of the stem and clear of the pitman arm. The interference search of 1.3.16 turns each swing axle through its travel, with and without steering, and finds no clash.

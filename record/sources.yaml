@@ -1537,6 +1537,14 @@ items:
     license: unknown
     read: full
     note: Read by a helper. The category is the stress range at 2 million cycles; the fatigue limit is (2/5)^(1/3) of it; S-N slope 3, then 5; partial factor 1.0 to 1.35.
+  - id: M104
+    class: M
+    title: Front suspension kit for ATVs - upper and lower A-arms, knuckles, spindles, hubs, and 340 mm shocks, Yahoo Shopping
+    url: https://store.shopping.yahoo.co.jp/wid-grab/hfayb0ckvtmjksk.html
+    retrieved: 2026-11-04
+    license: unknown
+    read: partial
+    note: Read by a helper. 72,703 JPY, free shipping, from overseas stock in about two weeks; quantities and fitment not stated. A kit of A-arms and shocks without knuckles is 70,464 JPY (hfayb0cv45nw73k).
   - id: F1
     class: F
     title: Motor1, a shifter kart turned into a snowmobile, 2025-02-02

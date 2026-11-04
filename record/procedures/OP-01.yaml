@@ -28,6 +28,10 @@ items:
         values:
           - rider.stature_min_cm
           - rider.stature_max_cm
+      - id: OP-01.07
+        action: Look over the frame's welds for cracks - the spine between the footboards, the seat rails' posts, the rear posts and struts, the front pivots, and the swing arms; do not ride with a crack.
+        controls:
+          - H-06
       - id: OP-01.08
         action: Check that the rider wears the protective gear of R-31, with long hair inside the helmet, and no scarf.
         controls:

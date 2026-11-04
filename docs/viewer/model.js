@@ -561,8 +561,22 @@ function rodItem(it) {
       g.add(fl);
       const hs = mesh(new THREE.CylinderGeometry(0.02, 0.02, 0.026, 20), M.cast); hs.position.copy(p); hs.quaternion.setFromUnitVectors(Y, dir); g.add(hs);
     }
-    const arm = box(0.028, 0.12, 0.01, M.darkSteel, 0.003); arm.position.copy(b); g.add(arm); // pitman arm
   }
+  return g;
+}
+
+// ---- flat bar between two points: length along the line, width w kept horizontal (y axis if the line is near vertical), thickness t
+function armItem(it) {
+  const M = mats(); const g = new THREE.Group(); const a = V(it.pos), b = V(it.to);
+  const d = b.clone().sub(a), len = d.length(), u = d.clone().divideScalar(len);
+  let wv = new THREE.Vector3(0, 0, 1).cross(u);
+  if (wv.length() < 0.2) wv = Y.clone().addScaledVector(u, -Y.dot(u));
+  wv.normalize();
+  const nv = u.clone().cross(wv);
+  const bar = box(len, it.w, it.t, M.darkSteel, Math.min(0.002, it.t / 3));
+  bar.position.copy(a).lerp(b, 0.5);
+  bar.quaternion.setFromRotationMatrix(new THREE.Matrix4().makeBasis(u, wv, nv));
+  g.add(bar);
   return g;
 }
 
@@ -870,6 +884,7 @@ function buildItem(it, ctx) {
     case 'float': return floatItem(it);
     case 'outboard': return outboardItem(it);
     case 'rod': return rodItem(it);
+    case 'arm': return armItem(it);
     case 'saddle': return saddleItem(it);
     case 'handlebar': return handlebarItem(it);
     case 'fender': return fenderItem(it);

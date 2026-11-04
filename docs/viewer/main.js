@@ -18,7 +18,7 @@ const PART_NAMES = {
   tie_rods: 'タイロッド', spindles: 'スピンドルとキングピン', front_wheels: '前輪とタイヤ', axle_shaft: 'アクスル軸',
   axle_bearings: 'アクスル軸受（UCP）', rear_hubs: '後輪ハブ', rear_wheels: '後輪とタイヤ', brake: 'ディスクブレーキ',
   engine: 'エンジン', clutch: '遠心クラッチ', jackshaft: 'ジャックシャフト', chain_primary: '一次チェーン', chain_final: '二次チェーン',
-  skis: 'スキー', swing_arm: 'スイングアーム', rear_shock: '緩衝器', sled_pan: 'そり底',
+  skis: 'スキー', swing_arm: 'スイングアーム', rear_shock: '後ろの緩衝器', front_arms: '前のスイングアクスル', front_shocks: '前の緩衝器', sled_pan: 'そり底',
   side_floats: '浮き（将来版）', outboard: '船外機（将来版）', roll_bar: '転倒保護の輪', lighting: '灯火と方向指示器', mirrors: 'ミラー', horn: 'ホーン',
   speedometer: '速度計', hand_brake: '前輪ブレーキ（2 系統目）', battery: 'バッテリー', number_plate: 'ナンバー',
 };
