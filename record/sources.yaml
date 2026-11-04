@@ -1129,6 +1129,54 @@ items:
     license: US patents public domain; the Austrian unknown
     read: full
     note: Read by a helper through OCR summaries, with https://patents.google.com/patent/US1567776 and https://patents.google.com/patent/US136750. Sprung drive wheels that pass through openings in the runners with their height set from the seat (AT81336B); two spring-pressed drums with spiral lugs for roads under deep snow (US1567776); an 1873 patent notes that earlier spring-pressed spiked wheels broke their springs. None gives test data.
+  - id: P66
+    class: P
+    title: Consumer Goods (Quad Bikes) Safety Standard 2019 (Australia, F2019L01321), as made
+    url: https://www.legislation.gov.au/F2019L01321/asmade/2019-10-10/text/original/pdf
+    retrieved: 2026-11-04
+    license: unknown
+    read: partial
+    note: Read by a helper, sections 5 to 17 and schedule 1. From October 2021 a general-use quad bike must have an operator protection device (an ATV Lifeguard or Quadbar, or one at least as good against crushing or pinning) and minimum tilt-table ratios of 0.55 sideways and 0.8 forward and rearward, tested with a 50th-percentile male dummy on it; youth quads (Y-6+ for ages 6 to 9) are only tested and tagged.
+  - id: P67
+    class: P
+    title: ACCC, Quad bike safety - final recommendation to the Minister, February 2019
+    url: https://consultation.accc.gov.au/product-safety/quad-bike-safety-standard-exposure-draft/supporting_documents/Quad%20bike%20safety%20%20Final%20Recommendation%20to%20the%20Minister.pdf
+    retrieved: 2026-11-04
+    license: CC BY 3.0 AU
+    read: partial
+    note: Read by a helper, the stability, youth, and industry sections. Work quads measured 0.72 to 0.82 sideways empty and 0.46 to 0.60 with a 95th-percentile male dummy; the rider was the largest single drop. No after-market protection device had been tested for youth quads.
+  - id: P68
+    class: P
+    title: UNSW Newsroom, workplace survey of quad bike use highlights rollover risks, 2017-06-06
+    url: https://www.unsw.edu.au/newsroom/news/2017/06/workplace-survey-of-quad-bike-use-highlights-rollover-risks-
+    retrieved: 2026-11-04
+    license: unknown
+    read: full
+    note: Read by a helper. Of 1,546 riders half had crashed and 67 % of crashes were rollovers; with a Quadbar or Lifeguard fitted no rollover gave serious chest or head injuries, against 55 hospitalised and 24 serious chest injuries without; five riders blamed an injury on the device. The devices do not make rollovers rarer, and the sample was of volunteers.
+  - id: P69
+    class: P
+    title: US youth ATV categories, ANSI/SVIA 1 as cited in the Federal Register (2012-4385) and a Polaris owner's manual, with the University of Iowa parents' guide
+    url: https://www.govinfo.gov/content/pkg/FR-2012-02-29/pdf/2012-4385.pdf
+    retrieved: 2026-11-04
+    license: US federal document; others unknown
+    read: partial
+    note: Read by a helper. Y-6+ (ages 6 to 9) at most 10 mph restricted and 15 mph unrestricted; Y-10+ 15 and 30 mph. Recommended gear is a motorcycle helmet, eye protection, gloves, over-the-ankle boots, long trousers and sleeves. A child fits if, standing on the footrests, there is at least 4 in between rider and seat, and the controls and full steering are within reach.
+  - id: P70
+    class: P
+    title: MLIT, safety standard amendment for three- and four-wheel mopeds (2018) and article 66-2 of the safety standards
+    url: https://www.mlit.go.jp/common/001233174.pdf
+    retrieved: 2026-11-04
+    license: unknown
+    read: full
+    note: Read by a helper with https://www.mlit.go.jp/jidosha/content/H066-2.pdf and the 2017 study paper https://www.mlit.go.jp/jidosha/content/001875280.pdf. Seat belts and head restraints are required except for straddled seats; the high-mounted marker at 1 m applies only to non-straddled seats lower than 500 mm; impact-absorbing steering except for bar handles; tyres must not stick out past the body. Minicars have no duty to wear a helmet; buggy types are among the main minicars.
+  - id: P71
+    class: P
+    title: Minato City, what a minicar is (FAQ, updated 2025-02-12)
+    url: https://www.city.minato.tokyo.jp/zeimu/kuse/kocho/faq/zekin/098.html
+    retrieved: 2026-11-04
+    license: unknown
+    read: full
+    note: Read by a helper. A minicar has three or more wheels, over 20 cc and up to 50 cc (0.25 to 0.6 kW), and a track over 50 cm or a cabin.
   - id: S3
     class: S
     title: Wikipedia, Yamaha Bravo
@@ -1281,6 +1329,22 @@ items:
     license: unknown
     read: full
     note: Read by a helper with https://www.rolf.ru/agregator/mototexnika/motobuksirovshhiki/. Snowdog Sport 18 hp, 155 kg, track 2,828 x 500 mm, 50 kg on the unit and 200 kg in the sled. Sharmax S380 6 hp, 65 kg, track 1,250 mm long, 20 to 40 kg on the unit and 250 to 300 kg in the sled.
+  - id: M90
+    class: M
+    title: 50 cc buggies sold in Japan as minicars - ATV-MAX SL50W (goo-bike dealer stock) and the MAGMAX50 and 4CROSS50 press releases
+    url: https://www.goobike.com/shop/client_8400807/zaiko.html
+    retrieved: 2026-11-04
+    license: unknown
+    read: full
+    note: Read by a helper with https://www.atpress.ne.jp/news/4520. ATV-MAX SL50W, a 49 cc four-stroke with three gears and reverse, 1,560 x 980 x 950 mm, 110 kg, 8 in tyres, 198,000 JPY assembled and listed as road-usable (at the owner's risk); MAGMAX50 (2006) registered as a minicar, 1,480 x 960 x 1,180 mm, wheelbase 1,000 mm, 120 kg, with lamps, turn signals, speedometer, and mirror, 228,000 JPY plus tax.
+  - id: M91
+    class: M
+    title: Kawasaki KFX50, KFX90, and Brute Force 300, Yamaha YFZ50, and Honda TRX250X specifications
+    url: https://www.kawasaki.com/en-us/products/ProductSpecSheetPDF/2025-kfx50
+    retrieved: 2026-11-04
+    license: unknown
+    read: full
+    note: Read by a helper with the makers' other spec pages. Youth 50 cc quads - 1,250 to 1,400 mm long, 820 to 866 mm wide, wheelbase 831 to 965 mm, seat 584 to 635 mm, track about 0.69 to 0.70 m, 100 to 113 kg. Small adult quads (230 to 270 cc) - 1,740 to 1,915 mm long, about 1,070 mm wide, wheelbase 1,125 to 1,166 mm, seat 798 to 846 mm, track about 0.84 m, 175 to 243 kg.
   - id: F1
     class: F
     title: Motor1, a shifter kart turned into a snowmobile, 2025-02-02

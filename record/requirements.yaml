@@ -190,7 +190,9 @@ items:
     verify: inspection
     basis:
       - R-18
-    status: awaiting
+      - D-030
+      - P70
+    status: withdrawn
     parent: R-18
   - id: R-23
     text: The kart has a mirror, a horn, a speedometer, and an approved silencer.
@@ -208,7 +210,9 @@ items:
     verify: inspection
     basis:
       - R-18
-    status: awaiting
+      - D-030
+      - P70
+    status: withdrawn
     parent: R-18
   - id: R-25
     text: The kart is within the size of a moped.
@@ -255,3 +259,21 @@ items:
       - H-11
       - D-028
     status: confirmed
+  - id: R-30
+    text: The tyres do not stick out past the body.
+    origin: derived
+    design_point: Seen from above, fenders or the body cover the tyres' full width, as the safety standards ask of three- and four-wheel mopeds (P70).
+    verify: inspection
+    basis:
+      - R-18
+    status: awaiting
+    parent: R-18
+  - id: R-31
+    text: Riders wear protective gear.
+    origin: derived
+    design_point: Every rider wears a motorcycle helmet, eye protection, gloves, over-the-ankle boots, and long trousers and sleeves, as youth ATV guidance asks (P69); the law asks no helmet of a minicar (P70), so this is the kart's own rule.
+    verify: inspection
+    basis:
+      - H-05
+      - D-030
+    status: awaiting

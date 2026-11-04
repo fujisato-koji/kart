@@ -276,6 +276,23 @@ def compute(v):
         put(f"w4.{tag}_resistance_bekker_n", round(rb), "N", "snowmobile")
     put("w4.dual_width_m", round(v["lay.track_rear_mm"] / 1000 + 3 * v["whl.tyre_width_mm"] / 1000 + 0.02, 2), "m", "snowmobile")
 
+    # Straddle kart (D-030, 1.2.18): the adult astride a seat over the engine; the static ratios
+    # of half the track and half the wheelbase over the centre of mass, and its size
+    m_k, m_r = v["st.kart_mass_kg"], v["rider.mass_max_kg"]
+    h_r = v["st.seat_height_mm"] / 1000 + v["rider.cg_above_seat_m"]
+    h_st = (m_k * v["st.kart_cg_mm"] / 1000 + m_r * h_r) / (m_k + m_r)
+    put("st.cg_height_m", round(h_st, 3), "m", "straddle")
+    put("st.tip_ratio", round(v["st.track_mm"] / 2000 / h_st, 2), None, "straddle")
+    # the rider sits about the middle; the shorter of the two pitch arms sets the ratio
+    x_cg = (m_k * v["st.kart_cg_x_share"] + m_r * 0.5) / (m_k + m_r) * v["st.wheelbase_mm"] / 1000
+    put("st.pitch_ratio", round(min(x_cg, v["st.wheelbase_mm"] / 1000 - x_cg) / h_st, 2), None, "straddle")
+    put("st.length_m", round((v["st.wheelbase_mm"] + 2 * v["st.overhang_mm"]) / 1000, 2), "m", "straddle")
+    put("st.width_m", round((v["st.track_mm"] + v["whl.tyre_width_mm"] + 2 * v["st.fender_mm"]) / 1000, 2), "m", "straddle")
+    # a child fits if, standing on the footrests, the crotch clears the seat by rider.child_fit_clear_mm (P69)
+    crotch = v["rider.child_crotch_ratio"] * v["rider.stature_min_cm"] * 10
+    put("st.child_fit_margin_mm", round(crotch - (v["st.seat_height_mm"] - v["st.footrest_height_mm"])
+                                        - v["rider.child_fit_clear_mm"]), "mm", "straddle")
+
     # Winter parts: a running donor for its rear half, skis, mounts, and the tub
     tub = (bottom * v["cost.hull_bottom_jpy_per_m2"] + sides * v["cost.hull_side_jpy_per_m2"]
            + foam * v["cost.xps_jpy_per_m3"])

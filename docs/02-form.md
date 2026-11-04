@@ -275,3 +275,30 @@ The owner decides:
 5. **Tipping on snow.** R-12 for the winter form at kart.tip_ratio_snow_min, against the snow's grip (proposed), or the full kart.tip_ratio_min on every setup, which W3 cannot meet. Decided: relaxed for the winter form (D-025).
 
 Next, 1.3 lays out the tub, the track's mounts, and the change of form, and the 3D view shows both forms, with the side floats and outboard of a future water version as an option.
+
+## 1.2.18 A straddle kart for riders of 6 and up {#straddle}
+
+The owner chose to ride the kart astride, like an ATV or a snowmobile, leaning into turns, with riders of 6 and up (D-030), and wants measures that keep a rider safe if it tips or rolls. The owner also asked whether handlebar controls are cheaper than pedals. Helpers read quad bike rules, ATV makers' data, and Japanese minicar rules on 2026-11-04.
+
+**Layout.** The rider sits astride a seat over the scooter unit, as on the scooter itself, with the feet on footrests beside it and the hands on the donor's handlebar, throttle grip, and two brake levers. Sized between the youth and small adult quads of M91, with a wider track than either, and with the wheelbase of the MAGMAX50 buggy registered as a minicar (M90): a seat st.seat_height_mm high, footrests st.footrest_height_mm, a track of st.track_mm, a wheelbase of st.wheelbase_mm, and about st.kart_mass_kg (assumed, Q-033). The kart is then st.length_m long, within delica.cargo_length_mm, and st.width_m wide with fenders over the tyres.
+
+**Stability.** With the adult aboard the centre of mass is st.cg_height_m high, so half the track over that height is st.tip_ratio sideways and the shorter half wheelbase over it st.pitch_ratio fore and aft. Australia requires general-use quad bikes to stay on four wheels on a tilt table to law.quad_tilt_ratio_min sideways and law.quad_pitch_ratio_min fore and aft with a rider-sized dummy aboard (P66), and work quads measured 0.46 to 0.60 sideways with a heavy rider (P67). The static ratio is somewhat above what a tilt table gives, since the suspension and tyres lean (not estimated here), so the margin is real but not large sideways, and fore and aft it is almost nothing and rests on the assumed centre of mass. R-12's present kart.tip_ratio_min was set for a seated kart that must slide before it tips; for a kart ridden actively it is proposed to take kart.tip_ratio_snow_min sideways, above Australia's minimum, and law.quad_pitch_ratio_min fore and aft (Q-032).
+
+**If it tips or rolls.** Quads roll in two thirds of their crashes; with a rear protection device (Quadbar or ATV Lifeguard) no rollover in a survey of 1,546 riders gave serious chest or head injuries, against 24 serious chest injuries without one, though the devices do not make rollovers rarer and five riders blamed an injury on one (P68). Australia has required such a device on general-use quads since 2021 (P66). Proposed: a hoop behind the seat in the place of the roll bar that keeps a space under the kart if it lands on a rider (R-19, rewritten); the engine-stop tether that a falling rider pulls (R-10); the gear of R-31 (P69); and for riders of 6 to 9 a speed set at law.youth_speed_kmh, up to law.youth_speed_max_kmh, as youth ATVs are (P69), which would take back part of D-018.
+
+**The law with a straddled seat.** The safety standards ask a seat belt and head restraint only of a seat that is not straddled, the 1 m marker only of a non-straddled seat lower than 500 mm, and impact-absorbing steering only where there is no bar handle (P70). R-22 and R-24 therefore fall away, and with them the reason for a roll bar over a belted driver (R-19 as it was). The standards do ask that the tyres not stick out past the body (R-30). A minicar needs three or more wheels and a track over 50 cm (P71). The law asks no helmet of a minicar (P70); R-31 makes it the kart's rule.
+
+**A 6-year-old.** A child fits if, standing on the footrests, there is rider.child_fit_clear_mm between crotch and seat (P69). With a crotch height of about rider.child_crotch_ratio of the stature (assumed, no Japanese data for that age was found), the smallest rider of rider.stature_min_cm misses that by st.child_fit_margin_mm, so the footrests or the seat must adjust for the child, as the pedals do now.
+
+**Handlebar controls and cost.** The donor scooter brings its handlebar, throttle grip, two brake levers, switches, lamps, turn signals, horn, mirrors, and meter. In the parts list of 1.5 these replace the pedal kit, the steering wheel and column bearing, the hand lever, the lamps and switches, the mirrors, and the horn - about 48,000 JPY, less a second cable caliper - and the speedometer with its sensor (23,000 JPY) if the donor's meter can be driven from the kart's wheel; two cable calipers on the rear disc, one from each lever with a lock on one, would give the two brake systems and the parking brake of R-21. A new 50 cc buggy listed as road-usable costs cost.buggy50_new_jpy (M90; the one shown registered as a minicar cost 228,000 JPY plus tax in 2006), against dsn.bom_parts_jpy for the home-built kart's parts.
+
+**Winter.** Astride, the kart rides like a snowmobile: front skis in place of the front wheels, and at the rear the summer tyres with chains (W4), large tyres (the owner's later W5), or the donor's track (W3).
+
+**What changes.** Step 1.3 as it stands designs the seated kart; it is to be redone for the straddle kart once the owner has decided below. The roll bar, seat belt, head restraint, and the steering wheel leave the parts list.
+
+**The owner decides:**
+
+1. **Stability.** R-12 for the active kart at kart.tip_ratio_snow_min sideways and law.quad_pitch_ratio_min fore and aft (proposed), or another margin.
+2. **Rollover protection.** A protective hoop behind the seat, the stop tether, and the gear rule (proposed), or the gear rule alone.
+3. **Children's speed.** A speed of law.youth_speed_kmh for riders of 6 to 9, set by an adult (proposed), or one speed for all (D-018).
+4. **Build or buy.** Build the straddle kart, or start from a new 50 cc buggy and have it registered as a minicar, then add the winter parts.

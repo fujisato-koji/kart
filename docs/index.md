@@ -8,7 +8,7 @@ It is designed under the [traceable-design](https://github.com/traceable-design/
 | Step | State |
 |------|-------|
 | [1.1 Requirements](01-requirements.md) | Written from the owner's answers (D-001 to D-024). Derived requirements wait for the owner. |
-| [1.2 Form](02-form.md) | Forms compared; the latest pass chose the snowmobile form on the 50 cc engine for winter (D-025) and a seated ride (D-026); water use is withdrawn and kept as a future development ([1.2.16](02-form.md#outdoor), D-027). |
+| [1.2 Form](02-form.md) | Forms compared; the latest pass chose the snowmobile form on the 50 cc engine for winter (D-025) and a seated ride (D-026); water use is withdrawn and kept as a future development ([1.2.16](02-form.md#outdoor), D-027). The owner then chose a straddle kart for riders of 6 and up ([1.2.18](02-form.md#straddle), D-030); 1.3 below still shows the seated kart and is to be redone. |
 | [1.3 Design](03-design.md) | The road-going summer form (D-022); not yet buildable (K-006, Q-025). |
 | [1.4 Availability](04-availability.md), [1.5 Parts and cost](05-parts-and-cost.md) | Parts of the summer form, found in Japan and priced. |
 

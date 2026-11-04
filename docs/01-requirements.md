@@ -54,14 +54,16 @@ Whether a piece of private land counts as a road when other people pass through 
 | R-19 | A belted driver is protected if the kart rolls over. | A roll bar rises above the head of the tallest driver (rider.stature_max_cm) seated, and carries the kart's weight upside down without collapsing onto the driver. | analysis | awaiting |
 | R-20 | The kart has the lamps and reflectors of a moped. | A white head lamp that dips, a red tail lamp, a red stop lamp, a number plate lamp, a red rear reflector, and amber turn signals at the front and the rear on both sides, as P36 articles 62 to 64-3 ask. | inspection | awaiting |
 | R-21 | The kart has two independent brake systems and a parking brake. | A foot brake on the rear wheels and a separate hand brake, either of which stops the kart, and a parking brake that holds it on law.parking_grade_pct (P36 article 61, P37). | test | awaiting |
-| R-22 | The driver's seat has a seat belt and a head restraint. | A seat belt with anchors on the frame and a head restraint behind the driver's head, as P36 articles 66-2 and 66-3 ask for a seat that is not straddled. | inspection | awaiting |
+| R-22 | The driver's seat has a seat belt and a head restraint. | A seat belt with anchors on the frame and a head restraint behind the driver's head, as P36 articles 66-2 and 66-3 ask for a seat that is not straddled. | inspection | withdrawn |
 | R-23 | The kart has a mirror, a horn, a speedometer, and an approved silencer. | An adjustable mirror on each side, a horn, a lit speedometer with an odometer in the driver's view, and the engine's own approved silencer (P36 articles 64, 64-2, 65, 65-2). | inspection | awaiting |
-| R-24 | Other road users can see the low kart. | A structure at least law.marker_height_mm above the ground (P36 article 61-2), which the roll bar provides. | inspection | awaiting |
+| R-24 | Other road users can see the low kart. | A structure at least law.marker_height_mm above the ground (P36 article 61-2), which the roll bar provides. | inspection | withdrawn |
 | R-25 | The kart is within the size of a moped. | Overall length at most law.length_max_mm and width at most law.width_max_mm (P36 article 59). | inspection | awaiting |
 | R-26 | The engine is within the moped limit. | Displacement at most law.minicar_cc_max (P35). | inspection | awaiting |
 | R-27 | The kart goes into calm water from a shore, floats and moves on it, and drives out again. | With the heaviest rider, in calm fresh water, the kart floats upright with a freeboard of at least water.freeboard_min_mm, moves at water.speed_min_kmh or more and steers, and drives out up a shore of water.shore_grade_pct. | test | withdrawn |
 | R-28 | The kart changes between a summer form on tyres and a winter form on skis and a track. | Two people change the kart from one form to the other with hand tools in at most kart.swap_time_h, without cutting or welding. | test | confirmed |
 | R-29 | A driver whose kart capsizes or swamps in water, or breaks through ice, gets free and stays afloat. | On ice and near water the driver wears a life jacket and no seat belt, and nothing of the kart holds a driver in it when it rolls or goes through the ice - the driver gets out sideways under the roll bar without help. The kart itself need not float. | analysis | confirmed |
+| R-30 | The tyres do not stick out past the body. | Seen from above, fenders or the body cover the tyres' full width, as the safety standards ask of three- and four-wheel mopeds (P70). | inspection | awaiting |
+| R-31 | Riders wear protective gear. | Every rider wears a motorcycle helmet, eye protection, gloves, over-the-ankle boots, and long trousers and sleeves, as youth ATV guidance asks (P69); the law asks no helmet of a minicar (P70), so this is the kart's own rule. | inspection | awaiting |
 <!-- tdr:end -->
 
 R-01 to R-08, R-14, and R-16 restate the owner's answers.
@@ -88,6 +90,7 @@ R-09 to R-13 and R-15 are derived from the hazards in 1.1.4 and wait for the own
 
 - **R-27 water.** The owner would like the kart to drive from a shore into a lake and on as a boat, if it can be done (D-024); 1.2.15 showed what it takes: a kart that moves on a lake is an amphibious vessel that needs a ship inspection, and the persons formula rates the tub for nobody. The owner withdrew it and keeps water use as a future development, shown only in the 3D view (D-027).
 - **R-28 change of form.** The owner wants the kart changed into a snowmobile form each winter and back to tyres in summer (D-023). A change that needs no cutting or welding is what makes one kart serve both, instead of two vehicles; whether the winter form keeps the summer engine is left to 1.2.16. The time kart.swap_time_h is assumed until Q-027.
+- **R-30 and R-31.** A straddled seat frees the kart from the seat belt, head restraint, and 1 m marker (R-22 and R-24 withdrawn), but the tyres must not stick out past the body (R-30, P70); the law asks no helmet of a minicar, so the kart's own rule asks for the gear of youth ATV guidance (R-31, P69).
 - **R-29 free and afloat.** On water or thin ice a capsize or a swamped kart is likely sooner or later (H-11). The seat belt and roll bar that protect a driver on land (R-19, R-22) would hold the driver under water, so on water the belt stays off and a life jacket is worn, and the kart's own foam keeps it afloat so that it can be righted or towed. Foam enough to float the kart did not fit, and the owner kept R-29 for the driver only (D-028).
 
 ## 1.1.4 Hazards {#hazards}
@@ -99,7 +102,7 @@ R-09 to R-13 and R-15 are derived from the hazards in 1.1.4 and wait for the own
 | H-02 | The drive keeps pushing after the driver lets go or loses control. | The driver and people nearby. | R-10 |
 | H-03 | Hair, clothing such as a scarf, or fingers are caught in the chain, sprockets, belt, or turning axle. | The driver and helpers. | R-11 |
 | H-04 | The driver touches a hot engine, exhaust, or motor, or the battery overheats or burns. | The driver and helpers. | R-11 |
-| H-05 | The kart tips over in a turn or on a slope. | The driver. | R-12, R-19 |
+| H-05 | The kart tips over in a turn or on a slope. | The driver. | R-12, R-19, R-31 |
 | H-06 | The steering, an axle, the frame, or the seat breaks under an adult. | The driver. | R-02 |
 | H-07 | Braking or steering is lost on snow or ice. | The driver and people nearby. | R-05, R-09 |
 | H-08 | A small child drives faster than the child can control. | The child and people nearby. | R-01 |
@@ -514,6 +517,22 @@ These are not decided here. 1.2 compares forms against them.
 | w4.wheel_share | 0.35 |  | assumed | Q-027 |
 | w4.big_tyre_dia_mm | 600 | mm | assumed | Q-027 |
 | w4.big_tyre_width_mm | 250 | mm | assumed | Q-027 |
+| law.quad_tilt_ratio_min | 0.55 |  | sourced | P66 |
+| law.quad_pitch_ratio_min | 0.8 |  | sourced | P66 |
+| law.youth_speed_kmh | 16 | km/h | sourced | P69 |
+| law.youth_speed_max_kmh | 24 | km/h | sourced | P69 |
+| rider.child_fit_clear_mm | 100 | mm | sourced | P69 |
+| cost.buggy50_new_jpy | 198000 | JPY | sourced | M90 |
+| st.seat_height_mm | 600 | mm | assumed | Q-033 |
+| st.footrest_height_mm | 220 | mm | assumed | Q-033 |
+| st.track_mm | 880 | mm | assumed | Q-033 |
+| st.wheelbase_mm | 1000 | mm | assumed | Q-033 |
+| st.overhang_mm | 270 | mm | assumed | Q-033 |
+| st.kart_mass_kg | 110 | kg | assumed | Q-033 |
+| st.kart_cg_mm | 330 | mm | assumed | Q-033 |
+| st.kart_cg_x_share | 0.45 |  | assumed | Q-033 |
+| st.fender_mm | 30 | mm | assumed | Q-033 |
+| rider.child_crotch_ratio | 0.44 |  | assumed | Q-033 |
 | form.mass_total_kg | 170 | kg | calculated | docs/02-form.md#mass |
 | snow.wheel_sinkage_min_cm | 63.2 | cm | calculated | docs/02-form.md#snow |
 | snow.wheel_sinkage_max_cm | 83.8 | cm | calculated | docs/02-form.md#snow |
@@ -585,6 +604,12 @@ These are not decided here. 1.2 compares forms against them.
 | w4.big_dual_grip_n | 513 | N | calculated | docs/02-form.md#snowmobile |
 | w4.big_dual_resistance_bekker_n | 386 | N | calculated | docs/02-form.md#snowmobile |
 | w4.dual_width_m | 1.55 | m | calculated | docs/02-form.md#snowmobile |
+| st.cg_height_m | 0.578 | m | calculated | docs/02-form.md#straddle |
+| st.tip_ratio | 0.76 |  | calculated | docs/02-form.md#straddle |
+| st.pitch_ratio | 0.82 |  | calculated | docs/02-form.md#straddle |
+| st.length_m | 1.54 | m | calculated | docs/02-form.md#straddle |
+| st.width_m | 1.07 | m | calculated | docs/02-form.md#straddle |
+| st.child_fit_margin_mm | -5 | mm | calculated | docs/02-form.md#straddle |
 | cost.tub_jpy | 82992 | JPY | calculated | docs/02-form.md#water |
 | cost.winter_sm_jpy | 236992 | JPY | calculated | docs/02-form.md#snowmobile |
 | cost.chassis_jpy | 93902 | JPY | calculated | docs/02-form.md#cost |
@@ -716,4 +741,5 @@ These are not decided here. 1.2 compares forms against them.
 | Q-030 | The sled pan held 0.020 m3 of foam, which floated 0.15 of the winter kart's own weight, while R-29 asked water.reserve_ratio, which needed about 0.158 m3. The room is not there without bolting large floats on. With boat use withdrawn (D-027), should R-29 keep only the driver's part (a life jacket and no seat belt on ice, nothing holding the driver) and drop the kart's floating, or should the kart carry floats in winter? | owner |
 | Q-031 | The rough inputs of 1.2.17 - the track's own resistance on packed snow, the allowance over the head for hair or a cap, and the wheel size under a snowblower crawler - are assumed until the donor's track is run on packed snow and the roll bar is laid out. | assistant |
 | Q-032 | With the straddle layout of D-030, set the stability margin that R-12 asks for a kart ridden actively, and the protection R-19 asks if it tips or rolls; and confirm which of R-22 (seat belt and head restraint) and R-24 (the 1 m marker) still apply to a straddled seat of at least 500 mm, which P36 exempts. | assistant |
+| Q-033 | The straddle kart of 1.2.18 is sized from assumed numbers - its seat and footrest heights, track, wheelbase, overhangs, mass and centre of mass, fender margin, and a 6-year-old's crotch height as a share of stature (no Japanese data for that age was found) - until it is laid out in 1.3. | assistant |
 <!-- tdr:end -->

@@ -174,3 +174,16 @@ items:
     by: assistant
     date: 2026-11-04
     detail: An independent helper recomputed the values of W4 by hand; all reproduce. It found that the conclusion that the tyres push rests on taking their resistance as P1's 0.18 of their load, outside P1's range at 24 cm of sinkage - Bekker's work of pressing the ruts gives about 490 N for two tyres and reverses it - and that a cold start doubles the pan's resistance; it also found the floe run of P63 attributed to the Girling sledge without the note saying so, and P2's snows called denser than powder without a source. The text now gives both estimates of the tyres' resistance and large tyres that push under both (w4.big_*), names the floe machine as likely the same, and softens the P2 claim.
+  - id: K-012
+    target:
+      - st.cg_height_m
+      - st.tip_ratio
+      - st.pitch_ratio
+      - st.length_m
+      - st.child_fit_margin_mm
+    tier: T2
+    method: refute
+    result: pass
+    by: assistant
+    date: 2026-11-04
+    detail: An independent helper recomputed the straddle kart's centre of mass, ratios, size, and the child's fit by hand; all reproduce and the physics is stated rightly. It found the 198,000 JPY buggy described as registered as a minicar when its listing only says road-usable, a makers' argument attributed to P68 that its note does not hold, the helmet rule stated beyond minicars, the kart said to be sized like quads whose track is narrower, the saving rounded up and not net of a second caliper, and the tilt-table wording vague with a fore-and-aft margin of only 0.02; all were reworded the same day.

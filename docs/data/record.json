@@ -253,9 +253,11 @@
    "design_point": "A seat belt with anchors on the frame and a head restraint behind the driver's head, as P36 articles 66-2 and 66-3 ask for a seat that is not straddled.",
    "verify": "inspection",
    "basis": [
-    "R-18"
+    "R-18",
+    "D-030",
+    "P70"
    ],
-   "status": "awaiting",
+   "status": "withdrawn",
    "parent": "R-18"
   },
   {
@@ -277,9 +279,11 @@
    "design_point": "A structure at least law.marker_height_mm above the ground (P36 article 61-2), which the roll bar provides.",
    "verify": "inspection",
    "basis": [
-    "R-18"
+    "R-18",
+    "D-030",
+    "P70"
    ],
-   "status": "awaiting",
+   "status": "withdrawn",
    "parent": "R-18"
   },
   {
@@ -341,6 +345,30 @@
     "D-028"
    ],
    "status": "confirmed"
+  },
+  {
+   "id": "R-30",
+   "text": "The tyres do not stick out past the body.",
+   "origin": "derived",
+   "design_point": "Seen from above, fenders or the body cover the tyres' full width, as the safety standards ask of three- and four-wheel mopeds (P70).",
+   "verify": "inspection",
+   "basis": [
+    "R-18"
+   ],
+   "status": "awaiting",
+   "parent": "R-18"
+  },
+  {
+   "id": "R-31",
+   "text": "Riders wear protective gear.",
+   "origin": "derived",
+   "design_point": "Every rider wears a motorcycle helmet, eye protection, gloves, over-the-ankle boots, and long trousers and sleeves, as youth ATV guidance asks (P69); the law asks no helmet of a minicar (P70), so this is the kart's own rule.",
+   "verify": "inspection",
+   "basis": [
+    "H-05",
+    "D-030"
+   ],
+   "status": "awaiting"
   }
  ],
  "values": [
@@ -3736,6 +3764,146 @@
    ]
   },
   {
+   "key": "law.quad_tilt_ratio_min",
+   "v": 0.55,
+   "status": "sourced",
+   "basis": [
+    "P66"
+   ]
+  },
+  {
+   "key": "law.quad_pitch_ratio_min",
+   "v": 0.8,
+   "status": "sourced",
+   "basis": [
+    "P66"
+   ]
+  },
+  {
+   "key": "law.youth_speed_kmh",
+   "v": 16,
+   "unit": "km/h",
+   "status": "sourced",
+   "basis": [
+    "P69"
+   ]
+  },
+  {
+   "key": "law.youth_speed_max_kmh",
+   "v": 24,
+   "unit": "km/h",
+   "status": "sourced",
+   "basis": [
+    "P69"
+   ]
+  },
+  {
+   "key": "rider.child_fit_clear_mm",
+   "v": 100,
+   "unit": "mm",
+   "status": "sourced",
+   "basis": [
+    "P69"
+   ]
+  },
+  {
+   "key": "cost.buggy50_new_jpy",
+   "v": 198000,
+   "unit": "JPY",
+   "status": "sourced",
+   "basis": [
+    "M90"
+   ]
+  },
+  {
+   "key": "st.seat_height_mm",
+   "v": 600,
+   "unit": "mm",
+   "status": "assumed",
+   "basis": [
+    "Q-033"
+   ]
+  },
+  {
+   "key": "st.footrest_height_mm",
+   "v": 220,
+   "unit": "mm",
+   "status": "assumed",
+   "basis": [
+    "Q-033"
+   ]
+  },
+  {
+   "key": "st.track_mm",
+   "v": 880,
+   "unit": "mm",
+   "status": "assumed",
+   "basis": [
+    "Q-033"
+   ]
+  },
+  {
+   "key": "st.wheelbase_mm",
+   "v": 1000,
+   "unit": "mm",
+   "status": "assumed",
+   "basis": [
+    "Q-033"
+   ]
+  },
+  {
+   "key": "st.overhang_mm",
+   "v": 270,
+   "unit": "mm",
+   "status": "assumed",
+   "basis": [
+    "Q-033"
+   ]
+  },
+  {
+   "key": "st.kart_mass_kg",
+   "v": 110,
+   "unit": "kg",
+   "status": "assumed",
+   "basis": [
+    "Q-033"
+   ]
+  },
+  {
+   "key": "st.kart_cg_mm",
+   "v": 330,
+   "unit": "mm",
+   "status": "assumed",
+   "basis": [
+    "Q-033"
+   ]
+  },
+  {
+   "key": "st.kart_cg_x_share",
+   "v": 0.45,
+   "status": "assumed",
+   "basis": [
+    "Q-033"
+   ]
+  },
+  {
+   "key": "st.fender_mm",
+   "v": 30,
+   "unit": "mm",
+   "status": "assumed",
+   "basis": [
+    "Q-033"
+   ]
+  },
+  {
+   "key": "rider.child_crotch_ratio",
+   "v": 0.44,
+   "status": "assumed",
+   "basis": [
+    "Q-033"
+   ]
+  },
+  {
    "key": "form.mass_total_kg",
    "v": 170,
    "unit": "kg",
@@ -4364,6 +4532,58 @@
    "status": "calculated",
    "basis": [
     "docs/02-form.md#snowmobile"
+   ]
+  },
+  {
+   "key": "st.cg_height_m",
+   "v": 0.578,
+   "unit": "m",
+   "status": "calculated",
+   "basis": [
+    "docs/02-form.md#straddle"
+   ]
+  },
+  {
+   "key": "st.tip_ratio",
+   "v": 0.76,
+   "status": "calculated",
+   "basis": [
+    "docs/02-form.md#straddle"
+   ]
+  },
+  {
+   "key": "st.pitch_ratio",
+   "v": 0.82,
+   "status": "calculated",
+   "basis": [
+    "docs/02-form.md#straddle"
+   ]
+  },
+  {
+   "key": "st.length_m",
+   "v": 1.54,
+   "unit": "m",
+   "status": "calculated",
+   "basis": [
+    "docs/02-form.md#straddle"
+   ]
+  },
+  {
+   "key": "st.width_m",
+   "v": 1.07,
+   "unit": "m",
+   "status": "calculated",
+   "basis": [
+    "docs/02-form.md#straddle"
+   ]
+  },
+  {
+   "key": "st.child_fit_margin_mm",
+   "v": -5,
+   "unit": "mm",
+   "status": "calculated",
+   "basis": [
+    "docs/02-form.md#straddle"
    ]
   },
   {
@@ -6595,6 +6815,66 @@
    "note": "Read by a helper through OCR summaries, with https://patents.google.com/patent/US1567776 and https://patents.google.com/patent/US136750. Sprung drive wheels that pass through openings in the runners with their height set from the seat (AT81336B); two spring-pressed drums with spiral lugs for roads under deep snow (US1567776); an 1873 patent notes that earlier spring-pressed spiked wheels broke their springs. None gives test data."
   },
   {
+   "id": "P66",
+   "class": "P",
+   "title": "Consumer Goods (Quad Bikes) Safety Standard 2019 (Australia, F2019L01321), as made",
+   "url": "https://www.legislation.gov.au/F2019L01321/asmade/2019-10-10/text/original/pdf",
+   "retrieved": "2026-11-04",
+   "license": "unknown",
+   "read": "partial",
+   "note": "Read by a helper, sections 5 to 17 and schedule 1. From October 2021 a general-use quad bike must have an operator protection device (an ATV Lifeguard or Quadbar, or one at least as good against crushing or pinning) and minimum tilt-table ratios of 0.55 sideways and 0.8 forward and rearward, tested with a 50th-percentile male dummy on it; youth quads (Y-6+ for ages 6 to 9) are only tested and tagged."
+  },
+  {
+   "id": "P67",
+   "class": "P",
+   "title": "ACCC, Quad bike safety - final recommendation to the Minister, February 2019",
+   "url": "https://consultation.accc.gov.au/product-safety/quad-bike-safety-standard-exposure-draft/supporting_documents/Quad%20bike%20safety%20%20Final%20Recommendation%20to%20the%20Minister.pdf",
+   "retrieved": "2026-11-04",
+   "license": "CC BY 3.0 AU",
+   "read": "partial",
+   "note": "Read by a helper, the stability, youth, and industry sections. Work quads measured 0.72 to 0.82 sideways empty and 0.46 to 0.60 with a 95th-percentile male dummy; the rider was the largest single drop. No after-market protection device had been tested for youth quads."
+  },
+  {
+   "id": "P68",
+   "class": "P",
+   "title": "UNSW Newsroom, workplace survey of quad bike use highlights rollover risks, 2017-06-06",
+   "url": "https://www.unsw.edu.au/newsroom/news/2017/06/workplace-survey-of-quad-bike-use-highlights-rollover-risks-",
+   "retrieved": "2026-11-04",
+   "license": "unknown",
+   "read": "full",
+   "note": "Read by a helper. Of 1,546 riders half had crashed and 67 % of crashes were rollovers; with a Quadbar or Lifeguard fitted no rollover gave serious chest or head injuries, against 55 hospitalised and 24 serious chest injuries without; five riders blamed an injury on the device. The devices do not make rollovers rarer, and the sample was of volunteers."
+  },
+  {
+   "id": "P69",
+   "class": "P",
+   "title": "US youth ATV categories, ANSI/SVIA 1 as cited in the Federal Register (2012-4385) and a Polaris owner's manual, with the University of Iowa parents' guide",
+   "url": "https://www.govinfo.gov/content/pkg/FR-2012-02-29/pdf/2012-4385.pdf",
+   "retrieved": "2026-11-04",
+   "license": "US federal document; others unknown",
+   "read": "partial",
+   "note": "Read by a helper. Y-6+ (ages 6 to 9) at most 10 mph restricted and 15 mph unrestricted; Y-10+ 15 and 30 mph. Recommended gear is a motorcycle helmet, eye protection, gloves, over-the-ankle boots, long trousers and sleeves. A child fits if, standing on the footrests, there is at least 4 in between rider and seat, and the controls and full steering are within reach."
+  },
+  {
+   "id": "P70",
+   "class": "P",
+   "title": "MLIT, safety standard amendment for three- and four-wheel mopeds (2018) and article 66-2 of the safety standards",
+   "url": "https://www.mlit.go.jp/common/001233174.pdf",
+   "retrieved": "2026-11-04",
+   "license": "unknown",
+   "read": "full",
+   "note": "Read by a helper with https://www.mlit.go.jp/jidosha/content/H066-2.pdf and the 2017 study paper https://www.mlit.go.jp/jidosha/content/001875280.pdf. Seat belts and head restraints are required except for straddled seats; the high-mounted marker at 1 m applies only to non-straddled seats lower than 500 mm; impact-absorbing steering except for bar handles; tyres must not stick out past the body. Minicars have no duty to wear a helmet; buggy types are among the main minicars."
+  },
+  {
+   "id": "P71",
+   "class": "P",
+   "title": "Minato City, what a minicar is (FAQ, updated 2025-02-12)",
+   "url": "https://www.city.minato.tokyo.jp/zeimu/kuse/kocho/faq/zekin/098.html",
+   "retrieved": "2026-11-04",
+   "license": "unknown",
+   "read": "full",
+   "note": "Read by a helper. A minicar has three or more wheels, over 20 cc and up to 50 cc (0.25 to 0.6 kW), and a track over 50 cm or a cabin."
+  },
+  {
    "id": "S3",
    "class": "S",
    "title": "Wikipedia, Yamaha Bravo",
@@ -6783,6 +7063,26 @@
    "license": "unknown",
    "read": "full",
    "note": "Read by a helper with https://www.rolf.ru/agregator/mototexnika/motobuksirovshhiki/. Snowdog Sport 18 hp, 155 kg, track 2,828 x 500 mm, 50 kg on the unit and 200 kg in the sled. Sharmax S380 6 hp, 65 kg, track 1,250 mm long, 20 to 40 kg on the unit and 250 to 300 kg in the sled."
+  },
+  {
+   "id": "M90",
+   "class": "M",
+   "title": "50 cc buggies sold in Japan as minicars - ATV-MAX SL50W (goo-bike dealer stock) and the MAGMAX50 and 4CROSS50 press releases",
+   "url": "https://www.goobike.com/shop/client_8400807/zaiko.html",
+   "retrieved": "2026-11-04",
+   "license": "unknown",
+   "read": "full",
+   "note": "Read by a helper with https://www.atpress.ne.jp/news/4520. ATV-MAX SL50W, a 49 cc four-stroke with three gears and reverse, 1,560 x 980 x 950 mm, 110 kg, 8 in tyres, 198,000 JPY assembled and listed as road-usable (at the owner's risk); MAGMAX50 (2006) registered as a minicar, 1,480 x 960 x 1,180 mm, wheelbase 1,000 mm, 120 kg, with lamps, turn signals, speedometer, and mirror, 228,000 JPY plus tax."
+  },
+  {
+   "id": "M91",
+   "class": "M",
+   "title": "Kawasaki KFX50, KFX90, and Brute Force 300, Yamaha YFZ50, and Honda TRX250X specifications",
+   "url": "https://www.kawasaki.com/en-us/products/ProductSpecSheetPDF/2025-kfx50",
+   "retrieved": "2026-11-04",
+   "license": "unknown",
+   "read": "full",
+   "note": "Read by a helper with the makers' other spec pages. Youth 50 cc quads - 1,250 to 1,400 mm long, 820 to 866 mm wide, wheelbase 831 to 965 mm, seat 584 to 635 mm, track about 0.69 to 0.70 m, 100 to 113 kg. Small adult quads (230 to 270 cc) - 1,740 to 1,915 mm long, about 1,070 mm wide, wheelbase 1,125 to 1,166 mm, seat 798 to 846 mm, track about 0.84 m, 175 to 243 kg."
   },
   {
    "id": "F1",
@@ -7687,6 +7987,26 @@
    ],
    "opened": "2026-11-04",
    "phase": "design"
+  },
+  {
+   "id": "Q-033",
+   "kind": "question",
+   "text": "The straddle kart of 1.2.18 is sized from assumed numbers - its seat and footrest heights, track, wheelbase, overhangs, mass and centre of mass, fender margin, and a 6-year-old's crotch height as a share of stature (no Japanese data for that age was found) - until it is laid out in 1.3.",
+   "waits_for": "assistant",
+   "affects": [
+    "st.seat_height_mm",
+    "st.footrest_height_mm",
+    "st.track_mm",
+    "st.wheelbase_mm",
+    "st.overhang_mm",
+    "st.kart_mass_kg",
+    "st.kart_cg_mm",
+    "st.kart_cg_x_share",
+    "st.fender_mm",
+    "rider.child_crotch_ratio"
+   ],
+   "opened": "2026-11-04",
+   "phase": "design"
   }
  ],
  "hazards": [
@@ -7746,7 +8066,8 @@
    "at_risk": "The driver.",
    "controls": [
     "R-12",
-    "R-19"
+    "R-19",
+    "R-31"
    ]
   },
   {
@@ -8585,6 +8906,22 @@
    "by": "assistant",
    "date": "2026-11-04",
    "detail": "An independent helper recomputed the values of W4 by hand; all reproduce. It found that the conclusion that the tyres push rests on taking their resistance as P1's 0.18 of their load, outside P1's range at 24 cm of sinkage - Bekker's work of pressing the ruts gives about 490 N for two tyres and reverses it - and that a cold start doubles the pan's resistance; it also found the floe run of P63 attributed to the Girling sledge without the note saying so, and P2's snows called denser than powder without a source. The text now gives both estimates of the tyres' resistance and large tyres that push under both (w4.big_*), names the floe machine as likely the same, and softens the P2 claim."
+  },
+  {
+   "id": "K-012",
+   "target": [
+    "st.cg_height_m",
+    "st.tip_ratio",
+    "st.pitch_ratio",
+    "st.length_m",
+    "st.child_fit_margin_mm"
+   ],
+   "tier": "T2",
+   "method": "refute",
+   "result": "pass",
+   "by": "assistant",
+   "date": "2026-11-04",
+   "detail": "An independent helper recomputed the straddle kart's centre of mass, ratios, size, and the child's fit by hand; all reproduce and the physics is stated rightly. It found the 198,000 JPY buggy described as registered as a minicar when its listing only says road-usable, a makers' argument attributed to P68 that its note does not hold, the helmet rule stated beyond minicars, the kart said to be sized like quads whose track is narrower, the saving rounded up and not net of a second caliper, and the tilt-table wording vague with a fore-and-aft margin of only 0.02; all were reworded the same day."
   }
  ],
  "procedures": [
@@ -10028,6 +10365,12 @@
    "doc": "docs/02-form.md",
    "id": "outdoor",
    "title": "1.2.16 Proposal and the owner's decisions",
+   "level": 2
+  },
+  {
+   "doc": "docs/02-form.md",
+   "id": "straddle",
+   "title": "1.2.18 A straddle kart for riders of 6 and up",
    "level": 2
   },
   {

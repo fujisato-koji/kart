@@ -77,6 +77,7 @@ The current state, with open items grouped by whom they wait for, is in [STATUS.
 | Q-030 | The sled pan held 0.020 m3 of foam, which floated 0.15 of the winter kart's own weight, while R-29 asked water.reserve_ratio, which needed about 0.158 m3. The room is not there without bolting large floats on. With boat use withdrawn (D-027), should R-29 keep only the driver's part (a life jacket and no seat belt on ice, nothing holding the driver) and drop the kart's floating, or should the kart carry floats in winter? | owner | D-028 |
 | Q-031 | The rough inputs of 1.2.17 - the track's own resistance on packed snow, the allowance over the head for hair or a cap, and the wheel size under a snowblower crawler - are assumed until the donor's track is run on packed snow and the roll bar is laid out. | assistant |  |
 | Q-032 | With the straddle layout of D-030, set the stability margin that R-12 asks for a kart ridden actively, and the protection R-19 asks if it tips or rolls; and confirm which of R-22 (seat belt and head restraint) and R-24 (the 1 m marker) still apply to a straddled seat of at least 500 mm, which P36 exempts. | assistant |  |
+| Q-033 | The straddle kart of 1.2.18 is sized from assumed numbers - its seat and footrest heights, track, wheelbase, overhangs, mass and centre of mass, fender margin, and a 6-year-old's crotch height as a share of stature (no Japanese data for that age was found) - until it is laid out in 1.3. | assistant |  |
 <!-- tdr:end -->
 
 ## Values {#values}
@@ -467,6 +468,22 @@ The current state, with open items grouped by whom they wait for, is in [STATUS.
 | w4.wheel_share | 0.35 |  | assumed | Q-027 |
 | w4.big_tyre_dia_mm | 600 | mm | assumed | Q-027 |
 | w4.big_tyre_width_mm | 250 | mm | assumed | Q-027 |
+| law.quad_tilt_ratio_min | 0.55 |  | sourced | P66 |
+| law.quad_pitch_ratio_min | 0.8 |  | sourced | P66 |
+| law.youth_speed_kmh | 16 | km/h | sourced | P69 |
+| law.youth_speed_max_kmh | 24 | km/h | sourced | P69 |
+| rider.child_fit_clear_mm | 100 | mm | sourced | P69 |
+| cost.buggy50_new_jpy | 198000 | JPY | sourced | M90 |
+| st.seat_height_mm | 600 | mm | assumed | Q-033 |
+| st.footrest_height_mm | 220 | mm | assumed | Q-033 |
+| st.track_mm | 880 | mm | assumed | Q-033 |
+| st.wheelbase_mm | 1000 | mm | assumed | Q-033 |
+| st.overhang_mm | 270 | mm | assumed | Q-033 |
+| st.kart_mass_kg | 110 | kg | assumed | Q-033 |
+| st.kart_cg_mm | 330 | mm | assumed | Q-033 |
+| st.kart_cg_x_share | 0.45 |  | assumed | Q-033 |
+| st.fender_mm | 30 | mm | assumed | Q-033 |
+| rider.child_crotch_ratio | 0.44 |  | assumed | Q-033 |
 | form.mass_total_kg | 170 | kg | calculated | docs/02-form.md#mass |
 | snow.wheel_sinkage_min_cm | 63.2 | cm | calculated | docs/02-form.md#snow |
 | snow.wheel_sinkage_max_cm | 83.8 | cm | calculated | docs/02-form.md#snow |
@@ -538,6 +555,12 @@ The current state, with open items grouped by whom they wait for, is in [STATUS.
 | w4.big_dual_grip_n | 513 | N | calculated | docs/02-form.md#snowmobile |
 | w4.big_dual_resistance_bekker_n | 386 | N | calculated | docs/02-form.md#snowmobile |
 | w4.dual_width_m | 1.55 | m | calculated | docs/02-form.md#snowmobile |
+| st.cg_height_m | 0.578 | m | calculated | docs/02-form.md#straddle |
+| st.tip_ratio | 0.76 |  | calculated | docs/02-form.md#straddle |
+| st.pitch_ratio | 0.82 |  | calculated | docs/02-form.md#straddle |
+| st.length_m | 1.54 | m | calculated | docs/02-form.md#straddle |
+| st.width_m | 1.07 | m | calculated | docs/02-form.md#straddle |
+| st.child_fit_margin_mm | -5 | mm | calculated | docs/02-form.md#straddle |
 | cost.tub_jpy | 82992 | JPY | calculated | docs/02-form.md#water |
 | cost.winter_sm_jpy | 236992 | JPY | calculated | docs/02-form.md#snowmobile |
 | cost.chassis_jpy | 93902 | JPY | calculated | docs/02-form.md#cost |
@@ -778,6 +801,12 @@ The current state, with open items grouped by whom they wait for, is in [STATUS.
 | P63 | P | Shackleton, South (1919), Project Gutenberg 5199 | partial |
 | P64 | P | Shackleton, The Heart of the Antarctic, vol. 1 (1909), archive.org | partial |
 | P65 | P | Patents for sleds pushed by sprung spiked wheels or drums - AT81336B (1917), US1567776 (1925), US136750 (1873) | full |
+| P66 | P | Consumer Goods (Quad Bikes) Safety Standard 2019 (Australia, F2019L01321), as made | partial |
+| P67 | P | ACCC, Quad bike safety - final recommendation to the Minister, February 2019 | partial |
+| P68 | P | UNSW Newsroom, workplace survey of quad bike use highlights rollover risks, 2017-06-06 | full |
+| P69 | P | US youth ATV categories, ANSI/SVIA 1 as cited in the Federal Register (2012-4385) and a Polaris owner's manual, with the University of Iowa parents' guide | partial |
+| P70 | P | MLIT, safety standard amendment for three- and four-wheel mopeds (2018) and article 66-2 of the safety standards | full |
+| P71 | P | Minato City, what a minicar is (FAQ, updated 2025-02-12) | full |
 | S3 | S | Wikipedia, Yamaha Bravo | full |
 | S4 | S | Wikipedia, Ground pressure | full |
 | S7 | S | PowerSportsGuide, 120 cc snowmobiles and Yamaha snowmobile horsepower | partial |
@@ -797,6 +826,8 @@ The current state, with open items grouped by whom they wait for, is in [STATUS.
 | M87 | M | Kenki Parts Store, snowblower rubber crawler 300 x 72 x 36 with steel cores | full |
 | M88 | M | MTT-154 20 in technical specifications, 2020 (archived) | full |
 | M89 | M | Baltmotors Snowdog Sport and Trail, and Sharmax S380 Ultra motor tugs | full |
+| M90 | M | 50 cc buggies sold in Japan as minicars - ATV-MAX SL50W (goo-bike dealer stock) and the MAGMAX50 and 4CROSS50 press releases | full |
+| M91 | M | Kawasaki KFX50, KFX90, and Brute Force 300, Yamaha YFZ50, and Honda TRX250X specifications | full |
 | F1 | F | Motor1, a shifter kart turned into a snowmobile, 2025-02-02 | partial |
 | F2 | F | 6x6world forum, Argo open water speed with outboard | full |
 | F3 | F | Goo-net Magazine, an electric track unit from Canada (MTT, My Track Technology), 2016-10-14 | full |
@@ -820,6 +851,7 @@ The current state, with open items grouped by whom they wait for, is in [STATUS.
 | K-009 | T2 | refute | pass | 2026-11-04 |
 | K-010 | T2 | refute | pass | 2026-11-04 |
 | K-011 | T2 | refute | pass | 2026-11-04 |
+| K-012 | T2 | refute | pass | 2026-11-04 |
 <!-- tdr:end -->
 
 ## Parts {#parts}
