@@ -37,7 +37,7 @@ items:
     basis:
       - D-009
   - key: rider.stature_min_cm
-    v: 102
+    v: 108
     unit: cm
     status: sourced
     basis:
@@ -2860,7 +2860,7 @@ items:
     basis:
       - docs/03-design.md#fit
   - key: dsn.leg_margin_child_mm
-    v: 149
+    v: 179
     unit: mm
     status: calculated
     basis:

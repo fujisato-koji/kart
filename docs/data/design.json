@@ -55,7 +55,7 @@
    "cg_above_seat": 0.25
   },
   "child": {
-   "stature": 1.02,
+   "stature": 1.08,
    "mass": 19,
    "hip": [
     0.2,
@@ -67,7 +67,7 @@
     -0.09,
     0.25
    ],
-   "leg_reach": 0.51,
+   "leg_reach": 0.54,
    "leg_needed": 0.361,
    "cg_above_seat": 0.15
   }

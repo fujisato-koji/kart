@@ -393,3 +393,15 @@ items:
       - sm.crawler_wheel_dia_mm
     opened: 2026-11-04
     phase: design
+  - id: Q-032
+    kind: question
+    text: With the straddle layout of D-030, set the stability margin that R-12 asks for a kart ridden actively, and the protection R-19 asks if it tips or rolls; and confirm which of R-22 (seat belt and head restraint) and R-24 (the 1 m marker) still apply to a straddled seat of at least 500 mm, which P36 exempts.
+    waits_for: assistant
+    affects:
+      - R-12
+      - R-19
+      - R-22
+      - R-24
+      - kart.tip_ratio_min
+    opened: 2026-11-04
+    phase: design

@@ -238,3 +238,18 @@ items:
     touches:
       - R-06
       - D-025
+  - id: D-030
+    date: 2026-11-04
+    by: owner
+    what: Riders are 6 years old and up, instead of 5 (D-010). The kart is ridden astride, like an ATV or a snowmobile, with the feet on footrests beside the seat and the rider leaning into turns; the owner accepts this active riding so that the kart can be short and narrow with the engine under or behind the seat. Measures that keep a rider safe if the kart tips or rolls are to be designed.
+    options:
+      - a seated kart with the legs forward, for a 5-year-old too
+      - a straddle kart for riders of 6 and up, ridden actively
+    touches:
+      - D-010
+      - rider.stature_min_cm
+      - R-03
+      - R-12
+      - R-19
+      - R-22
+      - R-24

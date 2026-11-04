@@ -37,6 +37,7 @@ The current state, with open items grouped by whom they wait for, is in [STATUS.
 | D-027 | 2026-11-04 | owner | Settles item 3 of docs/02-form.md#outdoor. The water requirement R-27 is withdrawn. Water use is kept only as a future development, shown in the 3D view as an option (side floats and an electric outboard on the tub) without a requirement; the tub stays for the snow and as safety buoyancy (R-29). Q-028 is closed until such a version is taken up. |
 | D-028 | 2026-11-04 | owner | R-29 keeps only the driver's safety - on ice and near water a life jacket and no seat belt, and nothing of the kart holding the driver. The kart need not float. This settles Q-030; the sled pan keeps its bottom strips and bow and loses its foam and the right pod, which were there only to float the kart. |
 | D-029 | 2026-11-04 | owner | Record W4 - the sled pan carrying most of the weight in snow and the rear tyres, pressed down and wearing chains, pushing - as a winter candidate beside the snowmobile form, and test the summer form with chains in fresh snow before the donor snowmobile is bought. |
+| D-030 | 2026-11-04 | owner | Riders are 6 years old and up, instead of 5 (D-010). The kart is ridden astride, like an ATV or a snowmobile, with the feet on footrests beside the seat and the rider leaning into turns; the owner accepts this active riding so that the kart can be short and narrow with the engine under or behind the seat. Measures that keep a rider safe if the kart tips or rolls are to be designed. |
 <!-- tdr:end -->
 
 ## Open items {#open}
@@ -75,6 +76,7 @@ The current state, with open items grouped by whom they wait for, is in [STATUS.
 | Q-029 | The donor's track unit is drawn from assumed sizes - the track's thickness with its lugs, the rear idler's diameter, the drive shaft's height and its place ahead of the slide rails - which set the winter lift. Measure them on the donor (a Yamaha Bravo class) when it is bought, with its mass and mounting points, and check that a pivot shaft through the pillow blocks and brackets hanging from the rails can hold it. | assistant |  |
 | Q-030 | The sled pan held 0.020 m3 of foam, which floated 0.15 of the winter kart's own weight, while R-29 asked water.reserve_ratio, which needed about 0.158 m3. The room is not there without bolting large floats on. With boat use withdrawn (D-027), should R-29 keep only the driver's part (a life jacket and no seat belt on ice, nothing holding the driver) and drop the kart's floating, or should the kart carry floats in winter? | owner | D-028 |
 | Q-031 | The rough inputs of 1.2.17 - the track's own resistance on packed snow, the allowance over the head for hair or a cap, and the wheel size under a snowblower crawler - are assumed until the donor's track is run on packed snow and the roll bar is laid out. | assistant |  |
+| Q-032 | With the straddle layout of D-030, set the stability margin that R-12 asks for a kart ridden actively, and the protection R-19 asks if it tips or rolls; and confirm which of R-22 (seat belt and head restraint) and R-24 (the 1 m marker) still apply to a straddled seat of at least 500 mm, which P36 exempts. | assistant |  |
 <!-- tdr:end -->
 
 ## Values {#values}
@@ -88,7 +90,7 @@ The current state, with open items grouped by whom they wait for, is in [STATUS.
 | ambient.temp_min_c | -10 | degC | decided | D-007 |
 | budget.parts_jpy | 100000 | JPY | decided | D-008 |
 | rider.mass_max_kg | 100 | kg | decided | D-009 |
-| rider.stature_min_cm | 102 | cm | sourced | P21 |
+| rider.stature_min_cm | 108 | cm | sourced | P21 |
 | rider.stature_max_cm | 170 | cm | decided | D-016 |
 | site.grade_max_pct | 20 | % | assumed | Q-008 |
 | kart.run_time_min | 120 | min | decided | D-013 |
@@ -569,7 +571,7 @@ The current state, with open items grouped by whom they wait for, is in [STATUS.
 | dsn.low_point_mm | 87 | mm | calculated | docs/03-design.md#axle |
 | dsn.turn_radius_m | 2.26 | m | calculated | docs/03-design.md#steering |
 | dsn.leg_margin_adult_mm | 148 | mm | calculated | docs/03-design.md#fit |
-| dsn.leg_margin_child_mm | 149 | mm | calculated | docs/03-design.md#fit |
+| dsn.leg_margin_child_mm | 179 | mm | calculated | docs/03-design.md#fit |
 | dsn.pan_mass_kg | 3.2 | kg | calculated | docs/03-design.md#winter |
 | dsn.winter_lift_mm | 218 | mm | calculated | docs/03-design.md#winter |
 | dsn.winter_chain_centre_mm | 466 | mm | calculated | docs/03-design.md#winter |

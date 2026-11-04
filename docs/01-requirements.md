@@ -71,7 +71,7 @@ R-09 to R-13 and R-15 are derived from the hazards in 1.1.4 and wait for the own
 
 - **R-01 speed.** The owner set the speed for a child (D-003) and then lowered it to see whether the kart can be made cheaper (D-015). It applies on paved ground; on snow the kart may be slow (D-011). The limit holds with the lightest rider too, because a light rider makes the kart faster on the same drive.
 - **R-02 strength.** The owner wants an adult to drive (D-004), up to rider.mass_max_kg (D-009). The load cases (bumps, braking, a kerb hit, a slope) are set in 1.3.
-- **R-03 fit.** One kart must fit both a child and an adult (D-004). Adjustment without welding or cutting lets the owner switch drivers on the spot. The youngest driver is 5 (D-010), so the small end rider.stature_min_cm comes from the school health statistics for 5-year-olds (P21); the large end rider.stature_max_cm is the tallest adult who drives (D-016).
+- **R-03 fit.** One kart must fit both a child and an adult (D-004). Adjustment without welding or cutting lets the owner switch drivers on the spot. The youngest driver was 5 (D-010) and is now 6 (D-030), so the small end rider.stature_min_cm comes from the school health statistics for 6-year-olds (P21); the large end rider.stature_max_cm is the tallest adult who drives (D-016).
 - **R-04 ground.** The owner named three grounds (D-005). Gravel and grass set the tyre size and the clearance; slopes set the drive (Q-008).
 - **R-05 and R-06 snow.** The owner wants both packed snow and fresh snow up to snow.depth_max_cm (D-006), raised from 30 cm to about 1 m of fresh snow where nobody clears it, to be confirmed by the snowshoe test of Q-012 (D-023). The requirement on snow is only that the kart runs, turns, and stops, at any speed (D-011).
 - **R-07 cold.** The owner set ambient.temp_min_c (D-007). The kart is kept outdoors under a roof (D-012), so it stands in the cold before a run. With an engine, refuelling between runs is fine; with batteries the owner wants kart.run_time_min or more per charge, depending on the trade-off (D-013).
@@ -137,7 +137,7 @@ These are not decided here. 1.2 compares forms against them.
 | ambient.temp_min_c | -10 | degC | decided | D-007 |
 | budget.parts_jpy | 100000 | JPY | decided | D-008 |
 | rider.mass_max_kg | 100 | kg | decided | D-009 |
-| rider.stature_min_cm | 102 | cm | sourced | P21 |
+| rider.stature_min_cm | 108 | cm | sourced | P21 |
 | rider.stature_max_cm | 170 | cm | decided | D-016 |
 | site.grade_max_pct | 20 | % | assumed | Q-008 |
 | kart.run_time_min | 120 | min | decided | D-013 |
@@ -618,7 +618,7 @@ These are not decided here. 1.2 compares forms against them.
 | dsn.low_point_mm | 87 | mm | calculated | docs/03-design.md#axle |
 | dsn.turn_radius_m | 2.26 | m | calculated | docs/03-design.md#steering |
 | dsn.leg_margin_adult_mm | 148 | mm | calculated | docs/03-design.md#fit |
-| dsn.leg_margin_child_mm | 149 | mm | calculated | docs/03-design.md#fit |
+| dsn.leg_margin_child_mm | 179 | mm | calculated | docs/03-design.md#fit |
 | dsn.pan_mass_kg | 3.2 | kg | calculated | docs/03-design.md#winter |
 | dsn.winter_lift_mm | 218 | mm | calculated | docs/03-design.md#winter |
 | dsn.winter_chain_centre_mm | 466 | mm | calculated | docs/03-design.md#winter |
@@ -715,4 +715,5 @@ These are not decided here. 1.2 compares forms against them.
 | Q-029 | The donor's track unit is drawn from assumed sizes - the track's thickness with its lugs, the rear idler's diameter, the drive shaft's height and its place ahead of the slide rails - which set the winter lift. Measure them on the donor (a Yamaha Bravo class) when it is bought, with its mass and mounting points, and check that a pivot shaft through the pillow blocks and brackets hanging from the rails can hold it. | assistant |
 | Q-030 | The sled pan held 0.020 m3 of foam, which floated 0.15 of the winter kart's own weight, while R-29 asked water.reserve_ratio, which needed about 0.158 m3. The room is not there without bolting large floats on. With boat use withdrawn (D-027), should R-29 keep only the driver's part (a life jacket and no seat belt on ice, nothing holding the driver) and drop the kart's floating, or should the kart carry floats in winter? | owner |
 | Q-031 | The rough inputs of 1.2.17 - the track's own resistance on packed snow, the allowance over the head for hair or a cap, and the wheel size under a snowblower crawler - are assumed until the donor's track is run on packed snow and the roll bar is laid out. | assistant |
+| Q-032 | With the straddle layout of D-030, set the stability margin that R-12 asks for a kart ridden actively, and the protection R-19 asks if it tips or rolls; and confirm which of R-22 (seat belt and head restraint) and R-24 (the 1 m marker) still apply to a straddled seat of at least 500 mm, which P36 exempts. | assistant |
 <!-- tdr:end -->
