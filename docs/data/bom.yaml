@@ -272,13 +272,3 @@ lines:
     qty: 2
     price: cost.hull_bottom_jpy_per_m2
     need: w2
-  - part: sled_pan
-    item: UHMW polyethylene sheet 3 mm for the right pod (m2)
-    qty: 1
-    price: cost.hull_side_jpy_per_m2
-    need: w2
-  - part: sled_pan
-    item: Extruded polystyrene board 50 mm, 910 x 1,820 (m3, one board is 0.083)
-    qty: 0.083
-    price: cost.xps_jpy_per_m3
-    need: w2

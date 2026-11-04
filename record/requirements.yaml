@@ -249,8 +249,9 @@ items:
   - id: R-29
     text: A driver whose kart capsizes or swamps in water, or breaks through ice, gets free and stays afloat.
     origin: derived
-    design_point: On water and on ice the driver wears a life jacket and no seat belt; nothing of the kart holds a driver under it when it floats upside down; and the kart's foam floats the swamped kart with its engine and fuel at water.reserve_ratio times their weight.
+    design_point: On ice and near water the driver wears a life jacket and no seat belt, and nothing of the kart holds a driver in it when it rolls or goes through the ice - the driver gets out sideways under the roll bar without help. The kart itself need not float.
     verify: analysis
     basis:
       - H-11
-    status: awaiting
+      - D-028
+    status: confirmed

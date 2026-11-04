@@ -372,10 +372,11 @@ items:
     phase: design
   - id: Q-030
     kind: question
-    text: The sled pan holds dsn.foam_fit_m3 of foam, which floats dsn.foam_reserve_ratio of the winter kart's own weight, while R-29 asks water.reserve_ratio, which needs about dsn.foam_needed_m3. The room is not there without bolting large floats on. With boat use withdrawn (D-027), should R-29 keep only the driver's part (a life jacket and no seat belt on ice, nothing holding the driver) and drop the kart's floating, or should the kart carry floats in winter?
+    text: The sled pan held 0.020 m3 of foam, which floated 0.15 of the winter kart's own weight, while R-29 asked water.reserve_ratio, which needed about 0.158 m3. The room is not there without bolting large floats on. With boat use withdrawn (D-027), should R-29 keep only the driver's part (a life jacket and no seat belt on ice, nothing holding the driver) and drop the kart's floating, or should the kart carry floats in winter?
     waits_for: owner
     affects:
       - R-29
-      - sled_pan
     opened: 2026-11-04
     phase: design
+    closed_by: D-028
+    closed: 2026-11-04

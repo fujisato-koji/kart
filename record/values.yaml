@@ -2085,36 +2085,6 @@ items:
     status: calculated
     basis:
       - docs/03-design.md#winter
-  - key: lay.pod_inner_mm
-    v: 330
-    unit: mm
-    status: calculated
-    basis:
-      - docs/03-design.md#winter
-  - key: lay.pod_outer_mm
-    v: 400
-    unit: mm
-    status: calculated
-    basis:
-      - docs/03-design.md#winter
-  - key: lay.pod_top_mm
-    v: 450
-    unit: mm
-    status: calculated
-    basis:
-      - docs/03-design.md#winter
-  - key: lay.pod_x0_mm
-    v: 280
-    unit: mm
-    status: calculated
-    basis:
-      - docs/03-design.md#winter
-  - key: lay.pod_x1_mm
-    v: 670
-    unit: mm
-    status: calculated
-    basis:
-      - docs/03-design.md#winter
   - key: lay.bow_x_mm
     v: 1240
     unit: mm
@@ -2331,7 +2301,7 @@ items:
     basis:
       - docs/02-form.md#water
   - key: water.gm_m
-    v: 0.196
+    v: 0.195
     unit: m
     status: calculated
     basis:
@@ -2376,13 +2346,13 @@ items:
     basis:
       - docs/02-form.md#snowmobile
   - key: sm.track_pressure_kpa
-    v: 3.95
+    v: 3.96
     unit: kPa
     status: calculated
     basis:
       - docs/02-form.md#snowmobile
   - key: sm.ski_pressure_kpa
-    v: 4.58
+    v: 4.53
     unit: kPa
     status: calculated
     basis:
@@ -2400,7 +2370,7 @@ items:
     basis:
       - docs/02-form.md#snowmobile
   - key: sm.ski_sinkage_max_cm
-    v: 8.7
+    v: 8.6
     unit: cm
     status: calculated
     basis:
@@ -2430,7 +2400,7 @@ items:
     basis:
       - docs/02-form.md#snowmobile
   - key: sm.cg_height_m
-    v: 0.545
+    v: 0.546
     unit: m
     status: calculated
     basis:
@@ -2656,14 +2626,8 @@ items:
     basis:
       - docs/03-design.md#fit
   - key: dsn.pan_mass_kg
-    v: 4.7
+    v: 3.2
     unit: kg
-    status: calculated
-    basis:
-      - docs/03-design.md#winter
-  - key: dsn.foam_fit_m3
-    v: 0.02
-    unit: m3
     status: calculated
     basis:
       - docs/03-design.md#winter
@@ -2697,25 +2661,25 @@ items:
     basis:
       - docs/03-design.md#winter
   - key: dsn.mass_kg
-    v: 110.3
+    v: 108.8
     unit: kg
     status: calculated
     basis:
       - docs/03-design.md#mass
   - key: dsn.cg_x_m
-    v: 0.377
+    v: 0.372
     unit: m
     status: calculated
     basis:
       - docs/03-design.md#mass
   - key: dsn.cg_y_m
-    v: 0.081
+    v: 0.084
     unit: m
     status: calculated
     basis:
       - docs/03-design.md#mass
   - key: dsn.cg_z_m
-    v: 0.268
+    v: 0.269
     unit: m
     status: calculated
     basis:
@@ -2727,18 +2691,18 @@ items:
     basis:
       - docs/03-design.md#frame
   - key: dsn.rear_share_adult
-    v: 0.717
+    v: 0.72
     status: calculated
     basis:
       - docs/03-design.md#mass
   - key: dsn.cg_side_adult_mm
-    v: 0
+    v: 1
     unit: mm
     status: calculated
     basis:
       - docs/03-design.md#mass
   - key: dsn.cg_height_adult_m
-    v: 0.36
+    v: 0.361
     unit: m
     status: calculated
     basis:
@@ -2749,29 +2713,29 @@ items:
     basis:
       - docs/03-design.md#stability
   - key: dsn.rear_share_child
-    v: 0.634
+    v: 0.639
     status: calculated
     basis:
       - docs/03-design.md#mass
   - key: dsn.cg_side_child_mm
-    v: 56
+    v: 58
     unit: mm
     status: calculated
     basis:
       - docs/03-design.md#mass
   - key: dsn.cg_height_child_m
-    v: 0.282
+    v: 0.283
     unit: m
     status: calculated
     basis:
       - docs/03-design.md#mass
   - key: dsn.tip_ratio_child
-    v: 1.78
+    v: 1.77
     status: calculated
     basis:
       - docs/03-design.md#stability
   - key: dsn.winter_mass_kg
-    v: 127.8
+    v: 126.3
     unit: kg
     status: calculated
     basis:
@@ -2783,18 +2747,18 @@ items:
     basis:
       - docs/03-design.md#winter
   - key: dsn.winter_rear_share
-    v: 0.722
+    v: 0.725
     status: calculated
     basis:
       - docs/03-design.md#winter
   - key: dsn.winter_track_pressure_kpa
-    v: 3.81
+    v: 3.8
     unit: kPa
     status: calculated
     basis:
       - docs/03-design.md#winter
   - key: dsn.winter_ski_pressure_kpa
-    v: 4.32
+    v: 4.24
     unit: kPa
     status: calculated
     basis:
@@ -2811,7 +2775,7 @@ items:
     basis:
       - docs/03-design.md#winter
   - key: dsn.belly_pressure_kpa
-    v: 2.29
+    v: 2.27
     unit: kPa
     status: calculated
     basis:
@@ -2822,25 +2786,14 @@ items:
     status: calculated
     basis:
       - docs/03-design.md#winter
-  - key: dsn.foam_reserve_ratio
-    v: 0.15
-    status: calculated
-    basis:
-      - docs/03-design.md#winter
-  - key: dsn.foam_needed_m3
-    v: 0.158
-    unit: m3
-    status: calculated
-    basis:
-      - docs/03-design.md#winter
   - key: dsn.climb_force_n
-    v: 647
+    v: 643
     unit: N
     status: calculated
     basis:
       - docs/03-design.md#climb
   - key: dsn.climb_grip_n
-    v: 718
+    v: 716
     unit: N
     status: calculated
     basis:
@@ -2858,7 +2811,7 @@ items:
     basis:
       - docs/03-design.md#axle
   - key: dsn.axle_stress_mpa
-    v: 223
+    v: 222
     unit: MPa
     status: calculated
     basis:
@@ -2869,24 +2822,24 @@ items:
     basis:
       - docs/03-design.md#axle
   - key: dsn.frame_moment_nm
-    v: 573
+    v: 568
     unit: N m
     status: calculated
     basis:
       - docs/03-design.md#frame
   - key: dsn.rail_stress_mpa
-    v: 195
+    v: 194
     unit: MPa
     status: calculated
     basis:
       - docs/03-design.md#frame
   - key: dsn.rail_safety
-    v: 1.48
+    v: 1.5
     status: calculated
     basis:
       - docs/03-design.md#frame
   - key: dsn.bearing_load_n
-    v: 739
+    v: 737
     unit: N
     status: calculated
     basis:
@@ -2898,25 +2851,25 @@ items:
     basis:
       - docs/03-design.md#brake
   - key: dsn.brake_torque_needed_nm
-    v: 198
+    v: 196
     unit: N m
     status: calculated
     basis:
       - docs/03-design.md#brake
   - key: dsn.brake_clamp_needed_n
-    v: 4415
+    v: 4383
     unit: N
     status: calculated
     basis:
       - docs/03-design.md#brake
   - key: dsn.brake_downhill_decel
-    v: 0.87
+    v: 0.88
     unit: m/s2
     status: calculated
     basis:
       - docs/03-design.md#brake
   - key: dsn.brake_downhill_stop_m
-    v: 40.0
+    v: 39.5
     unit: m
     status: calculated
     basis:
@@ -2952,7 +2905,7 @@ items:
     basis:
       - docs/03-design.md#winter
   - key: dsn.bom_parts_jpy
-    v: 555070
+    v: 529684
     unit: JPY
     status: calculated
     basis:

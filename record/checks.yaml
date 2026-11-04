@@ -142,8 +142,6 @@ items:
       - dsn.winter_track_pressure_kpa
       - dsn.winter_chain_links
       - dsn.belly_pressure_kpa
-      - dsn.foam_fit_m3
-      - dsn.foam_reserve_ratio
     tier: T2
     method: refute
     result: pass

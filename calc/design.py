@@ -301,26 +301,18 @@ def build(v):
     item("seat_belt", "strap", pos=[xh_ - 0.17, yh_ + 0.19, zt - 0.25], to=[hip[0] + 0.12, yh_ - 0.12, hip[2] + 0.06], w=0.048)
     mass("road", v["dsn.road_kit_mass_kg"], (0.1, 0.0, zc + 0.2))
 
-    # ---- sled pan (D-023, D-027): UHMW polyethylene under the frame, kept in both forms --------
-    # Two bottom strips either side of the track's tunnel, a box on the right filled with foam,
-    # and a bow curving up under the front frame. The foam is extruded polystyrene (P54: kept
-    # away from petrol, sealed in the plating).
+    # ---- sled pan (D-023, D-027, D-028): UHMW polyethylene under the frame, kept in both forms --
+    # Two bottom strips either side of the track's tunnel and a bow curving up under the front
+    # frame. No foam: R-29 asks only for the driver's safety (D-028).
     zp = mm("hull.bottom_clear_mm")
-    tb, ts = mm("hull.bottom_t_mm"), mm("hull.side_t_mm")
+    tb = mm("hull.bottom_t_mm")
     x0, x1 = mm("lay.pan_x0_mm"), mm("lay.pan_x1_mm")
     yt, yo = mm("lay.tunnel_half_width_mm"), mm("lay.pan_half_beam_mm")
-    yi, yp, zt_pod = mm("lay.pod_inner_mm"), mm("lay.pod_outer_mm"), mm("lay.pod_top_mm")
-    px0, px1 = mm("lay.pod_x0_mm"), mm("lay.pod_x1_mm")       # between the right nerf bar's stays
     xbw, zbw, ybw = mm("lay.bow_x_mm"), zp + mm("lay.bow_rise_mm"), mm("lay.bow_half_beam_mm")
-    sheet_a = foam_v = 0.0
+    sheet_a = 0.0
     for s in (1, -1):
         item("sled_pan", "plate", pos=[(x0 + x1) / 2, s * (yt + yo) / 2, zp + tb / 2], size=[x1 - x0, yo - yt, tb])
         sheet_a += (x1 - x0) * (yo - yt) * tb
-        foam_v += (x1 - x0) * (yo - yt) * (zr - zp - tb)         # under the rails and the floor
-    item("sled_pan", "box", pos=[(px0 + px1) / 2, -(yi + yp) / 2, (zp + zt_pod) / 2], size=[px1 - px0, yp - yi, zt_pod - zp],
-         color="pan")
-    sheet_a += 2 * ((px1 - px0) + (yp - yi)) * (zt_pod - zp) * ts + (px1 - px0) * (yp - yi) * ts
-    foam_v += (px1 - px0) * (yp - yi) * (zt_pod - zr)          # above the strip's foam
     # the bow in three panels, each a flat sheet between two stations (x, half beam, z)
     st = [(x1 + fx * (xbw - x1), yo + fy * (ybw - yo), zp + fz * (zbw - zp))
           for fx, fy, fz in ((0, 0, 0), (0.35, 0.3, 0.1), (0.7, 0.65, 0.4), (1, 1, 1))]
@@ -328,10 +320,9 @@ def build(v):
         item("sled_pan", "sheet", corners=[[xa, ya, za], [xb_, yb_, zb_], [xb_, -yb_, zb_], [xa, -ya, za]], t=tb)
         sheet_a += math.dist((xa, za), (xb_, zb_)) * (ya + yb_) * tb
     bow_area = sum((xb_ - xa) * (ya + yb_) for (xa, ya, _), (xb_, yb_, _) in zip(st, st[1:]))
-    m_pan = sheet_a * v["hull.sheet_density_kg_m3"] + foam_v * v["foam.density_kg_m3"]
-    mass("sled_pan", m_pan, ((x0 + xbw) / 2, -0.05, zp + 0.06))
+    m_pan = sheet_a * v["hull.sheet_density_kg_m3"]
+    mass("sled_pan", m_pan, ((x0 + xbw) / 2, 0.0, zp + 0.02))
     put("dsn.pan_mass_kg", round(m_pan, 1), "kg", "winter")
-    put("dsn.foam_fit_m3", round(foam_v, 3), "m3", "winter")
 
     # ---- winter form (D-023, D-025): one centre track from a donor snowmobile, and the skis ----
     # The rear axle with its wheels, hubs, sprocket, and brake disc comes off. The donor's track
@@ -475,9 +466,6 @@ def build(v):
     put("dsn.belly_area_m2", round(belly, 2), "m2", "winter")
     put("dsn.belly_pressure_kpa", round(wt / belly / 1000, 2), "kPa", "winter")
     put("dsn.belly_height_mm", round((zp + lift) * 1000), "mm", "winter")
-    # R-29: the foam that fits against the foam that floats the kart without its rider
-    put("dsn.foam_reserve_ratio", round(foam_v * (RHO_W - v["foam.density_kg_m3"]) / Mw, 2), None, "winter")
-    put("dsn.foam_needed_m3", round(v["water.reserve_ratio"] * Mw / (RHO_W - v["foam.density_kg_m3"]), 3), "m3", "winter")
 
     # ---- climbing the slope on long grass with the adult (R-16) -------------------------------
     th = math.atan(v["site.grade_max_pct"] / 100)

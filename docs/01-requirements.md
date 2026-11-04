@@ -61,7 +61,7 @@ Whether a piece of private land counts as a road when other people pass through 
 | R-26 | The engine is within the moped limit. | Displacement at most law.minicar_cc_max (P35). | inspection | awaiting |
 | R-27 | The kart goes into calm water from a shore, floats and moves on it, and drives out again. | With the heaviest rider, in calm fresh water, the kart floats upright with a freeboard of at least water.freeboard_min_mm, moves at water.speed_min_kmh or more and steers, and drives out up a shore of water.shore_grade_pct. | test | withdrawn |
 | R-28 | The kart changes between a summer form on tyres and a winter form on skis and a track. | Two people change the kart from one form to the other with hand tools in at most kart.swap_time_h, without cutting or welding. | test | confirmed |
-| R-29 | A driver whose kart capsizes or swamps in water, or breaks through ice, gets free and stays afloat. | On water and on ice the driver wears a life jacket and no seat belt; nothing of the kart holds a driver under it when it floats upside down; and the kart's foam floats the swamped kart with its engine and fuel at water.reserve_ratio times their weight. | analysis | awaiting |
+| R-29 | A driver whose kart capsizes or swamps in water, or breaks through ice, gets free and stays afloat. | On ice and near water the driver wears a life jacket and no seat belt, and nothing of the kart holds a driver in it when it rolls or goes through the ice - the driver gets out sideways under the roll bar without help. The kart itself need not float. | analysis | confirmed |
 <!-- tdr:end -->
 
 R-01 to R-08, R-14, and R-16 restate the owner's answers.
@@ -88,7 +88,7 @@ R-09 to R-13 and R-15 are derived from the hazards in 1.1.4 and wait for the own
 
 - **R-27 water.** The owner would like the kart to drive from a shore into a lake and on as a boat, if it can be done (D-024); 1.2.15 showed what it takes: a kart that moves on a lake is an amphibious vessel that needs a ship inspection, and the persons formula rates the tub for nobody. The owner withdrew it and keeps water use as a future development, shown only in the 3D view (D-027).
 - **R-28 change of form.** The owner wants the kart changed into a snowmobile form each winter and back to tyres in summer (D-023). A change that needs no cutting or welding is what makes one kart serve both, instead of two vehicles; whether the winter form keeps the summer engine is left to 1.2.16. The time kart.swap_time_h is assumed until Q-027.
-- **R-29 free and afloat.** On water or thin ice a capsize or a swamped kart is likely sooner or later (H-11). The seat belt and roll bar that protect a driver on land (R-19, R-22) would hold the driver under water, so on water the belt stays off and a life jacket is worn, and the kart's own foam keeps it afloat so that it can be righted or towed.
+- **R-29 free and afloat.** On water or thin ice a capsize or a swamped kart is likely sooner or later (H-11). The seat belt and roll bar that protect a driver on land (R-19, R-22) would hold the driver under water, so on water the belt stays off and a life jacket is worn, and the kart's own foam keeps it afloat so that it can be righted or towed. Foam enough to float the kart did not fit, and the owner kept R-29 for the driver only (D-028).
 
 ## 1.1.4 Hazards {#hazards}
 
@@ -486,11 +486,6 @@ These are not decided here. 1.2 compares forms against them.
 | lay.pan_x0_mm | 180 | mm | calculated | docs/03-design.md#winter |
 | lay.pan_x1_mm | 800 | mm | calculated | docs/03-design.md#winter |
 | lay.pan_half_beam_mm | 450 | mm | calculated | docs/03-design.md#winter |
-| lay.pod_inner_mm | 330 | mm | calculated | docs/03-design.md#winter |
-| lay.pod_outer_mm | 400 | mm | calculated | docs/03-design.md#winter |
-| lay.pod_top_mm | 450 | mm | calculated | docs/03-design.md#winter |
-| lay.pod_x0_mm | 280 | mm | calculated | docs/03-design.md#winter |
-| lay.pod_x1_mm | 670 | mm | calculated | docs/03-design.md#winter |
 | lay.bow_x_mm | 1240 | mm | calculated | docs/03-design.md#winter |
 | lay.bow_rise_mm | 80 | mm | calculated | docs/03-design.md#winter |
 | lay.bow_half_beam_mm | 200 | mm | calculated | docs/03-design.md#winter |
@@ -527,7 +522,7 @@ These are not decided here. 1.2 compares forms against them.
 | hull.mass_kg | 16.8 | kg | calculated | docs/02-form.md#water |
 | water.draft_mm | 186 | mm | calculated | docs/02-form.md#water |
 | water.freeboard_mm | 164 | mm | calculated | docs/02-form.md#water |
-| water.gm_m | 0.196 | m | calculated | docs/02-form.md#water |
+| water.gm_m | 0.195 | m | calculated | docs/02-form.md#water |
 | water.load_rating_kg | 97 | kg | calculated | docs/02-form.md#water |
 | water.depth_for_rider_mm | 358 | mm | calculated | docs/02-form.md#water |
 | water.persons_rated | 0 |  | calculated | docs/02-form.md#water |
@@ -535,16 +530,16 @@ These are not decided here. 1.2 compares forms against them.
 | water.beam_for_one_mm | 1160 | mm | calculated | docs/02-form.md#water |
 | sm.mass_kg | 137.4 | kg | calculated | docs/02-form.md#snowmobile |
 | sm.rear_share | 0.72 |  | calculated | docs/02-form.md#snowmobile |
-| sm.track_pressure_kpa | 3.95 | kPa | calculated | docs/02-form.md#snowmobile |
-| sm.ski_pressure_kpa | 4.58 | kPa | calculated | docs/02-form.md#snowmobile |
+| sm.track_pressure_kpa | 3.96 | kPa | calculated | docs/02-form.md#snowmobile |
+| sm.ski_pressure_kpa | 4.53 | kPa | calculated | docs/02-form.md#snowmobile |
 | sm.hull_pressure_kpa | 1.72 | kPa | calculated | docs/02-form.md#snowmobile |
 | sm.track_sinkage_max_cm | 11.1 | cm | calculated | docs/02-form.md#snowmobile |
-| sm.ski_sinkage_max_cm | 8.7 | cm | calculated | docs/02-form.md#snowmobile |
+| sm.ski_sinkage_max_cm | 8.6 | cm | calculated | docs/02-form.md#snowmobile |
 | sm.hull_sinkage_max_cm | 7.1 | cm | calculated | docs/02-form.md#snowmobile |
 | sm.clutch_lock_kmh | 2.3 | km/h | calculated | docs/02-form.md#snowmobile |
 | sm.top_speed_kmh | 16.0 | km/h | calculated | docs/02-form.md#snowmobile |
 | sm.power_snow_kw | 0.72 | kW | calculated | docs/02-form.md#snowmobile |
-| sm.cg_height_m | 0.545 | m | calculated | docs/02-form.md#snowmobile |
+| sm.cg_height_m | 0.546 | m | calculated | docs/02-form.md#snowmobile |
 | sm.tip_ratio | 0.74 |  | calculated | docs/02-form.md#snowmobile |
 | sm.length_min_m | 1.85 | m | calculated | docs/02-form.md#snowmobile |
 | sm.skip_speed_kmh | 28 | km/h | calculated | docs/02-form.md#snowmobile |
@@ -582,58 +577,55 @@ These are not decided here. 1.2 compares forms against them.
 | dsn.turn_radius_m | 2.26 | m | calculated | docs/03-design.md#steering |
 | dsn.leg_margin_adult_mm | 148 | mm | calculated | docs/03-design.md#fit |
 | dsn.leg_margin_child_mm | 149 | mm | calculated | docs/03-design.md#fit |
-| dsn.pan_mass_kg | 4.7 | kg | calculated | docs/03-design.md#winter |
-| dsn.foam_fit_m3 | 0.02 | m3 | calculated | docs/03-design.md#winter |
+| dsn.pan_mass_kg | 3.2 | kg | calculated | docs/03-design.md#winter |
 | dsn.winter_lift_mm | 218 | mm | calculated | docs/03-design.md#winter |
 | dsn.winter_chain_centre_mm | 466 | mm | calculated | docs/03-design.md#winter |
 | dsn.winter_chain_links | 96 |  | calculated | docs/03-design.md#winter |
 | dsn.winter_top_speed_kmh | 16.0 | km/h | calculated | docs/03-design.md#winter |
 | dsn.winter_clutch_lock_kmh | 2.3 | km/h | calculated | docs/03-design.md#winter |
-| dsn.mass_kg | 110.3 | kg | calculated | docs/03-design.md#mass |
-| dsn.cg_x_m | 0.377 | m | calculated | docs/03-design.md#mass |
-| dsn.cg_y_m | 0.081 | m | calculated | docs/03-design.md#mass |
-| dsn.cg_z_m | 0.268 | m | calculated | docs/03-design.md#mass |
+| dsn.mass_kg | 108.8 | kg | calculated | docs/03-design.md#mass |
+| dsn.cg_x_m | 0.372 | m | calculated | docs/03-design.md#mass |
+| dsn.cg_y_m | 0.084 | m | calculated | docs/03-design.md#mass |
+| dsn.cg_z_m | 0.269 | m | calculated | docs/03-design.md#mass |
 | dsn.frame_mass_kg | 12.3 | kg | calculated | docs/03-design.md#frame |
-| dsn.rear_share_adult | 0.717 |  | calculated | docs/03-design.md#mass |
-| dsn.cg_side_adult_mm | 0 | mm | calculated | docs/03-design.md#mass |
-| dsn.cg_height_adult_m | 0.36 | m | calculated | docs/03-design.md#mass |
+| dsn.rear_share_adult | 0.72 |  | calculated | docs/03-design.md#mass |
+| dsn.cg_side_adult_mm | 1 | mm | calculated | docs/03-design.md#mass |
+| dsn.cg_height_adult_m | 0.361 | m | calculated | docs/03-design.md#mass |
 | dsn.tip_ratio_adult | 1.56 |  | calculated | docs/03-design.md#stability |
-| dsn.rear_share_child | 0.634 |  | calculated | docs/03-design.md#mass |
-| dsn.cg_side_child_mm | 56 | mm | calculated | docs/03-design.md#mass |
-| dsn.cg_height_child_m | 0.282 | m | calculated | docs/03-design.md#mass |
-| dsn.tip_ratio_child | 1.78 |  | calculated | docs/03-design.md#stability |
-| dsn.winter_mass_kg | 127.8 | kg | calculated | docs/03-design.md#winter |
+| dsn.rear_share_child | 0.639 |  | calculated | docs/03-design.md#mass |
+| dsn.cg_side_child_mm | 58 | mm | calculated | docs/03-design.md#mass |
+| dsn.cg_height_child_m | 0.283 | m | calculated | docs/03-design.md#mass |
+| dsn.tip_ratio_child | 1.77 |  | calculated | docs/03-design.md#stability |
+| dsn.winter_mass_kg | 126.3 | kg | calculated | docs/03-design.md#winter |
 | dsn.winter_cg_height_m | 0.526 | m | calculated | docs/03-design.md#winter |
-| dsn.winter_rear_share | 0.722 |  | calculated | docs/03-design.md#winter |
-| dsn.winter_track_pressure_kpa | 3.81 | kPa | calculated | docs/03-design.md#winter |
-| dsn.winter_ski_pressure_kpa | 4.32 | kPa | calculated | docs/03-design.md#winter |
+| dsn.winter_rear_share | 0.725 |  | calculated | docs/03-design.md#winter |
+| dsn.winter_track_pressure_kpa | 3.8 | kPa | calculated | docs/03-design.md#winter |
+| dsn.winter_ski_pressure_kpa | 4.24 | kPa | calculated | docs/03-design.md#winter |
 | dsn.winter_tip_ratio | 0.82 |  | calculated | docs/03-design.md#stability |
 | dsn.belly_area_m2 | 0.98 | m2 | calculated | docs/03-design.md#winter |
-| dsn.belly_pressure_kpa | 2.29 | kPa | calculated | docs/03-design.md#winter |
+| dsn.belly_pressure_kpa | 2.27 | kPa | calculated | docs/03-design.md#winter |
 | dsn.belly_height_mm | 318 | mm | calculated | docs/03-design.md#winter |
-| dsn.foam_reserve_ratio | 0.15 |  | calculated | docs/03-design.md#winter |
-| dsn.foam_needed_m3 | 0.158 | m3 | calculated | docs/03-design.md#winter |
-| dsn.climb_force_n | 647 | N | calculated | docs/03-design.md#climb |
-| dsn.climb_grip_n | 718 | N | calculated | docs/03-design.md#climb |
+| dsn.climb_force_n | 643 | N | calculated | docs/03-design.md#climb |
+| dsn.climb_grip_n | 716 | N | calculated | docs/03-design.md#climb |
 | dsn.climb_thrust_n | 1359 | N | calculated | docs/03-design.md#climb |
 | dsn.axle_chain_pull_n | 3635 | N | calculated | docs/03-design.md#axle |
-| dsn.axle_stress_mpa | 223 | MPa | calculated | docs/03-design.md#axle |
+| dsn.axle_stress_mpa | 222 | MPa | calculated | docs/03-design.md#axle |
 | dsn.axle_safety | 1.55 |  | calculated | docs/03-design.md#axle |
-| dsn.frame_moment_nm | 573 | N m | calculated | docs/03-design.md#frame |
-| dsn.rail_stress_mpa | 195 | MPa | calculated | docs/03-design.md#frame |
-| dsn.rail_safety | 1.48 |  | calculated | docs/03-design.md#frame |
-| dsn.bearing_load_n | 739 | N | calculated | docs/03-design.md#axle |
+| dsn.frame_moment_nm | 568 | N m | calculated | docs/03-design.md#frame |
+| dsn.rail_stress_mpa | 194 | MPa | calculated | docs/03-design.md#frame |
+| dsn.rail_safety | 1.5 |  | calculated | docs/03-design.md#frame |
+| dsn.bearing_load_n | 737 | N | calculated | docs/03-design.md#axle |
 | dsn.brake_decel_needed | 5.79 | m/s2 | calculated | docs/03-design.md#brake |
-| dsn.brake_torque_needed_nm | 198 | N m | calculated | docs/03-design.md#brake |
-| dsn.brake_clamp_needed_n | 4415 | N | calculated | docs/03-design.md#brake |
-| dsn.brake_downhill_decel | 0.87 | m/s2 | calculated | docs/03-design.md#brake |
-| dsn.brake_downhill_stop_m | 40.0 | m | calculated | docs/03-design.md#brake |
+| dsn.brake_torque_needed_nm | 196 | N m | calculated | docs/03-design.md#brake |
+| dsn.brake_clamp_needed_n | 4383 | N | calculated | docs/03-design.md#brake |
+| dsn.brake_downhill_decel | 0.88 | m/s2 | calculated | docs/03-design.md#brake |
+| dsn.brake_downhill_stop_m | 39.5 | m | calculated | docs/03-design.md#brake |
 | dsn.delica_length_margin_mm | 80 | mm | calculated | docs/03-design.md#transport |
 | dsn.delica_width_margin_mm | 20 | mm | calculated | docs/03-design.md#transport |
 | dsn.height_m | 1.05 | m | calculated | docs/03-design.md#layout |
 | dsn.winter_length_m | 2.15 | m | calculated | docs/03-design.md#winter |
 | dsn.winter_height_m | 1.268 | m | calculated | docs/03-design.md#winter |
-| dsn.bom_parts_jpy | 555070 | JPY | calculated | docs/03-design.md#cost |
+| dsn.bom_parts_jpy | 529684 | JPY | calculated | docs/03-design.md#cost |
 | dsn.bom_tools_jpy | 34056 | JPY | calculated | docs/03-design.md#cost |
 <!-- tdr:end -->
 
@@ -671,5 +663,5 @@ These are not decided here. 1.2 compares forms against them.
 | Q-027 | The rough inputs of the snowmobile form and the hull - the track's place and mass (its size is a Yamaha Bravo's, P51), the parts removed and added at each change, the drive sprocket, the hull's size, foam share, and plating, the water design points, the outboard's battery, and the change time - are assumed until a donor is chosen and the hull is laid out in step 1.3. | assistant |
 | Q-028 | A kart that moves on a lake is an amphibious vessel, a special ship, which the small-boat exemption from ship inspection does not cover (P46). Ask the regional transport bureau whether a home-built amphibious kart moved on water only by an electric outboard under 1.5 kW, with its engine stopped, can be inspected; whether a tub that the persons formula rates for nobody may be approved on an inclining test, or needs side floats for water days; whether the 50 cc engine counts as propulsion because it can turn the wheels in water; and whether a pond on private land is outside the Ship Safety Act (only named waters are exempt from registration, P58). What an inspection asks and costs is in docs/02-form.md#water (P55, P56). No official page on a small amphibious vessel was found. | owner |
 | Q-029 | The donor's track unit is drawn from assumed sizes - the track's thickness with its lugs, the rear idler's diameter, the drive shaft's height and its place ahead of the slide rails - which set the winter lift. Measure them on the donor (a Yamaha Bravo class) when it is bought, with its mass and mounting points, and check that a pivot shaft through the pillow blocks and brackets hanging from the rails can hold it. | assistant |
-| Q-030 | The sled pan holds dsn.foam_fit_m3 of foam, which floats dsn.foam_reserve_ratio of the winter kart's own weight, while R-29 asks water.reserve_ratio, which needs about dsn.foam_needed_m3. The room is not there without bolting large floats on. With boat use withdrawn (D-027), should R-29 keep only the driver's part (a life jacket and no seat belt on ice, nothing holding the driver) and drop the kart's floating, or should the kart carry floats in winter? | owner |
+| Q-030 | The sled pan held 0.020 m3 of foam, which floated 0.15 of the winter kart's own weight, while R-29 asked water.reserve_ratio, which needed about 0.158 m3. The room is not there without bolting large floats on. With boat use withdrawn (D-027), should R-29 keep only the driver's part (a life jacket and no seat belt on ice, nothing holding the driver) and drop the kart's floating, or should the kart carry floats in winter? | owner |
 <!-- tdr:end -->

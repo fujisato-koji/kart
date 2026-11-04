@@ -220,3 +220,14 @@ items:
       - R-27
       - Q-028
       - D-024
+  - id: D-028
+    date: 2026-11-04
+    by: owner
+    what: R-29 keeps only the driver's safety - on ice and near water a life jacket and no seat belt, and nothing of the kart holding the driver. The kart need not float. This settles Q-030; the sled pan keeps its bottom strips and bow and loses its foam and the right pod, which were there only to float the kart.
+    options:
+      - R-29 for the driver only
+      - the kart carries floats in winter so that it floats too
+    touches:
+      - R-29
+      - Q-030
+      - sled_pan

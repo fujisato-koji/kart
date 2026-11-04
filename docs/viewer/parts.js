@@ -42,7 +42,7 @@ export const PART_KEYS = {
   number_plate: ['cost.plate_bracket_jpy', 'cost.tax_year_jpy', 'cost.cali_year_jpy'],
   track_unit: ['sm.track_*', 'sm.idler_dia_mm', 'sm.drive_*', 'dsn.winter_*', 'cost.donor_bravo_jpy', 'cost.allow_winter_mounts_jpy'],
   winter_chain: ['dsn.winter_chain_*', 'cost.chain420_jpy', 'cost.spr420_30t_jpy'],
-  sled_pan: ['lay.pan_*', 'lay.pod_*', 'lay.bow_*', 'lay.tunnel_*', 'hull.bottom_t_mm', 'hull.side_t_mm', 'dsn.pan_mass_kg', 'dsn.foam_*', 'dsn.belly_*', 'cost.hull_*', 'cost.xps_jpy_per_m3'],
+  sled_pan: ['lay.pan_*', 'lay.bow_*', 'lay.tunnel_*', 'hull.bottom_t_mm', 'hull.side_t_mm', 'dsn.pan_mass_kg', 'dsn.belly_*', 'cost.hull_*', 'cost.xps_jpy_per_m3'],
   side_floats: ['lay.float_dia_mm', 'water.*'],
   outboard: ['outboard.*', 'cost.outboard_jpy', 'cost.allow_outboard_battery_jpy'],
 };

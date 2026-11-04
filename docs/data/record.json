@@ -334,12 +334,13 @@
    "id": "R-29",
    "text": "A driver whose kart capsizes or swamps in water, or breaks through ice, gets free and stays afloat.",
    "origin": "derived",
-   "design_point": "On water and on ice the driver wears a life jacket and no seat belt; nothing of the kart holds a driver under it when it floats upside down; and the kart's foam floats the swamped kart with its engine and fuel at water.reserve_ratio times their weight.",
+   "design_point": "On ice and near water the driver wears a life jacket and no seat belt, and nothing of the kart holds a driver in it when it rolls or goes through the ice - the driver gets out sideways under the roll bar without help. The kart itself need not float.",
    "verify": "analysis",
    "basis": [
-    "H-11"
+    "H-11",
+    "D-028"
    ],
-   "status": "awaiting"
+   "status": "confirmed"
   }
  ],
  "values": [
@@ -3493,51 +3494,6 @@
    ]
   },
   {
-   "key": "lay.pod_inner_mm",
-   "v": 330,
-   "unit": "mm",
-   "status": "calculated",
-   "basis": [
-    "docs/03-design.md#winter"
-   ]
-  },
-  {
-   "key": "lay.pod_outer_mm",
-   "v": 400,
-   "unit": "mm",
-   "status": "calculated",
-   "basis": [
-    "docs/03-design.md#winter"
-   ]
-  },
-  {
-   "key": "lay.pod_top_mm",
-   "v": 450,
-   "unit": "mm",
-   "status": "calculated",
-   "basis": [
-    "docs/03-design.md#winter"
-   ]
-  },
-  {
-   "key": "lay.pod_x0_mm",
-   "v": 280,
-   "unit": "mm",
-   "status": "calculated",
-   "basis": [
-    "docs/03-design.md#winter"
-   ]
-  },
-  {
-   "key": "lay.pod_x1_mm",
-   "v": 670,
-   "unit": "mm",
-   "status": "calculated",
-   "basis": [
-    "docs/03-design.md#winter"
-   ]
-  },
-  {
    "key": "lay.bow_x_mm",
    "v": 1240,
    "unit": "mm",
@@ -3861,7 +3817,7 @@
   },
   {
    "key": "water.gm_m",
-   "v": 0.196,
+   "v": 0.195,
    "unit": "m",
    "status": "calculated",
    "basis": [
@@ -3930,7 +3886,7 @@
   },
   {
    "key": "sm.track_pressure_kpa",
-   "v": 3.95,
+   "v": 3.96,
    "unit": "kPa",
    "status": "calculated",
    "basis": [
@@ -3939,7 +3895,7 @@
   },
   {
    "key": "sm.ski_pressure_kpa",
-   "v": 4.58,
+   "v": 4.53,
    "unit": "kPa",
    "status": "calculated",
    "basis": [
@@ -3966,7 +3922,7 @@
   },
   {
    "key": "sm.ski_sinkage_max_cm",
-   "v": 8.7,
+   "v": 8.6,
    "unit": "cm",
    "status": "calculated",
    "basis": [
@@ -4011,7 +3967,7 @@
   },
   {
    "key": "sm.cg_height_m",
-   "v": 0.545,
+   "v": 0.546,
    "unit": "m",
    "status": "calculated",
    "basis": [
@@ -4349,17 +4305,8 @@
   },
   {
    "key": "dsn.pan_mass_kg",
-   "v": 4.7,
+   "v": 3.2,
    "unit": "kg",
-   "status": "calculated",
-   "basis": [
-    "docs/03-design.md#winter"
-   ]
-  },
-  {
-   "key": "dsn.foam_fit_m3",
-   "v": 0.02,
-   "unit": "m3",
    "status": "calculated",
    "basis": [
     "docs/03-design.md#winter"
@@ -4411,7 +4358,7 @@
   },
   {
    "key": "dsn.mass_kg",
-   "v": 110.3,
+   "v": 108.8,
    "unit": "kg",
    "status": "calculated",
    "basis": [
@@ -4420,7 +4367,7 @@
   },
   {
    "key": "dsn.cg_x_m",
-   "v": 0.377,
+   "v": 0.372,
    "unit": "m",
    "status": "calculated",
    "basis": [
@@ -4429,7 +4376,7 @@
   },
   {
    "key": "dsn.cg_y_m",
-   "v": 0.081,
+   "v": 0.084,
    "unit": "m",
    "status": "calculated",
    "basis": [
@@ -4438,7 +4385,7 @@
   },
   {
    "key": "dsn.cg_z_m",
-   "v": 0.268,
+   "v": 0.269,
    "unit": "m",
    "status": "calculated",
    "basis": [
@@ -4456,7 +4403,7 @@
   },
   {
    "key": "dsn.rear_share_adult",
-   "v": 0.717,
+   "v": 0.72,
    "status": "calculated",
    "basis": [
     "docs/03-design.md#mass"
@@ -4464,7 +4411,7 @@
   },
   {
    "key": "dsn.cg_side_adult_mm",
-   "v": 0,
+   "v": 1,
    "unit": "mm",
    "status": "calculated",
    "basis": [
@@ -4473,7 +4420,7 @@
   },
   {
    "key": "dsn.cg_height_adult_m",
-   "v": 0.36,
+   "v": 0.361,
    "unit": "m",
    "status": "calculated",
    "basis": [
@@ -4490,7 +4437,7 @@
   },
   {
    "key": "dsn.rear_share_child",
-   "v": 0.634,
+   "v": 0.639,
    "status": "calculated",
    "basis": [
     "docs/03-design.md#mass"
@@ -4498,7 +4445,7 @@
   },
   {
    "key": "dsn.cg_side_child_mm",
-   "v": 56,
+   "v": 58,
    "unit": "mm",
    "status": "calculated",
    "basis": [
@@ -4507,7 +4454,7 @@
   },
   {
    "key": "dsn.cg_height_child_m",
-   "v": 0.282,
+   "v": 0.283,
    "unit": "m",
    "status": "calculated",
    "basis": [
@@ -4516,7 +4463,7 @@
   },
   {
    "key": "dsn.tip_ratio_child",
-   "v": 1.78,
+   "v": 1.77,
    "status": "calculated",
    "basis": [
     "docs/03-design.md#stability"
@@ -4524,7 +4471,7 @@
   },
   {
    "key": "dsn.winter_mass_kg",
-   "v": 127.8,
+   "v": 126.3,
    "unit": "kg",
    "status": "calculated",
    "basis": [
@@ -4542,7 +4489,7 @@
   },
   {
    "key": "dsn.winter_rear_share",
-   "v": 0.722,
+   "v": 0.725,
    "status": "calculated",
    "basis": [
     "docs/03-design.md#winter"
@@ -4550,7 +4497,7 @@
   },
   {
    "key": "dsn.winter_track_pressure_kpa",
-   "v": 3.81,
+   "v": 3.8,
    "unit": "kPa",
    "status": "calculated",
    "basis": [
@@ -4559,7 +4506,7 @@
   },
   {
    "key": "dsn.winter_ski_pressure_kpa",
-   "v": 4.32,
+   "v": 4.24,
    "unit": "kPa",
    "status": "calculated",
    "basis": [
@@ -4585,7 +4532,7 @@
   },
   {
    "key": "dsn.belly_pressure_kpa",
-   "v": 2.29,
+   "v": 2.27,
    "unit": "kPa",
    "status": "calculated",
    "basis": [
@@ -4602,25 +4549,8 @@
    ]
   },
   {
-   "key": "dsn.foam_reserve_ratio",
-   "v": 0.15,
-   "status": "calculated",
-   "basis": [
-    "docs/03-design.md#winter"
-   ]
-  },
-  {
-   "key": "dsn.foam_needed_m3",
-   "v": 0.158,
-   "unit": "m3",
-   "status": "calculated",
-   "basis": [
-    "docs/03-design.md#winter"
-   ]
-  },
-  {
    "key": "dsn.climb_force_n",
-   "v": 647,
+   "v": 643,
    "unit": "N",
    "status": "calculated",
    "basis": [
@@ -4629,7 +4559,7 @@
   },
   {
    "key": "dsn.climb_grip_n",
-   "v": 718,
+   "v": 716,
    "unit": "N",
    "status": "calculated",
    "basis": [
@@ -4656,7 +4586,7 @@
   },
   {
    "key": "dsn.axle_stress_mpa",
-   "v": 223,
+   "v": 222,
    "unit": "MPa",
    "status": "calculated",
    "basis": [
@@ -4673,7 +4603,7 @@
   },
   {
    "key": "dsn.frame_moment_nm",
-   "v": 573,
+   "v": 568,
    "unit": "N m",
    "status": "calculated",
    "basis": [
@@ -4682,7 +4612,7 @@
   },
   {
    "key": "dsn.rail_stress_mpa",
-   "v": 195,
+   "v": 194,
    "unit": "MPa",
    "status": "calculated",
    "basis": [
@@ -4691,7 +4621,7 @@
   },
   {
    "key": "dsn.rail_safety",
-   "v": 1.48,
+   "v": 1.5,
    "status": "calculated",
    "basis": [
     "docs/03-design.md#frame"
@@ -4699,7 +4629,7 @@
   },
   {
    "key": "dsn.bearing_load_n",
-   "v": 739,
+   "v": 737,
    "unit": "N",
    "status": "calculated",
    "basis": [
@@ -4717,7 +4647,7 @@
   },
   {
    "key": "dsn.brake_torque_needed_nm",
-   "v": 198,
+   "v": 196,
    "unit": "N m",
    "status": "calculated",
    "basis": [
@@ -4726,7 +4656,7 @@
   },
   {
    "key": "dsn.brake_clamp_needed_n",
-   "v": 4415,
+   "v": 4383,
    "unit": "N",
    "status": "calculated",
    "basis": [
@@ -4735,7 +4665,7 @@
   },
   {
    "key": "dsn.brake_downhill_decel",
-   "v": 0.87,
+   "v": 0.88,
    "unit": "m/s2",
    "status": "calculated",
    "basis": [
@@ -4744,7 +4674,7 @@
   },
   {
    "key": "dsn.brake_downhill_stop_m",
-   "v": 40.0,
+   "v": 39.5,
    "unit": "m",
    "status": "calculated",
    "basis": [
@@ -4798,7 +4728,7 @@
   },
   {
    "key": "dsn.bom_parts_jpy",
-   "v": 555070,
+   "v": 529684,
    "unit": "JPY",
    "status": "calculated",
    "basis": [
@@ -6643,6 +6573,21 @@
     "Q-028",
     "D-024"
    ]
+  },
+  {
+   "id": "D-028",
+   "date": "2026-11-04",
+   "by": "owner",
+   "what": "R-29 keeps only the driver's safety - on ice and near water a life jacket and no seat belt, and nothing of the kart holding the driver. The kart need not float. This settles Q-030; the sled pan keeps its bottom strips and bow and loses its foam and the right pod, which were there only to float the kart.",
+   "options": [
+    "R-29 for the driver only",
+    "the kart carries floats in winter so that it floats too"
+   ],
+   "touches": [
+    "R-29",
+    "Q-030",
+    "sled_pan"
+   ]
   }
  ],
  "open": [
@@ -7105,14 +7050,15 @@
   {
    "id": "Q-030",
    "kind": "question",
-   "text": "The sled pan holds dsn.foam_fit_m3 of foam, which floats dsn.foam_reserve_ratio of the winter kart's own weight, while R-29 asks water.reserve_ratio, which needs about dsn.foam_needed_m3. The room is not there without bolting large floats on. With boat use withdrawn (D-027), should R-29 keep only the driver's part (a life jacket and no seat belt on ice, nothing holding the driver) and drop the kart's floating, or should the kart carry floats in winter?",
+   "text": "The sled pan held 0.020 m3 of foam, which floated 0.15 of the winter kart's own weight, while R-29 asked water.reserve_ratio, which needed about 0.158 m3. The room is not there without bolting large floats on. With boat use withdrawn (D-027), should R-29 keep only the driver's part (a life jacket and no seat belt on ice, nothing holding the driver) and drop the kart's floating, or should the kart carry floats in winter?",
    "waits_for": "owner",
    "affects": [
-    "R-29",
-    "sled_pan"
+    "R-29"
    ],
    "opened": "2026-11-04",
-   "phase": "design"
+   "phase": "design",
+   "closed_by": "D-028",
+   "closed": "2026-11-04"
   }
  ],
  "hazards": [
@@ -7958,9 +7904,7 @@
     "dsn.winter_tip_ratio",
     "dsn.winter_track_pressure_kpa",
     "dsn.winter_chain_links",
-    "dsn.belly_pressure_kpa",
-    "dsn.foam_fit_m3",
-    "dsn.foam_reserve_ratio"
+    "dsn.belly_pressure_kpa"
    ],
    "tier": "T2",
    "method": "refute",
@@ -9246,20 +9190,6 @@
     "item": "UHMW polyethylene sheet 6 mm for the pan's bottom and bow (m2)",
     "qty": 2,
     "price": "cost.hull_bottom_jpy_per_m2",
-    "need": "w2"
-   },
-   {
-    "part": "sled_pan",
-    "item": "UHMW polyethylene sheet 3 mm for the right pod (m2)",
-    "qty": 1,
-    "price": "cost.hull_side_jpy_per_m2",
-    "need": "w2"
-   },
-   {
-    "part": "sled_pan",
-    "item": "Extruded polystyrene board 50 mm, 910 x 1,820 (m3, one board is 0.083)",
-    "qty": 0.083,
-    "price": "cost.xps_jpy_per_m3",
     "need": "w2"
    }
   ]

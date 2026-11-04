@@ -1954,27 +1954,6 @@
   },
   {
    "part": "sled_pan",
-   "type": "box",
-   "configs": [
-    "summer",
-    "winter",
-    "transport",
-    "water"
-   ],
-   "pos": [
-    0.47500000000000003,
-    -0.365,
-    0.275
-   ],
-   "size": [
-    0.39,
-    0.07,
-    0.35
-   ],
-   "color": "pan"
-  },
-  {
-   "part": "sled_pan",
    "type": "sheet",
    "configs": [
     "summer",
@@ -2752,18 +2731,18 @@
   },
   {
    "part": "sled_pan",
-   "kg": 4.67,
+   "kg": 3.15,
    "pos": [
     0.71,
-    -0.05,
-    0.16
+    0.0,
+    0.12
    ]
   }
  ],
  "cg": {
-  "x": 0.3768,
-  "z": 0.2685,
-  "mass": 110.32
+  "x": 0.3722,
+  "z": 0.2688,
+  "mass": 108.8
  },
  "delica": {
   "length": 1.61,
