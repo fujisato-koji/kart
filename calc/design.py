@@ -467,6 +467,28 @@ def build(v):
     put("dsn.belly_pressure_kpa", round(wt / belly / 1000, 2), "kPa", "winter")
     put("dsn.belly_height_mm", round((zp + lift) * 1000), "mm", "winter")
 
+    # towing a sled on level packed snow (1.2.17): the track's grip less its own resistance is the
+    # pull; a polyethylene sled starts at sled.cold_start_factor times its steady resistance
+    pull = v["snow.track_traction_packed"] * wt * share_w - v["track.crr_snow_packed"] * wt
+    put("dsn.tow_pull_packed_n", round(pull), "N", "mtt")
+    m_sled = pull / (v["sled.mu_packed"] * v["sled.cold_start_factor"] * G)
+    put("dsn.tow_sled_kg", round(m_sled), "kg", "mtt")
+    v_snow = v["sm.speed_snow_kmh"] / 3.6
+    put("dsn.tow_power_kw", round((v["track.crr_snow_packed"] * wt + v["sled.mu_packed"] * m_sled * G) * v_snow
+                                  / v["drive.efficiency"] / 1000, 2), "kW", "mtt")
+    # new snowblower crawlers instead of the donor's track (1.2.17), looped over two wheels
+    dw = mm("sm.crawler_wheel_dia_mm")
+    for tag, n_ in (("crawler180_pair", 2), ("crawler300", 1), ("crawler300_pair", 2)):
+        c = tag.split("_")[0].replace("crawler", "crawler.c")
+        lc = (mm(c + "_pitch_mm") * v[c + "_links"] - math.pi * dw) / 2
+        put(f"dsn.{tag}_kpa", round(wt * share_w / (n_ * mm(c + "_width_mm") * lc) / 1000, 1), "kPa", "mtt")
+
+    # the roll bar against the tallest driver's head, seated upright (1.2.17, R-19)
+    head = z_seat + mm("lay.seat_cushion_mm") + v["rider.sitting_ratio"] * v["rider.stature_max_cm"] / 100 \
+        + mm("rider.head_allow_mm")
+    put("dsn.head_top_m", round(head, 3), "m", "mtt")
+    put("dsn.rollbar_needed_mm", round((head + mm("lay.rollbar_clear_mm")) * 1000), "mm", "mtt")
+
     # ---- climbing the slope on long grass with the adult (R-16) -------------------------------
     th = math.atan(v["site.grade_max_pct"] / 100)
     h_adult = [x for k_, x, _, _ in out if k_ == "dsn.cg_height_adult_m"][0]

@@ -111,3 +111,37 @@ Two independent checks searched `docs/data/design.json` for parts that collide (
 The road-going layout of D-022 was checked by another independent helper (K-006) and is not yet buildable either; its faults are listed in Q-025, and the next pass builds the collision search into `calc/design.py` so that every change is checked as it is made.
 
 The winter form of 1.3.12 was placed by hand against the frame members it comes near - the tie rods, the front cross member, the horn, and the right nerf bar's stays - and, like the summer form, has not had a collision search; the next pass builds that search into `calc/design.py` for both forms.
+
+## 1.3.17 Ideas from the MTT, new crawlers, and one form for both {#mtt}
+
+The owner pointed to the electric track unit MTT (F3) and asked what the kart can take from it, then to two new snowblower crawlers (M86, M87), and asked whether one form could run on paved roads and still cope with snow. Helpers read the MTT's makers and the press, motor tugs, and data on snow on 2026-11-04.
+
+**What the MTT is.** A self-contained electric track unit that a person rides or that tows: the 2020 model weighs 227 to 352 kg on a track 508 by 3,912 mm, tows 1,450 kg on flat ground and 454 kg on any terrain, carries 272 kg on its rack, and gives 2,000 W of power; the 2014 prototype's handle folded for transport (M88). Russian motor tugs do the same with petrol: a 6 hp tug of 65 kg pulls 250 to 300 kg in a sled (M89).
+
+**Ideas the kart can take.**
+
+1. **Tow a sled in winter.** On level packed snow the track grips at about snow.track_traction_packed of its load (P59); less its own resistance (track.crr_snow_packed, assumed, Q-031) it pulls dsn.tow_pull_packed_n. A polyethylene sled slides at up to sled.mu_packed of its weight and starts from cold at sled.cold_start_factor times that (P60), so the kart starts a sled of up to dsn.tow_sled_kg in all, and pulls it at sm.speed_snow_kmh on dsn.tow_power_kw. In deep fresh snow the kart itself is the load it can manage, so it tows nothing there. A hitch on the track unit's rear and a rigid pole, so that the sled cannot run into the kart downhill.
+2. **A folding roll bar.** Seated upright, the tallest driver's head reaches dsn.head_top_m (sitting height rider.sitting_ratio of the stature, P61, with rider.head_allow_mm over it), so with lay.rollbar_clear_mm above the head the roll bar must reach dsn.rollbar_needed_mm, against lay.rollbar_top_mm now and delica.cargo_height_mm in the car. Like the MTT's folding handle, a top section hinged at about 1 m rises for driving and folds for the car, held by captive, marked pins that one person works with little force, as foldable roll bars on tractors must be (P62). This is the fix Q-025 asks for.
+3. **A rack over the track.** The MTT and the motor tugs carry loads on top (M88, M89). The track unit reaches past the kart's tail, so a light rack fits over its rear; a load there takes weight off the skis, so it stays small.
+4. **A track unit with its own engine.** If the donor's engine stays with its track (D2 of 1.2.14), the unit could run alone as a tug with the driver on a sled, like the motor tugs. The owner chose the summer engine (D-025); this stays a later option.
+5. **A power outlet.** The scooter's charging system is small; a 12 V or USB socket only, not the MTT's 2,000 W.
+
+Not taken: joystick steering, climbing stairs, and a standing ride (D-026).
+
+**New snowblower crawlers instead of a donor.** New steel-cored rubber crawlers are sold in Japan: 180 mm wide, 13 kg, cost.crawler180_jpy each (M86), and 300 mm wide, 40 kg, cost.crawler300_jpy each, in stock (M87). Looped over two wheels of sm.crawler_wheel_dia_mm under the winter kart they press dsn.crawler180_pair_kpa as a pair of 180s, dsn.crawler300_kpa as one 300, and dsn.crawler300_pair_kpa as a pair of 300s, against dsn.winter_track_pressure_kpa for the donor's track. Only a pair of 300s equals or beats it, at twice a single 300's weight and cost, and two tracks steer poorly behind skis. They are made for machines that walk, and the drive sprockets, idlers, road wheels, and frame would all have to be made. They are the route if no donor is found.
+
+**One form for paved roads and snow.** None found. Floating on deep fresh snow needs a pressure of a few kPa over a long footprint; a tyre presses about its inflation pressure, tens of kPa even for low-pressure tyres, and sinks to its axle in fresh snow (1.2.4), while the tracks considered here are made for snow and for machines that walk (M86, M87), not for pavement at law.speed_lane_kmh, and no rule for a tracked moped on roads was found (P50). The candidates and what they give:
+
+- Large low-pressure tyres run on roads and in shallow snow, but not in fresh snow of snow.depth_max_cm, and a higher floor costs R-12.
+- A centre track that is lowered for snow and raised for roads fits between the rear wheels, but the kart would ride high in summer too, against R-12, and the mechanism is heavy.
+- Skis around the front tyres, with the tyre's bottom just below the ski, run on the tyre on roads and on the ski when the tyre sinks; they remove the change of the front wheels, but whether they are allowed on roads must be checked.
+
+So the kart keeps its two forms (D-023) and makes the change quick: the track unit already comes on and off whole like the MTT, and skis around the front tyres would leave only the rear to change.
+
+**The owner decides:**
+
+1. **Towing.** A requirement that the winter form tows a sled on packed snow, and its load (the kart can start dsn.tow_sled_kg in all), or no towing.
+2. **Folding roll bar.** Raise the roll bar to dsn.rollbar_needed_mm with a top that folds for the car (proposed, it fixes part of Q-025), or keep it as it is.
+3. **Rack.** A light rack over the track, or none.
+4. **Skis around the front tyres.** Study them in the next layout pass (proposed), or keep the front skis that replace the wheels.
+5. **Crawlers.** Keep the donor's track (proposed), with a pair of new 300 mm crawlers as the fallback.

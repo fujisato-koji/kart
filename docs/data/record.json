@@ -3530,6 +3530,170 @@
    ]
   },
   {
+   "key": "snow.track_traction_packed",
+   "v": 0.3,
+   "status": "sourced",
+   "basis": [
+    "P59"
+   ]
+  },
+  {
+   "key": "track.crr_snow_packed",
+   "v": 0.05,
+   "status": "assumed",
+   "basis": [
+    "Q-031"
+   ]
+  },
+  {
+   "key": "sled.mu_packed",
+   "v": 0.1,
+   "status": "sourced",
+   "basis": [
+    "P60"
+   ]
+  },
+  {
+   "key": "sled.cold_start_factor",
+   "v": 2,
+   "status": "sourced",
+   "basis": [
+    "P60"
+   ]
+  },
+  {
+   "key": "rider.sitting_ratio",
+   "v": 0.54,
+   "status": "sourced",
+   "basis": [
+    "P61"
+   ]
+  },
+  {
+   "key": "rider.head_allow_mm",
+   "v": 30,
+   "unit": "mm",
+   "status": "assumed",
+   "basis": [
+    "Q-031"
+   ]
+  },
+  {
+   "key": "sm.crawler_wheel_dia_mm",
+   "v": 250,
+   "unit": "mm",
+   "status": "assumed",
+   "basis": [
+    "Q-031"
+   ]
+  },
+  {
+   "key": "crawler.c180_width_mm",
+   "v": 180,
+   "unit": "mm",
+   "status": "sourced",
+   "basis": [
+    "M86"
+   ]
+  },
+  {
+   "key": "crawler.c180_pitch_mm",
+   "v": 60,
+   "unit": "mm",
+   "status": "sourced",
+   "basis": [
+    "M86"
+   ]
+  },
+  {
+   "key": "crawler.c180_links",
+   "v": 28,
+   "status": "sourced",
+   "basis": [
+    "M86"
+   ]
+  },
+  {
+   "key": "crawler.c180_mass_kg",
+   "v": 13,
+   "unit": "kg",
+   "status": "sourced",
+   "basis": [
+    "M86"
+   ]
+  },
+  {
+   "key": "cost.crawler180_jpy",
+   "v": 24700,
+   "unit": "JPY",
+   "status": "sourced",
+   "basis": [
+    "M86"
+   ]
+  },
+  {
+   "key": "crawler.c300_width_mm",
+   "v": 300,
+   "unit": "mm",
+   "status": "sourced",
+   "basis": [
+    "M87"
+   ]
+  },
+  {
+   "key": "crawler.c300_pitch_mm",
+   "v": 72,
+   "unit": "mm",
+   "status": "sourced",
+   "basis": [
+    "M87"
+   ]
+  },
+  {
+   "key": "crawler.c300_links",
+   "v": 36,
+   "status": "sourced",
+   "basis": [
+    "M87"
+   ]
+  },
+  {
+   "key": "crawler.c300_mass_kg",
+   "v": 40,
+   "unit": "kg",
+   "status": "sourced",
+   "basis": [
+    "M87"
+   ]
+  },
+  {
+   "key": "cost.crawler300_jpy",
+   "v": 65200,
+   "unit": "JPY",
+   "status": "sourced",
+   "basis": [
+    "M87"
+   ]
+  },
+  {
+   "key": "lay.seat_cushion_mm",
+   "v": 30,
+   "unit": "mm",
+   "status": "calculated",
+   "basis": [
+    "docs/03-design.md#rollbar"
+   ]
+  },
+  {
+   "key": "lay.rollbar_clear_mm",
+   "v": 50,
+   "unit": "mm",
+   "status": "calculated",
+   "basis": [
+    "docs/03-design.md#rollbar"
+   ]
+  },
+  {
    "key": "form.mass_total_kg",
    "v": 170,
    "unit": "kg",
@@ -4546,6 +4710,78 @@
    "status": "calculated",
    "basis": [
     "docs/03-design.md#winter"
+   ]
+  },
+  {
+   "key": "dsn.tow_pull_packed_n",
+   "v": 372,
+   "unit": "N",
+   "status": "calculated",
+   "basis": [
+    "docs/03-design.md#mtt"
+   ]
+  },
+  {
+   "key": "dsn.tow_sled_kg",
+   "v": 189,
+   "unit": "kg",
+   "status": "calculated",
+   "basis": [
+    "docs/03-design.md#mtt"
+   ]
+  },
+  {
+   "key": "dsn.tow_power_kw",
+   "v": 0.92,
+   "unit": "kW",
+   "status": "calculated",
+   "basis": [
+    "docs/03-design.md#mtt"
+   ]
+  },
+  {
+   "key": "dsn.crawler180_pair_kpa",
+   "v": 10.0,
+   "unit": "kPa",
+   "status": "calculated",
+   "basis": [
+    "docs/03-design.md#mtt"
+   ]
+  },
+  {
+   "key": "dsn.crawler300_kpa",
+   "v": 5.9,
+   "unit": "kPa",
+   "status": "calculated",
+   "basis": [
+    "docs/03-design.md#mtt"
+   ]
+  },
+  {
+   "key": "dsn.crawler300_pair_kpa",
+   "v": 3.0,
+   "unit": "kPa",
+   "status": "calculated",
+   "basis": [
+    "docs/03-design.md#mtt"
+   ]
+  },
+  {
+   "key": "dsn.head_top_m",
+   "v": 1.19,
+   "unit": "m",
+   "status": "calculated",
+   "basis": [
+    "docs/03-design.md#mtt"
+   ]
+  },
+  {
+   "key": "dsn.rollbar_needed_mm",
+   "v": 1240,
+   "unit": "mm",
+   "status": "calculated",
+   "basis": [
+    "docs/03-design.md#mtt"
    ]
   },
   {
@@ -6087,6 +6323,46 @@
    "note": "Read by a helper. The waters exempt from registration are named one by one, such as the artificial ponds of particular theme parks; private waters are exempt only when named."
   },
   {
+   "id": "P59",
+   "class": "P",
+   "title": "CRREL Report 95-1, Cold Regions Mobility Models (traction on snow), with ERDC/CRREL TR-11-9",
+   "url": "https://coldregionsresearch.tpub.com/CR95_01/CR95_010014.htm",
+   "retrieved": "2026-11-04",
+   "license": "US Army report, approved for public release",
+   "read": "partial",
+   "note": "Read by a helper. On packed snow the gross traction stress is 0.321 N^0.97 (N the contact pressure in kPa), about 0.3 of the load for a track at a few kPa, and the terrain resistance is taken as zero; in shallow undisturbed snow 0.851 N^0.823. TR-11-9 measured drawbar pull over weight of 0.28 to 0.61 for tracked vehicles on polar snow."
+  },
+  {
+   "id": "P60",
+   "class": "P",
+   "title": "ERDC/CRREL TR-16-4, Advances in Antarctic Sled Technology, 2016",
+   "url": "https://geo-summit.org/sites/default/files/docs/ERDC-CRREL_TR-16-4.pdf",
+   "retrieved": "2026-11-04",
+   "license": "approved for public release, unlimited",
+   "read": "partial",
+   "note": "Read by a helper. Polyethylene sleds slide on cold snow at a steady 0.025 to 0.10 of their weight; starting from cold the resistance is about twice that for 10 to 30 min."
+  },
+  {
+   "id": "P61",
+   "class": "P",
+   "title": "AIST human body dimension database 1991-92 (Kouchi and Mochimaru 2005, H16PRO 287), stature and sitting height",
+   "url": "https://www.airc.aist.go.jp/dhrt/91-92/data/list.html",
+   "retrieved": "2026-11-04",
+   "license": "unknown (cite as Kouchi and Mochimaru 2005)",
+   "read": "full",
+   "note": "Read by a helper. Japanese men of 18 to 29 - stature 1,714 mm, sitting height (seat surface to the top of the head, upright) 926 mm, a ratio of 0.540; 95th percentile sitting height 985 mm."
+  },
+  {
+   "id": "P62",
+   "class": "P",
+   "title": "OECD Code 7 (February 2025), rear-mounted foldable roll-over protective structures, section 3.7",
+   "url": "https://www.naro.go.jp/laboratory/iam/contents/test/pdf/kensa_202503_10_3.pdf",
+   "retrieved": "2026-11-04",
+   "license": "unknown",
+   "read": "partial",
+   "note": "Read by a helper. A foldable ROPS is raised and lowered by hand with at most 100, 75, or 50 N depending on the zone; one standing operator works its lock; pins are captive with marked positions; an automatic lock passes 500 cycles; hand and finger clearances of 100 and 25 mm."
+  },
+  {
    "id": "S3",
    "class": "S",
    "title": "Wikipedia, Yamaha Bravo",
@@ -6235,6 +6511,46 @@
    "license": "unknown",
    "read": "full",
    "note": "Read by a helper, with https://sherpusadealer.com/sherp-pro/. Argo 650 6x6 - 17 kW, 440 kg, 168 kg load on water, moved in water by its tyres with paddle rims (about 5 km/h on dealer pages). Sherp Pro - 1,300 kg, 33 kW, about 6 km/h on water."
+  },
+  {
+   "id": "M86",
+   "class": "M",
+   "title": "Kenki Parts Store, snowblower rubber crawler 180 x 60 x 28 with steel cores",
+   "url": "https://www.kenki-parts.com/SHOP/snow-1828SNB.html",
+   "retrieved": "2026-11-04",
+   "license": "unknown",
+   "read": "full",
+   "note": "Given by the owner; read by a helper. Width 180 mm, pitch 60 mm, 28 links, steel cores with sprocket holes, about 13 kg each, 24,700 JPY each with tax; fit checked by the snowblower's maker and model; no speed stated."
+  },
+  {
+   "id": "M87",
+   "class": "M",
+   "title": "Kenki Parts Store, snowblower rubber crawler 300 x 72 x 36 with steel cores",
+   "url": "https://www.kenki-parts.com/SHOP/snow-3036SNB.html",
+   "retrieved": "2026-11-04",
+   "license": "unknown",
+   "read": "full",
+   "note": "Given by the owner; read by a helper. Width 300 mm, pitch 72 mm, 36 links (the page lists the size both ways), steel cores with sprocket holes, about 40 kg each, 65,200 JPY each with tax, in stock."
+  },
+  {
+   "id": "M88",
+   "class": "M",
+   "title": "MTT-154 20 in technical specifications, 2020 (archived)",
+   "url": "https://mtt136.com/ressources/images/2020-mtt-154_20-spec-en.pdf",
+   "retrieved": "2026-11-04",
+   "license": "patented, all rights reserved",
+   "read": "full",
+   "note": "Read by a helper with the archived site and 2014 press articles. An electric track unit, 227 to 352 kg, track 508 x 3,912 mm, 18 km/h (32 optional), tows 1,450 kg on flat ground and 454 kg on all terrain, top rack 272 kg, 2,000 W power outlet, hitch and winch, joystick steering; the 2014 MTT-136 had a sled handle that folds for transport. No price; not on sale now."
+  },
+  {
+   "id": "M89",
+   "class": "M",
+   "title": "Baltmotors Snowdog Sport and Trail, and Sharmax S380 Ultra motor tugs",
+   "url": "https://baltmotors.ru/catalog/buksir/snowdog-sport-2027/",
+   "retrieved": "2026-11-04",
+   "license": "unknown",
+   "read": "full",
+   "note": "Read by a helper with https://www.rolf.ru/agregator/mototexnika/motobuksirovshhiki/. Snowdog Sport 18 hp, 155 kg, track 2,828 x 500 mm, 50 kg on the unit and 200 kg in the sled. Sharmax S380 6 hp, 65 kg, track 1,250 mm long, 20 to 40 kg on the unit and 250 to 300 kg in the sled."
   },
   {
    "id": "F1",
@@ -7059,6 +7375,19 @@
    "phase": "design",
    "closed_by": "D-028",
    "closed": "2026-11-04"
+  },
+  {
+   "id": "Q-031",
+   "kind": "question",
+   "text": "The rough inputs of 1.2.17 - the track's own resistance on packed snow, the allowance over the head for hair or a cap, and the wheel size under a snowblower crawler - are assumed until the donor's track is run on packed snow and the roll bar is laid out.",
+   "waits_for": "assistant",
+   "affects": [
+    "track.crr_snow_packed",
+    "rider.head_allow_mm",
+    "sm.crawler_wheel_dia_mm"
+   ],
+   "opened": "2026-11-04",
+   "phase": "design"
   }
  ],
  "hazards": [
@@ -7912,6 +8241,22 @@
    "by": "assistant",
    "date": "2026-11-04",
    "detail": "An independent helper recomputed the winter form of 1.3.12 by hand and searched docs/data/design.json for interferences in the lifted winter form, in two rounds. The first found two errors (a bow of two panels called three; foam counted twice under the pod) and six interferences - the winter chain through the left pan strip and a cross member, hanging brackets through the pan and the floor, the slide rails' arms through the track's upper run, and a drive shaft too short. The design was changed - a wider tunnel, the cross member moved to 0.55 m, side plates beside the track carrying cross shafts inside the loop, the edge to the ski's outer corner, the belly counted with the track, stanchions and a chain guard added. The second round found all fixed but two new faults, the rear lugs drawn with the lift counted twice and the calipers through the right side plate; the assistant fixed both and checked the clearances from design.json (7 mm each). Clearances under 10 mm remain at the bow, the horn, the side plates' tops, and the chain to the left plate. The winter chain's 96 links sit at the boundary of the length formula. sm.removed_kg of 1.2 is not used by the design."
+  },
+  {
+   "id": "K-010",
+   "target": [
+    "dsn.tow_pull_packed_n",
+    "dsn.tow_sled_kg",
+    "dsn.crawler300_pair_kpa",
+    "dsn.head_top_m",
+    "dsn.rollbar_needed_mm"
+   ],
+   "tier": "T2",
+   "method": "refute",
+   "result": "pass",
+   "by": "assistant",
+   "date": "2026-11-04",
+   "detail": "An independent helper recomputed the towing pull and sled mass, the crawlers' pressures, and the head and roll bar heights of 1.3.17 by hand; all reproduce and the physics is stated rightly. It found three overstated wordings (the 180 crawler not stated in stock, a pair of 300s beating rather than matching the donor's track, the base of twice the weight) and one claim without a source about tracks on pavement; all four were reworded the same day. The sitting height ratio comes from men of 18 to 29 and is applied to the tallest driver's stature."
   }
  ],
  "procedures": [
@@ -9427,6 +9772,12 @@
    "doc": "docs/03-design.md",
    "id": "issues",
    "title": "1.3.16 Layout issues still open",
+   "level": 2
+  },
+  {
+   "doc": "docs/03-design.md",
+   "id": "mtt",
+   "title": "1.3.17 Ideas from the MTT, new crawlers, and one form for both",
    "level": 2
   },
   {

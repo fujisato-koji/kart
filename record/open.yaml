@@ -380,3 +380,13 @@ items:
     phase: design
     closed_by: D-028
     closed: 2026-11-04
+  - id: Q-031
+    kind: question
+    text: The rough inputs of 1.2.17 - the track's own resistance on packed snow, the allowance over the head for hair or a cap, and the wheel size under a snowblower crawler - are assumed until the donor's track is run on packed snow and the roll bar is laid out.
+    waits_for: assistant
+    affects:
+      - track.crr_snow_packed
+      - rider.head_allow_mm
+      - sm.crawler_wheel_dia_mm
+    opened: 2026-11-04
+    phase: design

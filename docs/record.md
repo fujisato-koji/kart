@@ -73,6 +73,7 @@ The current state, with open items grouped by whom they wait for, is in [STATUS.
 | Q-028 | A kart that moves on a lake is an amphibious vessel, a special ship, which the small-boat exemption from ship inspection does not cover (P46). Ask the regional transport bureau whether a home-built amphibious kart moved on water only by an electric outboard under 1.5 kW, with its engine stopped, can be inspected; whether a tub that the persons formula rates for nobody may be approved on an inclining test, or needs side floats for water days; whether the 50 cc engine counts as propulsion because it can turn the wheels in water; and whether a pond on private land is outside the Ship Safety Act (only named waters are exempt from registration, P58). What an inspection asks and costs is in docs/02-form.md#water (P55, P56). No official page on a small amphibious vessel was found. | owner | D-027 |
 | Q-029 | The donor's track unit is drawn from assumed sizes - the track's thickness with its lugs, the rear idler's diameter, the drive shaft's height and its place ahead of the slide rails - which set the winter lift. Measure them on the donor (a Yamaha Bravo class) when it is bought, with its mass and mounting points, and check that a pivot shaft through the pillow blocks and brackets hanging from the rails can hold it. | assistant |  |
 | Q-030 | The sled pan held 0.020 m3 of foam, which floated 0.15 of the winter kart's own weight, while R-29 asked water.reserve_ratio, which needed about 0.158 m3. The room is not there without bolting large floats on. With boat use withdrawn (D-027), should R-29 keep only the driver's part (a life jacket and no seat belt on ice, nothing holding the driver) and drop the kart's floating, or should the kart carry floats in winter? | owner | D-028 |
+| Q-031 | The rough inputs of 1.2.17 - the track's own resistance on packed snow, the allowance over the head for hair or a cap, and the wheel size under a snowblower crawler - are assumed until the donor's track is run on packed snow and the roll bar is laid out. | assistant |  |
 <!-- tdr:end -->
 
 ## Values {#values}
@@ -439,6 +440,25 @@ The current state, with open items grouped by whom they wait for, is in [STATUS.
 | lay.bow_rise_mm | 80 | mm | calculated | docs/03-design.md#winter |
 | lay.bow_half_beam_mm | 200 | mm | calculated | docs/03-design.md#winter |
 | lay.float_dia_mm | 300 | mm | calculated | docs/03-design.md#winter |
+| snow.track_traction_packed | 0.3 |  | sourced | P59 |
+| track.crr_snow_packed | 0.05 |  | assumed | Q-031 |
+| sled.mu_packed | 0.1 |  | sourced | P60 |
+| sled.cold_start_factor | 2 |  | sourced | P60 |
+| rider.sitting_ratio | 0.54 |  | sourced | P61 |
+| rider.head_allow_mm | 30 | mm | assumed | Q-031 |
+| sm.crawler_wheel_dia_mm | 250 | mm | assumed | Q-031 |
+| crawler.c180_width_mm | 180 | mm | sourced | M86 |
+| crawler.c180_pitch_mm | 60 | mm | sourced | M86 |
+| crawler.c180_links | 28 |  | sourced | M86 |
+| crawler.c180_mass_kg | 13 | kg | sourced | M86 |
+| cost.crawler180_jpy | 24700 | JPY | sourced | M86 |
+| crawler.c300_width_mm | 300 | mm | sourced | M87 |
+| crawler.c300_pitch_mm | 72 | mm | sourced | M87 |
+| crawler.c300_links | 36 |  | sourced | M87 |
+| crawler.c300_mass_kg | 40 | kg | sourced | M87 |
+| cost.crawler300_jpy | 65200 | JPY | sourced | M87 |
+| lay.seat_cushion_mm | 30 | mm | calculated | docs/03-design.md#rollbar |
+| lay.rollbar_clear_mm | 50 | mm | calculated | docs/03-design.md#rollbar |
 | form.mass_total_kg | 170 | kg | calculated | docs/02-form.md#mass |
 | snow.wheel_sinkage_min_cm | 63.2 | cm | calculated | docs/02-form.md#snow |
 | snow.wheel_sinkage_max_cm | 83.8 | cm | calculated | docs/02-form.md#snow |
@@ -554,6 +574,14 @@ The current state, with open items grouped by whom they wait for, is in [STATUS.
 | dsn.belly_area_m2 | 0.98 | m2 | calculated | docs/03-design.md#winter |
 | dsn.belly_pressure_kpa | 2.27 | kPa | calculated | docs/03-design.md#winter |
 | dsn.belly_height_mm | 318 | mm | calculated | docs/03-design.md#winter |
+| dsn.tow_pull_packed_n | 372 | N | calculated | docs/03-design.md#mtt |
+| dsn.tow_sled_kg | 189 | kg | calculated | docs/03-design.md#mtt |
+| dsn.tow_power_kw | 0.92 | kW | calculated | docs/03-design.md#mtt |
+| dsn.crawler180_pair_kpa | 10.0 | kPa | calculated | docs/03-design.md#mtt |
+| dsn.crawler300_kpa | 5.9 | kPa | calculated | docs/03-design.md#mtt |
+| dsn.crawler300_pair_kpa | 3.0 | kPa | calculated | docs/03-design.md#mtt |
+| dsn.head_top_m | 1.19 | m | calculated | docs/03-design.md#mtt |
+| dsn.rollbar_needed_mm | 1240 | mm | calculated | docs/03-design.md#mtt |
 | dsn.climb_force_n | 643 | N | calculated | docs/03-design.md#climb |
 | dsn.climb_grip_n | 716 | N | calculated | docs/03-design.md#climb |
 | dsn.climb_thrust_n | 1359 | N | calculated | docs/03-design.md#climb |
@@ -717,6 +745,10 @@ The current state, with open items grouped by whom they wait for, is in [STATUS.
 | P56 | P | Ship Safety Act (308AC0000000011) articles 5, 6, 10, and 18, and its Enforcement Ordinance articles 18, 24, 32, 35, and 66 with appended table 1 | partial |
 | P57 | P | MLIT, outline of the small boat operator licence | excerpt |
 | P58 | P | MLIT Notice 243 of 2002, waters exempt from small vessel registration | full |
+| P59 | P | CRREL Report 95-1, Cold Regions Mobility Models (traction on snow), with ERDC/CRREL TR-11-9 | partial |
+| P60 | P | ERDC/CRREL TR-16-4, Advances in Antarctic Sled Technology, 2016 | partial |
+| P61 | P | AIST human body dimension database 1991-92 (Kouchi and Mochimaru 2005, H16PRO 287), stature and sitting height | full |
+| P62 | P | OECD Code 7 (February 2025), rear-mounted foldable roll-over protective structures, section 3.7 | partial |
 | S3 | S | Wikipedia, Yamaha Bravo | full |
 | S4 | S | Wikipedia, Ground pressure | full |
 | S7 | S | PowerSportsGuide, 120 cc snowmobiles and Yamaha snowmobile horsepower | partial |
@@ -732,6 +764,10 @@ The current state, with open items grouped by whom they wait for, is in [STATUS.
 | M83 | M | Cainz, Styrofoam IB extruded polystyrene board 910 x 1,820 mm | full |
 | M84 | M | HAIGE electric outboard HS-50703-90, Yahoo Shopping | partial |
 | M85 | M | Argo Frontier 650 6x6 2023 and Sherp Pro specifications | full |
+| M86 | M | Kenki Parts Store, snowblower rubber crawler 180 x 60 x 28 with steel cores | full |
+| M87 | M | Kenki Parts Store, snowblower rubber crawler 300 x 72 x 36 with steel cores | full |
+| M88 | M | MTT-154 20 in technical specifications, 2020 (archived) | full |
+| M89 | M | Baltmotors Snowdog Sport and Trail, and Sharmax S380 Ultra motor tugs | full |
 | F1 | F | Motor1, a shifter kart turned into a snowmobile, 2025-02-02 | partial |
 | F2 | F | 6x6world forum, Argo open water speed with outboard | full |
 | F3 | F | Goo-net Magazine, an electric track unit from Canada (MTT, My Track Technology), 2016-10-14 | full |
@@ -751,6 +787,7 @@ The current state, with open items grouped by whom they wait for, is in [STATUS.
 | K-007 | T2 | refute | pass | 2026-11-04 |
 | K-008 | T2 | refute | pass | 2026-11-04 |
 | K-009 | T2 | refute | pass | 2026-11-04 |
+| K-010 | T2 | refute | pass | 2026-11-04 |
 <!-- tdr:end -->
 
 ## Parts {#parts}
