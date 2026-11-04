@@ -55,6 +55,8 @@ function mats() {
     engineRed: std(C.engineRed, 0.45, 0.1), alu: std(C.alu, 0.45, 0.7), aluDark: std(C.aluDark, 0.5, 0.65),
     seat: std(C.seat, 0.8, 0.0, { side: THREE.DoubleSide }), floor: std(C.floor, 0.6, 0.4),
     ski: std(C.ski, 0.5, 0.05), chain: std(C.chain, 0.4, 0.8), brass: std(C.brass, 0.4, 0.8),
+    pan: std(0xeeeadf, 0.55, 0.0, { side: THREE.DoubleSide }), track: std(0x2b2d30, 0.95, 0.0), lug: std(0x1c1d20, 0.95, 0.0),
+    float: std(0xff7a1a, 0.45, 0.0, { transparent: true, opacity: 0.85 }), motor: std(0x30353b, 0.45, 0.3), motorCowl: std(0xd8dde2, 0.4, 0.2),
     black: std(0x0e0f10, 0.7, 0.2), finDark: std(0x4d545b, 0.5, 0.7), key: std(0x1a1c1e, 0.9, 0.2),
   };
   return _M;
@@ -784,7 +786,85 @@ function boxItem(it) {
   } else if (it.part === 'head_restraint') {
     g.add(box(sx, sy, sz, M.seat, Math.min(sx, sz) * 0.4));
     for (const sg of [-1, 1]) g.add(cylBetween(new THREE.Vector3(0, sg * sy * 0.25, -sz / 2), new THREE.Vector3(0, sg * sy * 0.25, -sz / 2 - 0.1), 0.006, M.steel, 8));
-  } else g.add(box(sx, sy, sz, M.darkSteel, 0.005));
+  } else if (it.color === 'pan') g.add(box(sx, sy, sz, M.pan, 0.004));
+  else g.add(box(sx, sy, sz, M.darkSteel, 0.005));
+  g.position.set(...it.pos); return g;
+}
+
+// ---- winter and future-water items
+function hull2(pts) { // convex hull, counter-clockwise (monotone chain)
+  const p = pts.slice().sort((a, b) => a[0] - b[0] || a[1] - b[1]); const cr = (o, a, b) => (a[0] - o[0]) * (b[1] - o[1]) - (a[1] - o[1]) * (b[0] - o[0]);
+  const lo = [], up = [];
+  for (const q of p) { while (lo.length >= 2 && cr(lo[lo.length - 2], lo[lo.length - 1], q) <= 0) lo.pop(); lo.push(q); }
+  for (const q of p.slice().reverse()) { while (up.length >= 2 && cr(up[up.length - 2], up[up.length - 1], q) <= 0) up.pop(); up.push(q); }
+  return lo.slice(0, -1).concat(up.slice(0, -1));
+}
+function offsetPoly(h, d) { // move each vertex of a counter-clockwise polygon outward by d
+  return h.map((p, i) => {
+    const a = h[(i + h.length - 1) % h.length], b = h[(i + 1) % h.length];
+    const n1 = [p[1] - a[1], a[0] - p[0]], n2 = [b[1] - p[1], p[0] - b[0]];
+    const l1 = Math.hypot(...n1) || 1, l2 = Math.hypot(...n2) || 1;
+    const nx = n1[0] / l1 + n2[0] / l2, ny = n1[1] / l1 + n2[1] / l2, nl = Math.hypot(nx, ny) || 1;
+    return [p[0] + nx / nl * d, p[1] + ny / nl * d];
+  });
+}
+function trackItem(it) { // a rubber band around the road wheels (x-z plane, centred at y = 0)
+  const M = mats(); const g = new THREE.Group(); const t = it.t, w = it.width;
+  const pts = [];
+  for (const [cx, cz, r] of it.wheels) for (let i = 0; i < 24; i++) { const a = i / 24 * Math.PI * 2; pts.push([cx + r * Math.cos(a), cz + r * Math.sin(a)]); }
+  const h = hull2(pts), outer = offsetPoly(h, t), inner = h; // the band rests on the wheels: inner face on the hull
+  const sh = new THREE.Shape(outer.map((p) => new THREE.Vector2(p[0], p[1])));
+  sh.holes.push(new THREE.Path(inner.slice().reverse().map((p) => new THREE.Vector2(p[0], p[1]))));
+  const geo = new THREE.ExtrudeGeometry(sh, { depth: w, bevelEnabled: false, curveSegments: 4 });
+  geo.translate(0, 0, -w / 2); geo.rotateX(Math.PI / 2);
+  g.add(mesh(geo, M.track));
+  // lugs: small cleats across the band, evenly spaced along the outer face
+  const lugH = Math.min(0.016, t * 0.7), step = 0.055, segs = [];
+  let per = 0; for (let i = 0; i < outer.length; i++) { const a = outer[i], b = outer[(i + 1) % outer.length], l = Math.hypot(b[0] - a[0], b[1] - a[1]); segs.push({ a, b, l, s: per }); per += l; }
+  const n = Math.max(8, Math.round(per / step)), lug = new THREE.InstancedMesh(new THREE.BoxGeometry(0.014, w * 0.92, lugH * 2), M.lug, n);
+  const mt = new THREE.Matrix4(), q = new THREE.Quaternion(), e = new THREE.Euler();
+  let si = 0;
+  for (let k = 0; k < n; k++) {
+    const d = (k + 0.5) / n * per; while (si < segs.length - 1 && segs[si].s + segs[si].l < d) si++;
+    const sg = segs[si], f = Math.min(1, (d - sg.s) / (sg.l || 1)), tx = (sg.b[0] - sg.a[0]) / (sg.l || 1), tz = (sg.b[1] - sg.a[1]) / (sg.l || 1);
+    e.set(0, -Math.atan2(tz, tx), 0); q.setFromEuler(e);
+    mt.compose(new THREE.Vector3(sg.a[0] + (sg.b[0] - sg.a[0]) * f, 0, sg.a[1] + (sg.b[1] - sg.a[1]) * f), q, new THREE.Vector3(1, 1, 1));
+    lug.setMatrixAt(k, mt);
+  }
+  shade(lug); g.add(lug);
+  for (const [cx, cz, r] of it.wheels) { const c = cylY(r * 0.96, w * 0.8, M.rim, 32); c.position.set(cx, 0, cz); g.add(c); }
+  return g;
+}
+function sheetItem(it) { // a flat slab through four corners (UHMW plastic)
+  const M = mats(); const c = it.corners.map(V); const u = c[1].clone().sub(c[0]), v = c[3].clone().sub(c[0]);
+  const n = new THREE.Vector3().crossVectors(u, v).normalize().multiplyScalar(it.t / 2);
+  const top = c.map((p) => p.clone().add(n)), bot = c.map((p) => p.clone().sub(n)), pos = [];
+  const tri = (a, b, d) => pos.push(a.x, a.y, a.z, b.x, b.y, b.z, d.x, d.y, d.z);
+  const quad = (a, b, d, e) => { tri(a, b, d); tri(a, d, e); };
+  quad(top[0], top[1], top[2], top[3]); quad(bot[3], bot[2], bot[1], bot[0]);
+  for (let i = 0; i < 4; i++) { const j = (i + 1) % 4; quad(top[i], bot[i], bot[j], top[j]); }
+  const geo = new THREE.BufferGeometry(); geo.setAttribute('position', new THREE.Float32BufferAttribute(pos, 3)); geo.computeVertexNormals();
+  return mesh(geo, M.pan);
+}
+function floatItem(it) { // a pontoon along x with tapered ends
+  const M = mats(); const g = new THREE.Group(); const r = it.d / 2, L = it.l, k = Math.min(r * 1.6, L * 0.2);
+  const prof = [[0, -L / 2], [r * 0.45, -L / 2 + k * 0.12], [r * 0.8, -L / 2 + k * 0.45], [r, -L / 2 + k], [r, L / 2 - k], [r * 0.8, L / 2 - k * 0.45], [r * 0.45, L / 2 - k * 0.12], [0, L / 2]];
+  const geo = new THREE.LatheGeometry(prof.map((p) => new THREE.Vector2(p[0], p[1])), 32); geo.rotateZ(-Math.PI / 2);
+  const m = mesh(geo, M.float); m.castShadow = false; m.userData.cast = false; g.add(m);
+  g.position.set(...it.pos); return g;
+}
+function outboardItem(it) { // a motor head at the stern top and a shaft that leans back toward -x
+  const M = mats(); const g = new THREE.Group(); const tl = it.tilt_deg * Math.PI / 180;
+  const head = box(0.25, 0.15, 0.30, M.motorCowl, 0.03); head.position.set(0, 0, 0.0); g.add(head);
+  const a = new THREE.Vector3(0, 0, -0.1), dir = new THREE.Vector3(-Math.sin(tl), 0, -Math.cos(tl)), b = a.clone().addScaledVector(dir, it.shaft);
+  g.add(cylBetween(a, b, 0.035, M.motor, 14, 0.03));
+  const torp = cylBetween(b.clone().addScaledVector(dir, -0.04), b.clone().addScaledVector(dir, 0.1), 0.045, M.motor, 14, 0.03); g.add(torp);
+  const hubP = b.clone().addScaledVector(dir, 0.1), hub = sphere(0.02, M.steel, 10); hub.position.copy(hubP); g.add(hub);
+  const side = new THREE.Vector3(0, 1, 0), nrm = new THREE.Vector3().crossVectors(dir, side).normalize();
+  for (let i = 0; i < 3; i++) { // three blades around the shaft axis
+    const ang = i / 3 * Math.PI * 2, rad = new THREE.Vector3().addScaledVector(side, Math.cos(ang)).addScaledVector(nrm, Math.sin(ang));
+    const blade = cylBetween(hubP, hubP.clone().addScaledVector(rad, 0.075), 0.011, M.steel, 8); g.add(blade);
+  }
   g.position.set(...it.pos); return g;
 }
 function gaugeItem(it) {
@@ -842,7 +922,11 @@ function buildItem(it, ctx) {
     case 'chain': return chainItem(it, ctx);
     case 'guard': return guardItem(it);
     case 'spindle': return spindleItem(it, ctx);
-    case 'ski': return skiItem({ ...it, stubZ: ctx.design.items.find((o) => o.type === 'spindle').to[2] });
+    case 'ski': return skiItem({ ...it, stubZ: it.stub_z ?? ctx.design.items.find((o) => o.type === 'spindle').to[2] });
+    case 'track': return trackItem(it);
+    case 'sheet': return sheetItem(it);
+    case 'float': return floatItem(it);
+    case 'outboard': return outboardItem(it);
     case 'rod': return rodItem(it);
     case 'steering_wheel': return steeringWheelItem(it);
     case 'seat': return seatItem(it);
@@ -866,7 +950,7 @@ export function buildKart(design) {
   for (const g of buildMembers(design)) add(g, { part: g.userData.part, configs: g.userData.configs, type: 'member' });
   for (const it of design.items) {
     const g = buildItem(it, ctx);
-    if (g) add(g, { part: it.part, configs: it.configs, type: it.type, rider: it.rider });
+    if (g) add(g, { part: it.part, configs: it.configs, type: it.type, rider: it.rider, ground: !!it.ground, future: !!it.future });
   }
   return { root, groups };
 }
@@ -986,7 +1070,8 @@ export function buildDelica(design) {
 
 // ---------------------------------------------------------------- dimension lines
 export function buildDims(design, config) {
-  const d = design.dims, K = ILLUSTRATIVE.dim, root = new THREE.Group(); root.name = 'dims';
+  const winter = config === 'winter' && design.dims_winter; // the winter form is longer and rides higher
+  const d = winter ? { ...design.dims, ...design.dims_winter } : design.dims, K = ILLUSTRATIVE.dim, root = new THREE.Group(); root.name = 'dims';
   const mat = new THREE.LineBasicMaterial({ color: K.colour, depthTest: false, transparent: true });
   const wTot = config === 'transport' ? d.width_transport : d.width, tr = config === 'transport' ? d.track_rear_narrow : d.track_rear;
   const line = (a, b, text, tick, lift = [0, 0, 0]) => {
@@ -1003,8 +1088,9 @@ export function buildDims(design, config) {
   line([d.x_back - 0.4, -tr / 2, zg], [d.x_back - 0.4, tr / 2, zg], `後輪トレッド ${mmText(tr)}`, [1, 0, 0], [0, 0, 0.04]);
   line([d.wheelbase + 0.36, -d.track_front / 2, zg], [d.wheelbase + 0.36, d.track_front / 2, zg], `前輪トレッド ${mmText(d.track_front)}`, [1, 0, 0], [0, 0, 0.04]);
   line([d.x_back - 0.05, yL + 0.1, 0], [d.x_back - 0.05, yL + 0.1, d.height], `全高 ${mmText(d.height)}`, [1, 0, 0], [0, 0.0, 0]);
-  line([d.wheelbase * 0.8, yR - 0.1, 0], [d.wheelbase * 0.8, yR - 0.1, d.clearance], `地上高 ${mmText(d.clearance)}`, [1, 0, 0], [0, 0, 0.0]);
-  line([d.wheelbase * 0.2, yR - 0.1, 0], [d.wheelbase * 0.2, yR - 0.1, d.low_point], `最低部 ${mmText(d.low_point)}`, [1, 0, 0], [0, 0, 0.0]);
+  const clr = winter ? d.belly : d.clearance; // winter: the belly of the sled pan above the snow
+  line([d.wheelbase * 0.8, yR - 0.1, 0], [d.wheelbase * 0.8, yR - 0.1, clr], `地上高 ${mmText(clr)}`, [1, 0, 0], [0, 0, 0.0]);
+  if (!winter) line([d.wheelbase * 0.2, yR - 0.1, 0], [d.wheelbase * 0.2, yR - 0.1, d.low_point], `最低部 ${mmText(d.low_point)}`, [1, 0, 0], [0, 0, 0.0]);
   const wrap = new THREE.Group(); wrap.applyMatrix4(KART_TO_WORLD); wrap.add(root); wrap.name = 'dims';
   return wrap;
 }

@@ -37,6 +37,8 @@ button.on { background: var(--accent); color: var(--accent-fg); border-color: va
 #partsList li.sel label { font-weight: 700; color: var(--accent); }
 .status { position: fixed; left: 12px; bottom: 10px; padding: 3px 10px; background: var(--card); border: 1px solid var(--line); border-radius: 8px; z-index: 3; color: var(--muted); }
 .status:empty { display: none; }
+.future-note { position: fixed; left: 50%; bottom: 10px; transform: translateX(-50%); padding: 3px 12px; background: var(--card); border: 1px solid #e07a1a; border-radius: 8px; z-index: 3; color: #b85a00; font-weight: 600; }
+.future-note[hidden] { display: none; }
 .loading[hidden] { display: none; }
 .loading { position: fixed; inset: 0; display: grid; place-items: center; color: var(--muted); pointer-events: none; }
 .error { position: fixed; left: 12px; right: 12px; top: 70px; padding: 12px; border: 1px solid #c62828; color: #c62828; background: var(--card); border-radius: 8px; white-space: pre-wrap; z-index: 9; }

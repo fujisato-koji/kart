@@ -130,11 +130,6 @@ lines:
     qty: 1
     price: cost.uhmw_order_jpy
     need: w1
-  - part: snow_chains
-    item: Ladder chains for small tyres, adjustable
-    qty: 2
-    price: cost.snow_chain_jpy
-    need: w1
   - part: kart
     item: Welder, 100 V no-gas
     qty: 1
@@ -252,3 +247,38 @@ lines:
     qty: 1
     price: cost.plate_stay_jpy
     need: r1
+  - part: track_unit
+    item: Running small snowmobile (Yamaha Bravo class) as donor of its track unit, drive shaft, and brake parts
+    qty: 1
+    price: cost.donor_bravo_jpy
+    need: w1
+  - part: track_unit
+    item: Pivot shaft, hanging brackets, ski stanchions, and bolts (allowance)
+    qty: 1
+    price: cost.allow_winter_mounts_jpy
+    need: w2
+  - part: winter_chain
+    item: Chain 420, 120 links, cut to the winter length
+    qty: 1
+    price: cost.chain420_jpy
+    need: w2
+  - part: winter_chain
+    item: Sprocket 420, 30T on the track's drive shaft (with an adapter, machined)
+    qty: 1
+    price: cost.spr420_30t_jpy
+    need: w2
+  - part: sled_pan
+    item: UHMW polyethylene sheet 6 mm for the pan's bottom and bow (m2)
+    qty: 2
+    price: cost.hull_bottom_jpy_per_m2
+    need: w2
+  - part: sled_pan
+    item: UHMW polyethylene sheet 3 mm for the right pod (m2)
+    qty: 1
+    price: cost.hull_side_jpy_per_m2
+    need: w2
+  - part: sled_pan
+    item: Extruded polystyrene board 50 mm, 910 x 1,820 (m3, one board is 0.083)
+    qty: 0.083
+    price: cost.xps_jpy_per_m3
+    need: w2

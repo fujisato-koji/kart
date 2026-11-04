@@ -18,12 +18,13 @@ const PART_NAMES = {
   tie_rods: 'タイロッド', spindles: 'スピンドルとキングピン', front_wheels: '前輪とタイヤ', axle_shaft: 'アクスル軸',
   axle_bearings: 'アクスル軸受（UCP）', rear_hubs: '後輪ハブ', rear_wheels: '後輪とタイヤ', brake: 'ディスクブレーキ',
   engine: 'エンジン', clutch: '遠心クラッチ', jackshaft: 'ジャックシャフト', chain_primary: '一次チェーン', chain_final: '二次チェーン',
-  skis: 'スキー', snow_chains: 'タイヤチェーン', roll_bar: 'ロールバー', lighting: '灯火と方向指示器', mirrors: 'ミラー', horn: 'ホーン',
+  skis: 'スキー', track_unit: 'キャタピラユニット', winter_chain: '冬のチェーン', sled_pan: 'そり底',
+  side_floats: '浮き（将来版）', outboard: '船外機（将来版）', roll_bar: 'ロールバー', lighting: '灯火と方向指示器', mirrors: 'ミラー', horn: 'ホーン',
   speedometer: '速度計', seat_belt: 'シートベルト', head_restraint: 'ヘッドレスト', hand_brake: 'ハンドブレーキ', battery: 'バッテリー', number_plate: 'ナンバー',
 };
 
 const state = {
-  config: ['summer', 'winter', 'transport'].includes(params.get('config')) ? params.get('config') : 'summer',
+  config: ['summer', 'winter', 'transport', 'water'].includes(params.get('config')) ? params.get('config') : 'summer',
   rider: ['adult', 'child', 'none'].includes(params.get('rider')) ? params.get('rider') : 'adult',
   delica: params.get('delica') === '1', dims: params.get('dims') === '1',
   view: ['iso', 'side', 'top', 'front'].includes(params.get('view')) ? params.get('view') : 'iso',
@@ -122,19 +123,27 @@ function groupShown(g) {
   if (u.type === 'pedals' && u.rider !== pedalRider()) return false;
   return true;
 }
+// winter: the whole chassis rides higher; items marked ground (tracks, skis) keep their absolute height
+function liftNow() { return state.config === 'winter' && design.lift ? design.lift.winter || 0 : 0; }
 function applyAll() {
-  for (const g of groups) g.visible = groupShown(g);
+  const lift = liftNow();
+  for (const g of groups) {
+    if (g.userData.baseZ === undefined) g.userData.baseZ = g.position.z;
+    g.position.z = g.userData.baseZ + (g.userData.ground ? 0 : lift); // kart frame: z is up
+    g.visible = groupShown(g);
+  }
   // rider
   if (riderObj) { scene.remove(riderObj); riderObj = null; }
   if (state.rider !== 'none') {
     riderCache[state.rider] = riderCache[state.rider] || buildRider(design, state.rider);
-    riderObj = riderCache[state.rider]; scene.add(riderObj);
+    riderObj = riderCache[state.rider]; riderObj.position.y = lift; scene.add(riderObj); // world frame: y is up
   }
   delicaObj.visible = state.delica; floorShadow.visible = state.delica;
   const lip = state.delica ? design.delica.lip : 0;
   ground.position.y = -lip;
   if (dimsObj) { scene.remove(dimsObj); dimsObj = null; }
   if (state.dims) { dimsObj = buildDims(design, state.config); scene.add(dimsObj); }
+  $('futureNote').hidden = state.config !== 'water';
   applyFocus(); syncUi(); dirty = true;
 }
 function setState(patch, user = false) {
@@ -170,8 +179,8 @@ function focusParts(ids) {
 
 // ---------------------------------------------------------------- views
 function viewSpec(name) {
-  const d = design.dims, D = design.delica, dl = state.delica;
-  const rd = design.riders[state.rider], riderTop = rd ? rd.hip[2] + 0.55 * rd.stature : 0;
+  const win = state.config === 'winter' && design.dims_winter, d = win ? { ...design.dims, ...design.dims_winter } : design.dims, D = design.delica, dl = state.delica;
+  const rd = design.riders[state.rider], riderTop = rd ? rd.hip[2] + 0.55 * rd.stature + liftNow() : 0;
   const L = dl ? Math.max(d.length, D.length) : d.length, W = dl ? D.width_max : d.width, Hh = dl ? D.height : Math.max(d.height, riderTop) + 0.1;
   const target = k2w((d.x_front + d.x_back) / 2, 0, dl ? D.height * 0.35 : Math.max(d.height, riderTop) * 0.4);
   const aspect = camera.aspect, tf = Math.tan(THREE.MathUtils.degToRad(camera.fov / 2));

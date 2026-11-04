@@ -2,18 +2,37 @@ kind: procedure
 schema: 1
 items:
   - id: OP-04
-    title: Change to the winter setup
+    title: Change to the winter form
     steps:
       - id: OP-04.01
-        action: Lift the front, take off the front wheels, and bolt the skis onto the spindles.
+        action: On level ground, lift the kart onto four stands at the winter height, with the engine stopped and cold.
+        values:
+          - dsn.winter_lift_mm
+        controls:
+          - H-10
+      - id: OP-04.02
+        action: Take off the summer chain, the rear wheels with their hubs, the axle sprocket, the brake disc with both calipers, and the rear axle.
+      - id: OP-04.03
+        action: Slide the track unit's pivot shaft through the three pillow blocks, and bolt its drive shaft's bearings to the brackets under the rails.
+        values:
+          - sm.track_width_mm
+          - sm.track_contact_mm
+      - id: OP-04.04
+        action: Fit the brake disc and both calipers on the drive shaft, bleed nothing, and check that the brake holds.
+        controls:
+          - H-01
+      - id: OP-04.05
+        action: Fit the 30T sprocket and the winter chain, tension it, and refit the chain guard.
+        values:
+          - dsn.winter_chain_links
+        controls:
+          - H-03
+      - id: OP-04.06
+        action: Take off the front wheels and bolt the skis with their stanchions onto the spindles.
         values:
           - ski.width_mm
           - ski.contact_length_mm
-      - id: OP-04.02
-        action: Fit the chains on the rear tyres and tighten them.
-        controls:
-          - H-07
-      - id: OP-04.03
-        action: Check the steering moves freely from lock to lock with the skis.
+      - id: OP-04.07
+        action: Lower the kart, check that the steering moves freely from lock to lock and that the track turns freely with the rear lifted.
         controls:
           - H-07

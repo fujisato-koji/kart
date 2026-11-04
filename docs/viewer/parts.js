@@ -29,7 +29,7 @@ export const PART_KEYS = {
   chain_final: ['lay.chain420_y_mm', 'dsn.chain420_*', 'gear.t_out420', 'gear.t_axle420', 'cost.chain420_set_jpy', 'dsn.axle_chain_pull_n'],
   throttle: ['cost.throttle_cable_jpy'],
   kill_switch: ['cost.kill_*'],
-  skis: ['ski.*', 'snow.ski_*', 'cost.uhmw_order_jpy'],
+  skis: ['ski.*', 'snow.ski_*', 'dsn.winter_lift_mm', 'cost.uhmw_order_jpy'],
   roll_bar: ['lay.rollbar_top_mm', 'law.marker_height_mm', 'dsn.height_m', 'cost.tube_32x23_jpy_per_m'],
   lighting: ['cost.road_lamps_jpy'],
   mirrors: ['cost.mirror_horn_speedo_jpy'],
@@ -40,7 +40,11 @@ export const PART_KEYS = {
   hand_brake: ['cost.hand_brake_jpy', 'law.parking_grade_pct'],
   battery: ['cost.battery12_jpy'],
   number_plate: ['cost.plate_bracket_jpy', 'cost.tax_year_jpy', 'cost.cali_year_jpy'],
-  snow_chains: ['ground.mu_snow_chains', 'ground.mu_ice_chains', 'cost.snow_chain_jpy'],
+  track_unit: ['sm.track_*', 'sm.idler_dia_mm', 'sm.drive_*', 'dsn.winter_*', 'cost.donor_bravo_jpy', 'cost.allow_winter_mounts_jpy'],
+  winter_chain: ['dsn.winter_chain_*', 'cost.chain420_jpy', 'cost.spr420_30t_jpy'],
+  sled_pan: ['lay.pan_*', 'lay.pod_*', 'lay.bow_*', 'lay.tunnel_*', 'hull.bottom_t_mm', 'hull.side_t_mm', 'dsn.pan_mass_kg', 'dsn.foam_*', 'dsn.belly_*', 'cost.hull_*', 'cost.xps_jpy_per_m3'],
+  side_floats: ['lay.float_dia_mm', 'water.*'],
+  outboard: ['outboard.*', 'cost.outboard_jpy', 'cost.allow_outboard_battery_jpy'],
 };
 
 const matches = (pattern, key) => (pattern.endsWith('*') ? key.startsWith(pattern.slice(0, -1)) : key === pattern);
@@ -65,7 +69,8 @@ export function partOfObject(obj) {
 // The setup of the 3D view that shows an item best
 export function viewForItem(kind, id) {
   if (kind === 'part') {
-    if (id === 'skis' || id === 'snow_chains') return { config: 'winter' };
+    if (id === 'skis' || id === 'track_unit' || id === 'winter_chain') return { config: 'winter' };
+    if (id === 'side_floats' || id === 'outboard') return { config: 'water' };
     if (id === 'rear_hubs') return { config: 'transport' };
     return null;
   }

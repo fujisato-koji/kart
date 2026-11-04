@@ -24,9 +24,11 @@ states:
     label: Summer setup (tyres)
   - id: winter
     group: setup
-    label: Winter setup (skis and chains)
+    label: Winter form (skis and a track)
     refs:
       - OP-04
+      - OP-06
+      - R-28
       - R-05
       - R-06
   - id: checked
@@ -65,17 +67,19 @@ transitions:
     trigger: Take out for a run in summer
   - from: stored
     to: winter
-    trigger: Fit skis and chains
+    trigger: Fit the track unit and the skis
     refs:
       - OP-04
   - from: summer
     to: winter
-    trigger: Fit skis and chains
+    trigger: Fit the track unit and the skis
     refs:
       - OP-04
   - from: winter
     to: summer
-    trigger: Fit the front wheels, take off the chains
+    trigger: Refit the axle, wheels, and summer chain
+    refs:
+      - OP-06
   - from: stored
     to: transport
     trigger: Narrow the rear track and load

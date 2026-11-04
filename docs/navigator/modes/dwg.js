@@ -16,12 +16,12 @@ export const ILLUSTRATIVE = {
   zoom: { min: 0.6, max: 12, step: 1.25 },
 };
 const I = ILLUSTRATIVE;
-const CONFIG_LABEL = { summer: '夏', winter: '冬', transport: '搬送' };
+const CONFIG_LABEL = { summer: '夏', winter: '冬（スノーモービル型）', transport: '搬送', water: '水（将来版）' };
 const PART_JA = {
   frame: 'フレーム', floor: 'フロア板', bumpers: 'バンパー・サイドバー', seat: 'シート', seat_slide: 'シートスライド', pedal_box: 'ペダルボックス',
   guards: 'チェーンガード', steering_wheel: 'ステアリングホイール', steering_column: 'ステアリングコラム', tie_rods: 'タイロッド', spindles: 'スピンドル',
   front_wheels: '前輪', axle_shaft: 'アクスル軸', axle_bearings: 'アクスル軸受', rear_hubs: '後輪ハブ', rear_wheels: '後輪', brake: 'ブレーキ',
-  engine: 'エンジン', chain_final: 'チェーン', skis: 'スキー', snow_chains: 'タイヤチェーン', roll_bar: 'ロールバー', lighting: '灯火と方向指示器', mirrors: 'ミラー', horn: 'ホーン', speedometer: '速度計', seat_belt: 'シートベルト', head_restraint: 'ヘッドレスト', hand_brake: 'ハンドブレーキ', battery: 'バッテリー', number_plate: 'ナンバー',
+  engine: 'エンジン', chain_final: 'チェーン', skis: 'スキー', track_unit: 'キャタピラユニット', winter_chain: '冬のチェーン', sled_pan: 'そり底', side_floats: '浮き（将来版）', outboard: '船外機（将来版）', roll_bar: 'ロールバー', lighting: '灯火と方向指示器', mirrors: 'ミラー', horn: 'ホーン', speedometer: '速度計', seat_belt: 'シートベルト', head_restraint: 'ヘッドレスト', hand_brake: 'ハンドブレーキ', battery: 'バッテリー', number_plate: 'ナンバー',
 };
 
 const CSS = `
@@ -91,12 +91,19 @@ export default function create(api) {
   };
 
   // ------------------------------------------------------------------ geometry of the kart for this config
+  const lift = () => (config === 'winter' && design.lift ? design.lift.winter || 0 : 0); // the chassis rides higher in winter; ground items stay
   const shown = (it) => it.configs.includes(config) && !(it.type === 'pedals' && false);
   function bounds() {
     let x0 = Infinity, x1 = -Infinity, y1 = 0, z1 = 0;
-    const px = (x, y, z) => { x0 = Math.min(x0, x); x1 = Math.max(x1, x); y1 = Math.max(y1, Math.abs(y)); z1 = Math.max(z1, z); };
+    let lf = 0;
+    const px = (x, y, z) => { x0 = Math.min(x0, x); x1 = Math.max(x1, x); y1 = Math.max(y1, Math.abs(y)); z1 = Math.max(z1, z + lf); };
+    lf = lift();
     for (const m of design.members) { px(...m.a); px(...m.b); }
     for (const it of design.items.filter(shown)) {
+      lf = it.ground ? 0 : lift();
+      if (it.type === 'track') { for (const [cx, cz, r] of it.wheels) { px(cx - r, it.width / 2, cz + r); px(cx + r, 0, 0); } }
+      if (it.type === 'outboard') { const tl = it.tilt_deg * Math.PI / 180; px(it.pos[0] - Math.sin(tl) * it.shaft, 0, it.pos[2] - Math.cos(tl) * it.shaft); px(it.pos[0], it.pos[1], it.pos[2] + 0.15); }
+      if (it.type === 'float') { px(it.pos[0] - it.l / 2, it.pos[1] + Math.sign(it.pos[1]) * it.d / 2, it.pos[2] + it.d / 2); px(it.pos[0] + it.l / 2, 0, 0); }
       if (it.type === 'wheel') { px(it.pos[0] - it.od / 2, it.pos[1] + it.width / 2 * Math.sign(it.pos[1]), 0); px(it.pos[0] + it.od / 2, it.pos[1] + it.width / 2 * Math.sign(it.pos[1]), it.od); }
       else if (it.type === 'ski') { px(it.pos[0] - it.l / 2, it.pos[1] + it.w / 2 * Math.sign(it.pos[1]), 0); px(it.pos[0] + it.l / 2, it.pos[1], I.skiTipRise); }
       else if (it.type === 'seat') px(it.pos[0], it.pos[1], it.pos[2] + it.h);
@@ -108,13 +115,13 @@ export default function create(api) {
   let layout;
   function makeLayout() {
     const B = bounds(), M = I.margins, d = design.dims;
-    const H0 = Math.max(B.z1, d.height), yw0 = Math.max(B.y1, d.width / 2);
+    const H0 = Math.max(B.z1, config === 'winter' && design.dims_winter ? design.dims_winter.height : d.height), yw0 = Math.max(B.y1, d.width / 2);
     for (const n of I.scales) { SC.n = n; SC.v = 1000 / n; if (M.top + 18 + H0 * SC.v + 36 + 2 * yw0 * SC.v + 14 <= I.sheet.h) break; }
     const s = SC.v;
     const ex0 = Math.min(B.x0, d.x_back), ex1 = Math.max(B.x1, d.x_front);
-    const sideW = (ex1 - ex0) * s, H = Math.max(B.z1, d.height) * s;
+    const sideW = (ex1 - ex0) * s, H = Math.max(B.z1, config === 'winter' && design.dims_winter ? design.dims_winter.height : d.height) * s;
     const yw = Math.max(B.y1, d.width / 2) * s;
-    const ox = M.left + 8, gy = M.top + 18 + H;          // side view: x origin (x=0), ground line
+    const ox = Math.max(M.left + 8, M.left - 8 - ex0 * s), gy = M.top + 18 + H;          // side view: x origin (x=0), ground line
     const px0 = ox + ex0 * s;
     const py = gy + 36 + yw;                         // plan: y=0 line
     const fx = px0 + sideW + M.gap + 20 + yw;             // front view: y=0 line
@@ -162,7 +169,7 @@ export default function create(api) {
   };
 
   function shapes(it, view, P) { // svg for one item in one view; P projects model points
-    const s = SC.v, pos = it.pos, y = pos[1];
+    const s = SC.v, pos = it.pos || [0, 0, 0], y = pos[1]; // track and sheet carry no pos
     switch (it.type) {
       case 'plate': case 'guard': return boxRect(P, pos, ...it.size);
       case 'cyl': case 'hub': {
@@ -259,9 +266,29 @@ export default function create(api) {
         }
         return out;
       }
-      default: return '';
+      case 'track': { // the band round its wheels: a hull outline in the side view, rectangles in the others
+        const t = it.t, hp = [];
+        for (const [cx, cz, r] of it.wheels) for (let i = 0; i < 24; i++) { const a = i / 24 * Math.PI * 2; hp.push([cx + (r + t) * Math.cos(a), cz + (r + t) * Math.sin(a)]); }
+        const hull = convexHull(hp), xs = hull.map((p) => p[0]), zs = hull.map((p) => p[1]);
+        const x0 = Math.min(...xs), x1 = Math.max(...xs), z0 = Math.min(...zs), z1 = Math.max(...zs);
+        if (view === 'side') return poly(hull.map((p) => P(p[0], 0, p[1]))) + it.wheels.map(([cx, cz, r]) => circ(P(cx, 0, cz), r * s, 'thin')).join('');
+        return boxRect(P, [(x0 + x1) / 2, 0, (z0 + z1) / 2], x1 - x0, it.width, z1 - z0);
+      }
+      case 'sheet': return poly(it.corners.map((c) => P(...c)));
+      case 'float': return view === 'front' ? circ(P(...pos), it.d / 2 * s) : boxRect(P, pos, it.l, it.d, it.d);
+      case 'outboard': {
+        const tl = it.tilt_deg * Math.PI / 180, a = [pos[0], pos[1], pos[2] - 0.1], b = [a[0] - Math.sin(tl) * it.shaft, a[1], a[2] - Math.cos(tl) * it.shaft];
+        return boxRect(P, pos, 0.25, 0.15, 0.3) + thick(P(...a), P(...b), 0.07 * s);
+      }
+      default: return ''; // unknown types are skipped, never an error
     }
   }
+  const convexHull = (pts) => { // counter-clockwise monotone chain
+    const p = pts.slice().sort((a, b) => a[0] - b[0] || a[1] - b[1]), cr = (o, a, b) => (a[0] - o[0]) * (b[1] - o[1]) - (a[1] - o[1]) * (b[0] - o[0]), lo = [], up = [];
+    for (const q of p) { while (lo.length >= 2 && cr(lo[lo.length - 2], lo[lo.length - 1], q) <= 0) lo.pop(); lo.push(q); }
+    for (const q of p.slice().reverse()) { while (up.length >= 2 && cr(up[up.length - 2], up[up.length - 1], q) <= 0) up.pop(); up.push(q); }
+    return lo.slice(0, -1).concat(up.slice(0, -1));
+  };
   function memberShape(m, view, P) {
     return thick(P(...m.a), P(...m.b), Math.max(m.od * SC.v, 0.8));
   }
@@ -285,9 +312,9 @@ export default function create(api) {
   // ------------------------------------------------------------------ the sheet
   function draw() {
     layout = makeLayout();
-    const L = layout, d = design.dims, s = SC.v, S = I.sheet;
+    const L = layout, winter = config === 'winter' && design.dims_winter, d = winter ? { ...design.dims, ...design.dims_winter } : design.dims, s = SC.v, S = I.sheet;
     const items = design.items.filter(shown);
-    const prio = (t) => (t === 'plate' ? 0 : t === 'wheel' || t === 'chains' || t === 'ski' ? 1 : 3);
+    const prio = (t) => (t === 'plate' || t === 'sheet' ? 0 : t === 'wheel' || t === 'chains' || t === 'ski' || t === 'track' || t === 'float' ? 1 : 3);
     const byPart = new Map(); // part -> { side:'', plan:'', front:'' }
     const add = (part, view, str) => { if (!str) return; if (!byPart.has(part)) byPart.set(part, { side: '', plan: '', front: '' }); byPart.get(part)[view] += str; };
     let nShapes = 0;
@@ -296,7 +323,10 @@ export default function create(api) {
     const buckets = { side: [], plan: [], front: [] };
     for (const o of order) {
       for (const [view, P] of views) {
-        const str = o.kind === 'item' ? shapes(o.it, view, P) : memberShape(o.m, view, P);
+        const lf = o.kind === 'item' && o.it.ground ? 0 : lift(); // ground items keep their absolute height
+        const Pl = lf ? (x, y, z) => P(x, y, z + lf) : P;
+        let str = '';
+        try { str = o.kind === 'item' ? shapes(o.it, view, Pl) : memberShape(o.m, view, Pl); } catch (e) { str = ''; }
         if (str) buckets[view].push([o.kind === 'item' ? o.it.part : o.m.part, str]);
       }
       nShapes++;
@@ -313,17 +343,18 @@ export default function create(api) {
     const wKey = config === 'transport' ? 'dsn.width_transport_m' : 'dsn.width_m', trKey = config === 'transport' ? 'lay.track_rear_narrow_mm' : 'lay.track_rear_mm';
     let dims = '';
     const sd = (x, z) => L.side(x, 0, z), pd = (x, y) => L.plan(x, y, 0), fd = (y, z) => L.front(0, y, z);
-    dims += dim(sd(d.x_back, 0), sd(d.x_front, 0), 12, `全長 ${num('dsn.length_m', d.length)}`, 'h');
+    dims += dim(sd(d.x_back, 0), sd(d.x_front, 0), 12, `全長 ${num(winter ? '' : 'dsn.length_m', d.length)}`, 'h');
     dims += dim(sd(0, 0), sd(d.wheelbase, 0), 20, `ホイールベース ${num('lay.wheelbase_mm', d.wheelbase)}`, 'h');
-    dims += dim(sd(L.ex1 + 0.02, 0), sd(L.ex1 + 0.02, d.height), 12, `全高 ${num('dsn.height_m', d.height)}`, 'v');
-    dims += dim(sd(d.x_back, 0), sd(d.x_back, d.clearance), -9, `地上高 ${num('', d.clearance)}`, 'v');
-    dims += dim(sd(0.5, 0), sd(0.5, d.low_point), 6, `最低部 ${num('dsn.low_point_mm', d.low_point)}`, 'v');
+    dims += dim(sd(L.ex1 + 0.02, 0), sd(L.ex1 + 0.02, d.height), 12, `全高 ${num(winter ? '' : 'dsn.height_m', d.height)}`, 'v');
+    const clr = winter ? d.belly : d.clearance; // winter: belly of the sled pan above the snow
+    dims += dim(sd(d.x_back, 0), sd(d.x_back, clr), -9, `地上高 ${num('', clr)}`, 'v');
+    if (!winter) dims += dim(sd(0.5, 0), sd(0.5, d.low_point), 6, `最低部 ${num('dsn.low_point_mm', d.low_point)}`, 'v');
     dims += dim(pd(d.x_front, wTot / 2), pd(d.x_front, -wTot / 2), 12, `全幅 ${num(wKey, wTot)}`, 'v');
     dims += dim(pd(0, tr / 2), pd(0, -tr / 2), -14 - 0, `後輪トレッド ${num(trKey, tr)}`, 'v');
     dims += dim(pd(d.wheelbase, d.track_front / 2), pd(d.wheelbase, -d.track_front / 2), 24, `前輪トレッド ${num('lay.track_front_mm', d.track_front)}`, 'v');
     dims += dim(fd(wTot / 2, 0), fd(-wTot / 2, 0), 12, `全幅 ${num(wKey, wTot)}`, 'h');
     dims += dim(fd(tr / 2, 0), fd(-tr / 2, 0), 22, `後輪トレッド ${num(trKey, tr)}`, 'h');
-    dims += dim(fd(wTot / 2 + 0.0, 0), fd(wTot / 2 + 0.0, d.height), 12, `全高 ${num('dsn.height_m', d.height)}`, 'v');
+    dims += dim(fd(wTot / 2 + 0.0, 0), fd(wTot / 2 + 0.0, d.height), 12, `全高 ${num(winter ? '' : 'dsn.height_m', d.height)}`, 'v');
     // 1 m marker line (side and front views)
     const mk = (a, b, tx, ty) => `<g class="dimline"><line x1="${f(a[0])}" y1="${f(a[1])}" x2="${f(b[0])}" y2="${f(b[1])}" style="stroke-dasharray:4 2"/><text x="${f(tx)}" y="${f(ty)}" style="text-anchor:start">1 m</text></g>`;
     { const a = L.side(L.ex0, 0, 1), b = L.side(L.ex1, 0, 1), c = L.front(-L.yw / s, 0, 1), e = L.front(L.yw / s, 0, 1);
@@ -335,6 +366,7 @@ export default function create(api) {
       + `<line x1="${f(L.fx - L.yw - 6)}" x2="${f(L.fx + L.yw + 6)}" y1="${f(L.gy)}" y2="${f(L.gy)}" style="stroke:var(--dwg-frame);stroke-width:.6px;stroke-dasharray:6 2 1 2;vector-effect:non-scaling-stroke"/>`
       + `<line x1="${f(L.ox + L.ex0 * s - 6)}" x2="${f(L.ox + L.ex1 * s + 6)}" y1="${f(L.py)}" y2="${f(L.py)}" style="stroke:var(--dwg-frame);stroke-width:.6px;stroke-dasharray:6 2 1 2;vector-effect:non-scaling-stroke"/>`
       + `<line x1="${f(L.fx)}" x2="${f(L.fx)}" y1="${f(L.gy - L.H - 4)}" y2="${f(L.gy + 4)}" style="stroke:var(--dwg-frame);stroke-width:.6px;stroke-dasharray:6 2 1 2;vector-effect:non-scaling-stroke"/>`;
+    if (config === 'water') titles += `<text class="vtitle" x="${f(L.ox + L.ex0 * s)}" y="14" style="fill:var(--dwg-hl)">将来版の参考表示（要求ではありません、D-027）</text>`;
     // title block
     const T = I.titleBlock, tx = S.w - 10 - T.w, ty = S.h - 10 - T.h;
     const tb = `<g class="tb"><rect x="${tx}" y="${ty}" width="${T.w}" height="${T.h}"/>

@@ -1209,3 +1209,11 @@ items:
     license: unknown
     read: full
     note: Read by a helper. Owners report 16 km/h at most with a 7.5 hp outboard and 6 to 7 mph with a 35 lb electric trolling motor on an Argo; the stern rides high, so a long shaft is needed.
+  - id: F3
+    class: F
+    title: Goo-net Magazine, an electric track unit from Canada (MTT, My Track Technology), 2016-10-14
+    url: https://www.goo-net.com/magazine/cartopic/entertainment/29921/
+    retrieved: 2026-11-04
+    license: unknown (copyright PROTO CORPORATION, all rights reserved)
+    read: full
+    note: Given by the owner; read by a helper. A self-contained electric track unit with handlebars, about 130 kg, that a person rides or that pulls sleds and trailers; not yet a product. No speed, power, or price given.

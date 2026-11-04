@@ -3,7 +3,7 @@ import { viewForItem } from '../../viewer/parts.js';
 
 const DEFAULTS = { config: 'summer', rider: 'adult', delica: false, dims: false, view: 'iso' };
 const GROUPS = [
-  ['構成', 'config', [['summer', '夏'], ['winter', '冬'], ['transport', '運搬']]],
+  ['構成', 'config', [['summer', '夏'], ['winter', '冬（スノーモービル型）'], ['transport', '運搬'], ['water', '水（将来版）']]],
   ['乗る人', 'rider', [['adult', '大人'], ['child', '子ども'], ['none', 'なし']]],
   ['視点', 'view', [['iso', '斜め'], ['side', '横'], ['top', '上'], ['front', '前']]],
 ];

@@ -3137,15 +3137,6 @@
    ]
   },
   {
-   "key": "sm.seat_raise_mm",
-   "v": 150,
-   "unit": "mm",
-   "status": "assumed",
-   "basis": [
-    "Q-027"
-   ]
-  },
-  {
    "key": "sm.speed_snow_kmh",
    "v": 10,
    "unit": "km/h",
@@ -3418,6 +3409,168 @@
    "status": "sourced",
    "basis": [
     "P56"
+   ]
+  },
+  {
+   "key": "sm.track_t_mm",
+   "v": 25,
+   "unit": "mm",
+   "status": "assumed",
+   "basis": [
+    "Q-029"
+   ]
+  },
+  {
+   "key": "sm.idler_dia_mm",
+   "v": 180,
+   "unit": "mm",
+   "status": "assumed",
+   "basis": [
+    "Q-029"
+   ]
+  },
+  {
+   "key": "sm.drive_z_mm",
+   "v": 220,
+   "unit": "mm",
+   "status": "assumed",
+   "basis": [
+    "Q-029"
+   ]
+  },
+  {
+   "key": "sm.drive_ahead_mm",
+   "v": 50,
+   "unit": "mm",
+   "status": "assumed",
+   "basis": [
+    "Q-029"
+   ]
+  },
+  {
+   "key": "lay.tunnel_gap_mm",
+   "v": 30,
+   "unit": "mm",
+   "status": "calculated",
+   "basis": [
+    "docs/03-design.md#winter"
+   ]
+  },
+  {
+   "key": "lay.tunnel_half_width_mm",
+   "v": 240,
+   "unit": "mm",
+   "status": "calculated",
+   "basis": [
+    "docs/03-design.md#winter"
+   ]
+  },
+  {
+   "key": "lay.pan_x0_mm",
+   "v": 180,
+   "unit": "mm",
+   "status": "calculated",
+   "basis": [
+    "docs/03-design.md#winter"
+   ]
+  },
+  {
+   "key": "lay.pan_x1_mm",
+   "v": 800,
+   "unit": "mm",
+   "status": "calculated",
+   "basis": [
+    "docs/03-design.md#winter"
+   ]
+  },
+  {
+   "key": "lay.pan_half_beam_mm",
+   "v": 450,
+   "unit": "mm",
+   "status": "calculated",
+   "basis": [
+    "docs/03-design.md#winter"
+   ]
+  },
+  {
+   "key": "lay.pod_inner_mm",
+   "v": 330,
+   "unit": "mm",
+   "status": "calculated",
+   "basis": [
+    "docs/03-design.md#winter"
+   ]
+  },
+  {
+   "key": "lay.pod_outer_mm",
+   "v": 400,
+   "unit": "mm",
+   "status": "calculated",
+   "basis": [
+    "docs/03-design.md#winter"
+   ]
+  },
+  {
+   "key": "lay.pod_top_mm",
+   "v": 450,
+   "unit": "mm",
+   "status": "calculated",
+   "basis": [
+    "docs/03-design.md#winter"
+   ]
+  },
+  {
+   "key": "lay.pod_x0_mm",
+   "v": 280,
+   "unit": "mm",
+   "status": "calculated",
+   "basis": [
+    "docs/03-design.md#winter"
+   ]
+  },
+  {
+   "key": "lay.pod_x1_mm",
+   "v": 670,
+   "unit": "mm",
+   "status": "calculated",
+   "basis": [
+    "docs/03-design.md#winter"
+   ]
+  },
+  {
+   "key": "lay.bow_x_mm",
+   "v": 1240,
+   "unit": "mm",
+   "status": "calculated",
+   "basis": [
+    "docs/03-design.md#winter"
+   ]
+  },
+  {
+   "key": "lay.bow_rise_mm",
+   "v": 80,
+   "unit": "mm",
+   "status": "calculated",
+   "basis": [
+    "docs/03-design.md#winter"
+   ]
+  },
+  {
+   "key": "lay.bow_half_beam_mm",
+   "v": 200,
+   "unit": "mm",
+   "status": "calculated",
+   "basis": [
+    "docs/03-design.md#winter"
+   ]
+  },
+  {
+   "key": "lay.float_dia_mm",
+   "v": 300,
+   "unit": "mm",
+   "status": "calculated",
+   "basis": [
+    "docs/03-design.md#winter"
    ]
   },
   {
@@ -3708,7 +3861,7 @@
   },
   {
    "key": "water.gm_m",
-   "v": 0.191,
+   "v": 0.196,
    "unit": "m",
    "status": "calculated",
    "basis": [
@@ -3769,7 +3922,7 @@
   },
   {
    "key": "sm.rear_share",
-   "v": 0.73,
+   "v": 0.72,
    "status": "calculated",
    "basis": [
     "docs/02-form.md#snowmobile"
@@ -3777,7 +3930,7 @@
   },
   {
    "key": "sm.track_pressure_kpa",
-   "v": 4.0,
+   "v": 3.95,
    "unit": "kPa",
    "status": "calculated",
    "basis": [
@@ -3786,7 +3939,7 @@
   },
   {
    "key": "sm.ski_pressure_kpa",
-   "v": 4.43,
+   "v": 4.58,
    "unit": "kPa",
    "status": "calculated",
    "basis": [
@@ -3804,7 +3957,7 @@
   },
   {
    "key": "sm.track_sinkage_max_cm",
-   "v": 11.2,
+   "v": 11.1,
    "unit": "cm",
    "status": "calculated",
    "basis": [
@@ -3813,7 +3966,7 @@
   },
   {
    "key": "sm.ski_sinkage_max_cm",
-   "v": 8.5,
+   "v": 8.7,
    "unit": "cm",
    "status": "calculated",
    "basis": [
@@ -3858,7 +4011,7 @@
   },
   {
    "key": "sm.cg_height_m",
-   "v": 0.492,
+   "v": 0.545,
    "unit": "m",
    "status": "calculated",
    "basis": [
@@ -3867,7 +4020,7 @@
   },
   {
    "key": "sm.tip_ratio",
-   "v": 0.81,
+   "v": 0.74,
    "status": "calculated",
    "basis": [
     "docs/02-form.md#snowmobile"
@@ -4195,8 +4348,70 @@
    ]
   },
   {
+   "key": "dsn.pan_mass_kg",
+   "v": 4.7,
+   "unit": "kg",
+   "status": "calculated",
+   "basis": [
+    "docs/03-design.md#winter"
+   ]
+  },
+  {
+   "key": "dsn.foam_fit_m3",
+   "v": 0.02,
+   "unit": "m3",
+   "status": "calculated",
+   "basis": [
+    "docs/03-design.md#winter"
+   ]
+  },
+  {
+   "key": "dsn.winter_lift_mm",
+   "v": 218,
+   "unit": "mm",
+   "status": "calculated",
+   "basis": [
+    "docs/03-design.md#winter"
+   ]
+  },
+  {
+   "key": "dsn.winter_chain_centre_mm",
+   "v": 466,
+   "unit": "mm",
+   "status": "calculated",
+   "basis": [
+    "docs/03-design.md#winter"
+   ]
+  },
+  {
+   "key": "dsn.winter_chain_links",
+   "v": 96,
+   "status": "calculated",
+   "basis": [
+    "docs/03-design.md#winter"
+   ]
+  },
+  {
+   "key": "dsn.winter_top_speed_kmh",
+   "v": 16.0,
+   "unit": "km/h",
+   "status": "calculated",
+   "basis": [
+    "docs/03-design.md#winter"
+   ]
+  },
+  {
+   "key": "dsn.winter_clutch_lock_kmh",
+   "v": 2.3,
+   "unit": "km/h",
+   "status": "calculated",
+   "basis": [
+    "docs/03-design.md#winter"
+   ]
+  },
+  {
    "key": "dsn.mass_kg",
-   "v": 105.6,
+   "v": 110.3,
    "unit": "kg",
    "status": "calculated",
    "basis": [
@@ -4205,7 +4420,7 @@
   },
   {
    "key": "dsn.cg_x_m",
-   "v": 0.362,
+   "v": 0.377,
    "unit": "m",
    "status": "calculated",
    "basis": [
@@ -4214,7 +4429,7 @@
   },
   {
    "key": "dsn.cg_y_m",
-   "v": 0.086,
+   "v": 0.081,
    "unit": "m",
    "status": "calculated",
    "basis": [
@@ -4223,7 +4438,7 @@
   },
   {
    "key": "dsn.cg_z_m",
-   "v": 0.273,
+   "v": 0.268,
    "unit": "m",
    "status": "calculated",
    "basis": [
@@ -4241,7 +4456,7 @@
   },
   {
    "key": "dsn.rear_share_adult",
-   "v": 0.726,
+   "v": 0.717,
    "status": "calculated",
    "basis": [
     "docs/03-design.md#mass"
@@ -4249,7 +4464,7 @@
   },
   {
    "key": "dsn.cg_side_adult_mm",
-   "v": 1,
+   "v": 0,
    "unit": "mm",
    "status": "calculated",
    "basis": [
@@ -4258,7 +4473,7 @@
   },
   {
    "key": "dsn.cg_height_adult_m",
-   "v": 0.365,
+   "v": 0.36,
    "unit": "m",
    "status": "calculated",
    "basis": [
@@ -4267,7 +4482,7 @@
   },
   {
    "key": "dsn.tip_ratio_adult",
-   "v": 1.54,
+   "v": 1.56,
    "status": "calculated",
    "basis": [
     "docs/03-design.md#stability"
@@ -4275,7 +4490,7 @@
   },
   {
    "key": "dsn.rear_share_child",
-   "v": 0.647,
+   "v": 0.634,
    "status": "calculated",
    "basis": [
     "docs/03-design.md#mass"
@@ -4283,7 +4498,7 @@
   },
   {
    "key": "dsn.cg_side_child_mm",
-   "v": 60,
+   "v": 56,
    "unit": "mm",
    "status": "calculated",
    "basis": [
@@ -4292,7 +4507,7 @@
   },
   {
    "key": "dsn.cg_height_child_m",
-   "v": 0.287,
+   "v": 0.282,
    "unit": "m",
    "status": "calculated",
    "basis": [
@@ -4301,15 +4516,111 @@
   },
   {
    "key": "dsn.tip_ratio_child",
-   "v": 1.74,
+   "v": 1.78,
    "status": "calculated",
    "basis": [
     "docs/03-design.md#stability"
    ]
   },
   {
+   "key": "dsn.winter_mass_kg",
+   "v": 127.8,
+   "unit": "kg",
+   "status": "calculated",
+   "basis": [
+    "docs/03-design.md#winter"
+   ]
+  },
+  {
+   "key": "dsn.winter_cg_height_m",
+   "v": 0.526,
+   "unit": "m",
+   "status": "calculated",
+   "basis": [
+    "docs/03-design.md#winter"
+   ]
+  },
+  {
+   "key": "dsn.winter_rear_share",
+   "v": 0.722,
+   "status": "calculated",
+   "basis": [
+    "docs/03-design.md#winter"
+   ]
+  },
+  {
+   "key": "dsn.winter_track_pressure_kpa",
+   "v": 3.81,
+   "unit": "kPa",
+   "status": "calculated",
+   "basis": [
+    "docs/03-design.md#winter"
+   ]
+  },
+  {
+   "key": "dsn.winter_ski_pressure_kpa",
+   "v": 4.32,
+   "unit": "kPa",
+   "status": "calculated",
+   "basis": [
+    "docs/03-design.md#winter"
+   ]
+  },
+  {
+   "key": "dsn.winter_tip_ratio",
+   "v": 0.82,
+   "status": "calculated",
+   "basis": [
+    "docs/03-design.md#stability"
+   ]
+  },
+  {
+   "key": "dsn.belly_area_m2",
+   "v": 0.98,
+   "unit": "m2",
+   "status": "calculated",
+   "basis": [
+    "docs/03-design.md#winter"
+   ]
+  },
+  {
+   "key": "dsn.belly_pressure_kpa",
+   "v": 2.29,
+   "unit": "kPa",
+   "status": "calculated",
+   "basis": [
+    "docs/03-design.md#winter"
+   ]
+  },
+  {
+   "key": "dsn.belly_height_mm",
+   "v": 318,
+   "unit": "mm",
+   "status": "calculated",
+   "basis": [
+    "docs/03-design.md#winter"
+   ]
+  },
+  {
+   "key": "dsn.foam_reserve_ratio",
+   "v": 0.15,
+   "status": "calculated",
+   "basis": [
+    "docs/03-design.md#winter"
+   ]
+  },
+  {
+   "key": "dsn.foam_needed_m3",
+   "v": 0.158,
+   "unit": "m3",
+   "status": "calculated",
+   "basis": [
+    "docs/03-design.md#winter"
+   ]
+  },
+  {
    "key": "dsn.climb_force_n",
-   "v": 633,
+   "v": 647,
    "unit": "N",
    "status": "calculated",
    "basis": [
@@ -4318,7 +4629,7 @@
   },
   {
    "key": "dsn.climb_grip_n",
-   "v": 712,
+   "v": 718,
    "unit": "N",
    "status": "calculated",
    "basis": [
@@ -4345,7 +4656,7 @@
   },
   {
    "key": "dsn.axle_stress_mpa",
-   "v": 221,
+   "v": 223,
    "unit": "MPa",
    "status": "calculated",
    "basis": [
@@ -4354,7 +4665,7 @@
   },
   {
    "key": "dsn.axle_safety",
-   "v": 1.56,
+   "v": 1.55,
    "status": "calculated",
    "basis": [
     "docs/03-design.md#axle"
@@ -4362,7 +4673,7 @@
   },
   {
    "key": "dsn.frame_moment_nm",
-   "v": 558,
+   "v": 573,
    "unit": "N m",
    "status": "calculated",
    "basis": [
@@ -4371,7 +4682,7 @@
   },
   {
    "key": "dsn.rail_stress_mpa",
-   "v": 190,
+   "v": 195,
    "unit": "MPa",
    "status": "calculated",
    "basis": [
@@ -4380,7 +4691,7 @@
   },
   {
    "key": "dsn.rail_safety",
-   "v": 1.52,
+   "v": 1.48,
    "status": "calculated",
    "basis": [
     "docs/03-design.md#frame"
@@ -4388,7 +4699,7 @@
   },
   {
    "key": "dsn.bearing_load_n",
-   "v": 733,
+   "v": 739,
    "unit": "N",
    "status": "calculated",
    "basis": [
@@ -4406,7 +4717,7 @@
   },
   {
    "key": "dsn.brake_torque_needed_nm",
-   "v": 193,
+   "v": 198,
    "unit": "N m",
    "status": "calculated",
    "basis": [
@@ -4415,7 +4726,7 @@
   },
   {
    "key": "dsn.brake_clamp_needed_n",
-   "v": 4317,
+   "v": 4415,
    "unit": "N",
    "status": "calculated",
    "basis": [
@@ -4424,7 +4735,7 @@
   },
   {
    "key": "dsn.brake_downhill_decel",
-   "v": 0.9,
+   "v": 0.87,
    "unit": "m/s2",
    "status": "calculated",
    "basis": [
@@ -4433,7 +4744,7 @@
   },
   {
    "key": "dsn.brake_downhill_stop_m",
-   "v": 38.4,
+   "v": 40.0,
    "unit": "m",
    "status": "calculated",
    "basis": [
@@ -4468,8 +4779,26 @@
    ]
   },
   {
+   "key": "dsn.winter_length_m",
+   "v": 2.15,
+   "unit": "m",
+   "status": "calculated",
+   "basis": [
+    "docs/03-design.md#winter"
+   ]
+  },
+  {
+   "key": "dsn.winter_height_m",
+   "v": 1.268,
+   "unit": "m",
+   "status": "calculated",
+   "basis": [
+    "docs/03-design.md#winter"
+   ]
+  },
+  {
    "key": "dsn.bom_parts_jpy",
-   "v": 336426,
+   "v": 555070,
    "unit": "JPY",
    "status": "calculated",
    "basis": [
@@ -5996,6 +6325,16 @@
    "license": "unknown",
    "read": "full",
    "note": "Read by a helper. Owners report 16 km/h at most with a 7.5 hp outboard and 6 to 7 mph with a 35 lb electric trolling motor on an Argo; the stern rides high, so a long shaft is needed."
+  },
+  {
+   "id": "F3",
+   "class": "F",
+   "title": "Goo-net Magazine, an electric track unit from Canada (MTT, My Track Technology), 2016-10-14",
+   "url": "https://www.goo-net.com/magazine/cartopic/entertainment/29921/",
+   "retrieved": "2026-11-04",
+   "license": "unknown (copyright PROTO CORPORATION, all rights reserved)",
+   "read": "full",
+   "note": "Given by the owner; read by a helper. A self-contained electric track unit with handlebars, about 130 kg, that a person rides or that pulls sleds and trailers; not yet a product. No speed, power, or price given."
   }
  ],
  "decisions": [
@@ -6581,13 +6920,12 @@
   {
    "id": "Q-019",
    "kind": "question",
-   "text": "The fit of bought parts to each other is not stated by their sellers and is checked when they arrive, before the frame is welded to them - the rim's three-hole pattern against the front hubs and the made rear hubs, the front hubs' bore against the 17 mm spindles, the engine's shaft (3/4 inch Q-type) and base holes, the ladder chains on 13x5.00-6 tyres, and the seat's rail bolt spacing.",
+   "text": "The fit of bought parts to each other is not stated by their sellers and is checked when they arrive, before the frame is welded to them - the rim's three-hole pattern against the front hubs and the made rear hubs, the front hubs' bore against the 17 mm spindles, the engine's shaft (3/4 inch Q-type) and base holes, and the seat's rail bolt spacing.",
    "waits_for": "assistant",
    "affects": [
     "front_wheels",
     "rear_hubs",
     "engine",
-    "snow_chains",
     "seat"
    ],
    "opened": "2026-11-03",
@@ -6707,7 +7045,7 @@
   {
    "id": "Q-027",
    "kind": "question",
-   "text": "The rough inputs of the snowmobile form and the hull - the track's place and mass (its size is a Yamaha Bravo's, P51), the parts removed and added at each change, the drive sprocket, the seat's rise over the track, the hull's size, foam share, and plating, the water design points, the outboard's battery, and the change time - are assumed until a donor is chosen and the hull is laid out in step 1.3.",
+   "text": "The rough inputs of the snowmobile form and the hull - the track's place and mass (its size is a Yamaha Bravo's, P51), the parts removed and added at each change, the drive sprocket, the hull's size, foam share, and plating, the water design points, the outboard's battery, and the change time - are assumed until a donor is chosen and the hull is laid out in step 1.3.",
    "waits_for": "assistant",
    "affects": [
     "sm.track_x_mm",
@@ -6715,7 +7053,6 @@
     "sm.removed_kg",
     "ski.pair_kg",
     "sm.drive_dia_mm",
-    "sm.seat_raise_mm",
     "sm.speed_snow_kmh",
     "hull.length_mm",
     "hull.beam_mm",
@@ -6749,6 +7086,33 @@
    "phase": "design",
    "closed_by": "D-027",
    "closed": "2026-11-04"
+  },
+  {
+   "id": "Q-029",
+   "kind": "question",
+   "text": "The donor's track unit is drawn from assumed sizes - the track's thickness with its lugs, the rear idler's diameter, the drive shaft's height and its place ahead of the slide rails - which set the winter lift. Measure them on the donor (a Yamaha Bravo class) when it is bought, with its mass and mounting points, and check that a pivot shaft through the pillow blocks and brackets hanging from the rails can hold it.",
+   "waits_for": "assistant",
+   "affects": [
+    "sm.track_t_mm",
+    "sm.idler_dia_mm",
+    "sm.drive_z_mm",
+    "sm.drive_ahead_mm",
+    "track_unit"
+   ],
+   "opened": "2026-11-04",
+   "phase": "design"
+  },
+  {
+   "id": "Q-030",
+   "kind": "question",
+   "text": "The sled pan holds dsn.foam_fit_m3 of foam, which floats dsn.foam_reserve_ratio of the winter kart's own weight, while R-29 asks water.reserve_ratio, which needs about dsn.foam_needed_m3. The room is not there without bolting large floats on. With boat use withdrawn (D-027), should R-29 keep only the driver's part (a life jacket and no seat belt on ice, nothing holding the driver) and drop the kart's floating, or should the kart carry floats in winter?",
+   "waits_for": "owner",
+   "affects": [
+    "R-29",
+    "sled_pan"
+   ],
+   "opened": "2026-11-04",
+   "phase": "design"
   }
  ],
  "hazards": [
@@ -7017,12 +7381,17 @@
   },
   {
    "id": "skis",
-   "name": "Front skis on the spindles",
+   "name": "Front skis on stanchions as tall as the winter lift, bolted to the spindles",
    "parent": "winter"
   },
   {
-   "id": "snow_chains",
-   "name": "Rear tyre chains",
+   "id": "track_unit",
+   "name": "Centre track unit from a used snowmobile - track, slide rails with idler wheels and arms, drive shaft with its bearings and brackets, and a pivot shaft in the pillow blocks",
+   "parent": "winter"
+  },
+  {
+   "id": "winter_chain",
+   "name": "Longer 420 chain and the 30T sprocket on the track's drive shaft",
    "parent": "winter"
   },
   {
@@ -7079,6 +7448,26 @@
    "id": "number_plate",
    "name": "Number plate and its bracket",
    "parent": "road"
+  },
+  {
+   "id": "sled_pan",
+   "name": "Sled pan of UHMW polyethylene under the frame, with foam, kept in both forms",
+   "parent": "chassis"
+  },
+  {
+   "id": "future_water",
+   "name": "Future water version, not required (D-027)",
+   "parent": "kart"
+  },
+  {
+   "id": "side_floats",
+   "name": "Side floats on arms, for a future water version",
+   "parent": "future_water"
+  },
+  {
+   "id": "outboard",
+   "name": "Electric outboard with its battery, for a future water version",
+   "parent": "future_water"
   }
  ],
  "interfaces": [
@@ -7243,14 +7632,6 @@
    "carries": "load"
   },
   {
-   "id": "I-26",
-   "between": [
-    "snow_chains",
-    "rear_wheels"
-   ],
-   "carries": "load"
-  },
-  {
    "id": "I-27",
    "between": [
     "bumpers",
@@ -7358,6 +7739,54 @@
    "id": "I-40",
    "between": [
     "number_plate",
+    "frame"
+   ],
+   "carries": "load"
+  },
+  {
+   "id": "I-41",
+   "between": [
+    "track_unit",
+    "axle_bearings"
+   ],
+   "carries": "load"
+  },
+  {
+   "id": "I-42",
+   "between": [
+    "track_unit",
+    "frame"
+   ],
+   "carries": "load"
+  },
+  {
+   "id": "I-43",
+   "between": [
+    "engine",
+    "winter_chain"
+   ],
+   "carries": "power"
+  },
+  {
+   "id": "I-44",
+   "between": [
+    "winter_chain",
+    "track_unit"
+   ],
+   "carries": "power"
+  },
+  {
+   "id": "I-45",
+   "between": [
+    "brake",
+    "track_unit"
+   ],
+   "carries": "load"
+  },
+  {
+   "id": "I-46",
+   "between": [
+    "sled_pan",
     "frame"
    ],
    "carries": "load"
@@ -7520,6 +7949,25 @@
    "by": "assistant",
    "date": "2026-11-04",
    "detail": "An independent helper checked the persons formula against the text of articles 102 and 103 of the Small Vessel Safety Rules (P55) and recomputed it by hand - index 0.607 (0.822 by the second formula), so nobody, and one person first at a beam of 1,160 mm. Taking the stern freeboard equal to the freeboard amidships is right for a level box; whether other articles limit the persons of a small boat was not checked."
+  },
+  {
+   "id": "K-009",
+   "target": [
+    "dsn.winter_lift_mm",
+    "dsn.winter_mass_kg",
+    "dsn.winter_tip_ratio",
+    "dsn.winter_track_pressure_kpa",
+    "dsn.winter_chain_links",
+    "dsn.belly_pressure_kpa",
+    "dsn.foam_fit_m3",
+    "dsn.foam_reserve_ratio"
+   ],
+   "tier": "T2",
+   "method": "refute",
+   "result": "pass",
+   "by": "assistant",
+   "date": "2026-11-04",
+   "detail": "An independent helper recomputed the winter form of 1.3.12 by hand and searched docs/data/design.json for interferences in the lifted winter form, in two rounds. The first found two errors (a bow of two panels called three; foam counted twice under the pod) and six interferences - the winter chain through the left pan strip and a cross member, hanging brackets through the pan and the floor, the slide rails' arms through the track's upper run, and a drive shaft too short. The design was changed - a wider tunnel, the cross member moved to 0.55 m, side plates beside the track carrying cross shafts inside the loop, the edge to the ski's outer corner, the belly counted with the track, stanchions and a chain guard added. The second round found all fixed but two new faults, the rear lugs drawn with the lift counted twice and the calipers through the right side plate; the assistant fixed both and checked the clearances from design.json (7 mm each). Clearances under 10 mm remain at the bow, the horn, the side plates' tops, and the chain to the left plate. The winter chain's 96 links sit at the boundary of the length formula. sm.removed_kg of 1.2 is not used by the design."
   }
  ],
  "procedures": [
@@ -7676,26 +8124,58 @@
   },
   {
    "id": "OP-04",
-   "title": "Change to the winter setup",
+   "title": "Change to the winter form",
    "steps": [
     {
      "id": "OP-04.01",
-     "action": "Lift the front, take off the front wheels, and bolt the skis onto the spindles.",
+     "action": "On level ground, lift the kart onto four stands at the winter height, with the engine stopped and cold.",
+     "values": [
+      "dsn.winter_lift_mm"
+     ],
+     "controls": [
+      "H-10"
+     ]
+    },
+    {
+     "id": "OP-04.02",
+     "action": "Take off the summer chain, the rear wheels with their hubs, the axle sprocket, the brake disc with both calipers, and the rear axle."
+    },
+    {
+     "id": "OP-04.03",
+     "action": "Slide the track unit's pivot shaft through the three pillow blocks, and bolt its drive shaft's bearings to the brackets under the rails.",
+     "values": [
+      "sm.track_width_mm",
+      "sm.track_contact_mm"
+     ]
+    },
+    {
+     "id": "OP-04.04",
+     "action": "Fit the brake disc and both calipers on the drive shaft, bleed nothing, and check that the brake holds.",
+     "controls": [
+      "H-01"
+     ]
+    },
+    {
+     "id": "OP-04.05",
+     "action": "Fit the 30T sprocket and the winter chain, tension it, and refit the chain guard.",
+     "values": [
+      "dsn.winter_chain_links"
+     ],
+     "controls": [
+      "H-03"
+     ]
+    },
+    {
+     "id": "OP-04.06",
+     "action": "Take off the front wheels and bolt the skis with their stanchions onto the spindles.",
      "values": [
       "ski.width_mm",
       "ski.contact_length_mm"
      ]
     },
     {
-     "id": "OP-04.02",
-     "action": "Fit the chains on the rear tyres and tighten them.",
-     "controls": [
-      "H-07"
-     ]
-    },
-    {
-     "id": "OP-04.03",
-     "action": "Check the steering moves freely from lock to lock with the skis.",
+     "id": "OP-04.07",
+     "action": "Lower the kart, check that the steering moves freely from lock to lock and that the track turns freely with the rear lifted.",
      "controls": [
       "H-07"
      ]
@@ -7743,6 +8223,38 @@
      ]
     }
    ]
+  },
+  {
+   "id": "OP-06",
+   "title": "Change back to the summer form",
+   "steps": [
+    {
+     "id": "OP-06.01",
+     "action": "On level ground, lift the kart onto four stands at the winter height, with the engine stopped and cold.",
+     "controls": [
+      "H-10"
+     ]
+    },
+    {
+     "id": "OP-06.02",
+     "action": "Take off the skis, the winter chain, the brake disc with both calipers, and the track unit."
+    },
+    {
+     "id": "OP-06.03",
+     "action": "Refit the rear axle in the pillow blocks, the axle sprocket, the brake disc with both calipers, the hubs, and the wheels, and tension the summer chain.",
+     "controls": [
+      "H-01",
+      "H-03"
+     ]
+    },
+    {
+     "id": "OP-06.04",
+     "action": "Refit the front wheels, lower the kart, and check the steering, the brakes, and the lamps before any road use.",
+     "controls": [
+      "H-01"
+     ]
+    }
+   ]
   }
  ],
  "states": {
@@ -7781,9 +8293,11 @@
    {
     "id": "winter",
     "group": "setup",
-    "label": "Winter setup (skis and chains)",
+    "label": "Winter form (skis and a track)",
     "refs": [
      "OP-04",
+     "OP-06",
+     "R-28",
      "R-05",
      "R-06"
     ]
@@ -7846,7 +8360,7 @@
    {
     "from": "stored",
     "to": "winter",
-    "trigger": "Fit skis and chains",
+    "trigger": "Fit the track unit and the skis",
     "refs": [
      "OP-04"
     ]
@@ -7854,7 +8368,7 @@
    {
     "from": "summer",
     "to": "winter",
-    "trigger": "Fit skis and chains",
+    "trigger": "Fit the track unit and the skis",
     "refs": [
      "OP-04"
     ]
@@ -7862,7 +8376,10 @@
    {
     "from": "winter",
     "to": "summer",
-    "trigger": "Fit the front wheels, take off the chains"
+    "trigger": "Refit the axle, wheels, and summer chain",
+    "refs": [
+     "OP-06"
+    ]
    },
    {
     "from": "stored",
@@ -8259,32 +8776,62 @@
     ]
    },
    {
+    "id": "w0",
+    "phase": "test",
+    "title": "Snowshoe test in the deepest fresh snow (Q-012)",
+    "kind": "wait",
+    "days": 30,
+    "after": [
+     "d3"
+    ],
+    "reqs": [
+     "R-06"
+    ]
+   },
+   {
     "id": "w1",
     "phase": "build",
-    "title": "Make the skis and fit the chains",
+    "title": "Buy the donor snowmobile, strip its track unit, and measure it (Q-029)",
     "kind": "work",
     "days": 3,
     "after": [
+     "w0",
      "t3"
     ],
     "parts": [
+     "track_unit"
+    ]
+   },
+   {
+    "id": "w2",
+    "phase": "build",
+    "title": "Make the pivot shaft, brackets, ski stanchions, winter chain, and sled pan",
+    "kind": "work",
+    "days": 6,
+    "after": [
+     "w1"
+    ],
+    "parts": [
+     "track_unit",
      "skis",
-     "snow_chains"
+     "winter_chain",
+     "sled_pan"
     ]
    },
    {
     "id": "t5",
     "phase": "test",
-    "title": "Runs on packed and fresh snow, cold start",
+    "title": "Change of form, runs on packed and fresh snow, cold start",
     "kind": "work",
     "days": 1,
     "after": [
-     "w1"
+     "w2"
     ],
     "reqs": [
      "R-05",
      "R-06",
-     "R-07"
+     "R-07",
+     "R-28"
     ]
    },
    {
@@ -8504,13 +9051,6 @@
     "need": "w1"
    },
    {
-    "part": "snow_chains",
-    "item": "Ladder chains for small tyres, adjustable",
-    "qty": 2,
-    "price": "cost.snow_chain_jpy",
-    "need": "w1"
-   },
-   {
     "part": "kart",
     "item": "Welder, 100 V no-gas",
     "qty": 1,
@@ -8672,6 +9212,55 @@
     "qty": 1,
     "price": "cost.plate_stay_jpy",
     "need": "r1"
+   },
+   {
+    "part": "track_unit",
+    "item": "Running small snowmobile (Yamaha Bravo class) as donor of its track unit, drive shaft, and brake parts",
+    "qty": 1,
+    "price": "cost.donor_bravo_jpy",
+    "need": "w1"
+   },
+   {
+    "part": "track_unit",
+    "item": "Pivot shaft, hanging brackets, ski stanchions, and bolts (allowance)",
+    "qty": 1,
+    "price": "cost.allow_winter_mounts_jpy",
+    "need": "w2"
+   },
+   {
+    "part": "winter_chain",
+    "item": "Chain 420, 120 links, cut to the winter length",
+    "qty": 1,
+    "price": "cost.chain420_jpy",
+    "need": "w2"
+   },
+   {
+    "part": "winter_chain",
+    "item": "Sprocket 420, 30T on the track's drive shaft (with an adapter, machined)",
+    "qty": 1,
+    "price": "cost.spr420_30t_jpy",
+    "need": "w2"
+   },
+   {
+    "part": "sled_pan",
+    "item": "UHMW polyethylene sheet 6 mm for the pan's bottom and bow (m2)",
+    "qty": 2,
+    "price": "cost.hull_bottom_jpy_per_m2",
+    "need": "w2"
+   },
+   {
+    "part": "sled_pan",
+    "item": "UHMW polyethylene sheet 3 mm for the right pod (m2)",
+    "qty": 1,
+    "price": "cost.hull_side_jpy_per_m2",
+    "need": "w2"
+   },
+   {
+    "part": "sled_pan",
+    "item": "Extruded polystyrene board 50 mm, 910 x 1,820 (m3, one board is 0.083)",
+    "qty": 0.083,
+    "price": "cost.xps_jpy_per_m3",
+    "need": "w2"
    }
   ]
  },
@@ -8883,7 +9472,7 @@
   {
    "doc": "docs/03-design.md",
    "id": "winter",
-   "title": "1.3.12 Winter",
+   "title": "1.3.12 Winter form",
    "level": 2
   },
   {

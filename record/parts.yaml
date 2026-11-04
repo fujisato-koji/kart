@@ -82,10 +82,13 @@ items:
     name: Winter parts
     parent: kart
   - id: skis
-    name: Front skis on the spindles
+    name: Front skis on stanchions as tall as the winter lift, bolted to the spindles
     parent: winter
-  - id: snow_chains
-    name: Rear tyre chains
+  - id: track_unit
+    name: Centre track unit from a used snowmobile - track, slide rails with idler wheels and arms, drive shaft with its bearings and brackets, and a pivot shaft in the pillow blocks
+    parent: winter
+  - id: winter_chain
+    name: Longer 420 chain and the 30T sprocket on the track's drive shaft
     parent: winter
   - id: roll_bar
     name: Roll bar over the driver's head, also the 1 m marker
@@ -120,3 +123,15 @@ items:
   - id: number_plate
     name: Number plate and its bracket
     parent: road
+  - id: sled_pan
+    name: Sled pan of UHMW polyethylene under the frame, with foam, kept in both forms
+    parent: chassis
+  - id: future_water
+    name: Future water version, not required (D-027)
+    parent: kart
+  - id: side_floats
+    name: Side floats on arms, for a future water version
+    parent: future_water
+  - id: outboard
+    name: Electric outboard with its battery, for a future water version
+    parent: future_water

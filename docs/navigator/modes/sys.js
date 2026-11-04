@@ -21,13 +21,14 @@ function s(tag, attrs, ...kids) {
 
 // Drawing-only constants: block size, grid, Japanese short names, fixed positions.
 export const ILLUSTRATIVE = {
-  W: 106, H: 36, X0: 15, PITCH: 131, VBW: 1200, VBH: 830,
+  W: 106, H: 36, X0: 15, PITCH: 131, VBW: 1200, VBH: 910,
   ja: {
     frame: 'フレーム', floor: '床板', bumpers: 'バンパー', seat: 'シート', seat_slide: 'シートスライド', pedal_box: 'ペダルボックス',
     guards: 'ガード', steering_wheel: 'ハンドル', steering_column: 'コラム', tie_rods: 'タイロッド', spindles: 'スピンドル',
     front_wheels: '前輪', axle_shaft: 'アクスル軸', axle_bearings: '軸受', rear_hubs: '後ハブ', rear_wheels: '後輪', brake: 'ブレーキ',
     engine: 'エンジン', chain_final: '最終チェーン',
-    throttle: 'スロットル', kill_switch: '停止スイッチ', skis: 'スキー', lighting: '灯火', mirrors: 'ミラー', horn: 'ホーン', speedometer: 'スピードメーター', seat_belt: 'シートベルト', head_restraint: 'ヘッドレスト', hand_brake: 'ハンドブレーキ', battery: 'バッテリー', number_plate: 'ナンバー', roll_bar: 'ロールバー', snow_chains: '雪用チェーン',
+    throttle: 'スロットル', kill_switch: '停止スイッチ', skis: 'スキー', lighting: '灯火', mirrors: 'ミラー', horn: 'ホーン', speedometer: 'スピードメーター', seat_belt: 'シートベルト', head_restraint: 'ヘッドレスト', hand_brake: 'ハンドブレーキ', battery: 'バッテリー', number_plate: 'ナンバー', roll_bar: 'ロールバー',
+    track_unit: 'キャタピラ', winter_chain: '冬チェーン', sled_pan: 'そり底', side_floats: '浮き（将来版）', outboard: '船外機（将来版）',
   },
   // [column, y]; the frame is a wide bar. A part missing here is drawn in the fallback row.
   pos: {
@@ -38,10 +39,12 @@ export const ILLUSTRATIVE = {
     seat: [1, 410], seat_slide: [2, 410], pedal_box: [3, 410], roll_bar: [4, 410],
     bumpers: [2, 545], guards: [5, 545], floor: [7, 545],
     steering_wheel: [0, 645], steering_column: [1, 645], tie_rods: [2, 645], spindles: [3, 645], front_wheels: [4, 645],
-    skis: [3, 755], snow_chains: [8, 755],
+    skis: [3, 755], track_unit: [4, 755], winter_chain: [5, 755],
+    sled_pan: [0, 545],
+    side_floats: [1, 845], outboard: [2, 845],
   },
   frame: { x: 15, y: 490, w: 1033 },
-  fallbackY: 840, VBH_BASE: 830,
+  fallbackY: 925, VBH_BASE: 910,
   // id, label, x, y, w, h, css class
   bands: [
     ['powertrain', '動力', 5, 30, 660, 155, 'g-pt'],
@@ -51,8 +54,9 @@ export const ILLUSTRATIVE = {
     ['steering', '操舵', 5, 615, 530, 80, 'g-st'],
     ['front', '足回り（前）', 529, 615, 136, 80, 'g-su'],
     ['winter', '冬', 398, 705, 792, 100, 'g-wi'],
+    ['future_water', '水の将来版（参考、要求ではありません、D-027）', 5, 815, 560, 80, 'g-fu'],
   ],
-  group: { powertrain: 'g-pt', chassis: 'g-ch', steering: 'g-st', winter: 'g-wi', road: 'g-rd', front_wheels: 'g-su', rear_axle: 'g-su', rear_wheels: 'g-su', brake: 'g-su' },
+  group: { powertrain: 'g-pt', chassis: 'g-ch', steering: 'g-st', winter: 'g-wi', future_water: 'g-fu', road: 'g-rd', front_wheels: 'g-su', rear_axle: 'g-su', rear_wheels: 'g-su', brake: 'g-su' },
 };
 const VIEWS = [['power', '動力の流れ'], ['load', '力の流れ'], ['signal', '操作と信号'], ['all', 'すべて']];
 const CSS = `
@@ -63,6 +67,7 @@ const CSS = `
 #mode-sys .band.g-pt{fill:var(--warnbg,#fdecc8)}#mode-sys .band.g-st{fill:var(--infobg,#dce8fa)}
 #mode-sys .band.g-rd{fill:var(--badbg,#f8d9d5)}#mode-sys .n.g-rd rect{stroke:var(--bad,#a8261c)}
 #mode-sys .band.g-su{fill:var(--okbg,#dff3e4)}#mode-sys .band.g-wi{fill:var(--card,#fff);stroke-dasharray:5 3}
+#mode-sys .band.g-fu{fill:var(--card,#fff);stroke:#e07a1a;stroke-dasharray:2 4}#mode-sys .n.g-fu rect{stroke:#e07a1a;stroke-dasharray:4 3;fill:var(--card,#fff)}
 #mode-sys .bandlabel{font-weight:700;fill:var(--mut,#5f6670)}
 #mode-sys .n{cursor:pointer}
 #mode-sys .n rect{fill:var(--card,#fff);stroke:var(--mut,#5f6670);stroke-width:1.2}

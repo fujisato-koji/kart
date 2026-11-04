@@ -220,13 +220,12 @@ items:
     blocks: design_build
   - id: Q-019
     kind: question
-    text: The fit of bought parts to each other is not stated by their sellers and is checked when they arrive, before the frame is welded to them - the rim's three-hole pattern against the front hubs and the made rear hubs, the front hubs' bore against the 17 mm spindles, the engine's shaft (3/4 inch Q-type) and base holes, the ladder chains on 13x5.00-6 tyres, and the seat's rail bolt spacing.
+    text: The fit of bought parts to each other is not stated by their sellers and is checked when they arrive, before the frame is welded to them - the rim's three-hole pattern against the front hubs and the made rear hubs, the front hubs' bore against the 17 mm spindles, the engine's shaft (3/4 inch Q-type) and base holes, and the seat's rail bolt spacing.
     waits_for: assistant
     affects:
       - front_wheels
       - rear_hubs
       - engine
-      - snow_chains
       - seat
     opened: 2026-11-03
     phase: build
@@ -322,7 +321,7 @@ items:
     closed: 2026-11-04
   - id: Q-027
     kind: question
-    text: The rough inputs of the snowmobile form and the hull - the track's place and mass (its size is a Yamaha Bravo's, P51), the parts removed and added at each change, the drive sprocket, the seat's rise over the track, the hull's size, foam share, and plating, the water design points, the outboard's battery, and the change time - are assumed until a donor is chosen and the hull is laid out in step 1.3.
+    text: The rough inputs of the snowmobile form and the hull - the track's place and mass (its size is a Yamaha Bravo's, P51), the parts removed and added at each change, the drive sprocket, the hull's size, foam share, and plating, the water design points, the outboard's battery, and the change time - are assumed until a donor is chosen and the hull is laid out in step 1.3.
     waits_for: assistant
     affects:
       - sm.track_x_mm
@@ -330,7 +329,6 @@ items:
       - sm.removed_kg
       - ski.pair_kg
       - sm.drive_dia_mm
-      - sm.seat_raise_mm
       - sm.speed_snow_kmh
       - hull.length_mm
       - hull.beam_mm
@@ -360,3 +358,24 @@ items:
     phase: design
     closed_by: D-027
     closed: 2026-11-04
+  - id: Q-029
+    kind: question
+    text: The donor's track unit is drawn from assumed sizes - the track's thickness with its lugs, the rear idler's diameter, the drive shaft's height and its place ahead of the slide rails - which set the winter lift. Measure them on the donor (a Yamaha Bravo class) when it is bought, with its mass and mounting points, and check that a pivot shaft through the pillow blocks and brackets hanging from the rails can hold it.
+    waits_for: assistant
+    affects:
+      - sm.track_t_mm
+      - sm.idler_dia_mm
+      - sm.drive_z_mm
+      - sm.drive_ahead_mm
+      - track_unit
+    opened: 2026-11-04
+    phase: design
+  - id: Q-030
+    kind: question
+    text: The sled pan holds dsn.foam_fit_m3 of foam, which floats dsn.foam_reserve_ratio of the winter kart's own weight, while R-29 asks water.reserve_ratio, which needs about dsn.foam_needed_m3. The room is not there without bolting large floats on. With boat use withdrawn (D-027), should R-29 keep only the driver's part (a life jacket and no seat belt on ice, nothing holding the driver) and drop the kart's floating, or should the kart carry floats in winter?
+    waits_for: owner
+    affects:
+      - R-29
+      - sled_pan
+    opened: 2026-11-04
+    phase: design

@@ -212,27 +212,49 @@ tasks:
     reqs:
       - R-14
       - R-15
+  - id: w0
+    phase: test
+    title: Snowshoe test in the deepest fresh snow (Q-012)
+    kind: wait
+    days: 30
+    after:
+      - d3
+    reqs:
+      - R-06
   - id: w1
     phase: build
-    title: Make the skis and fit the chains
+    title: Buy the donor snowmobile, strip its track unit, and measure it (Q-029)
     kind: work
     days: 3
     after:
+      - w0
       - t3
     parts:
+      - track_unit
+  - id: w2
+    phase: build
+    title: Make the pivot shaft, brackets, ski stanchions, winter chain, and sled pan
+    kind: work
+    days: 6
+    after:
+      - w1
+    parts:
+      - track_unit
       - skis
-      - snow_chains
+      - winter_chain
+      - sled_pan
   - id: t5
     phase: test
-    title: Runs on packed and fresh snow, cold start
+    title: Change of form, runs on packed and fresh snow, cold start
     kind: work
     days: 1
     after:
-      - w1
+      - w2
     reqs:
       - R-05
       - R-06
       - R-07
+      - R-28
   - id: r1
     phase: build
     title: Fit the roll bar, lamps, turn signals, mirrors, horn, speedometer, and number plate

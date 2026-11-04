@@ -4,7 +4,14 @@
  "configs": [
   "summer",
   "winter",
-  "transport"
+  "transport",
+  "water"
+ ],
+ "lift": {
+  "winter": 0.2182
+ },
+ "future": [
+  "water"
  ],
  "dims": {
   "length": 1.53,
@@ -20,6 +27,14 @@
   "axle_height": 0.1625,
   "x_front": 1.3,
   "x_back": -0.23
+ },
+ "dims_winter": {
+  "length": 2.15,
+  "height": 1.2682,
+  "x_front": 1.48,
+  "x_back": -0.67,
+  "belly": 0.3182,
+  "lift": 0.2182
  },
  "riders": {
   "adult": {
@@ -96,7 +111,7 @@
     0.1659
    ],
    "b": [
-    0.5,
+    0.55,
     0.3,
     0.1659
    ],
@@ -106,7 +121,7 @@
   {
    "part": "frame",
    "a": [
-    0.5,
+    0.55,
     0.3,
     0.1659
    ],
@@ -201,7 +216,7 @@
     0.1659
    ],
    "b": [
-    0.5,
+    0.55,
     -0.3,
     0.1659
    ],
@@ -211,7 +226,7 @@
   {
    "part": "frame",
    "a": [
-    0.5,
+    0.55,
     -0.3,
     0.1659
    ],
@@ -301,12 +316,12 @@
   {
    "part": "frame",
    "a": [
-    0.5,
+    0.55,
     0.3,
     0.1659
    ],
    "b": [
-    0.5,
+    0.55,
     -0.3,
     0.1659
    ],
@@ -681,7 +696,8 @@
    "configs": [
     "summer",
     "winter",
-    "transport"
+    "transport",
+    "water"
    ],
    "pos": [
     0.5,
@@ -699,8 +715,8 @@
    "type": "cyl",
    "configs": [
     "summer",
-    "winter",
-    "transport"
+    "transport",
+    "water"
    ],
    "pos": [
     0.0,
@@ -717,7 +733,8 @@
    "configs": [
     "summer",
     "winter",
-    "transport"
+    "transport",
+    "water"
    ],
    "pos": [
     0.0,
@@ -737,7 +754,8 @@
    "configs": [
     "summer",
     "winter",
-    "transport"
+    "transport",
+    "water"
    ],
    "pos": [
     0.0,
@@ -756,7 +774,8 @@
    "configs": [
     "summer",
     "winter",
-    "transport"
+    "transport",
+    "water"
    ],
    "pos": [
     0.0,
@@ -776,7 +795,8 @@
    "configs": [
     "summer",
     "winter",
-    "transport"
+    "transport",
+    "water"
    ],
    "pos": [
     0.0,
@@ -795,7 +815,8 @@
    "configs": [
     "summer",
     "winter",
-    "transport"
+    "transport",
+    "water"
    ],
    "pos": [
     0.0,
@@ -815,7 +836,8 @@
    "configs": [
     "summer",
     "winter",
-    "transport"
+    "transport",
+    "water"
    ],
    "pos": [
     0.0,
@@ -889,98 +911,6 @@
    "od": 0.325,
    "width": 0.127,
    "rim": 0.152
-  },
-  {
-   "part": "rear_hubs",
-   "type": "hub",
-   "configs": [
-    "winter"
-   ],
-   "pos": [
-    0.0,
-    0.5549999999999999,
-    0.1625
-   ],
-   "axis": "y",
-   "d": 0.07,
-   "l": 0.05
-  },
-  {
-   "part": "rear_wheels",
-   "type": "wheel",
-   "configs": [
-    "winter"
-   ],
-   "pos": [
-    0.0,
-    0.575,
-    0.1625
-   ],
-   "axis": "y",
-   "od": 0.325,
-   "width": 0.127,
-   "rim": 0.152
-  },
-  {
-   "part": "snow_chains",
-   "type": "chains",
-   "configs": [
-    "winter"
-   ],
-   "pos": [
-    0.0,
-    0.575,
-    0.1625
-   ],
-   "axis": "y",
-   "od": 0.325,
-   "width": 0.127
-  },
-  {
-   "part": "rear_hubs",
-   "type": "hub",
-   "configs": [
-    "winter"
-   ],
-   "pos": [
-    0.0,
-    -0.5549999999999999,
-    0.1625
-   ],
-   "axis": "y",
-   "d": 0.07,
-   "l": 0.05
-  },
-  {
-   "part": "rear_wheels",
-   "type": "wheel",
-   "configs": [
-    "winter"
-   ],
-   "pos": [
-    0.0,
-    -0.575,
-    0.1625
-   ],
-   "axis": "y",
-   "od": 0.325,
-   "width": 0.127,
-   "rim": 0.152
-  },
-  {
-   "part": "snow_chains",
-   "type": "chains",
-   "configs": [
-    "winter"
-   ],
-   "pos": [
-    0.0,
-    -0.575,
-    0.1625
-   ],
-   "axis": "y",
-   "od": 0.325,
-   "width": 0.127
   },
   {
    "part": "rear_hubs",
@@ -1045,12 +975,74 @@
    "rim": 0.152
   },
   {
+   "part": "rear_hubs",
+   "type": "hub",
+   "configs": [
+    "water"
+   ],
+   "pos": [
+    0.0,
+    0.5549999999999999,
+    0.1625
+   ],
+   "axis": "y",
+   "d": 0.07,
+   "l": 0.05
+  },
+  {
+   "part": "rear_wheels",
+   "type": "wheel",
+   "configs": [
+    "water"
+   ],
+   "pos": [
+    0.0,
+    0.575,
+    0.1625
+   ],
+   "axis": "y",
+   "od": 0.325,
+   "width": 0.127,
+   "rim": 0.152
+  },
+  {
+   "part": "rear_hubs",
+   "type": "hub",
+   "configs": [
+    "water"
+   ],
+   "pos": [
+    0.0,
+    -0.5549999999999999,
+    0.1625
+   ],
+   "axis": "y",
+   "d": 0.07,
+   "l": 0.05
+  },
+  {
+   "part": "rear_wheels",
+   "type": "wheel",
+   "configs": [
+    "water"
+   ],
+   "pos": [
+    0.0,
+    -0.575,
+    0.1625
+   ],
+   "axis": "y",
+   "od": 0.325,
+   "width": 0.127,
+   "rim": 0.152
+  },
+  {
    "part": "brake",
    "type": "disc",
    "configs": [
     "summer",
-    "winter",
-    "transport"
+    "transport",
+    "water"
    ],
    "pos": [
     0.0,
@@ -1066,8 +1058,8 @@
    "type": "caliper",
    "configs": [
     "summer",
-    "winter",
-    "transport"
+    "transport",
+    "water"
    ],
    "pos": [
     0.0,
@@ -1086,7 +1078,8 @@
    "configs": [
     "summer",
     "winter",
-    "transport"
+    "transport",
+    "water"
    ],
    "pos": [
     0.48000000000000004,
@@ -1105,7 +1098,8 @@
    "configs": [
     "summer",
     "winter",
-    "transport"
+    "transport",
+    "water"
    ],
    "pos": [
     0.48000000000000004,
@@ -1128,7 +1122,8 @@
    "configs": [
     "summer",
     "winter",
-    "transport"
+    "transport",
+    "water"
    ],
    "pos": [
     0.25,
@@ -1146,8 +1141,8 @@
    "type": "sprocket",
    "configs": [
     "summer",
-    "winter",
-    "transport"
+    "transport",
+    "water"
    ],
    "pos": [
     0.0,
@@ -1165,8 +1160,8 @@
    "type": "chain",
    "configs": [
     "summer",
-    "winter",
-    "transport"
+    "transport",
+    "water"
    ],
    "pos": [
     0.25,
@@ -1187,8 +1182,8 @@
    "type": "guard",
    "configs": [
     "summer",
-    "winter",
-    "transport"
+    "transport",
+    "water"
    ],
    "pos": [
     0.125,
@@ -1207,7 +1202,8 @@
    "configs": [
     "summer",
     "winter",
-    "transport"
+    "transport",
+    "water"
    ],
    "pos": [
     1.0,
@@ -1255,18 +1251,20 @@
    "rim": 0.152
   },
   {
-   "part": "skis",
-   "type": "ski",
+   "part": "front_wheels",
+   "type": "wheel",
    "configs": [
-    "winter"
+    "water"
    ],
    "pos": [
     1.0,
     0.53,
-    0.0
+    0.1625
    ],
-   "l": 0.96,
-   "w": 0.12
+   "axis": "y",
+   "od": 0.325,
+   "width": 0.127,
+   "rim": 0.152
   },
   {
    "part": "spindles",
@@ -1274,7 +1272,8 @@
    "configs": [
     "summer",
     "winter",
-    "transport"
+    "transport",
+    "water"
    ],
    "pos": [
     1.0,
@@ -1322,18 +1321,20 @@
    "rim": 0.152
   },
   {
-   "part": "skis",
-   "type": "ski",
+   "part": "front_wheels",
+   "type": "wheel",
    "configs": [
-    "winter"
+    "water"
    ],
    "pos": [
     1.0,
     -0.53,
-    0.0
+    0.1625
    ],
-   "l": 0.96,
-   "w": 0.12
+   "axis": "y",
+   "od": 0.325,
+   "width": 0.127,
+   "rim": 0.152
   },
   {
    "part": "steering_column",
@@ -1341,7 +1342,8 @@
    "configs": [
     "summer",
     "winter",
-    "transport"
+    "transport",
+    "water"
    ],
    "pos": [
     0.6,
@@ -1361,7 +1363,8 @@
    "configs": [
     "summer",
     "winter",
-    "transport"
+    "transport",
+    "water"
    ],
    "pos": [
     0.58,
@@ -1377,7 +1380,8 @@
    "configs": [
     "summer",
     "winter",
-    "transport"
+    "transport",
+    "water"
    ],
    "pos": [
     0.95,
@@ -1397,7 +1401,8 @@
    "configs": [
     "summer",
     "winter",
-    "transport"
+    "transport",
+    "water"
    ],
    "pos": [
     0.95,
@@ -1417,7 +1422,8 @@
    "configs": [
     "summer",
     "winter",
-    "transport"
+    "transport",
+    "water"
    ],
    "pos": [
     -0.020000000000000004,
@@ -1434,7 +1440,8 @@
    "configs": [
     "summer",
     "winter",
-    "transport"
+    "transport",
+    "water"
    ],
    "pos": [
     0.08,
@@ -1453,7 +1460,8 @@
    "configs": [
     "summer",
     "winter",
-    "transport"
+    "transport",
+    "water"
    ],
    "pos": [
     0.51,
@@ -1473,7 +1481,8 @@
    "configs": [
     "summer",
     "winter",
-    "transport"
+    "transport",
+    "water"
    ],
    "rider": "adult",
    "pos": [
@@ -1489,7 +1498,8 @@
    "configs": [
     "summer",
     "winter",
-    "transport"
+    "transport",
+    "water"
    ],
    "rider": "child",
    "pos": [
@@ -1505,7 +1515,8 @@
    "configs": [
     "summer",
     "winter",
-    "transport"
+    "transport",
+    "water"
    ],
    "pos": [
     1.3,
@@ -1523,7 +1534,8 @@
    "configs": [
     "summer",
     "winter",
-    "transport"
+    "transport",
+    "water"
    ],
    "pos": [
     1.28,
@@ -1541,7 +1553,8 @@
    "configs": [
     "summer",
     "winter",
-    "transport"
+    "transport",
+    "water"
    ],
    "pos": [
     -0.22,
@@ -1559,7 +1572,8 @@
    "configs": [
     "summer",
     "winter",
-    "transport"
+    "transport",
+    "water"
    ],
    "pos": [
     -0.09000000000000001,
@@ -1580,7 +1594,8 @@
    "configs": [
     "summer",
     "winter",
-    "transport"
+    "transport",
+    "water"
    ],
    "pos": [
     1.28,
@@ -1598,7 +1613,8 @@
    "configs": [
     "summer",
     "winter",
-    "transport"
+    "transport",
+    "water"
    ],
    "pos": [
     -0.22,
@@ -1616,7 +1632,8 @@
    "configs": [
     "summer",
     "winter",
-    "transport"
+    "transport",
+    "water"
    ],
    "pos": [
     -0.09000000000000001,
@@ -1637,7 +1654,8 @@
    "configs": [
     "summer",
     "winter",
-    "transport"
+    "transport",
+    "water"
    ],
    "pos": [
     -0.22,
@@ -1659,7 +1677,8 @@
    "configs": [
     "summer",
     "winter",
-    "transport"
+    "transport",
+    "water"
    ],
    "pos": [
     -0.22,
@@ -1681,7 +1700,8 @@
    "configs": [
     "summer",
     "winter",
-    "transport"
+    "transport",
+    "water"
    ],
    "pos": [
     -0.23,
@@ -1700,7 +1720,8 @@
    "configs": [
     "summer",
     "winter",
-    "transport"
+    "transport",
+    "water"
    ],
    "pos": [
     -0.21000000000000002,
@@ -1718,7 +1739,8 @@
    "configs": [
     "summer",
     "winter",
-    "transport"
+    "transport",
+    "water"
    ],
    "pos": [
     1.1,
@@ -1737,7 +1759,8 @@
    "configs": [
     "summer",
     "winter",
-    "transport"
+    "transport",
+    "water"
    ],
    "pos": [
     0.6599999999999999,
@@ -1753,7 +1776,8 @@
    "configs": [
     "summer",
     "winter",
-    "transport"
+    "transport",
+    "water"
    ],
    "pos": [
     0.32,
@@ -1772,7 +1796,8 @@
    "configs": [
     "summer",
     "winter",
-    "transport"
+    "transport",
+    "water"
    ],
    "pos": [
     0.13,
@@ -1790,8 +1815,8 @@
    "type": "caliper",
    "configs": [
     "summer",
-    "winter",
-    "transport"
+    "transport",
+    "water"
    ],
    "pos": [
     0.0,
@@ -1810,7 +1835,8 @@
    "configs": [
     "summer",
     "winter",
-    "transport"
+    "transport",
+    "water"
    ],
    "pos": [
     -0.06999999999999999,
@@ -1829,7 +1855,8 @@
    "configs": [
     "summer",
     "winter",
-    "transport"
+    "transport",
+    "water"
    ],
    "pos": [
     0.03,
@@ -1849,7 +1876,8 @@
    "configs": [
     "summer",
     "winter",
-    "transport"
+    "transport",
+    "water"
    ],
    "pos": [
     0.03,
@@ -1869,7 +1897,8 @@
    "configs": [
     "summer",
     "winter",
-    "transport"
+    "transport",
+    "water"
    ],
    "pos": [
     -0.09000000000000001,
@@ -1882,6 +1911,608 @@
     0.3318
    ],
    "w": 0.048
+  },
+  {
+   "part": "sled_pan",
+   "type": "plate",
+   "configs": [
+    "summer",
+    "winter",
+    "transport",
+    "water"
+   ],
+   "pos": [
+    0.49,
+    0.345,
+    0.10300000000000001
+   ],
+   "size": [
+    0.6200000000000001,
+    0.21000000000000002,
+    0.006
+   ]
+  },
+  {
+   "part": "sled_pan",
+   "type": "plate",
+   "configs": [
+    "summer",
+    "winter",
+    "transport",
+    "water"
+   ],
+   "pos": [
+    0.49,
+    -0.345,
+    0.10300000000000001
+   ],
+   "size": [
+    0.6200000000000001,
+    0.21000000000000002,
+    0.006
+   ]
+  },
+  {
+   "part": "sled_pan",
+   "type": "box",
+   "configs": [
+    "summer",
+    "winter",
+    "transport",
+    "water"
+   ],
+   "pos": [
+    0.47500000000000003,
+    -0.365,
+    0.275
+   ],
+   "size": [
+    0.39,
+    0.07,
+    0.35
+   ],
+   "color": "pan"
+  },
+  {
+   "part": "sled_pan",
+   "type": "sheet",
+   "configs": [
+    "summer",
+    "winter",
+    "transport",
+    "water"
+   ],
+   "corners": [
+    [
+     0.8,
+     0.45,
+     0.1
+    ],
+    [
+     0.954,
+     0.375,
+     0.108
+    ],
+    [
+     0.954,
+     -0.375,
+     0.108
+    ],
+    [
+     0.8,
+     -0.45,
+     0.1
+    ]
+   ],
+   "t": 0.006
+  },
+  {
+   "part": "sled_pan",
+   "type": "sheet",
+   "configs": [
+    "summer",
+    "winter",
+    "transport",
+    "water"
+   ],
+   "corners": [
+    [
+     0.954,
+     0.375,
+     0.108
+    ],
+    [
+     1.108,
+     0.2875,
+     0.132
+    ],
+    [
+     1.108,
+     -0.2875,
+     0.132
+    ],
+    [
+     0.954,
+     -0.375,
+     0.108
+    ]
+   ],
+   "t": 0.006
+  },
+  {
+   "part": "sled_pan",
+   "type": "sheet",
+   "configs": [
+    "summer",
+    "winter",
+    "transport",
+    "water"
+   ],
+   "corners": [
+    [
+     1.108,
+     0.2875,
+     0.132
+    ],
+    [
+     1.24,
+     0.2,
+     0.18
+    ],
+    [
+     1.24,
+     -0.2,
+     0.18
+    ],
+    [
+     1.108,
+     -0.2875,
+     0.132
+    ]
+   ],
+   "t": 0.006
+  },
+  {
+   "part": "track_unit",
+   "type": "track",
+   "configs": [
+    "winter"
+   ],
+   "ground": true,
+   "width": 0.381,
+   "t": 0.025,
+   "wheels": [
+    [
+     -0.555,
+     0.11499999999999999,
+     0.09
+    ],
+    [
+     0.555,
+     0.07500000000000001,
+     0.05
+    ],
+    [
+     0.6050000000000001,
+     0.22,
+     0.09
+    ]
+   ]
+  },
+  {
+   "part": "track_unit",
+   "type": "rail",
+   "configs": [
+    "winter"
+   ],
+   "ground": true,
+   "pos": [
+    -0.555,
+    0.1305,
+    0.04
+   ],
+   "to": [
+    0.555,
+    0.1305,
+    0.04
+   ],
+   "d": 0.03
+  },
+  {
+   "part": "track_unit",
+   "type": "plate",
+   "configs": [
+    "winter"
+   ],
+   "ground": true,
+   "pos": [
+    0.15250000000000005,
+    0.2005,
+    0.22749999999999998
+   ],
+   "size": [
+    1.025,
+    0.006,
+    0.275
+   ]
+  },
+  {
+   "part": "track_unit",
+   "type": "plate",
+   "configs": [
+    "winter"
+   ],
+   "ground": true,
+   "pos": [
+    0.0,
+    0.2005,
+    0.381575
+   ],
+   "size": [
+    0.1,
+    0.006,
+    0.03315000000000007
+   ]
+  },
+  {
+   "part": "track_unit",
+   "type": "rail",
+   "configs": [
+    "winter"
+   ],
+   "ground": true,
+   "pos": [
+    -0.555,
+    -0.1305,
+    0.04
+   ],
+   "to": [
+    0.555,
+    -0.1305,
+    0.04
+   ],
+   "d": 0.03
+  },
+  {
+   "part": "track_unit",
+   "type": "plate",
+   "configs": [
+    "winter"
+   ],
+   "ground": true,
+   "pos": [
+    0.15250000000000005,
+    -0.2005,
+    0.22749999999999998
+   ],
+   "size": [
+    1.025,
+    0.006,
+    0.275
+   ]
+  },
+  {
+   "part": "track_unit",
+   "type": "plate",
+   "configs": [
+    "winter"
+   ],
+   "ground": true,
+   "pos": [
+    0.0,
+    -0.2005,
+    0.381575
+   ],
+   "size": [
+    0.1,
+    0.006,
+    0.03315000000000007
+   ]
+  },
+  {
+   "part": "track_unit",
+   "type": "cyl",
+   "configs": [
+    "winter"
+   ],
+   "ground": true,
+   "pos": [
+    -0.3,
+    0.0,
+    0.125
+   ],
+   "axis": "y",
+   "d": 0.025,
+   "l": 0.401
+  },
+  {
+   "part": "track_unit",
+   "type": "cyl",
+   "configs": [
+    "winter"
+   ],
+   "ground": true,
+   "pos": [
+    0.3,
+    0.0,
+    0.125
+   ],
+   "axis": "y",
+   "d": 0.025,
+   "l": 0.401
+  },
+  {
+   "part": "track_unit",
+   "type": "cyl",
+   "configs": [
+    "winter"
+   ],
+   "pos": [
+    0.0,
+    0.0,
+    0.1625
+   ],
+   "axis": "y",
+   "d": 0.025,
+   "l": 0.86
+  },
+  {
+   "part": "track_unit",
+   "type": "cyl",
+   "configs": [
+    "winter"
+   ],
+   "ground": true,
+   "pos": [
+    0.6050000000000001,
+    0.0,
+    0.22
+   ],
+   "axis": "y",
+   "d": 0.03,
+   "l": 0.511
+  },
+  {
+   "part": "brake",
+   "type": "disc",
+   "configs": [
+    "winter"
+   ],
+   "ground": true,
+   "pos": [
+    0.6050000000000001,
+    -0.2305,
+    0.22
+   ],
+   "axis": "y",
+   "d": 0.152,
+   "t": 0.004
+  },
+  {
+   "part": "brake",
+   "type": "caliper",
+   "configs": [
+    "winter"
+   ],
+   "ground": true,
+   "pos": [
+    0.6050000000000001,
+    -0.2305,
+    0.27599999999999997
+   ],
+   "size": [
+    0.06,
+    0.04,
+    0.05
+   ]
+  },
+  {
+   "part": "hand_brake",
+   "type": "caliper",
+   "configs": [
+    "winter"
+   ],
+   "ground": true,
+   "pos": [
+    0.6050000000000001,
+    -0.2305,
+    0.164
+   ],
+   "size": [
+    0.06,
+    0.04,
+    0.05
+   ]
+  },
+  {
+   "part": "winter_chain",
+   "type": "sprocket",
+   "configs": [
+    "winter"
+   ],
+   "ground": true,
+   "pos": [
+    0.6050000000000001,
+    0.215,
+    0.22
+   ],
+   "axis": "y",
+   "teeth": 30,
+   "pd": 0.1215,
+   "od": 0.1291,
+   "t": 0.006
+  },
+  {
+   "part": "winter_chain",
+   "type": "chain",
+   "configs": [
+    "winter"
+   ],
+   "ground": true,
+   "pos": [
+    0.25,
+    0.215,
+    0.52145
+   ],
+   "to": [
+    0.6050000000000001,
+    0.215,
+    0.22
+   ],
+   "r1": 0.0305,
+   "r2": 0.0607,
+   "axis": "y"
+  },
+  {
+   "part": "winter_chain",
+   "type": "guard",
+   "configs": [
+    "winter"
+   ],
+   "ground": true,
+   "pos": [
+    0.32,
+    0.195,
+    0.49160000000000004
+   ],
+   "size": [
+    0.26,
+    0.004,
+    0.17970000000000003
+   ]
+  },
+  {
+   "part": "skis",
+   "type": "ski",
+   "configs": [
+    "winter"
+   ],
+   "ground": true,
+   "pos": [
+    1.0,
+    0.53,
+    0.0
+   ],
+   "l": 0.96,
+   "w": 0.12,
+   "stub_z": 0.3807
+  },
+  {
+   "part": "skis",
+   "type": "ski",
+   "configs": [
+    "winter"
+   ],
+   "ground": true,
+   "pos": [
+    1.0,
+    -0.53,
+    0.0
+   ],
+   "l": 0.96,
+   "w": 0.12,
+   "stub_z": 0.3807
+  },
+  {
+   "part": "side_floats",
+   "type": "float",
+   "configs": [
+    "water"
+   ],
+   "future": true,
+   "pos": [
+    0.535,
+    0.8484999999999999,
+    0.25
+   ],
+   "l": 1.53,
+   "d": 0.3
+  },
+  {
+   "part": "side_floats",
+   "type": "rod",
+   "configs": [
+    "water"
+   ],
+   "future": true,
+   "pos": [
+    0.45,
+    0.3,
+    0.1659
+   ],
+   "to": [
+    0.45,
+    0.8484999999999999,
+    0.25
+   ],
+   "d": 0.025
+  },
+  {
+   "part": "side_floats",
+   "type": "float",
+   "configs": [
+    "water"
+   ],
+   "future": true,
+   "pos": [
+    0.535,
+    -0.8484999999999999,
+    0.25
+   ],
+   "l": 1.53,
+   "d": 0.3
+  },
+  {
+   "part": "side_floats",
+   "type": "rod",
+   "configs": [
+    "water"
+   ],
+   "future": true,
+   "pos": [
+    0.45,
+    -0.3,
+    0.1659
+   ],
+   "to": [
+    0.45,
+    -0.8484999999999999,
+    0.25
+   ],
+   "d": 0.025
+  },
+  {
+   "part": "outboard",
+   "type": "outboard",
+   "configs": [
+    "water"
+   ],
+   "future": true,
+   "pos": [
+    -0.29000000000000004,
+    0.0,
+    0.3209
+   ],
+   "shaft": 0.6,
+   "tilt_deg": 60
+  },
+  {
+   "part": "outboard",
+   "type": "box",
+   "configs": [
+    "water"
+   ],
+   "future": true,
+   "pos": [
+    -0.11000000000000001,
+    0.25,
+    0.3209
+   ],
+   "size": [
+    0.33,
+    0.17,
+    0.22
+   ]
   }
  ],
  "masses": [
@@ -2118,12 +2749,21 @@
     0.0,
     0.3659
    ]
+  },
+  {
+   "part": "sled_pan",
+   "kg": 4.67,
+   "pos": [
+    0.71,
+    -0.05,
+    0.16
+   ]
   }
  ],
  "cg": {
-  "x": 0.3621,
-  "z": 0.2733,
-  "mass": 105.65
+  "x": 0.3768,
+  "z": 0.2685,
+  "mass": 110.32
  },
  "delica": {
   "length": 1.61,

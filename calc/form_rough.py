@@ -141,18 +141,19 @@ def compute(v):
     # heavier form and the plating it must carry; then the floating summer kart with its rider,
     # its outboard, and the outboard's battery.
     hl, hb, hd = v["hull.length_mm"] / 1000, v["hull.beam_mm"] / 1000, v["hull.depth_mm"] / 1000
+    # the summer kart without the sled pan of 1.3, which this tub stands for
+    m_kart = v["dsn.mass_kg"] - v["dsn.pan_mass_kg"]
     bottom, sides = hl * hb, 2 * (hl + hb) * hd
     sheet = (bottom * v["hull.bottom_t_mm"] + sides * v["hull.side_t_mm"]) / 1000 * v["hull.sheet_density_kg_m3"]
     rho_f = v["foam.density_kg_m3"]
-    m_dry = max(v["dsn.mass_kg"],
-                v["dsn.mass_kg"] - v["sm.removed_kg"] + v["sm.track_unit_kg"] + v["ski.pair_kg"])
+    m_dry = max(m_kart, m_kart - v["sm.removed_kg"] + v["sm.track_unit_kg"] + v["ski.pair_kg"])
     foam = v["water.reserve_ratio"] * (m_dry + sheet) / (RHO_W - rho_f)
     put("hull.sheet_kg", round(sheet, 1), "kg", "water")
     put("hull.foam_m3", round(foam, 3), "m3", "water")
     put("hull.foam_share", round(foam / (hl * hb * hd), 2), None, "water")
     m_hull = sheet + foam * rho_f
     put("hull.mass_kg", round(m_hull, 1), "kg", "water")
-    m_boat = v["dsn.mass_kg"] + m_hull + v["outboard.mass_kg"] + v["outboard.battery_kg"]
+    m_boat = m_kart + m_hull + v["outboard.mass_kg"] + v["outboard.battery_kg"]
     m_sf = m_boat + v["rider.mass_max_kg"]
     draft = m_sf / RHO_W / (hl * hb)
     put("water.draft_mm", round(draft * 1000), "mm", "water")
@@ -183,8 +184,8 @@ def compute(v):
     put("water.beam_for_one_mm", round(b_one * 1000), "mm", "water")
 
     # Snowmobile form (D-023): the summer kart less its wheels and axle, plus a donor's track unit
-    # and a pair of skis, in the same tub; the rider sits sm.seat_raise_mm higher over the track
-    m_w = v["dsn.mass_kg"] - v["sm.removed_kg"] + v["sm.track_unit_kg"] + v["ski.pair_kg"] + m_hull
+    # and a pair of skis, in the same tub; the chassis rides dsn.winter_lift_mm higher over the track
+    m_w = m_kart - v["sm.removed_kg"] + v["sm.track_unit_kg"] + v["ski.pair_kg"] + m_hull
     put("sm.mass_kg", round(m_w, 1), "kg", "snowmobile")
     ww = (m_w + v["rider.mass_max_kg"]) * G
     wb = v["lay.wheelbase_mm"] / 1000
@@ -215,7 +216,7 @@ def compute(v):
     x2, y2 = x_t - tl / 2, tw / 2
     d = abs((y2 - y1) * x_cg + x2 * y1 - y2 * x1) / math.hypot(x2 - x1, y2 - y1)
     raised = (m_w + v["rider.mass_max_kg"] - v["sm.track_unit_kg"] - v["ski.pair_kg"]) / (m_w + v["rider.mass_max_kg"])
-    h_w = v["dsn.cg_height_adult_m"] + raised * v["sm.seat_raise_mm"] / 1000
+    h_w = v["dsn.cg_height_adult_m"] + raised * v["dsn.winter_lift_mm"] / 1000
     put("sm.cg_height_m", round(h_w, 3), "m", "snowmobile")
     put("sm.tip_ratio", round(d / h_w, 2), None, "snowmobile")
     # A snowmobile skims open water only above a speed that grows with its weight (S5)

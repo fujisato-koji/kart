@@ -134,3 +134,19 @@ items:
     by: assistant
     date: 2026-11-04
     detail: An independent helper checked the persons formula against the text of articles 102 and 103 of the Small Vessel Safety Rules (P55) and recomputed it by hand - index 0.607 (0.822 by the second formula), so nobody, and one person first at a beam of 1,160 mm. Taking the stern freeboard equal to the freeboard amidships is right for a level box; whether other articles limit the persons of a small boat was not checked.
+  - id: K-009
+    target:
+      - dsn.winter_lift_mm
+      - dsn.winter_mass_kg
+      - dsn.winter_tip_ratio
+      - dsn.winter_track_pressure_kpa
+      - dsn.winter_chain_links
+      - dsn.belly_pressure_kpa
+      - dsn.foam_fit_m3
+      - dsn.foam_reserve_ratio
+    tier: T2
+    method: refute
+    result: pass
+    by: assistant
+    date: 2026-11-04
+    detail: An independent helper recomputed the winter form of 1.3.12 by hand and searched docs/data/design.json for interferences in the lifted winter form, in two rounds. The first found two errors (a bow of two panels called three; foam counted twice under the pod) and six interferences - the winter chain through the left pan strip and a cross member, hanging brackets through the pan and the floor, the slide rails' arms through the track's upper run, and a drive shaft too short. The design was changed - a wider tunnel, the cross member moved to 0.55 m, side plates beside the track carrying cross shafts inside the loop, the edge to the ski's outer corner, the belly counted with the track, stanchions and a chain guard added. The second round found all fixed but two new faults, the rear lugs drawn with the lift counted twice and the calipers through the right side plate; the assistant fixed both and checked the clearances from design.json (7 mm each). Clearances under 10 mm remain at the bow, the horn, the side plates' tops, and the chain to the left plate. The winter chain's 96 links sit at the boundary of the length formula. sm.removed_kg of 1.2 is not used by the design.
