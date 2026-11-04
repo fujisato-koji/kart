@@ -123,3 +123,14 @@ items:
     by: assistant
     date: 2026-11-04
     detail: An independent helper recomputed every value of 1.2.14 and 1.2.15 by hand and checked the physics, the sources, and the comparisons in the text. The first round found five faults, all fixed the same day and passed on a second round - the foam was sized for the summer kart and is now sized for the heavier winter form; the outboard's battery was missing, which brings the tub's load rating just under the heaviest rider; P50 does not bar tracks for a moped and the text now says so; the kids' tracks and the smallest adult snowmobile lacked a source (S7 added, the claim limited to the listings); and the skipping speed was overstated as far beyond the top speed. The rear share ignores the skis and tub (about 0.71, not 0.73), within rough accuracy.
+  - id: K-008
+    target:
+      - water.persons_index
+      - water.persons_rated
+      - water.beam_for_one_mm
+    tier: T2
+    method: refute
+    result: pass
+    by: assistant
+    date: 2026-11-04
+    detail: An independent helper checked the persons formula against the text of articles 102 and 103 of the Small Vessel Safety Rules (P55) and recomputed it by hand - index 0.607 (0.822 by the second formula), so nobody, and one person first at a beam of 1,160 mm. Taking the stern freeboard equal to the freeboard amidships is right for a level box; whether other articles limit the persons of a small boat was not checked.

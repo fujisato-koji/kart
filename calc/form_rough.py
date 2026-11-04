@@ -167,6 +167,21 @@ def compute(v):
     put("water.depth_for_rider_mm", round((v["rider.mass_max_kg"] / v["water.load_share_manual"] + m_boat)
                                           / (hl * hb * RHO_W) * 1000), "mm", "water")
 
+    # Japanese rule for the persons a small boat on sheltered water may carry (P55, articles 102
+    # and 103): N <= C L B F and N <= L B (F2 - 0.025 L) / 0.33, with F the freeboard without
+    # persons (at most B / 5.5 + 0.09), F2 taken equal to F for a level tub, and
+    # C = 2.69 - 5.31 (D / B)^2 kept between 0.78 and 2.27
+    def persons(l_, b_):
+        c = min(2.27, max(0.78, 2.69 - 5.31 * (hd / b_) ** 2))
+        f = min(hd - m_boat / RHO_W / (l_ * b_), b_ / 5.5 + 0.09)
+        return min(c * l_ * b_ * f, l_ * b_ * (f - 0.025 * l_) / 0.33)
+
+    put("water.persons_rated", math.floor(persons(hl, hb)), None, "water")
+    put("water.persons_index", round(persons(hl, hb), 2), None, "water")
+    # The beam, at the tub's length and depth, that rates one person (the boat's weight kept)
+    b_one = next(b / 100 for b in range(round(hb * 100), 300) if persons(hl, b / 100) >= 1)
+    put("water.beam_for_one_mm", round(b_one * 1000), "mm", "water")
+
     # Snowmobile form (D-023): the summer kart less its wheels and axle, plus a donor's track unit
     # and a pair of skis, in the same tub; the rider sits sm.seat_raise_mm higher over the track
     m_w = v["dsn.mass_kg"] - v["sm.removed_kg"] + v["sm.track_unit_kg"] + v["ski.pair_kg"] + m_hull

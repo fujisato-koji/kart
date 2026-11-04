@@ -476,6 +476,8 @@ These are not decided here. 1.2 compares forms against them.
 | snow.skip_kmh_per_100kg | 12 | km/h | sourced | S5 |
 | outboard.battery_kg | 20 | kg | assumed | Q-027 |
 | cost.allow_outboard_battery_jpy | 20000 | JPY | assumed | Q-027 |
+| law.boat_fee_periodic_jpy | 9900 | JPY | sourced | P56 |
+| law.boat_fee_interim_jpy | 5100 | JPY | sourced | P56 |
 | form.mass_total_kg | 170 | kg | calculated | docs/02-form.md#mass |
 | snow.wheel_sinkage_min_cm | 63.2 | cm | calculated | docs/02-form.md#snow |
 | snow.wheel_sinkage_max_cm | 83.8 | cm | calculated | docs/02-form.md#snow |
@@ -511,6 +513,9 @@ These are not decided here. 1.2 compares forms against them.
 | water.gm_m | 0.191 | m | calculated | docs/02-form.md#water |
 | water.load_rating_kg | 97 | kg | calculated | docs/02-form.md#water |
 | water.depth_for_rider_mm | 358 | mm | calculated | docs/02-form.md#water |
+| water.persons_rated | 0 |  | calculated | docs/02-form.md#water |
+| water.persons_index | 0.61 |  | calculated | docs/02-form.md#water |
+| water.beam_for_one_mm | 1160 | mm | calculated | docs/02-form.md#water |
 | sm.mass_kg | 137.4 | kg | calculated | docs/02-form.md#snowmobile |
 | sm.rear_share | 0.73 |  | calculated | docs/02-form.md#snowmobile |
 | sm.track_pressure_kpa | 4.0 | kPa | calculated | docs/02-form.md#snowmobile |
@@ -627,5 +632,5 @@ These are not decided here. 1.2 compares forms against them.
 | Q-025 | The road-going layout is not yet buildable (K-006). Move the left side bar and the column braces clear of the scooter unit and the adult's shins; give the unit a plate on both rails; keep the axle sprocket and chain clear of the middle bearing plate; raise the roll bar above the tallest driver's head with a folding or bolted top for the car, with a front structure for a rollover; mount the hand brake, belt anchors, head restraint, battery, horn, and mirrors (facing the driver) on the frame; place the fuel tank, ECU, regulator, key switch, and the donor's silencer; add the cornering load to the axle and check a 30 mm axle; and carry the engine unit's mass on both rails. Build the collision search into calc/design.py so each change is checked. | assistant |
 | Q-026 | The owner described the kart as like a kick scooter for the far outdoors (D-023). Does that ask for a standing ride, or for a light personal vehicle that is still seated? A standing ride conflicts with the seat, seat belt, and head restraint the law asks of a minicar on roads (R-22), and with a child driving. | owner |
 | Q-027 | The rough inputs of the snowmobile form and the hull - the track's place and mass (its size is a Yamaha Bravo's, P51), the parts removed and added at each change, the drive sprocket, the seat's rise over the track, the hull's size, foam share, and plating, the water design points, the outboard's battery, and the change time - are assumed until a donor is chosen and the hull is laid out in step 1.3. | assistant |
-| Q-028 | A kart that moves on a lake is an amphibious vessel, a special ship, which the small-boat exemption from ship inspection does not cover (P46). Ask the regional transport bureau whether a home-built amphibious kart moved on water only by an electric outboard under 1.5 kW, with its engine stopped, can be inspected, what the inspection asks (buoyancy, stability, freeboard, equipment) and costs, and whether a pond on private land is outside the Ship Safety Act. No official page on a small amphibious vessel was found. | owner |
+| Q-028 | A kart that moves on a lake is an amphibious vessel, a special ship, which the small-boat exemption from ship inspection does not cover (P46). Ask the regional transport bureau whether a home-built amphibious kart moved on water only by an electric outboard under 1.5 kW, with its engine stopped, can be inspected; whether a tub that the persons formula rates for nobody may be approved on an inclining test, or needs side floats for water days; whether the 50 cc engine counts as propulsion because it can turn the wheels in water; and whether a pond on private land is outside the Ship Safety Act (only named waters are exempt from registration, P58). What an inspection asks and costs is in docs/02-form.md#water (P55, P56). No official page on a small amphibious vessel was found. | owner |
 <!-- tdr:end -->

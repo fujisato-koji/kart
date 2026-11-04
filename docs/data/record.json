@@ -3402,6 +3402,24 @@
    ]
   },
   {
+   "key": "law.boat_fee_periodic_jpy",
+   "v": 9900,
+   "unit": "JPY",
+   "status": "sourced",
+   "basis": [
+    "P56"
+   ]
+  },
+  {
+   "key": "law.boat_fee_interim_jpy",
+   "v": 5100,
+   "unit": "JPY",
+   "status": "sourced",
+   "basis": [
+    "P56"
+   ]
+  },
+  {
    "key": "form.mass_total_kg",
    "v": 170,
    "unit": "kg",
@@ -3708,6 +3726,31 @@
   {
    "key": "water.depth_for_rider_mm",
    "v": 358,
+   "unit": "mm",
+   "status": "calculated",
+   "basis": [
+    "docs/02-form.md#water"
+   ]
+  },
+  {
+   "key": "water.persons_rated",
+   "v": 0,
+   "status": "calculated",
+   "basis": [
+    "docs/02-form.md#water"
+   ]
+  },
+  {
+   "key": "water.persons_index",
+   "v": 0.61,
+   "status": "calculated",
+   "basis": [
+    "docs/02-form.md#water"
+   ]
+  },
+  {
+   "key": "water.beam_for_one_mm",
+   "v": 1160,
    "unit": "mm",
    "status": "calculated",
    "basis": [
@@ -5744,6 +5787,46 @@
    "note": "Read by a helper, pages 135, 136, and 176. Bravo BR250 has a track 381 mm wide, ground contact 1,110 to 1,126 mm; BR250TJ 184 kg with oil and full fuel."
   },
   {
+   "id": "P55",
+   "class": "P",
+   "title": "Small Vessel Safety Rules (349M50000800036), articles 4, 40 to 45, 58, 70, 82, 102, and 103",
+   "url": "https://laws.e-gov.go.jp/law/349M50000800036",
+   "retrieved": "2026-11-04",
+   "license": "unknown (laws and notices are not subject to copyright, Copyright Act article 13)",
+   "read": "partial",
+   "note": "Read by a helper; articles 102 and 103 read by the assistant. On sheltered water the persons a small boat may carry satisfy N <= C L B F and N <= L B (F2 - 0.025 L) / 0.33, with F the freeboard amidships without persons (at most B / 5.5 + 0.09), F2 the least freeboard at the stern, and C = 2.69 - 5.31 (D / B)^2 kept between 0.78 and 2.27. Article 4 lets the inspector set other requirements for an unusual vessel. A boat carries a life jacket per person, a ring buoy, two flares (not on rivers only), fire extinguishers, a mooring line and an anchor unless waived, tools, and a means to bail."
+  },
+  {
+   "id": "P56",
+   "class": "P",
+   "title": "Ship Safety Act (308AC0000000011) articles 5, 6, 10, and 18, and its Enforcement Ordinance articles 18, 24, 32, 35, and 66 with appended table 1",
+   "url": "https://laws.e-gov.go.jp/law/308AC0000000011",
+   "retrieved": "2026-11-04",
+   "license": "unknown (laws and notices are not subject to copyright, Copyright Act article 13)",
+   "read": "partial",
+   "note": "Read by a helper. The first periodic inspection is taken before a vessel is first used (a construction inspection is optional below 30 m); preparation includes a trial on the water and a stability test; the owner submits a specification and drawings. The certificate lasts five years (the six-year class excludes special ships), with an interim inspection between 21 and 39 months. Fees for a non-passenger vessel under 3 m - periodic 9,900 JPY, first-kind interim 5,100 JPY, an extra visit 4,900 JPY. Operating an uninspected vessel is punishable by up to one year or 500,000 JPY."
+  },
+  {
+   "id": "P57",
+   "class": "P",
+   "title": "MLIT, outline of the small boat operator licence",
+   "url": "https://www.mlit.go.jp/kaiji/menkyo/gaiyou/gaiyou.html",
+   "retrieved": "2026-11-04",
+   "license": "MLIT pages under the Public Data License 1.0",
+   "read": "excerpt",
+   "note": "Seen by a helper as an excerpt. No licence is needed for a boat whose registered length (about 0.9 of its overall length) is under 3 m, with an engine under 1.5 kW and a mechanism that stops the propeller at once or prevents injury - an emergency stop or kill switch, a centrifugal clutch, a neutral gear, or a propeller guard; an electric motor alone qualifies only with such a mechanism."
+  },
+  {
+   "id": "P58",
+   "class": "P",
+   "title": "MLIT Notice 243 of 2002, waters exempt from small vessel registration",
+   "url": "https://www.mlit.go.jp/notice/noticedata/pdf/200605/00004763.pdf",
+   "retrieved": "2026-11-04",
+   "license": "unknown (laws and notices are not subject to copyright, Copyright Act article 13)",
+   "read": "full",
+   "note": "Read by a helper. The waters exempt from registration are named one by one, such as the artificial ponds of particular theme parks; private waters are exempt only when named."
+  },
+  {
    "id": "S3",
    "class": "S",
    "title": "Wikipedia, Yamaha Bravo",
@@ -6640,7 +6723,7 @@
   {
    "id": "Q-028",
    "kind": "question",
-   "text": "A kart that moves on a lake is an amphibious vessel, a special ship, which the small-boat exemption from ship inspection does not cover (P46). Ask the regional transport bureau whether a home-built amphibious kart moved on water only by an electric outboard under 1.5 kW, with its engine stopped, can be inspected, what the inspection asks (buoyancy, stability, freeboard, equipment) and costs, and whether a pond on private land is outside the Ship Safety Act. No official page on a small amphibious vessel was found.",
+   "text": "A kart that moves on a lake is an amphibious vessel, a special ship, which the small-boat exemption from ship inspection does not cover (P46). Ask the regional transport bureau whether a home-built amphibious kart moved on water only by an electric outboard under 1.5 kW, with its engine stopped, can be inspected; whether a tub that the persons formula rates for nobody may be approved on an inclining test, or needs side floats for water days; whether the 50 cc engine counts as propulsion because it can turn the wheels in water; and whether a pond on private land is outside the Ship Safety Act (only named waters are exempt from registration, P58). What an inspection asks and costs is in docs/02-form.md#water (P55, P56). No official page on a small amphibious vessel was found.",
    "waits_for": "owner",
    "affects": [
     "R-27"
@@ -7404,6 +7487,20 @@
    "by": "assistant",
    "date": "2026-11-04",
    "detail": "An independent helper recomputed every value of 1.2.14 and 1.2.15 by hand and checked the physics, the sources, and the comparisons in the text. The first round found five faults, all fixed the same day and passed on a second round - the foam was sized for the summer kart and is now sized for the heavier winter form; the outboard's battery was missing, which brings the tub's load rating just under the heaviest rider; P50 does not bar tracks for a moped and the text now says so; the kids' tracks and the smallest adult snowmobile lacked a source (S7 added, the claim limited to the listings); and the skipping speed was overstated as far beyond the top speed. The rear share ignores the skis and tub (about 0.71, not 0.73), within rough accuracy."
+  },
+  {
+   "id": "K-008",
+   "target": [
+    "water.persons_index",
+    "water.persons_rated",
+    "water.beam_for_one_mm"
+   ],
+   "tier": "T2",
+   "method": "refute",
+   "result": "pass",
+   "by": "assistant",
+   "date": "2026-11-04",
+   "detail": "An independent helper checked the persons formula against the text of articles 102 and 103 of the Small Vessel Safety Rules (P55) and recomputed it by hand - index 0.607 (0.822 by the second formula), so nobody, and one person first at a beam of 1,160 mm. Taking the stern freeboard equal to the freeboard amidships is right for a level box; whether other articles limit the persons of a small boat was not checked."
   }
  ],
  "procedures": [
