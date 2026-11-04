@@ -351,3 +351,77 @@ The owner asked whether the winter tyres could stay on in summer, whether skis c
 **One front wheel.** The tipping edge then runs from the front wheel to a rear wheel, and the sideways ratio falls to tri.tip_ratio, against dsn.tip_ratio_adult with four wheels. Both kart.tip_ratio_snow_min sideways and law.quad_pitch_ratio_min fore and aft can be met only with the centre of mass at most about tri.cg_height_max_m high, against dsn.cg_height_adult_m now, which means a seat lowered a long way. The owner kept four wheels (D-031).
 
 **Decided:** buggy-size tyres all year, skis inside the front wheels adjustable in height, and chains on the rear tyres as needed (D-032); 1.3 is designed so.
+
+## 1.2.20 Front end - requirements, precedents, and forms {#front-end}
+
+The owner found that the front end of 1.3 was not a sound structure. The steering did not visibly reach the wheels, it was not clear how the springs worked, and the stays of the steering stem carried little load. It had grown in 1.3 by moving and adding tubes until the interference search and the frame analysis passed, without its form ever being chosen. This section goes back to the form; the owner chooses before the front end is designed again (Q-043). An independent check (K-016) found errors in the first version of this section - precedents read beyond their sources, a wrong inference from them, a camber change given for half the travel, bump steer claimed where the sketch had it, and sketches whose steering, bearings, and shocks did not join up; what follows is the corrected version.
+
+**Requirements for the front end.** Drawn from the record; where a limit is new it is marked as a proposal.
+
+| No. | Requirement | Measure | From |
+|---|---|---|---|
+| FE-01 | The handlebar steers both front wheels through one continuous linkage | bar - stem - plate - tie rods - steering arms - knuckles, every joint shown | D-030 |
+| FE-02 | Lock and turning | lay.steer_max_deg each way, close to Ackermann | 1.3.6 |
+| FE-03 | The wheels hardly steer as the springs move | toe change under 1 degree over the travel (proposal) | F6 |
+| FE-04 | The front follows the ground | sus.droop_mm down and sus.bump_mm up; landing from land.drop_ref_mm no worse than the bump case | D-039, 1.3.18 |
+| FE-05 | The wheels stay upright enough | camber change under about 3 degrees over the travel (proposal) | S12 |
+| FE-06 | It carries the loads of rough ground | the cases of 1.3.18, safety factors as there | 1.3.18 |
+| FE-07 | Every load goes straight into the frame | each wheel force, shock force, and stem force enters at a node of a triangulated frame; the tubes work mainly in tension and compression | owner, this section |
+| FE-08 | The steering stem is held where its loads can go | two bearings on frame members that are themselves braced; the rider pushing and pulling the bar | owner, this section |
+| FE-09 | It uses the parts bought | the ATV knuckles with 17 mm spindles (M92), whose kingpin or ball-joint mounting the seller does not state, and the drum hubs (M93) | D-033 |
+| FE-10 | It clears what moves near it | tyres at full lock and travel, the rider's feet, fenders, the winter skis, and 150 mm ground clearance | D-032, D-038 |
+| FE-11 | It can be built at home | 100 V welder, shop parts, adjustable toe, parts that can be taken off | D-008, D-017 |
+| FE-12 | It costs little | against cost.atv_aarm_kit_jpy for a complete kit (M104) | owner |
+
+**Precedents.** Small ATVs of 50 to 125 cc, from makers' specifications, service manuals, and a parts schematic; a dash means the source read does not say:
+
+| Machine | Front | Travel | Knuckle | Stem | Load or mass | Source |
+|---|---|---|---|---|---|---|
+| Yamaha Raptor 50 | leading arm, two coil shocks | 57 mm | on a kingpin bolt in the arm | foot nutted to the frame, bushing on a frame bracket | maximum load 40 kg | P81 |
+| Yamaha YFZ50 | single I-arm | 61 mm | - | - | - | P77 |
+| Suzuki QuadSport Z50 | swing axle, coil springs | - | - | - | - | P78 |
+| Kymco MXU 50 | swing arms, a shock bolted above and below | - | on a bolt with bush and collar in the arm | - | - | P86 |
+| Honda TRX90X | independent, kind not stated | 66 mm | kingpin (kingpin kits sold for it) | - | 119 kg without rider | P83 |
+| Kawasaki KFX90 | single A-arm; steel double-cradle frame | 71 mm | - | - | - | P84 |
+| Yamaha Raptor 90 | double wishbone | 111 mm | caster 4 degrees, kingpin angle 18 degrees | - | maximum load 70 kg | P82 |
+| Chinese 110 cc (Blazer 110P class) | upper and lower A-arms, one 275 mm coil-over each side | read from the drawing: a kingpin shaft hinged in one arm's clevis and screwed into a plate hinged on the other | split bushing clamp at the top, through a frame hole with a castle nut at the foot; tie rods on a plate welded near the foot | - | P85 |
+
+None of them is known to carry what this kart carries. The two with a stated maximum load take 40 kg and 70 kg (P81, P82), and the heaviest with a stated mass weighs 119 kg without its rider (P83); this kart weighs about 145 kg and carries a 100 kg adult. The precedents therefore show which forms are built at this size, not which is strong enough; strength comes from the line model and the frame analysis that follow the choice. One arm a side - swing axle, single A-arm, or leading arm - is the commonest form among the 50 to 90 cc machines (P77, P78, P81, P84, P86); double wishbones are on the Raptor 90 and the Chinese 110 cc machines (P82, P85), whose frames are double cradles with upper and lower rails meeting at the front (P84, P85). Whether the bought knuckles (M92) turn on a kingpin or on ball joints the seller does not say. A kingpin knuckle between two arms also needs the kingpin shaft and the hinged plate of P85, and one owner reports that plate breaking where it meets the lower arm (P85). The inner tie-rod ends belong on the suspension's pivot line to keep bump steer away (F6).
+
+**Forms.** Each is drawn as lines in front view (left half) and side view, with the vertical wheel load's path in orange and the braking load's in blue; the steering is drawn joint by joint from the stem to the knuckle, and rails seen end-on are dots. Sizes are those of 1.3, rounded. The same script moves each corner from sus.droop_mm down to sus.bump_mm up and gives the camber, toe, and caster changes and the shock's length (`calc/front_forms.py`; toe over an assumed 90 mm steering arm).
+
+- **S1, double A-arms.** Upper and lower A-arms each side; the knuckle hinged between their ends - on a kingpin as on P85, or on ball joints (M106) if the knuckles are of that kind; one coil-over from a cross plate in the lower arm to a node of the upper rails, passing through the upper arm's opening. The upper rails come forward from the seat rails at the height of the upper arms and, with the lower rails, uprights, and diagonals, make a nose box whose side panels are triangles and whose front panel is braced by a V. The arms' pivots sit at its nodes. The stem's upper bearing is on the cross tube at the top rails' rear node and its lower bearing on a cross tube at a node of the lower rails, so the stem needs no stays of its own. The tie rods run from a plate on the stem between the arms; their inner ends are on the line through the arms' pivots, at the height where the bump steer vanishes. The arms work in tension and compression, but the lower arm's outer part bends where the shock comes in, about 95 mm inside the hinge. The arms can be bought as a set (M105, cost.atv_aarm_set_jpy; contents and number not listed, so possibly one side only) or made at home.
+
+    ![S1](figures/front-s1.svg)
+
+- **S2, one arm a side on a fore-and-aft axis.** Each half of the beam turns on fore-and-aft pins near the centre - a swing axle, as on the front of 1.3 and P78; a single A-arm (P84) moves the same way with its pins out at the rails, and its camber changes more. A coil-over runs from each half to a hoop standing ahead of the pins; the stem stands on a tower of its own. The half-axles bend, the pins carry the whole front, and the wheels lean and scrub sideways as they move.
+
+    ![S2](figures/front-s2.svg)
+
+- **S3, a leading arm a side.** Each knuckle is on a kingpin in the front end of an arm that turns on a cross axis about 0.3 m behind the axle, on brackets on the lower rails, as on the Raptor 50 and MXU 50 (P81, P86); whether the Raptor 50's arm is one piece across both wheels the pages read do not say. One coil-over runs from each arm to a hoop; the stem stands on a tower. The wheel stays upright, but the caster swings as the arm turns, and the arm bends under the wheel load and twists under side and braking loads. With the stem's plate beside the knuckles' steering arms the toe changes by 1.0 degree, at the limit of FE-03; it vanishes only with the plate on the arms' pivot axis, which takes the stem's foot 0.2 m back under the rider's shins and the tie rods across the arms.
+
+    ![S3](figures/front-s3.svg)
+
+- **S4, rigid beam.** No springs; the tyres alone soften landings, about 8.5 g from land.drop_ref_mm (1.3.18), so drops are ridden slowly. It does not meet FE-04.
+
+    ![S4](figures/front-s4.svg)
+
+**Comparison.** The changes are over the whole travel, sus.droop_mm down to sus.bump_mm up, as sketched.
+
+| | S1 double A-arms | S2 one arm a side | S3 leading arm a side | S4 rigid beam |
+|---|---|---|---|---|
+| Load path | arms in tension and compression into the nodes of a triangulated nose box; the lower arm's outer part bends; shock to a node of the upper rails | half-axles in bending to central pins; shocks to a hoop | arms in bending and torsion to brackets on the rails; shocks to a hoop | beam in bending |
+| Camber change (FE-05, under about 3 degrees) | 1.3 degrees | 11.4 degrees | none | none |
+| Toe change (FE-03, under 1 degree) | 0.03 degree | none, with the tie rods' inner ends on the pins' axis | 1.0 degree; none with the stem's foot moved back | none |
+| Caster change | none | none | 13 degrees | none |
+| Track change, each side | 8 mm | 46 mm | none | none |
+| Shock between the eyes, droop / rest / bump | 289 / 273 / 252 mm | 265 / 253 / 236 mm | 281 / 256 / 225 mm | - |
+| Steering stem (FE-08) | bearings at nodes of the box, no stays | a tower of its own | a tower of its own | a tower of its own |
+| Knuckles (M92) | kingpin shaft and hinged plate (P85), or ball joints (M106), by the knuckles' kind | a kingpin boss on each half-axle | a kingpin boss on each arm | a kingpin boss on each beam end |
+| Parts beyond the knuckles | arms (M105 or made at home) and two shocks (M100) | two shocks, pins, bushes | two shocks, pivot bushes | none |
+| Building | eight pivots and a box to jig | two pin pairs and a block | four pivots and arms stiff in torsion | simplest |
+| Precedents | P82, P85 | P77, P78, P84 | P81, P86 | - |
+
+The shocks sold as M100 are 240 to 290 mm between the eyes; their stroke is not stated, so whether a 290 mm shock gives the 37 mm (S1), 29 mm (S2), or 56 mm (S3) that the travel needs is still to be found.
+
+**The assistant proposes S1.** As sketched it is the only form that meets FE-03 and FE-05 together; its loads go along tubes into the nodes of a triangulated box, and that box gives the shocks and the stem their places without stays of their own (FE-07, FE-08). Against it: it has the most pivots; the arms cost cost.atv_aarm_set_jpy if a set covers both sides and twice that if not, or are made at home; and if the knuckles turn on kingpins, each side needs a kingpin shaft and a plate made stronger than the donor's (P85). Whether the knuckles take kingpins or ball joints is to be found from the parts in hand. No precedent carries this kart's load, so the sizes of the arms, the box, and the knuckle plate come from the line model and the frame analysis of the next step. S3 is the second choice if fewer pivots matter more than a steady caster. **The owner decides** (Q-043).

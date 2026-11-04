@@ -549,3 +549,16 @@ items:
     phase: design
     closed: 2026-11-04
     closed_by: D-039
+  - id: Q-043
+    kind: question
+    text: The front end of 1.3 grew by patching interferences and passed its checks without being a sound structure - the steering did not visibly reach the wheels, the springs' action was unclear, and the stem's stays carried little. 1.2.20 sets the front end's requirements, gathers precedents, and compares four forms - double A-arms, one arm a side on a fore-and-aft axis, a leading arm a side, and a rigid beam - by their load paths and by how camber, toe, and caster change over the travel; the owner chooses the form before the front end is designed again.
+    waits_for: owner
+    affects:
+      - front_arms
+      - front_shocks
+      - spindles
+      - handlebar
+      - frame
+    opened: 2026-11-04
+    raised_by: owner
+    phase: design

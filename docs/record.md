@@ -97,6 +97,7 @@ The current state, with open items grouped by whom they wait for, is in [STATUS.
 | Q-040 | The load cases for rough ground of 1.3.18 assume what no source gives for this kart - the combination of 2 g vertical with 1 g braking and 1 g sideways, a frontal impact of 5 g at 30 km/h against a post or tree that misses the tyres (Baja's frontal 8 to 10 g at 56 km/h scaled with the same impulse time gives 4.3 to 5.4 g, P74, P75), a sideways push on the hoop of the kart's weight, both hoop loads applied with the frame held at its spine and the rider's mass left out (as rollover structures are tested; held at the hoop with the kart's masses pushing, the side push would be worse), a safety factor of 1 on tensile strength in accidents, a usable tyre deflection of 50 mm and a reference drop of 150 mm, a repeated load range of 1 g with a partial factor of 1.35 for fatigue, and the detail categories of butt-welded tubes and plates standing for the frame's tube-to-tube joints, which EN 1993-1-9 does not list. The frame is to last 2 million such ranges at those details, as many kilometres of rough ground at one such bump a metre. They hold until the kart is measured on its ground. | assistant |  |
 | Q-041 | Against the load cases for rough ground of 1.3.18 the frame's welded joints have a limited fatigue life - a repeated 1 g range is unlimited only below about 0.7 g at butt-welded details and 0.4 g at fillet-welded ones. (The spine, the axle, the bumper, and the hoop, which fell short at first, were changed with D-038 and now meet their cases.) The joints are to be detailed with gussets and fitted ends for the better categories before building, and the frame tried on its ground. | assistant | D-040 |
 | Q-042 | For rough ground the owner decides the front's springing of 1.3.18 (the ride height of 1.3.19 is settled by D-038) - stay rigid and ride drops of more than a few centimetres slowly, or add ATV A-arms with two shocks (D-036 put this off; a kit costs about 70,000 to 73,000 JPY, M104). | owner | D-039 |
+| Q-043 | The front end of 1.3 grew by patching interferences and passed its checks without being a sound structure - the steering did not visibly reach the wheels, the springs' action was unclear, and the stem's stays carried little. 1.2.20 sets the front end's requirements, gathers precedents, and compares four forms - double A-arms, one arm a side on a fore-and-aft axis, a leading arm a side, and a rigid beam - by their load paths and by how camber, toe, and caster change over the travel; the owner chooses the form before the front end is designed again. | owner |  |
 <!-- tdr:end -->
 
 ## Values {#values}
@@ -588,6 +589,8 @@ The current state, with open items grouped by whom they wait for, is in [STATUS.
 | dsn.keel_od_mm | 60.5 | mm | calculated | docs/03-design.md#frame |
 | dsn.keel_t_mm | 3.2 | mm | calculated | docs/03-design.md#frame |
 | cost.tube_60x32_jpy_per_m | 3500 | JPY | assumed | Q-018 |
+| cost.atv_aarm_set_jpy | 19380 | JPY | sourced | M105 |
+| cost.ball_joint_pair_jpy | 4790 | JPY | sourced | M106 |
 | form.mass_total_kg | 170 | kg | calculated | docs/02-form.md#mass |
 | snow.wheel_sinkage_min_cm | 63.2 | cm | calculated | docs/02-form.md#snow |
 | snow.wheel_sinkage_max_cm | 83.8 | cm | calculated | docs/02-form.md#snow |
@@ -1020,6 +1023,16 @@ The current state, with open items grouped by whom they wait for, is in [STATUS.
 | S10 | S | EN 1993-1-9 tables 8.6 and 8.7 on hollow sections, secondary copy | partial |
 | S11 | S | IDEA StatiCa, Fatigue analysis according to EN 1993-1-9 | full |
 | M104 | M | Front suspension kit for ATVs - upper and lower A-arms, knuckles, spindles, hubs, and 340 mm shocks, Yahoo Shopping | partial |
+| P81 | P | Yamaha YFM50S Raptor 50 service manual | partial |
+| P82 | P | Yamaha YFM90RA Raptor 90 service manual | partial |
+| P83 | P | Honda TRX90X 2023 specifications | full |
+| P84 | P | Kawasaki KFX90 2024 specification sheet | full |
+| P85 | P | Blazer 110P (Tao Tao ATA110B class) parts schematic | full |
+| P86 | P | Kymco MXU 50 workshop manual | partial |
+| S12 | S | Wikipedia, Swing axle | full |
+| F6 | F | DIY Go Karts forum, tyre alignment issues with shock compression | full |
+| M105 | M | Front upper and lower A-arm set 285 mm for 49 to 110 cc ATVs, Yahoo Shopping | full |
+| M106 | M | Front A-arm ball joints for buggies, pair, Yahoo Shopping | full |
 | F1 | F | Motor1, a shifter kart turned into a snowmobile, 2025-02-02 | partial |
 | F2 | F | 6x6world forum, Argo open water speed with outboard | full |
 | F3 | F | Goo-net Magazine, an electric track unit from Canada (MTT, My Track Technology), 2016-10-14 | full |
@@ -1047,6 +1060,7 @@ The current state, with open items grouped by whom they wait for, is in [STATUS.
 | K-013 | T2 | refute | fail | 2026-11-04 |
 | K-014 | T2 | refute | partial | 2026-11-04 |
 | K-015 | T2 | refute | partial | 2026-11-04 |
+| K-016 | T2 | refute | partial | 2026-11-04 |
 <!-- tdr:end -->
 
 ## Parts {#parts}

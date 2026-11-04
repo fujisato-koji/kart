@@ -1480,7 +1480,7 @@ items:
     retrieved: 2026-11-04
     license: unknown
     read: full
-    note: Read by a helper. Ground clearance 3.5 in, stated as maximum.
+    note: Read by a helper. Ground clearance 3.5 in, stated as maximum; front a single I-arm with 2.4 in travel.
   - id: P78
     class: P
     title: Suzuki QuadSport Z50 2026
@@ -1488,7 +1488,7 @@ items:
     retrieved: 2026-11-04
     license: unknown
     read: full
-    note: Read by a helper. Ground clearance 120 mm. Other youth quads - Honda TRX90X 3.9 in, Kawasaki KFX50 3.3 in and KFX90 3.9 in, Polaris Outlaw 70 4 in.
+    note: Read by a helper. Ground clearance 120 mm; front an independent swing axle with coil springs. Other youth quads - Honda TRX90X 3.9 in, Kawasaki KFX50 3.3 in and KFX90 3.9 in, Polaris Outlaw 70 4 in.
   - id: P79
     class: P
     title: Honda TRX250X 2023 specifications
@@ -1545,6 +1545,86 @@ items:
     license: unknown
     read: partial
     note: Read by a helper. 72,703 JPY, free shipping, from overseas stock in about two weeks; quantities and fitment not stated. A kit of A-arms and shocks without knuckles is 70,464 JPY (hfayb0cv45nw73k).
+  - id: P81
+    class: P
+    title: Yamaha YFM50S Raptor 50 service manual
+    url: https://www.manualslib.com/manual/687225/Yamaha-Yfm50s.html
+    retrieved: 2026-11-04
+    license: unknown
+    read: partial
+    note: Read by a helper, pages 24, 25, 33, 37, and 194 to 200. Front a leading arm with two coil shocks, 57 mm travel; the arm on an M12 pivot bolt, the shocks between frame and arm; the knuckle on a kingpin bolt in the arm, no ball joints; maximum load 40 kg; caster 1 degree, kingpin angle 10 degrees, trail 3.4 mm, tread 630 mm. The stem's foot nutted to the frame and its bushing bolted to a frame bracket; tie rods on ball joints at the stem.
+  - id: P82
+    class: P
+    title: Yamaha YFM90RA Raptor 90 service manual
+    url: https://auto.manualsonline.com/manuals/mfg/yamaha/yfm90ra.html
+    retrieved: 2026-11-04
+    license: unknown
+    read: partial
+    note: Read by a helper, pages 24 and 25. Front double wishbone, 111 mm travel, maximum load 70 kg; caster 4 degrees, kingpin angle 18 degrees, trail 16 mm, tread 710 mm, toe-in 15 mm.
+  - id: P83
+    class: P
+    title: Honda TRX90X 2023 specifications
+    url: https://hondanews.com/en-US/releases/release-907c81858bdfe231c1cc3d0f700bb35f-2023-honda-trx90x-specifications
+    retrieved: 2026-11-04
+    license: unknown
+    read: full
+    note: Read by a helper. Front independent, 2.6 in travel; curb mass 262 lb; turning radius 8.3 ft. Its knuckle turns on a kingpin (aftermarket kingpin kits for one side).
+  - id: P84
+    class: P
+    title: Kawasaki KFX90 2024 specification sheet
+    url: https://www.kawasaki.com/en-us/products/ProductSpecSheetPDF/2024-kfx90
+    retrieved: 2026-11-04
+    license: unknown
+    read: full
+    note: Read by a helper. Front single A-arm, 2.8 in travel; frame a steel double cradle; front track 26.8 in; turning radius 8.9 ft.
+  - id: P85
+    class: P
+    title: Blazer 110P (Tao Tao ATA110B class) parts schematic
+    url: https://pocketbikecanada.ca/downloads/schematics/Blazer%20110P%20Schematic.pdf
+    retrieved: 2026-11-04
+    license: unknown
+    read: full
+    note: Read by a helper, parts list and drawings. Upper and lower A-arms each side on M10 pivot bolts with bushings; one 275 mm coil-over shock each side; no ball joints - a kingpin shaft hinged in one arm's clevis and screwed into a plate hinged on the other; 6003 hub bearings (17 mm spindle); the stem held at the top in a split bushing clamp and at the foot through a frame hole with a castle nut, the tie rods on a plate welded near its foot; upper and lower rails joined by uprights at the front. An owner reports that plate breaking where it meets the lower arm (atvconnection forum, excerpt).
+  - id: P86
+    class: P
+    title: Kymco MXU 50 workshop manual
+    url: https://www.pieces-kymco.com/
+    retrieved: 2026-11-04
+    license: unknown
+    read: partial
+    note: Read by a helper, pages 5 and 191 to 197. Front swing arms, the knuckle on a bolt with bush and collar in the arm, one shock bolted above and below; turning angle 44 degrees.
+  - id: S12
+    class: S
+    title: Wikipedia, Swing axle
+    url: https://en.wikipedia.org/wiki/Swing_axle
+    retrieved: 2026-11-04
+    license: unknown
+    read: full
+    note: Read by a helper. Swing-axle fronts (Hillman Imp, Lotus Eleven) understeered and wore tyres unevenly from their camber change, eased by lowering the pivots.
+  - id: F6
+    class: F
+    title: DIY Go Karts forum, tyre alignment issues with shock compression
+    url: https://www.diygokarts.com/
+    retrieved: 2026-11-04
+    license: unknown
+    read: full
+    note: Read by a helper. Bump steer comes from tie rods that do not end at or near the suspension's pivots; the cure is the inner tie-rod end on the pivot line.
+  - id: M105
+    class: M
+    title: Front upper and lower A-arm set 285 mm for 49 to 110 cc ATVs, Yahoo Shopping
+    url: https://store.shopping.yahoo.co.jp/tousyou-net/810s152545.html
+    retrieved: 2026-11-04
+    license: unknown
+    read: full
+    note: Read by a helper. 19,380 JPY, free shipping; contents and quantities not listed. Sets for 110 cc GY6 of 350 and 370 mm are 21,120 JPY, and one with ball joints for 110 to 200 cc 30,980 JPY.
+  - id: M106
+    class: M
+    title: Front A-arm ball joints for buggies, pair, Yahoo Shopping
+    url: https://store.shopping.yahoo.co.jp/ck-custom/00812d.html
+    retrieved: 2026-11-04
+    license: unknown
+    read: full
+    note: Read by a helper. 4,790 JPY for two, M12 x 1.25, for full-size buggies; elsewhere 3,354 to 5,661 JPY.
   - id: F1
     class: F
     title: Motor1, a shifter kart turned into a snowmobile, 2025-02-02
