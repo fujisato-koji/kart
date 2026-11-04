@@ -2,14 +2,15 @@
 
 Calculations, one section per item, each with an id that values and checks can cite.
 
-This step designs the straddle kart the owner chose (D-030): ridden astride by riders of 6 and up, leaning into turns, with the engine unit under the seat. The seated kart that stood here before is in the repository's history; its checks K-004 to K-006 and K-009 judged that kart. Where the owner has not yet decided the proposals of [1.2.18](02-form.md#straddle), this step takes them as its working basis: R-12 at kart.tip_ratio_snow_min sideways and law.quad_pitch_ratio_min fore and aft (Q-032), a protective hoop behind the seat for R-19, and the winter form W5 of [1.2.14](02-form.md#snowmobile); the children's speed is left open. A change there comes back to this step.
+This step designs the straddle kart the owner chose (D-030): ridden astride by riders of 6 and up, leaning into turns, with the engine unit under the seat. The seated kart that stood here before is in the repository's history; its checks K-004 to K-006 and K-009 judged that kart. Where the owner has not yet decided the proposals of [1.2.18](02-form.md#straddle), this step takes them as its working basis: R-12 at kart.tip_ratio_snow_min sideways and law.quad_pitch_ratio_min fore and aft (Q-032), and a protective hoop behind the seat for R-19; the children's speed is left open. The owner chose buggy-size tyres all year with skis inside the front wheels in winter (D-032). A change there comes back to this step.
 
-`python calc/design.py --write` reads every input from the record and writes the calculated values (keys starting with `dsn.`) and `docs/data/design.json`, the geometry that the navigator's drawings and 3D view draw. Axes are x forward, y left, z up, with the origin on the ground under the rear axle centre. Inputs that have no source yet are assumed in Q-017, Q-023, Q-033, and Q-034.
+`python calc/design.py --write` reads every input from the record and writes the calculated values (keys starting with `dsn.`) and `docs/data/design.json`, the geometry that the navigator's drawings and 3D view draw. Axes are x forward, y left, z up, with the origin on the ground under the rear axle centre. Inputs that have no source yet are assumed in Q-017, Q-023, Q-033, and Q-036.
 
 ## 1.3.1 Layout {#layout}
 
-- The wheelbase lay.wheelbase_mm and the overhangs lay.front_overhang_mm and lay.rear_overhang_mm make the kart dsn.length_m long, inside the Delica's cargo length (R-14), a little longer between the wheels than the 50 cc buggies of M90 so that an adult's toes stay clear of the front tyres at full lock.
-- The front and rear tracks are lay.track_front_mm and lay.track_rear_mm, with fenders lay.fender_margin_mm wider than the tyres (R-30), so the kart is dsn.width_m wide. The height to the mirrors or the hoop is dsn.height_m.
+- Buggy-size tyres of yr.tyre_dia_mm stay on all year, yr.front_width_mm wide at the front and yr.rear_width_mm at the rear, as on the 50 cc buggies registered as minicars (M90; sizes assumed, Q-036) (D-032).
+- The wheelbase lay.wheelbase_mm and the overhangs lay.front_overhang_mm and lay.rear_overhang_mm, with the tyres reaching past the bumper, make the kart dsn.length_m long, inside the Delica's cargo length (R-14), a little longer between the wheels than those buggies so that an adult's toes stay clear of the front tyres at full lock.
+- The front and rear tracks are lay.track_front_mm and lay.track_rear_mm, with fenders lay.fender_margin_mm wider than the tyres (R-30), so the kart is dsn.width_m wide, inside the car's tailgate opening. The height to the mirrors or the hoop is dsn.height_m.
 - The engine unit lies along the centre line under the seat (lay.unit_y_mm), so the kart is symmetric: the centre of mass lies dsn.cg_side_adult_mm to the side with the adult.
 
 ## 1.3.2 Frame {#frame}
@@ -66,13 +67,12 @@ This step designs the straddle kart the owner chose (D-030): ridden astride by r
 
 ## 1.3.12 Winter form {#winter}
 
-The working basis is W5 of 1.2.14 (D-029 tries W4 first, plan t6). The change of form is OP-04 and back OP-06, with the kart on four stands (R-28).
+The winter form is W6 of [1.2.19](02-form.md#tyres) (D-032): the kart keeps its wheels, skis bolt beside the front wheels, and chains go on the rear tyres as needed. The change of form is OP-04 and back OP-06 (R-28).
 
-- **Large rear tyres.** The rear wheels change to low-pressure tyres of w5.tyre_dia_mm by w5.tyre_width_mm on the same hubs (Q-034). The axle then sits higher, so the whole chassis rides dsn.winter_lift_mm higher, and the skis (ski.width_mm by ski.contact_length_mm on the snow) stand on stanchions as tall, bolted to the spindles in place of the front wheels with their brakes.
-- **Drive.** A w5.out_teeth tooth output sprocket, a w5.axle_teeth tooth axle sprocket, and a chain of dsn.winter_chain_links links lower the gearing for the large tyres: the engine pushes with dsn.winter_thrust_n at the low ratio, the clutch locks at dsn.winter_clutch_lock_kmh, and the top speed is dsn.winter_top_speed_kmh, within kart.speed_max_kmh (R-01, D-020).
-- **Mass and stability.** The winter kart weighs dsn.winter_mass_kg. With the adult its centre of mass is dsn.winter_cg_height_m high and the rear tyres carry dsn.winter_rear_share; the tipping ratio is dsn.winter_tip_ratio against kart.tip_ratio_snow_min (R-12, D-025), but fore and aft only dsn.winter_pitch_ratio against law.quad_pitch_ratio_min, since the lift raises the centre of mass; the skis press dsn.winter_ski_pressure_kpa. How far the large tyres sink and whether they push in fresh snow is estimated in 1.2.14 (w4.big_*).
-- **Sled pan.** A UHMW polyethylene plate hull.bottom_t_mm thick under the spine, hull.bottom_clear_mm above the ground in summer, with a bow in three panels rising lay.bow_rise_mm under the front frame, clear of the tie rods, the front beam, and the horn; it weighs dsn.pan_mass_kg. In winter the lift puts it dsn.belly_height_mm above the tyres' bottom, so the snow between the ruts passes under it.
-- **Size.** The winter form is dsn.winter_width_m wide on its large tyres, dsn.winter_length_m long, and dsn.winter_height_m high; it runs on private land only, and the kart travels in its summer form.
+- **Skis.** Skis of ski.width_mm by ski.contact_length_mm on the snow bolt to the steering knuckles inside the front tyres, lay.ski_gap_mm clear of them, at dsn.ski_y_mm from the centre line, on brackets that pivot with rubber stops and adjust in height: below the tyre for deep snow, which lifts the front wheels, or a little above it where the ground is firm, so that the tyre rolls and keeps its brake until it sinks. They steer with the wheels, clear of the front brake discs and the tie rods. With the adult they press dsn.winter_ski_pressure_kpa when they carry the front.
+- **Chains.** Ladder chains on the rear tyres (P1, S1) for grip on packed snow and ice.
+- **Mass and stability.** The winter kart weighs dsn.winter_mass_kg. With the adult its centre of mass is dsn.winter_cg_height_m high and the rear tyres carry dsn.winter_rear_share. With the skis carrying the front their stance is narrower than the front track, and the tipping ratio is dsn.winter_tip_ratio against kart.tip_ratio_snow_min (R-12, D-025); fore and aft it is dsn.winter_pitch_ratio, since nothing is lifted. How the tyres and skis do in fresh snow is in 1.2.19.
+- **Sled pan.** A UHMW polyethylene plate hull.bottom_t_mm thick under the spine, dsn.belly_height_mm above the ground, with a bow in three panels rising lay.bow_rise_mm under the front frame, clear of the tie rods, the front beam, and the horn; it weighs dsn.pan_mass_kg and keeps the spine from ploughing when the tyres sink.
 - **Future water version (D-027).** Not required. The 3D view shows it as an option: side floats of lay.float_dia_mm on arms outside the wheels, and an electric outboard with its battery at the stern. 1.2.15 holds its basis.
 
 ## 1.3.13 Protective hoop and road equipment {#rollbar}
@@ -93,5 +93,5 @@ The working basis is W5 of 1.2.14 (D-029 tries W4 first, plan t6). The change of
 ## 1.3.16 Layout issues still open {#issues}
 
 - The straddle kart is placed by hand and has had no collision search; an independent helper checks this layout (K-013) and the next pass builds a collision search into `calc/design.py` for the summer and winter forms (Q-035).
-- The spine alone is too weak for the rider (dsn.rail_safety, 1.3.2); the winter form's fore-and-aft margin is short (dsn.winter_pitch_ratio, 1.3.12); the grass slope it climbs is less than assumed (1.3.10); the front brakes, fenders, large winter tyres, and the winter sprockets are allowances until quoted (Q-033, Q-034).
+- The spine alone is too weak for the rider (dsn.rail_safety, 1.3.2); the grass slope it climbs is less than assumed (1.3.10); the front brakes, fenders, buggy tyres, ski brackets, and the axle sprocket are allowances until quoted (Q-033, Q-036).
 - The rider's thighs pass round the engine unit, which is wider than the seat; the adult's knees bend well, about as on a youth quad. Both are to be tried on the built kart.

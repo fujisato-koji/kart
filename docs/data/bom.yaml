@@ -46,9 +46,9 @@ lines:
     price: cost.rear_hub_make_jpy
     need: b3
   - part: rear_wheels
-    item: Wheels 13x5.00-6 with tyres and rims, set of four
+    item: Buggy tyres about 19x7-8 front and 18x9.5-8 rear on 8 in rims, set of four
     qty: 1
-    price: cost.tyres_set_jpy
+    price: cost.buggy_tyres_set_jpy
     need: b3
   - part: brake
     item: Hydraulic brake kit, caliper, master cylinder, disc
@@ -153,9 +153,9 @@ lines:
     price: cost.spr420_15t_jpy
     need: b5
   - part: chain_final
-    item: Sprocket 420, 30T on the axle carrier
+    item: Sprocket 420, 42T on the axle carrier
     qty: 1
-    price: cost.spr420_30t_jpy
+    price: cost.spr420_42t_jpy
     need: b5
   - part: speedometer
     item: Speedometer with odometer, lit
@@ -183,7 +183,7 @@ lines:
     price: cost.hull_bottom_jpy_per_m2
     need: w2
   - part: snow_chains
-    item: Ladder chains for small tyres, adjustable, for the W4 trial
+    item: Ladder chains for the rear tyres, adjustable, for winter (W6)
     qty: 2
     price: cost.snow_chain_jpy
     need: t6
@@ -192,28 +192,8 @@ lines:
     qty: 1
     price: cost.allow_fenders_jpy
     need: b7
-  - part: rear_wheels
-    item: Large low-pressure tyres of the 25x12-9 class with rims and hub adapters, for winter (W5)
-    qty: 2
-    price: cost.w5_wheel_jpy
-    need: w1
-  - part: chain_final
-    item: Sprocket 420, 45T on the axle carrier, for winter (W5)
-    qty: 1
-    price: cost.spr420_45t_jpy
-    need: w1
-  - part: chain_final
-    item: Sprocket 420, 12T on the engine unit's output, for winter (W5)
-    qty: 1
-    price: cost.spr420_15t_jpy
-    need: w1
-  - part: chain_final
-    item: Chain 420, 120 links, cut to the winter length
-    qty: 1
-    price: cost.chain420_jpy
-    need: w1
   - part: skis
-    item: Ski stanchions as tall as the winter lift, and bolts (allowance)
+    item: Ski brackets on the steering knuckles, adjustable in height, with pivots and rubber stops (allowance)
     qty: 1
     price: cost.allow_winter_mounts_jpy
     need: w2

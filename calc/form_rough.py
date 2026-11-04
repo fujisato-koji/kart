@@ -228,7 +228,7 @@ def compute(v):
     # their grip by CRREL's fit for shallow undisturbed snow (P59), against the pan sliding
     # (sled.mu_packed, P60) and the tyres' own resistance (ground.crr_snow_fresh, P1)
     w4w = (v["dsn.mass_kg"] + v["rider.mass_max_kg"]) * G
-    td, tw4 = v["whl.tyre_od_mm"], v["whl.tyre_width_mm"]
+    td, tw4 = v["yr.tyre_dia_mm"], v["yr.rear_width_mm"]       # the summer tyres, buggy-size (D-032)
 
     def w4(f, tyres=2, d_mm=None, b_mm=None, bekker_res=False):
         d_mm, b_mm = d_mm or td, b_mm or tw4
@@ -274,7 +274,7 @@ def compute(v):
         put(f"w4.{tag}_wheel_sink_cm", round(zb * 100, 1), "cm", "snowmobile")
         put(f"w4.{tag}_grip_n", round(gb), "N", "snowmobile")
         put(f"w4.{tag}_resistance_bekker_n", round(rb), "N", "snowmobile")
-    put("w4.dual_width_m", round(v["lay.track_rear_mm"] / 1000 + 3 * v["whl.tyre_width_mm"] / 1000 + 0.02, 2), "m", "snowmobile")
+    put("w4.dual_width_m", round(v["lay.track_rear_mm"] / 1000 + 3 * v["yr.rear_width_mm"] / 1000 + 0.02, 2), "m", "snowmobile")
 
     # Straddle kart (D-030, 1.2.18): the adult astride a seat over the engine; the static ratios
     # of half the track and half the wheelbase over the centre of mass, and its size
@@ -316,15 +316,21 @@ def compute(v):
     x_a = (1 - rs_a) * wb_a
     w_a = (v["dsn.mass_kg"] + v["rider.mass_max_kg"]) * G
     d_y, b_yr, b_yf = v["yr.tyre_dia_mm"] / 1000, v["yr.rear_width_mm"] / 1000, v["yr.front_width_mm"] / 1000
+    # the design carries these tyres since D-032, so its centre of mass already includes their lift
+    # over the 13 in tyres of 1.4; the widest track fits both the road and the car's opening
     lift_y = d_y / 2 - v["whl.tyre_od_mm"] / 2000
-    h_y = h_a + lift_y
-    t_y = v["law.width_max_mm"] / 1000 - b_yr - 2 * v["lay.fender_margin_mm"] / 1000
+    h_y = h_a
+    t_y = min(v["law.width_max_mm"], v["delica.opening_width_max_mm"]) / 1000 - b_yr - 2 * v["lay.fender_margin_mm"] / 1000
     put("yr.lift_mm", round(lift_y * 1000), "mm", "tyres")
     put("yr.track_max_mm", round(t_y * 1000), "mm", "tyres")
     put("yr.tip_ratio", round(t_y / 2 / h_y, 2), None, "tyres")
     put("yr.pitch_ratio", round(min(x_a, wb_a - x_a) / h_y, 2), None, "tyres")
     put("yr.length_m", round(max(wb_a + v["lay.front_overhang_mm"] / 1000, wb_a + d_y / 2)
                              - min(-v["lay.rear_overhang_mm"] / 1000, -d_y / 2), 2), "m", "tyres")
+    # the winter tyres of W5 kept all year, against these
+    d5 = v["w5.tyre_dia_mm"] / 1000
+    put("w5.pitch_ratio_all_year", round(min(x_a, wb_a - x_a) / (h_a + (d5 - d_y) / 2), 2), None, "tyres")
+    put("w5.length_all_year_m", round(wb_a + d5, 2), "m", "tyres")
 
     def rut(load, d, b):   # Bekker's wheel sinkage and the work of pressing its rut, worst snow
         best = None

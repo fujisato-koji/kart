@@ -5,17 +5,8 @@ items:
     title: Change back to the summer form
     steps:
       - id: OP-06.01
-        action: On level ground, lift the kart onto four stands at the winter height, with the engine stopped and cold.
-        controls:
-          - H-10
+        action: Take off the skis and the chains.
       - id: OP-06.02
-        action: Take off the skis, the large rear tyres, the large sprocket, and the winter chain.
-      - id: OP-06.03
-        action: Refit the summer sprocket and chain and tension them, the rear wheels, and the front wheels with their brake discs.
-        controls:
-          - H-01
-          - H-03
-      - id: OP-06.04
-        action: Lower the kart, and check the steering, both brakes, and the lamps before any road use.
+        action: Check the steering, both brakes, and the lamps before any road use.
         controls:
           - H-01

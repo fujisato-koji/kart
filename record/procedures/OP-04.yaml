@@ -5,29 +5,21 @@ items:
     title: Change to the winter form
     steps:
       - id: OP-04.01
-        action: On level ground, lift the kart onto four stands at the winter height, with the engine stopped and cold.
-        values:
-          - dsn.winter_lift_mm
+        action: On level ground, lift the front of the kart onto a stand, with the engine stopped.
         controls:
           - H-10
       - id: OP-04.02
-        action: Take off the rear wheels and fit the large low-pressure tyres on the same hubs.
-        values:
-          - w5.tyre_dia_mm
-          - w5.tyre_width_mm
-      - id: OP-04.03
-        action: Change the axle sprocket to the large one, fit the winter chain, tension it, and refit the chain guard.
-        values:
-          - dsn.winter_chain_links
-        controls:
-          - H-03
-      - id: OP-04.04
-        action: Take off the front wheels with their brake discs and bolt the skis with their stanchions onto the spindles.
+        action: Bolt a ski to each steering knuckle inside the front wheel and set its height - below the tyre for deep snow, so that the front wheels are lifted, or a little above it where the ground is firm.
         values:
           - ski.width_mm
           - ski.contact_length_mm
-      - id: OP-04.05
-        action: Lower the kart, check that the steering moves freely from lock to lock, that the rear brake holds, and that the chain runs free.
+          - dsn.ski_y_mm
+      - id: OP-04.03
+        action: Fit the chains on the rear tyres if the snow asks for them.
+        controls:
+          - H-07
+      - id: OP-04.04
+        action: Lower the kart and check that the steering moves freely from lock to lock, that the skis clear the brake discs and tie rods, and that both brakes hold.
         controls:
           - H-01
           - H-07

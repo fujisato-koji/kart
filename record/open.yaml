@@ -429,7 +429,7 @@ items:
     phase: design
   - id: Q-034
     kind: question
-    text: The winter form W5 of 1.3.12 assumes large low-pressure tyres of the 25x12-9 class with rims, their mass and price, and a 12T output and 45T axle sprocket and their price, until a tyre that fits the rear hubs is chosen.
+    text: The winter form W5 (dropped for W6 by D-032) assumes large low-pressure tyres of the 25x12-9 class with rims, their mass and price, and a 12T output and 45T axle sprocket and their price, until a tyre that fits the rear hubs is chosen.
     waits_for: assistant
     affects:
       - w5.tyre_dia_mm
@@ -443,7 +443,7 @@ items:
     phase: design
   - id: Q-035
     kind: finding
-    text: The straddle kart of 1.3 is placed by hand and has had no collision search. K-013 left the spine too weak (a truss under the seat or a larger tube), the winter form's fore-and-aft ratio short of 0.8 (a longer winter wheelbase or a lower seat), the tie rods 4 mm from the front rails, the footboards held at one edge, the axle sprocket and axle uncovered, and the battery and the stem's foot without supports. The next pass builds a collision search into calc/design.py for the summer and winter forms and resolves these.
+    text: The straddle kart of 1.3 is placed by hand and has had no collision search. K-013 left the spine too weak (a truss under the seat or a larger tube), the tie rods 4 mm from the front rails, the footboards held at one edge, the axle sprocket and axle uncovered, and the battery and the stem's foot without supports. The next pass builds a collision search into calc/design.py for the summer and winter forms and resolves these.
     waits_for: assistant
     affects:
       - frame
@@ -456,11 +456,15 @@ items:
     blocks: design_build
   - id: Q-036
     kind: question
-    text: The buggy-size tyres of 1.2.19 (about 19x7-8 at the front and 18x9.5-8 at the rear, as on the MAGMAX50 of M90) are taken at a common diameter and their widths until a set that fits the hubs and the road rules is chosen and priced.
+    text: The buggy-size tyres of 1.2.19 (about 19x7-8 at the front and 18x9.5-8 at the rear, as on the MAGMAX50 of M90) are taken at a common diameter, their widths, mass, and price, with the chains for them and the 42T axle sprocket the larger tyres need, until a set that fits the hubs and the road rules is chosen and priced.
     waits_for: assistant
     affects:
       - yr.tyre_dia_mm
       - yr.rear_width_mm
       - yr.front_width_mm
+      - yr.wheel_mass_kg
+      - w6.chain_mass_kg
+      - cost.buggy_tyres_set_jpy
+      - cost.spr420_42t_jpy
     opened: 2026-11-04
     phase: design

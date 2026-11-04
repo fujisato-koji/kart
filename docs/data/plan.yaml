@@ -220,7 +220,7 @@ tasks:
       - R-06
   - id: t6
     phase: test
-    title: W4 trial - the summer form with chains on its sled pan in fresh snow
+    title: Snow trial - the kart with chains, then with the skis set below and above the tyres (W6)
     kind: work
     days: 1
     after:
@@ -233,24 +233,23 @@ tasks:
       - R-06
   - id: w1
     phase: build
-    title: Buy large low-pressure tyres, a 45T sprocket, and a winter chain (W5), if W4 falls short
+    title: Make the skis, their adjustable brackets on the knuckles, and fit the chains (W6)
     kind: work
     days: 3
     after:
       - t6
     parts:
-      - rear_wheels
-      - chain_final
+      - skis
+      - snow_chains
   - id: w2
     phase: build
-    title: Make the ski stanchions, fit the large tyres, and finish the sled pan
+    title: Finish the sled pan and set the skis' height for the owner's snow
     kind: work
     days: 6
     after:
       - w1
     parts:
       - skis
-      - rear_wheels
       - sled_pan
   - id: t5
     phase: test

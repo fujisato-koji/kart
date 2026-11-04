@@ -2799,7 +2799,7 @@
   },
   {
    "key": "gear.t_axle420",
-   "v": 30,
+   "v": 42,
    "status": "calculated",
    "basis": [
     "docs/03-design.md#drive"
@@ -4091,6 +4091,51 @@
    ]
   },
   {
+   "key": "lay.ski_gap_mm",
+   "v": 30,
+   "unit": "mm",
+   "status": "calculated",
+   "basis": [
+    "docs/03-design.md#winter"
+   ]
+  },
+  {
+   "key": "yr.wheel_mass_kg",
+   "v": 6,
+   "unit": "kg",
+   "status": "assumed",
+   "basis": [
+    "Q-036"
+   ]
+  },
+  {
+   "key": "w6.chain_mass_kg",
+   "v": 2,
+   "unit": "kg",
+   "status": "assumed",
+   "basis": [
+    "Q-036"
+   ]
+  },
+  {
+   "key": "cost.buggy_tyres_set_jpy",
+   "v": 32000,
+   "unit": "JPY",
+   "status": "assumed",
+   "basis": [
+    "Q-036"
+   ]
+  },
+  {
+   "key": "cost.spr420_42t_jpy",
+   "v": 3000,
+   "unit": "JPY",
+   "status": "assumed",
+   "basis": [
+    "Q-036"
+   ]
+  },
+  {
    "key": "form.mass_total_kg",
    "v": 170,
    "unit": "kg",
@@ -4334,7 +4379,7 @@
   },
   {
    "key": "hull.foam_m3",
-   "v": 0.161,
+   "v": 0.173,
    "unit": "m3",
    "status": "calculated",
    "basis": [
@@ -4343,7 +4388,7 @@
   },
   {
    "key": "hull.foam_share",
-   "v": 0.34,
+   "v": 0.37,
    "status": "calculated",
    "basis": [
     "docs/02-form.md#water"
@@ -4351,7 +4396,7 @@
   },
   {
    "key": "hull.mass_kg",
-   "v": 16.7,
+   "v": 17.0,
    "unit": "kg",
    "status": "calculated",
    "basis": [
@@ -4360,7 +4405,7 @@
   },
   {
    "key": "water.draft_mm",
-   "v": 184,
+   "v": 191,
    "unit": "mm",
    "status": "calculated",
    "basis": [
@@ -4369,7 +4414,7 @@
   },
   {
    "key": "water.freeboard_mm",
-   "v": 166,
+   "v": 159,
    "unit": "mm",
    "status": "calculated",
    "basis": [
@@ -4378,7 +4423,7 @@
   },
   {
    "key": "water.gm_m",
-   "v": 0.001,
+   "v": -0.006,
    "unit": "m",
    "status": "calculated",
    "basis": [
@@ -4387,7 +4432,7 @@
   },
   {
    "key": "water.load_rating_kg",
-   "v": 97,
+   "v": 94,
    "unit": "kg",
    "status": "calculated",
    "basis": [
@@ -4396,7 +4441,7 @@
   },
   {
    "key": "water.depth_for_rider_mm",
-   "v": 357,
+   "v": 364,
    "unit": "mm",
    "status": "calculated",
    "basis": [
@@ -4413,7 +4458,7 @@
   },
   {
    "key": "water.persons_index",
-   "v": 0.61,
+   "v": 0.59,
    "status": "calculated",
    "basis": [
     "docs/02-form.md#water"
@@ -4421,7 +4466,7 @@
   },
   {
    "key": "water.beam_for_one_mm",
-   "v": 1150,
+   "v": 1170,
    "unit": "mm",
    "status": "calculated",
    "basis": [
@@ -4430,7 +4475,7 @@
   },
   {
    "key": "sm.mass_kg",
-   "v": 135.2,
+   "v": 145.2,
    "unit": "kg",
    "status": "calculated",
    "basis": [
@@ -4447,7 +4492,7 @@
   },
   {
    "key": "sm.track_pressure_kpa",
-   "v": 3.08,
+   "v": 3.19,
    "unit": "kPa",
    "status": "calculated",
    "basis": [
@@ -4456,7 +4501,7 @@
   },
   {
    "key": "sm.ski_pressure_kpa",
-   "v": 6.97,
+   "v": 7.33,
    "unit": "kPa",
    "status": "calculated",
    "basis": [
@@ -4465,7 +4510,7 @@
   },
   {
    "key": "sm.hull_pressure_kpa",
-   "v": 1.71,
+   "v": 1.78,
    "unit": "kPa",
    "status": "calculated",
    "basis": [
@@ -4474,7 +4519,7 @@
   },
   {
    "key": "sm.track_sinkage_max_cm",
-   "v": 9.3,
+   "v": 9.6,
    "unit": "cm",
    "status": "calculated",
    "basis": [
@@ -4483,7 +4528,7 @@
   },
   {
    "key": "sm.ski_sinkage_max_cm",
-   "v": 11.7,
+   "v": 12.1,
    "unit": "cm",
    "status": "calculated",
    "basis": [
@@ -4492,7 +4537,7 @@
   },
   {
    "key": "sm.hull_sinkage_max_cm",
-   "v": 7.1,
+   "v": 7.3,
    "unit": "cm",
    "status": "calculated",
    "basis": [
@@ -4501,7 +4546,7 @@
   },
   {
    "key": "sm.clutch_lock_kmh",
-   "v": 2.3,
+   "v": 1.6,
    "unit": "km/h",
    "status": "calculated",
    "basis": [
@@ -4510,7 +4555,7 @@
   },
   {
    "key": "sm.top_speed_kmh",
-   "v": 16.0,
+   "v": 11.4,
    "unit": "km/h",
    "status": "calculated",
    "basis": [
@@ -4519,7 +4564,7 @@
   },
   {
    "key": "sm.power_snow_kw",
-   "v": 0.71,
+   "v": 0.74,
    "unit": "kW",
    "status": "calculated",
    "basis": [
@@ -4528,7 +4573,7 @@
   },
   {
    "key": "sm.cg_height_m",
-   "v": 0.743,
+   "v": 0.74,
    "unit": "m",
    "status": "calculated",
    "basis": [
@@ -4554,7 +4599,7 @@
   },
   {
    "key": "sm.skip_speed_kmh",
-   "v": 28,
+   "v": 29,
    "unit": "km/h",
    "status": "calculated",
    "basis": [
@@ -4563,7 +4608,7 @@
   },
   {
    "key": "w4.share_min",
-   "v": 0.25,
+   "v": 0.2,
    "status": "calculated",
    "basis": [
     "docs/02-form.md#snowmobile"
@@ -4571,7 +4616,7 @@
   },
   {
    "key": "w4.wheel_sink_cm",
-   "v": 24.0,
+   "v": 18.9,
    "unit": "cm",
    "status": "calculated",
    "basis": [
@@ -4580,7 +4625,7 @@
   },
   {
    "key": "w4.grip_n",
-   "v": 364,
+   "v": 452,
    "unit": "N",
    "status": "calculated",
    "basis": [
@@ -4589,7 +4634,7 @@
   },
   {
    "key": "w4.resistance_n",
-   "v": 259,
+   "v": 271,
    "unit": "N",
    "status": "calculated",
    "basis": [
@@ -4598,104 +4643,6 @@
   },
   {
    "key": "w4.resistance_bekker_n",
-   "v": 610,
-   "unit": "N",
-   "status": "calculated",
-   "basis": [
-    "docs/02-form.md#snowmobile"
-   ]
-  },
-  {
-   "key": "w4.wheel_drop_mm",
-   "v": 193,
-   "unit": "mm",
-   "status": "calculated",
-   "basis": [
-    "docs/02-form.md#snowmobile"
-   ]
-  },
-  {
-   "key": "w4.tyre_dia_min_mm",
-   "v": 481,
-   "unit": "mm",
-   "status": "calculated",
-   "basis": [
-    "docs/02-form.md#snowmobile"
-   ]
-  },
-  {
-   "key": "w4.dual_share_min",
-   "v": 0.2,
-   "status": "calculated",
-   "basis": [
-    "docs/02-form.md#snowmobile"
-   ]
-  },
-  {
-   "key": "w4.dual_wheel_sink_cm",
-   "v": 16.8,
-   "unit": "cm",
-   "status": "calculated",
-   "basis": [
-    "docs/02-form.md#snowmobile"
-   ]
-  },
-  {
-   "key": "w4.dual_grip_n",
-   "v": 411,
-   "unit": "N",
-   "status": "calculated",
-   "basis": [
-    "docs/02-form.md#snowmobile"
-   ]
-  },
-  {
-   "key": "w4.dual_resistance_bekker_n",
-   "v": 532,
-   "unit": "N",
-   "status": "calculated",
-   "basis": [
-    "docs/02-form.md#snowmobile"
-   ]
-  },
-  {
-   "key": "w4.big_wheel_sink_cm",
-   "v": 17.1,
-   "unit": "cm",
-   "status": "calculated",
-   "basis": [
-    "docs/02-form.md#snowmobile"
-   ]
-  },
-  {
-   "key": "w4.big_grip_n",
-   "v": 457,
-   "unit": "N",
-   "status": "calculated",
-   "basis": [
-    "docs/02-form.md#snowmobile"
-   ]
-  },
-  {
-   "key": "w4.big_resistance_bekker_n",
-   "v": 429,
-   "unit": "N",
-   "status": "calculated",
-   "basis": [
-    "docs/02-form.md#snowmobile"
-   ]
-  },
-  {
-   "key": "w4.big_dual_wheel_sink_cm",
-   "v": 11.9,
-   "unit": "cm",
-   "status": "calculated",
-   "basis": [
-    "docs/02-form.md#snowmobile"
-   ]
-  },
-  {
-   "key": "w4.big_dual_grip_n",
    "v": 507,
    "unit": "N",
    "status": "calculated",
@@ -4704,8 +4651,106 @@
    ]
   },
   {
+   "key": "w4.wheel_drop_mm",
+   "v": 139,
+   "unit": "mm",
+   "status": "calculated",
+   "basis": [
+    "docs/02-form.md#snowmobile"
+   ]
+  },
+  {
+   "key": "w4.tyre_dia_min_mm",
+   "v": 377,
+   "unit": "mm",
+   "status": "calculated",
+   "basis": [
+    "docs/02-form.md#snowmobile"
+   ]
+  },
+  {
+   "key": "w4.dual_share_min",
+   "v": 0.15,
+   "status": "calculated",
+   "basis": [
+    "docs/02-form.md#snowmobile"
+   ]
+  },
+  {
+   "key": "w4.dual_wheel_sink_cm",
+   "v": 13.2,
+   "unit": "cm",
+   "status": "calculated",
+   "basis": [
+    "docs/02-form.md#snowmobile"
+   ]
+  },
+  {
+   "key": "w4.dual_grip_n",
+   "v": 510,
+   "unit": "N",
+   "status": "calculated",
+   "basis": [
+    "docs/02-form.md#snowmobile"
+   ]
+  },
+  {
+   "key": "w4.dual_resistance_bekker_n",
+   "v": 447,
+   "unit": "N",
+   "status": "calculated",
+   "basis": [
+    "docs/02-form.md#snowmobile"
+   ]
+  },
+  {
+   "key": "w4.big_wheel_sink_cm",
+   "v": 17.5,
+   "unit": "cm",
+   "status": "calculated",
+   "basis": [
+    "docs/02-form.md#snowmobile"
+   ]
+  },
+  {
+   "key": "w4.big_grip_n",
+   "v": 475,
+   "unit": "N",
+   "status": "calculated",
+   "basis": [
+    "docs/02-form.md#snowmobile"
+   ]
+  },
+  {
+   "key": "w4.big_resistance_bekker_n",
+   "v": 452,
+   "unit": "N",
+   "status": "calculated",
+   "basis": [
+    "docs/02-form.md#snowmobile"
+   ]
+  },
+  {
+   "key": "w4.big_dual_wheel_sink_cm",
+   "v": 12.2,
+   "unit": "cm",
+   "status": "calculated",
+   "basis": [
+    "docs/02-form.md#snowmobile"
+   ]
+  },
+  {
+   "key": "w4.big_dual_grip_n",
+   "v": 527,
+   "unit": "N",
+   "status": "calculated",
+   "basis": [
+    "docs/02-form.md#snowmobile"
+   ]
+  },
+  {
    "key": "w4.big_dual_resistance_bekker_n",
-   "v": 380,
+   "v": 401,
    "unit": "N",
    "status": "calculated",
    "basis": [
@@ -4714,7 +4759,7 @@
   },
   {
    "key": "w4.dual_width_m",
-   "v": 1.28,
+   "v": 1.62,
    "unit": "m",
    "status": "calculated",
    "basis": [
@@ -4775,7 +4820,7 @@
   },
   {
    "key": "mtt.tow_pull_packed_n",
-   "v": 276,
+   "v": 285,
    "unit": "N",
    "status": "calculated",
    "basis": [
@@ -4784,7 +4829,7 @@
   },
   {
    "key": "mtt.tow_sled_kg",
-   "v": 141,
+   "v": 145,
    "unit": "kg",
    "status": "calculated",
    "basis": [
@@ -4793,7 +4838,7 @@
   },
   {
    "key": "mtt.tow_power_kw",
-   "v": 0.78,
+   "v": 0.81,
    "unit": "kW",
    "status": "calculated",
    "basis": [
@@ -4802,7 +4847,7 @@
   },
   {
    "key": "mtt.crawler180_pair_kpa",
-   "v": 8.1,
+   "v": 8.4,
    "unit": "kPa",
    "status": "calculated",
    "basis": [
@@ -4811,7 +4856,7 @@
   },
   {
    "key": "mtt.crawler300_kpa",
-   "v": 4.8,
+   "v": 5.0,
    "unit": "kPa",
    "status": "calculated",
    "basis": [
@@ -4820,7 +4865,7 @@
   },
   {
    "key": "mtt.crawler300_pair_kpa",
-   "v": 2.4,
+   "v": 2.5,
    "unit": "kPa",
    "status": "calculated",
    "basis": [
@@ -4838,7 +4883,7 @@
   },
   {
    "key": "yr.track_max_mm",
-   "v": 1000,
+   "v": 930,
    "unit": "mm",
    "status": "calculated",
    "basis": [
@@ -4847,7 +4892,7 @@
   },
   {
    "key": "yr.tip_ratio",
-   "v": 0.79,
+   "v": 0.84,
    "status": "calculated",
    "basis": [
     "docs/02-form.md#tyres"
@@ -4855,7 +4900,7 @@
   },
   {
    "key": "yr.pitch_ratio",
-   "v": 0.75,
+   "v": 0.86,
    "status": "calculated",
    "basis": [
     "docs/02-form.md#tyres"
@@ -4871,8 +4916,25 @@
    ]
   },
   {
+   "key": "w5.pitch_ratio_all_year",
+   "v": 0.74,
+   "status": "calculated",
+   "basis": [
+    "docs/02-form.md#tyres"
+   ]
+  },
+  {
+   "key": "w5.length_all_year_m",
+   "v": 1.72,
+   "unit": "m",
+   "status": "calculated",
+   "basis": [
+    "docs/02-form.md#tyres"
+   ]
+  },
+  {
    "key": "yr.front_tyre_sink_cm",
-   "v": 22.5,
+   "v": 23.1,
    "unit": "cm",
    "status": "calculated",
    "basis": [
@@ -4881,7 +4943,7 @@
   },
   {
    "key": "yr.front_tyre_resist_n",
-   "v": 239,
+   "v": 257,
    "unit": "N",
    "status": "calculated",
    "basis": [
@@ -4890,7 +4952,7 @@
   },
   {
    "key": "yr.ski_sink_cm",
-   "v": 10.6,
+   "v": 11.0,
    "unit": "cm",
    "status": "calculated",
    "basis": [
@@ -4899,7 +4961,7 @@
   },
   {
    "key": "yr.ski_resist_n",
-   "v": 76,
+   "v": 81,
    "unit": "N",
    "status": "calculated",
    "basis": [
@@ -4908,7 +4970,7 @@
   },
   {
    "key": "yr.rear_grip_n",
-   "v": 645,
+   "v": 666,
    "unit": "N",
    "status": "calculated",
    "basis": [
@@ -4917,7 +4979,7 @@
   },
   {
    "key": "yr.rear_resist_n",
-   "v": 637,
+   "v": 669,
    "unit": "N",
    "status": "calculated",
    "basis": [
@@ -4926,7 +4988,7 @@
   },
   {
    "key": "yr.ski_inside_tip_ratio",
-   "v": 0.67,
+   "v": 0.7,
    "status": "calculated",
    "basis": [
     "docs/02-form.md#tyres"
@@ -4934,7 +4996,7 @@
   },
   {
    "key": "yr.ski_outside_tip_ratio",
-   "v": 0.92,
+   "v": 0.98,
    "status": "calculated",
    "basis": [
     "docs/02-form.md#tyres"
@@ -4942,7 +5004,7 @@
   },
   {
    "key": "tri.tip_ratio",
-   "v": 0.46,
+   "v": 0.43,
    "status": "calculated",
    "basis": [
     "docs/02-form.md#tyres"
@@ -4950,7 +5012,7 @@
   },
   {
    "key": "tri.cg_height_max_m",
-   "v": 0.48,
+   "v": 0.47,
    "unit": "m",
    "status": "calculated",
    "basis": [
@@ -4959,7 +5021,7 @@
   },
   {
    "key": "cost.tub_jpy",
-   "v": 82881,
+   "v": 83397,
    "unit": "JPY",
    "status": "calculated",
    "basis": [
@@ -4968,7 +5030,7 @@
   },
   {
    "key": "cost.winter_sm_jpy",
-   "v": 236881,
+   "v": 237397,
    "unit": "JPY",
    "status": "calculated",
    "basis": [
@@ -5102,17 +5164,8 @@
    ]
   },
   {
-   "key": "dsn.length_m",
-   "v": 1.55,
-   "unit": "m",
-   "status": "calculated",
-   "basis": [
-    "docs/03-design.md#layout"
-   ]
-  },
-  {
    "key": "dsn.width_m",
-   "v": 1.067,
+   "v": 1.18,
    "unit": "m",
    "status": "calculated",
    "basis": [
@@ -5121,7 +5174,7 @@
   },
   {
    "key": "dsn.width_transport_m",
-   "v": 1.067,
+   "v": 1.18,
    "unit": "m",
    "status": "calculated",
    "basis": [
@@ -5139,7 +5192,7 @@
   },
   {
    "key": "dsn.tube_main_m",
-   "v": 3.07,
+   "v": 3.17,
    "unit": "m",
    "status": "calculated",
    "basis": [
@@ -5157,7 +5210,7 @@
   },
   {
    "key": "dsn.tube_roll_m",
-   "v": 3.32,
+   "v": 3.03,
    "unit": "m",
    "status": "calculated",
    "basis": [
@@ -5175,7 +5228,7 @@
   },
   {
    "key": "dsn.ratio_top",
-   "v": 18.06,
+   "v": 25.28,
    "status": "calculated",
    "basis": [
     "docs/03-design.md#drive"
@@ -5183,7 +5236,7 @@
   },
   {
    "key": "dsn.ratio",
-   "v": 59.85,
+   "v": 83.79,
    "status": "calculated",
    "basis": [
     "docs/03-design.md#drive"
@@ -5191,7 +5244,7 @@
   },
   {
    "key": "dsn.top_speed_kmh",
-   "v": 28.83,
+   "v": 29.78,
    "unit": "km/h",
    "status": "calculated",
    "basis": [
@@ -5200,7 +5253,7 @@
   },
   {
    "key": "dsn.chain420_centre_mm",
-   "v": 287,
+   "v": 259,
    "unit": "mm",
    "status": "calculated",
    "basis": [
@@ -5209,7 +5262,7 @@
   },
   {
    "key": "dsn.chain420_links",
-   "v": 68,
+   "v": 72,
    "status": "calculated",
    "basis": [
     "docs/03-design.md#drive"
@@ -5226,7 +5279,7 @@
   },
   {
    "key": "dsn.low_point_mm",
-   "v": 87,
+   "v": 146,
    "unit": "mm",
    "status": "calculated",
    "basis": [
@@ -5261,8 +5314,8 @@
    ]
   },
   {
-   "key": "dsn.winter_lift_mm",
-   "v": 155,
+   "key": "dsn.ski_y_mm",
+   "v": 261,
    "unit": "mm",
    "status": "calculated",
    "basis": [
@@ -5270,52 +5323,8 @@
    ]
   },
   {
-   "key": "dsn.winter_chain_links",
-   "v": 76,
-   "status": "calculated",
-   "basis": [
-    "docs/03-design.md#winter"
-   ]
-  },
-  {
-   "key": "dsn.winter_thrust_n",
-   "v": 1304,
-   "unit": "N",
-   "status": "calculated",
-   "basis": [
-    "docs/03-design.md#winter"
-   ]
-  },
-  {
-   "key": "dsn.winter_top_speed_kmh",
-   "v": 30.0,
-   "unit": "km/h",
-   "status": "calculated",
-   "basis": [
-    "docs/03-design.md#winter"
-   ]
-  },
-  {
-   "key": "dsn.winter_clutch_lock_kmh",
-   "v": 4.3,
-   "unit": "km/h",
-   "status": "calculated",
-   "basis": [
-    "docs/03-design.md#winter"
-   ]
-  },
-  {
-   "key": "dsn.winter_width_m",
-   "v": 1.18,
-   "unit": "m",
-   "status": "calculated",
-   "basis": [
-    "docs/03-design.md#winter"
-   ]
-  },
-  {
    "key": "dsn.mass_kg",
-   "v": 105.9,
+   "v": 115.6,
    "unit": "kg",
    "status": "calculated",
    "basis": [
@@ -5324,7 +5333,7 @@
   },
   {
    "key": "dsn.cg_x_m",
-   "v": 0.413,
+   "v": 0.426,
    "unit": "m",
    "status": "calculated",
    "basis": [
@@ -5342,7 +5351,7 @@
   },
   {
    "key": "dsn.cg_z_m",
-   "v": 0.282,
+   "v": 0.298,
    "unit": "m",
    "status": "calculated",
    "basis": [
@@ -5351,7 +5360,7 @@
   },
   {
    "key": "dsn.frame_mass_kg",
-   "v": 11.2,
+   "v": 11.4,
    "unit": "kg",
    "status": "calculated",
    "basis": [
@@ -5360,7 +5369,7 @@
   },
   {
    "key": "dsn.rear_share_adult",
-   "v": 0.565,
+   "v": 0.561,
    "status": "calculated",
    "basis": [
     "docs/03-design.md#mass"
@@ -5377,7 +5386,7 @@
   },
   {
    "key": "dsn.cg_height_adult_m",
-   "v": 0.558,
+   "v": 0.554,
    "unit": "m",
    "status": "calculated",
    "basis": [
@@ -5394,7 +5403,7 @@
   },
   {
    "key": "dsn.pitch_ratio_adult",
-   "v": 0.84,
+   "v": 0.86,
    "status": "calculated",
    "basis": [
     "docs/03-design.md#stability"
@@ -5402,7 +5411,7 @@
   },
   {
    "key": "dsn.rear_share_child",
-   "v": 0.6,
+   "v": 0.591,
    "status": "calculated",
    "basis": [
     "docs/03-design.md#mass"
@@ -5419,7 +5428,7 @@
   },
   {
    "key": "dsn.cg_height_child_m",
-   "v": 0.346,
+   "v": 0.355,
    "unit": "m",
    "status": "calculated",
    "basis": [
@@ -5428,7 +5437,7 @@
   },
   {
    "key": "dsn.tip_ratio_child",
-   "v": 1.27,
+   "v": 1.24,
    "status": "calculated",
    "basis": [
     "docs/03-design.md#stability"
@@ -5436,7 +5445,7 @@
   },
   {
    "key": "dsn.pitch_ratio_child",
-   "v": 1.25,
+   "v": 1.24,
    "status": "calculated",
    "basis": [
     "docs/03-design.md#stability"
@@ -5444,7 +5453,7 @@
   },
   {
    "key": "dsn.winter_mass_kg",
-   "v": 115.0,
+   "v": 125.6,
    "unit": "kg",
    "status": "calculated",
    "basis": [
@@ -5453,7 +5462,7 @@
   },
   {
    "key": "dsn.winter_cg_height_m",
-   "v": 0.687,
+   "v": 0.536,
    "unit": "m",
    "status": "calculated",
    "basis": [
@@ -5462,7 +5471,7 @@
   },
   {
    "key": "dsn.winter_rear_share",
-   "v": 0.588,
+   "v": 0.554,
    "status": "calculated",
    "basis": [
     "docs/03-design.md#winter"
@@ -5470,7 +5479,7 @@
   },
   {
    "key": "dsn.winter_tip_ratio",
-   "v": 0.64,
+   "v": 0.67,
    "status": "calculated",
    "basis": [
     "docs/03-design.md#stability"
@@ -5478,7 +5487,7 @@
   },
   {
    "key": "dsn.winter_pitch_ratio",
-   "v": 0.65,
+   "v": 0.9,
    "status": "calculated",
    "basis": [
     "docs/03-design.md#stability"
@@ -5486,7 +5495,7 @@
   },
   {
    "key": "dsn.winter_ski_pressure_kpa",
-   "v": 6.04,
+   "v": 6.86,
    "unit": "kPa",
    "status": "calculated",
    "basis": [
@@ -5495,7 +5504,7 @@
   },
   {
    "key": "dsn.belly_height_mm",
-   "v": 255,
+   "v": 100,
    "unit": "mm",
    "status": "calculated",
    "basis": [
@@ -5504,7 +5513,7 @@
   },
   {
    "key": "dsn.climb_force_n",
-   "v": 634,
+   "v": 664,
    "unit": "N",
    "status": "calculated",
    "basis": [
@@ -5513,7 +5522,7 @@
   },
   {
    "key": "dsn.climb_grip_n",
-   "v": 596,
+   "v": 619,
    "unit": "N",
    "status": "calculated",
    "basis": [
@@ -5522,7 +5531,7 @@
   },
   {
    "key": "dsn.climb_thrust_n",
-   "v": 1359,
+   "v": 1316,
    "unit": "N",
    "status": "calculated",
    "basis": [
@@ -5531,7 +5540,7 @@
   },
   {
    "key": "dsn.climb_grade_max_pct",
-   "v": 17.5,
+   "v": 17.2,
    "unit": "%",
    "status": "calculated",
    "basis": [
@@ -5540,7 +5549,7 @@
   },
   {
    "key": "dsn.axle_chain_pull_n",
-   "v": 3635,
+   "v": 3639,
    "unit": "N",
    "status": "calculated",
    "basis": [
@@ -5549,7 +5558,7 @@
   },
   {
    "key": "dsn.axle_stress_mpa",
-   "v": 200,
+   "v": 236,
    "unit": "MPa",
    "status": "calculated",
    "basis": [
@@ -5558,7 +5567,7 @@
   },
   {
    "key": "dsn.axle_safety",
-   "v": 1.72,
+   "v": 1.46,
    "status": "calculated",
    "basis": [
     "docs/03-design.md#axle"
@@ -5566,7 +5575,7 @@
   },
   {
    "key": "dsn.frame_moment_nm",
-   "v": 998,
+   "v": 999,
    "unit": "N m",
    "status": "calculated",
    "basis": [
@@ -5575,7 +5584,7 @@
   },
   {
    "key": "dsn.rail_stress_mpa",
-   "v": 340,
+   "v": 341,
    "unit": "MPa",
    "status": "calculated",
    "basis": [
@@ -5592,7 +5601,7 @@
   },
   {
    "key": "dsn.bearing_load_n",
-   "v": 571,
+   "v": 593,
    "unit": "N",
    "status": "calculated",
    "basis": [
@@ -5610,7 +5619,7 @@
   },
   {
    "key": "dsn.brake_torque_needed_nm",
-   "v": 194,
+   "v": 293,
    "unit": "N m",
    "status": "calculated",
    "basis": [
@@ -5619,7 +5628,7 @@
   },
   {
    "key": "dsn.brake_rear_alone_decel",
-   "v": 3.14,
+   "v": 3.12,
    "unit": "m/s2",
    "status": "calculated",
    "basis": [
@@ -5628,7 +5637,7 @@
   },
   {
    "key": "dsn.brake_clamp_needed_n",
-   "v": 1527,
+   "v": 2292,
    "unit": "N",
    "status": "calculated",
    "basis": [
@@ -5637,7 +5646,7 @@
   },
   {
    "key": "dsn.brake_front_clamp_needed_n",
-   "v": 1864,
+   "v": 2836,
    "unit": "N",
    "status": "calculated",
    "basis": [
@@ -5646,7 +5655,7 @@
   },
   {
    "key": "dsn.brake_downhill_decel_rear",
-   "v": 0.08,
+   "v": 0.06,
    "unit": "m/s2",
    "status": "calculated",
    "basis": [
@@ -5672,17 +5681,8 @@
    ]
   },
   {
-   "key": "dsn.delica_length_margin_mm",
-   "v": 60,
-   "unit": "mm",
-   "status": "calculated",
-   "basis": [
-    "docs/03-design.md#transport"
-   ]
-  },
-  {
    "key": "dsn.delica_width_margin_mm",
-   "v": 163,
+   "v": 50,
    "unit": "mm",
    "status": "calculated",
    "basis": [
@@ -5708,26 +5708,26 @@
    ]
   },
   {
-   "key": "dsn.winter_length_m",
-   "v": 1.877,
+   "key": "dsn.length_m",
+   "v": 1.585,
    "unit": "m",
    "status": "calculated",
    "basis": [
-    "docs/03-design.md#winter"
+    "docs/03-design.md#layout"
    ]
   },
   {
-   "key": "dsn.winter_height_m",
-   "v": 1.225,
-   "unit": "m",
+   "key": "dsn.delica_length_margin_mm",
+   "v": 25,
+   "unit": "mm",
    "status": "calculated",
    "basis": [
-    "docs/03-design.md#winter"
+    "docs/03-design.md#transport"
    ]
   },
   {
    "key": "dsn.bom_parts_jpy",
-   "v": 369525,
+   "v": 356777,
    "unit": "JPY",
    "status": "calculated",
    "basis": [
@@ -7840,6 +7840,23 @@
     "D-030",
     "R-12"
    ]
+  },
+  {
+   "id": "D-032",
+   "date": "2026-11-04",
+   "by": "owner",
+   "what": "Buggy-size tyres stay on all year. In winter height-adjustable skis bolt to the steering knuckles inside the front wheels (W6 of 1.2.19), and chains go on the rear tyres as needed. This replaces the large tyres changed each winter (W5), which were the working basis of 1.3, and makes the inside skis the winter form; outside skis remain the choice if more stability is wanted.",
+   "options": [
+    "W5, large rear tyres and skis changed each winter",
+    "W6, buggy tyres all year with skis inside the front wheels",
+    "W6 with skis outside the front wheels"
+   ],
+   "touches": [
+    "D-025",
+    "D-029",
+    "R-28",
+    "yr.tyre_dia_mm"
+   ]
   }
  ],
  "open": [
@@ -8369,7 +8386,7 @@
   {
    "id": "Q-034",
    "kind": "question",
-   "text": "The winter form W5 of 1.3.12 assumes large low-pressure tyres of the 25x12-9 class with rims, their mass and price, and a 12T output and 45T axle sprocket and their price, until a tyre that fits the rear hubs is chosen.",
+   "text": "The winter form W5 (dropped for W6 by D-032) assumes large low-pressure tyres of the 25x12-9 class with rims, their mass and price, and a 12T output and 45T axle sprocket and their price, until a tyre that fits the rear hubs is chosen.",
    "waits_for": "assistant",
    "affects": [
     "w5.tyre_dia_mm",
@@ -8386,7 +8403,7 @@
   {
    "id": "Q-035",
    "kind": "finding",
-   "text": "The straddle kart of 1.3 is placed by hand and has had no collision search. K-013 left the spine too weak (a truss under the seat or a larger tube), the winter form's fore-and-aft ratio short of 0.8 (a longer winter wheelbase or a lower seat), the tie rods 4 mm from the front rails, the footboards held at one edge, the axle sprocket and axle uncovered, and the battery and the stem's foot without supports. The next pass builds a collision search into calc/design.py for the summer and winter forms and resolves these.",
+   "text": "The straddle kart of 1.3 is placed by hand and has had no collision search. K-013 left the spine too weak (a truss under the seat or a larger tube), the tie rods 4 mm from the front rails, the footboards held at one edge, the axle sprocket and axle uncovered, and the battery and the stem's foot without supports. The next pass builds a collision search into calc/design.py for the summer and winter forms and resolves these.",
    "waits_for": "assistant",
    "affects": [
     "frame",
@@ -8402,12 +8419,16 @@
   {
    "id": "Q-036",
    "kind": "question",
-   "text": "The buggy-size tyres of 1.2.19 (about 19x7-8 at the front and 18x9.5-8 at the rear, as on the MAGMAX50 of M90) are taken at a common diameter and their widths until a set that fits the hubs and the road rules is chosen and priced.",
+   "text": "The buggy-size tyres of 1.2.19 (about 19x7-8 at the front and 18x9.5-8 at the rear, as on the MAGMAX50 of M90) are taken at a common diameter, their widths, mass, and price, with the chains for them and the 42T axle sprocket the larger tyres need, until a set that fits the hubs and the road rules is chosen and priced.",
    "waits_for": "assistant",
    "affects": [
     "yr.tyre_dia_mm",
     "yr.rear_width_mm",
-    "yr.front_width_mm"
+    "yr.front_width_mm",
+    "yr.wheel_mass_kg",
+    "w6.chain_mass_kg",
+    "cost.buggy_tyres_set_jpy",
+    "cost.spr420_42t_jpy"
    ],
    "opened": "2026-11-04",
    "phase": "design"
@@ -9436,43 +9457,30 @@
    "steps": [
     {
      "id": "OP-04.01",
-     "action": "On level ground, lift the kart onto four stands at the winter height, with the engine stopped and cold.",
-     "values": [
-      "dsn.winter_lift_mm"
-     ],
+     "action": "On level ground, lift the front of the kart onto a stand, with the engine stopped.",
      "controls": [
       "H-10"
      ]
     },
     {
      "id": "OP-04.02",
-     "action": "Take off the rear wheels and fit the large low-pressure tyres on the same hubs.",
+     "action": "Bolt a ski to each steering knuckle inside the front wheel and set its height - below the tyre for deep snow, so that the front wheels are lifted, or a little above it where the ground is firm.",
      "values": [
-      "w5.tyre_dia_mm",
-      "w5.tyre_width_mm"
+      "ski.width_mm",
+      "ski.contact_length_mm",
+      "dsn.ski_y_mm"
      ]
     },
     {
      "id": "OP-04.03",
-     "action": "Change the axle sprocket to the large one, fit the winter chain, tension it, and refit the chain guard.",
-     "values": [
-      "dsn.winter_chain_links"
-     ],
+     "action": "Fit the chains on the rear tyres if the snow asks for them.",
      "controls": [
-      "H-03"
+      "H-07"
      ]
     },
     {
      "id": "OP-04.04",
-     "action": "Take off the front wheels with their brake discs and bolt the skis with their stanchions onto the spindles.",
-     "values": [
-      "ski.width_mm",
-      "ski.contact_length_mm"
-     ]
-    },
-    {
-     "id": "OP-04.05",
-     "action": "Lower the kart, check that the steering moves freely from lock to lock, that the rear brake holds, and that the chain runs free.",
+     "action": "Lower the kart and check that the steering moves freely from lock to lock, that the skis clear the brake discs and tie rods, and that both brakes hold.",
      "controls": [
       "H-01",
       "H-07"
@@ -9528,26 +9536,11 @@
    "steps": [
     {
      "id": "OP-06.01",
-     "action": "On level ground, lift the kart onto four stands at the winter height, with the engine stopped and cold.",
-     "controls": [
-      "H-10"
-     ]
+     "action": "Take off the skis and the chains."
     },
     {
      "id": "OP-06.02",
-     "action": "Take off the skis, the large rear tyres, the large sprocket, and the winter chain."
-    },
-    {
-     "id": "OP-06.03",
-     "action": "Refit the summer sprocket and chain and tension them, the rear wheels, and the front wheels with their brake discs.",
-     "controls": [
-      "H-01",
-      "H-03"
-     ]
-    },
-    {
-     "id": "OP-06.04",
-     "action": "Lower the kart, and check the steering, both brakes, and the lamps before any road use.",
+     "action": "Check the steering, both brakes, and the lamps before any road use.",
      "controls": [
       "H-01"
      ]
@@ -10086,7 +10079,7 @@
    {
     "id": "t6",
     "phase": "test",
-    "title": "W4 trial - the summer form with chains on its sled pan in fresh snow",
+    "title": "Snow trial - the kart with chains, then with the skis set below and above the tyres (W6)",
     "kind": "work",
     "days": 1,
     "after": [
@@ -10104,21 +10097,21 @@
    {
     "id": "w1",
     "phase": "build",
-    "title": "Buy large low-pressure tyres, a 45T sprocket, and a winter chain (W5), if W4 falls short",
+    "title": "Make the skis, their adjustable brackets on the knuckles, and fit the chains (W6)",
     "kind": "work",
     "days": 3,
     "after": [
      "t6"
     ],
     "parts": [
-     "rear_wheels",
-     "chain_final"
+     "skis",
+     "snow_chains"
     ]
    },
    {
     "id": "w2",
     "phase": "build",
-    "title": "Make the ski stanchions, fit the large tyres, and finish the sled pan",
+    "title": "Finish the sled pan and set the skis' height for the owner's snow",
     "kind": "work",
     "days": 6,
     "after": [
@@ -10126,7 +10119,6 @@
     ],
     "parts": [
      "skis",
-     "rear_wheels",
      "sled_pan"
     ]
    },
@@ -10245,9 +10237,9 @@
    },
    {
     "part": "rear_wheels",
-    "item": "Wheels 13x5.00-6 with tyres and rims, set of four",
+    "item": "Buggy tyres about 19x7-8 front and 18x9.5-8 rear on 8 in rims, set of four",
     "qty": 1,
-    "price": "cost.tyres_set_jpy",
+    "price": "cost.buggy_tyres_set_jpy",
     "need": "b3"
    },
    {
@@ -10394,9 +10386,9 @@
    },
    {
     "part": "chain_final",
-    "item": "Sprocket 420, 30T on the axle carrier",
+    "item": "Sprocket 420, 42T on the axle carrier",
     "qty": 1,
-    "price": "cost.spr420_30t_jpy",
+    "price": "cost.spr420_42t_jpy",
     "need": "b5"
    },
    {
@@ -10436,7 +10428,7 @@
    },
    {
     "part": "snow_chains",
-    "item": "Ladder chains for small tyres, adjustable, for the W4 trial",
+    "item": "Ladder chains for the rear tyres, adjustable, for winter (W6)",
     "qty": 2,
     "price": "cost.snow_chain_jpy",
     "need": "t6"
@@ -10449,36 +10441,8 @@
     "need": "b7"
    },
    {
-    "part": "rear_wheels",
-    "item": "Large low-pressure tyres of the 25x12-9 class with rims and hub adapters, for winter (W5)",
-    "qty": 2,
-    "price": "cost.w5_wheel_jpy",
-    "need": "w1"
-   },
-   {
-    "part": "chain_final",
-    "item": "Sprocket 420, 45T on the axle carrier, for winter (W5)",
-    "qty": 1,
-    "price": "cost.spr420_45t_jpy",
-    "need": "w1"
-   },
-   {
-    "part": "chain_final",
-    "item": "Sprocket 420, 12T on the engine unit's output, for winter (W5)",
-    "qty": 1,
-    "price": "cost.spr420_15t_jpy",
-    "need": "w1"
-   },
-   {
-    "part": "chain_final",
-    "item": "Chain 420, 120 links, cut to the winter length",
-    "qty": 1,
-    "price": "cost.chain420_jpy",
-    "need": "w1"
-   },
-   {
     "part": "skis",
-    "item": "Ski stanchions as tall as the winter lift, and bolts (allowance)",
+    "item": "Ski brackets on the steering knuckles, adjustable in height, with pivots and rubber stops (allowance)",
     "qty": 1,
     "price": "cost.allow_winter_mounts_jpy",
     "need": "w2"

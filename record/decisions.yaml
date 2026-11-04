@@ -263,3 +263,16 @@ items:
     touches:
       - D-030
       - R-12
+  - id: D-032
+    date: 2026-11-04
+    by: owner
+    what: Buggy-size tyres stay on all year. In winter height-adjustable skis bolt to the steering knuckles inside the front wheels (W6 of 1.2.19), and chains go on the rear tyres as needed. This replaces the large tyres changed each winter (W5), which were the working basis of 1.3, and makes the inside skis the winter form; outside skis remain the choice if more stability is wanted.
+    options:
+      - W5, large rear tyres and skis changed each winter
+      - W6, buggy tyres all year with skis inside the front wheels
+      - W6 with skis outside the front wheels
+    touches:
+      - D-025
+      - D-029
+      - R-28
+      - yr.tyre_dia_mm
