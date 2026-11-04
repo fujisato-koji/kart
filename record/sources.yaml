@@ -265,6 +265,86 @@ items:
     license: unknown
     read: partial
     note: Read by a helper, the PHS and POS tables. PHS10 M10, length 56, head diameter 26, static rating 13,200 N, 72 g.
+  - id: P35
+    class: P
+    title: Road Transport Vehicle Act enforcement regulations (道路運送車両法施行規則), article 1 and table 1, e-Gov
+    url: https://laws.e-gov.go.jp/law/326M50000800074
+    retrieved: 2026-11-04
+    license: unknown
+    read: full
+    note: Read by a helper, the articles. A vehicle with three or more wheels is a first-class moped only up to 0.050 litre or 0.60 kW rated; the 125 cc and 4.0 kW route of article 1 paragraph 2 is for two-wheelers only; a four-wheeler of 51 cc or more is a light motor vehicle and needs inspection (article 35-2).
+  - id: P36
+    class: P
+    title: Safety standards for road vehicles (道路運送車両の保安基準), articles 59 to 67, e-Gov
+    url: https://laws.e-gov.go.jp/law/326M50000800067
+    retrieved: 2026-11-04
+    license: unknown
+    read: full
+    note: Read by a helper, chapter 3 for mopeds. Size within 2.5 x 1.3 x 2.0 m; two brake systems; head, tail, stop, number plate lamps, rear reflector, horn, approved silencer, front and rear turn signals, mirror, speedometer, steering impact, seat, seat belt and head restraint for non-straddle seats (66-2, 66-3); a seat under 500 mm needs a structure at least 1 m above the ground (61-2).
+  - id: P37
+    class: P
+    title: MLIT detailed technical notice, articles 255 to 270-3 and attachment 98
+    url: https://www.mlit.go.jp/jidosha/content/S258.pdf
+    retrieved: 2026-11-04
+    license: unknown
+    read: partial
+    note: Read by a helper, articles 255 and 258 in full. A four-wheel moped's service brake acts on at least half the wheels including the rear; a parking brake holds on an 18 % slope.
+  - id: P38
+    class: P
+    title: Road Traffic Act, its order and regulations (道路交通法, 施行令, 施行規則), e-Gov
+    url: https://laws.e-gov.go.jp/law/335AC0000000105
+    retrieved: 2026-11-04
+    license: unknown
+    read: full
+    note: Read by a helper, the articles. A four-wheeler of 20 to 50 cc or 0.25 to 0.60 kW with a cabin or a track over 50 cm is a minicar, an ordinary motor vehicle in traffic law, with an ordinary licence, 60 km/h (30 km/h on general roads without a centre line from 2026-09-01), one person, no helmet duty, seat belt duty.
+  - id: P39
+    class: P
+    title: National Police Agency, minicar review meeting, first session material, 2026-03-26
+    url: https://www.npa.go.jp/bureau/traffic/council/mini01setumei.pdf
+    retrieved: 2026-11-04
+    license: unknown
+    read: full
+    note: Read by a helper. Classes and rules of minicars; a light motor vehicle needs inspection and collision tests; minicars may not use expressways.
+  - id: P40
+    class: P
+    title: Saitama City, declaration of a modified moped (改造申告書)
+    url: https://www.city.saitama.lg.jp/001/153/004/002/003/p096986_d/fil/20.pdf
+    retrieved: 2026-11-04
+    license: unknown
+    read: full
+    note: Read by a helper. A plate change only shows a tax rate change and does not guarantee the safety standards; an engine fitted by the owner is proved by its purchase receipt.
+  - id: P41
+    class: P
+    title: Local Tax Act (地方税法), article 448, e-Gov
+    url: https://laws.e-gov.go.jp/law/325AC0000000226
+    retrieved: 2026-11-04
+    license: unknown
+    read: partial
+    note: Read by a helper. Three or more wheels over 20 cc or 0.25 kW pay 3,700 JPY a year as the standard rate.
+  - id: P42
+    class: P
+    title: GIROJ, compulsory automobile liability insurance base rates from 2026-11-01
+    url: https://www.giroj.or.jp/ratemaking/cali/
+    retrieved: 2026-11-04
+    license: unknown
+    read: partial
+    note: Read by a helper. General moped, 12 months 7,730 JPY; the table has no minicar row (placing a minicar there is the helper's inference).
+  - id: P43
+    class: P
+    title: Honda, Tact specifications (factbook 2015)
+    url: https://www.honda.co.jp/factbook/motor/TACT/201501/P10.pdf
+    retrieved: 2026-11-04
+    license: unknown
+    read: full
+    note: Read by a helper. 49 cc four-stroke, 3.3 kW at 8,000 rpm, 4.1 N m at 6,000 rpm, CVT 2.850 to 0.860, dry multi-plate centrifugal clutch, battery ignition with fuel injection.
+  - id: P44
+    class: P
+    title: Honda news, Super Cub 50 and 110, 2017
+    url: https://global.honda/jp/news/2017/2171019-supercub.html
+    retrieved: 2026-11-04
+    license: unknown
+    read: partial
+    note: Read by a helper. Super Cub 50 has 49 cc, 2.7 kW at 7,500 rpm, 3.8 N m at 5,500 rpm, four speeds with an automatic centrifugal clutch, primary 4.058.
   - id: S1
     class: S
     title: Scheibe, An Overview of Studded and Studless Tire Traction and Safety, WSDOT WA-RD 551.1, 2002
@@ -777,6 +857,22 @@ items:
     license: unknown
     read: partial
     note: Read by a helper. 5,460 JPY; rail bolt spacing 180 mm from a buyer review.
+  - id: M63
+    class: M
+    title: Yahoo Auctions closed listings for AF79 engines (Honda Tact 50)
+    url: https://auctions.yahoo.co.jp/closedsearch/closedsearch?p=AF79+エンジン&n=50
+    retrieved: 2026-11-04
+    license: unknown
+    read: partial
+    note: Read by a helper, page 1. Used engines 9,765 to 38,500 JPY; junk scooters 18,000 to 61,000 JPY.
+  - id: M64
+    class: M
+    title: Yahoo Auctions closed listings for AA09 engines (Honda Super Cub 50)
+    url: https://auctions.yahoo.co.jp/closedsearch/closedsearch?p=AA09+エンジン&n=50
+    retrieved: 2026-11-04
+    license: unknown
+    read: partial
+    note: Read by a helper, page 1. Used engines 28,000 to 50,000 JPY.
   - id: F1
     class: F
     title: Motor1, a shifter kart turned into a snowmobile, 2025-02-02

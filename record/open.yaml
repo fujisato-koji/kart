@@ -256,3 +256,12 @@ items:
     opened: 2026-11-04
     phase: design
     blocks: design_build
+  - id: Q-022
+    kind: question
+    text: How does the owner's municipality register a minicar built from scratch - how is a frame number given to a home-made frame, and which papers prove the engine's displacement (the donor's scrapping certificate, a receipt or transfer certificate, an engine-number rubbing)? No official page found covers a scratch-built frame; the owner asks the municipality's light vehicle tax counter.
+    waits_for: owner
+    affects:
+      - R-18
+    opened: 2026-11-04
+    phase: design
+    blocks: design_build

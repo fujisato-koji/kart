@@ -57,6 +57,7 @@ The current state, with open items grouped by whom they wait for, is in [STATUS.
 | Q-019 | The fit of bought parts to each other is not stated by their sellers and is checked when they arrive, before the frame is welded to them - the rim's three-hole pattern against the front hubs and the made rear hubs, the front hubs' bore against the 17 mm spindles, the engine's shaft (3/4 inch Q-type) and base holes, the ladder chains on 13x5.00-6 tyres, and the seat's rail bolt spacing. | assistant |  |
 | Q-020 | The layout of step 1.3 is not yet buildable (K-005). Rearrange the drive so that the chains, the jackshaft and its bearings, the middle axle bearing, and the guard fit between the seat and the left rail, or move the drive outboard; redesign the column support so it holds the column at its lower flange bearing and clears the legs; route the pedal box rails clear of the cross members; raise the steering arms and tie rods clear of the front rails; join every plate, the floor, and the seat slide to the frame; widen the seat space; and add the cornering side force to the axle and the engine's offset to the left rail. | assistant |  |
 | Q-021 | Which class of vehicle the kart becomes on public roads (most likely a minicar, a four-wheel first-class moped with up to 50 cc or 0.6 kW rated electric output), and which safety standards (brakes, lamps, turn signals, mirrors, horn, speedometer, plate, size), registration steps, tax, and insurance apply; list each as a requirement with its article from the law. | assistant |  |
+| Q-022 | How does the owner's municipality register a minicar built from scratch - how is a frame number given to a home-made frame, and which papers prove the engine's displacement (the donor's scrapping certificate, a receipt or transfer certificate, an engine-number rubbing)? No official page found covers a scratch-built frame; the owner asks the municipality's light vehicle tax counter. | owner |  |
 <!-- tdr:end -->
 
 ## Values {#values}
@@ -320,6 +321,25 @@ The current state, with open items grouped by whom they wait for, is in [STATUS.
 | lay.axle_gap_mm | 30 | mm | calculated | docs/03-design.md#frame |
 | lay.kick_x_mm | 250 | mm | calculated | docs/03-design.md#frame |
 | cost.tube_32x23_jpy_per_m | 1700 | JPY/m | assumed | Q-018 |
+| law.minicar_cc_max | 50 | cc | sourced | P35 |
+| law.minicar_kw_max | 0.6 | kW | sourced | P35 |
+| law.width_max_mm | 1300 | mm | sourced | P36 |
+| law.length_max_mm | 2500 | mm | sourced | P36 |
+| law.speed_road_kmh | 60 | km/h | sourced | P38 |
+| law.speed_lane_kmh | 30 | km/h | sourced | P38 |
+| law.parking_grade_pct | 18 | % | sourced | P37 |
+| law.marker_height_mm | 1000 | mm | sourced | P36 |
+| cost.tax_year_jpy | 3700 | JPY | sourced | P41 |
+| cost.cali_year_jpy | 7730 | JPY | sourced | P42 |
+| eng50.kw | 3.3 | kW | sourced | P43 |
+| eng50.rpm | 8000 | rpm | sourced | P43 |
+| eng50.torque_nm | 4.1 | N m | sourced | P43 |
+| eng50.cvt_low | 2.85 |  | sourced | P43 |
+| eng50.cvt_high | 0.86 |  | sourced | P43 |
+| cost.engine50_used_min_jpy | 9765 | JPY | sourced | M63 |
+| cost.engine50_used_max_jpy | 38500 | JPY | sourced | M63 |
+| cub50.kw | 2.7 | kW | sourced | P44 |
+| cub50.torque_nm | 3.8 | N m | sourced | P44 |
 | form.mass_total_kg | 170 | kg | calculated | docs/02-form.md#mass |
 | snow.wheel_sinkage_min_cm | 19.0 | cm | calculated | docs/02-form.md#snow |
 | snow.wheel_sinkage_max_cm | 25.1 | cm | calculated | docs/02-form.md#snow |
@@ -454,6 +474,16 @@ The current state, with open items grouped by whom they wait for, is in [STATUS.
 | P32 | P | NTN bearing finder, S-UCP205D1 pillow block unit | full |
 | P33 | P | FYH mounted units catalogue, pages 84 to 88 | partial |
 | P34 | P | THK, rod ends PHS and POS, catalogue A23 | partial |
+| P35 | P | Road Transport Vehicle Act enforcement regulations (道路運送車両法施行規則), article 1 and table 1, e-Gov | full |
+| P36 | P | Safety standards for road vehicles (道路運送車両の保安基準), articles 59 to 67, e-Gov | full |
+| P37 | P | MLIT detailed technical notice, articles 255 to 270-3 and attachment 98 | partial |
+| P38 | P | Road Traffic Act, its order and regulations (道路交通法, 施行令, 施行規則), e-Gov | full |
+| P39 | P | National Police Agency, minicar review meeting, first session material, 2026-03-26 | full |
+| P40 | P | Saitama City, declaration of a modified moped (改造申告書) | full |
+| P41 | P | Local Tax Act (地方税法), article 448, e-Gov | partial |
+| P42 | P | GIROJ, compulsory automobile liability insurance base rates from 2026-11-01 | partial |
+| P43 | P | Honda, Tact specifications (factbook 2015) | full |
+| P44 | P | Honda news, Super Cub 50 and 110, 2017 | partial |
 | S1 | S | Scheibe, An Overview of Studded and Studless Tire Traction and Safety, WSDOT WA-RD 551.1, 2002 | partial |
 | S2 | S | University of Iowa, Parents Guide To ATV Safety (patient and family handout) | full |
 | M1 | M | Yahoo Shopping search for Honda GX160 general-purpose engines | partial |
@@ -518,6 +548,8 @@ The current state, with open items grouped by whom they wait for, is in [STATUS.
 | M60 | M | Kill switch with lanyard, the-apex, Rakuten | partial |
 | M61 | M | MonotaRO folding aluminium ladder rail 1820 mm | partial |
 | M62 | M | KYU B11S small operator seat with slide rails, Rakuten | partial |
+| M63 | M | Yahoo Auctions closed listings for AF79 engines (Honda Tact 50) | partial |
+| M64 | M | Yahoo Auctions closed listings for AA09 engines (Honda Super Cub 50) | partial |
 | F1 | F | Motor1, a shifter kart turned into a snowmobile, 2025-02-02 | partial |
 <!-- tdr:end -->
 

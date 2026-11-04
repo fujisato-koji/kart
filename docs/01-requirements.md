@@ -368,6 +368,25 @@ These are not decided here. 1.2 compares forms against them.
 | lay.axle_gap_mm | 30 | mm | calculated | docs/03-design.md#frame |
 | lay.kick_x_mm | 250 | mm | calculated | docs/03-design.md#frame |
 | cost.tube_32x23_jpy_per_m | 1700 | JPY/m | assumed | Q-018 |
+| law.minicar_cc_max | 50 | cc | sourced | P35 |
+| law.minicar_kw_max | 0.6 | kW | sourced | P35 |
+| law.width_max_mm | 1300 | mm | sourced | P36 |
+| law.length_max_mm | 2500 | mm | sourced | P36 |
+| law.speed_road_kmh | 60 | km/h | sourced | P38 |
+| law.speed_lane_kmh | 30 | km/h | sourced | P38 |
+| law.parking_grade_pct | 18 | % | sourced | P37 |
+| law.marker_height_mm | 1000 | mm | sourced | P36 |
+| cost.tax_year_jpy | 3700 | JPY | sourced | P41 |
+| cost.cali_year_jpy | 7730 | JPY | sourced | P42 |
+| eng50.kw | 3.3 | kW | sourced | P43 |
+| eng50.rpm | 8000 | rpm | sourced | P43 |
+| eng50.torque_nm | 4.1 | N m | sourced | P43 |
+| eng50.cvt_low | 2.85 |  | sourced | P43 |
+| eng50.cvt_high | 0.86 |  | sourced | P43 |
+| cost.engine50_used_min_jpy | 9765 | JPY | sourced | M63 |
+| cost.engine50_used_max_jpy | 38500 | JPY | sourced | M63 |
+| cub50.kw | 2.7 | kW | sourced | P44 |
+| cub50.torque_nm | 3.8 | N m | sourced | P44 |
 | form.mass_total_kg | 170 | kg | calculated | docs/02-form.md#mass |
 | snow.wheel_sinkage_min_cm | 19.0 | cm | calculated | docs/02-form.md#snow |
 | snow.wheel_sinkage_max_cm | 25.1 | cm | calculated | docs/02-form.md#snow |
@@ -490,4 +509,5 @@ These are not decided here. 1.2 compares forms against them.
 | Q-019 | The fit of bought parts to each other is not stated by their sellers and is checked when they arrive, before the frame is welded to them - the rim's three-hole pattern against the front hubs and the made rear hubs, the front hubs' bore against the 17 mm spindles, the engine's shaft (3/4 inch Q-type) and base holes, the ladder chains on 13x5.00-6 tyres, and the seat's rail bolt spacing. | assistant |
 | Q-020 | The layout of step 1.3 is not yet buildable (K-005). Rearrange the drive so that the chains, the jackshaft and its bearings, the middle axle bearing, and the guard fit between the seat and the left rail, or move the drive outboard; redesign the column support so it holds the column at its lower flange bearing and clears the legs; route the pedal box rails clear of the cross members; raise the steering arms and tie rods clear of the front rails; join every plate, the floor, and the seat slide to the frame; widen the seat space; and add the cornering side force to the axle and the engine's offset to the left rail. | assistant |
 | Q-021 | Which class of vehicle the kart becomes on public roads (most likely a minicar, a four-wheel first-class moped with up to 50 cc or 0.6 kW rated electric output), and which safety standards (brakes, lamps, turn signals, mirrors, horn, speedometer, plate, size), registration steps, tax, and insurance apply; list each as a requirement with its article from the law. | assistant |
+| Q-022 | How does the owner's municipality register a minicar built from scratch - how is a frame number given to a home-made frame, and which papers prove the engine's displacement (the donor's scrapping certificate, a receipt or transfer certificate, an engine-number rubbing)? No official page found covers a scratch-built frame; the owner asks the municipality's light vehicle tax counter. | owner |
 <!-- tdr:end -->

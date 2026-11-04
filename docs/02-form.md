@@ -195,3 +195,19 @@ The owner decides:
 8. **A child limit (R-17).** Decided: none (D-018).
 
 After the owner decides, 1.2 records the selection, adds the hazards of the chosen power source (fuel, exhaust gas in a closed shed), and 1.3 starts the design calculation and the drawings.
+
+## 1.2.13 Road use and the engine {#road}
+
+The owner wants the kart on public roads too (D-019) at about kart.speed_max_kmh (D-020), and puts road use before the slope (D-021). Helpers read the law and the engines on 2026-11-04.
+
+**Class.** A four-wheel vehicle is a moped under the vehicle law only up to law.minicar_cc_max or law.minicar_kw_max rated (P35); the new 125 cc class of 2025 is for two-wheelers only. In traffic law it is then a minicar: an ordinary driving licence, one person, no helmet duty, a seat belt worn, the road limit law.speed_road_kmh but law.speed_lane_kmh on general roads without a centre line (P38). From 51 cc a four-wheeler is a light motor vehicle that needs inspection and collision tests (P35, P39), which a home-built kart cannot pass. So the road-legal engine is at most law.minicar_cc_max, or an electric drive of at most law.minicar_kw_max rated.
+
+**What the law asks of the kart (P36, P37).** Size within law.length_max_mm by law.width_max_mm; two brake systems, the service brake on at least half the wheels including the rear, a parking brake that holds on law.parking_grade_pct; head, tail, stop, and number plate lamps, a rear reflector, front and rear turn signals, a mirror, a horn, a speedometer, and an approved silencer; a seat, a seat belt and a head restraint for a seat that is not straddled; and, because the seat is lower than 500 mm, a structure at least law.marker_height_mm above the ground so that others see the kart. Nobody inspects a moped; meeting the standards is the owner's duty, and the plate is only a tax step (P40). The tax is cost.tax_year_jpy a year (P41), and compulsory insurance about cost.cali_year_jpy a year (P42). How a frame built from scratch gets its number is not on any official page found (Q-022).
+
+**Consequences for the form.**
+- The seat belt the law requires changes the safety reasoning of 1.2.9: a belted driver must be protected if the kart rolls, so the seat-back hoop becomes a roll bar over the driver's head, which can also be the marker structure.
+- The engines of 1.2.2 (GX200 class) are out for road use. Candidates within the limit: a 50 cc four-stroke scooter engine with its CVT and centrifugal clutch (eng50.kw at eng50.rpm, eng50.torque_nm, CVT eng50.cvt_low to eng50.cvt_high, P43; used cost.engine50_used_min_jpy to cost.engine50_used_max_jpy, M63), a Super Cub 50 engine with four speeds and an automatic clutch (cub50.kw, cub50.torque_nm, P44, M64), or an electric drive of law.minicar_kw_max rated, too weak for an adult on a slope.
+- A scooter engine brings its own clutch and reduction, which removes the jackshaft, the second chain, and the crowding of Q-020; it was built to the emission and noise rules, keeps its own approved silencer, and has the generator and wiring for the lamps. Its fuel injection brings an ECU, a fuel pump, and a battery with it.
+- The road limit and R-01 meet: the CVT's top ratio and the final chain set the top speed at the engine's limited speed, since a scooter has no governor.
+
+These are rough; the next pass chooses the engine, turns the law's list into requirements (R-18, Q-021), and redesigns 1.3.
