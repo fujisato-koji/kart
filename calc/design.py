@@ -771,8 +771,13 @@ def main():
     out, design = build(values())
     text = json.dumps(design, ensure_ascii=False, indent=1) + "\n"
     if "--check" in sys.argv:
-        ok = OUT.exists() and OUT.read_text(encoding="utf-8") == text
+        old = OUT.read_text(encoding="utf-8") if OUT.exists() else ""
+        ok = old == text
         print("ok" if ok else "docs/data/design.json is stale; run python calc/design.py --write")
+        if not ok:
+            import difflib
+            for line in list(difflib.unified_diff(old.splitlines(), text.splitlines(), lineterm="", n=1))[:40]:
+                print(line)
         sys.exit(0 if ok else 1)
     for key, val, unit, _ in out:
         print(f"{key:32s} {val} {unit or ''}")
