@@ -310,6 +310,62 @@ def compute(v):
         lc = (v[c + "_pitch_mm"] / 1000 * v[c + "_links"] - math.pi * dw) / 2
         put(f"mtt.{tag}_kpa", round(wt3 * share / (n_c * v[c + "_width_mm"] / 1000 * lc) / 1000, 1), "kPa", "mtt")
 
+    # Tyres all year, skis beside the front wheels, and one front wheel (1.2.19), on the straddle
+    # kart of 1.3: buggy-size tyres lift the chassis by the radius difference
+    h_a, rs_a, wb_a = v["dsn.cg_height_adult_m"], v["dsn.rear_share_adult"], v["lay.wheelbase_mm"] / 1000
+    x_a = (1 - rs_a) * wb_a
+    w_a = (v["dsn.mass_kg"] + v["rider.mass_max_kg"]) * G
+    d_y, b_yr, b_yf = v["yr.tyre_dia_mm"] / 1000, v["yr.rear_width_mm"] / 1000, v["yr.front_width_mm"] / 1000
+    lift_y = d_y / 2 - v["whl.tyre_od_mm"] / 2000
+    h_y = h_a + lift_y
+    t_y = v["law.width_max_mm"] / 1000 - b_yr - 2 * v["lay.fender_margin_mm"] / 1000
+    put("yr.lift_mm", round(lift_y * 1000), "mm", "tyres")
+    put("yr.track_max_mm", round(t_y * 1000), "mm", "tyres")
+    put("yr.tip_ratio", round(t_y / 2 / h_y, 2), None, "tyres")
+    put("yr.pitch_ratio", round(min(x_a, wb_a - x_a) / h_y, 2), None, "tyres")
+    put("yr.length_m", round(max(wb_a + v["lay.front_overhang_mm"] / 1000, wb_a + d_y / 2)
+                             - min(-v["lay.rear_overhang_mm"] / 1000, -d_y / 2), 2), "m", "tyres")
+
+    def rut(load, d, b):   # Bekker's wheel sinkage and the work of pressing its rut, worst snow
+        best = None
+        for s_ in "abc":
+            n_, kc, kp = v[f"snow.bekker_{s_}_n"], v[f"snow.bekker_{s_}_kc"], v[f"snow.bekker_{s_}_kphi"]
+            z_ = (3 * load / ((3 - n_) * (kc + b * kp) * 1000 * math.sqrt(d))) ** (2 / (2 * n_ + 1))
+            if best is None or z_ > best[0]:
+                best = (z_, b * (kc / b + kp) * 1000 * z_ ** (n_ + 1) / (n_ + 1))
+        return best
+    # in fresh snow: a front tyre against a ski carrying the same load
+    load_f = w_a * (1 - rs_a) / 2
+    z_f, r_f = rut(load_f, d_y, b_yf)
+    put("yr.front_tyre_sink_cm", round(z_f * 100, 1), "cm", "tyres")
+    put("yr.front_tyre_resist_n", round(r_f), "N", "tyres")
+    b_s, l_s = v["ski.width_mm"] / 1000, v["ski.contact_length_mm"] / 1000
+    p_s = load_f / (b_s * l_s) / 1000
+    s_w = max("abc", key=lambda s_: (p_s / (v[f"snow.bekker_{s_}_kc"] / b_s + v[f"snow.bekker_{s_}_kphi"])) ** (1 / v[f"snow.bekker_{s_}_n"]))
+    n_s, k_s = v[f"snow.bekker_{s_w}_n"], v[f"snow.bekker_{s_w}_kc"] / b_s + v[f"snow.bekker_{s_w}_kphi"]
+    z_s = (p_s / k_s) ** (1 / n_s)
+    put("yr.ski_sink_cm", round(z_s * 100, 1), "cm", "tyres")
+    put("yr.ski_resist_n", round(b_s * k_s * 1000 * z_s ** (n_s + 1) / (n_s + 1) + v["sled.mu_packed"] * load_f), "N", "tyres")
+    # the rear tyres pushing with skis in front: their grip against their ruts
+    z_r, r_r = rut(w_a * rs_a / 2, d_y, b_yr)
+    arc = min(math.sqrt(d_y * z_r), d_y / 2)
+    n_c = w_a * rs_a / 2 / (b_yr * arc) / 1000
+    put("yr.rear_grip_n", round(2 * v["snow.crrel_trac_shallow_a"] * n_c ** v["snow.crrel_trac_shallow_b"] * b_yr * arc * 1000), "N", "tyres")
+    put("yr.rear_resist_n", round(2 * r_r), "N", "tyres")
+    # skis beside the front wheels: the stance inside or outside them, and the sideways ratio
+    for tag, sgn in (("inside", -1), ("outside", 1)):
+        y_ski = t_y / 2 + sgn * (b_yf / 2 + 0.03 + b_s / 2)
+        half = t_y / 2 + (y_ski - t_y / 2) * (x_a / wb_a)
+        put(f"yr.ski_{tag}_tip_ratio", round(half / h_y, 2), None, "tyres")
+    # one front wheel: the tipping edge runs from it to a rear wheel
+    a_t = t_y / 2
+    put("tri.tip_ratio", round(a_t * (1 - x_a / wb_a) / math.hypot(1, a_t / wb_a) / h_a, 2), None, "tyres")
+    # the highest centre of mass at which some place meets both the sideways and the fore-and-aft margin
+    k_side, k_pitch = v["kart.tip_ratio_snow_min"], v["law.quad_pitch_ratio_min"]
+    h_ok = max(hh / 1000 for hh in range(300, 700)
+               if k_pitch * hh / 1000 <= wb_a * (1 - k_side * hh / 1000 * math.hypot(1, a_t / wb_a) / a_t))
+    put("tri.cg_height_max_m", round(h_ok, 2), "m", "tyres")
+
     # Winter parts: a running donor for its rear half, skis, mounts, and the tub
     tub = (bottom * v["cost.hull_bottom_jpy_per_m2"] + sides * v["cost.hull_side_jpy_per_m2"]
            + foam * v["cost.xps_jpy_per_m3"])

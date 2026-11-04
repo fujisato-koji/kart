@@ -38,6 +38,7 @@ The current state, with open items grouped by whom they wait for, is in [STATUS.
 | D-028 | 2026-11-04 | owner | R-29 keeps only the driver's safety - on ice and near water a life jacket and no seat belt, and nothing of the kart holding the driver. The kart need not float. This settles Q-030; the sled pan keeps its bottom strips and bow and loses its foam and the right pod, which were there only to float the kart. |
 | D-029 | 2026-11-04 | owner | Record W4 - the sled pan carrying most of the weight in snow and the rear tyres, pressed down and wearing chains, pushing - as a winter candidate beside the snowmobile form, and test the summer form with chains in fresh snow before the donor snowmobile is bought. |
 | D-030 | 2026-11-04 | owner | Riders are 6 years old and up, instead of 5 (D-010). The kart is ridden astride, like an ATV or a snowmobile, with the feet on footrests beside the seat and the rider leaning into turns; the owner accepts this active riding so that the kart can be short and narrow with the engine under or behind the seat. Measures that keep a rider safe if the kart tips or rolls are to be designed. |
+| D-031 | 2026-11-04 | owner | The kart keeps four wheels. One front wheel was considered for its simplicity - the donor scooter's whole front end with its brake and speedometer - and a triangular sled bottom, but with the straddle kart's centre of mass it tips far more easily (1.2.19) and would need the seat lowered a long way. |
 <!-- tdr:end -->
 
 ## Open items {#open}
@@ -80,6 +81,7 @@ The current state, with open items grouped by whom they wait for, is in [STATUS.
 | Q-033 | The straddle kart of 1.2.18 is sized from assumed numbers - its seat and footrest heights, track, wheelbase, overhangs, mass and centre of mass, fender margin, and a 6-year-old's crotch height as a share of stature (no Japanese data for that age was found) - until it is laid out in 1.3. | assistant |  |
 | Q-034 | The winter form W5 of 1.3.12 assumes large low-pressure tyres of the 25x12-9 class with rims, their mass and price, and a 12T output and 45T axle sprocket and their price, until a tyre that fits the rear hubs is chosen. | assistant |  |
 | Q-035 | The straddle kart of 1.3 is placed by hand and has had no collision search. K-013 left the spine too weak (a truss under the seat or a larger tube), the winter form's fore-and-aft ratio short of 0.8 (a longer winter wheelbase or a lower seat), the tie rods 4 mm from the front rails, the footboards held at one edge, the axle sprocket and axle uncovered, and the battery and the stem's foot without supports. The next pass builds a collision search into calc/design.py for the summer and winter forms and resolves these. | assistant |  |
+| Q-036 | The buggy-size tyres of 1.2.19 (about 19x7-8 at the front and 18x9.5-8 at the rear, as on the MAGMAX50 of M90) are taken at a common diameter and their widths until a set that fits the hubs and the road rules is chosen and priced. | assistant |  |
 <!-- tdr:end -->
 
 ## Values {#values}
@@ -504,6 +506,9 @@ The current state, with open items grouped by whom they wait for, is in [STATUS.
 | cost.front_brakes_jpy | 15000 | JPY | assumed | Q-033 |
 | w5.out_teeth | 12 |  | assumed | Q-034 |
 | dsn.battery_mass_kg | 2.1 | kg | sourced | M74 |
+| yr.tyre_dia_mm | 470 | mm | assumed | Q-036 |
+| yr.rear_width_mm | 240 | mm | assumed | Q-036 |
+| yr.front_width_mm | 178 | mm | assumed | Q-036 |
 | form.mass_total_kg | 170 | kg | calculated | docs/02-form.md#mass |
 | snow.wheel_sinkage_min_cm | 63.2 | cm | calculated | docs/02-form.md#snow |
 | snow.wheel_sinkage_max_cm | 83.8 | cm | calculated | docs/02-form.md#snow |
@@ -587,6 +592,21 @@ The current state, with open items grouped by whom they wait for, is in [STATUS.
 | mtt.crawler180_pair_kpa | 8.1 | kPa | calculated | docs/02-form.md#mtt |
 | mtt.crawler300_kpa | 4.8 | kPa | calculated | docs/02-form.md#mtt |
 | mtt.crawler300_pair_kpa | 2.4 | kPa | calculated | docs/02-form.md#mtt |
+| yr.lift_mm | 72 | mm | calculated | docs/02-form.md#tyres |
+| yr.track_max_mm | 1000 | mm | calculated | docs/02-form.md#tyres |
+| yr.tip_ratio | 0.79 |  | calculated | docs/02-form.md#tyres |
+| yr.pitch_ratio | 0.75 |  | calculated | docs/02-form.md#tyres |
+| yr.length_m | 1.58 | m | calculated | docs/02-form.md#tyres |
+| yr.front_tyre_sink_cm | 22.5 | cm | calculated | docs/02-form.md#tyres |
+| yr.front_tyre_resist_n | 239 | N | calculated | docs/02-form.md#tyres |
+| yr.ski_sink_cm | 10.6 | cm | calculated | docs/02-form.md#tyres |
+| yr.ski_resist_n | 76 | N | calculated | docs/02-form.md#tyres |
+| yr.rear_grip_n | 645 | N | calculated | docs/02-form.md#tyres |
+| yr.rear_resist_n | 637 | N | calculated | docs/02-form.md#tyres |
+| yr.ski_inside_tip_ratio | 0.67 |  | calculated | docs/02-form.md#tyres |
+| yr.ski_outside_tip_ratio | 0.92 |  | calculated | docs/02-form.md#tyres |
+| tri.tip_ratio | 0.46 |  | calculated | docs/02-form.md#tyres |
+| tri.cg_height_max_m | 0.48 | m | calculated | docs/02-form.md#tyres |
 | cost.tub_jpy | 82881 | JPY | calculated | docs/02-form.md#water |
 | cost.winter_sm_jpy | 236881 | JPY | calculated | docs/02-form.md#snowmobile |
 | cost.chassis_jpy | 93902 | JPY | calculated | docs/02-form.md#cost |

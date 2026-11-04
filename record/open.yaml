@@ -454,3 +454,13 @@ items:
     raised_by: assistant
     phase: design
     blocks: design_build
+  - id: Q-036
+    kind: question
+    text: The buggy-size tyres of 1.2.19 (about 19x7-8 at the front and 18x9.5-8 at the rear, as on the MAGMAX50 of M90) are taken at a common diameter and their widths until a set that fits the hubs and the road rules is chosen and priced.
+    waits_for: assistant
+    affects:
+      - yr.tyre_dia_mm
+      - yr.rear_width_mm
+      - yr.front_width_mm
+    opened: 2026-11-04
+    phase: design

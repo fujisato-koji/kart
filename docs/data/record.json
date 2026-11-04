@@ -4064,6 +4064,33 @@
    ]
   },
   {
+   "key": "yr.tyre_dia_mm",
+   "v": 470,
+   "unit": "mm",
+   "status": "assumed",
+   "basis": [
+    "Q-036"
+   ]
+  },
+  {
+   "key": "yr.rear_width_mm",
+   "v": 240,
+   "unit": "mm",
+   "status": "assumed",
+   "basis": [
+    "Q-036"
+   ]
+  },
+  {
+   "key": "yr.front_width_mm",
+   "v": 178,
+   "unit": "mm",
+   "status": "assumed",
+   "basis": [
+    "Q-036"
+   ]
+  },
+  {
    "key": "form.mass_total_kg",
    "v": 170,
    "unit": "kg",
@@ -4798,6 +4825,136 @@
    "status": "calculated",
    "basis": [
     "docs/02-form.md#mtt"
+   ]
+  },
+  {
+   "key": "yr.lift_mm",
+   "v": 72,
+   "unit": "mm",
+   "status": "calculated",
+   "basis": [
+    "docs/02-form.md#tyres"
+   ]
+  },
+  {
+   "key": "yr.track_max_mm",
+   "v": 1000,
+   "unit": "mm",
+   "status": "calculated",
+   "basis": [
+    "docs/02-form.md#tyres"
+   ]
+  },
+  {
+   "key": "yr.tip_ratio",
+   "v": 0.79,
+   "status": "calculated",
+   "basis": [
+    "docs/02-form.md#tyres"
+   ]
+  },
+  {
+   "key": "yr.pitch_ratio",
+   "v": 0.75,
+   "status": "calculated",
+   "basis": [
+    "docs/02-form.md#tyres"
+   ]
+  },
+  {
+   "key": "yr.length_m",
+   "v": 1.58,
+   "unit": "m",
+   "status": "calculated",
+   "basis": [
+    "docs/02-form.md#tyres"
+   ]
+  },
+  {
+   "key": "yr.front_tyre_sink_cm",
+   "v": 22.5,
+   "unit": "cm",
+   "status": "calculated",
+   "basis": [
+    "docs/02-form.md#tyres"
+   ]
+  },
+  {
+   "key": "yr.front_tyre_resist_n",
+   "v": 239,
+   "unit": "N",
+   "status": "calculated",
+   "basis": [
+    "docs/02-form.md#tyres"
+   ]
+  },
+  {
+   "key": "yr.ski_sink_cm",
+   "v": 10.6,
+   "unit": "cm",
+   "status": "calculated",
+   "basis": [
+    "docs/02-form.md#tyres"
+   ]
+  },
+  {
+   "key": "yr.ski_resist_n",
+   "v": 76,
+   "unit": "N",
+   "status": "calculated",
+   "basis": [
+    "docs/02-form.md#tyres"
+   ]
+  },
+  {
+   "key": "yr.rear_grip_n",
+   "v": 645,
+   "unit": "N",
+   "status": "calculated",
+   "basis": [
+    "docs/02-form.md#tyres"
+   ]
+  },
+  {
+   "key": "yr.rear_resist_n",
+   "v": 637,
+   "unit": "N",
+   "status": "calculated",
+   "basis": [
+    "docs/02-form.md#tyres"
+   ]
+  },
+  {
+   "key": "yr.ski_inside_tip_ratio",
+   "v": 0.67,
+   "status": "calculated",
+   "basis": [
+    "docs/02-form.md#tyres"
+   ]
+  },
+  {
+   "key": "yr.ski_outside_tip_ratio",
+   "v": 0.92,
+   "status": "calculated",
+   "basis": [
+    "docs/02-form.md#tyres"
+   ]
+  },
+  {
+   "key": "tri.tip_ratio",
+   "v": 0.46,
+   "status": "calculated",
+   "basis": [
+    "docs/02-form.md#tyres"
+   ]
+  },
+  {
+   "key": "tri.cg_height_max_m",
+   "v": 0.48,
+   "unit": "m",
+   "status": "calculated",
+   "basis": [
+    "docs/02-form.md#tyres"
    ]
   },
   {
@@ -7669,6 +7826,20 @@
     "R-22",
     "R-24"
    ]
+  },
+  {
+   "id": "D-031",
+   "date": "2026-11-04",
+   "by": "owner",
+   "what": "The kart keeps four wheels. One front wheel was considered for its simplicity - the donor scooter's whole front end with its brake and speedometer - and a triangular sled bottom, but with the straddle kart's centre of mass it tips far more easily (1.2.19) and would need the seat lowered a long way.",
+   "options": [
+    "one front wheel, with the seat lowered",
+    "four wheels"
+   ],
+   "touches": [
+    "D-030",
+    "R-12"
+   ]
   }
  ],
  "open": [
@@ -8227,6 +8398,19 @@
    "raised_by": "assistant",
    "phase": "design",
    "blocks": "design_build"
+  },
+  {
+   "id": "Q-036",
+   "kind": "question",
+   "text": "The buggy-size tyres of 1.2.19 (about 19x7-8 at the front and 18x9.5-8 at the rear, as on the MAGMAX50 of M90) are taken at a common diameter and their widths until a set that fits the hubs and the road rules is chosen and priced.",
+   "waits_for": "assistant",
+   "affects": [
+    "yr.tyre_dia_mm",
+    "yr.rear_width_mm",
+    "yr.front_width_mm"
+   ],
+   "opened": "2026-11-04",
+   "phase": "design"
   }
  ],
  "hazards": [
@@ -10450,6 +10634,12 @@
    "doc": "docs/02-form.md",
    "id": "straddle",
    "title": "1.2.18 A straddle kart for riders of 6 and up",
+   "level": 2
+  },
+  {
+   "doc": "docs/02-form.md",
+   "id": "tyres",
+   "title": "1.2.19 Tyres all year, skis beside the front wheels, and one front wheel",
    "level": 2
   },
   {

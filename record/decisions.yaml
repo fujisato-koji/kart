@@ -253,3 +253,13 @@ items:
       - R-19
       - R-22
       - R-24
+  - id: D-031
+    date: 2026-11-04
+    by: owner
+    what: The kart keeps four wheels. One front wheel was considered for its simplicity - the donor scooter's whole front end with its brake and speedometer - and a triangular sled bottom, but with the straddle kart's centre of mass it tips far more easily (1.2.19) and would need the seat lowered a long way.
+    options:
+      - one front wheel, with the seat lowered
+      - four wheels
+    touches:
+      - D-030
+      - R-12
