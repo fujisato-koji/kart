@@ -184,7 +184,7 @@ def compute(v):
     put("water.beam_for_one_mm", round(b_one * 1000), "mm", "water")
 
     # Snowmobile form (D-023): the summer kart less its wheels and axle, plus a donor's track unit
-    # and a pair of skis, in the same tub; the chassis rides dsn.winter_lift_mm higher over the track
+    # and a pair of skis, in the same tub; the chassis rides sm.lift_mm higher over the track
     m_w = m_kart - v["sm.removed_kg"] + v["sm.track_unit_kg"] + v["ski.pair_kg"] + m_hull
     put("sm.mass_kg", round(m_w, 1), "kg", "snowmobile")
     ww = (m_w + v["rider.mass_max_kg"]) * G
@@ -216,7 +216,7 @@ def compute(v):
     x2, y2 = x_t - tl / 2, tw / 2
     d = abs((y2 - y1) * x_cg + x2 * y1 - y2 * x1) / math.hypot(x2 - x1, y2 - y1)
     raised = (m_w + v["rider.mass_max_kg"] - v["sm.track_unit_kg"] - v["ski.pair_kg"]) / (m_w + v["rider.mass_max_kg"])
-    h_w = v["dsn.cg_height_adult_m"] + raised * v["dsn.winter_lift_mm"] / 1000
+    h_w = v["dsn.cg_height_adult_m"] + raised * v["sm.lift_mm"] / 1000
     put("sm.cg_height_m", round(h_w, 3), "m", "snowmobile")
     put("sm.tip_ratio", round(d / h_w, 2), None, "snowmobile")
     # A snowmobile skims open water only above a speed that grows with its weight (S5)
@@ -292,6 +292,23 @@ def compute(v):
     crotch = v["rider.child_crotch_ratio"] * v["rider.stature_min_cm"] * 10
     put("st.child_fit_margin_mm", round(crotch - (v["st.seat_height_mm"] - v["st.footrest_height_mm"])
                                         - v["rider.child_fit_clear_mm"]), "mm", "straddle")
+
+    # Ideas from the MTT (1.2.17), on the snowmobile form W3: towing a sled on level packed snow -
+    # the track's grip less its own resistance is the pull, and a polyethylene sled starts at
+    # sled.cold_start_factor times its steady resistance - and new snowblower crawlers in place
+    # of the donor's track, looped over two wheels
+    wt3 = (m_w + v["rider.mass_max_kg"]) * G
+    pull = v["snow.track_traction_packed"] * wt3 * share - v["track.crr_snow_packed"] * wt3
+    put("mtt.tow_pull_packed_n", round(pull), "N", "mtt")
+    m_sled = pull / (v["sled.mu_packed"] * v["sled.cold_start_factor"] * G)
+    put("mtt.tow_sled_kg", round(m_sled), "kg", "mtt")
+    put("mtt.tow_power_kw", round((v["track.crr_snow_packed"] * wt3 + v["sled.mu_packed"] * m_sled * G)
+                                  * v["sm.speed_snow_kmh"] / 3.6 / v["drive.efficiency"] / 1000, 2), "kW", "mtt")
+    dw = v["sm.crawler_wheel_dia_mm"] / 1000
+    for tag, n_c in (("crawler180_pair", 2), ("crawler300", 1), ("crawler300_pair", 2)):
+        c = tag.split("_")[0].replace("crawler", "crawler.c")
+        lc = (v[c + "_pitch_mm"] / 1000 * v[c + "_links"] - math.pi * dw) / 2
+        put(f"mtt.{tag}_kpa", round(wt3 * share / (n_c * v[c + "_width_mm"] / 1000 * lc) / 1000, 1), "kPa", "mtt")
 
     # Winter parts: a running donor for its rear half, skis, mounts, and the tub
     tub = (bottom * v["cost.hull_bottom_jpy_per_m2"] + sides * v["cost.hull_side_jpy_per_m2"]

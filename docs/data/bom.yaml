@@ -16,7 +16,7 @@ lines:
     price: cost.tube_25_jpy_per_m
     need: b1
   - part: frame
-    item: Square tube 25 x 25 x 1.6, seat and pedal rails, engine mount (m)
+    item: Square tube 25 x 25 x 1.6, engine mount and footrest steps (m)
     qty: 2
     price: cost.sq_tube_25_jpy_per_m
     need: b1
@@ -70,14 +70,9 @@ lines:
     qty: 4
     price: cost.rod_end_jpy
     need: b4
-  - part: steering_wheel
-    item: Steering wheel 300 mm
-    qty: 1
-    price: cost.steering_wheel_jpy
-    need: b4
-  - part: steering_column
-    item: Flange unit UCFL204 for the column
-    qty: 1
+  - part: handlebar
+    item: Flange units UCFL204 for the steering stem, upper and lower
+    qty: 2
     price: cost.ucfl204_jpy
     need: b4
   - part: rear_axle
@@ -85,16 +80,6 @@ lines:
     qty: 1
     price: cost.machining_allow_jpy
     need: b3
-  - part: pedal_box
-    item: Pedal kit with brake and throttle pedals and throttle cable
-    qty: 1
-    price: cost.pedal_kit_jpy
-    need: b6
-  - part: seat
-    item: Seat with slide rails (small operator seat)
-    qty: 1
-    price: cost.seat_operator_jpy
-    need: b6
   - part: kill_switch
     item: Stop switch on the steering
     qty: 1
@@ -111,7 +96,7 @@ lines:
     price: cost.punched_sheet_jpy
     need: b7
   - part: bumpers
-    item: Tube padding for the bumper and the seat hoop (0.9 m)
+    item: Tube padding for the bumper and the protective hoop (0.9 m)
     qty: 2
     price: cost.padding_jpy
     need: b7
@@ -143,14 +128,14 @@ lines:
     need: t4
     group: tools
   - part: roll_bar
-    item: STKM11A round tube 31.8 x 2.3 for the roll bar and its braces (m)
-    qty: 3
+    item: STKM11A round tube 31.8 x 2.3 for the protective hoop and its braces (m)
+    qty: 3.5
     price: cost.tube_32x23_jpy_per_m
     need: b1
   - part: hand_brake
-    item: Hand lever and second caliper on the rear disc, also the parking brake
+    item: Front brakes - small discs and cable calipers on both front hubs, from the donor's left lever (second system)
     qty: 1
-    price: cost.hand_brake_jpy
+    price: cost.front_brakes_jpy
     need: b6
   - part: engine
     item: Running 50 cc scooter (Tact AF79 class) as donor of the engine unit, ECU, fuel pump, wiring, and silencer
@@ -172,46 +157,6 @@ lines:
     qty: 1
     price: cost.spr420_30t_jpy
     need: b5
-  - part: lighting
-    item: Head lamp unit with high and low beams
-    qty: 1
-    price: cost.headlamp_jpy
-    need: r1
-  - part: lighting
-    item: Tail and stop lamp with number plate lamp
-    qty: 1
-    price: cost.tail_plate_lamp_jpy
-    need: r1
-  - part: lighting
-    item: Red rear reflector
-    qty: 1
-    price: cost.reflector_jpy
-    need: r1
-  - part: lighting
-    item: Turn signals, set of four
-    qty: 1
-    price: cost.turn_signals_jpy
-    need: r1
-  - part: lighting
-    item: Flasher relay
-    qty: 1
-    price: cost.flasher_jpy
-    need: r1
-  - part: lighting
-    item: Switch for beams, horn, and turn signals
-    qty: 1
-    price: cost.switch_jpy
-    need: r1
-  - part: mirrors
-    item: Mirror
-    qty: 2
-    price: cost.mirror_jpy
-    need: r1
-  - part: horn
-    item: Horn 12 V
-    qty: 1
-    price: cost.horn_jpy
-    need: r1
   - part: speedometer
     item: Speedometer with odometer, lit
     qty: 1
@@ -222,21 +167,6 @@ lines:
     qty: 1
     price: cost.speed_sensor_jpy
     need: r1
-  - part: seat_belt
-    item: Approved seat belt from a scrapped kei car
-    qty: 1
-    price: cost.belt_used_car_jpy
-    need: b6
-  - part: seat_belt
-    item: Belt anchor bolts
-    qty: 1
-    price: cost.belt_anchor_jpy
-    need: b6
-  - part: head_restraint
-    item: Car head restraint with two stays
-    qty: 1
-    price: cost.head_restraint_jpy
-    need: b6
   - part: battery
     item: Battery GTZ6V
     qty: 1
@@ -247,29 +177,9 @@ lines:
     qty: 1
     price: cost.plate_stay_jpy
     need: r1
-  - part: track_unit
-    item: Running small snowmobile (Yamaha Bravo class) as donor of its track unit, drive shaft, and brake parts
-    qty: 1
-    price: cost.donor_bravo_jpy
-    need: w1
-  - part: track_unit
-    item: Pivot shaft, hanging brackets, ski stanchions, and bolts (allowance)
-    qty: 1
-    price: cost.allow_winter_mounts_jpy
-    need: w2
-  - part: winter_chain
-    item: Chain 420, 120 links, cut to the winter length
-    qty: 1
-    price: cost.chain420_jpy
-    need: w2
-  - part: winter_chain
-    item: Sprocket 420, 30T on the track's drive shaft (with an adapter, machined)
-    qty: 1
-    price: cost.spr420_30t_jpy
-    need: w2
   - part: sled_pan
     item: UHMW polyethylene sheet 6 mm for the pan's bottom and bow (m2)
-    qty: 2
+    qty: 1
     price: cost.hull_bottom_jpy_per_m2
     need: w2
   - part: snow_chains
@@ -277,3 +187,33 @@ lines:
     qty: 2
     price: cost.snow_chain_jpy
     need: t6
+  - part: fenders
+    item: Plastic fenders for four wheels and their stays (allowance)
+    qty: 1
+    price: cost.allow_fenders_jpy
+    need: b7
+  - part: rear_wheels
+    item: Large low-pressure tyres of the 25x12-9 class with rims and hub adapters, for winter (W5)
+    qty: 2
+    price: cost.w5_wheel_jpy
+    need: w1
+  - part: chain_final
+    item: Sprocket 420, 45T on the axle carrier, for winter (W5)
+    qty: 1
+    price: cost.spr420_45t_jpy
+    need: w1
+  - part: chain_final
+    item: Sprocket 420, 12T on the engine unit's output, for winter (W5)
+    qty: 1
+    price: cost.spr420_15t_jpy
+    need: w1
+  - part: chain_final
+    item: Chain 420, 120 links, cut to the winter length
+    qty: 1
+    price: cost.chain420_jpy
+    need: w1
+  - part: skis
+    item: Ski stanchions as tall as the winter lift, and bolts (allowance)
+    qty: 1
+    price: cost.allow_winter_mounts_jpy
+    need: w2

@@ -9,13 +9,13 @@ items:
         controls:
           - H-10
       - id: OP-06.02
-        action: Take off the skis, the winter chain, the brake disc with both calipers, and the track unit.
+        action: Take off the skis, the large rear tyres, the large sprocket, and the winter chain.
       - id: OP-06.03
-        action: Refit the rear axle in the pillow blocks, the axle sprocket, the brake disc with both calipers, the hubs, and the wheels, and tension the summer chain.
+        action: Refit the summer sprocket and chain and tension them, the rear wheels, and the front wheels with their brake discs.
         controls:
           - H-01
           - H-03
       - id: OP-06.04
-        action: Refit the front wheels, lower the kart, and check the steering, the brakes, and the lamps before any road use.
+        action: Lower the kart, and check the steering, both brakes, and the lamps before any road use.
         controls:
           - H-01

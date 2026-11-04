@@ -9,20 +9,11 @@ items:
   - id: frame
     name: Welded tube frame
     parent: chassis
-  - id: floor
-    name: Floor plate
-    parent: chassis
   - id: bumpers
     name: Front bumper and side nerf bars
     parent: chassis
   - id: seat
     name: Seat
-    parent: chassis
-  - id: seat_slide
-    name: Seat slide with pin positions
-    parent: chassis
-  - id: pedal_box
-    name: Pedal box with throttle and brake pedals, sliding on pin positions
     parent: chassis
   - id: guards
     name: Chain and axle guards
@@ -30,12 +21,6 @@ items:
   - id: steering
     name: Steering
     parent: kart
-  - id: steering_wheel
-    name: Steering wheel
-    parent: steering
-  - id: steering_column
-    name: Steering column with its bearings
-    parent: steering
   - id: tie_rods
     name: Tie rods with rod ends
     parent: steering
@@ -94,7 +79,7 @@ items:
     name: Longer 420 chain and the 30T sprocket on the track's drive shaft
     parent: winter
   - id: roll_bar
-    name: Roll bar over the driver's head, also the 1 m marker
+    name: Protective hoop behind the seat, against crushing in a rollover (R-19)
     parent: chassis
   - id: road
     name: Road equipment
@@ -111,14 +96,8 @@ items:
   - id: speedometer
     name: Speedometer with odometer
     parent: road
-  - id: seat_belt
-    name: Seat belt with its anchors
-    parent: road
-  - id: head_restraint
-    name: Head restraint
-    parent: road
   - id: hand_brake
-    name: Hand brake with its own caliper, also the parking brake
+    name: Second brake system - small discs on the front hubs from the left lever, and a lock on the rear lever as the parking brake
     parent: road
   - id: battery
     name: 12 V battery for the engine's ECU and the lamps
@@ -138,3 +117,12 @@ items:
   - id: outboard
     name: Electric outboard with its battery, for a future water version
     parent: future_water
+  - id: handlebar
+    name: The donor scooter's handlebar with its throttle grip, two brake levers, and switches, on a raked stem
+    parent: steering
+  - id: footrests
+    name: Footboards beside the engine unit, with raised steps for a child
+    parent: chassis
+  - id: fenders
+    name: Fenders over the four tyres (R-30)
+    parent: chassis

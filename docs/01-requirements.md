@@ -320,22 +320,13 @@ These are not decided here. 1.2 compares forms against them.
 | cost.shaft20_jpy | 2418 | JPY | sourced | M48 |
 | cost.throttle_cable_jpy | 6680 | JPY | sourced | M49 |
 | cost.kill_switch_jpy | 1135 | JPY | sourced | M50 |
-| lay.wheelbase_mm | 1000 | mm | calculated | docs/03-design.md#layout |
-| lay.track_front_mm | 1060 | mm | calculated | docs/03-design.md#layout |
-| lay.track_rear_mm | 1150 | mm | calculated | docs/03-design.md#layout |
-| lay.track_rear_narrow_mm | 1040 | mm | calculated | docs/03-design.md#transport |
+| lay.wheelbase_mm | 1080 | mm | calculated | docs/03-design.md#layout |
+| lay.track_front_mm | 880 | mm | calculated | docs/03-design.md#layout |
+| lay.track_rear_mm | 880 | mm | calculated | docs/03-design.md#layout |
 | lay.rail_bottom_mm | 150 | mm | calculated | docs/03-design.md#layout |
-| lay.rail_half_width_mm | 300 | mm | calculated | docs/03-design.md#frame |
-| lay.front_half_width_mm | 430 | mm | calculated | docs/03-design.md#frame |
-| lay.front_overhang_mm | 300 | mm | calculated | docs/03-design.md#layout |
-| lay.rear_overhang_mm | 230 | mm | calculated | docs/03-design.md#layout |
-| lay.hpoint_x_mm | 80 | mm | calculated | docs/03-design.md#fit |
-| lay.hpoint_y_mm | -90 | mm | calculated | docs/03-design.md#fit |
-| lay.seat_slide_mm | 120 | mm | calculated | docs/03-design.md#fit |
-| lay.pedal_x_far_mm | 930 | mm | calculated | docs/03-design.md#fit |
-| lay.pedal_x_near_mm | 560 | mm | calculated | docs/03-design.md#fit |
-| lay.wheel_x_mm | 600 | mm | calculated | docs/03-design.md#steering |
-| lay.wheel_z_mm | 560 | mm | calculated | docs/03-design.md#steering |
+| lay.front_overhang_mm | 200 | mm | calculated | docs/03-design.md#layout |
+| lay.rear_overhang_mm | 270 | mm | calculated | docs/03-design.md#layout |
+| lay.hpoint_x_mm | 480 | mm | calculated | docs/03-design.md#fit |
 | lay.steer_max_deg | 30 | deg | calculated | docs/03-design.md#steering |
 | lay.engine_x_mm | 380 | mm | calculated | docs/03-design.md#drive |
 | lay.engine_y_mm | 430 | mm | calculated | docs/03-design.md#drive |
@@ -343,9 +334,9 @@ These are not decided here. 1.2 compares forms against them.
 | lay.jack_z_mm | 215 | mm | calculated | docs/03-design.md#drive |
 | lay.chain1_y_mm | 225 | mm | calculated | docs/03-design.md#drive |
 | lay.chain2_y_mm | 155 | mm | calculated | docs/03-design.md#drive |
-| lay.bearing_y_mm | 400 | mm | calculated | docs/03-design.md#axle |
-| lay.brake_y_mm | -350 | mm | calculated | docs/03-design.md#brake |
-| lay.axle_length_mm | 1210 | mm | calculated | docs/03-design.md#axle |
+| lay.bearing_y_mm | 330 | mm | calculated | docs/03-design.md#axle |
+| lay.brake_y_mm | -250 | mm | calculated | docs/03-design.md#brake |
+| lay.axle_length_mm | 900 | mm | calculated | docs/03-design.md#axle |
 | lay.disc_dia_mm | 152 | mm | calculated | docs/03-design.md#brake |
 | gear.t_clutch | 10 |  | calculated | docs/03-design.md#drive |
 | gear.t_jack_in | 40 |  | calculated | docs/03-design.md#drive |
@@ -386,9 +377,9 @@ These are not decided here. 1.2 compares forms against them.
 | cost.rear_hub_make_jpy | 3000 | JPY | assumed | Q-018 |
 | cost.axle_shaft_jpy | 5000 | JPY | assumed | Q-018 |
 | cost.welder_jpy | 9900 | JPY | sourced | M11 |
-| lay.bearing_mid_y_mm | 245 | mm | calculated | docs/03-design.md#axle |
+| lay.bearing_mid_y_mm | 235 | mm | calculated | docs/03-design.md#axle |
 | lay.axle_gap_mm | 30 | mm | calculated | docs/03-design.md#frame |
-| lay.kick_x_mm | 250 | mm | calculated | docs/03-design.md#frame |
+| lay.kick_x_mm | 170 | mm | calculated | docs/03-design.md#frame |
 | cost.tube_32x23_jpy_per_m | 1700 | JPY/m | assumed | Q-018 |
 | law.minicar_cc_max | 50 | cc | sourced | P35 |
 | law.minicar_kw_max | 0.6 | kW | sourced | P35 |
@@ -418,10 +409,10 @@ These are not decided here. 1.2 compares forms against them.
 | dsn.road_kit_mass_kg | 6.0 | kg | assumed | Q-023 |
 | gear.t_out420 | 15 |  | calculated | docs/03-design.md#drive |
 | gear.t_axle420 | 30 |  | calculated | docs/03-design.md#drive |
-| lay.unit_y_mm | 400 | mm | calculated | docs/03-design.md#drive |
-| lay.chain420_y_mm | 215 | mm | calculated | docs/03-design.md#drive |
+| lay.unit_y_mm | 0 | mm | calculated | docs/03-design.md#drive |
+| lay.chain420_y_mm | 185 | mm | calculated | docs/03-design.md#drive |
 | lay.unit_out_x_mm | 250 | mm | calculated | docs/03-design.md#drive |
-| lay.rollbar_top_mm | 1050 | mm | calculated | docs/03-design.md#rollbar |
+| lay.rollbar_top_mm | 950 | mm | calculated | docs/03-design.md#rollbar |
 | cost.hand_brake_jpy | 6000 | JPY | assumed | Q-018 |
 | cost.headlamp_jpy | 6380 | JPY | sourced | M65 |
 | cost.tail_plate_lamp_jpy | 3446 | JPY | sourced | M66 |
@@ -485,20 +476,18 @@ These are not decided here. 1.2 compares forms against them.
 | sm.drive_z_mm | 220 | mm | assumed | Q-029 |
 | sm.drive_ahead_mm | 50 | mm | assumed | Q-029 |
 | lay.tunnel_gap_mm | 30 | mm | calculated | docs/03-design.md#winter |
-| lay.tunnel_half_width_mm | 240 | mm | calculated | docs/03-design.md#winter |
-| lay.pan_x0_mm | 180 | mm | calculated | docs/03-design.md#winter |
-| lay.pan_x1_mm | 800 | mm | calculated | docs/03-design.md#winter |
-| lay.pan_half_beam_mm | 450 | mm | calculated | docs/03-design.md#winter |
+| lay.pan_x0_mm | 170 | mm | calculated | docs/03-design.md#winter |
+| lay.pan_x1_mm | 950 | mm | calculated | docs/03-design.md#winter |
+| lay.pan_half_beam_mm | 200 | mm | calculated | docs/03-design.md#winter |
 | lay.bow_x_mm | 1240 | mm | calculated | docs/03-design.md#winter |
 | lay.bow_rise_mm | 80 | mm | calculated | docs/03-design.md#winter |
-| lay.bow_half_beam_mm | 200 | mm | calculated | docs/03-design.md#winter |
+| lay.bow_half_beam_mm | 150 | mm | calculated | docs/03-design.md#winter |
 | lay.float_dia_mm | 300 | mm | calculated | docs/03-design.md#winter |
 | snow.track_traction_packed | 0.3 |  | sourced | P59 |
 | track.crr_snow_packed | 0.05 |  | assumed | Q-031 |
 | sled.mu_packed | 0.1 |  | sourced | P60 |
 | sled.cold_start_factor | 2 |  | sourced | P60 |
 | rider.sitting_ratio | 0.54 |  | sourced | P61 |
-| rider.head_allow_mm | 30 | mm | assumed | Q-031 |
 | sm.crawler_wheel_dia_mm | 250 | mm | assumed | Q-031 |
 | crawler.c180_width_mm | 180 | mm | sourced | M86 |
 | crawler.c180_pitch_mm | 60 | mm | sourced | M86 |
@@ -510,8 +499,6 @@ These are not decided here. 1.2 compares forms against them.
 | crawler.c300_links | 36 |  | sourced | M87 |
 | crawler.c300_mass_kg | 40 | kg | sourced | M87 |
 | cost.crawler300_jpy | 65200 | JPY | sourced | M87 |
-| lay.seat_cushion_mm | 30 | mm | calculated | docs/03-design.md#rollbar |
-| lay.rollbar_clear_mm | 50 | mm | calculated | docs/03-design.md#rollbar |
 | snow.crrel_trac_shallow_a | 0.851 |  | sourced | P59 |
 | snow.crrel_trac_shallow_b | 0.823 |  | sourced | P59 |
 | w4.wheel_share | 0.35 |  | assumed | Q-027 |
@@ -521,7 +508,7 @@ These are not decided here. 1.2 compares forms against them.
 | law.quad_pitch_ratio_min | 0.8 |  | sourced | P66 |
 | law.youth_speed_kmh | 16 | km/h | sourced | P69 |
 | law.youth_speed_max_kmh | 24 | km/h | sourced | P69 |
-| rider.child_fit_clear_mm | 100 | mm | sourced | P69 |
+| rider.child_fit_clear_mm | 102 | mm | sourced | P69 |
 | cost.buggy50_new_jpy | 198000 | JPY | sourced | M90 |
 | st.seat_height_mm | 600 | mm | assumed | Q-033 |
 | st.footrest_height_mm | 220 | mm | assumed | Q-033 |
@@ -533,6 +520,37 @@ These are not decided here. 1.2 compares forms against them.
 | st.kart_cg_x_share | 0.45 |  | assumed | Q-033 |
 | st.fender_mm | 30 | mm | assumed | Q-033 |
 | rider.child_crotch_ratio | 0.44 |  | assumed | Q-033 |
+| lay.spine_half_width_mm | 150 | mm | calculated | docs/03-design.md#frame |
+| lay.kingpin_y_mm | 350 | mm | calculated | docs/03-design.md#steering |
+| lay.footrest_height_mm | 180 | mm | calculated | docs/03-design.md#fit |
+| lay.foot_x0_mm | 360 | mm | calculated | docs/03-design.md#fit |
+| lay.foot_x1_mm | 760 | mm | calculated | docs/03-design.md#fit |
+| lay.foot_y0_mm | 220 | mm | calculated | docs/03-design.md#fit |
+| lay.foot_y1_mm | 340 | mm | calculated | docs/03-design.md#fit |
+| lay.bar_x_mm | 840 | mm | calculated | docs/03-design.md#steering |
+| lay.bar_z_mm | 860 | mm | calculated | docs/03-design.md#steering |
+| lay.bar_width_mm | 620 | mm | calculated | docs/03-design.md#steering |
+| lay.hoop_x_mm | -220 | mm | calculated | docs/03-design.md#rollbar |
+| lay.fender_margin_mm | 30 | mm | calculated | docs/03-design.md#layout |
+| lay.seat_height_mm | 600 | mm | calculated | docs/03-design.md#fit |
+| lay.seat_x0_mm | 100 | mm | calculated | docs/03-design.md#fit |
+| lay.seat_x1_mm | 700 | mm | calculated | docs/03-design.md#fit |
+| lay.seat_width_mm | 300 | mm | calculated | docs/03-design.md#fit |
+| lay.child_hip_x_mm | 550 | mm | calculated | docs/03-design.md#fit |
+| lay.child_foot_raise_mm | 70 | mm | calculated | docs/03-design.md#fit |
+| dsn.fender_mass_kg | 2.0 | kg | assumed | Q-033 |
+| cost.allow_fenders_jpy | 8000 | JPY | assumed | Q-033 |
+| w5.tyre_dia_mm | 635 | mm | assumed | Q-034 |
+| w5.tyre_width_mm | 300 | mm | assumed | Q-034 |
+| w5.wheel_mass_kg | 9 | kg | assumed | Q-034 |
+| w5.axle_teeth | 45 |  | assumed | Q-034 |
+| cost.w5_wheel_jpy | 12000 | JPY | assumed | Q-034 |
+| cost.spr420_45t_jpy | 3000 | JPY | assumed | Q-034 |
+| sm.lift_mm | 218 | mm | assumed | Q-029 |
+| lay.front_disc_dia_mm | 120 | mm | calculated | docs/03-design.md#brake |
+| cost.front_brakes_jpy | 15000 | JPY | assumed | Q-033 |
+| w5.out_teeth | 12 |  | assumed | Q-034 |
+| dsn.battery_mass_kg | 2.1 | kg | sourced | M74 |
 | form.mass_total_kg | 170 | kg | calculated | docs/02-form.md#mass |
 | snow.wheel_sinkage_min_cm | 63.2 | cm | calculated | docs/02-form.md#snow |
 | snow.wheel_sinkage_max_cm | 83.8 | cm | calculated | docs/02-form.md#snow |
@@ -560,58 +578,64 @@ These are not decided here. 1.2 compares forms against them.
 | battery.run_time_heavy_min | 133 | min | calculated | docs/02-form.md#drive |
 | drive.sprocket_reach_mm | 0 | mm | calculated | docs/02-form.md#drive |
 | hull.sheet_kg | 12.4 | kg | calculated | docs/02-form.md#water |
-| hull.foam_m3 | 0.164 | m3 | calculated | docs/02-form.md#water |
-| hull.foam_share | 0.35 |  | calculated | docs/02-form.md#water |
-| hull.mass_kg | 16.8 | kg | calculated | docs/02-form.md#water |
-| water.draft_mm | 186 | mm | calculated | docs/02-form.md#water |
-| water.freeboard_mm | 164 | mm | calculated | docs/02-form.md#water |
-| water.gm_m | 0.195 | m | calculated | docs/02-form.md#water |
+| hull.foam_m3 | 0.161 | m3 | calculated | docs/02-form.md#water |
+| hull.foam_share | 0.34 |  | calculated | docs/02-form.md#water |
+| hull.mass_kg | 16.7 | kg | calculated | docs/02-form.md#water |
+| water.draft_mm | 184 | mm | calculated | docs/02-form.md#water |
+| water.freeboard_mm | 166 | mm | calculated | docs/02-form.md#water |
+| water.gm_m | 0.001 | m | calculated | docs/02-form.md#water |
 | water.load_rating_kg | 97 | kg | calculated | docs/02-form.md#water |
-| water.depth_for_rider_mm | 358 | mm | calculated | docs/02-form.md#water |
+| water.depth_for_rider_mm | 357 | mm | calculated | docs/02-form.md#water |
 | water.persons_rated | 0 |  | calculated | docs/02-form.md#water |
 | water.persons_index | 0.61 |  | calculated | docs/02-form.md#water |
-| water.beam_for_one_mm | 1160 | mm | calculated | docs/02-form.md#water |
-| sm.mass_kg | 137.4 | kg | calculated | docs/02-form.md#snowmobile |
-| sm.rear_share | 0.72 |  | calculated | docs/02-form.md#snowmobile |
-| sm.track_pressure_kpa | 3.96 | kPa | calculated | docs/02-form.md#snowmobile |
-| sm.ski_pressure_kpa | 4.53 | kPa | calculated | docs/02-form.md#snowmobile |
-| sm.hull_pressure_kpa | 1.72 | kPa | calculated | docs/02-form.md#snowmobile |
-| sm.track_sinkage_max_cm | 11.1 | cm | calculated | docs/02-form.md#snowmobile |
-| sm.ski_sinkage_max_cm | 8.6 | cm | calculated | docs/02-form.md#snowmobile |
+| water.beam_for_one_mm | 1150 | mm | calculated | docs/02-form.md#water |
+| sm.mass_kg | 135.2 | kg | calculated | docs/02-form.md#snowmobile |
+| sm.rear_share | 0.56 |  | calculated | docs/02-form.md#snowmobile |
+| sm.track_pressure_kpa | 3.08 | kPa | calculated | docs/02-form.md#snowmobile |
+| sm.ski_pressure_kpa | 6.97 | kPa | calculated | docs/02-form.md#snowmobile |
+| sm.hull_pressure_kpa | 1.71 | kPa | calculated | docs/02-form.md#snowmobile |
+| sm.track_sinkage_max_cm | 9.3 | cm | calculated | docs/02-form.md#snowmobile |
+| sm.ski_sinkage_max_cm | 11.7 | cm | calculated | docs/02-form.md#snowmobile |
 | sm.hull_sinkage_max_cm | 7.1 | cm | calculated | docs/02-form.md#snowmobile |
 | sm.clutch_lock_kmh | 2.3 | km/h | calculated | docs/02-form.md#snowmobile |
 | sm.top_speed_kmh | 16.0 | km/h | calculated | docs/02-form.md#snowmobile |
-| sm.power_snow_kw | 0.72 | kW | calculated | docs/02-form.md#snowmobile |
-| sm.cg_height_m | 0.546 | m | calculated | docs/02-form.md#snowmobile |
-| sm.tip_ratio | 0.74 |  | calculated | docs/02-form.md#snowmobile |
-| sm.length_min_m | 1.85 | m | calculated | docs/02-form.md#snowmobile |
+| sm.power_snow_kw | 0.71 | kW | calculated | docs/02-form.md#snowmobile |
+| sm.cg_height_m | 0.743 | m | calculated | docs/02-form.md#snowmobile |
+| sm.tip_ratio | 0.51 |  | calculated | docs/02-form.md#snowmobile |
+| sm.length_min_m | 1.94 | m | calculated | docs/02-form.md#snowmobile |
 | sm.skip_speed_kmh | 28 | km/h | calculated | docs/02-form.md#snowmobile |
 | w4.share_min | 0.25 |  | calculated | docs/02-form.md#snowmobile |
-| w4.wheel_sink_cm | 24.2 | cm | calculated | docs/02-form.md#snowmobile |
-| w4.grip_n | 368 | N | calculated | docs/02-form.md#snowmobile |
-| w4.resistance_n | 262 | N | calculated | docs/02-form.md#snowmobile |
-| w4.resistance_bekker_n | 621 | N | calculated | docs/02-form.md#snowmobile |
-| w4.wheel_drop_mm | 194 | mm | calculated | docs/02-form.md#snowmobile |
-| w4.tyre_dia_min_mm | 484 | mm | calculated | docs/02-form.md#snowmobile |
+| w4.wheel_sink_cm | 24.0 | cm | calculated | docs/02-form.md#snowmobile |
+| w4.grip_n | 364 | N | calculated | docs/02-form.md#snowmobile |
+| w4.resistance_n | 259 | N | calculated | docs/02-form.md#snowmobile |
+| w4.resistance_bekker_n | 610 | N | calculated | docs/02-form.md#snowmobile |
+| w4.wheel_drop_mm | 193 | mm | calculated | docs/02-form.md#snowmobile |
+| w4.tyre_dia_min_mm | 481 | mm | calculated | docs/02-form.md#snowmobile |
 | w4.dual_share_min | 0.2 |  | calculated | docs/02-form.md#snowmobile |
-| w4.dual_wheel_sink_cm | 16.9 | cm | calculated | docs/02-form.md#snowmobile |
-| w4.dual_grip_n | 416 | N | calculated | docs/02-form.md#snowmobile |
-| w4.dual_resistance_bekker_n | 541 | N | calculated | docs/02-form.md#snowmobile |
-| w4.big_wheel_sink_cm | 17.2 | cm | calculated | docs/02-form.md#snowmobile |
-| w4.big_grip_n | 463 | N | calculated | docs/02-form.md#snowmobile |
-| w4.big_resistance_bekker_n | 436 | N | calculated | docs/02-form.md#snowmobile |
-| w4.big_dual_wheel_sink_cm | 12.0 | cm | calculated | docs/02-form.md#snowmobile |
-| w4.big_dual_grip_n | 513 | N | calculated | docs/02-form.md#snowmobile |
-| w4.big_dual_resistance_bekker_n | 386 | N | calculated | docs/02-form.md#snowmobile |
-| w4.dual_width_m | 1.55 | m | calculated | docs/02-form.md#snowmobile |
+| w4.dual_wheel_sink_cm | 16.8 | cm | calculated | docs/02-form.md#snowmobile |
+| w4.dual_grip_n | 411 | N | calculated | docs/02-form.md#snowmobile |
+| w4.dual_resistance_bekker_n | 532 | N | calculated | docs/02-form.md#snowmobile |
+| w4.big_wheel_sink_cm | 17.1 | cm | calculated | docs/02-form.md#snowmobile |
+| w4.big_grip_n | 457 | N | calculated | docs/02-form.md#snowmobile |
+| w4.big_resistance_bekker_n | 429 | N | calculated | docs/02-form.md#snowmobile |
+| w4.big_dual_wheel_sink_cm | 11.9 | cm | calculated | docs/02-form.md#snowmobile |
+| w4.big_dual_grip_n | 507 | N | calculated | docs/02-form.md#snowmobile |
+| w4.big_dual_resistance_bekker_n | 380 | N | calculated | docs/02-form.md#snowmobile |
+| w4.dual_width_m | 1.28 | m | calculated | docs/02-form.md#snowmobile |
 | st.cg_height_m | 0.578 | m | calculated | docs/02-form.md#straddle |
 | st.tip_ratio | 0.76 |  | calculated | docs/02-form.md#straddle |
 | st.pitch_ratio | 0.82 |  | calculated | docs/02-form.md#straddle |
 | st.length_m | 1.54 | m | calculated | docs/02-form.md#straddle |
 | st.width_m | 1.07 | m | calculated | docs/02-form.md#straddle |
-| st.child_fit_margin_mm | -5 | mm | calculated | docs/02-form.md#straddle |
-| cost.tub_jpy | 82992 | JPY | calculated | docs/02-form.md#water |
-| cost.winter_sm_jpy | 236992 | JPY | calculated | docs/02-form.md#snowmobile |
+| st.child_fit_margin_mm | -7 | mm | calculated | docs/02-form.md#straddle |
+| mtt.tow_pull_packed_n | 276 | N | calculated | docs/02-form.md#mtt |
+| mtt.tow_sled_kg | 141 | kg | calculated | docs/02-form.md#mtt |
+| mtt.tow_power_kw | 0.78 | kW | calculated | docs/02-form.md#mtt |
+| mtt.crawler180_pair_kpa | 8.1 | kPa | calculated | docs/02-form.md#mtt |
+| mtt.crawler300_kpa | 4.8 | kPa | calculated | docs/02-form.md#mtt |
+| mtt.crawler300_pair_kpa | 2.4 | kPa | calculated | docs/02-form.md#mtt |
+| cost.tub_jpy | 82881 | JPY | calculated | docs/02-form.md#water |
+| cost.winter_sm_jpy | 236881 | JPY | calculated | docs/02-form.md#snowmobile |
 | cost.chassis_jpy | 93902 | JPY | calculated | docs/02-form.md#cost |
 | cost.power_engine_clone_jpy | 37940 | JPY | calculated | docs/02-form.md#cost |
 | cost.power_engine_genuine_jpy | 86940 | JPY | calculated | docs/02-form.md#cost |
@@ -626,14 +650,14 @@ These are not decided here. 1.2 compares forms against them.
 | cost.total_donor_w1_jpy | 136031 | JPY | calculated | docs/02-form.md#cost |
 | cost.total_donor_e1_w1_jpy | 150841 | JPY | calculated | docs/02-form.md#cost |
 | cost.total_donor_narrow_summer_jpy | 66551 | JPY | calculated | docs/02-form.md#cost |
-| dsn.length_m | 1.53 | m | calculated | docs/03-design.md#layout |
-| dsn.width_m | 1.277 | m | calculated | docs/03-design.md#layout |
-| dsn.width_transport_m | 1.21 | m | calculated | docs/03-design.md#transport |
+| dsn.length_m | 1.55 | m | calculated | docs/03-design.md#layout |
+| dsn.width_m | 1.067 | m | calculated | docs/03-design.md#layout |
+| dsn.width_transport_m | 1.067 | m | calculated | docs/03-design.md#transport |
 | dsn.axle_rail_gap_mm | 30 | mm | calculated | docs/03-design.md#frame |
-| dsn.tube_main_m | 3.37 | m | calculated | docs/03-design.md#frame |
-| dsn.tube_cross_m | 7.14 | m | calculated | docs/03-design.md#frame |
-| dsn.tube_roll_m | 4.05 | m | calculated | docs/03-design.md#rollbar |
-| dsn.hub_bearing_gap_mm | 39 | mm | calculated | docs/03-design.md#transport |
+| dsn.tube_main_m | 3.07 | m | calculated | docs/03-design.md#frame |
+| dsn.tube_cross_m | 6.47 | m | calculated | docs/03-design.md#frame |
+| dsn.tube_roll_m | 3.32 | m | calculated | docs/03-design.md#rollbar |
+| dsn.hub_bearing_gap_mm | 48 | mm | calculated | docs/03-design.md#axle |
 | dsn.ratio_top | 18.06 |  | calculated | docs/03-design.md#drive |
 | dsn.ratio | 59.85 |  | calculated | docs/03-design.md#drive |
 | dsn.top_speed_kmh | 28.83 | km/h | calculated | docs/03-design.md#drive |
@@ -641,66 +665,63 @@ These are not decided here. 1.2 compares forms against them.
 | dsn.chain420_links | 68 |  | calculated | docs/03-design.md#drive |
 | dsn.unit_front_x_mm | 760 | mm | calculated | docs/03-design.md#drive |
 | dsn.low_point_mm | 87 | mm | calculated | docs/03-design.md#axle |
-| dsn.turn_radius_m | 2.26 | m | calculated | docs/03-design.md#steering |
-| dsn.leg_margin_adult_mm | 148 | mm | calculated | docs/03-design.md#fit |
-| dsn.leg_margin_child_mm | 179 | mm | calculated | docs/03-design.md#fit |
-| dsn.pan_mass_kg | 3.2 | kg | calculated | docs/03-design.md#winter |
-| dsn.winter_lift_mm | 218 | mm | calculated | docs/03-design.md#winter |
-| dsn.winter_chain_centre_mm | 466 | mm | calculated | docs/03-design.md#winter |
-| dsn.winter_chain_links | 96 |  | calculated | docs/03-design.md#winter |
-| dsn.winter_top_speed_kmh | 16.0 | km/h | calculated | docs/03-design.md#winter |
-| dsn.winter_clutch_lock_kmh | 2.3 | km/h | calculated | docs/03-design.md#winter |
-| dsn.mass_kg | 108.8 | kg | calculated | docs/03-design.md#mass |
-| dsn.cg_x_m | 0.372 | m | calculated | docs/03-design.md#mass |
-| dsn.cg_y_m | 0.084 | m | calculated | docs/03-design.md#mass |
-| dsn.cg_z_m | 0.269 | m | calculated | docs/03-design.md#mass |
-| dsn.frame_mass_kg | 12.3 | kg | calculated | docs/03-design.md#frame |
-| dsn.rear_share_adult | 0.72 |  | calculated | docs/03-design.md#mass |
-| dsn.cg_side_adult_mm | 1 | mm | calculated | docs/03-design.md#mass |
-| dsn.cg_height_adult_m | 0.361 | m | calculated | docs/03-design.md#mass |
-| dsn.tip_ratio_adult | 1.56 |  | calculated | docs/03-design.md#stability |
-| dsn.rear_share_child | 0.639 |  | calculated | docs/03-design.md#mass |
-| dsn.cg_side_child_mm | 58 | mm | calculated | docs/03-design.md#mass |
-| dsn.cg_height_child_m | 0.283 | m | calculated | docs/03-design.md#mass |
-| dsn.tip_ratio_child | 1.77 |  | calculated | docs/03-design.md#stability |
-| dsn.winter_mass_kg | 126.3 | kg | calculated | docs/03-design.md#winter |
-| dsn.winter_cg_height_m | 0.526 | m | calculated | docs/03-design.md#winter |
-| dsn.winter_rear_share | 0.725 |  | calculated | docs/03-design.md#winter |
-| dsn.winter_track_pressure_kpa | 3.8 | kPa | calculated | docs/03-design.md#winter |
-| dsn.winter_ski_pressure_kpa | 4.24 | kPa | calculated | docs/03-design.md#winter |
-| dsn.winter_tip_ratio | 0.82 |  | calculated | docs/03-design.md#stability |
-| dsn.belly_area_m2 | 0.98 | m2 | calculated | docs/03-design.md#winter |
-| dsn.belly_pressure_kpa | 2.27 | kPa | calculated | docs/03-design.md#winter |
-| dsn.belly_height_mm | 318 | mm | calculated | docs/03-design.md#winter |
-| dsn.tow_pull_packed_n | 372 | N | calculated | docs/03-design.md#mtt |
-| dsn.tow_sled_kg | 189 | kg | calculated | docs/03-design.md#mtt |
-| dsn.tow_power_kw | 0.92 | kW | calculated | docs/03-design.md#mtt |
-| dsn.crawler180_pair_kpa | 10.0 | kPa | calculated | docs/03-design.md#mtt |
-| dsn.crawler300_kpa | 5.9 | kPa | calculated | docs/03-design.md#mtt |
-| dsn.crawler300_pair_kpa | 3.0 | kPa | calculated | docs/03-design.md#mtt |
-| dsn.head_top_m | 1.19 | m | calculated | docs/03-design.md#mtt |
-| dsn.rollbar_needed_mm | 1240 | mm | calculated | docs/03-design.md#mtt |
-| dsn.climb_force_n | 643 | N | calculated | docs/03-design.md#climb |
-| dsn.climb_grip_n | 716 | N | calculated | docs/03-design.md#climb |
+| dsn.turn_radius_m | 2.31 | m | calculated | docs/03-design.md#steering |
+| dsn.child_fit_margin_mm | 23 | mm | calculated | docs/03-design.md#fit |
+| dsn.pan_mass_kg | 2.4 | kg | calculated | docs/03-design.md#winter |
+| dsn.winter_lift_mm | 155 | mm | calculated | docs/03-design.md#winter |
+| dsn.winter_chain_links | 76 |  | calculated | docs/03-design.md#winter |
+| dsn.winter_thrust_n | 1304 | N | calculated | docs/03-design.md#winter |
+| dsn.winter_top_speed_kmh | 30.0 | km/h | calculated | docs/03-design.md#winter |
+| dsn.winter_clutch_lock_kmh | 4.3 | km/h | calculated | docs/03-design.md#winter |
+| dsn.winter_width_m | 1.18 | m | calculated | docs/03-design.md#winter |
+| dsn.mass_kg | 105.9 | kg | calculated | docs/03-design.md#mass |
+| dsn.cg_x_m | 0.413 | m | calculated | docs/03-design.md#mass |
+| dsn.cg_y_m | -0.002 | m | calculated | docs/03-design.md#mass |
+| dsn.cg_z_m | 0.282 | m | calculated | docs/03-design.md#mass |
+| dsn.frame_mass_kg | 11.2 | kg | calculated | docs/03-design.md#frame |
+| dsn.rear_share_adult | 0.565 |  | calculated | docs/03-design.md#mass |
+| dsn.cg_side_adult_mm | -1 | mm | calculated | docs/03-design.md#mass |
+| dsn.cg_height_adult_m | 0.558 | m | calculated | docs/03-design.md#mass |
+| dsn.tip_ratio_adult | 0.79 |  | calculated | docs/03-design.md#stability |
+| dsn.pitch_ratio_adult | 0.84 |  | calculated | docs/03-design.md#stability |
+| dsn.rear_share_child | 0.6 |  | calculated | docs/03-design.md#mass |
+| dsn.cg_side_child_mm | -1 | mm | calculated | docs/03-design.md#mass |
+| dsn.cg_height_child_m | 0.346 | m | calculated | docs/03-design.md#mass |
+| dsn.tip_ratio_child | 1.27 |  | calculated | docs/03-design.md#stability |
+| dsn.pitch_ratio_child | 1.25 |  | calculated | docs/03-design.md#stability |
+| dsn.winter_mass_kg | 115.0 | kg | calculated | docs/03-design.md#winter |
+| dsn.winter_cg_height_m | 0.687 | m | calculated | docs/03-design.md#winter |
+| dsn.winter_rear_share | 0.588 |  | calculated | docs/03-design.md#winter |
+| dsn.winter_tip_ratio | 0.64 |  | calculated | docs/03-design.md#stability |
+| dsn.winter_pitch_ratio | 0.65 |  | calculated | docs/03-design.md#stability |
+| dsn.winter_ski_pressure_kpa | 6.04 | kPa | calculated | docs/03-design.md#winter |
+| dsn.belly_height_mm | 255 | mm | calculated | docs/03-design.md#winter |
+| dsn.climb_force_n | 634 | N | calculated | docs/03-design.md#climb |
+| dsn.climb_grip_n | 596 | N | calculated | docs/03-design.md#climb |
 | dsn.climb_thrust_n | 1359 | N | calculated | docs/03-design.md#climb |
+| dsn.climb_grade_max_pct | 17.5 | % | calculated | docs/03-design.md#climb |
 | dsn.axle_chain_pull_n | 3635 | N | calculated | docs/03-design.md#axle |
-| dsn.axle_stress_mpa | 222 | MPa | calculated | docs/03-design.md#axle |
-| dsn.axle_safety | 1.55 |  | calculated | docs/03-design.md#axle |
-| dsn.frame_moment_nm | 568 | N m | calculated | docs/03-design.md#frame |
-| dsn.rail_stress_mpa | 194 | MPa | calculated | docs/03-design.md#frame |
-| dsn.rail_safety | 1.5 |  | calculated | docs/03-design.md#frame |
-| dsn.bearing_load_n | 737 | N | calculated | docs/03-design.md#axle |
+| dsn.axle_stress_mpa | 200 | MPa | calculated | docs/03-design.md#axle |
+| dsn.axle_safety | 1.72 |  | calculated | docs/03-design.md#axle |
+| dsn.frame_moment_nm | 998 | N m | calculated | docs/03-design.md#frame |
+| dsn.rail_stress_mpa | 340 | MPa | calculated | docs/03-design.md#frame |
+| dsn.rail_safety | 0.85 |  | calculated | docs/03-design.md#frame |
+| dsn.bearing_load_n | 571 | N | calculated | docs/03-design.md#axle |
 | dsn.brake_decel_needed | 5.79 | m/s2 | calculated | docs/03-design.md#brake |
-| dsn.brake_torque_needed_nm | 196 | N m | calculated | docs/03-design.md#brake |
-| dsn.brake_clamp_needed_n | 4383 | N | calculated | docs/03-design.md#brake |
-| dsn.brake_downhill_decel | 0.88 | m/s2 | calculated | docs/03-design.md#brake |
-| dsn.brake_downhill_stop_m | 39.5 | m | calculated | docs/03-design.md#brake |
-| dsn.delica_length_margin_mm | 80 | mm | calculated | docs/03-design.md#transport |
-| dsn.delica_width_margin_mm | 20 | mm | calculated | docs/03-design.md#transport |
-| dsn.height_m | 1.05 | m | calculated | docs/03-design.md#layout |
-| dsn.winter_length_m | 2.15 | m | calculated | docs/03-design.md#winter |
-| dsn.winter_height_m | 1.268 | m | calculated | docs/03-design.md#winter |
-| dsn.bom_parts_jpy | 544644 | JPY | calculated | docs/03-design.md#cost |
+| dsn.brake_torque_needed_nm | 194 | N m | calculated | docs/03-design.md#brake |
+| dsn.brake_rear_alone_decel | 3.14 | m/s2 | calculated | docs/03-design.md#brake |
+| dsn.brake_clamp_needed_n | 1527 | N | calculated | docs/03-design.md#brake |
+| dsn.brake_front_clamp_needed_n | 1864 | N | calculated | docs/03-design.md#brake |
+| dsn.brake_downhill_decel_rear | 0.08 | m/s2 | calculated | docs/03-design.md#brake |
+| dsn.brake_downhill_decel | 2.4 | m/s2 | calculated | docs/03-design.md#brake |
+| dsn.brake_downhill_stop_m | 14.4 | m | calculated | docs/03-design.md#brake |
+| dsn.delica_length_margin_mm | 60 | mm | calculated | docs/03-design.md#transport |
+| dsn.delica_width_margin_mm | 163 | mm | calculated | docs/03-design.md#transport |
+| dsn.height_m | 1.07 | m | calculated | docs/03-design.md#layout |
+| dsn.delica_height_margin_mm | 60 | mm | calculated | docs/03-design.md#transport |
+| dsn.winter_length_m | 1.877 | m | calculated | docs/03-design.md#winter |
+| dsn.winter_height_m | 1.225 | m | calculated | docs/03-design.md#winter |
+| dsn.bom_parts_jpy | 369525 | JPY | calculated | docs/03-design.md#cost |
 | dsn.bom_tools_jpy | 34056 | JPY | calculated | docs/03-design.md#cost |
 <!-- tdr:end -->
 
@@ -739,7 +760,9 @@ These are not decided here. 1.2 compares forms against them.
 | Q-028 | A kart that moves on a lake is an amphibious vessel, a special ship, which the small-boat exemption from ship inspection does not cover (P46). Ask the regional transport bureau whether a home-built amphibious kart moved on water only by an electric outboard under 1.5 kW, with its engine stopped, can be inspected; whether a tub that the persons formula rates for nobody may be approved on an inclining test, or needs side floats for water days; whether the 50 cc engine counts as propulsion because it can turn the wheels in water; and whether a pond on private land is outside the Ship Safety Act (only named waters are exempt from registration, P58). What an inspection asks and costs is in docs/02-form.md#water (P55, P56). No official page on a small amphibious vessel was found. | owner |
 | Q-029 | The donor's track unit is drawn from assumed sizes - the track's thickness with its lugs, the rear idler's diameter, the drive shaft's height and its place ahead of the slide rails - which set the winter lift. Measure them on the donor (a Yamaha Bravo class) when it is bought, with its mass and mounting points, and check that a pivot shaft through the pillow blocks and brackets hanging from the rails can hold it. | assistant |
 | Q-030 | The sled pan held 0.020 m3 of foam, which floated 0.15 of the winter kart's own weight, while R-29 asked water.reserve_ratio, which needed about 0.158 m3. The room is not there without bolting large floats on. With boat use withdrawn (D-027), should R-29 keep only the driver's part (a life jacket and no seat belt on ice, nothing holding the driver) and drop the kart's floating, or should the kart carry floats in winter? | owner |
-| Q-031 | The rough inputs of 1.2.17 - the track's own resistance on packed snow, the allowance over the head for hair or a cap, and the wheel size under a snowblower crawler - are assumed until the donor's track is run on packed snow and the roll bar is laid out. | assistant |
+| Q-031 | The rough inputs of 1.2.17 - the track's own resistance on packed snow, and the wheel size under a snowblower crawler - are assumed until the donor's track is run on packed snow and the roll bar is laid out. | assistant |
 | Q-032 | With the straddle layout of D-030, set the stability margin that R-12 asks for a kart ridden actively, and the protection R-19 asks if it tips or rolls; and confirm which of R-22 (seat belt and head restraint) and R-24 (the 1 m marker) still apply to a straddled seat of at least 500 mm, which P36 exempts. | assistant |
 | Q-033 | The straddle kart of 1.2.18 is sized from assumed numbers - its seat and footrest heights, track, wheelbase, overhangs, mass and centre of mass, fender margin, and a 6-year-old's crotch height as a share of stature (no Japanese data for that age was found) - until it is laid out in 1.3. | assistant |
+| Q-034 | The winter form W5 of 1.3.12 assumes large low-pressure tyres of the 25x12-9 class with rims, their mass and price, and a 12T output and 45T axle sprocket and their price, until a tyre that fits the rear hubs is chosen. | assistant |
+| Q-035 | The straddle kart of 1.3 is placed by hand and has had no collision search. K-013 left the spine too weak (a truss under the seat or a larger tube), the winter form's fore-and-aft ratio short of 0.8 (a longer winter wheelbase or a lower seat), the tie rods 4 mm from the front rails, the footboards held at one edge, the axle sprocket and axle uncovered, and the battery and the stem's foot without supports. The next pass builds a collision search into calc/design.py for the summer and winter forms and resolves these. | assistant |
 <!-- tdr:end -->

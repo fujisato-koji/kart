@@ -239,14 +239,15 @@ items:
       - chain_final
       - axle_bearings
       - guards
-      - steering_column
-      - pedal_box
       - tie_rods
       - seat
     opened: 2026-11-03
     raised_by: assistant
     phase: design
     blocks: design_build
+    closed_by: D-030
+    closed: 2026-11-04
+
   - id: Q-021
     kind: question
     text: Which class of vehicle the kart becomes on public roads (most likely a minicar, a four-wheel first-class moped with up to 50 cc or 0.6 kW rated electric output), and which safety standards (brakes, lamps, turn signals, mirrors, horn, speedometer, plate, size), registration steps, tax, and insurance apply; list each as a requirement with its article from the law.
@@ -300,14 +301,15 @@ items:
       - roll_bar
       - engine
       - hand_brake
-      - seat_belt
-      - head_restraint
       - mirrors
       - axle_shaft
     opened: 2026-11-04
     raised_by: assistant
     phase: design
     blocks: design_build
+    closed_by: D-030
+    closed: 2026-11-04
+
   - id: Q-026
     kind: question
     text: The owner described the kart as like a kick scooter for the far outdoors (D-023). Does that ask for a standing ride, or for a light personal vehicle that is still seated? A standing ride conflicts with the seat, seat belt, and head restraint the law asks of a minicar on roads (R-22), and with a child driving.
@@ -370,6 +372,7 @@ items:
       - sm.idler_dia_mm
       - sm.drive_z_mm
       - sm.drive_ahead_mm
+      - sm.lift_mm
       - track_unit
     opened: 2026-11-04
     phase: design
@@ -385,11 +388,10 @@ items:
     closed: 2026-11-04
   - id: Q-031
     kind: question
-    text: The rough inputs of 1.2.17 - the track's own resistance on packed snow, the allowance over the head for hair or a cap, and the wheel size under a snowblower crawler - are assumed until the donor's track is run on packed snow and the roll bar is laid out.
+    text: The rough inputs of 1.2.17 - the track's own resistance on packed snow, and the wheel size under a snowblower crawler - are assumed until the donor's track is run on packed snow and the roll bar is laid out.
     waits_for: assistant
     affects:
       - track.crr_snow_packed
-      - rider.head_allow_mm
       - sm.crawler_wheel_dia_mm
     opened: 2026-11-04
     phase: design
@@ -419,6 +421,36 @@ items:
       - st.kart_cg_mm
       - st.kart_cg_x_share
       - st.fender_mm
+      - dsn.fender_mass_kg
+      - cost.allow_fenders_jpy
+      - cost.front_brakes_jpy
       - rider.child_crotch_ratio
     opened: 2026-11-04
     phase: design
+  - id: Q-034
+    kind: question
+    text: The winter form W5 of 1.3.12 assumes large low-pressure tyres of the 25x12-9 class with rims, their mass and price, and a 12T output and 45T axle sprocket and their price, until a tyre that fits the rear hubs is chosen.
+    waits_for: assistant
+    affects:
+      - w5.tyre_dia_mm
+      - w5.tyre_width_mm
+      - w5.wheel_mass_kg
+      - w5.axle_teeth
+      - w5.out_teeth
+      - cost.w5_wheel_jpy
+      - cost.spr420_45t_jpy
+    opened: 2026-11-04
+    phase: design
+  - id: Q-035
+    kind: finding
+    text: The straddle kart of 1.3 is placed by hand and has had no collision search. K-013 left the spine too weak (a truss under the seat or a larger tube), the winter form's fore-and-aft ratio short of 0.8 (a longer winter wheelbase or a lower seat), the tie rods 4 mm from the front rails, the footboards held at one edge, the axle sprocket and axle uncovered, and the battery and the stem's foot without supports. The next pass builds a collision search into calc/design.py for the summer and winter forms and resolves these.
+    waits_for: assistant
+    affects:
+      - frame
+      - engine
+      - handlebar
+      - footrests
+    opened: 2026-11-04
+    raised_by: assistant
+    phase: design
+    blocks: design_build

@@ -21,16 +21,6 @@ items:
       - brake
       - axle_shaft
     carries: power
-  - id: I-09
-    between:
-      - seat
-      - seat_slide
-    carries: load
-  - id: I-10
-    between:
-      - seat_slide
-      - frame
-    carries: load
   - id: I-11
     between:
       - engine
@@ -56,35 +46,10 @@ items:
       - front_wheels
       - spindles
     carries: load
-  - id: I-17
-    between:
-      - pedal_box
-      - frame
-    carries: load
-  - id: I-18
-    between:
-      - pedal_box
-      - throttle
-    carries: other
   - id: I-19
     between:
       - throttle
       - engine
-    carries: other
-  - id: I-20
-    between:
-      - pedal_box
-      - brake
-    carries: other
-  - id: I-21
-    between:
-      - steering_wheel
-      - steering_column
-    carries: other
-  - id: I-22
-    between:
-      - steering_column
-      - tie_rods
     carries: other
   - id: I-23
     between:
@@ -111,11 +76,6 @@ items:
       - guards
       - frame
     carries: load
-  - id: I-29
-    between:
-      - steering_column
-      - frame
-    carries: load
   - id: I-30
     between:
       - engine
@@ -125,16 +85,6 @@ items:
     between:
       - roll_bar
       - frame
-    carries: load
-  - id: I-32
-    between:
-      - seat_belt
-      - frame
-    carries: load
-  - id: I-33
-    between:
-      - head_restraint
-      - roll_bar
     carries: load
   - id: I-34
     between:
@@ -205,4 +155,29 @@ items:
     between:
       - snow_chains
       - rear_wheels
+    carries: load
+  - id: I-48
+    between:
+      - handlebar
+      - tie_rods
+    carries: load
+  - id: I-49
+    between:
+      - handlebar
+      - frame
+    carries: load
+  - id: I-50
+    between:
+      - footrests
+      - frame
+    carries: load
+  - id: I-51
+    between:
+      - fenders
+      - frame
+    carries: load
+  - id: I-52
+    between:
+      - seat
+      - engine
     carries: load

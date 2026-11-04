@@ -13,14 +13,14 @@ const theme = params.get('theme'); if (theme) document.documentElement.dataset.t
 
 // Japanese names of the parts (the record's own part names are English)
 const PART_NAMES = {
-  frame: 'フレーム（溶接パイプ）', floor: 'フロア板', bumpers: 'バンパーとサイドバー', seat: 'シート', seat_slide: 'シートスライド',
-  pedal_box: 'ペダルボックス', guards: 'チェーンガード', steering_wheel: 'ステアリングホイール', steering_column: 'ステアリングコラム',
+  frame: 'フレーム（溶接パイプ）', bumpers: 'バンパーとサイドバー', seat: '座席（スクーターのもの）',
+  handlebar: 'ハンドル（スクーターのもの）', footrests: '足置き', fenders: '泥よけ', guards: 'チェーンガード',
   tie_rods: 'タイロッド', spindles: 'スピンドルとキングピン', front_wheels: '前輪とタイヤ', axle_shaft: 'アクスル軸',
   axle_bearings: 'アクスル軸受（UCP）', rear_hubs: '後輪ハブ', rear_wheels: '後輪とタイヤ', brake: 'ディスクブレーキ',
   engine: 'エンジン', clutch: '遠心クラッチ', jackshaft: 'ジャックシャフト', chain_primary: '一次チェーン', chain_final: '二次チェーン',
   skis: 'スキー', track_unit: 'キャタピラユニット', winter_chain: '冬のチェーン', sled_pan: 'そり底',
-  side_floats: '浮き（将来版）', outboard: '船外機（将来版）', roll_bar: 'ロールバー', lighting: '灯火と方向指示器', mirrors: 'ミラー', horn: 'ホーン',
-  speedometer: '速度計', seat_belt: 'シートベルト', head_restraint: 'ヘッドレスト', hand_brake: 'ハンドブレーキ', battery: 'バッテリー', number_plate: 'ナンバー',
+  side_floats: '浮き（将来版）', outboard: '船外機（将来版）', roll_bar: '転倒保護の輪', lighting: '灯火と方向指示器', mirrors: 'ミラー', horn: 'ホーン',
+  speedometer: '速度計', hand_brake: '前輪ブレーキ（2 系統目）', battery: 'バッテリー', number_plate: 'ナンバー',
 };
 
 const state = {
@@ -116,11 +116,11 @@ function frame(t) {
 }
 
 // ---------------------------------------------------------------- state -> scene
-function pedalRider() { return state.rider === 'child' ? 'child' : 'adult'; }
+function itemRider() { return state.rider === 'child' ? 'child' : 'adult'; }
 function groupShown(g) {
   const u = g.userData;
   if (!u.configs.includes(state.config) || hidden.has(u.part)) return false;
-  if (u.type === 'pedals' && u.rider !== pedalRider()) return false;
+  if (u.rider && u.rider !== itemRider()) return false; // items made for one rider only (child's raised steps)
   return true;
 }
 // winter: the whole chassis rides higher; items marked ground (tracks, skis) keep their absolute height

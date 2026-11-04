@@ -1089,101 +1089,47 @@ items:
     basis:
       - M50
   - key: lay.wheelbase_mm
-    v: 1000
+    v: 1080
     unit: mm
     status: calculated
     basis:
       - docs/03-design.md#layout
   - key: lay.track_front_mm
-    v: 1060
+    v: 880
     unit: mm
     status: calculated
     basis:
       - docs/03-design.md#layout
   - key: lay.track_rear_mm
-    v: 1150
+    v: 880
     unit: mm
     status: calculated
     basis:
       - docs/03-design.md#layout
-  - key: lay.track_rear_narrow_mm
-    v: 1040
-    unit: mm
-    status: calculated
-    basis:
-      - docs/03-design.md#transport
   - key: lay.rail_bottom_mm
     v: 150
     unit: mm
     status: calculated
     basis:
       - docs/03-design.md#layout
-  - key: lay.rail_half_width_mm
-    v: 300
-    unit: mm
-    status: calculated
-    basis:
-      - docs/03-design.md#frame
-  - key: lay.front_half_width_mm
-    v: 430
-    unit: mm
-    status: calculated
-    basis:
-      - docs/03-design.md#frame
   - key: lay.front_overhang_mm
-    v: 300
+    v: 200
     unit: mm
     status: calculated
     basis:
       - docs/03-design.md#layout
   - key: lay.rear_overhang_mm
-    v: 230
+    v: 270
     unit: mm
     status: calculated
     basis:
       - docs/03-design.md#layout
   - key: lay.hpoint_x_mm
-    v: 80
+    v: 480
     unit: mm
     status: calculated
     basis:
       - docs/03-design.md#fit
-  - key: lay.hpoint_y_mm
-    v: -90
-    unit: mm
-    status: calculated
-    basis:
-      - docs/03-design.md#fit
-  - key: lay.seat_slide_mm
-    v: 120
-    unit: mm
-    status: calculated
-    basis:
-      - docs/03-design.md#fit
-  - key: lay.pedal_x_far_mm
-    v: 930
-    unit: mm
-    status: calculated
-    basis:
-      - docs/03-design.md#fit
-  - key: lay.pedal_x_near_mm
-    v: 560
-    unit: mm
-    status: calculated
-    basis:
-      - docs/03-design.md#fit
-  - key: lay.wheel_x_mm
-    v: 600
-    unit: mm
-    status: calculated
-    basis:
-      - docs/03-design.md#steering
-  - key: lay.wheel_z_mm
-    v: 560
-    unit: mm
-    status: calculated
-    basis:
-      - docs/03-design.md#steering
   - key: lay.steer_max_deg
     v: 30
     unit: deg
@@ -1227,19 +1173,19 @@ items:
     basis:
       - docs/03-design.md#drive
   - key: lay.bearing_y_mm
-    v: 400
+    v: 330
     unit: mm
     status: calculated
     basis:
       - docs/03-design.md#axle
   - key: lay.brake_y_mm
-    v: -350
+    v: -250
     unit: mm
     status: calculated
     basis:
       - docs/03-design.md#brake
   - key: lay.axle_length_mm
-    v: 1210
+    v: 900
     unit: mm
     status: calculated
     basis:
@@ -1477,7 +1423,7 @@ items:
     basis:
       - M11
   - key: lay.bearing_mid_y_mm
-    v: 245
+    v: 235
     unit: mm
     status: calculated
     basis:
@@ -1489,7 +1435,7 @@ items:
     basis:
       - docs/03-design.md#frame
   - key: lay.kick_x_mm
-    v: 250
+    v: 170
     unit: mm
     status: calculated
     basis:
@@ -1664,13 +1610,13 @@ items:
     basis:
       - docs/03-design.md#drive
   - key: lay.unit_y_mm
-    v: 400
+    v: 0
     unit: mm
     status: calculated
     basis:
       - docs/03-design.md#drive
   - key: lay.chain420_y_mm
-    v: 215
+    v: 185
     unit: mm
     status: calculated
     basis:
@@ -1682,7 +1628,7 @@ items:
     basis:
       - docs/03-design.md#drive
   - key: lay.rollbar_top_mm
-    v: 1050
+    v: 950
     unit: mm
     status: calculated
     basis:
@@ -2061,26 +2007,20 @@ items:
     status: calculated
     basis:
       - docs/03-design.md#winter
-  - key: lay.tunnel_half_width_mm
-    v: 240
-    unit: mm
-    status: calculated
-    basis:
-      - docs/03-design.md#winter
   - key: lay.pan_x0_mm
-    v: 180
+    v: 170
     unit: mm
     status: calculated
     basis:
       - docs/03-design.md#winter
   - key: lay.pan_x1_mm
-    v: 800
+    v: 950
     unit: mm
     status: calculated
     basis:
       - docs/03-design.md#winter
   - key: lay.pan_half_beam_mm
-    v: 450
+    v: 200
     unit: mm
     status: calculated
     basis:
@@ -2098,7 +2038,7 @@ items:
     basis:
       - docs/03-design.md#winter
   - key: lay.bow_half_beam_mm
-    v: 200
+    v: 150
     unit: mm
     status: calculated
     basis:
@@ -2134,12 +2074,6 @@ items:
     status: sourced
     basis:
       - P61
-  - key: rider.head_allow_mm
-    v: 30
-    unit: mm
-    status: assumed
-    basis:
-      - Q-031
   - key: sm.crawler_wheel_dia_mm
     v: 250
     unit: mm
@@ -2204,18 +2138,6 @@ items:
     status: sourced
     basis:
       - M87
-  - key: lay.seat_cushion_mm
-    v: 30
-    unit: mm
-    status: calculated
-    basis:
-      - docs/03-design.md#rollbar
-  - key: lay.rollbar_clear_mm
-    v: 50
-    unit: mm
-    status: calculated
-    basis:
-      - docs/03-design.md#rollbar
   - key: snow.crrel_trac_shallow_a
     v: 0.851
     status: sourced
@@ -2266,7 +2188,7 @@ items:
     basis:
       - P69
   - key: rider.child_fit_clear_mm
-    v: 100
+    v: 102
     unit: mm
     status: sourced
     basis:
@@ -2335,6 +2257,190 @@ items:
     status: assumed
     basis:
       - Q-033
+  - key: lay.spine_half_width_mm
+    v: 150
+    unit: mm
+    status: calculated
+    basis:
+      - docs/03-design.md#frame
+  - key: lay.kingpin_y_mm
+    v: 350
+    unit: mm
+    status: calculated
+    basis:
+      - docs/03-design.md#steering
+  - key: lay.footrest_height_mm
+    v: 180
+    unit: mm
+    status: calculated
+    basis:
+      - docs/03-design.md#fit
+  - key: lay.foot_x0_mm
+    v: 360
+    unit: mm
+    status: calculated
+    basis:
+      - docs/03-design.md#fit
+  - key: lay.foot_x1_mm
+    v: 760
+    unit: mm
+    status: calculated
+    basis:
+      - docs/03-design.md#fit
+  - key: lay.foot_y0_mm
+    v: 220
+    unit: mm
+    status: calculated
+    basis:
+      - docs/03-design.md#fit
+  - key: lay.foot_y1_mm
+    v: 340
+    unit: mm
+    status: calculated
+    basis:
+      - docs/03-design.md#fit
+  - key: lay.bar_x_mm
+    v: 840
+    unit: mm
+    status: calculated
+    basis:
+      - docs/03-design.md#steering
+  - key: lay.bar_z_mm
+    v: 860
+    unit: mm
+    status: calculated
+    basis:
+      - docs/03-design.md#steering
+  - key: lay.bar_width_mm
+    v: 620
+    unit: mm
+    status: calculated
+    basis:
+      - docs/03-design.md#steering
+  - key: lay.hoop_x_mm
+    v: -220
+    unit: mm
+    status: calculated
+    basis:
+      - docs/03-design.md#rollbar
+  - key: lay.fender_margin_mm
+    v: 30
+    unit: mm
+    status: calculated
+    basis:
+      - docs/03-design.md#layout
+  - key: lay.seat_height_mm
+    v: 600
+    unit: mm
+    status: calculated
+    basis:
+      - docs/03-design.md#fit
+  - key: lay.seat_x0_mm
+    v: 100
+    unit: mm
+    status: calculated
+    basis:
+      - docs/03-design.md#fit
+  - key: lay.seat_x1_mm
+    v: 700
+    unit: mm
+    status: calculated
+    basis:
+      - docs/03-design.md#fit
+  - key: lay.seat_width_mm
+    v: 300
+    unit: mm
+    status: calculated
+    basis:
+      - docs/03-design.md#fit
+  - key: lay.child_hip_x_mm
+    v: 550
+    unit: mm
+    status: calculated
+    basis:
+      - docs/03-design.md#fit
+  - key: lay.child_foot_raise_mm
+    v: 70
+    unit: mm
+    status: calculated
+    basis:
+      - docs/03-design.md#fit
+  - key: dsn.fender_mass_kg
+    v: 2.0
+    unit: kg
+    status: assumed
+    basis:
+      - Q-033
+  - key: cost.allow_fenders_jpy
+    v: 8000
+    unit: JPY
+    status: assumed
+    basis:
+      - Q-033
+  - key: w5.tyre_dia_mm
+    v: 635
+    unit: mm
+    status: assumed
+    basis:
+      - Q-034
+  - key: w5.tyre_width_mm
+    v: 300
+    unit: mm
+    status: assumed
+    basis:
+      - Q-034
+  - key: w5.wheel_mass_kg
+    v: 9
+    unit: kg
+    status: assumed
+    basis:
+      - Q-034
+  - key: w5.axle_teeth
+    v: 45
+    status: assumed
+    basis:
+      - Q-034
+  - key: cost.w5_wheel_jpy
+    v: 12000
+    unit: JPY
+    status: assumed
+    basis:
+      - Q-034
+  - key: cost.spr420_45t_jpy
+    v: 3000
+    unit: JPY
+    status: assumed
+    basis:
+      - Q-034
+  - key: sm.lift_mm
+    v: 218
+    unit: mm
+    status: assumed
+    basis:
+      - Q-029
+  - key: lay.front_disc_dia_mm
+    v: 120
+    unit: mm
+    status: calculated
+    basis:
+      - docs/03-design.md#brake
+  - key: cost.front_brakes_jpy
+    v: 15000
+    unit: JPY
+    status: assumed
+    basis:
+      - Q-033
+  - key: w5.out_teeth
+    v: 12
+    status: assumed
+    basis:
+      - Q-034
+  - key: dsn.battery_mass_kg
+    v: 2.1
+    unit: kg
+    status: sourced
+    basis:
+      - M74
   # begin: generated by calc/form_rough.py
   - key: form.mass_total_kg
     v: 170
@@ -2498,36 +2604,36 @@ items:
     basis:
       - docs/02-form.md#water
   - key: hull.foam_m3
-    v: 0.164
+    v: 0.161
     unit: m3
     status: calculated
     basis:
       - docs/02-form.md#water
   - key: hull.foam_share
-    v: 0.35
+    v: 0.34
     status: calculated
     basis:
       - docs/02-form.md#water
   - key: hull.mass_kg
-    v: 16.8
+    v: 16.7
     unit: kg
     status: calculated
     basis:
       - docs/02-form.md#water
   - key: water.draft_mm
-    v: 186
+    v: 184
     unit: mm
     status: calculated
     basis:
       - docs/02-form.md#water
   - key: water.freeboard_mm
-    v: 164
+    v: 166
     unit: mm
     status: calculated
     basis:
       - docs/02-form.md#water
   - key: water.gm_m
-    v: 0.195
+    v: 0.001
     unit: m
     status: calculated
     basis:
@@ -2539,7 +2645,7 @@ items:
     basis:
       - docs/02-form.md#water
   - key: water.depth_for_rider_mm
-    v: 358
+    v: 357
     unit: mm
     status: calculated
     basis:
@@ -2555,48 +2661,48 @@ items:
     basis:
       - docs/02-form.md#water
   - key: water.beam_for_one_mm
-    v: 1160
+    v: 1150
     unit: mm
     status: calculated
     basis:
       - docs/02-form.md#water
   - key: sm.mass_kg
-    v: 137.4
+    v: 135.2
     unit: kg
     status: calculated
     basis:
       - docs/02-form.md#snowmobile
   - key: sm.rear_share
-    v: 0.72
+    v: 0.56
     status: calculated
     basis:
       - docs/02-form.md#snowmobile
   - key: sm.track_pressure_kpa
-    v: 3.96
+    v: 3.08
     unit: kPa
     status: calculated
     basis:
       - docs/02-form.md#snowmobile
   - key: sm.ski_pressure_kpa
-    v: 4.53
+    v: 6.97
     unit: kPa
     status: calculated
     basis:
       - docs/02-form.md#snowmobile
   - key: sm.hull_pressure_kpa
-    v: 1.72
+    v: 1.71
     unit: kPa
     status: calculated
     basis:
       - docs/02-form.md#snowmobile
   - key: sm.track_sinkage_max_cm
-    v: 11.1
+    v: 9.3
     unit: cm
     status: calculated
     basis:
       - docs/02-form.md#snowmobile
   - key: sm.ski_sinkage_max_cm
-    v: 8.6
+    v: 11.7
     unit: cm
     status: calculated
     basis:
@@ -2620,24 +2726,24 @@ items:
     basis:
       - docs/02-form.md#snowmobile
   - key: sm.power_snow_kw
-    v: 0.72
+    v: 0.71
     unit: kW
     status: calculated
     basis:
       - docs/02-form.md#snowmobile
   - key: sm.cg_height_m
-    v: 0.546
+    v: 0.743
     unit: m
     status: calculated
     basis:
       - docs/02-form.md#snowmobile
   - key: sm.tip_ratio
-    v: 0.74
+    v: 0.51
     status: calculated
     basis:
       - docs/02-form.md#snowmobile
   - key: sm.length_min_m
-    v: 1.85
+    v: 1.94
     unit: m
     status: calculated
     basis:
@@ -2654,37 +2760,37 @@ items:
     basis:
       - docs/02-form.md#snowmobile
   - key: w4.wheel_sink_cm
-    v: 24.2
+    v: 24.0
     unit: cm
     status: calculated
     basis:
       - docs/02-form.md#snowmobile
   - key: w4.grip_n
-    v: 368
+    v: 364
     unit: N
     status: calculated
     basis:
       - docs/02-form.md#snowmobile
   - key: w4.resistance_n
-    v: 262
+    v: 259
     unit: N
     status: calculated
     basis:
       - docs/02-form.md#snowmobile
   - key: w4.resistance_bekker_n
-    v: 621
+    v: 610
     unit: N
     status: calculated
     basis:
       - docs/02-form.md#snowmobile
   - key: w4.wheel_drop_mm
-    v: 194
+    v: 193
     unit: mm
     status: calculated
     basis:
       - docs/02-form.md#snowmobile
   - key: w4.tyre_dia_min_mm
-    v: 484
+    v: 481
     unit: mm
     status: calculated
     basis:
@@ -2695,61 +2801,61 @@ items:
     basis:
       - docs/02-form.md#snowmobile
   - key: w4.dual_wheel_sink_cm
-    v: 16.9
+    v: 16.8
     unit: cm
     status: calculated
     basis:
       - docs/02-form.md#snowmobile
   - key: w4.dual_grip_n
-    v: 416
+    v: 411
     unit: N
     status: calculated
     basis:
       - docs/02-form.md#snowmobile
   - key: w4.dual_resistance_bekker_n
-    v: 541
+    v: 532
     unit: N
     status: calculated
     basis:
       - docs/02-form.md#snowmobile
   - key: w4.big_wheel_sink_cm
-    v: 17.2
+    v: 17.1
     unit: cm
     status: calculated
     basis:
       - docs/02-form.md#snowmobile
   - key: w4.big_grip_n
-    v: 463
+    v: 457
     unit: N
     status: calculated
     basis:
       - docs/02-form.md#snowmobile
   - key: w4.big_resistance_bekker_n
-    v: 436
+    v: 429
     unit: N
     status: calculated
     basis:
       - docs/02-form.md#snowmobile
   - key: w4.big_dual_wheel_sink_cm
-    v: 12.0
+    v: 11.9
     unit: cm
     status: calculated
     basis:
       - docs/02-form.md#snowmobile
   - key: w4.big_dual_grip_n
-    v: 513
+    v: 507
     unit: N
     status: calculated
     basis:
       - docs/02-form.md#snowmobile
   - key: w4.big_dual_resistance_bekker_n
-    v: 386
+    v: 380
     unit: N
     status: calculated
     basis:
       - docs/02-form.md#snowmobile
   - key: w4.dual_width_m
-    v: 1.55
+    v: 1.28
     unit: m
     status: calculated
     basis:
@@ -2783,19 +2889,55 @@ items:
     basis:
       - docs/02-form.md#straddle
   - key: st.child_fit_margin_mm
-    v: -5
+    v: -7
     unit: mm
     status: calculated
     basis:
       - docs/02-form.md#straddle
+  - key: mtt.tow_pull_packed_n
+    v: 276
+    unit: N
+    status: calculated
+    basis:
+      - docs/02-form.md#mtt
+  - key: mtt.tow_sled_kg
+    v: 141
+    unit: kg
+    status: calculated
+    basis:
+      - docs/02-form.md#mtt
+  - key: mtt.tow_power_kw
+    v: 0.78
+    unit: kW
+    status: calculated
+    basis:
+      - docs/02-form.md#mtt
+  - key: mtt.crawler180_pair_kpa
+    v: 8.1
+    unit: kPa
+    status: calculated
+    basis:
+      - docs/02-form.md#mtt
+  - key: mtt.crawler300_kpa
+    v: 4.8
+    unit: kPa
+    status: calculated
+    basis:
+      - docs/02-form.md#mtt
+  - key: mtt.crawler300_pair_kpa
+    v: 2.4
+    unit: kPa
+    status: calculated
+    basis:
+      - docs/02-form.md#mtt
   - key: cost.tub_jpy
-    v: 82992
+    v: 82881
     unit: JPY
     status: calculated
     basis:
       - docs/02-form.md#water
   - key: cost.winter_sm_jpy
-    v: 236992
+    v: 236881
     unit: JPY
     status: calculated
     basis:
@@ -2887,19 +3029,19 @@ items:
   # end: generated by calc/form_rough.py
   # begin: generated by calc/design.py
   - key: dsn.length_m
-    v: 1.53
+    v: 1.55
     unit: m
     status: calculated
     basis:
       - docs/03-design.md#layout
   - key: dsn.width_m
-    v: 1.277
+    v: 1.067
     unit: m
     status: calculated
     basis:
       - docs/03-design.md#layout
   - key: dsn.width_transport_m
-    v: 1.21
+    v: 1.067
     unit: m
     status: calculated
     basis:
@@ -2911,29 +3053,29 @@ items:
     basis:
       - docs/03-design.md#frame
   - key: dsn.tube_main_m
-    v: 3.37
+    v: 3.07
     unit: m
     status: calculated
     basis:
       - docs/03-design.md#frame
   - key: dsn.tube_cross_m
-    v: 7.14
+    v: 6.47
     unit: m
     status: calculated
     basis:
       - docs/03-design.md#frame
   - key: dsn.tube_roll_m
-    v: 4.05
+    v: 3.32
     unit: m
     status: calculated
     basis:
       - docs/03-design.md#rollbar
   - key: dsn.hub_bearing_gap_mm
-    v: 39
+    v: 48
     unit: mm
     status: calculated
     basis:
-      - docs/03-design.md#transport
+      - docs/03-design.md#axle
   - key: dsn.ratio_top
     v: 18.06
     status: calculated
@@ -2974,240 +3116,189 @@ items:
     basis:
       - docs/03-design.md#axle
   - key: dsn.turn_radius_m
-    v: 2.26
+    v: 2.31
     unit: m
     status: calculated
     basis:
       - docs/03-design.md#steering
-  - key: dsn.leg_margin_adult_mm
-    v: 148
-    unit: mm
-    status: calculated
-    basis:
-      - docs/03-design.md#fit
-  - key: dsn.leg_margin_child_mm
-    v: 179
+  - key: dsn.child_fit_margin_mm
+    v: 23
     unit: mm
     status: calculated
     basis:
       - docs/03-design.md#fit
   - key: dsn.pan_mass_kg
-    v: 3.2
+    v: 2.4
     unit: kg
     status: calculated
     basis:
       - docs/03-design.md#winter
   - key: dsn.winter_lift_mm
-    v: 218
-    unit: mm
-    status: calculated
-    basis:
-      - docs/03-design.md#winter
-  - key: dsn.winter_chain_centre_mm
-    v: 466
+    v: 155
     unit: mm
     status: calculated
     basis:
       - docs/03-design.md#winter
   - key: dsn.winter_chain_links
-    v: 96
+    v: 76
+    status: calculated
+    basis:
+      - docs/03-design.md#winter
+  - key: dsn.winter_thrust_n
+    v: 1304
+    unit: N
     status: calculated
     basis:
       - docs/03-design.md#winter
   - key: dsn.winter_top_speed_kmh
-    v: 16.0
+    v: 30.0
     unit: km/h
     status: calculated
     basis:
       - docs/03-design.md#winter
   - key: dsn.winter_clutch_lock_kmh
-    v: 2.3
+    v: 4.3
     unit: km/h
     status: calculated
     basis:
       - docs/03-design.md#winter
+  - key: dsn.winter_width_m
+    v: 1.18
+    unit: m
+    status: calculated
+    basis:
+      - docs/03-design.md#winter
   - key: dsn.mass_kg
-    v: 108.8
+    v: 105.9
     unit: kg
     status: calculated
     basis:
       - docs/03-design.md#mass
   - key: dsn.cg_x_m
-    v: 0.372
+    v: 0.413
     unit: m
     status: calculated
     basis:
       - docs/03-design.md#mass
   - key: dsn.cg_y_m
-    v: 0.084
+    v: -0.002
     unit: m
     status: calculated
     basis:
       - docs/03-design.md#mass
   - key: dsn.cg_z_m
-    v: 0.269
+    v: 0.282
     unit: m
     status: calculated
     basis:
       - docs/03-design.md#mass
   - key: dsn.frame_mass_kg
-    v: 12.3
+    v: 11.2
     unit: kg
     status: calculated
     basis:
       - docs/03-design.md#frame
   - key: dsn.rear_share_adult
-    v: 0.72
+    v: 0.565
     status: calculated
     basis:
       - docs/03-design.md#mass
   - key: dsn.cg_side_adult_mm
-    v: 1
+    v: -1
     unit: mm
     status: calculated
     basis:
       - docs/03-design.md#mass
   - key: dsn.cg_height_adult_m
-    v: 0.361
+    v: 0.558
     unit: m
     status: calculated
     basis:
       - docs/03-design.md#mass
   - key: dsn.tip_ratio_adult
-    v: 1.56
+    v: 0.79
+    status: calculated
+    basis:
+      - docs/03-design.md#stability
+  - key: dsn.pitch_ratio_adult
+    v: 0.84
     status: calculated
     basis:
       - docs/03-design.md#stability
   - key: dsn.rear_share_child
-    v: 0.639
+    v: 0.6
     status: calculated
     basis:
       - docs/03-design.md#mass
   - key: dsn.cg_side_child_mm
-    v: 58
+    v: -1
     unit: mm
     status: calculated
     basis:
       - docs/03-design.md#mass
   - key: dsn.cg_height_child_m
-    v: 0.283
+    v: 0.346
     unit: m
     status: calculated
     basis:
       - docs/03-design.md#mass
   - key: dsn.tip_ratio_child
-    v: 1.77
+    v: 1.27
+    status: calculated
+    basis:
+      - docs/03-design.md#stability
+  - key: dsn.pitch_ratio_child
+    v: 1.25
     status: calculated
     basis:
       - docs/03-design.md#stability
   - key: dsn.winter_mass_kg
-    v: 126.3
+    v: 115.0
     unit: kg
     status: calculated
     basis:
       - docs/03-design.md#winter
   - key: dsn.winter_cg_height_m
-    v: 0.526
+    v: 0.687
     unit: m
     status: calculated
     basis:
       - docs/03-design.md#winter
   - key: dsn.winter_rear_share
-    v: 0.725
-    status: calculated
-    basis:
-      - docs/03-design.md#winter
-  - key: dsn.winter_track_pressure_kpa
-    v: 3.8
-    unit: kPa
-    status: calculated
-    basis:
-      - docs/03-design.md#winter
-  - key: dsn.winter_ski_pressure_kpa
-    v: 4.24
-    unit: kPa
+    v: 0.588
     status: calculated
     basis:
       - docs/03-design.md#winter
   - key: dsn.winter_tip_ratio
-    v: 0.82
+    v: 0.64
     status: calculated
     basis:
       - docs/03-design.md#stability
-  - key: dsn.belly_area_m2
-    v: 0.98
-    unit: m2
+  - key: dsn.winter_pitch_ratio
+    v: 0.65
     status: calculated
     basis:
-      - docs/03-design.md#winter
-  - key: dsn.belly_pressure_kpa
-    v: 2.27
+      - docs/03-design.md#stability
+  - key: dsn.winter_ski_pressure_kpa
+    v: 6.04
     unit: kPa
     status: calculated
     basis:
       - docs/03-design.md#winter
   - key: dsn.belly_height_mm
-    v: 318
+    v: 255
     unit: mm
     status: calculated
     basis:
       - docs/03-design.md#winter
-  - key: dsn.tow_pull_packed_n
-    v: 372
-    unit: N
-    status: calculated
-    basis:
-      - docs/03-design.md#mtt
-  - key: dsn.tow_sled_kg
-    v: 189
-    unit: kg
-    status: calculated
-    basis:
-      - docs/03-design.md#mtt
-  - key: dsn.tow_power_kw
-    v: 0.92
-    unit: kW
-    status: calculated
-    basis:
-      - docs/03-design.md#mtt
-  - key: dsn.crawler180_pair_kpa
-    v: 10.0
-    unit: kPa
-    status: calculated
-    basis:
-      - docs/03-design.md#mtt
-  - key: dsn.crawler300_kpa
-    v: 5.9
-    unit: kPa
-    status: calculated
-    basis:
-      - docs/03-design.md#mtt
-  - key: dsn.crawler300_pair_kpa
-    v: 3.0
-    unit: kPa
-    status: calculated
-    basis:
-      - docs/03-design.md#mtt
-  - key: dsn.head_top_m
-    v: 1.19
-    unit: m
-    status: calculated
-    basis:
-      - docs/03-design.md#mtt
-  - key: dsn.rollbar_needed_mm
-    v: 1240
-    unit: mm
-    status: calculated
-    basis:
-      - docs/03-design.md#mtt
   - key: dsn.climb_force_n
-    v: 643
+    v: 634
     unit: N
     status: calculated
     basis:
       - docs/03-design.md#climb
   - key: dsn.climb_grip_n
-    v: 716
+    v: 596
     unit: N
     status: calculated
     basis:
@@ -3218,6 +3309,12 @@ items:
     status: calculated
     basis:
       - docs/03-design.md#climb
+  - key: dsn.climb_grade_max_pct
+    v: 17.5
+    unit: "%"
+    status: calculated
+    basis:
+      - docs/03-design.md#climb
   - key: dsn.axle_chain_pull_n
     v: 3635
     unit: N
@@ -3225,35 +3322,35 @@ items:
     basis:
       - docs/03-design.md#axle
   - key: dsn.axle_stress_mpa
-    v: 222
+    v: 200
     unit: MPa
     status: calculated
     basis:
       - docs/03-design.md#axle
   - key: dsn.axle_safety
-    v: 1.55
+    v: 1.72
     status: calculated
     basis:
       - docs/03-design.md#axle
   - key: dsn.frame_moment_nm
-    v: 568
+    v: 998
     unit: N m
     status: calculated
     basis:
       - docs/03-design.md#frame
   - key: dsn.rail_stress_mpa
-    v: 194
+    v: 340
     unit: MPa
     status: calculated
     basis:
       - docs/03-design.md#frame
   - key: dsn.rail_safety
-    v: 1.5
+    v: 0.85
     status: calculated
     basis:
       - docs/03-design.md#frame
   - key: dsn.bearing_load_n
-    v: 737
+    v: 571
     unit: N
     status: calculated
     basis:
@@ -3265,61 +3362,85 @@ items:
     basis:
       - docs/03-design.md#brake
   - key: dsn.brake_torque_needed_nm
-    v: 196
+    v: 194
     unit: N m
     status: calculated
     basis:
       - docs/03-design.md#brake
+  - key: dsn.brake_rear_alone_decel
+    v: 3.14
+    unit: m/s2
+    status: calculated
+    basis:
+      - docs/03-design.md#brake
   - key: dsn.brake_clamp_needed_n
-    v: 4383
+    v: 1527
     unit: N
     status: calculated
     basis:
       - docs/03-design.md#brake
+  - key: dsn.brake_front_clamp_needed_n
+    v: 1864
+    unit: N
+    status: calculated
+    basis:
+      - docs/03-design.md#brake
+  - key: dsn.brake_downhill_decel_rear
+    v: 0.08
+    unit: m/s2
+    status: calculated
+    basis:
+      - docs/03-design.md#brake
   - key: dsn.brake_downhill_decel
-    v: 0.88
+    v: 2.4
     unit: m/s2
     status: calculated
     basis:
       - docs/03-design.md#brake
   - key: dsn.brake_downhill_stop_m
-    v: 39.5
+    v: 14.4
     unit: m
     status: calculated
     basis:
       - docs/03-design.md#brake
   - key: dsn.delica_length_margin_mm
-    v: 80
+    v: 60
     unit: mm
     status: calculated
     basis:
       - docs/03-design.md#transport
   - key: dsn.delica_width_margin_mm
-    v: 20
+    v: 163
     unit: mm
     status: calculated
     basis:
       - docs/03-design.md#transport
   - key: dsn.height_m
-    v: 1.05
+    v: 1.07
     unit: m
     status: calculated
     basis:
       - docs/03-design.md#layout
+  - key: dsn.delica_height_margin_mm
+    v: 60
+    unit: mm
+    status: calculated
+    basis:
+      - docs/03-design.md#transport
   - key: dsn.winter_length_m
-    v: 2.15
+    v: 1.877
     unit: m
     status: calculated
     basis:
       - docs/03-design.md#winter
   - key: dsn.winter_height_m
-    v: 1.268
+    v: 1.225
     unit: m
     status: calculated
     basis:
       - docs/03-design.md#winter
   - key: dsn.bom_parts_jpy
-    v: 544644
+    v: 369525
     unit: JPY
     status: calculated
     basis:

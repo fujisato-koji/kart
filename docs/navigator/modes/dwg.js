@@ -9,7 +9,7 @@ export const ILLUSTRATIVE = {
   font: { dim: 3.2, title: 3.4, big: 5 },
   colours: { part: 'var(--dwg-ink)', fill: 'var(--dwg-fill)', hl: 'var(--dwg-hl)', dim: 'var(--dwg-dim)' },
   rollerFrac: 0.625, pillowWidthPerBore: 1.55, pillowBase: 0.42,
-  pedalPad: [0.14, 0.075], seat: { lip: 0.055, kneeFrac: 0.62, bump: 0.09, thick: 0.02 },
+  fenderHalfAngleDeg: 60, fenderThick: 0.006, // the arc over a wheel, as in the 3D view
   skiThickness: 0.022, skiTipRise: 0.1, skiTipFrac: 0.22, skiKickRise: 0.035, skiKickFrac: 0.08,
   margins: { left: 28, top: 20, gap: 36, dimGap: 7 },
   titleBlock: { w: 150, h: 46 },
@@ -18,10 +18,10 @@ export const ILLUSTRATIVE = {
 const I = ILLUSTRATIVE;
 const CONFIG_LABEL = { summer: '夏', winter: '冬（スノーモービル型）', transport: '搬送', water: '水（将来版）' };
 const PART_JA = {
-  frame: 'フレーム', floor: 'フロア板', bumpers: 'バンパー・サイドバー', seat: 'シート', seat_slide: 'シートスライド', pedal_box: 'ペダルボックス',
-  guards: 'チェーンガード', steering_wheel: 'ステアリングホイール', steering_column: 'ステアリングコラム', tie_rods: 'タイロッド', spindles: 'スピンドル',
+  frame: 'フレーム', bumpers: 'バンパー・サイドバー', seat: '座席（スクーターのもの）', handlebar: 'ハンドル（スクーターのもの）', footrests: '足置き', fenders: '泥よけ',
+  guards: 'チェーンガード', tie_rods: 'タイロッド', spindles: 'スピンドル',
   front_wheels: '前輪', axle_shaft: 'アクスル軸', axle_bearings: 'アクスル軸受', rear_hubs: '後輪ハブ', rear_wheels: '後輪', brake: 'ブレーキ',
-  engine: 'エンジン', chain_final: 'チェーン', skis: 'スキー', track_unit: 'キャタピラユニット', winter_chain: '冬のチェーン', sled_pan: 'そり底', side_floats: '浮き（将来版）', outboard: '船外機（将来版）', roll_bar: 'ロールバー', lighting: '灯火と方向指示器', mirrors: 'ミラー', horn: 'ホーン', speedometer: '速度計', seat_belt: 'シートベルト', head_restraint: 'ヘッドレスト', hand_brake: 'ハンドブレーキ', battery: 'バッテリー', number_plate: 'ナンバー',
+  engine: 'エンジン', chain_final: 'チェーン', skis: 'スキー', track_unit: 'キャタピラユニット', winter_chain: '冬のチェーン', sled_pan: 'そり底', side_floats: '浮き（将来版）', outboard: '船外機（将来版）', roll_bar: '転倒保護の輪', lighting: '灯火と方向指示器', mirrors: 'ミラー', horn: 'ホーン', speedometer: '速度計', hand_brake: '前輪ブレーキ（2 系統目）', battery: 'バッテリー', number_plate: 'ナンバー',
 };
 
 const CSS = `
@@ -92,7 +92,7 @@ export default function create(api) {
 
   // ------------------------------------------------------------------ geometry of the kart for this config
   const lift = () => (config === 'winter' && design.lift ? design.lift.winter || 0 : 0); // the chassis rides higher in winter; ground items stay
-  const shown = (it) => it.configs.includes(config) && !(it.type === 'pedals' && false);
+  const shown = (it) => it.configs.includes(config);
   function bounds() {
     let x0 = Infinity, x1 = -Infinity, y1 = 0, z1 = 0;
     let lf = 0;
@@ -106,7 +106,8 @@ export default function create(api) {
       if (it.type === 'float') { px(it.pos[0] - it.l / 2, it.pos[1] + Math.sign(it.pos[1]) * it.d / 2, it.pos[2] + it.d / 2); px(it.pos[0] + it.l / 2, 0, 0); }
       if (it.type === 'wheel') { px(it.pos[0] - it.od / 2, it.pos[1] + it.width / 2 * Math.sign(it.pos[1]), 0); px(it.pos[0] + it.od / 2, it.pos[1] + it.width / 2 * Math.sign(it.pos[1]), it.od); }
       else if (it.type === 'ski') { px(it.pos[0] - it.l / 2, it.pos[1] + it.w / 2 * Math.sign(it.pos[1]), 0); px(it.pos[0] + it.l / 2, it.pos[1], I.skiTipRise); }
-      else if (it.type === 'seat') px(it.pos[0], it.pos[1], it.pos[2] + it.h);
+      else if (it.type === 'saddle') px(it.pos[0], it.pos[1], it.pos[2] + it.h);
+      else if (it.type === 'handlebar') px(it.pos[0], it.width / 2, it.pos[2]);
     }
     return { x0, x1, y1, z1 };
   }
@@ -171,7 +172,7 @@ export default function create(api) {
   function shapes(it, view, P) { // svg for one item in one view; P projects model points
     const s = SC.v, pos = it.pos || [0, 0, 0], y = pos[1]; // track and sheet carry no pos
     switch (it.type) {
-      case 'plate': case 'guard': return boxRect(P, pos, ...it.size);
+      case 'plate': case 'guard': return boxRect(P, pos, ...it.size, it.rider ? 'dash' : ''); // items for one rider only are dashed
       case 'cyl': case 'hub': {
         const r = it.d / 2;
         return view === 'side' ? circ(P(pos[0], y, pos[2]), r * s) : boxRect(P, pos, r * 2, it.l, r * 2);
@@ -206,8 +207,6 @@ export default function create(api) {
       case 'box': return boxRect(P, pos, ...it.size);
       case 'gauge': return view === 'front' ? circ(P(...pos), it.d / 2 * s) : boxRect(P, pos, it.d * 0.9, it.d, it.d);
       case 'lever': return thick(P(...pos), P(...it.to), 0.016 * s);
-      case 'strap': return thick(P(...pos), P(...it.to), Math.max(it.w * s * 0.6, 1.2), 'thin');
-
       case 'clutch': return view === 'side' ? circ(P(pos[0], y, pos[2]), it.od / 2 * s) : boxRect(P, pos, it.od, it.l, it.od);
       case 'sprocket': return view === 'side' ? gearPath(P, it) : boxRect(P, pos, it.od, it.t, it.od);
       case 'chain': {
@@ -245,26 +244,23 @@ export default function create(api) {
         return view === 'plan' ? boxRect(P, [pos[0], y, 0], l, it.w, 0.01) : boxRect(P, [pos[0], y, t / 2], 0, it.w, t);
       }
       case 'rod': return thick(P(...it.pos), P(...it.to), Math.max(it.d * s, 0.8));
-      case 'rail': return thick(P(...it.pos), P(...it.to), it.d * s);
-      case 'steering_wheel': {
-        const t = it.tilt_deg * Math.PI / 180, n = [-Math.sin(t), 0, Math.cos(t)], u = [0, 1, 0], v = [n[1] * u[2] - n[2] * u[1], n[2] * u[0] - n[0] * u[2], n[0] * u[1] - n[1] * u[0]];
-        const pts = ringSamples(it.pos, n, u, v, it.d / 2).map((p) => P(...p));
-        return poly(pts) + line(P(...it.pos), P(...it.pos), 'thin');
-      }
-      case 'seat': {
-        const { w, l, h } = it, K = I.seat, x = pos[0], z = pos[2];
-        if (view === 'side') return poly([P(x + l, y, z + K.lip), P(x + l * K.kneeFrac, y, z), P(x + K.bump, y, z + 0.025), P(x + 0.025, y, z + 0.1), P(x, y, z + h * 0.45), P(x - 0.02, y, z + h), P(x - 0.02 + K.thick, y, z + h), P(x + K.thick, y, z + h * 0.45), P(x + 0.04, y, z + 0.1), P(x + K.bump + 0.03, y, z + 0.045), P(x + l * K.kneeFrac, y, z + K.thick), P(x + l, y, z + K.lip + K.thick)]);
-        if (view === 'plan') return boxRect(P, [x + l / 2, y, z], l, w, 0.01) + boxRect(P, [x - 0.01, y, z], 0.04, w * 0.85, 0.01, 'thin');
-        return boxRect(P, [x, y, z + h / 2], 0.04, w * 0.85, h) + boxRect(P, [x + l / 2, y, z + 0.03], l, w, 0.06, 'thin dash');
-      }
-      case 'pedals': {
-        const [pl, pw] = I.pedalPad, c = [pos[0] + 0.03, pos[1], pos[2] + 0.09];
-        let out = '';
-        for (const sy of [-1, 1]) {
-          const yy = pos[1] + sy * it.spacing / 2;
-          out += boxRect(P, [c[0], yy, c[2]], pl * 0.8, pw, pl * 0.5, it.rider === 'child' ? 'dash' : '') + thick(P(pos[0] - 0.04, yy, pos[2] + 0.02), P(c[0], yy, c[2]), 0.016 * s);
-        }
+      case 'saddle': return boxRect(P, [pos[0], y, pos[2] + it.h / 2], it.l, it.w, it.h);
+      case 'handlebar': {
+        const half = it.width / 2, gl = it.grips;
+        let out = boxRect(P, pos, it.d, it.width, it.d);
+        for (const sg of [-1, 1]) out += boxRect(P, [pos[0], sg * (half - gl / 2), pos[2]], it.d * 1.45, gl, it.d * 1.45, 'thin');
         return out;
+      }
+      case 'fender': {
+        const r = it.od / 2, a = I.fenderHalfAngleDeg * Math.PI / 180, t = I.fenderThick, N = 16;
+        if (view === 'side') {
+          const outer = [], inner = [];
+          for (let i = 0; i <= N; i++) { const q = -a + 2 * a * i / N; outer.push(P(pos[0] + r * Math.sin(q), y, pos[2] + r * Math.cos(q))); inner.push(P(pos[0] + (r - t) * Math.sin(q), y, pos[2] + (r - t) * Math.cos(q))); }
+          return poly(outer.concat(inner.reverse()));
+        }
+        const zb = pos[2] + r * Math.cos(a);
+        return view === 'plan' ? boxRect(P, [pos[0], y, pos[2] + r], 2 * r * Math.sin(a), it.width, t)
+          : boxRect(P, [pos[0], y, (zb + pos[2] + r) / 2], 0, it.width, pos[2] + r - zb);
       }
       case 'track': { // the band round its wheels: a hull outline in the side view, rectangles in the others
         const t = it.t, hp = [];

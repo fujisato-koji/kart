@@ -136,31 +136,24 @@ items:
     detail: An independent helper checked the persons formula against the text of articles 102 and 103 of the Small Vessel Safety Rules (P55) and recomputed it by hand - index 0.607 (0.822 by the second formula), so nobody, and one person first at a beam of 1,160 mm. Taking the stern freeboard equal to the freeboard amidships is right for a level box; whether other articles limit the persons of a small boat was not checked.
   - id: K-009
     target:
-      - dsn.winter_lift_mm
-      - dsn.winter_mass_kg
-      - dsn.winter_tip_ratio
-      - dsn.winter_track_pressure_kpa
-      - dsn.winter_chain_links
-      - dsn.belly_pressure_kpa
+      - track_unit
     tier: T2
     method: refute
     result: pass
     by: assistant
     date: 2026-11-04
-    detail: An independent helper recomputed the winter form of 1.3.12 by hand and searched docs/data/design.json for interferences in the lifted winter form, in two rounds. The first found two errors (a bow of two panels called three; foam counted twice under the pod) and six interferences - the winter chain through the left pan strip and a cross member, hanging brackets through the pan and the floor, the slide rails' arms through the track's upper run, and a drive shaft too short. The design was changed - a wider tunnel, the cross member moved to 0.55 m, side plates beside the track carrying cross shafts inside the loop, the edge to the ski's outer corner, the belly counted with the track, stanchions and a chain guard added. The second round found all fixed but two new faults, the rear lugs drawn with the lift counted twice and the calipers through the right side plate; the assistant fixed both and checked the clearances from design.json (7 mm each). Clearances under 10 mm remain at the bow, the horn, the side plates' tops, and the chain to the left plate. The winter chain's 96 links sit at the boundary of the length formula. sm.removed_kg of 1.2 is not used by the design.
+    detail: An independent helper recomputed the winter form of 1.3.12 by hand and searched docs/data/design.json for interferences in the lifted winter form, in two rounds. The first found two errors (a bow of two panels called three; foam counted twice under the pod) and six interferences - the winter chain through the left pan strip and a cross member, hanging brackets through the pan and the floor, the slide rails' arms through the track's upper run, and a drive shaft too short. The design was changed - a wider tunnel, the cross member moved to 0.55 m, side plates beside the track carrying cross shafts inside the loop, the edge to the ski's outer corner, the belly counted with the track, stanchions and a chain guard added. The second round found all fixed but two new faults, the rear lugs drawn with the lift counted twice and the calipers through the right side plate; the assistant fixed both and checked the clearances from design.json (7 mm each). Clearances under 10 mm remain at the bow, the horn, the side plates' tops, and the chain to the left plate. The winter chain's 96 links sit at the boundary of the length formula. sm.removed_kg of 1.2 is not used by the design. Superseded when 1.3 was redone for the straddle kart (D-030), whose winter form is W5; the values it checked no longer exist, so it now points at the track unit.
   - id: K-010
     target:
-      - dsn.tow_pull_packed_n
-      - dsn.tow_sled_kg
-      - dsn.crawler300_pair_kpa
-      - dsn.head_top_m
-      - dsn.rollbar_needed_mm
+      - mtt.tow_pull_packed_n
+      - mtt.tow_sled_kg
+      - mtt.crawler300_pair_kpa
     tier: T2
     method: refute
     result: pass
     by: assistant
     date: 2026-11-04
-    detail: An independent helper recomputed the towing pull and sled mass, the crawlers' pressures, and the head and roll bar heights of 1.3.17 by hand; all reproduce and the physics is stated rightly. It found three overstated wordings (the 180 crawler not stated in stock, a pair of 300s beating rather than matching the donor's track, the base of twice the weight) and one claim without a source about tracks on pavement; all four were reworded the same day. The sitting height ratio comes from men of 18 to 29 and is applied to the tallest driver's stature.
+    detail: An independent helper recomputed the towing pull and sled mass, the crawlers' pressures, and the head and roll bar heights of 1.3.17 by hand; all reproduce and the physics is stated rightly. It found three overstated wordings (the 180 crawler not stated in stock, a pair of 300s beating rather than matching the donor's track, the base of twice the weight) and one claim without a source about tracks on pavement; all four were reworded the same day. The sitting height ratio comes from men of 18 to 29 and is applied to the tallest driver's stature. When 1.3 was redone for the straddle kart (D-030) the towing and crawler figures moved with their section to 1.2.17 and are recomputed there from the snowmobile form's numbers, which differ slightly and were not checked again; the roll bar figures no longer exist.
   - id: K-011
     target:
       - w4.share_min
@@ -187,3 +180,17 @@ items:
     by: assistant
     date: 2026-11-04
     detail: An independent helper recomputed the straddle kart's centre of mass, ratios, size, and the child's fit by hand; all reproduce and the physics is stated rightly. It found the 198,000 JPY buggy described as registered as a minicar when its listing only says road-usable, a makers' argument attributed to P68 that its note does not hold, the helmet rule stated beyond minicars, the kart said to be sized like quads whose track is narrower, the saving rounded up and not net of a second caliper, and the tilt-table wording vague with a fore-and-aft margin of only 0.02; all were reworded the same day.
+  - id: K-013
+    target:
+      - dsn.tip_ratio_adult
+      - dsn.pitch_ratio_adult
+      - dsn.winter_tip_ratio
+      - dsn.axle_stress_mpa
+      - dsn.rail_safety
+      - dsn.brake_downhill_decel
+    tier: T2
+    method: refute
+    result: fail
+    by: assistant
+    date: 2026-11-04
+    detail: An independent helper recomputed the straddle kart of 1.3 by hand - every main value reproduced - and searched design.json for interferences. It found the winter fore-and-aft ratio not computed (0.65 against 0.8), the winter top speed over 30 km/h, the axle's torsion and the forward load transfer in braking left out, about 2 to 5 kg of parts missing from the masses, the rear turn signals inside the large winter tyres, the 45T sprocket against the outriggers, the chain guard through the middle bearing, the heel pinned at the footboard's front edge with the toes reaching the front tyres at full lock, and several wordings. The same day the wheelbase grew to 1.08 m with a shorter front overhang, a 12T winter output sprocket holds 30 km/h, the axle stress is combined by von Mises, the braking is shared between the axles, the outriggers, guard, turn signals, mirrors, and front calipers moved, and the masses were completed. It stays a fail because the spine's safety factor is 0.85 and the winter fore-and-aft ratio 0.65; these and the remaining small clearances are in Q-035.

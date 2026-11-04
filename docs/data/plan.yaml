@@ -34,7 +34,7 @@ tasks:
       - d3
     parts:
       - frame
-      - floor
+      - footrests
       - axle_shaft
   - id: p2
     phase: procure
@@ -54,7 +54,6 @@ tasks:
       - engine
       - chain_final
       - lighting
-      - seat_belt
       - axle_bearings
       - rear_hubs
       - front_wheels
@@ -62,7 +61,7 @@ tasks:
       - brake
       - spindles
       - tie_rods
-      - steering_wheel
+      - handlebar
   - id: p4
     phase: procure
     title: Delivery of bought parts, some from abroad
@@ -110,7 +109,7 @@ tasks:
       - brake
   - id: b4
     phase: build
-    title: Fit the spindles, steering column, tie rods, and front wheels
+    title: Fit the spindles, the steering stem with the donor's handlebar, tie rods, and front wheels
     kind: work
     days: 3
     after:
@@ -130,7 +129,7 @@ tasks:
       - powertrain
   - id: b6
     phase: build
-    title: Fit the seat, belt, head restraint, pedal box, hand brake, throttle cable, and stop switches
+    title: Fit the donor's seat, the footboards and child steps, the levers and cables, hand brake, and stop switches
     kind: work
     days: 2
     after:
@@ -138,23 +137,21 @@ tasks:
       - b5
     parts:
       - seat
-      - seat_slide
-      - seat_belt
-      - head_restraint
-      - pedal_box
+      - footrests
+      - handlebar
       - hand_brake
       - throttle
       - kill_switch
   - id: b7
     phase: build
-    title: Make and fit the chain and axle guards and the floor plate
+    title: Make and fit the chain and axle guards and the fenders
     kind: work
     days: 2
     after:
       - b6
     parts:
       - guards
-      - floor
+      - footrests
   - id: b8
     phase: build
     title: Paint the frame
@@ -171,7 +168,7 @@ tasks:
       - b8
   - id: t1
     phase: test
-    title: Static checks - fit for the child and the adult, guards, stop switches
+    title: Static checks - fit for the child and the adult, tilt check, guards, stop switches
     kind: work
     days: 1
     after:
@@ -236,24 +233,24 @@ tasks:
       - R-06
   - id: w1
     phase: build
-    title: Buy the donor snowmobile, strip its track unit, and measure it (Q-029), if W4 falls short
+    title: Buy large low-pressure tyres, a 45T sprocket, and a winter chain (W5), if W4 falls short
     kind: work
     days: 3
     after:
       - t6
     parts:
-      - track_unit
+      - rear_wheels
+      - chain_final
   - id: w2
     phase: build
-    title: Make the pivot shaft, brackets, ski stanchions, winter chain, and sled pan
+    title: Make the ski stanchions, fit the large tyres, and finish the sled pan
     kind: work
     days: 6
     after:
       - w1
     parts:
-      - track_unit
       - skis
-      - winter_chain
+      - rear_wheels
       - sled_pan
   - id: t5
     phase: test
@@ -269,7 +266,7 @@ tasks:
       - R-28
   - id: r1
     phase: build
-    title: Fit the roll bar, lamps, turn signals, mirrors, horn, speedometer, and number plate
+    title: Fit the protective hoop, the donor's lamps, turn signals, mirrors, horn, the speedometer, and number plate
     kind: work
     days: 3
     after:
