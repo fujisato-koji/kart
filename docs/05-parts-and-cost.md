@@ -18,7 +18,7 @@ The list is the cut one of D-033. It is still above the guideline; the owner cho
 - The winter parts: the pan's sheet cut to order (half a square metre, M57, M82), ski runners, the ski brackets made in house, and the rear chains (M15).
 - The steel for the frame, the swing arm, and the hoop, in two tube sizes (D-037); the larger tube's price is assumed (Q-018).
 
-The frame pass of D-036 and D-037 added the shock and a larger spine tube and took away a bearing, the bearing outriggers, and the square tube: the parts list rose by the shock's price less those savings.
+The frame pass of D-036 and D-037 added the shock and a larger spine tube and took away a bearing, the bearing outriggers, and the square tube: the parts list rose by the shock's price less those savings. The check for rough ground and the ride height of D-038 then took a still larger tube, a 35 mm axle in larger bearings, a stronger bumper, and a chain tensioner (1.3.18).
 
 What the cut list changed, against the list before D-033: the donor at the lower price (M76), the front end on ATV parts in place of kart spindles, hubs, and an allowance for cable discs, an LCD meter with its own sensor (M94) in place of a meter and sensor bought apart, ATV fenders as sold (M95), the pan's sheet bought by the area it needs, and the ski brackets welded from the frame's steel. The wheels with tyres were priced and came below their allowance.
 

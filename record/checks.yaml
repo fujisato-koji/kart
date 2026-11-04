@@ -194,3 +194,23 @@ items:
     by: assistant
     date: 2026-11-04
     detail: An independent helper recomputed the straddle kart of 1.3 by hand - every main value reproduced - and searched design.json for interferences. It found the winter fore-and-aft ratio not computed (0.65 against 0.8), the winter top speed over 30 km/h, the axle's torsion and the forward load transfer in braking left out, about 2 to 5 kg of parts missing from the masses, the rear turn signals inside the large winter tyres, the 45T sprocket against the outriggers, the chain guard through the middle bearing, the heel pinned at the footboard's front edge with the toes reaching the front tyres at full lock, and several wordings. The same day the wheelbase grew to 1.08 m with a shorter front overhang, a 12T winter output sprocket holds 30 km/h, the axle stress is combined by von Mises, the braking is shared between the axles, the outriggers, guard, turn signals, mirrors, and front calipers moved, and the masses were completed. It stays a fail because the spine's safety factor is 0.85 and the winter fore-and-aft ratio 0.65; these and the remaining small clearances are in Q-035.
+  - id: K-014
+    target:
+      - load.bump_g
+      - load.twist_rough
+      - load.impact_g
+      - load.hoop_crush_n_per_kg
+      - land.shock_eff
+      - fat.gamma_mf
+      - dsn.rail_safety
+      - dsn.impact_safety
+      - dsn.hoop_crush_safety
+      - dsn.landing_rear_g
+      - dsn.fatigue_g_tube
+      - dsn.clearance_bump_rear_mm
+    tier: T2
+    method: refute
+    result: partial
+    by: assistant
+    date: 2026-11-04
+    detail: An independent helper fetched every source of 1.3.18 and 1.3.19 and found the values as recorded, and tested calc/frame.py against hand formulas in 40 cases (cantilevers, beams, torsion, the hinge, links) to within 0.08 %. It refuted the shock's energy efficiency of 0.8, which the source gives for a metered oleo, not a steel spring (about 0.5), so the rear lands harder; a frontal 4 g below the scaled range of 4.3 to 5.4 g; fatigue taken from the seated bump only, which one lifted wheel exceeds by 30 %, with the lowest partial factor; a life misstated as a few hundred kilometres; the pan's clearance in a full bump (66 mm, not 78); and two quad clearances outside their notes. The frame's shortfall and the axle's held under every other modelling choice it tried; the bumper's only against a narrow obstacle (against a wall the tyres strike first); the hoop's depends on how it is loaded. All were corrected the same day - shock efficiency 0.5, impact 5 g, fatigue from the worst case with a partial factor of 1.35, the clearance from the pan, the quads' range - and the hoop's loading is stated in Q-040.

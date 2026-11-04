@@ -331,3 +331,14 @@ items:
       - Q-035
       - D-030
       - R-14
+  - id: D-038
+    date: 2026-11-04
+    by: owner
+    what: For rough ground the kart stands 150 mm off the ground under its frame, at the clearance of a small sport quad (1.3.19). The frame and the sled pan under it go up by about 40 mm and the seat back to 600 mm, giving up part of the lower seat of D-037.
+    options:
+      - keep the lower seat, 112 mm under the frame in summer with the sled pan off
+      - 150 mm under the frame, the seat at 600 mm
+    touches:
+      - D-037
+      - Q-042
+      - R-04

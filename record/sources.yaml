@@ -1433,6 +1433,110 @@ items:
     license: unknown
     read: partial
     note: Read by a helper. 2,600 JPY, free shipping; roller on a spring arm; quantity not stated. Others 4,580 JPY.
+  - id: P72
+    class: P
+    title: Riley and George, Design, Analysis and Testing of a Formula SAE Car Chassis, SAE 2002-01-3300
+    url: https://www.slideshare.net/ELKINMAURICIOGONZALE/chassis-2002-013300-design-analysis-and-testing-of-a-formula-sae-car-chassis
+    retrieved: 2026-11-04
+    license: unknown
+    read: partial
+    note: Read by a helper. Frame load cases of 3.5 g bump, 1.5 g braking, and 1.5 g lateral, individual and combined, said to meet durability needs from more than ten years at Cornell; paved racing; no further safety factor stated.
+  - id: P73
+    class: P
+    title: Singh, Structural Performance Analysis of Formula SAE Car, Jurnal Mekanikal 31, 2010
+    url: https://jurnalmekanikal.utm.my/index.php/jurnalmekanikal/article/download/102/101
+    retrieved: 2026-11-04
+    license: unknown
+    read: partial
+    note: Read by a helper. The same 3.5, 1.5, and 1.5 g, cited to Milliken's Race Car Vehicle Dynamics.
+  - id: P74
+    class: P
+    title: Bennett and others, SAE Mini Baja Frame Analysis, Northern Arizona University, 2014
+    url: https://sce.nau.edu/capstone/projects/ME/2014/SAE-MiniBaja/team_01/team_01-engineering-analysis-report.pdf
+    retrieved: 2026-11-04
+    license: unknown
+    read: full
+    note: Read by a helper. Baja car of 20 to 30 mph with a 250 lb driver - inverted drop from 10 ft over a 0.1 s impulse, a wall at 35 mph over 0.2 s (about 8 g), struck at rear and side by a 500 lb car at 35 mph; yield safety factors 5.3, 2.9, 1.45, and 1.01.
+  - id: P75
+    class: P
+    title: Devi and Dilip, Design and Optimisation of SAE Mini Baja Chassis, IJERA 4(9), 2014
+    url: https://www.slideshare.net/slideshow/p49059397/40530690
+    retrieved: 2026-11-04
+    license: unknown
+    read: full
+    note: Read by a helper. 320 kg with driver at 35 mph - front 10 g, side 5 g, rear 5 g, rollover 2.5 g, with a yield safety factor of 2 on top.
+  - id: P76
+    class: P
+    title: NIOSH, CROPS Massey Ferguson 135 testing information, to SAE J2194, 2021
+    url: https://archive.cdc.gov/www_cdc_gov/niosh/topics/aginjury/crops/pdfs/mf-135/MF_135_Testing_Report_March-11-2021-508.pdf
+    retrieved: 2026-11-04
+    license: unknown
+    read: partial
+    note: Read by a helper. Tractor rollover structure - longitudinal energy 1.4 m J, side energy 1.75 m J, vertical crush 20 m N, m the reference mass in kg.
+  - id: P77
+    class: P
+    title: Yamaha YFZ50 2023 specifications
+    url: https://www.yamahamotorsports.com/models/23-yfz50/specs
+    retrieved: 2026-11-04
+    license: unknown
+    read: full
+    note: Read by a helper. Ground clearance 3.5 in, stated as maximum.
+  - id: P78
+    class: P
+    title: Suzuki QuadSport Z50 2026
+    url: https://www.globalsuzuki.com/motorcycle/smgs/products/2026quadsport_z50/
+    retrieved: 2026-11-04
+    license: unknown
+    read: full
+    note: Read by a helper. Ground clearance 120 mm. Other youth quads - Honda TRX90X 3.9 in, Kawasaki KFX50 3.3 in and KFX90 3.9 in, Polaris Outlaw 70 4 in.
+  - id: P79
+    class: P
+    title: Honda TRX250X 2023 specifications
+    url: https://hondanews.com/en-US/releases/release-907c81858bdfe231c1cc3d0f700b91e2-2023-honda-trx250x-specifications
+    retrieved: 2026-11-04
+    license: unknown
+    read: full
+    note: Read by a helper. Ground clearance 5.7 in; the Yamaha YFZ450R sport quad has 9.3 in.
+  - id: P80
+    class: P
+    title: Yamaha Grizzly EPS 2026 specifications
+    url: https://yamahamotorsports.com/models/26-grizzly-eps/specs
+    retrieved: 2026-11-04
+    license: unknown
+    read: full
+    note: Read by a helper. Ground clearance 11.3 in; utility quads of Honda and Polaris have 9.7 to 11.5 in.
+  - id: S8
+    class: S
+    title: Ibrahim, Loads on Vehicle Structures, course chapter 9
+    url: https://heltaher.com/autobook/chapters/chapter_9.html
+    retrieved: 2026-11-04
+    license: unknown
+    read: full
+    note: Read by a helper. Road vehicles - vertical bending 2 to 3, higher off road; torsion with one wheel raised 1.3 to 1.8, 1.8 for rough roads; braking 1.1 to 1.84 g; longitudinal bump 4.5; lateral at most 1 g.
+  - id: S9
+    class: S
+    title: Irvine, Aircraft Landing Gear Dynamic Analysis, Vibrationdata
+    url: https://blog.vibrationdata.com/?p=151076
+    retrieved: 2026-11-04
+    license: unknown
+    read: full
+    note: Read by a helper. Efficiency of the force-stroke curve - about 0.47 for a tyre, about 0.8 for a well-metered oleo shock, and closer to 0.5 for a steel spring.
+  - id: S10
+    class: S
+    title: EN 1993-1-9 tables 8.6 and 8.7 on hollow sections, secondary copy
+    url: https://dnaop.com/html/59545_7.html
+    retrieved: 2026-11-04
+    license: unknown
+    read: partial
+    note: Read by a helper; the copy is garbled in places. Fatigue detail categories - round tube butt-welded or to a plate 71; with an intermediate plate, fillet welded, round 40; round K and N gap joints 90.
+  - id: S11
+    class: S
+    title: IDEA StatiCa, Fatigue analysis according to EN 1993-1-9
+    url: https://www.ideastatica.com/support-center/fatigue-analysis-according-to-en-1993-1-9
+    retrieved: 2026-11-04
+    license: unknown
+    read: full
+    note: Read by a helper. The category is the stress range at 2 million cycles; the fatigue limit is (2/5)^(1/3) of it; S-N slope 3, then 5; partial factor 1.0 to 1.35.
   - id: F1
     class: F
     title: Motor1, a shifter kart turned into a snowmobile, 2025-02-02

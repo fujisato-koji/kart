@@ -6,9 +6,9 @@
 schema: 1
 lines:
   - part: frame
-    item: STKM11A round tube 38.1 x 2.3, spine rails, posts, struts, pivot tube, swing arm, and hoop (m)
-    qty: 9
-    price: cost.tube_38x23_jpy_per_m
+    item: STKM11A round tube 48.6 x 2.3, spine rails, posts, struts, pivot tube, swing arm, bumper, and hoop (m)
+    qty: 10
+    price: cost.tube_48x23_jpy_per_m
     need: b1
   - part: frame
     item: STKM11A round tube 25.4 x 1.6, cross members, footboard supports, upper rails, bumpers (m)
@@ -26,14 +26,14 @@ lines:
     price: cost.plate_allow_jpy
     need: b1
   - part: axle_shaft
-    item: Axle shaft S45C 30 mm, 0.85 m, keyways
+    item: Axle shaft S45C 35 mm, 0.85 m, keyways
     qty: 1
     price: cost.axle_shaft_jpy
     need: b3
   - part: axle_bearings
-    item: Pillow block UCP206 (FYH), one each side under the swing arm
+    item: Pillow block UCP207 (FYH), one each side under the swing arm
     qty: 2
-    price: cost.ucp206_jpy
+    price: cost.ucp207_jpy
     need: b3
   - part: rear_hubs
     item: Rear hub, keyed 25 mm boss with a flange for the rim, made
@@ -143,12 +143,17 @@ lines:
     price: cost.chain420_jpy
     need: b5
   - part: chain_final
-    item: Sprocket 420, 15T on the engine unit's output (with an adapter, machined)
+    item: Chain tensioner with a spring roller on the swing arm, for the chain's changing centre distance
+    qty: 1
+    price: cost.chain_tensioner_jpy
+    need: b5
+  - part: chain_final
+    item: Sprocket 420, 14T on the engine unit's output (with an adapter, machined)
     qty: 1
     price: cost.spr420_15t_jpy
     need: b5
   - part: chain_final
-    item: Sprocket 420, 42T on the axle carrier
+    item: Sprocket 420, 40T on the axle carrier
     qty: 1
     price: cost.spr420_42t_jpy
     need: b5

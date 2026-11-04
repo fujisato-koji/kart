@@ -1107,7 +1107,7 @@ items:
     basis:
       - docs/03-design.md#layout
   - key: lay.rail_bottom_mm
-    v: 112
+    v: 156
     unit: mm
     status: calculated
     basis:
@@ -1217,13 +1217,13 @@ items:
     basis:
       - docs/03-design.md#drive
   - key: dsn.axle_dia_mm
-    v: 30
+    v: 35
     unit: mm
     status: calculated
     basis:
       - docs/03-design.md#axle
   - key: dsn.rail_od_mm
-    v: 38.1
+    v: 48.6
     unit: mm
     status: calculated
     basis:
@@ -1252,11 +1252,6 @@ items:
     status: calculated
     basis:
       - docs/03-design.md#frame
-  - key: dsn.load_factor
-    v: 2.5
-    status: assumed
-    basis:
-      - Q-017
   - key: dsn.steel_density_kg_m3
     v: 7850
     unit: kg/m3
@@ -1588,12 +1583,12 @@ items:
     basis:
       - Q-023
   - key: gear.t_out420
-    v: 15
+    v: 14
     status: calculated
     basis:
       - docs/03-design.md#drive
   - key: gear.t_axle420
-    v: 42
+    v: 40
     status: calculated
     basis:
       - docs/03-design.md#drive
@@ -1616,7 +1611,7 @@ items:
     basis:
       - docs/03-design.md#drive
   - key: lay.rollbar_top_mm
-    v: 910
+    v: 950
     unit: mm
     status: calculated
     basis:
@@ -2258,7 +2253,7 @@ items:
     basis:
       - docs/03-design.md#steering
   - key: lay.footrest_height_mm
-    v: 150
+    v: 180
     unit: mm
     status: calculated
     basis:
@@ -2294,7 +2289,7 @@ items:
     basis:
       - docs/03-design.md#steering
   - key: lay.bar_z_mm
-    v: 820
+    v: 860
     unit: mm
     status: calculated
     basis:
@@ -2318,7 +2313,7 @@ items:
     basis:
       - docs/03-design.md#layout
   - key: lay.seat_height_mm
-    v: 560
+    v: 600
     unit: mm
     status: calculated
     basis:
@@ -2532,7 +2527,7 @@ items:
     basis:
       - M99
   - key: lay.pivot_x_mm
-    v: 170
+    v: 175
     unit: mm
     status: calculated
     basis:
@@ -2591,35 +2586,6 @@ items:
     status: assumed
     basis:
       - Q-039
-  - key: brg.ucp206_h_mm
-    v: 42.9
-    unit: mm
-    status: assumed
-    basis:
-      - Q-039
-  - key: brg.ucp206_l_mm
-    v: 165
-    unit: mm
-    status: assumed
-    basis:
-      - Q-039
-  - key: brg.ucp206_h2_mm
-    v: 83
-    unit: mm
-    status: assumed
-    basis:
-      - Q-039
-  - key: brg.ucp206_mass_kg
-    v: 1.3
-    unit: kg
-    status: assumed
-    basis:
-      - Q-039
-  - key: dsn.load_factor_twist
-    v: 1.5
-    status: assumed
-    basis:
-      - Q-017
   - key: dsn.frame_safety_min
     v: 1.5
     status: assumed
@@ -2645,6 +2611,166 @@ items:
       - M103
   - key: cost.tube_38x23_jpy_per_m
     v: 2000
+    unit: JPY
+    status: assumed
+    basis:
+      - Q-018
+  - key: load.bump_g
+    v: 3.5
+    status: sourced
+    basis:
+      - P72
+  - key: load.brake_g
+    v: 1.5
+    status: sourced
+    basis:
+      - P72
+  - key: load.lateral_g
+    v: 1.5
+    status: sourced
+    basis:
+      - P72
+  - key: load.twist_rough
+    v: 1.8
+    status: sourced
+    basis:
+      - S8
+  - key: load.combined_vert_g
+    v: 2.0
+    status: assumed
+    basis:
+      - Q-040
+  - key: load.combined_brake_g
+    v: 1.0
+    status: assumed
+    basis:
+      - Q-040
+  - key: load.combined_lat_g
+    v: 1.0
+    status: assumed
+    basis:
+      - Q-040
+  - key: load.impact_g
+    v: 5.0
+    status: assumed
+    basis:
+      - Q-040
+  - key: load.hoop_crush_n_per_kg
+    v: 20
+    unit: N/kg
+    status: sourced
+    basis:
+      - P76
+  - key: load.hoop_side_g
+    v: 1.0
+    status: assumed
+    basis:
+      - Q-040
+  - key: load.accident_safety_min
+    v: 1.0
+    status: assumed
+    basis:
+      - Q-040
+  - key: land.tyre_eff
+    v: 0.47
+    status: sourced
+    basis:
+      - S9
+  - key: land.shock_eff
+    v: 0.5
+    status: sourced
+    basis:
+      - S9
+  - key: land.tyre_defl_mm
+    v: 50
+    unit: mm
+    status: assumed
+    basis:
+      - Q-040
+  - key: land.drop_ref_mm
+    v: 150
+    unit: mm
+    status: assumed
+    basis:
+      - Q-040
+  - key: fat.cat_tube_mpa
+    v: 71
+    unit: MPa
+    status: sourced
+    basis:
+      - S10
+  - key: fat.cat_fillet_mpa
+    v: 40
+    unit: MPa
+    status: sourced
+    basis:
+      - S10
+  - key: fat.gamma_mf
+    v: 1.35
+    status: assumed
+    basis:
+      - Q-040
+  - key: fat.range_g
+    v: 1.0
+    status: assumed
+    basis:
+      - Q-040
+  - key: atv.clear_youth_low_mm
+    v: 84
+    unit: mm
+    status: sourced
+    basis:
+      - P78
+  - key: atv.clear_youth_high_mm
+    v: 120
+    unit: mm
+    status: sourced
+    basis:
+      - P78
+  - key: atv.clear_sport_small_mm
+    v: 145
+    unit: mm
+    status: sourced
+    basis:
+      - P79
+  - key: atv.clear_utility_mm
+    v: 292
+    unit: mm
+    status: sourced
+    basis:
+      - P80
+  - key: brg.ucp207_h_mm
+    v: 47.6
+    unit: mm
+    status: assumed
+    basis:
+      - Q-039
+  - key: brg.ucp207_l_mm
+    v: 167
+    unit: mm
+    status: assumed
+    basis:
+      - Q-039
+  - key: brg.ucp207_h2_mm
+    v: 93
+    unit: mm
+    status: assumed
+    basis:
+      - Q-039
+  - key: brg.ucp207_mass_kg
+    v: 1.6
+    unit: kg
+    status: assumed
+    basis:
+      - Q-039
+  - key: cost.ucp207_jpy
+    v: 2400
+    unit: JPY
+    status: assumed
+    basis:
+      - Q-039
+  - key: cost.tube_48x23_jpy_per_m
+    v: 2300
     unit: JPY
     status: assumed
     basis:
@@ -3345,25 +3471,25 @@ items:
     basis:
       - docs/03-design.md#transport
   - key: dsn.stem_rake_deg
-    v: 23.2
+    v: 21.8
     unit: deg
     status: calculated
     basis:
       - docs/03-design.md#steering
   - key: dsn.tube_main_m
-    v: 4.15
+    v: 4.62
     unit: m
     status: calculated
     basis:
       - docs/03-design.md#frame
   - key: dsn.tube_cross_m
-    v: 6.12
+    v: 5.9
     unit: m
     status: calculated
     basis:
       - docs/03-design.md#frame
   - key: dsn.tube_roll_m
-    v: 2.11
+    v: 2.03
     unit: m
     status: calculated
     basis:
@@ -3381,23 +3507,23 @@ items:
     basis:
       - docs/03-design.md#axle
   - key: dsn.ratio_top
-    v: 25.28
+    v: 25.8
     status: calculated
     basis:
       - docs/03-design.md#drive
   - key: dsn.ratio
-    v: 83.79
+    v: 85.5
     status: calculated
     basis:
       - docs/03-design.md#drive
   - key: dsn.top_speed_kmh
-    v: 29.78
+    v: 29.19
     unit: km/h
     status: calculated
     basis:
       - docs/03-design.md#drive
   - key: dsn.chain420_centre_mm
-    v: 293
+    v: 306
     unit: mm
     status: calculated
     basis:
@@ -3414,7 +3540,7 @@ items:
     basis:
       - docs/03-design.md#drive
   - key: dsn.low_point_mm
-    v: 112
+    v: 150
     unit: mm
     status: calculated
     basis:
@@ -3432,19 +3558,19 @@ items:
     basis:
       - docs/03-design.md#steering
   - key: dsn.saddle_thickness_mm
-    v: 59
+    v: 44
     unit: mm
     status: calculated
     basis:
       - docs/03-design.md#fit
   - key: dsn.child_fit_margin_mm
-    v: 33
+    v: 23
     unit: mm
     status: calculated
     basis:
       - docs/03-design.md#fit
   - key: dsn.seat_drop_adult_mm
-    v: 410
+    v: 420
     unit: mm
     status: calculated
     basis:
@@ -3462,13 +3588,13 @@ items:
     basis:
       - docs/03-design.md#winter
   - key: dsn.mass_kg
-    v: 121.7
+    v: 128.6
     unit: kg
     status: calculated
     basis:
       - docs/03-design.md#mass
   - key: dsn.cg_x_m
-    v: 0.444
+    v: 0.431
     unit: m
     status: calculated
     basis:
@@ -3480,19 +3606,19 @@ items:
     basis:
       - docs/03-design.md#mass
   - key: dsn.cg_z_m
-    v: 0.29
+    v: 0.318
     unit: m
     status: calculated
     basis:
       - docs/03-design.md#mass
   - key: dsn.frame_mass_kg
-    v: 14.2
+    v: 17.7
     unit: kg
     status: calculated
     basis:
       - docs/03-design.md#frame
   - key: dsn.rear_share_adult
-    v: 0.587
+    v: 0.593
     status: calculated
     basis:
       - docs/03-design.md#mass
@@ -3503,23 +3629,23 @@ items:
     basis:
       - docs/03-design.md#mass
   - key: dsn.cg_height_adult_m
-    v: 0.524
+    v: 0.551
     unit: m
     status: calculated
     basis:
       - docs/03-design.md#mass
   - key: dsn.tip_ratio_adult
-    v: 0.76
+    v: 0.73
     status: calculated
     basis:
       - docs/03-design.md#stability
   - key: dsn.pitch_ratio_adult
-    v: 0.85
+    v: 0.8
     status: calculated
     basis:
       - docs/03-design.md#stability
   - key: dsn.rear_share_child
-    v: 0.581
+    v: 0.591
     status: calculated
     basis:
       - docs/03-design.md#mass
@@ -3530,79 +3656,79 @@ items:
     basis:
       - docs/03-design.md#mass
   - key: dsn.cg_height_child_m
-    v: 0.339
+    v: 0.366
     unit: m
     status: calculated
     basis:
       - docs/03-design.md#mass
   - key: dsn.tip_ratio_child
-    v: 1.18
+    v: 1.09
     status: calculated
     basis:
       - docs/03-design.md#stability
   - key: dsn.pitch_ratio_child
-    v: 1.33
+    v: 1.21
     status: calculated
     basis:
       - docs/03-design.md#stability
   - key: dsn.winter_mass_kg
-    v: 131.7
+    v: 138.6
     unit: kg
     status: calculated
     basis:
       - docs/03-design.md#winter
   - key: dsn.winter_cg_height_m
-    v: 0.508
+    v: 0.534
     unit: m
     status: calculated
     basis:
       - docs/03-design.md#winter
   - key: dsn.winter_rear_share
-    v: 0.579
+    v: 0.585
     status: calculated
     basis:
       - docs/03-design.md#winter
   - key: dsn.winter_tip_ratio
-    v: 0.64
+    v: 0.61
     status: calculated
     basis:
       - docs/03-design.md#stability
   - key: dsn.winter_pitch_ratio
-    v: 0.9
+    v: 0.84
     status: calculated
     basis:
       - docs/03-design.md#stability
   - key: dsn.winter_ski_pressure_kpa
-    v: 6.65
+    v: 6.75
     unit: kPa
     status: calculated
     basis:
       - docs/03-design.md#winter
   - key: dsn.belly_height_mm
-    v: 100
+    v: 150
     unit: mm
     status: calculated
     basis:
       - docs/03-design.md#winter
   - key: dsn.motion_ratio
-    v: 0.49
+    v: 0.61
     status: calculated
     basis:
       - docs/03-design.md#suspension
   - key: dsn.rear_sprung_kg
-    v: 105.6
+    v: 108.6
     unit: kg
     status: calculated
     basis:
       - docs/03-design.md#suspension
   - key: dsn.rear_wheel_rate_n_mm
-    v: 26.1
+    v: 26.8
     unit: N/mm
     status: calculated
     basis:
       - docs/03-design.md#suspension
   - key: dsn.shock_spring_n_mm
-    v: 109
+    v: 72
     unit: N/mm
     status: calculated
     basis:
@@ -3614,122 +3740,227 @@ items:
     basis:
       - docs/03-design.md#suspension
   - key: dsn.shock_force_static_n
-    v: 2118
+    v: 1751
     unit: N
     status: calculated
     basis:
       - docs/03-design.md#suspension
   - key: dsn.shock_length_static_mm
-    v: 231
+    v: 226
     unit: mm
     status: calculated
     basis:
       - docs/03-design.md#suspension
   - key: dsn.shock_stroke_used_mm
-    v: 34
+    v: 45
     unit: mm
     status: calculated
     basis:
       - docs/03-design.md#suspension
   - key: dsn.shock_travel_mm
-    v: 32
+    v: 41
     unit: mm
     status: calculated
     basis:
       - docs/03-design.md#suspension
   - key: dsn.chain_centre_change_mm
-    v: 6.3
+    v: 13.9
     unit: mm
     status: calculated
     basis:
       - docs/03-design.md#suspension
   - key: dsn.axle_rail_gap_mm
-    v: 180
+    v: 191
     unit: mm
     status: calculated
     basis:
       - docs/03-design.md#suspension
   - key: dsn.climb_force_n
-    v: 682
+    v: 704
     unit: N
     status: calculated
     basis:
       - docs/03-design.md#climb
   - key: dsn.climb_grip_n
-    v: 656
+    v: 688
     unit: N
     status: calculated
     basis:
       - docs/03-design.md#climb
   - key: dsn.climb_thrust_n
-    v: 1316
+    v: 1343
     unit: N
     status: calculated
     basis:
       - docs/03-design.md#climb
   - key: dsn.climb_grade_max_pct
-    v: 18.4
+    v: 19.1
     unit: "%"
     status: calculated
     basis:
       - docs/03-design.md#climb
   - key: dsn.axle_chain_pull_n
-    v: 3639
+    v: 3898
     unit: N
     status: calculated
     basis:
       - docs/03-design.md#axle
   - key: dsn.axle_stress_mpa
-    v: 196
+    v: 163
     unit: MPa
     status: calculated
     basis:
       - docs/03-design.md#axle
   - key: dsn.axle_safety
-    v: 1.76
+    v: 2.11
     status: calculated
     basis:
       - docs/03-design.md#axle
   - key: dsn.bearing_load_n
-    v: 638
+    v: 665
     unit: N
     status: calculated
     basis:
       - docs/03-design.md#axle
   - key: dsn.rail_stress_mpa
-    v: 187
+    v: 170
     unit: MPa
     status: calculated
     basis:
       - docs/03-design.md#frame
   - key: dsn.rail_safety
-    v: 1.55
+    v: 1.71
     status: calculated
     basis:
       - docs/03-design.md#frame
   - key: dsn.arm_stress_mpa
-    v: 117
+    v: 86
     unit: MPa
     status: calculated
     basis:
       - docs/03-design.md#suspension
   - key: dsn.arm_safety
-    v: 2.48
+    v: 3.37
     status: calculated
     basis:
       - docs/03-design.md#suspension
+  - key: dsn.impact_safety
+    v: 2.22
+    status: calculated
+    basis:
+      - docs/03-design.md#loads
+  - key: dsn.hoop_crush_safety
+    v: 2.06
+    status: calculated
+    basis:
+      - docs/03-design.md#loads
+  - key: dsn.hoop_side_safety
+    v: 4.76
+    status: calculated
+    basis:
+      - docs/03-design.md#loads
   - key: dsn.shock_force_bump_n
-    v: 5035
+    v: 5851
     unit: N
     status: calculated
     basis:
       - docs/03-design.md#suspension
   - key: dsn.frame_deflection_mm
-    v: 6.0
+    v: 4.1
     unit: mm
     status: calculated
     basis:
       - docs/03-design.md#frame
+  - key: dsn.fatigue_range_mpa
+    v: 56
+    unit: MPa
+    status: calculated
+    basis:
+      - docs/03-design.md#loads
+  - key: dsn.fatigue_limit_tube_mpa
+    v: 39
+    unit: MPa
+    status: calculated
+    basis:
+      - docs/03-design.md#loads
+  - key: dsn.fatigue_g_tube
+    v: 0.7
+    status: calculated
+    basis:
+      - docs/03-design.md#loads
+  - key: dsn.fatigue_kcycles_tube
+    v: 1701
+    status: calculated
+    basis:
+      - docs/03-design.md#loads
+  - key: dsn.fatigue_limit_fillet_mpa
+    v: 22
+    unit: MPa
+    status: calculated
+    basis:
+      - docs/03-design.md#loads
+  - key: dsn.fatigue_g_fillet
+    v: 0.39
+    status: calculated
+    basis:
+      - docs/03-design.md#loads
+  - key: dsn.fatigue_kcycles_fillet
+    v: 304
+    status: calculated
+    basis:
+      - docs/03-design.md#loads
+  - key: dsn.landing_front_g
+    v: 8.5
+    status: calculated
+    basis:
+      - docs/03-design.md#loads
+  - key: dsn.landing_rear_g
+    v: 4.6
+    status: calculated
+    basis:
+      - docs/03-design.md#loads
+  - key: dsn.drop_front_at_bump_mm
+    v: 32
+    unit: mm
+    status: calculated
+    basis:
+      - docs/03-design.md#loads
+  - key: dsn.drop_rear_at_bump_mm
+    v: 85
+    unit: mm
+    status: calculated
+    basis:
+      - docs/03-design.md#loads
+  - key: dsn.clearance_mm
+    v: 150
+    unit: mm
+    status: calculated
+    basis:
+      - docs/03-design.md#clearance
+  - key: dsn.clearance_no_pan_mm
+    v: 156
+    unit: mm
+    status: calculated
+    basis:
+      - docs/03-design.md#clearance
+  - key: dsn.breakover_deg
+    v: 31.0
+    unit: deg
+    status: calculated
+    basis:
+      - docs/03-design.md#clearance
+  - key: dsn.breakover_no_pan_deg
+    v: 32.2
+    unit: deg
+    status: calculated
+    basis:
+      - docs/03-design.md#clearance
+  - key: dsn.clearance_bump_rear_mm
+    v: 116
+    unit: mm
+    status: calculated
+    basis:
+      - docs/03-design.md#clearance
   - key: dsn.brake_decel_needed
     v: 5.79
     unit: m/s2
@@ -3737,31 +3968,31 @@ items:
     basis:
       - docs/03-design.md#brake
   - key: dsn.brake_torque_needed_nm
-    v: 301
+    v: 311
     unit: N m
     status: calculated
     basis:
       - docs/03-design.md#brake
   - key: dsn.brake_rear_alone_decel
-    v: 3.32
+    v: 3.31
     unit: m/s2
     status: calculated
     basis:
       - docs/03-design.md#brake
   - key: dsn.brake_clamp_needed_n
-    v: 2739
+    v: 2750
     unit: N
     status: calculated
     basis:
       - docs/03-design.md#brake
   - key: dsn.brake_front_torque_needed_nm
-    v: 89
+    v: 94
     unit: N m
     status: calculated
     basis:
       - docs/03-design.md#brake
   - key: dsn.brake_downhill_decel_rear
-    v: 0.19
+    v: 0.2
     unit: m/s2
     status: calculated
     basis:
@@ -3785,13 +4016,13 @@ items:
     basis:
       - docs/03-design.md#transport
   - key: dsn.height_m
-    v: 0.98
+    v: 1.02
     unit: m
     status: calculated
     basis:
       - docs/03-design.md#layout
   - key: dsn.delica_height_margin_mm
-    v: 150
+    v: 110
     unit: mm
     status: calculated
     basis:
@@ -3809,7 +4040,7 @@ items:
     basis:
       - docs/03-design.md#transport
   - key: dsn.bom_parts_jpy
-    v: 275213
+    v: 283807
     unit: JPY
     status: calculated
     basis:

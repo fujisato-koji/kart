@@ -7,7 +7,7 @@
 export const PART_KEYS = {
   frame: ['lay.wheelbase_mm', 'lay.rail_*', 'lay.front_*', 'lay.rear_overhang_mm', 'dsn.rail_*', 'dsn.cross_*',
     'dsn.tube_*', 'dsn.frame_mass_kg', 'dsn.length_m', 'dsn.width_m', 'dsn.height_m', 'cost.tube_*',
-    'cost.sq_tube_25_jpy_per_m', 'cost.flat_bar_jpy_per_m', 'dsn.stkm11a_tensile_mpa', 'dsn.load_factor'],
+    'cost.sq_tube_25_jpy_per_m', 'cost.flat_bar_jpy_per_m', 'dsn.stkm11a_tensile_mpa', 'load.*', 'dsn.rail_*'],
   bumpers: ['cost.padding_jpy'],
   seat: ['lay.seat_*', 'lay.hpoint_x_mm', 'lay.child_hip_x_mm', 'dsn.seat_mass_kg', 'rider.*', 'dsn.pitch_ratio_*'],
   handlebar: ['lay.bar_*', 'lay.kingpin_y_mm', 'dsn.steering_mass_kg', 'dsn.turn_radius_m'],

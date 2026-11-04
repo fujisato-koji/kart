@@ -45,6 +45,7 @@ The current state, with open items grouped by whom they wait for, is in [STATUS.
 | D-035 | 2026-11-04 | owner | R-03 is reworded for the straddle kart (D-030) - the seat, footrests, and handlebar fit riders from a 6-year-old child to an adult, the child on bolt-on steps - in place of the seat and pedals of the seated kart. |
 | D-036 | 2026-11-04 | owner | The rear wheels follow the ground on springs - the axle in two bearings on a swing arm pivoted just behind the engine unit, level with its output so that the chain keeps its length, and one shock between the arm and the frame. The front stays rigid on its low-pressure tyres; ATV A-arms and a pivoting front beam were not taken. |
 | D-037 | 2026-11-04 | owner | The frame is made low and small and cheaper where its shape allows. The engine unit sits on spine rails just above the sled pan, which lowers the seat and the centre of mass; with that the track, the hoop, and the handlebar come down and in, and the rear overhang shortens. The bearing outriggers and the middle bearing go; the frame is of two tube sizes, the rear triangulated so that the shock's load closes within it, and is checked as a space frame and for interferences. |
+| D-038 | 2026-11-04 | owner | For rough ground the kart stands 150 mm off the ground under its frame, at the clearance of a small sport quad (1.3.19). The frame and the sled pan under it go up by about 40 mm and the seat back to 600 mm, giving up part of the lower seat of D-037. |
 <!-- tdr:end -->
 
 ## Open items {#open}
@@ -90,7 +91,10 @@ The current state, with open items grouped by whom they wait for, is in [STATUS.
 | Q-036 | The buggy-size tyres of 1.2.19 (about 19x7-8 at the front and 18x9.5-8 at the rear, as on the MAGMAX50 of M90) are taken at a common diameter, their widths and mass, with the chains for them and the 42T axle sprocket the larger tyres need, until a set that fits the hubs and the road rules is chosen; a set of four is priced in M96. | assistant |  |
 | Q-037 | The cheaper parts of D-033 are taken from shop listings that leave their fit unstated - whether the ATV knuckles (M92) turn on kingpins as 1.3.6 draws them or need two ball joints on brackets; whether the drum hubs (M93) come with shoes and a backing plate, their drum size, and whether their three studs on 78 mm match the wheels (M96 gives PCD 110, or 88 at the front); the cable and splitter from the left lever; whether the LCD meter (M94) is lit at night and how its sensor reads the wheel; the fenders' width (M95); and the cost of making the ski brackets. They are settled before the parts are ordered, and checked on arrival as Q-019 says. | assistant |  |
 | Q-038 | The owner asked whether the wheels should follow the ground on springs. The kart of 1.3 is rigid and rides on its low-pressure tyres alone, as small karts and the cheapest youth quads do, while road-registered 50 cc ATVs have shocks front and rear (M97). Springs would keep the tyres pressing on rough ground for steering and braking, cut the shock loads on the spine that Q-035 already finds weak, and spare the rider. The candidates are a rear swing arm with one shock carrying the axle, pivoted at the engine unit's output so that the chain keeps its length; ATV A-arms with shocks at the front; and a front beam pivoting on the centre line, which is cheap but tips sideways like the one front wheel of 1.2.19 unless stopped. Studied with the frame in the pass of Q-035. | assistant | D-036 |
-| Q-039 | The frame pass of D-036 and D-037 assumes the UCP206 pillow block's sizes and mass (the common sizes of the series; check them against the FYH catalogue P33 when bought), the rear shock's stroke (its seller states the eye-to-eye length only, M100), and a rear natural frequency of 2.5 Hz for a short-travel kart, until the shock is bought, measured, and its spring chosen. | assistant |  |
+| Q-039 | The frame pass of D-036 and D-037 assumes the UCP207 pillow block's sizes, mass, and price for the 35 mm axle (the common sizes of the series; check them against the FYH catalogue P33 when bought), the rear shock's stroke (its seller states the eye-to-eye length only, M100), and a rear natural frequency of 2.5 Hz for a short-travel kart, until the shock is bought, measured, and its spring chosen. | assistant |  |
+| Q-040 | The load cases for rough ground of 1.3.18 assume what no source gives for this kart - the combination of 2 g vertical with 1 g braking and 1 g sideways, a frontal impact of 5 g at 30 km/h against a post or tree that misses the tyres (Baja's frontal 8 to 10 g at 56 km/h scaled with the same impulse time gives 4.3 to 5.4 g, P74, P75), a sideways push on the hoop of the kart's weight, both hoop loads applied with the frame held at its spine and the rider's mass left out (as rollover structures are tested; held at the hoop with the kart's masses pushing, the side push would be worse), a safety factor of 1 on tensile strength in accidents, a usable tyre deflection of 50 mm and a reference drop of 150 mm, a repeated load range of 1 g with a partial factor of 1.35 for fatigue, and the detail categories of butt-welded tubes and plates standing for the frame's tube-to-tube joints, which EN 1993-1-9 does not list. They hold until the kart is measured on its ground. | assistant |  |
+| Q-041 | Against the load cases for rough ground of 1.3.18 the frame's welded joints have a limited fatigue life - a repeated 1 g range is unlimited only below about 0.7 g at butt-welded details and 0.4 g at fillet-welded ones. (The spine, the axle, the bumper, and the hoop, which fell short at first, were changed with D-038 and now meet their cases.) The joints are to be detailed with gussets and fitted ends for the better categories before building, and the frame tried on its ground. | assistant |  |
+| Q-042 | For rough ground the owner decides the front's springing of 1.3.18 (the ride height of 1.3.19 is settled by D-038) - stay rigid and ride drops of more than a few centimetres slowly, or add ATV A-arms with two shocks (D-036 put this off; parts about 50,000 to 73,000 JPY seen in shop listings). | owner |  |
 <!-- tdr:end -->
 
 ## Values {#values}
@@ -287,7 +291,7 @@ The current state, with open items grouped by whom they wait for, is in [STATUS.
 | lay.wheelbase_mm | 1080 | mm | calculated | docs/03-design.md#layout |
 | lay.track_front_mm | 800 | mm | calculated | docs/03-design.md#layout |
 | lay.track_rear_mm | 800 | mm | calculated | docs/03-design.md#layout |
-| lay.rail_bottom_mm | 112 | mm | calculated | docs/03-design.md#layout |
+| lay.rail_bottom_mm | 156 | mm | calculated | docs/03-design.md#layout |
 | lay.front_overhang_mm | 200 | mm | calculated | docs/03-design.md#layout |
 | lay.rear_overhang_mm | 250 | mm | calculated | docs/03-design.md#layout |
 | lay.hpoint_x_mm | 400 | mm | calculated | docs/03-design.md#fit |
@@ -306,13 +310,12 @@ The current state, with open items grouped by whom they wait for, is in [STATUS.
 | gear.t_jack_in | 40 |  | calculated | docs/03-design.md#drive |
 | gear.t_jack_out | 12 |  | calculated | docs/03-design.md#drive |
 | gear.t_axle | 36 |  | calculated | docs/03-design.md#drive |
-| dsn.axle_dia_mm | 30 | mm | calculated | docs/03-design.md#axle |
-| dsn.rail_od_mm | 38.1 | mm | calculated | docs/03-design.md#frame |
+| dsn.axle_dia_mm | 35 | mm | calculated | docs/03-design.md#axle |
+| dsn.rail_od_mm | 48.6 | mm | calculated | docs/03-design.md#frame |
 | dsn.rail_t_mm | 2.3 | mm | calculated | docs/03-design.md#frame |
 | dsn.cross_od_mm | 25.4 | mm | calculated | docs/03-design.md#frame |
 | dsn.cross_t_mm | 1.6 | mm | calculated | docs/03-design.md#frame |
 | dsn.floor_t_mm | 2.3 | mm | calculated | docs/03-design.md#frame |
-| dsn.load_factor | 2.5 |  | assumed | Q-017 |
 | dsn.steel_density_kg_m3 | 7850 | kg/m3 | assumed | Q-017 |
 | dsn.s45c_yield_mpa | 345 | MPa | assumed | Q-017 |
 | dsn.stkm11a_tensile_mpa | 290 | MPa | assumed | Q-017 |
@@ -369,12 +372,12 @@ The current state, with open items grouped by whom they wait for, is in [STATUS.
 | su.final_ratio | 10.5 |  | assumed | Q-023 |
 | su.rev_limit_rpm | 8500 | rpm | assumed | Q-023 |
 | dsn.road_kit_mass_kg | 6.0 | kg | assumed | Q-023 |
-| gear.t_out420 | 15 |  | calculated | docs/03-design.md#drive |
-| gear.t_axle420 | 42 |  | calculated | docs/03-design.md#drive |
+| gear.t_out420 | 14 |  | calculated | docs/03-design.md#drive |
+| gear.t_axle420 | 40 |  | calculated | docs/03-design.md#drive |
 | lay.unit_y_mm | 0 | mm | calculated | docs/03-design.md#drive |
 | lay.chain420_y_mm | 185 | mm | calculated | docs/03-design.md#drive |
 | lay.unit_out_x_mm | 290 | mm | calculated | docs/03-design.md#drive |
-| lay.rollbar_top_mm | 910 | mm | calculated | docs/03-design.md#rollbar |
+| lay.rollbar_top_mm | 950 | mm | calculated | docs/03-design.md#rollbar |
 | cost.hand_brake_jpy | 6000 | JPY | assumed | Q-018 |
 | cost.headlamp_jpy | 6380 | JPY | sourced | M65 |
 | cost.tail_plate_lamp_jpy | 3446 | JPY | sourced | M66 |
@@ -484,17 +487,17 @@ The current state, with open items grouped by whom they wait for, is in [STATUS.
 | rider.child_crotch_ratio | 0.44 |  | assumed | Q-033 |
 | lay.spine_half_width_mm | 130 | mm | calculated | docs/03-design.md#frame |
 | lay.kingpin_y_mm | 290 | mm | calculated | docs/03-design.md#steering |
-| lay.footrest_height_mm | 150 | mm | calculated | docs/03-design.md#fit |
+| lay.footrest_height_mm | 180 | mm | calculated | docs/03-design.md#fit |
 | lay.foot_x0_mm | 360 | mm | calculated | docs/03-design.md#fit |
 | lay.foot_x1_mm | 780 | mm | calculated | docs/03-design.md#fit |
 | lay.foot_y0_mm | 170 | mm | calculated | docs/03-design.md#fit |
 | lay.foot_y1_mm | 300 | mm | calculated | docs/03-design.md#fit |
 | lay.bar_x_mm | 840 | mm | calculated | docs/03-design.md#steering |
-| lay.bar_z_mm | 820 | mm | calculated | docs/03-design.md#steering |
+| lay.bar_z_mm | 860 | mm | calculated | docs/03-design.md#steering |
 | lay.bar_width_mm | 620 | mm | calculated | docs/03-design.md#steering |
 | lay.hoop_x_mm | -220 | mm | calculated | docs/03-design.md#rollbar |
 | lay.fender_margin_mm | 30 | mm | calculated | docs/03-design.md#layout |
-| lay.seat_height_mm | 560 | mm | calculated | docs/03-design.md#fit |
+| lay.seat_height_mm | 600 | mm | calculated | docs/03-design.md#fit |
 | lay.seat_x0_mm | 100 | mm | calculated | docs/03-design.md#fit |
 | lay.seat_x1_mm | 700 | mm | calculated | docs/03-design.md#fit |
 | lay.seat_width_mm | 300 | mm | calculated | docs/03-design.md#fit |
@@ -530,7 +533,7 @@ The current state, with open items grouped by whom they wait for, is in [STATUS.
 | cost.atv_sl50w_built_jpy | 198000 | JPY | sourced | M98 |
 | cost.atv_used_low_jpy | 60000 | JPY | sourced | M99 |
 | cost.atv_used_high_jpy | 160000 | JPY | sourced | M99 |
-| lay.pivot_x_mm | 170 | mm | calculated | docs/03-design.md#suspension |
+| lay.pivot_x_mm | 175 | mm | calculated | docs/03-design.md#suspension |
 | lay.shock_low_x_mm | 50 | mm | calculated | docs/03-design.md#suspension |
 | lay.shock_low_rise_mm | 30 | mm | calculated | docs/03-design.md#suspension |
 | lay.shock_top_x_mm | -50 | mm | calculated | docs/03-design.md#suspension |
@@ -540,16 +543,40 @@ The current state, with open items grouped by whom they wait for, is in [STATUS.
 | sus.freq_hz | 2.5 | Hz | assumed | Q-039 |
 | shock.eye_mm | 250 | mm | sourced | M100 |
 | shock.stroke_mm | 50 | mm | assumed | Q-039 |
-| brg.ucp206_h_mm | 42.9 | mm | assumed | Q-039 |
-| brg.ucp206_l_mm | 165 | mm | assumed | Q-039 |
-| brg.ucp206_h2_mm | 83 | mm | assumed | Q-039 |
-| brg.ucp206_mass_kg | 1.3 | kg | assumed | Q-039 |
-| dsn.load_factor_twist | 1.5 |  | assumed | Q-017 |
 | dsn.frame_safety_min | 1.5 |  | assumed | Q-017 |
 | cost.rear_shock_jpy | 7980 | JPY | sourced | M100 |
 | cost.ucp206_jpy | 1903 | JPY | sourced | M101 |
 | cost.chain_tensioner_jpy | 2600 | JPY | sourced | M103 |
 | cost.tube_38x23_jpy_per_m | 2000 | JPY | assumed | Q-018 |
+| load.bump_g | 3.5 |  | sourced | P72 |
+| load.brake_g | 1.5 |  | sourced | P72 |
+| load.lateral_g | 1.5 |  | sourced | P72 |
+| load.twist_rough | 1.8 |  | sourced | S8 |
+| load.combined_vert_g | 2.0 |  | assumed | Q-040 |
+| load.combined_brake_g | 1.0 |  | assumed | Q-040 |
+| load.combined_lat_g | 1.0 |  | assumed | Q-040 |
+| load.impact_g | 5.0 |  | assumed | Q-040 |
+| load.hoop_crush_n_per_kg | 20 | N/kg | sourced | P76 |
+| load.hoop_side_g | 1.0 |  | assumed | Q-040 |
+| load.accident_safety_min | 1.0 |  | assumed | Q-040 |
+| land.tyre_eff | 0.47 |  | sourced | S9 |
+| land.shock_eff | 0.5 |  | sourced | S9 |
+| land.tyre_defl_mm | 50 | mm | assumed | Q-040 |
+| land.drop_ref_mm | 150 | mm | assumed | Q-040 |
+| fat.cat_tube_mpa | 71 | MPa | sourced | S10 |
+| fat.cat_fillet_mpa | 40 | MPa | sourced | S10 |
+| fat.gamma_mf | 1.35 |  | assumed | Q-040 |
+| fat.range_g | 1.0 |  | assumed | Q-040 |
+| atv.clear_youth_low_mm | 84 | mm | sourced | P78 |
+| atv.clear_youth_high_mm | 120 | mm | sourced | P78 |
+| atv.clear_sport_small_mm | 145 | mm | sourced | P79 |
+| atv.clear_utility_mm | 292 | mm | sourced | P80 |
+| brg.ucp207_h_mm | 47.6 | mm | assumed | Q-039 |
+| brg.ucp207_l_mm | 167 | mm | assumed | Q-039 |
+| brg.ucp207_h2_mm | 93 | mm | assumed | Q-039 |
+| brg.ucp207_mass_kg | 1.6 | kg | assumed | Q-039 |
+| cost.ucp207_jpy | 2400 | JPY | assumed | Q-039 |
+| cost.tube_48x23_jpy_per_m | 2300 | JPY | assumed | Q-018 |
 | form.mass_total_kg | 170 | kg | calculated | docs/02-form.md#mass |
 | snow.wheel_sinkage_min_cm | 63.2 | cm | calculated | docs/02-form.md#snow |
 | snow.wheel_sinkage_max_cm | 83.8 | cm | calculated | docs/02-form.md#snow |
@@ -668,87 +695,106 @@ The current state, with open items grouped by whom they wait for, is in [STATUS.
 | cost.total_donor_narrow_summer_jpy | 66551 | JPY | calculated | docs/02-form.md#cost |
 | dsn.width_m | 1.1 | m | calculated | docs/03-design.md#layout |
 | dsn.width_transport_m | 1.1 | m | calculated | docs/03-design.md#transport |
-| dsn.stem_rake_deg | 23.2 | deg | calculated | docs/03-design.md#steering |
-| dsn.tube_main_m | 4.15 | m | calculated | docs/03-design.md#frame |
-| dsn.tube_cross_m | 6.12 | m | calculated | docs/03-design.md#frame |
-| dsn.tube_roll_m | 2.11 | m | calculated | docs/03-design.md#rollbar |
+| dsn.stem_rake_deg | 21.8 | deg | calculated | docs/03-design.md#steering |
+| dsn.tube_main_m | 4.62 | m | calculated | docs/03-design.md#frame |
+| dsn.tube_cross_m | 5.9 | m | calculated | docs/03-design.md#frame |
+| dsn.tube_roll_m | 2.03 | m | calculated | docs/03-design.md#rollbar |
 | dsn.tube_arm_m | 1.12 | m | calculated | docs/03-design.md#suspension |
 | dsn.hub_bearing_gap_mm | 196 | mm | calculated | docs/03-design.md#axle |
-| dsn.ratio_top | 25.28 |  | calculated | docs/03-design.md#drive |
-| dsn.ratio | 83.79 |  | calculated | docs/03-design.md#drive |
-| dsn.top_speed_kmh | 29.78 | km/h | calculated | docs/03-design.md#drive |
-| dsn.chain420_centre_mm | 293 | mm | calculated | docs/03-design.md#drive |
+| dsn.ratio_top | 25.8 |  | calculated | docs/03-design.md#drive |
+| dsn.ratio | 85.5 |  | calculated | docs/03-design.md#drive |
+| dsn.top_speed_kmh | 29.19 | km/h | calculated | docs/03-design.md#drive |
+| dsn.chain420_centre_mm | 306 | mm | calculated | docs/03-design.md#drive |
 | dsn.chain420_links | 76 |  | calculated | docs/03-design.md#drive |
 | dsn.unit_front_x_mm | 800 | mm | calculated | docs/03-design.md#drive |
-| dsn.low_point_mm | 112 | mm | calculated | docs/03-design.md#axle |
+| dsn.low_point_mm | 150 | mm | calculated | docs/03-design.md#axle |
 | dsn.tie_rod_length_mm | 242 | mm | calculated | docs/03-design.md#steering |
 | dsn.turn_radius_m | 2.27 | m | calculated | docs/03-design.md#steering |
-| dsn.saddle_thickness_mm | 59 | mm | calculated | docs/03-design.md#fit |
-| dsn.child_fit_margin_mm | 33 | mm | calculated | docs/03-design.md#fit |
-| dsn.seat_drop_adult_mm | 410 | mm | calculated | docs/03-design.md#fit |
+| dsn.saddle_thickness_mm | 44 | mm | calculated | docs/03-design.md#fit |
+| dsn.child_fit_margin_mm | 23 | mm | calculated | docs/03-design.md#fit |
+| dsn.seat_drop_adult_mm | 420 | mm | calculated | docs/03-design.md#fit |
 | dsn.pan_mass_kg | 2.4 | kg | calculated | docs/03-design.md#winter |
 | dsn.ski_y_mm | 221 | mm | calculated | docs/03-design.md#winter |
-| dsn.mass_kg | 121.7 | kg | calculated | docs/03-design.md#mass |
-| dsn.cg_x_m | 0.444 | m | calculated | docs/03-design.md#mass |
+| dsn.mass_kg | 128.6 | kg | calculated | docs/03-design.md#mass |
+| dsn.cg_x_m | 0.431 | m | calculated | docs/03-design.md#mass |
 | dsn.cg_y_m | -0.0 | m | calculated | docs/03-design.md#mass |
-| dsn.cg_z_m | 0.29 | m | calculated | docs/03-design.md#mass |
-| dsn.frame_mass_kg | 14.2 | kg | calculated | docs/03-design.md#frame |
-| dsn.rear_share_adult | 0.587 |  | calculated | docs/03-design.md#mass |
+| dsn.cg_z_m | 0.318 | m | calculated | docs/03-design.md#mass |
+| dsn.frame_mass_kg | 17.7 | kg | calculated | docs/03-design.md#frame |
+| dsn.rear_share_adult | 0.593 |  | calculated | docs/03-design.md#mass |
 | dsn.cg_side_adult_mm | 0 | mm | calculated | docs/03-design.md#mass |
-| dsn.cg_height_adult_m | 0.524 | m | calculated | docs/03-design.md#mass |
-| dsn.tip_ratio_adult | 0.76 |  | calculated | docs/03-design.md#stability |
-| dsn.pitch_ratio_adult | 0.85 |  | calculated | docs/03-design.md#stability |
-| dsn.rear_share_child | 0.581 |  | calculated | docs/03-design.md#mass |
+| dsn.cg_height_adult_m | 0.551 | m | calculated | docs/03-design.md#mass |
+| dsn.tip_ratio_adult | 0.73 |  | calculated | docs/03-design.md#stability |
+| dsn.pitch_ratio_adult | 0.8 |  | calculated | docs/03-design.md#stability |
+| dsn.rear_share_child | 0.591 |  | calculated | docs/03-design.md#mass |
 | dsn.cg_side_child_mm | 0 | mm | calculated | docs/03-design.md#mass |
-| dsn.cg_height_child_m | 0.339 | m | calculated | docs/03-design.md#mass |
-| dsn.tip_ratio_child | 1.18 |  | calculated | docs/03-design.md#stability |
-| dsn.pitch_ratio_child | 1.33 |  | calculated | docs/03-design.md#stability |
-| dsn.winter_mass_kg | 131.7 | kg | calculated | docs/03-design.md#winter |
-| dsn.winter_cg_height_m | 0.508 | m | calculated | docs/03-design.md#winter |
-| dsn.winter_rear_share | 0.579 |  | calculated | docs/03-design.md#winter |
-| dsn.winter_tip_ratio | 0.64 |  | calculated | docs/03-design.md#stability |
-| dsn.winter_pitch_ratio | 0.9 |  | calculated | docs/03-design.md#stability |
-| dsn.winter_ski_pressure_kpa | 6.65 | kPa | calculated | docs/03-design.md#winter |
-| dsn.belly_height_mm | 100 | mm | calculated | docs/03-design.md#winter |
-| dsn.motion_ratio | 0.49 |  | calculated | docs/03-design.md#suspension |
-| dsn.rear_sprung_kg | 105.6 | kg | calculated | docs/03-design.md#suspension |
-| dsn.rear_wheel_rate_n_mm | 26.1 | N/mm | calculated | docs/03-design.md#suspension |
-| dsn.shock_spring_n_mm | 109 | N/mm | calculated | docs/03-design.md#suspension |
+| dsn.cg_height_child_m | 0.366 | m | calculated | docs/03-design.md#mass |
+| dsn.tip_ratio_child | 1.09 |  | calculated | docs/03-design.md#stability |
+| dsn.pitch_ratio_child | 1.21 |  | calculated | docs/03-design.md#stability |
+| dsn.winter_mass_kg | 138.6 | kg | calculated | docs/03-design.md#winter |
+| dsn.winter_cg_height_m | 0.534 | m | calculated | docs/03-design.md#winter |
+| dsn.winter_rear_share | 0.585 |  | calculated | docs/03-design.md#winter |
+| dsn.winter_tip_ratio | 0.61 |  | calculated | docs/03-design.md#stability |
+| dsn.winter_pitch_ratio | 0.84 |  | calculated | docs/03-design.md#stability |
+| dsn.winter_ski_pressure_kpa | 6.75 | kPa | calculated | docs/03-design.md#winter |
+| dsn.belly_height_mm | 150 | mm | calculated | docs/03-design.md#winter |
+| dsn.motion_ratio | 0.61 |  | calculated | docs/03-design.md#suspension |
+| dsn.rear_sprung_kg | 108.6 | kg | calculated | docs/03-design.md#suspension |
+| dsn.rear_wheel_rate_n_mm | 26.8 | N/mm | calculated | docs/03-design.md#suspension |
+| dsn.shock_spring_n_mm | 72 | N/mm | calculated | docs/03-design.md#suspension |
 | dsn.rear_sag_mm | 40 | mm | calculated | docs/03-design.md#suspension |
-| dsn.shock_force_static_n | 2118 | N | calculated | docs/03-design.md#suspension |
-| dsn.shock_length_static_mm | 231 | mm | calculated | docs/03-design.md#suspension |
-| dsn.shock_stroke_used_mm | 34 | mm | calculated | docs/03-design.md#suspension |
-| dsn.shock_travel_mm | 32 | mm | calculated | docs/03-design.md#suspension |
-| dsn.chain_centre_change_mm | 6.3 | mm | calculated | docs/03-design.md#suspension |
-| dsn.axle_rail_gap_mm | 180 | mm | calculated | docs/03-design.md#suspension |
-| dsn.climb_force_n | 682 | N | calculated | docs/03-design.md#climb |
-| dsn.climb_grip_n | 656 | N | calculated | docs/03-design.md#climb |
-| dsn.climb_thrust_n | 1316 | N | calculated | docs/03-design.md#climb |
-| dsn.climb_grade_max_pct | 18.4 | % | calculated | docs/03-design.md#climb |
-| dsn.axle_chain_pull_n | 3639 | N | calculated | docs/03-design.md#axle |
-| dsn.axle_stress_mpa | 196 | MPa | calculated | docs/03-design.md#axle |
-| dsn.axle_safety | 1.76 |  | calculated | docs/03-design.md#axle |
-| dsn.bearing_load_n | 638 | N | calculated | docs/03-design.md#axle |
-| dsn.rail_stress_mpa | 187 | MPa | calculated | docs/03-design.md#frame |
-| dsn.rail_safety | 1.55 |  | calculated | docs/03-design.md#frame |
-| dsn.arm_stress_mpa | 117 | MPa | calculated | docs/03-design.md#suspension |
-| dsn.arm_safety | 2.48 |  | calculated | docs/03-design.md#suspension |
-| dsn.shock_force_bump_n | 5035 | N | calculated | docs/03-design.md#suspension |
-| dsn.frame_deflection_mm | 6.0 | mm | calculated | docs/03-design.md#frame |
+| dsn.shock_force_static_n | 1751 | N | calculated | docs/03-design.md#suspension |
+| dsn.shock_length_static_mm | 226 | mm | calculated | docs/03-design.md#suspension |
+| dsn.shock_stroke_used_mm | 45 | mm | calculated | docs/03-design.md#suspension |
+| dsn.shock_travel_mm | 41 | mm | calculated | docs/03-design.md#suspension |
+| dsn.chain_centre_change_mm | 13.9 | mm | calculated | docs/03-design.md#suspension |
+| dsn.axle_rail_gap_mm | 191 | mm | calculated | docs/03-design.md#suspension |
+| dsn.climb_force_n | 704 | N | calculated | docs/03-design.md#climb |
+| dsn.climb_grip_n | 688 | N | calculated | docs/03-design.md#climb |
+| dsn.climb_thrust_n | 1343 | N | calculated | docs/03-design.md#climb |
+| dsn.climb_grade_max_pct | 19.1 | % | calculated | docs/03-design.md#climb |
+| dsn.axle_chain_pull_n | 3898 | N | calculated | docs/03-design.md#axle |
+| dsn.axle_stress_mpa | 163 | MPa | calculated | docs/03-design.md#axle |
+| dsn.axle_safety | 2.11 |  | calculated | docs/03-design.md#axle |
+| dsn.bearing_load_n | 665 | N | calculated | docs/03-design.md#axle |
+| dsn.rail_stress_mpa | 170 | MPa | calculated | docs/03-design.md#frame |
+| dsn.rail_safety | 1.71 |  | calculated | docs/03-design.md#frame |
+| dsn.arm_stress_mpa | 86 | MPa | calculated | docs/03-design.md#suspension |
+| dsn.arm_safety | 3.37 |  | calculated | docs/03-design.md#suspension |
+| dsn.impact_safety | 2.22 |  | calculated | docs/03-design.md#loads |
+| dsn.hoop_crush_safety | 2.06 |  | calculated | docs/03-design.md#loads |
+| dsn.hoop_side_safety | 4.76 |  | calculated | docs/03-design.md#loads |
+| dsn.shock_force_bump_n | 5851 | N | calculated | docs/03-design.md#suspension |
+| dsn.frame_deflection_mm | 4.1 | mm | calculated | docs/03-design.md#frame |
+| dsn.fatigue_range_mpa | 56 | MPa | calculated | docs/03-design.md#loads |
+| dsn.fatigue_limit_tube_mpa | 39 | MPa | calculated | docs/03-design.md#loads |
+| dsn.fatigue_g_tube | 0.7 |  | calculated | docs/03-design.md#loads |
+| dsn.fatigue_kcycles_tube | 1701 |  | calculated | docs/03-design.md#loads |
+| dsn.fatigue_limit_fillet_mpa | 22 | MPa | calculated | docs/03-design.md#loads |
+| dsn.fatigue_g_fillet | 0.39 |  | calculated | docs/03-design.md#loads |
+| dsn.fatigue_kcycles_fillet | 304 |  | calculated | docs/03-design.md#loads |
+| dsn.landing_front_g | 8.5 |  | calculated | docs/03-design.md#loads |
+| dsn.landing_rear_g | 4.6 |  | calculated | docs/03-design.md#loads |
+| dsn.drop_front_at_bump_mm | 32 | mm | calculated | docs/03-design.md#loads |
+| dsn.drop_rear_at_bump_mm | 85 | mm | calculated | docs/03-design.md#loads |
+| dsn.clearance_mm | 150 | mm | calculated | docs/03-design.md#clearance |
+| dsn.clearance_no_pan_mm | 156 | mm | calculated | docs/03-design.md#clearance |
+| dsn.breakover_deg | 31.0 | deg | calculated | docs/03-design.md#clearance |
+| dsn.breakover_no_pan_deg | 32.2 | deg | calculated | docs/03-design.md#clearance |
+| dsn.clearance_bump_rear_mm | 116 | mm | calculated | docs/03-design.md#clearance |
 | dsn.brake_decel_needed | 5.79 | m/s2 | calculated | docs/03-design.md#brake |
-| dsn.brake_torque_needed_nm | 301 | N m | calculated | docs/03-design.md#brake |
-| dsn.brake_rear_alone_decel | 3.32 | m/s2 | calculated | docs/03-design.md#brake |
-| dsn.brake_clamp_needed_n | 2739 | N | calculated | docs/03-design.md#brake |
-| dsn.brake_front_torque_needed_nm | 89 | N m | calculated | docs/03-design.md#brake |
-| dsn.brake_downhill_decel_rear | 0.19 | m/s2 | calculated | docs/03-design.md#brake |
+| dsn.brake_torque_needed_nm | 311 | N m | calculated | docs/03-design.md#brake |
+| dsn.brake_rear_alone_decel | 3.31 | m/s2 | calculated | docs/03-design.md#brake |
+| dsn.brake_clamp_needed_n | 2750 | N | calculated | docs/03-design.md#brake |
+| dsn.brake_front_torque_needed_nm | 94 | N m | calculated | docs/03-design.md#brake |
+| dsn.brake_downhill_decel_rear | 0.2 | m/s2 | calculated | docs/03-design.md#brake |
 | dsn.brake_downhill_decel | 2.4 | m/s2 | calculated | docs/03-design.md#brake |
 | dsn.brake_downhill_stop_m | 14.4 | m | calculated | docs/03-design.md#brake |
 | dsn.delica_width_margin_mm | 130 | mm | calculated | docs/03-design.md#transport |
-| dsn.height_m | 0.98 | m | calculated | docs/03-design.md#layout |
-| dsn.delica_height_margin_mm | 150 | mm | calculated | docs/03-design.md#transport |
+| dsn.height_m | 1.02 | m | calculated | docs/03-design.md#layout |
+| dsn.delica_height_margin_mm | 110 | mm | calculated | docs/03-design.md#transport |
 | dsn.length_m | 1.565 | m | calculated | docs/03-design.md#layout |
 | dsn.delica_length_margin_mm | 45 | mm | calculated | docs/03-design.md#transport |
-| dsn.bom_parts_jpy | 275213 | JPY | calculated | docs/03-design.md#cost |
+| dsn.bom_parts_jpy | 283807 | JPY | calculated | docs/03-design.md#cost |
 | dsn.bom_tools_jpy | 34056 | JPY | calculated | docs/03-design.md#cost |
 | dsn.clashes_summer | 0 |  | calculated | docs/03-design.md#issues |
 | dsn.clashes_winter | 0 |  | calculated | docs/03-design.md#issues |
@@ -939,6 +985,19 @@ The current state, with open items grouped by whom they wait for, is in [STATUS.
 | M100 | M | Rear shock absorber for motorcycles, scooters, and ATVs, 240 to 290 mm, Yahoo Shopping | partial |
 | M101 | M | FYH pillow block UCP206, Yahoo Shopping | excerpt |
 | M103 | M | Chain tensioner with a spring roller for 420, 428, and 530 chain, Yahoo Shopping | partial |
+| P72 | P | Riley and George, Design, Analysis and Testing of a Formula SAE Car Chassis, SAE 2002-01-3300 | partial |
+| P73 | P | Singh, Structural Performance Analysis of Formula SAE Car, Jurnal Mekanikal 31, 2010 | partial |
+| P74 | P | Bennett and others, SAE Mini Baja Frame Analysis, Northern Arizona University, 2014 | full |
+| P75 | P | Devi and Dilip, Design and Optimisation of SAE Mini Baja Chassis, IJERA 4(9), 2014 | full |
+| P76 | P | NIOSH, CROPS Massey Ferguson 135 testing information, to SAE J2194, 2021 | partial |
+| P77 | P | Yamaha YFZ50 2023 specifications | full |
+| P78 | P | Suzuki QuadSport Z50 2026 | full |
+| P79 | P | Honda TRX250X 2023 specifications | full |
+| P80 | P | Yamaha Grizzly EPS 2026 specifications | full |
+| S8 | S | Ibrahim, Loads on Vehicle Structures, course chapter 9 | full |
+| S9 | S | Irvine, Aircraft Landing Gear Dynamic Analysis, Vibrationdata | full |
+| S10 | S | EN 1993-1-9 tables 8.6 and 8.7 on hollow sections, secondary copy | partial |
+| S11 | S | IDEA StatiCa, Fatigue analysis according to EN 1993-1-9 | full |
 | F1 | F | Motor1, a shifter kart turned into a snowmobile, 2025-02-02 | partial |
 | F2 | F | 6x6world forum, Argo open water speed with outboard | full |
 | F3 | F | Goo-net Magazine, an electric track unit from Canada (MTT, My Track Technology), 2016-10-14 | full |
@@ -964,6 +1023,7 @@ The current state, with open items grouped by whom they wait for, is in [STATUS.
 | K-011 | T2 | refute | pass | 2026-11-04 |
 | K-012 | T2 | refute | pass | 2026-11-04 |
 | K-013 | T2 | refute | fail | 2026-11-04 |
+| K-014 | T2 | refute | partial | 2026-11-04 |
 <!-- tdr:end -->
 
 ## Parts {#parts}

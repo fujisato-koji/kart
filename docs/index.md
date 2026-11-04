@@ -9,7 +9,7 @@ It is designed under the [traceable-design](https://github.com/traceable-design/
 |------|-------|
 | [1.1 Requirements](01-requirements.md) | Written from the owner's answers (D-001 to D-024). Derived requirements wait for the owner. |
 | [1.2 Form](02-form.md) | Forms compared; the latest pass chose the snowmobile form on the 50 cc engine for winter (D-025) and a seated ride (D-026); water use is withdrawn and kept as a future development ([1.2.16](02-form.md#outdoor), D-027). The owner then chose a straddle kart for riders of 6 and up ([1.2.18](02-form.md#straddle), D-030); 1.3 designs the straddle kart on the working basis of 1.2.18's proposals. |
-| [1.3 Design](03-design.md) | The straddle kart (D-030), low and small, with a rear swing arm on one shock (D-036, D-037), buggy tyres all year and skis inside the front wheels in winter (D-032); the frame is solved as a space frame and searched for interferences; on a working basis the owner has partly still to decide; the gate to building waits on Q-017 to Q-019 and Q-021 to Q-024. |
+| [1.3 Design](03-design.md) | The straddle kart (D-030), small, 150 mm off the ground (D-038), with a rear swing arm on one shock (D-036, D-037), checked for the loads of rough ground, buggy tyres all year and skis inside the front wheels in winter (D-032); the frame is solved as a space frame and searched for interferences; on a working basis the owner has partly still to decide; the gate to building waits on Q-017 to Q-019 and Q-021 to Q-024. |
 | [1.4 Availability](04-availability.md), [1.5 Parts and cost](05-parts-and-cost.md) | Parts of the summer form, found in Japan and priced. |
 
 The current state, generated from the record, is in [STATUS.md](https://github.com/fujisato-koji/kart/blob/main/STATUS.md).

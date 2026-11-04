@@ -2047,7 +2047,7 @@
   },
   {
    "key": "lay.rail_bottom_mm",
-   "v": 112,
+   "v": 156,
    "unit": "mm",
    "status": "calculated",
    "basis": [
@@ -2214,7 +2214,7 @@
   },
   {
    "key": "dsn.axle_dia_mm",
-   "v": 30,
+   "v": 35,
    "unit": "mm",
    "status": "calculated",
    "basis": [
@@ -2223,7 +2223,7 @@
   },
   {
    "key": "dsn.rail_od_mm",
-   "v": 38.1,
+   "v": 48.6,
    "unit": "mm",
    "status": "calculated",
    "basis": [
@@ -2264,14 +2264,6 @@
    "status": "calculated",
    "basis": [
     "docs/03-design.md#frame"
-   ]
-  },
-  {
-   "key": "dsn.load_factor",
-   "v": 2.5,
-   "status": "assumed",
-   "basis": [
-    "Q-017"
    ]
   },
   {
@@ -2774,7 +2766,7 @@
   },
   {
    "key": "gear.t_out420",
-   "v": 15,
+   "v": 14,
    "status": "calculated",
    "basis": [
     "docs/03-design.md#drive"
@@ -2782,7 +2774,7 @@
   },
   {
    "key": "gear.t_axle420",
-   "v": 42,
+   "v": 40,
    "status": "calculated",
    "basis": [
     "docs/03-design.md#drive"
@@ -2817,7 +2809,7 @@
   },
   {
    "key": "lay.rollbar_top_mm",
-   "v": 910,
+   "v": 950,
    "unit": "mm",
    "status": "calculated",
    "basis": [
@@ -3789,7 +3781,7 @@
   },
   {
    "key": "lay.footrest_height_mm",
-   "v": 150,
+   "v": 180,
    "unit": "mm",
    "status": "calculated",
    "basis": [
@@ -3843,7 +3835,7 @@
   },
   {
    "key": "lay.bar_z_mm",
-   "v": 820,
+   "v": 860,
    "unit": "mm",
    "status": "calculated",
    "basis": [
@@ -3879,7 +3871,7 @@
   },
   {
    "key": "lay.seat_height_mm",
-   "v": 560,
+   "v": 600,
    "unit": "mm",
    "status": "calculated",
    "basis": [
@@ -4201,7 +4193,7 @@
   },
   {
    "key": "lay.pivot_x_mm",
-   "v": 170,
+   "v": 175,
    "unit": "mm",
    "status": "calculated",
    "basis": [
@@ -4290,50 +4282,6 @@
    ]
   },
   {
-   "key": "brg.ucp206_h_mm",
-   "v": 42.9,
-   "unit": "mm",
-   "status": "assumed",
-   "basis": [
-    "Q-039"
-   ]
-  },
-  {
-   "key": "brg.ucp206_l_mm",
-   "v": 165,
-   "unit": "mm",
-   "status": "assumed",
-   "basis": [
-    "Q-039"
-   ]
-  },
-  {
-   "key": "brg.ucp206_h2_mm",
-   "v": 83,
-   "unit": "mm",
-   "status": "assumed",
-   "basis": [
-    "Q-039"
-   ]
-  },
-  {
-   "key": "brg.ucp206_mass_kg",
-   "v": 1.3,
-   "unit": "kg",
-   "status": "assumed",
-   "basis": [
-    "Q-039"
-   ]
-  },
-  {
-   "key": "dsn.load_factor_twist",
-   "v": 1.5,
-   "status": "assumed",
-   "basis": [
-    "Q-017"
-   ]
-  },
-  {
    "key": "dsn.frame_safety_min",
    "v": 1.5,
    "status": "assumed",
@@ -4371,6 +4319,253 @@
   {
    "key": "cost.tube_38x23_jpy_per_m",
    "v": 2000,
+   "unit": "JPY",
+   "status": "assumed",
+   "basis": [
+    "Q-018"
+   ]
+  },
+  {
+   "key": "load.bump_g",
+   "v": 3.5,
+   "status": "sourced",
+   "basis": [
+    "P72"
+   ]
+  },
+  {
+   "key": "load.brake_g",
+   "v": 1.5,
+   "status": "sourced",
+   "basis": [
+    "P72"
+   ]
+  },
+  {
+   "key": "load.lateral_g",
+   "v": 1.5,
+   "status": "sourced",
+   "basis": [
+    "P72"
+   ]
+  },
+  {
+   "key": "load.twist_rough",
+   "v": 1.8,
+   "status": "sourced",
+   "basis": [
+    "S8"
+   ]
+  },
+  {
+   "key": "load.combined_vert_g",
+   "v": 2.0,
+   "status": "assumed",
+   "basis": [
+    "Q-040"
+   ]
+  },
+  {
+   "key": "load.combined_brake_g",
+   "v": 1.0,
+   "status": "assumed",
+   "basis": [
+    "Q-040"
+   ]
+  },
+  {
+   "key": "load.combined_lat_g",
+   "v": 1.0,
+   "status": "assumed",
+   "basis": [
+    "Q-040"
+   ]
+  },
+  {
+   "key": "load.impact_g",
+   "v": 5.0,
+   "status": "assumed",
+   "basis": [
+    "Q-040"
+   ]
+  },
+  {
+   "key": "load.hoop_crush_n_per_kg",
+   "v": 20,
+   "unit": "N/kg",
+   "status": "sourced",
+   "basis": [
+    "P76"
+   ]
+  },
+  {
+   "key": "load.hoop_side_g",
+   "v": 1.0,
+   "status": "assumed",
+   "basis": [
+    "Q-040"
+   ]
+  },
+  {
+   "key": "load.accident_safety_min",
+   "v": 1.0,
+   "status": "assumed",
+   "basis": [
+    "Q-040"
+   ]
+  },
+  {
+   "key": "land.tyre_eff",
+   "v": 0.47,
+   "status": "sourced",
+   "basis": [
+    "S9"
+   ]
+  },
+  {
+   "key": "land.shock_eff",
+   "v": 0.5,
+   "status": "sourced",
+   "basis": [
+    "S9"
+   ]
+  },
+  {
+   "key": "land.tyre_defl_mm",
+   "v": 50,
+   "unit": "mm",
+   "status": "assumed",
+   "basis": [
+    "Q-040"
+   ]
+  },
+  {
+   "key": "land.drop_ref_mm",
+   "v": 150,
+   "unit": "mm",
+   "status": "assumed",
+   "basis": [
+    "Q-040"
+   ]
+  },
+  {
+   "key": "fat.cat_tube_mpa",
+   "v": 71,
+   "unit": "MPa",
+   "status": "sourced",
+   "basis": [
+    "S10"
+   ]
+  },
+  {
+   "key": "fat.cat_fillet_mpa",
+   "v": 40,
+   "unit": "MPa",
+   "status": "sourced",
+   "basis": [
+    "S10"
+   ]
+  },
+  {
+   "key": "fat.gamma_mf",
+   "v": 1.35,
+   "status": "assumed",
+   "basis": [
+    "Q-040"
+   ]
+  },
+  {
+   "key": "fat.range_g",
+   "v": 1.0,
+   "status": "assumed",
+   "basis": [
+    "Q-040"
+   ]
+  },
+  {
+   "key": "atv.clear_youth_low_mm",
+   "v": 84,
+   "unit": "mm",
+   "status": "sourced",
+   "basis": [
+    "P78"
+   ]
+  },
+  {
+   "key": "atv.clear_youth_high_mm",
+   "v": 120,
+   "unit": "mm",
+   "status": "sourced",
+   "basis": [
+    "P78"
+   ]
+  },
+  {
+   "key": "atv.clear_sport_small_mm",
+   "v": 145,
+   "unit": "mm",
+   "status": "sourced",
+   "basis": [
+    "P79"
+   ]
+  },
+  {
+   "key": "atv.clear_utility_mm",
+   "v": 292,
+   "unit": "mm",
+   "status": "sourced",
+   "basis": [
+    "P80"
+   ]
+  },
+  {
+   "key": "brg.ucp207_h_mm",
+   "v": 47.6,
+   "unit": "mm",
+   "status": "assumed",
+   "basis": [
+    "Q-039"
+   ]
+  },
+  {
+   "key": "brg.ucp207_l_mm",
+   "v": 167,
+   "unit": "mm",
+   "status": "assumed",
+   "basis": [
+    "Q-039"
+   ]
+  },
+  {
+   "key": "brg.ucp207_h2_mm",
+   "v": 93,
+   "unit": "mm",
+   "status": "assumed",
+   "basis": [
+    "Q-039"
+   ]
+  },
+  {
+   "key": "brg.ucp207_mass_kg",
+   "v": 1.6,
+   "unit": "kg",
+   "status": "assumed",
+   "basis": [
+    "Q-039"
+   ]
+  },
+  {
+   "key": "cost.ucp207_jpy",
+   "v": 2400,
+   "unit": "JPY",
+   "status": "assumed",
+   "basis": [
+    "Q-039"
+   ]
+  },
+  {
+   "key": "cost.tube_48x23_jpy_per_m",
+   "v": 2300,
    "unit": "JPY",
    "status": "assumed",
    "basis": [
@@ -5425,7 +5620,7 @@
   },
   {
    "key": "dsn.stem_rake_deg",
-   "v": 23.2,
+   "v": 21.8,
    "unit": "deg",
    "status": "calculated",
    "basis": [
@@ -5434,7 +5629,7 @@
   },
   {
    "key": "dsn.tube_main_m",
-   "v": 4.15,
+   "v": 4.62,
    "unit": "m",
    "status": "calculated",
    "basis": [
@@ -5443,7 +5638,7 @@
   },
   {
    "key": "dsn.tube_cross_m",
-   "v": 6.12,
+   "v": 5.9,
    "unit": "m",
    "status": "calculated",
    "basis": [
@@ -5452,7 +5647,7 @@
   },
   {
    "key": "dsn.tube_roll_m",
-   "v": 2.11,
+   "v": 2.03,
    "unit": "m",
    "status": "calculated",
    "basis": [
@@ -5479,7 +5674,7 @@
   },
   {
    "key": "dsn.ratio_top",
-   "v": 25.28,
+   "v": 25.8,
    "status": "calculated",
    "basis": [
     "docs/03-design.md#drive"
@@ -5487,7 +5682,7 @@
   },
   {
    "key": "dsn.ratio",
-   "v": 83.79,
+   "v": 85.5,
    "status": "calculated",
    "basis": [
     "docs/03-design.md#drive"
@@ -5495,7 +5690,7 @@
   },
   {
    "key": "dsn.top_speed_kmh",
-   "v": 29.78,
+   "v": 29.19,
    "unit": "km/h",
    "status": "calculated",
    "basis": [
@@ -5504,7 +5699,7 @@
   },
   {
    "key": "dsn.chain420_centre_mm",
-   "v": 293,
+   "v": 306,
    "unit": "mm",
    "status": "calculated",
    "basis": [
@@ -5530,7 +5725,7 @@
   },
   {
    "key": "dsn.low_point_mm",
-   "v": 112,
+   "v": 150,
    "unit": "mm",
    "status": "calculated",
    "basis": [
@@ -5557,7 +5752,7 @@
   },
   {
    "key": "dsn.saddle_thickness_mm",
-   "v": 59,
+   "v": 44,
    "unit": "mm",
    "status": "calculated",
    "basis": [
@@ -5566,7 +5761,7 @@
   },
   {
    "key": "dsn.child_fit_margin_mm",
-   "v": 33,
+   "v": 23,
    "unit": "mm",
    "status": "calculated",
    "basis": [
@@ -5575,7 +5770,7 @@
   },
   {
    "key": "dsn.seat_drop_adult_mm",
-   "v": 410,
+   "v": 420,
    "unit": "mm",
    "status": "calculated",
    "basis": [
@@ -5602,7 +5797,7 @@
   },
   {
    "key": "dsn.mass_kg",
-   "v": 121.7,
+   "v": 128.6,
    "unit": "kg",
    "status": "calculated",
    "basis": [
@@ -5611,7 +5806,7 @@
   },
   {
    "key": "dsn.cg_x_m",
-   "v": 0.444,
+   "v": 0.431,
    "unit": "m",
    "status": "calculated",
    "basis": [
@@ -5629,7 +5824,7 @@
   },
   {
    "key": "dsn.cg_z_m",
-   "v": 0.29,
+   "v": 0.318,
    "unit": "m",
    "status": "calculated",
    "basis": [
@@ -5638,7 +5833,7 @@
   },
   {
    "key": "dsn.frame_mass_kg",
-   "v": 14.2,
+   "v": 17.7,
    "unit": "kg",
    "status": "calculated",
    "basis": [
@@ -5647,7 +5842,7 @@
   },
   {
    "key": "dsn.rear_share_adult",
-   "v": 0.587,
+   "v": 0.593,
    "status": "calculated",
    "basis": [
     "docs/03-design.md#mass"
@@ -5664,7 +5859,7 @@
   },
   {
    "key": "dsn.cg_height_adult_m",
-   "v": 0.524,
+   "v": 0.551,
    "unit": "m",
    "status": "calculated",
    "basis": [
@@ -5673,7 +5868,7 @@
   },
   {
    "key": "dsn.tip_ratio_adult",
-   "v": 0.76,
+   "v": 0.73,
    "status": "calculated",
    "basis": [
     "docs/03-design.md#stability"
@@ -5681,7 +5876,7 @@
   },
   {
    "key": "dsn.pitch_ratio_adult",
-   "v": 0.85,
+   "v": 0.8,
    "status": "calculated",
    "basis": [
     "docs/03-design.md#stability"
@@ -5689,7 +5884,7 @@
   },
   {
    "key": "dsn.rear_share_child",
-   "v": 0.581,
+   "v": 0.591,
    "status": "calculated",
    "basis": [
     "docs/03-design.md#mass"
@@ -5706,7 +5901,7 @@
   },
   {
    "key": "dsn.cg_height_child_m",
-   "v": 0.339,
+   "v": 0.366,
    "unit": "m",
    "status": "calculated",
    "basis": [
@@ -5715,7 +5910,7 @@
   },
   {
    "key": "dsn.tip_ratio_child",
-   "v": 1.18,
+   "v": 1.09,
    "status": "calculated",
    "basis": [
     "docs/03-design.md#stability"
@@ -5723,7 +5918,7 @@
   },
   {
    "key": "dsn.pitch_ratio_child",
-   "v": 1.33,
+   "v": 1.21,
    "status": "calculated",
    "basis": [
     "docs/03-design.md#stability"
@@ -5731,7 +5926,7 @@
   },
   {
    "key": "dsn.winter_mass_kg",
-   "v": 131.7,
+   "v": 138.6,
    "unit": "kg",
    "status": "calculated",
    "basis": [
@@ -5740,7 +5935,7 @@
   },
   {
    "key": "dsn.winter_cg_height_m",
-   "v": 0.508,
+   "v": 0.534,
    "unit": "m",
    "status": "calculated",
    "basis": [
@@ -5749,7 +5944,7 @@
   },
   {
    "key": "dsn.winter_rear_share",
-   "v": 0.579,
+   "v": 0.585,
    "status": "calculated",
    "basis": [
     "docs/03-design.md#winter"
@@ -5757,7 +5952,7 @@
   },
   {
    "key": "dsn.winter_tip_ratio",
-   "v": 0.64,
+   "v": 0.61,
    "status": "calculated",
    "basis": [
     "docs/03-design.md#stability"
@@ -5765,7 +5960,7 @@
   },
   {
    "key": "dsn.winter_pitch_ratio",
-   "v": 0.9,
+   "v": 0.84,
    "status": "calculated",
    "basis": [
     "docs/03-design.md#stability"
@@ -5773,7 +5968,7 @@
   },
   {
    "key": "dsn.winter_ski_pressure_kpa",
-   "v": 6.65,
+   "v": 6.75,
    "unit": "kPa",
    "status": "calculated",
    "basis": [
@@ -5782,7 +5977,7 @@
   },
   {
    "key": "dsn.belly_height_mm",
-   "v": 100,
+   "v": 150,
    "unit": "mm",
    "status": "calculated",
    "basis": [
@@ -5791,7 +5986,7 @@
   },
   {
    "key": "dsn.motion_ratio",
-   "v": 0.49,
+   "v": 0.61,
    "status": "calculated",
    "basis": [
     "docs/03-design.md#suspension"
@@ -5799,7 +5994,7 @@
   },
   {
    "key": "dsn.rear_sprung_kg",
-   "v": 105.6,
+   "v": 108.6,
    "unit": "kg",
    "status": "calculated",
    "basis": [
@@ -5808,7 +6003,7 @@
   },
   {
    "key": "dsn.rear_wheel_rate_n_mm",
-   "v": 26.1,
+   "v": 26.8,
    "unit": "N/mm",
    "status": "calculated",
    "basis": [
@@ -5817,7 +6012,7 @@
   },
   {
    "key": "dsn.shock_spring_n_mm",
-   "v": 109,
+   "v": 72,
    "unit": "N/mm",
    "status": "calculated",
    "basis": [
@@ -5835,7 +6030,7 @@
   },
   {
    "key": "dsn.shock_force_static_n",
-   "v": 2118,
+   "v": 1751,
    "unit": "N",
    "status": "calculated",
    "basis": [
@@ -5844,7 +6039,7 @@
   },
   {
    "key": "dsn.shock_length_static_mm",
-   "v": 231,
+   "v": 226,
    "unit": "mm",
    "status": "calculated",
    "basis": [
@@ -5853,7 +6048,7 @@
   },
   {
    "key": "dsn.shock_stroke_used_mm",
-   "v": 34,
+   "v": 45,
    "unit": "mm",
    "status": "calculated",
    "basis": [
@@ -5862,7 +6057,7 @@
   },
   {
    "key": "dsn.shock_travel_mm",
-   "v": 32,
+   "v": 41,
    "unit": "mm",
    "status": "calculated",
    "basis": [
@@ -5871,7 +6066,7 @@
   },
   {
    "key": "dsn.chain_centre_change_mm",
-   "v": 6.3,
+   "v": 13.9,
    "unit": "mm",
    "status": "calculated",
    "basis": [
@@ -5880,7 +6075,7 @@
   },
   {
    "key": "dsn.axle_rail_gap_mm",
-   "v": 180,
+   "v": 191,
    "unit": "mm",
    "status": "calculated",
    "basis": [
@@ -5889,7 +6084,7 @@
   },
   {
    "key": "dsn.climb_force_n",
-   "v": 682,
+   "v": 704,
    "unit": "N",
    "status": "calculated",
    "basis": [
@@ -5898,7 +6093,7 @@
   },
   {
    "key": "dsn.climb_grip_n",
-   "v": 656,
+   "v": 688,
    "unit": "N",
    "status": "calculated",
    "basis": [
@@ -5907,7 +6102,7 @@
   },
   {
    "key": "dsn.climb_thrust_n",
-   "v": 1316,
+   "v": 1343,
    "unit": "N",
    "status": "calculated",
    "basis": [
@@ -5916,7 +6111,7 @@
   },
   {
    "key": "dsn.climb_grade_max_pct",
-   "v": 18.4,
+   "v": 19.1,
    "unit": "%",
    "status": "calculated",
    "basis": [
@@ -5925,7 +6120,7 @@
   },
   {
    "key": "dsn.axle_chain_pull_n",
-   "v": 3639,
+   "v": 3898,
    "unit": "N",
    "status": "calculated",
    "basis": [
@@ -5934,7 +6129,7 @@
   },
   {
    "key": "dsn.axle_stress_mpa",
-   "v": 196,
+   "v": 163,
    "unit": "MPa",
    "status": "calculated",
    "basis": [
@@ -5943,7 +6138,7 @@
   },
   {
    "key": "dsn.axle_safety",
-   "v": 1.76,
+   "v": 2.11,
    "status": "calculated",
    "basis": [
     "docs/03-design.md#axle"
@@ -5951,7 +6146,7 @@
   },
   {
    "key": "dsn.bearing_load_n",
-   "v": 638,
+   "v": 665,
    "unit": "N",
    "status": "calculated",
    "basis": [
@@ -5960,7 +6155,7 @@
   },
   {
    "key": "dsn.rail_stress_mpa",
-   "v": 187,
+   "v": 170,
    "unit": "MPa",
    "status": "calculated",
    "basis": [
@@ -5969,7 +6164,7 @@
   },
   {
    "key": "dsn.rail_safety",
-   "v": 1.55,
+   "v": 1.71,
    "status": "calculated",
    "basis": [
     "docs/03-design.md#frame"
@@ -5977,7 +6172,7 @@
   },
   {
    "key": "dsn.arm_stress_mpa",
-   "v": 117,
+   "v": 86,
    "unit": "MPa",
    "status": "calculated",
    "basis": [
@@ -5986,15 +6181,39 @@
   },
   {
    "key": "dsn.arm_safety",
-   "v": 2.48,
+   "v": 3.37,
    "status": "calculated",
    "basis": [
     "docs/03-design.md#suspension"
    ]
   },
   {
+   "key": "dsn.impact_safety",
+   "v": 2.22,
+   "status": "calculated",
+   "basis": [
+    "docs/03-design.md#loads"
+   ]
+  },
+  {
+   "key": "dsn.hoop_crush_safety",
+   "v": 2.06,
+   "status": "calculated",
+   "basis": [
+    "docs/03-design.md#loads"
+   ]
+  },
+  {
+   "key": "dsn.hoop_side_safety",
+   "v": 4.76,
+   "status": "calculated",
+   "basis": [
+    "docs/03-design.md#loads"
+   ]
+  },
+  {
    "key": "dsn.shock_force_bump_n",
-   "v": 5035,
+   "v": 5851,
    "unit": "N",
    "status": "calculated",
    "basis": [
@@ -6003,11 +6222,149 @@
   },
   {
    "key": "dsn.frame_deflection_mm",
-   "v": 6.0,
+   "v": 4.1,
    "unit": "mm",
    "status": "calculated",
    "basis": [
     "docs/03-design.md#frame"
+   ]
+  },
+  {
+   "key": "dsn.fatigue_range_mpa",
+   "v": 56,
+   "unit": "MPa",
+   "status": "calculated",
+   "basis": [
+    "docs/03-design.md#loads"
+   ]
+  },
+  {
+   "key": "dsn.fatigue_limit_tube_mpa",
+   "v": 39,
+   "unit": "MPa",
+   "status": "calculated",
+   "basis": [
+    "docs/03-design.md#loads"
+   ]
+  },
+  {
+   "key": "dsn.fatigue_g_tube",
+   "v": 0.7,
+   "status": "calculated",
+   "basis": [
+    "docs/03-design.md#loads"
+   ]
+  },
+  {
+   "key": "dsn.fatigue_kcycles_tube",
+   "v": 1701,
+   "status": "calculated",
+   "basis": [
+    "docs/03-design.md#loads"
+   ]
+  },
+  {
+   "key": "dsn.fatigue_limit_fillet_mpa",
+   "v": 22,
+   "unit": "MPa",
+   "status": "calculated",
+   "basis": [
+    "docs/03-design.md#loads"
+   ]
+  },
+  {
+   "key": "dsn.fatigue_g_fillet",
+   "v": 0.39,
+   "status": "calculated",
+   "basis": [
+    "docs/03-design.md#loads"
+   ]
+  },
+  {
+   "key": "dsn.fatigue_kcycles_fillet",
+   "v": 304,
+   "status": "calculated",
+   "basis": [
+    "docs/03-design.md#loads"
+   ]
+  },
+  {
+   "key": "dsn.landing_front_g",
+   "v": 8.5,
+   "status": "calculated",
+   "basis": [
+    "docs/03-design.md#loads"
+   ]
+  },
+  {
+   "key": "dsn.landing_rear_g",
+   "v": 4.6,
+   "status": "calculated",
+   "basis": [
+    "docs/03-design.md#loads"
+   ]
+  },
+  {
+   "key": "dsn.drop_front_at_bump_mm",
+   "v": 32,
+   "unit": "mm",
+   "status": "calculated",
+   "basis": [
+    "docs/03-design.md#loads"
+   ]
+  },
+  {
+   "key": "dsn.drop_rear_at_bump_mm",
+   "v": 85,
+   "unit": "mm",
+   "status": "calculated",
+   "basis": [
+    "docs/03-design.md#loads"
+   ]
+  },
+  {
+   "key": "dsn.clearance_mm",
+   "v": 150,
+   "unit": "mm",
+   "status": "calculated",
+   "basis": [
+    "docs/03-design.md#clearance"
+   ]
+  },
+  {
+   "key": "dsn.clearance_no_pan_mm",
+   "v": 156,
+   "unit": "mm",
+   "status": "calculated",
+   "basis": [
+    "docs/03-design.md#clearance"
+   ]
+  },
+  {
+   "key": "dsn.breakover_deg",
+   "v": 31.0,
+   "unit": "deg",
+   "status": "calculated",
+   "basis": [
+    "docs/03-design.md#clearance"
+   ]
+  },
+  {
+   "key": "dsn.breakover_no_pan_deg",
+   "v": 32.2,
+   "unit": "deg",
+   "status": "calculated",
+   "basis": [
+    "docs/03-design.md#clearance"
+   ]
+  },
+  {
+   "key": "dsn.clearance_bump_rear_mm",
+   "v": 116,
+   "unit": "mm",
+   "status": "calculated",
+   "basis": [
+    "docs/03-design.md#clearance"
    ]
   },
   {
@@ -6021,7 +6378,7 @@
   },
   {
    "key": "dsn.brake_torque_needed_nm",
-   "v": 301,
+   "v": 311,
    "unit": "N m",
    "status": "calculated",
    "basis": [
@@ -6030,7 +6387,7 @@
   },
   {
    "key": "dsn.brake_rear_alone_decel",
-   "v": 3.32,
+   "v": 3.31,
    "unit": "m/s2",
    "status": "calculated",
    "basis": [
@@ -6039,7 +6396,7 @@
   },
   {
    "key": "dsn.brake_clamp_needed_n",
-   "v": 2739,
+   "v": 2750,
    "unit": "N",
    "status": "calculated",
    "basis": [
@@ -6048,7 +6405,7 @@
   },
   {
    "key": "dsn.brake_front_torque_needed_nm",
-   "v": 89,
+   "v": 94,
    "unit": "N m",
    "status": "calculated",
    "basis": [
@@ -6057,7 +6414,7 @@
   },
   {
    "key": "dsn.brake_downhill_decel_rear",
-   "v": 0.19,
+   "v": 0.2,
    "unit": "m/s2",
    "status": "calculated",
    "basis": [
@@ -6093,7 +6450,7 @@
   },
   {
    "key": "dsn.height_m",
-   "v": 0.98,
+   "v": 1.02,
    "unit": "m",
    "status": "calculated",
    "basis": [
@@ -6102,7 +6459,7 @@
   },
   {
    "key": "dsn.delica_height_margin_mm",
-   "v": 150,
+   "v": 110,
    "unit": "mm",
    "status": "calculated",
    "basis": [
@@ -6129,7 +6486,7 @@
   },
   {
    "key": "dsn.bom_parts_jpy",
-   "v": 275213,
+   "v": 283807,
    "unit": "JPY",
    "status": "calculated",
    "basis": [
@@ -7963,6 +8320,136 @@
    "note": "補助役が読んだ。2,600 円、送料無料。ばね付きアームにローラー。数量は示されていない。ほかは 4,580 円。"
   },
   {
+   "id": "P72",
+   "class": "P",
+   "title": "Riley and George, Design, Analysis and Testing of a Formula SAE Car Chassis, SAE 2002-01-3300",
+   "url": "https://www.slideshare.net/ELKINMAURICIOGONZALE/chassis-2002-013300-design-analysis-and-testing-of-a-formula-sae-car-chassis",
+   "retrieved": "2026-11-04",
+   "license": "不明",
+   "read": "partial",
+   "note": "補助役が読んだ。フレームの荷重の場合は、段差 3.5 g、制動 1.5 g、横 1.5 g を単独と組み合わせで掛け、Cornell で 10 年を超える間の耐久の要求を満たすとされる。舗装路のレースであり、これ以上の安全率は示されていない。"
+  },
+  {
+   "id": "P73",
+   "class": "P",
+   "title": "Singh, Structural Performance Analysis of Formula SAE Car, Jurnal Mekanikal 31, 2010",
+   "url": "https://jurnalmekanikal.utm.my/index.php/jurnalmekanikal/article/download/102/101",
+   "retrieved": "2026-11-04",
+   "license": "不明",
+   "read": "partial",
+   "note": "補助役が読んだ。同じ 3.5、1.5、1.5 g で、Milliken の Race Car Vehicle Dynamics を引いている。"
+  },
+  {
+   "id": "P74",
+   "class": "P",
+   "title": "Bennett and others, SAE Mini Baja Frame Analysis, Northern Arizona University, 2014",
+   "url": "https://sce.nau.edu/capstone/projects/ME/2014/SAE-MiniBaja/team_01/team_01-engineering-analysis-report.pdf",
+   "retrieved": "2026-11-04",
+   "license": "不明",
+   "read": "full",
+   "note": "補助役が読んだ。20〜30 mph のバハ車、250 lb の運転者で、10 ft からの逆さ落下を 0.1 s の力積で受ける場合、35 mph の壁を 0.2 s（約 8 g）で受ける場合、35 mph の 500 lb の車に後ろと横から当てられる場合。降伏の安全率は 5.3、2.9、1.45、1.01。"
+  },
+  {
+   "id": "P75",
+   "class": "P",
+   "title": "Devi and Dilip, Design and Optimisation of SAE Mini Baja Chassis, IJERA 4(9), 2014",
+   "url": "https://www.slideshare.net/slideshow/p49059397/40530690",
+   "retrieved": "2026-11-04",
+   "license": "不明",
+   "read": "full",
+   "note": "補助役が読んだ。320 kg、運転者あり、35 mph で、前 10 g、横 5 g、後 5 g、転覆 2.5 g。その上に降伏の安全率 2 を掛ける。"
+  },
+  {
+   "id": "P76",
+   "class": "P",
+   "title": "NIOSH, CROPS Massey Ferguson 135 testing information, to SAE J2194, 2021",
+   "url": "https://archive.cdc.gov/www_cdc_gov/niosh/topics/aginjury/crops/pdfs/mf-135/MF_135_Testing_Report_March-11-2021-508.pdf",
+   "retrieved": "2026-11-04",
+   "license": "不明",
+   "read": "partial",
+   "note": "補助役が読んだ。トラクターの転倒保護構造では、前後のエネルギー 1.4 m J、横のエネルギー 1.75 m J、垂直のつぶれ 20 m N。m は基準質量（kg）。"
+  },
+  {
+   "id": "P77",
+   "class": "P",
+   "title": "Yamaha YFZ50 2023 specifications",
+   "url": "https://www.yamahamotorsports.com/models/23-yfz50/specs",
+   "retrieved": "2026-11-04",
+   "license": "不明",
+   "read": "full",
+   "note": "補助役が読んだ。最低地上高 3.5 in。最大として示されている。"
+  },
+  {
+   "id": "P78",
+   "class": "P",
+   "title": "Suzuki QuadSport Z50 2026",
+   "url": "https://www.globalsuzuki.com/motorcycle/smgs/products/2026quadsport_z50/",
+   "retrieved": "2026-11-04",
+   "license": "不明",
+   "read": "full",
+   "note": "補助役が読んだ。最低地上高 120 mm。ほかの子ども用のクワッドは、Honda TRX90X が 3.9 in、Kawasaki KFX50 が 3.3 in、KFX90 が 3.9 in、Polaris Outlaw 70 が 4 in。"
+  },
+  {
+   "id": "P79",
+   "class": "P",
+   "title": "Honda TRX250X 2023 specifications",
+   "url": "https://hondanews.com/en-US/releases/release-907c81858bdfe231c1cc3d0f700b91e2-2023-honda-trx250x-specifications",
+   "retrieved": "2026-11-04",
+   "license": "不明",
+   "read": "full",
+   "note": "補助役が読んだ。最低地上高 5.7 in。Yamaha YFZ450R のスポーツ用のクワッドは 9.3 in。"
+  },
+  {
+   "id": "P80",
+   "class": "P",
+   "title": "Yamaha Grizzly EPS 2026 specifications",
+   "url": "https://yamahamotorsports.com/models/26-grizzly-eps/specs",
+   "retrieved": "2026-11-04",
+   "license": "不明",
+   "read": "full",
+   "note": "補助役が読んだ。最低地上高 11.3 in。Honda と Polaris の作業用のクワッドは 9.7〜11.5 in。"
+  },
+  {
+   "id": "S8",
+   "class": "S",
+   "title": "Ibrahim, Loads on Vehicle Structures, course chapter 9",
+   "url": "https://heltaher.com/autobook/chapters/chapter_9.html",
+   "retrieved": "2026-11-04",
+   "license": "不明",
+   "read": "full",
+   "note": "補助役が読んだ。道路車両では、垂直曲げ 2〜3（路外ではより高い）、片輪を上げたねじり 1.3〜1.8（悪路は 1.8）、制動 1.1〜1.84 g、前後方向の段差 4.5、横は最大 1 g。"
+  },
+  {
+   "id": "S9",
+   "class": "S",
+   "title": "Irvine, Aircraft Landing Gear Dynamic Analysis, Vibrationdata",
+   "url": "https://blog.vibrationdata.com/?p=151076",
+   "retrieved": "2026-11-04",
+   "license": "不明",
+   "read": "full",
+   "note": "補助役が読んだ。力とストロークの曲線の効率。タイヤで約 0.47、絞りを調整したオレオ緩衝器で約 0.8、鋼のばねで 0.5 に近い。"
+  },
+  {
+   "id": "S10",
+   "class": "S",
+   "title": "EN 1993-1-9 tables 8.6 and 8.7 on hollow sections, secondary copy",
+   "url": "https://dnaop.com/html/59545_7.html",
+   "retrieved": "2026-11-04",
+   "license": "不明",
+   "read": "partial",
+   "note": "補助役が読んだ。写しは所々で文字化けしている。疲労の継手の等級は、丸管の突合せ溶接または板への溶接が 71、中間板を挟んだすみ肉溶接の丸管が 40、丸の K 形と N 形のすき間継手が 90。"
+  },
+  {
+   "id": "S11",
+   "class": "S",
+   "title": "IDEA StatiCa, Fatigue analysis according to EN 1993-1-9",
+   "url": "https://www.ideastatica.com/support-center/fatigue-analysis-according-to-en-1993-1-9",
+   "retrieved": "2026-11-04",
+   "license": "不明",
+   "read": "full",
+   "note": "補助役が読んだ。等級は 200 万回での応力範囲であり、疲労限度はその (2/5)^(1/3) 倍。S-N 曲線の傾きは 3、のち 5。部分係数は 1.0〜1.35。"
+  },
+  {
    "id": "F1",
    "class": "F",
    "title": "Motor1, a shifter kart turned into a snowmobile, 2025-02-02",
@@ -8469,6 +8956,21 @@
     "D-030",
     "R-14"
    ]
+  },
+  {
+   "id": "D-038",
+   "date": "2026-11-04",
+   "by": "owner",
+   "what": "不整地に対しては、カートはフレームの下で地面から 150 mm の高さに立つ。これは小型スポーツクワッドの最低地上高である（1.3.19）。フレームとその下のそり底板は約 40 mm 上がり、シートの背は 600 mm に戻る。D-037 の低いシートは一部あきらめる。",
+   "options": [
+    "低いシートを保ち、夏はそり底板を外してフレームの下 112 mm",
+    "フレームの下 150 mm、シートは 600 mm"
+   ],
+   "touches": [
+    "D-037",
+    "Q-042",
+    "R-04"
+   ]
   }
  ],
  "open": [
@@ -8707,7 +9209,6 @@
    "text": "手順 1.3 は、出典なしで次を仮定する。フレームと車軸への動的荷重係数、S45C と STKM11A 鋼の密度と強度、タイヤ付き車輪、クラッチ、シート、ステアリング、ブレーキ、燃料、小物の質量、ブレーキパッドの摩擦、成人と 5 歳児の身長に対する臀部からかかとまでの長さの比。設計から製作への関門の前に、それぞれに規格、メーカーのデータ、または実測を挙げる。",
    "waits_for": "assistant",
    "affects": [
-    "dsn.load_factor",
     "dsn.steel_density_kg_m3",
     "dsn.s45c_yield_mpa",
     "dsn.stkm11a_tensile_mpa",
@@ -9078,17 +9579,66 @@
   {
    "id": "Q-039",
    "kind": "question",
-   "text": "D-036 と D-037 のフレームの検討は、UCP206 ピロー形軸受の寸法と質量（このシリーズに共通の寸法。買ったとき FYH のカタログ P33 と照らして確かめる）、後ろの緩衝器のストローク（販売元は目玉間の長さのみを示す、M100）、短い行程のカートとして後ろの固有振動数 2.5 Hz を、緩衝器を買って測り、ばねを選ぶまで仮定する。",
+   "text": "D-036 と D-037 のフレームの一巡は、35 mm の車軸用の UCP207 ピロー形軸受の寸法、質量、価格（同系列の一般的な寸法。購入時に FYH カタログ P33 と照合する）、後ろの緩衝器のストローク（販売元は目玉から目玉までの長さだけを示す、M100）、短いストロークのカートとして後ろの固有振動数 2.5 Hz を、緩衝器を買って測りばねを選ぶまで仮定している。",
    "waits_for": "assistant",
    "affects": [
-    "brg.ucp206_h_mm",
-    "brg.ucp206_l_mm",
-    "brg.ucp206_h2_mm",
-    "brg.ucp206_mass_kg",
+    "brg.ucp207_h_mm",
+    "brg.ucp207_l_mm",
+    "brg.ucp207_h2_mm",
+    "brg.ucp207_mass_kg",
+    "cost.ucp207_jpy",
     "shock.stroke_mm",
     "sus.freq_hz"
    ],
    "opened": "2026-11-04",
+   "phase": "design"
+  },
+  {
+   "id": "Q-040",
+   "kind": "question",
+   "text": "1.3.18 の不整地の荷重の場合は、このカートについてどの出典も与えていないものを仮定している。すなわち、垂直 2 g に制動 1 g と横 1 g を組み合わせること、タイヤを外れる柱や木に対する 30 km/h での 5 g の前面の衝突（Baja の 56 km/h での前面 8 から 10 g を同じ衝撃時間で縮尺すると 4.3 から 5.4 g、P74、P75）、保護枠へのカートの重さの横押し、両方の保護枠荷重をフレームを背骨で保持し乗り手の質量を除いてかけること（転覆構造物の試験と同じ。保護枠で保持しカートの質量を押す形にすると横押しはより厳しくなる）、事故時の引張強さに対する安全率 1、使えるタイヤのたわみ 50 mm と基準の落差 150 mm、疲労には部分係数 1.35 で繰り返し荷重の範囲 1 g、フレームの管どうしの継手を表すものとして突合せ溶接の管と板の継手の等級（EN 1993-1-9 には載っていない）である。カートを実際の地面で測るまでは、これらを保つ。",
+   "waits_for": "assistant",
+   "affects": [
+    "load.combined_vert_g",
+    "load.combined_brake_g",
+    "load.combined_lat_g",
+    "load.impact_g",
+    "load.hoop_side_g",
+    "load.accident_safety_min",
+    "land.tyre_defl_mm",
+    "land.drop_ref_mm",
+    "fat.gamma_mf",
+    "fat.range_g"
+   ],
+   "opened": "2026-11-04",
+   "phase": "design"
+  },
+  {
+   "id": "Q-041",
+   "kind": "finding",
+   "text": "1.3.18 の不整地の荷重の場合に対し、フレームの溶接継手の疲労寿命には限りがある。繰り返し 1 g の範囲が無制限となるのは、突合せ溶接の継手で約 0.7 g、すみ肉溶接の継手で約 0.4 g を下回るときだけである。（当初は不足していた背骨、車軸、バンパー、保護枠は D-038 で変更され、いまは各々の場合を満たす。）継手は、建造前により良い等級になるようガセットと管端の合わせ加工で詳細を詰め、フレームは実際の地面で試す。",
+   "waits_for": "assistant",
+   "affects": [
+    "frame",
+    "bumpers",
+    "roll_bar",
+    "axle_shaft"
+   ],
+   "opened": "2026-11-04",
+   "raised_by": "assistant",
+   "phase": "design",
+   "blocks": "design_build"
+  },
+  {
+   "id": "Q-042",
+   "kind": "question",
+   "text": "不整地に対し、施主は 1.3.18 の前のばね装置を決める（1.3.19 の車高は D-038 で決着済み）。固いままにして数センチメートルを超える落差はゆっくり乗り越えるか、2 本の緩衝器付きの ATV 用 A アームを加えるか（D-036 は先送りした。部品は店の掲載で約 50,000 から 73,000 円）。",
+   "waits_for": "owner",
+   "affects": [
+    "spindles"
+   ],
+   "opened": "2026-11-04",
+   "raised_by": "assistant",
    "phase": "design"
   }
  ],
@@ -9939,6 +10489,29 @@
    "by": "assistant",
    "date": "2026-11-04",
    "detail": "独立した補助役が 1.3 のまたがる形のカートを手計算で再計算し、主要な値はすべて再現した。また design.json から干渉を探した。見つかった点は次のとおり。冬の前後の転倒比が計算されていない（0.65 に対して 0.8）。冬の最高速度が 30 km/h を超える。車軸のねじりと制動時の前方への荷重移動が抜けている。質量に約 2 から 5 kg の部品が不足している。後ろのウインカーが冬の大きなタイヤの内側にある。45T のスプロケットが張り出しに当たる。チェーンガードが中間の軸受を貫く。かかとが足板の前縁に当たり、全舵角ではつま先が前タイヤに届く。いくつかの言い回しの問題。同日に、ホイールベースを 1.08 m に伸ばして前のオーバーハングを短くし、12T の冬の出力スプロケットで 30 km/h に収め、車軸の応力をミーゼスで合成し、制動を前後の車軸で分担させ、張り出し、ガード、ウインカー、ミラー、前キャリパーを動かし、質量を補完した。背骨の安全率が 0.85、冬の前後の転倒比が 0.65 であるため、不合格のままである。これらと残る小さな隙間は Q-035 にある。"
+  },
+  {
+   "id": "K-014",
+   "target": [
+    "load.bump_g",
+    "load.twist_rough",
+    "load.impact_g",
+    "load.hoop_crush_n_per_kg",
+    "land.shock_eff",
+    "fat.gamma_mf",
+    "dsn.rail_safety",
+    "dsn.impact_safety",
+    "dsn.hoop_crush_safety",
+    "dsn.landing_rear_g",
+    "dsn.fatigue_g_tube",
+    "dsn.clearance_bump_rear_mm"
+   ],
+   "tier": "T2",
+   "method": "refute",
+   "result": "partial",
+   "by": "assistant",
+   "date": "2026-11-04",
+   "detail": "独立した補助役が 1.3.18 と 1.3.19 のすべての出典を取り寄せ、値が記録のとおりであることを確かめ、calc/frame.py を 40 の場合（片持ち梁、梁、ねじり、ヒンジ、リンク）の手計算式と突き合わせて 0.08 % 以内で一致することを確かめた。補助役は次を反証した。緩衝器のエネルギー効率 0.8 は、出典では絞りを調整したオレオ緩衝器の値であり鋼のばね（約 0.5）ではないので、後ろはより強く着地する。前面の衝突 4 g は、縮尺した範囲 4.3 から 5.4 g を下回る。疲労を着座時の段差だけから取っており、浮いた車輪 1 つがそれを 30 % 上回り、しかも最小の部分係数だった。寿命を数百キロメートルと誤って述べていた。そり底板の最大縮み時のすき間は 78 ではなく 66 mm である。2 つのクワッドのすき間が注記の外にあった。フレームの不足と車軸の不足は、補助役が試したほかのどのモデル化でも変わらなかった。バンパーは細い障害物に対してのみ（壁に対してはタイヤが先に当たる）、保護枠は荷重のかけ方によって変わる。すべて同じ日に直した。緩衝器の効率は 0.5、衝突は 5 g、疲労は最悪の場合から部分係数 1.35 で、すき間はそり底板から、クワッドの範囲、であり、保護枠の荷重のかけ方は Q-040 に記した。"
   }
  ],
  "procedures": [
@@ -10820,9 +11393,9 @@
   "lines": [
    {
     "part": "frame",
-    "item": "STKM11A 丸管 38.1 x 2.3、背骨のレール、柱、支柱、支点の管、スイングアーム、保護枠（m）",
-    "qty": 9,
-    "price": "cost.tube_38x23_jpy_per_m",
+    "item": "STKM11A 丸管 48.6 x 2.3、背骨のレール、柱、支柱、支点の管、スイングアーム、バンパー、保護枠（m）",
+    "qty": 10,
+    "price": "cost.tube_48x23_jpy_per_m",
     "need": "b1"
    },
    {
@@ -10848,16 +11421,16 @@
    },
    {
     "part": "axle_shaft",
-    "item": "車軸 S45C 30 mm、0.85 m、キー溝付き",
+    "item": "車軸 S45C 35 mm、0.85 m、キー溝付き",
     "qty": 1,
     "price": "cost.axle_shaft_jpy",
     "need": "b3"
    },
    {
     "part": "axle_bearings",
-    "item": "ピロー形軸受 UCP206（FYH）、スイングアームの下の左右に 1 個ずつ",
+    "item": "ピロー形軸受 UCP207（FYH）、スイングアームの下の左右に 1 つずつ",
     "qty": 2,
-    "price": "cost.ucp206_jpy",
+    "price": "cost.ucp207_jpy",
     "need": "b3"
    },
    {
@@ -11011,14 +11584,21 @@
    },
    {
     "part": "chain_final",
-    "item": "スプロケット 420、15T。エンジンユニットの出力軸に付ける（アダプター付き、機械加工）",
+    "item": "チェーンの中心距離の変化に対応する、スイングアーム上のばね付きローラーのチェーンテンショナー",
+    "qty": 1,
+    "price": "cost.chain_tensioner_jpy",
+    "need": "b5"
+   },
+   {
+    "part": "chain_final",
+    "item": "スプロケット 420、14T、エンジンユニットの出力軸に（アダプター付き、機械加工）",
     "qty": 1,
     "price": "cost.spr420_15t_jpy",
     "need": "b5"
    },
    {
     "part": "chain_final",
-    "item": "スプロケット 420、42T。車軸のキャリアに付ける",
+    "item": "スプロケット 420、40T、後車軸の支持部に",
     "qty": 1,
     "price": "cost.spr420_42t_jpy",
     "need": "b5"
@@ -11331,6 +11911,18 @@
    "doc": "docs/03-design.md",
    "id": "suspension",
    "title": "1.3.17 後ろのサスペンション",
+   "level": 2
+  },
+  {
+   "doc": "docs/03-design.md",
+   "id": "loads",
+   "title": "1.3.18 不整地での荷重",
+   "level": 2
+  },
+  {
+   "doc": "docs/03-design.md",
+   "id": "clearance",
+   "title": "1.3.19 最低地上高",
    "level": 2
   },
   {

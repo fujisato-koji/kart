@@ -187,7 +187,6 @@ items:
     text: Step 1.3 assumes, without a source yet, the dynamic load factor on the frame and axle, the density and strength of S45C and STKM11A steel, the masses of a wheel with its tyre, the clutch, the seat, the steering, the brake, the fuel, and small parts, the brake pad friction, and the ratio of buttock-to-heel length to stature for an adult and for a 5-year-old. Cite a standard, a maker's data, or a weighing for each before the gate from design to build.
     waits_for: assistant
     affects:
-      - dsn.load_factor
       - dsn.steel_density_kg_m3
       - dsn.s45c_yield_mpa
       - dsn.stkm11a_tensile_mpa
@@ -494,14 +493,54 @@ items:
     closed_by: D-036
   - id: Q-039
     kind: question
-    text: The frame pass of D-036 and D-037 assumes the UCP206 pillow block's sizes and mass (the common sizes of the series; check them against the FYH catalogue P33 when bought), the rear shock's stroke (its seller states the eye-to-eye length only, M100), and a rear natural frequency of 2.5 Hz for a short-travel kart, until the shock is bought, measured, and its spring chosen.
+    text: The frame pass of D-036 and D-037 assumes the UCP207 pillow block's sizes, mass, and price for the 35 mm axle (the common sizes of the series; check them against the FYH catalogue P33 when bought), the rear shock's stroke (its seller states the eye-to-eye length only, M100), and a rear natural frequency of 2.5 Hz for a short-travel kart, until the shock is bought, measured, and its spring chosen.
     waits_for: assistant
     affects:
-      - brg.ucp206_h_mm
-      - brg.ucp206_l_mm
-      - brg.ucp206_h2_mm
-      - brg.ucp206_mass_kg
+      - brg.ucp207_h_mm
+      - brg.ucp207_l_mm
+      - brg.ucp207_h2_mm
+      - brg.ucp207_mass_kg
+      - cost.ucp207_jpy
       - shock.stroke_mm
       - sus.freq_hz
     opened: 2026-11-04
+    phase: design
+  - id: Q-040
+    kind: question
+    text: The load cases for rough ground of 1.3.18 assume what no source gives for this kart - the combination of 2 g vertical with 1 g braking and 1 g sideways, a frontal impact of 5 g at 30 km/h against a post or tree that misses the tyres (Baja's frontal 8 to 10 g at 56 km/h scaled with the same impulse time gives 4.3 to 5.4 g, P74, P75), a sideways push on the hoop of the kart's weight, both hoop loads applied with the frame held at its spine and the rider's mass left out (as rollover structures are tested; held at the hoop with the kart's masses pushing, the side push would be worse), a safety factor of 1 on tensile strength in accidents, a usable tyre deflection of 50 mm and a reference drop of 150 mm, a repeated load range of 1 g with a partial factor of 1.35 for fatigue, and the detail categories of butt-welded tubes and plates standing for the frame's tube-to-tube joints, which EN 1993-1-9 does not list. They hold until the kart is measured on its ground.
+    waits_for: assistant
+    affects:
+      - load.combined_vert_g
+      - load.combined_brake_g
+      - load.combined_lat_g
+      - load.impact_g
+      - load.hoop_side_g
+      - load.accident_safety_min
+      - land.tyre_defl_mm
+      - land.drop_ref_mm
+      - fat.gamma_mf
+      - fat.range_g
+    opened: 2026-11-04
+    phase: design
+  - id: Q-041
+    kind: finding
+    text: Against the load cases for rough ground of 1.3.18 the frame's welded joints have a limited fatigue life - a repeated 1 g range is unlimited only below about 0.7 g at butt-welded details and 0.4 g at fillet-welded ones. (The spine, the axle, the bumper, and the hoop, which fell short at first, were changed with D-038 and now meet their cases.) The joints are to be detailed with gussets and fitted ends for the better categories before building, and the frame tried on its ground.
+    waits_for: assistant
+    affects:
+      - frame
+      - bumpers
+      - roll_bar
+      - axle_shaft
+    opened: 2026-11-04
+    raised_by: assistant
+    phase: design
+    blocks: design_build
+  - id: Q-042
+    kind: question
+    text: For rough ground the owner decides the front's springing of 1.3.18 (the ride height of 1.3.19 is settled by D-038) - stay rigid and ride drops of more than a few centimetres slowly, or add ATV A-arms with two shocks (D-036 put this off; parts about 50,000 to 73,000 JPY seen in shop listings).
+    waits_for: owner
+    affects:
+      - spindles
+    opened: 2026-11-04
+    raised_by: assistant
     phase: design
