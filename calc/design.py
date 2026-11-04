@@ -99,8 +99,9 @@ def build(v):
         "bl": (xf - 0.02, yr * 0.75, zc + 0.10), "br": (xf - 0.02, -yr * 0.75, zc + 0.10),
         "ol0": (-0.09, yr, zc_hi), "ol1": (-0.09, yb + 0.03, zc_hi), "ol2": (0.09, yb + 0.03, zc_hi), "ol3": (0.09, yr, zc_hi),
         "or0": (-0.09, -yr, zc_hi), "or1": (-0.09, -yb - 0.03, zc_hi), "or2": (0.09, -yb - 0.03, zc_hi), "or3": (0.09, -yr, zc_hi),
-        "hb_lb": (xh_ - 0.13, yh_ + 0.17, zc_hi), "hb_rb": (xh_ - 0.13, yh_ - 0.17, zc_hi),
-        "hb_l": (xh_ - 0.17, yh_ + 0.17, zc_hi + 0.42), "hb_r": (xh_ - 0.17, yh_ - 0.17, zc_hi + 0.42),
+        "hb_lb": (xh_ - 0.13, yh_ + 0.19, zc_hi), "hb_rb": (xh_ - 0.13, yh_ - 0.19, zc_hi),
+        "hb_l": (xh_ - 0.17, yh_ + 0.19, mm("lay.rollbar_top_mm") - rail_od / 2),
+        "hb_r": (xh_ - 0.17, yh_ - 0.19, mm("lay.rollbar_top_mm") - rail_od / 2),
         "nl0": (0.62, yr, zc), "nl1": (0.70, yr + 0.12, zc + 0.04),
         "nr0": (0.20, -yr - 0.17, zc + 0.04), "nr1": (0.70, -yr - 0.12, zc + 0.04),
         "col0": (x_colsup, yh_, zc), "col1": (x_colsup, yh_, z_colsup),
@@ -109,19 +110,23 @@ def build(v):
             ("rr0", "rrk"), ("rrk", "rr1"), ("rr1", "rr2"), ("rr2", "rr3"), ("rr3", "fr"), ("fr", "fr2"), ("fr2", "br")]
     cross = [("rl0", "rr0"), ("rl1", "rr1"), ("rl2", "rr2"), ("rl3", "rr3"), ("fl", "fr"), ("fl2", "fr2"), ("bl", "br"),
              ("ol0", "ol1"), ("ol1", "ol2"), ("ol2", "ol3"), ("or0", "or1"), ("or1", "or2"), ("or2", "or3"),
-             ("hb_lb", "hb_l"), ("hb_l", "hb_r"), ("hb_r", "hb_rb"), ("hb_lb", "hb_rb"),
+             ("hb_lb", "hb_l"), ("hb_l", "hb_r"), ("hb_r", "hb_rb"), ("hb_lb", "hb_rb"), ("hb_l", "rl0"), ("hb_r", "rr0"),
              ("nl0", "nl1"), ("nl1", "rl3"), ("rr1", "nr0"), ("nr0", "nr1"), ("nr1", "rr3"),
              ("col0", "col1"), ("rl3", "col1"), ("rr3", "col1")]
-    tube_len = {"main": 0.0, "cross": 0.0}
+    tube_len = {"main": 0.0, "cross": 0.0, "roll": 0.0}
     for a, b in main:
         members.append({"part": "frame", "a": rnd(N[a]), "b": rnd(N[b]), "od": rail_od, "t": rail_t})
         tube_len["main"] += math.dist(N[a], N[b])
     for a, b in cross:
         part = "bumpers" if a[0] == "n" or b[0] == "n" or a == "bl" else "frame"
-        members.append({"part": part, "a": rnd(N[a]), "b": rnd(N[b]), "od": cross_od, "t": cross_t})
-        tube_len["cross"] += math.dist(N[a], N[b])
+        if a.startswith("hb") or b.startswith("hb"):
+            part = "roll_bar"
+        od_, t_ = (rail_od, rail_t) if part == "roll_bar" else (cross_od, cross_t)
+        members.append({"part": part, "a": rnd(N[a]), "b": rnd(N[b]), "od": od_, "t": t_})
+        tube_len["roll" if part == "roll_bar" else "cross"] += math.dist(N[a], N[b])
     put("dsn.tube_main_m", round(tube_len["main"], 2), "m", "frame")
     put("dsn.tube_cross_m", round(tube_len["cross"], 2), "m", "frame")
+    put("dsn.tube_roll_m", round(tube_len["roll"], 2), "m", "rollbar")
     rho = v["dsn.steel_density_kg_m3"]
     tube_mass = lambda od_, t_, L: rho * math.pi * (od_ * od_ - (od_ - 2 * t_) ** 2) / 4 * L
     m_frame = tube_mass(rail_od, rail_t, tube_len["main"]) + tube_mass(cross_od, cross_t, tube_len["cross"])
@@ -137,6 +142,8 @@ def build(v):
         masses.append((part, kg, pos))
 
     mass("frame", m_frame, (0.45, 0.0, zc + 0.05))
+    m_roll = tube_mass(rail_od, rail_t, tube_len["roll"])
+    mass("roll_bar", m_roll, (xh_ - 0.12, yh_, (zc_hi + mm("lay.rollbar_top_mm")) / 2))
     mass("floor", m_floor, ((fx0 + fx1) / 2, (fy0 + fy1) / 2, zr))
 
     # ---- rear axle, hubs, wheels, bearings, brake --------------------------------------------
@@ -168,85 +175,49 @@ def build(v):
     mass("brake", v["dsn.brake_mass_kg"], (0.0, yd, r))
     low_disc = r - dd / 2
 
-    # ---- powertrain ------------------------------------------------------------------------
-    t1, t2, t3, t4 = v["gear.t_clutch"], v["gear.t_jack_in"], v["gear.t_jack_out"], v["gear.t_axle"]
-    ratio = (t2 / t1) * (t4 / t3)
-    put("dsn.ratio", round(ratio, 3), None, "drive")
-    v_top = v["engine.speed_noload_rpm"] / ratio / 60 * math.pi * tyre_d * 3.6
+    # ---- powertrain: a 50 cc scooter's engine unit and one chain of size 420 ------------------
+    # The unit (engine, CVT, centrifugal clutch, final reduction) sits beside the seat on the
+    # left, its output shaft at the rear end pointing toward the seat; a 420 chain runs from the
+    # output sprocket to the axle sprocket beside the middle axle bearing. Slotted holes under
+    # the unit's mounting plate tension the chain.
+    p420 = 0.0127
+    t_out, t4 = v["gear.t_out420"], v["gear.t_axle420"]
+    pd_out = p420 / math.sin(math.pi / t_out)
+    pd_ax = p420 / math.sin(math.pi / t4)
+    pd, od = {t4: pd_ax}, {t4: pd_ax + 0.6 * p420}
+    chain_r = t4 / t_out
+    ratio_top = v["eng50.cvt_high"] * v["su.final_ratio"] * chain_r
+    ratio = v["eng50.cvt_low"] * v["su.final_ratio"] * chain_r   # lowest overall ratio, for climbing and the chain pull
+    put("dsn.ratio_top", round(ratio_top, 2), None, "drive")
+    put("dsn.ratio", round(ratio, 2), None, "drive")
+    v_top = v["su.rev_limit_rpm"] / ratio_top / 60 * math.pi * tyre_d * 3.6
     put("dsn.top_speed_kmh", round(v_top, 2), "km/h", "drive")
-    p = 0.0127
-
-    def exact_links(c, n1_, n2_):
-        return 2 * c / p + (n1_ + n2_) / 2 + p * (n2_ - n1_) ** 2 / (4 * math.pi ** 2 * c)
-
-    def centre_for(links, n1_, n2_):
-        lo, hi = 0.05, 1.0
-        for _ in range(60):
-            mid = (lo + hi) / 2
-            lo, hi = (mid, hi) if exact_links(mid, n1_, n2_) < links else (lo, mid)
-        return (lo + hi) / 2
-
-    # The jackshaft and the engine sit where whole even numbers of links fit their chains;
-    # slotted bearing and engine holes give the adjustment (1.3.4).
-    zj = mm("lay.jack_z_mm")
-    x_guess = mm("lay.jack_x_mm")
-    n2 = math.floor(exact_links(math.hypot(x_guess, zj - r), t3, t4) / 2) * 2
-    c2 = centre_for(n2, t3, t4)
-    xj = math.sqrt(c2 ** 2 - (zj - r) ** 2)
-    el, ew, eh = mm("eng.length_mm"), mm("eng.width_mm"), mm("eng.height_mm")
-    z_base = zr + rail_od + 0.006                      # engine plate on the rails
-    z_crank = z_base + mm("eng.shaft_height_mm")
-    xe_guess = mm("lay.engine_x_mm")
-    n1 = math.floor(exact_links(math.hypot(xe_guess - xj, z_crank - zj), t1, t2) / 2) * 2
-    c1 = centre_for(n1, t1, t2)
-    xe = xj + math.sqrt(c1 ** 2 - (z_crank - zj) ** 2)
-    ye = mm("lay.engine_y_mm")
-    item("frame", "plate", pos=[xe, ye, z_base - 0.003], size=[ew * 0.75, el * 0.85, 0.006])
-    plates += rho * ew * 0.75 * el * 0.85 * 0.006
-    # the crank lies across the kart; its output end faces the seat (toward -y)
-    item("engine", "engine", pos=[xe, ye, z_base], length=el, width=ew, height=eh, shaft_h=mm("eng.shaft_height_mm"),
-         pto="-y")
-    mass("engine", v["eng.mass_kg"], (xe, ye, z_base + eh * 0.4))
-    y1, y2 = mm("lay.chain1_y_mm"), mm("lay.chain2_y_mm")
-    cl_od, cl_w = mm("clutch.od_mm"), mm("clutch.width_mm")
-    item("clutch", "clutch", pos=[xe, y1 + cl_w / 2, z_crank], axis="y", od=cl_od, l=cl_w)
-    mass("clutch", v["dsn.clutch_mass_kg"], (xe, y1 + 0.03, z_crank))
-    pd = {t1: mm("spr.t10_pd_mm"), t2: mm("spr.t40_pd_mm"), t3: mm("spr.t12_pd_mm"), t4: mm("spr.t36_pd_mm")}
-    od = {t1: mm("spr.t10_pd_mm") + 0.0127 * 0.6, t2: mm("spr.t40_od_mm"), t3: mm("spr.t12_od_mm"), t4: mm("spr.t36_od_mm")}
-    sprk = [("clutch", t1, (xe, y1, z_crank)), ("jackshaft", t2, (xj, y1, zj)), ("jackshaft", t3, (xj, y2, zj)),
-            ("chain_final", t4, (0.0, y2, r))]
-    for part, n, pos in sprk:
-        item(part, "sprocket", pos=list(pos), axis="y", teeth=n, pd=pd[n], od=od[n], t=0.0072)
-    mass("jackshaft", v["spr.t40_mass_kg"] + 0.22, (xj, y1, zj))
-    mass("chain_final", v["spr.t36_mass_kg"], (0.0, y2, r))
-    yj0, yj1 = y2 - 0.035, yr - 0.02
-    item("jackshaft", "cyl", pos=[xj, (yj0 + yj1) / 2, zj], axis="y", d=0.020, l=yj1 - yj0)
-    mass("jackshaft", rho * math.pi * 0.01 ** 2 * (yj1 - yj0), (xj, (yj0 + yj1) / 2, zj))
-    h204, l204, h2_204 = mm("brg.ucp204_h_mm"), mm("brg.ucp204_l_mm"), mm("brg.ucp204_h2_mm")
-    for yy in (yj0 + 0.017, yj1 - 0.017):
-        item("jackshaft", "pillow", pos=[xj, yy, zj - h204], h=h204, l=l204, h2=h2_204, bore=0.020, axis="y")
-        mass("jackshaft", v["brg.ucp204_mass_kg"], (xj, yy, zj))
-    item("frame", "plate", pos=[xj, (yj0 + yj1) / 2, zj - h204 - 0.003], size=[l204 + 0.02, yj1 - yj0, 0.006])
-    plates += rho * (l204 + 0.02) * (yj1 - yj0) * 0.006
+    ul, uw, uh = mm("su.length_mm"), mm("su.width_mm"), mm("su.height_mm")
+    yu, y2 = mm("lay.unit_y_mm"), mm("lay.chain420_y_mm")
+    x_out = mm("lay.unit_out_x_mm")
+    z_base = zr + rail_od + 0.006                      # unit plate on the rails
+    z_out = z_base + uh * 0.35                         # output shaft height in the unit (Q-023)
+    eh = uh
+    xe, ye = x_out - 0.05 + ul / 2, yu
+    item("frame", "plate", pos=[xe, yu, z_base - 0.003], size=[ul * 0.8, uw * 0.8, 0.006])
+    plates += rho * ul * 0.8 * uw * 0.8 * 0.006
+    item("engine", "scooter_unit", pos=[xe, yu, z_base], length=ul, width=uw, height=uh, out=[x_out, y2 + 0.025, z_out],
+         cylinder="+x")
+    mass("engine", v["su.mass_kg"], (xe, yu, z_base + uh * 0.45))
+    mass("fuel", v["dsn.fuel_mass_kg"], (xe + ul * 0.15, yu, z_base + uh * 0.9))
     mass("frame", plates, (0.2, 0.2, zc))
-
-    put("dsn.chain1_centre_mm", round(c1 * 1000, 1), "mm", "drive")
-    put("dsn.chain2_centre_mm", round(c2 * 1000, 1), "mm", "drive")
-    put("dsn.chain1_links", n1, None, "drive")
-    put("dsn.chain2_links", n2, None, "drive")
-    put("dsn.chain1_gap_mm", round((c1 - cl_od / 2 - od[t2] / 2) * 1000), "mm", "drive")
-    put("dsn.chain2_gap_mm", round((c2 - od[t3] / 2 - od[t4] / 2) * 1000), "mm", "drive")
-    put("dsn.engine_x_mm", round(xe * 1000), "mm", "drive")
-    put("dsn.jack_x_mm", round(xj * 1000), "mm", "drive")
-    item("chain_primary", "chain", pos=[xe, y1, z_crank], to=[xj, y1, zj], r1=pd[t1] / 2, r2=pd[t2] / 2, axis="y")
-    item("chain_final", "chain", pos=[xj, y2, zj], to=[0.0, y2, r], r1=pd[t3] / 2, r2=pd[t4] / 2, axis="y")
+    item("chain_final", "sprocket", pos=[x_out, y2, z_out], axis="y", teeth=t_out, pd=pd_out, od=pd_out + 0.6 * p420, t=0.006)
+    item("chain_final", "sprocket", pos=[0.0, y2, r], axis="y", teeth=t4, pd=pd_ax, od=od[t4], t=0.006)
+    c420 = math.dist((x_out, z_out), (0.0, r))
+    exact = 2 * c420 / p420 + (t_out + t4) / 2 + p420 * (t4 - t_out) ** 2 / (4 * math.pi ** 2 * c420)
+    put("dsn.chain420_centre_mm", round(c420 * 1000), "mm", "drive")
+    put("dsn.chain420_links", math.ceil(exact / 2) * 2, None, "drive")
+    put("dsn.unit_front_x_mm", round((xe + ul / 2) * 1000), "mm", "drive")
+    item("chain_final", "chain", pos=[x_out, y2, z_out], to=[0.0, y2, r], r1=pd_out / 2, r2=pd_ax / 2, axis="y")
+    mass("chain_final", 1.1, (x_out / 2, y2, (z_out + r) / 2))
     low_spr = r - od[t4] / 2
-    item("guards", "guard", pos=[(xe + 0.0) / 2, (y1 + y2) / 2 - 0.04, (z_crank + r) / 2 + 0.03],
-         size=[xe + 0.14, 0.004, 0.22])
-    mass("guards", 1.5, (xe / 2, (y1 + y2) / 2, r + 0.05))
-    mass("chain_primary", 0.7, ((xe + xj) / 2, y1, (z_crank + zj) / 2))
-    mass("chain_final", 0.6, (xj / 2, y2, (zj + r) / 2))
-    mass("fuel", v["dsn.fuel_mass_kg"], (xe, ye, z_base + eh * 0.85))
+    item("guards", "guard", pos=[x_out / 2, y2 - 0.035, (z_out + r) / 2 + 0.02], size=[x_out + 0.12, 0.004, 0.17])
+    mass("guards", 1.2, (x_out / 2, y2 - 0.035, r + 0.05))
 
     # lowest parts under the rear axle (R-04: only the tyres touch the ground)
     low = min(low_bearing, low_disc, low_spr, zr)
@@ -304,6 +275,31 @@ def build(v):
                        "leg_reach": round(reach, 3), "leg_needed": round(need, 3), "cg_above_seat": cgk}
         put(f"dsn.leg_margin_{who}_mm", round((reach - need) * 1000), "mm", "fit")
 
+    # ---- road equipment (R-20 to R-24) ------------------------------------------------------
+    zt = mm("lay.rollbar_top_mm")
+    xbk = xb + 0.03
+    item("lighting", "lamp", pos=[xf, 0.0, zc + 0.16], role="head", color="white", facing="+x", d=0.11)
+    for s in (1, -1):
+        item("lighting", "lamp", pos=[xf - 0.02, s * yr * 0.75, zc + 0.13], role="turn", color="amber", facing="+x", d=0.05)
+        item("lighting", "lamp", pos=[xbk - 0.02, s * yr, zc_hi + 0.05], role="turn", color="amber", facing="-x", d=0.05)
+        item("mirrors", "mirror", pos=[xh_ - 0.17, yh_ + s * 0.30, zt - 0.12], stem=[xh_ - 0.17, yh_ + s * 0.19, zt - 0.20],
+             d=0.10, facing="-x")
+    item("lighting", "lamp", pos=[xbk - 0.02, 0.0, zc_hi + 0.07], role="tail_stop", color="red", facing="-x", size=[0.02, 0.12, 0.05])
+    item("lighting", "lamp", pos=[xbk - 0.02, 0.0, zc_hi - 0.02], role="reflector", color="red", facing="-x", size=[0.01, 0.06, 0.03])
+    item("number_plate", "plate_number", pos=[xbk - 0.03, -0.17, zc_hi + 0.02], size=[0.004, 0.17, 0.10])
+    item("lighting", "lamp", pos=[xbk - 0.01, -0.17, zc_hi + 0.09], role="plate", color="white", facing="-z", d=0.03)
+    item("horn", "box", pos=[wb + 0.10, 0.0, zc + 0.02], size=[0.06, 0.08, 0.06])
+    item("speedometer", "gauge", pos=[xw_ + 0.06, yh_, zw_ + 0.05], d=0.08, facing="-x")
+    item("battery", "box", pos=[0.32, -yr + 0.07, zr + rail_od + 0.06], size=[0.11, 0.07, 0.09])
+    item("hand_brake", "lever", pos=[xh_ + 0.05, yh_ - 0.25, zc + 0.02], to=[xh_ + 0.05, yh_ - 0.25, zc + 0.30])
+    item("hand_brake", "caliper", pos=[0.0, mm("lay.brake_y_mm"), r - mm("lay.disc_dia_mm") / 2 + 0.02], size=[0.06, 0.04, 0.05])
+    item("head_restraint", "box", pos=[xh_ - 0.15, yh_, zt - 0.17], size=[0.06, 0.22, 0.16])
+    hip = (xh_, yh_, zr + rail_od + 0.09)
+    for s in (1, -1):
+        item("seat_belt", "strap", pos=[hip[0] - 0.05, yh_ + s * 0.20, zc], to=[hip[0] + 0.12, yh_, hip[2] + 0.06], w=0.048)
+    item("seat_belt", "strap", pos=[xh_ - 0.17, yh_ + 0.19, zt - 0.25], to=[hip[0] + 0.12, yh_ - 0.12, hip[2] + 0.06], w=0.048)
+    mass("road", v["dsn.road_kit_mass_kg"], (0.1, 0.0, zc + 0.2))
+
     # ---- totals: mass and centre of mass ----------------------------------------------------
     M = sum(m for _, m, _ in masses)
     cx = sum(m * p_[0] for _, m, p_ in masses) / M
@@ -338,7 +334,7 @@ def build(v):
     need = m_adult * G * (math.sin(th) + v["ground.crr_max"] * math.cos(th))
     n_rear = m_adult * G * (math.cos(th) * rear_adult + math.sin(th) * h_adult / wb)
     grip = v["ground.mu_grass"] * n_rear
-    t_eng = v["engine.power_max_kw"] * 1000 / (v["engine.speed_rated_rpm"] * 2 * math.pi / 60)
+    t_eng = v["eng50.torque_nm"]
     thrust = t_eng * ratio * v["drive.efficiency"] / r
     put("dsn.climb_force_n", round(need), "N", "climb")
     put("dsn.climb_grip_n", round(grip), "N", "climb")

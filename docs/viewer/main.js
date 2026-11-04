@@ -18,7 +18,8 @@ const PART_NAMES = {
   tie_rods: 'タイロッド', spindles: 'スピンドルとキングピン', front_wheels: '前輪とタイヤ', axle_shaft: 'アクスル軸',
   axle_bearings: 'アクスル軸受（UCP）', rear_hubs: '後輪ハブ', rear_wheels: '後輪とタイヤ', brake: 'ディスクブレーキ',
   engine: 'エンジン', clutch: '遠心クラッチ', jackshaft: 'ジャックシャフト', chain_primary: '一次チェーン', chain_final: '二次チェーン',
-  skis: 'スキー', snow_chains: 'タイヤチェーン',
+  skis: 'スキー', snow_chains: 'タイヤチェーン', roll_bar: 'ロールバー', lighting: '灯火と方向指示器', mirrors: 'ミラー', horn: 'ホーン',
+  speedometer: '速度計', seat_belt: 'シートベルト', head_restraint: 'ヘッドレスト', hand_brake: 'ハンドブレーキ', battery: 'バッテリー', number_plate: 'ナンバー',
 };
 
 const state = {

@@ -873,6 +873,118 @@ items:
     license: unknown
     read: partial
     note: Read by a helper, page 1. Used engines 28,000 to 50,000 JPY.
+  - id: M65
+    class: M
+    title: Kitaco multi-reflector headlamp unit 800-1083100
+    url: https://www.kitaco.co.jp/goods_detail/P800-1083100
+    retrieved: 2026-11-04
+    license: unknown
+    read: full
+    note: Read by a helper. 6,380 JPY list; PH-7 12 V 30/30 W with high and low beams.
+  - id: M66
+    class: M
+    title: Daytona LED slim tail lamp with number plate lamp, Yahoo Shopping
+    url: https://shopping.yahoo.co.jp/search?p=テールランプ+ナンバー灯+保安基準
+    retrieved: 2026-11-04
+    license: unknown
+    read: partial
+    note: Read by a helper, page 1. 3,446 JPY.
+  - id: M67
+    class: M
+    title: Generic 12 V turn signal sets of four, Yahoo Shopping
+    url: https://shopping.yahoo.co.jp/search?p=汎用+ウインカー+4個セット+12V+オレンジ+保安基準
+    retrieved: 2026-11-04
+    license: unknown
+    read: partial
+    note: Read by a helper, page 1. 1,050 to 3,200 JPY; none claims the safety standards.
+  - id: M68
+    class: M
+    title: Kitaco LED flasher relay 755-2409900 and generic handlebar switches, Yahoo Shopping
+    url: https://shopping.yahoo.co.jp/search?p=キタコ+汎用ウインカー+12V
+    retrieved: 2026-11-04
+    license: unknown
+    read: partial
+    note: Read by a helper. Relay 1,950 JPY; switch with high and low beam, horn, and turn 2,480 JPY.
+  - id: M69
+    class: M
+    title: Kijima red reflector 305-2160, Yahoo Shopping
+    url: https://shopping.yahoo.co.jp/search?p=リフレクター+赤+汎用
+    retrieved: 2026-11-04
+    license: unknown
+    read: partial
+    note: Read by a helper. 715 JPY.
+  - id: M70
+    class: M
+    title: Kitaco GPR mirror type 1
+    url: https://joshinweb.jp/car/46252/4990852121595.html
+    retrieved: 2026-11-04
+    license: unknown
+    read: excerpt
+    note: Seen by a helper as an excerpt. 1,860 JPY each; marked as meeting the 2007 safety standards.
+  - id: M71
+    class: M
+    title: Mitsuba UC flat horn UCH-201, Yahoo Shopping
+    url: https://shopping.yahoo.co.jp/search?p=ミツバ+ホーン+12V
+    retrieved: 2026-11-04
+    license: unknown
+    read: partial
+    note: Read by a helper. 2,619 JPY; 12 V, 110 dB at 2 m.
+  - id: M72
+    class: M
+    title: Daytona VELONA speedometer 44196 and non-contact speed sensor 90666
+    url: https://www.daytona.co.jp/products/detail/44196/
+    retrieved: 2026-11-04
+    license: unknown
+    read: full
+    note: Read by helpers. Speedometer 15,737 JPY at Yahoo, 48 mm, odometer, lit; the maker does not support vehicles other than motorcycles. Sensor 7,751 JPY.
+  - id: M73
+    class: M
+    title: Suzuki Alto rear head restraint 86401-64L11-ELZ, Yahoo Shopping
+    url: https://shopping.yahoo.co.jp/search?p=ヘッドレスト+単体+汎用
+    retrieved: 2026-11-04
+    license: unknown
+    read: partial
+    note: Read by a helper. 8,673 to 10,547 JPY; two stays.
+  - id: M74
+    class: M
+    title: GS Yuasa GTZ6V battery (Tact AF79 standard), kakaku.com
+    url: https://search.kakaku.com/GTZ6V/
+    retrieved: 2026-11-04
+    license: unknown
+    read: partial
+    note: Read by a helper. 5,454 to 7,371 JPY; 112 x 70 x 105 mm, 2.1 kg.
+  - id: M75
+    class: M
+    title: DID chain 420D-120L and 420 sprockets (Kitaco 30T, CK Custom 15T), Yahoo Shopping
+    url: https://shopping.yahoo.co.jp/search?p=420+スプロケット+汎用
+    retrieved: 2026-11-04
+    license: unknown
+    read: partial
+    note: Read by a helper. Chain 1,928 JPY; 30T rear 2,090 JPY; 15T front 1,270 JPY; bores and bolt circles not stated.
+  - id: M76
+    class: M
+    title: Yahoo Auctions closed listings for AF79 parts vehicles (Honda Tact)
+    url: https://auctions.yahoo.co.jp/closedsearch/closedsearch?p=AF79+部品取り
+    retrieved: 2026-11-04
+    license: unknown
+    read: partial
+    note: Read by a helper. 2,500 to 61,000 JPY; running donors 32,000 and 61,000 JPY.
+  - id: M77
+    class: M
+    title: Generic moped number plate stay CL935, Yahoo Shopping
+    url: https://shopping.yahoo.co.jp/search?p=原付+ナンバーステー+汎用
+    retrieved: 2026-11-04
+    license: unknown
+    read: partial
+    note: Read by a helper. 2,617 JPY.
+  - id: M78
+    class: M
+    title: Generic three-point seat belts and anchor bolts, Yahoo Shopping
+    url: https://shopping.yahoo.co.jp/search?p=シートベルト+3点式+汎用+JIS
+    retrieved: 2026-11-04
+    license: unknown
+    read: partial
+    note: Read by a helper. Belts 3,036 to 3,190 JPY, none marked JIS D4604; anchor bolts 2,772 JPY.
   - id: F1
     class: F
     title: Motor1, a shifter kart turned into a snowmobile, 2025-02-02

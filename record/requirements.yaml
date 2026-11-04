@@ -154,3 +154,75 @@ items:
     basis:
       - D-019
     status: confirmed
+  - id: R-19
+    text: A belted driver is protected if the kart rolls over.
+    origin: derived
+    design_point: A roll bar rises above the head of the tallest driver (rider.stature_max_cm) seated, and carries the kart's weight upside down without collapsing onto the driver.
+    verify: analysis
+    basis:
+      - H-05
+      - D-022
+    status: awaiting
+  - id: R-20
+    text: The kart has the lamps and reflectors of a moped.
+    origin: derived
+    design_point: A white head lamp that dips, a red tail lamp, a red stop lamp, a number plate lamp, a red rear reflector, and amber turn signals at the front and the rear on both sides, as P36 articles 62 to 64-3 ask.
+    verify: inspection
+    basis:
+      - R-18
+    status: awaiting
+    parent: R-18
+  - id: R-21
+    text: The kart has two independent brake systems and a parking brake.
+    origin: derived
+    design_point: A foot brake on the rear wheels and a separate hand brake, either of which stops the kart, and a parking brake that holds it on law.parking_grade_pct (P36 article 61, P37).
+    verify: test
+    basis:
+      - R-18
+    status: awaiting
+    parent: R-18
+  - id: R-22
+    text: The driver's seat has a seat belt and a head restraint.
+    origin: derived
+    design_point: A seat belt with anchors on the frame and a head restraint behind the driver's head, as P36 articles 66-2 and 66-3 ask for a seat that is not straddled.
+    verify: inspection
+    basis:
+      - R-18
+    status: awaiting
+    parent: R-18
+  - id: R-23
+    text: The kart has a mirror, a horn, a speedometer, and an approved silencer.
+    origin: derived
+    design_point: An adjustable mirror on each side, a horn, a lit speedometer with an odometer in the driver's view, and the engine's own approved silencer (P36 articles 64, 64-2, 65, 65-2).
+    verify: inspection
+    basis:
+      - R-18
+    status: awaiting
+    parent: R-18
+  - id: R-24
+    text: Other road users can see the low kart.
+    origin: derived
+    design_point: A structure at least law.marker_height_mm above the ground (P36 article 61-2), which the roll bar provides.
+    verify: inspection
+    basis:
+      - R-18
+    status: awaiting
+    parent: R-18
+  - id: R-25
+    text: The kart is within the size of a moped.
+    origin: derived
+    design_point: Overall length at most law.length_max_mm and width at most law.width_max_mm (P36 article 59).
+    verify: inspection
+    basis:
+      - R-18
+    status: awaiting
+    parent: R-18
+  - id: R-26
+    text: The engine is within the moped limit.
+    origin: derived
+    design_point: Displacement at most law.minicar_cc_max (P35).
+    verify: inspection
+    basis:
+      - R-18
+    status: awaiting
+    parent: R-18

@@ -29,6 +29,7 @@ The current state, with open items grouped by whom they wait for, is in [STATUS.
 | D-019 | 2026-11-04 | owner | The kart should also be driven on public roads, for short trips and leisurely runs near home in daytime, so it is to be equipped and registered as the law requires (most likely as a four-wheel moped, a minicar). The child drives only on private land. This changes D-005, which kept the kart off public roads. |
 | D-020 | 2026-11-04 | owner | The top speed is about 30 km/h, on public roads and on private land alike (one top speed, D-018). This replaces the 20 km/h of D-015. |
 | D-021 | 2026-11-04 | owner | Road use comes first. The slope the kart must climb is lowered to what the engine allowed on public roads can do, instead of choosing a larger engine for the slope. |
+| D-022 | 2026-11-04 | owner | Reflect the proposal of docs/02-form.md#road in the design and the 3D view. The working basis becomes a used 50 cc four-stroke scooter engine with its CVT, centrifugal clutch, and final reduction in one unit, driving the rear axle by one chain; a roll bar over the driver's head that also serves as the 1 m marker; and the equipment the law asks for road use. The owner may still change the engine choice. |
 <!-- tdr:end -->
 
 ## Open items {#open}
@@ -58,6 +59,9 @@ The current state, with open items grouped by whom they wait for, is in [STATUS.
 | Q-020 | The layout of step 1.3 is not yet buildable (K-005). Rearrange the drive so that the chains, the jackshaft and its bearings, the middle axle bearing, and the guard fit between the seat and the left rail, or move the drive outboard; redesign the column support so it holds the column at its lower flange bearing and clears the legs; route the pedal box rails clear of the cross members; raise the steering arms and tie rods clear of the front rails; join every plate, the floor, and the seat slide to the frame; widen the seat space; and add the cornering side force to the axle and the engine's offset to the left rail. | assistant |  |
 | Q-021 | Which class of vehicle the kart becomes on public roads (most likely a minicar, a four-wheel first-class moped with up to 50 cc or 0.6 kW rated electric output), and which safety standards (brakes, lamps, turn signals, mirrors, horn, speedometer, plate, size), registration steps, tax, and insurance apply; list each as a requirement with its article from the law. | assistant |  |
 | Q-022 | How does the owner's municipality register a minicar built from scratch - how is a frame number given to a home-made frame, and which papers prove the engine's displacement (the donor's scrapping certificate, a receipt or transfer certificate, an engine-number rubbing)? No official page found covers a scratch-built frame; the owner asks the municipality's light vehicle tax counter. | owner |  |
+| Q-023 | The size and mass of a 50 cc scooter's engine and transmission unit, its final reduction, and its ECU's rev limit are not stated in any source found; the design assumes them. Measure the donor unit when it arrives, and set the drive sprockets so the top speed at the rev limit is kart.speed_max_kmh. | assistant |  |
+| Q-024 | No seat belt marked JIS D4604, which the safety standards accept (P36 article 66-2), was found for sale to individuals; generic belts (M78) are not marked. A belt with its anchors from a scrapped kei car carries its approval; find one and its price, and check how it mounts on the kart's frame and seat. | assistant |  |
+| Q-025 | The road-going layout is not yet buildable (K-006). Move the left side bar and the column braces clear of the scooter unit and the adult's shins; give the unit a plate on both rails; keep the axle sprocket and chain clear of the middle bearing plate; raise the roll bar above the tallest driver's head with a folding or bolted top for the car, with a front structure for a rollover; mount the hand brake, belt anchors, head restraint, battery, horn, and mirrors (facing the driver) on the frame; place the fuel tank, ECU, regulator, key switch, and the donor's silencer; add the cornering load to the axle and check a 30 mm axle; and carry the engine unit's mass on both rails. Build the collision search into calc/design.py so each change is checked. | assistant |  |
 <!-- tdr:end -->
 
 ## Values {#values}
@@ -340,6 +344,39 @@ The current state, with open items grouped by whom they wait for, is in [STATUS.
 | cost.engine50_used_max_jpy | 38500 | JPY | sourced | M63 |
 | cub50.kw | 2.7 | kW | sourced | P44 |
 | cub50.torque_nm | 3.8 | N m | sourced | P44 |
+| su.length_mm | 560 | mm | assumed | Q-023 |
+| su.width_mm | 320 | mm | assumed | Q-023 |
+| su.height_mm | 330 | mm | assumed | Q-023 |
+| su.mass_kg | 22 | kg | assumed | Q-023 |
+| su.final_ratio | 10.5 |  | assumed | Q-023 |
+| su.rev_limit_rpm | 8500 | rpm | assumed | Q-023 |
+| dsn.road_kit_mass_kg | 6.0 | kg | assumed | Q-023 |
+| gear.t_out420 | 15 |  | calculated | docs/03-design.md#drive |
+| gear.t_axle420 | 30 |  | calculated | docs/03-design.md#drive |
+| lay.unit_y_mm | 400 | mm | calculated | docs/03-design.md#drive |
+| lay.chain420_y_mm | 215 | mm | calculated | docs/03-design.md#drive |
+| lay.unit_out_x_mm | 250 | mm | calculated | docs/03-design.md#drive |
+| lay.rollbar_top_mm | 1050 | mm | calculated | docs/03-design.md#rollbar |
+| cost.hand_brake_jpy | 6000 | JPY | assumed | Q-018 |
+| cost.headlamp_jpy | 6380 | JPY | sourced | M65 |
+| cost.tail_plate_lamp_jpy | 3446 | JPY | sourced | M66 |
+| cost.turn_signals_jpy | 3200 | JPY | sourced | M67 |
+| cost.flasher_jpy | 1950 | JPY | sourced | M68 |
+| cost.switch_jpy | 2480 | JPY | sourced | M68 |
+| cost.reflector_jpy | 715 | JPY | sourced | M69 |
+| cost.mirror_jpy | 1860 | JPY | sourced | M70 |
+| cost.horn_jpy | 2619 | JPY | sourced | M71 |
+| cost.speedo_jpy | 15737 | JPY | sourced | M72 |
+| cost.speed_sensor_jpy | 7751 | JPY | sourced | M72 |
+| cost.head_restraint_jpy | 8673 | JPY | sourced | M73 |
+| cost.battery_gtz6v_jpy | 5454 | JPY | sourced | M74 |
+| cost.chain420_jpy | 1928 | JPY | sourced | M75 |
+| cost.spr420_30t_jpy | 2090 | JPY | sourced | M75 |
+| cost.spr420_15t_jpy | 1270 | JPY | sourced | M75 |
+| cost.donor_scooter_jpy | 61000 | JPY | sourced | M76 |
+| cost.plate_stay_jpy | 2617 | JPY | sourced | M77 |
+| cost.belt_anchor_jpy | 2772 | JPY | sourced | M78 |
+| cost.belt_used_car_jpy | 3000 | JPY | assumed | Q-024 |
 | form.mass_total_kg | 170 | kg | calculated | docs/02-form.md#mass |
 | snow.wheel_sinkage_min_cm | 19.0 | cm | calculated | docs/02-form.md#snow |
 | snow.wheel_sinkage_max_cm | 25.1 | cm | calculated | docs/02-form.md#snow |
@@ -385,54 +422,51 @@ The current state, with open items grouped by whom they wait for, is in [STATUS.
 | dsn.width_transport_m | 1.21 | m | calculated | docs/03-design.md#transport |
 | dsn.axle_rail_gap_mm | 30 | mm | calculated | docs/03-design.md#frame |
 | dsn.tube_main_m | 3.37 | m | calculated | docs/03-design.md#frame |
-| dsn.tube_cross_m | 8.66 | m | calculated | docs/03-design.md#frame |
+| dsn.tube_cross_m | 7.14 | m | calculated | docs/03-design.md#frame |
+| dsn.tube_roll_m | 4.05 | m | calculated | docs/03-design.md#rollbar |
 | dsn.hub_bearing_gap_mm | 39 | mm | calculated | docs/03-design.md#transport |
-| dsn.ratio | 12.0 |  | calculated | docs/03-design.md#drive |
-| dsn.top_speed_kmh | 19.65 | km/h | calculated | docs/03-design.md#drive |
-| dsn.chain1_centre_mm | 240.0 | mm | calculated | docs/03-design.md#drive |
-| dsn.chain2_centre_mm | 157.6 | mm | calculated | docs/03-design.md#drive |
-| dsn.chain1_links | 64 |  | calculated | docs/03-design.md#drive |
-| dsn.chain2_links | 50 |  | calculated | docs/03-design.md#drive |
-| dsn.chain1_gap_mm | 102 | mm | calculated | docs/03-design.md#drive |
-| dsn.chain2_gap_mm | 54 | mm | calculated | docs/03-design.md#drive |
-| dsn.engine_x_mm | 375 | mm | calculated | docs/03-design.md#drive |
-| dsn.jack_x_mm | 149 | mm | calculated | docs/03-design.md#drive |
-| dsn.low_point_mm | 86 | mm | calculated | docs/03-design.md#axle |
+| dsn.ratio_top | 18.06 |  | calculated | docs/03-design.md#drive |
+| dsn.ratio | 59.85 |  | calculated | docs/03-design.md#drive |
+| dsn.top_speed_kmh | 28.83 | km/h | calculated | docs/03-design.md#drive |
+| dsn.chain420_centre_mm | 287 | mm | calculated | docs/03-design.md#drive |
+| dsn.chain420_links | 68 |  | calculated | docs/03-design.md#drive |
+| dsn.unit_front_x_mm | 760 | mm | calculated | docs/03-design.md#drive |
+| dsn.low_point_mm | 87 | mm | calculated | docs/03-design.md#axle |
 | dsn.turn_radius_m | 2.26 | m | calculated | docs/03-design.md#steering |
 | dsn.leg_margin_adult_mm | 148 | mm | calculated | docs/03-design.md#fit |
 | dsn.leg_margin_child_mm | 149 | mm | calculated | docs/03-design.md#fit |
-| dsn.mass_kg | 94.5 | kg | calculated | docs/03-design.md#mass |
-| dsn.cg_x_m | 0.368 | m | calculated | docs/03-design.md#mass |
-| dsn.cg_y_m | 0.097 | m | calculated | docs/03-design.md#mass |
-| dsn.cg_z_m | 0.231 | m | calculated | docs/03-design.md#mass |
-| dsn.frame_mass_kg | 13.8 | kg | calculated | docs/03-design.md#frame |
-| dsn.rear_share_adult | 0.729 |  | calculated | docs/03-design.md#mass |
+| dsn.mass_kg | 105.6 | kg | calculated | docs/03-design.md#mass |
+| dsn.cg_x_m | 0.362 | m | calculated | docs/03-design.md#mass |
+| dsn.cg_y_m | 0.086 | m | calculated | docs/03-design.md#mass |
+| dsn.cg_z_m | 0.273 | m | calculated | docs/03-design.md#mass |
+| dsn.frame_mass_kg | 12.3 | kg | calculated | docs/03-design.md#frame |
+| dsn.rear_share_adult | 0.726 |  | calculated | docs/03-design.md#mass |
 | dsn.cg_side_adult_mm | 1 | mm | calculated | docs/03-design.md#mass |
-| dsn.cg_height_adult_m | 0.35 | m | calculated | docs/03-design.md#mass |
-| dsn.tip_ratio_adult | 1.61 |  | calculated | docs/03-design.md#stability |
-| dsn.rear_share_child | 0.644 |  | calculated | docs/03-design.md#mass |
-| dsn.cg_side_child_mm | 66 | mm | calculated | docs/03-design.md#mass |
-| dsn.cg_height_child_m | 0.253 | m | calculated | docs/03-design.md#mass |
-| dsn.tip_ratio_child | 1.95 |  | calculated | docs/03-design.md#stability |
-| dsn.climb_force_n | 599 | N | calculated | docs/03-design.md#climb |
-| dsn.climb_grip_n | 672 | N | calculated | docs/03-design.md#climb |
-| dsn.climb_thrust_n | 758 | N | calculated | docs/03-design.md#climb |
-| dsn.axle_chain_pull_n | 1691 | N | calculated | docs/03-design.md#axle |
-| dsn.axle_stress_mpa | 222 | MPa | calculated | docs/03-design.md#axle |
+| dsn.cg_height_adult_m | 0.365 | m | calculated | docs/03-design.md#mass |
+| dsn.tip_ratio_adult | 1.54 |  | calculated | docs/03-design.md#stability |
+| dsn.rear_share_child | 0.647 |  | calculated | docs/03-design.md#mass |
+| dsn.cg_side_child_mm | 60 | mm | calculated | docs/03-design.md#mass |
+| dsn.cg_height_child_m | 0.287 | m | calculated | docs/03-design.md#mass |
+| dsn.tip_ratio_child | 1.74 |  | calculated | docs/03-design.md#stability |
+| dsn.climb_force_n | 633 | N | calculated | docs/03-design.md#climb |
+| dsn.climb_grip_n | 712 | N | calculated | docs/03-design.md#climb |
+| dsn.climb_thrust_n | 1359 | N | calculated | docs/03-design.md#climb |
+| dsn.axle_chain_pull_n | 3635 | N | calculated | docs/03-design.md#axle |
+| dsn.axle_stress_mpa | 221 | MPa | calculated | docs/03-design.md#axle |
 | dsn.axle_safety | 1.56 |  | calculated | docs/03-design.md#axle |
-| dsn.frame_moment_nm | 559 | N m | calculated | docs/03-design.md#frame |
-| dsn.rail_stress_mpa | 191 | MPa | calculated | docs/03-design.md#frame |
+| dsn.frame_moment_nm | 558 | N m | calculated | docs/03-design.md#frame |
+| dsn.rail_stress_mpa | 190 | MPa | calculated | docs/03-design.md#frame |
 | dsn.rail_safety | 1.52 |  | calculated | docs/03-design.md#frame |
-| dsn.bearing_load_n | 695 | N | calculated | docs/03-design.md#axle |
+| dsn.bearing_load_n | 733 | N | calculated | docs/03-design.md#axle |
 | dsn.brake_decel_needed | 5.79 | m/s2 | calculated | docs/03-design.md#brake |
-| dsn.brake_torque_needed_nm | 183 | N m | calculated | docs/03-design.md#brake |
-| dsn.brake_clamp_needed_n | 4082 | N | calculated | docs/03-design.md#brake |
-| dsn.brake_downhill_decel | 0.93 | m/s2 | calculated | docs/03-design.md#brake |
-| dsn.brake_downhill_stop_m | 37.4 | m | calculated | docs/03-design.md#brake |
+| dsn.brake_torque_needed_nm | 193 | N m | calculated | docs/03-design.md#brake |
+| dsn.brake_clamp_needed_n | 4317 | N | calculated | docs/03-design.md#brake |
+| dsn.brake_downhill_decel | 0.9 | m/s2 | calculated | docs/03-design.md#brake |
+| dsn.brake_downhill_stop_m | 38.4 | m | calculated | docs/03-design.md#brake |
 | dsn.delica_length_margin_mm | 80 | mm | calculated | docs/03-design.md#transport |
 | dsn.delica_width_margin_mm | 20 | mm | calculated | docs/03-design.md#transport |
-| dsn.height_m | 0.71 | m | calculated | docs/03-design.md#layout |
-| dsn.bom_parts_jpy | 228130 | JPY | calculated | docs/03-design.md#cost |
+| dsn.height_m | 1.05 | m | calculated | docs/03-design.md#layout |
+| dsn.bom_parts_jpy | 336426 | JPY | calculated | docs/03-design.md#cost |
 | dsn.bom_tools_jpy | 34056 | JPY | calculated | docs/03-design.md#cost |
 <!-- tdr:end -->
 
@@ -550,6 +584,20 @@ The current state, with open items grouped by whom they wait for, is in [STATUS.
 | M62 | M | KYU B11S small operator seat with slide rails, Rakuten | partial |
 | M63 | M | Yahoo Auctions closed listings for AF79 engines (Honda Tact 50) | partial |
 | M64 | M | Yahoo Auctions closed listings for AA09 engines (Honda Super Cub 50) | partial |
+| M65 | M | Kitaco multi-reflector headlamp unit 800-1083100 | full |
+| M66 | M | Daytona LED slim tail lamp with number plate lamp, Yahoo Shopping | partial |
+| M67 | M | Generic 12 V turn signal sets of four, Yahoo Shopping | partial |
+| M68 | M | Kitaco LED flasher relay 755-2409900 and generic handlebar switches, Yahoo Shopping | partial |
+| M69 | M | Kijima red reflector 305-2160, Yahoo Shopping | partial |
+| M70 | M | Kitaco GPR mirror type 1 | excerpt |
+| M71 | M | Mitsuba UC flat horn UCH-201, Yahoo Shopping | partial |
+| M72 | M | Daytona VELONA speedometer 44196 and non-contact speed sensor 90666 | full |
+| M73 | M | Suzuki Alto rear head restraint 86401-64L11-ELZ, Yahoo Shopping | partial |
+| M74 | M | GS Yuasa GTZ6V battery (Tact AF79 standard), kakaku.com | partial |
+| M75 | M | DID chain 420D-120L and 420 sprockets (Kitaco 30T, CK Custom 15T), Yahoo Shopping | partial |
+| M76 | M | Yahoo Auctions closed listings for AF79 parts vehicles (Honda Tact) | partial |
+| M77 | M | Generic moped number plate stay CL935, Yahoo Shopping | partial |
+| M78 | M | Generic three-point seat belts and anchor bolts, Yahoo Shopping | partial |
 | F1 | F | Motor1, a shifter kart turned into a snowmobile, 2025-02-02 | partial |
 <!-- tdr:end -->
 
@@ -563,6 +611,7 @@ The current state, with open items grouped by whom they wait for, is in [STATUS.
 | K-003 | T2 | refute | partial | 2026-11-03 |
 | K-004 | T2 | refute | fail | 2026-11-03 |
 | K-005 | T2 | refute | fail | 2026-11-03 |
+| K-006 | T2 | refute | fail | 2026-11-04 |
 <!-- tdr:end -->
 
 ## Parts {#parts}
@@ -592,16 +641,24 @@ The current state, with open items grouped by whom they wait for, is in [STATUS.
 | rear_wheels | Rear wheels and tyres | kart |
 | brake | Rear disc brake with its carrier | kart |
 | powertrain | Powertrain | kart |
-| engine | Engine | powertrain |
-| clutch | Centrifugal clutch | powertrain |
-| jackshaft | Jackshaft with its bearings and sprockets | powertrain |
-| chain_primary | Primary chain from the clutch to the jackshaft | powertrain |
-| chain_final | Final chain from the jackshaft to the axle, with the axle sprocket and its carrier | powertrain |
+| engine | Engine unit of a 50 cc four-stroke scooter, with its CVT, centrifugal clutch, final reduction, ECU, fuel pump, and silencer | powertrain |
+| chain_final | Drive chain from the engine unit's output to the axle, with both sprockets and the axle sprocket's carrier | powertrain |
 | throttle | Throttle cable with a return spring | powertrain |
 | kill_switch | Engine stop switches, one on the steering and one with a tether | powertrain |
 | winter | Winter parts | kart |
 | skis | Front skis on the spindles | winter |
 | snow_chains | Rear tyre chains | winter |
+| roll_bar | Roll bar over the driver's head, also the 1 m marker | chassis |
+| road | Road equipment | kart |
+| lighting | Head lamp, tail and stop lamp, number plate lamp, reflector, and turn signals | road |
+| mirrors | Mirrors on both sides | road |
+| horn | Horn | road |
+| speedometer | Speedometer with odometer | road |
+| seat_belt | Seat belt with its anchors | road |
+| head_restraint | Head restraint | road |
+| hand_brake | Hand brake with its own caliper, also the parking brake | road |
+| battery | 12 V battery for the engine's ECU and the lamps | road |
+| number_plate | Number plate and its bracket | road |
 <!-- tdr:end -->
 
 ## Interfaces {#interfaces}
@@ -609,10 +666,6 @@ The current state, with open items grouped by whom they wait for, is in [STATUS.
 <!-- tdr:table kind=interface fields=id,between,carries -->
 | id | between | carries |
 |---|---|---|
-| I-01 | engine, clutch | power |
-| I-02 | clutch, chain_primary | power |
-| I-03 | chain_primary, jackshaft | power |
-| I-04 | jackshaft, chain_final | power |
 | I-05 | chain_final, axle_shaft | power |
 | I-06 | axle_shaft, rear_hubs | power |
 | I-07 | rear_hubs, rear_wheels | power |
@@ -624,7 +677,6 @@ The current state, with open items grouped by whom they wait for, is in [STATUS.
 | I-13 | axle_shaft, axle_bearings | load |
 | I-14 | spindles, frame | load |
 | I-15 | front_wheels, spindles | load |
-| I-16 | jackshaft, frame | load |
 | I-17 | pedal_box, frame | load |
 | I-18 | pedal_box, throttle | other |
 | I-19 | throttle, engine | other |
@@ -638,4 +690,15 @@ The current state, with open items grouped by whom they wait for, is in [STATUS.
 | I-27 | bumpers, frame | load |
 | I-28 | guards, frame | load |
 | I-29 | steering_column, frame | load |
+| I-30 | engine, chain_final | power |
+| I-31 | roll_bar, frame | load |
+| I-32 | seat_belt, frame | load |
+| I-33 | head_restraint, roll_bar | load |
+| I-34 | battery, engine | power |
+| I-35 | battery, lighting | power |
+| I-36 | hand_brake, brake | other |
+| I-37 | speedometer, rear_wheels | signal |
+| I-38 | horn, battery | power |
+| I-39 | mirrors, roll_bar | load |
+| I-40 | number_plate, frame | load |
 <!-- tdr:end -->

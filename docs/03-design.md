@@ -15,7 +15,7 @@ The working basis is the proposal of [1.2.12](02-form.md#proposal): an off-road 
 
 ## 1.3.2 Frame {#frame}
 
-- A ladder of two main rails (dsn.rail_od_mm by dsn.rail_t_mm STKM11A) at ±lay.rail_half_width_mm, low under the driver and rising behind lay.kick_x_mm to pass over the rear axle with dsn.axle_rail_gap_mm to spare, widening at the front to the spindle brackets at ±lay.front_half_width_mm, with cross members, outriggers to the outer axle bearings, a seat-back hoop, a front bumper, side nerf bars (the left one only ahead of the engine), and a support under the steering column, all of dsn.cross_od_mm by dsn.cross_t_mm (M6). Tube lengths are dsn.tube_main_m and dsn.tube_cross_m; the frame with its plates weighs dsn.frame_mass_kg and more.
+- A ladder of two main rails (dsn.rail_od_mm by dsn.rail_t_mm STKM11A) at ±lay.rail_half_width_mm, low under the driver and rising behind lay.kick_x_mm to pass over the rear axle with dsn.axle_rail_gap_mm to spare, widening at the front to the spindle brackets at ±lay.front_half_width_mm, with cross members, outriggers to the outer axle bearings, a roll bar, a front bumper, side nerf bars (the left one only ahead of the engine unit), and a support under the steering column, all of dsn.cross_od_mm by dsn.cross_t_mm (M6), and the roll bar of 1.3.13. Tube lengths are dsn.tube_main_m and dsn.tube_cross_m; the frame with its plates weighs dsn.frame_mass_kg and more.
 - The floor plate covers the driver's side only, clear of the drive on the left.
 - A floor plate of dsn.floor_t_mm closes the area under the driver.
 - Strength (R-02): the rails are taken as a beam between the rear axle and the kingpins carrying every sprung mass and the rider at their places, times the load factor dsn.load_factor, half on each rail, leaving out the cross members, the floor, and the nerf bars that share the load. The largest moment is dsn.frame_moment_nm, which stresses each rail to dsn.rail_stress_mpa, a safety factor of dsn.rail_safety on the tensile strength dsn.stkm11a_tensile_mpa (JIS gives STKM11A no yield point). The thicker wall of dsn.rail_t_mm was chosen for this (K-004). The load factor and the strength wait for a source (Q-017), and a static load test of the built frame confirms R-02.
@@ -29,10 +29,10 @@ The working basis is the proposal of [1.2.12](02-form.md#proposal): an off-road 
 
 ## 1.3.4 Drive {#drive}
 
-- Two chain stages of size 40 (P31, M45, M46): the clutch's gear.t_clutch teeth to gear.t_jack_in on a jackshaft, and gear.t_jack_out on the jackshaft to gear.t_axle on the axle, a reduction of dsn.ratio. At the governed no-load speed engine.speed_noload_rpm (Q-011) on the tyres' whl.tyre_od_mm, the top speed is dsn.top_speed_kmh, within kart.speed_max_kmh (R-01).
-- The jackshaft (20 mm, M48) turns in two UCP204 blocks (P33, M47) at lay.jack_x_mm, lay.jack_z_mm. The chains run at lay.chain1_y_mm and lay.chain2_y_mm from the centre line, between the seat and the engine. The jackshaft (at dsn.jack_x_mm) and the engine (at dsn.engine_x_mm) are placed where whole even numbers of links fit: dsn.chain1_links and dsn.chain2_links links at centre distances of dsn.chain1_centre_mm and dsn.chain2_centre_mm, with slotted holes under the engine and the jackshaft bearings to tension the chains. The gaps between the sprockets are dsn.chain1_gap_mm and dsn.chain2_gap_mm.
-- The engine: a GX200-class engine with a 3/4 inch output shaft (Q-type), because every 10 tooth clutch for chain 40 sold in Japan has a 3/4 inch bore (M44, M51), and the S-type 20 mm shaft would not take a 10 tooth sprocket (P31). Its envelope, mass, and base pattern are those of the Honda GX200 drawing (P30); a clone of the same class is expected to match, and its base holes are measured when it arrives.
-- A 36 tooth sprocket with a finished 25 mm bore was not found priced; a pilot-bore one (M45) is bored and keyed by a machine shop (1.4).
+- Since the kart is to be road-going (D-019, D-022), the engine is a used 50 cc four-stroke scooter's engine unit, within law.minicar_cc_max (R-26): the engine, its CVT (eng50.cvt_low to eng50.cvt_high, P43), its centrifugal clutch, and its final reduction su.final_ratio in one unit, with the ECU, fuel pump, and approved silencer that came with it. Its size su.length_mm by su.width_mm by su.height_mm, mass su.mass_kg, final reduction, and rev limit su.rev_limit_rpm are assumed until the donor is measured (Q-023).
+- The unit sits beside the seat on the left at lay.unit_y_mm, its output at the rear end (lay.unit_out_x_mm ahead of the axle) pointing toward the seat. One chain of size 420 runs from a gear.t_out420 tooth sprocket on the output to a gear.t_axle420 tooth sprocket on the axle at lay.chain420_y_mm, beside the middle axle bearing: dsn.chain420_links links at a centre distance of dsn.chain420_centre_mm, tensioned by slotted holes under the unit's plate. The unit's front end is at dsn.unit_front_x_mm.
+- Overall reduction from the crank: dsn.ratio_top at the CVT's top ratio, which gives dsn.top_speed_kmh at the rev limit, within kart.speed_max_kmh (R-01); dsn.ratio at its low ratio. The top speed is held by the rev limit, since a scooter has no governor (Q-023 sets the sprockets when the limit is measured).
+- The clutch, the reduction, and the speed change are inside the unit, so the separate clutch, the jackshaft with its bearings, and the second chain of the first design are gone, and with them most of the crowding of Q-020.
 
 ## 1.3.5 Brake {#brake}
 
@@ -70,10 +70,15 @@ The working basis is the proposal of [1.2.12](02-form.md#proposal): an off-road 
 
 - Skis of ski.width_mm by ski.contact_length_mm on the ground bolt onto the spindles in place of the front wheels (OP-04), and chains go on the rear tyres (W1). Their making and fitting are 1.4 items.
 
-## 1.3.13 Guards and stopping {#safety}
+## 1.3.13 Roll bar and road equipment {#rollbar}
+
+- The law asks for a seat belt on this kart (R-22), so a belted driver must be protected if it rolls (R-19): the seat-back hoop becomes a roll bar of dsn.rail_od_mm tube, braced to the rear rails, rising to lay.rollbar_top_mm, which is also the marker of at least law.marker_height_mm that R-24 asks for. The kart's height is then dsn.height_m, inside the Delica's cargo height.
+- The road equipment of R-20 to R-23 is placed on the frame: the head lamp and front turn signals on the bumper, the tail and stop lamp, rear turn signals, reflector, and number plate with its lamp on the rear cross member, mirrors on the roll bar, the speedometer on the column, the horn at the front, the battery beside the seat, a hand brake lever with its own caliper on the rear disc (the second brake system and the parking brake, R-21), the seat belt anchored to the frame, and a head restraint on the roll bar. Their prices are allowances until quoted (Q-018); their masses are assumed together (dsn.road_kit_mass_kg, Q-023).
+
+## 1.3.14 Guards and stopping {#safety}
 
 - R-10: a throttle pedal with its own return spring and a throttle cable with the engine's return spring (M43, M49); a stop switch on the steering and a tether switch clipped to the driver (M50), both wired to the engine's stop circuit.
-- R-11: a steel guard covers both chains and the clutch from the seat side and above, and the turning axle between the seat and the bearings is covered (P17, P19).
+- R-11: a steel guard covers the drive chain and its sprockets from the seat side and above, and the turning axle between the seat and the bearings is covered (P17, P19).
 - R-13: the front bumper and the side nerf bars keep the driver's feet and legs inside the frame.
 
 ## 1.3.15 Where the engine sits {#engine-position}
@@ -88,6 +93,8 @@ The crowding of Q-020 comes from the drive, not from the engine's place: two cha
 
 On the clutch: an engine needs one, because it must idle while the kart stands, and the recoil starter cannot turn the wheels; a centrifugal clutch also lets go when the throttle is released, which is how R-10 cuts the drive. Only an electric drive would need none.
 
-## 1.3.14 Layout issues still open {#issues}
+## 1.3.16 Layout issues still open {#issues}
 
 Two independent checks searched `docs/data/design.json` for parts that collide (K-004, K-005). The first pass placed the rear axle through the main rails and the seat on the drive; the second pass cleared those, but the space between the seat and the left rail still cannot hold both chains, the jackshaft and its bearings, the middle axle bearing, and the guard, the column support and the pedal box rails cross other members and the adult's shins, the steering arms touch the front rails, and several plates are joined to nothing. The next design pass resolves Q-020 before any number of this step is used for building; the 3D view and the drawings show the present layout as it is, including these faults.
+
+The road-going layout of D-022 was checked by another independent helper (K-006) and is not yet buildable either; its faults are listed in Q-025, and the next pass builds the collision search into `calc/design.py` so that every change is checked as it is made.

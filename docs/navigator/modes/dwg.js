@@ -4,8 +4,7 @@
 // drawing-only constants are in ILLUSTRATIVE.
 export const ILLUSTRATIVE = {
   sheet: { w: 420, h: 297 },            // A3 landscape, mm
-  scale: 100,                           // sheet mm per model metre, 1:10
-  scaleLabel: '1:10',
+  scales: [10, 12, 15, 20],             // 1:N, the largest that fits on the sheet is used
   line: { outline: 0.35, thin: 0.2, dim: 0.22, chain: 0.5, hit: 1.6 },
   font: { dim: 3.2, title: 3.4, big: 5 },
   colours: { part: 'var(--dwg-ink)', fill: 'var(--dwg-fill)', hl: 'var(--dwg-hl)', dim: 'var(--dwg-dim)' },
@@ -22,7 +21,7 @@ const PART_JA = {
   frame: 'フレーム', floor: 'フロア板', bumpers: 'バンパー・サイドバー', seat: 'シート', seat_slide: 'シートスライド', pedal_box: 'ペダルボックス',
   guards: 'チェーンガード', steering_wheel: 'ステアリングホイール', steering_column: 'ステアリングコラム', tie_rods: 'タイロッド', spindles: 'スピンドル',
   front_wheels: '前輪', axle_shaft: 'アクスル軸', axle_bearings: 'アクスル軸受', rear_hubs: '後輪ハブ', rear_wheels: '後輪', brake: 'ブレーキ',
-  engine: 'エンジン', clutch: 'クラッチ', jackshaft: 'ジャックシャフト', chain_primary: '一次チェーン', chain_final: '二次チェーン', skis: 'スキー', snow_chains: 'タイヤチェーン',
+  engine: 'エンジン', chain_final: 'チェーン', skis: 'スキー', snow_chains: 'タイヤチェーン', roll_bar: 'ロールバー', lighting: '灯火と方向指示器', mirrors: 'ミラー', horn: 'ホーン', speedometer: '速度計', seat_belt: 'シートベルト', head_restraint: 'ヘッドレスト', hand_brake: 'ハンドブレーキ', battery: 'バッテリー', number_plate: 'ナンバー',
 };
 
 const CSS = `
@@ -69,6 +68,7 @@ export default function create(api) {
       <span class="hint">ドラッグで移動、ホイールで拡大縮小、部品をクリックで選択</span></div>
     <svg class="dwg-svg" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="ゴーカートの三面図"></svg>`;
   const svg = el.querySelector('svg'), cfgBar = el.querySelector('.cfg');
+  const SC = { v: 100, n: 10 };
   let config = 'summer';
   let vb = { x: 0, y: 0, w: I.sheet.w, h: I.sheet.h };
   let lastSel = null;
@@ -107,8 +107,10 @@ export default function create(api) {
   // ------------------------------------------------------------------ projections
   let layout;
   function makeLayout() {
-    const B = bounds(), s = I.scale, M = I.margins;
-    const d = design.dims;
+    const B = bounds(), M = I.margins, d = design.dims;
+    const H0 = Math.max(B.z1, d.height), yw0 = Math.max(B.y1, d.width / 2);
+    for (const n of I.scales) { SC.n = n; SC.v = 1000 / n; if (M.top + 18 + H0 * SC.v + 36 + 2 * yw0 * SC.v + 14 <= I.sheet.h) break; }
+    const s = SC.v;
     const ex0 = Math.min(B.x0, d.x_back), ex1 = Math.max(B.x1, d.x_front);
     const sideW = (ex1 - ex0) * s, H = Math.max(B.z1, d.height) * s;
     const yw = Math.max(B.y1, d.width / 2) * s;
@@ -145,7 +147,7 @@ export default function create(api) {
     const n = it.teeth, pitch = it.pd * Math.sin(Math.PI / n), rootR = it.pd / 2 - I.rollerFrac * pitch / 2, tipR = it.od / 2, step = Math.PI * 2 / n;
     const pts = []; const at = (r, a) => P(it.pos[0] + Math.cos(a) * r, 0, it.pos[2] + Math.sin(a) * r);
     for (let i = 0; i < n; i++) { const a = i * step; pts.push(at(rootR, a - step * 0.34), at(tipR, a - step * 0.2), at(tipR, a + step * 0.2), at(rootR, a + step * 0.34)); }
-    return poly(pts, '') + circ(P(it.pos[0], 0, it.pos[2]), it.pd / 2 * I.scale, 'thin dash') + circ(P(it.pos[0], 0, it.pos[2]), rootR * 0.3 * I.scale, 'thin');
+    return poly(pts, '') + circ(P(it.pos[0], 0, it.pos[2]), it.pd / 2 * SC.v, 'thin dash') + circ(P(it.pos[0], 0, it.pos[2]), rootR * 0.3 * SC.v, 'thin');
   };
   const ringSamples = (c, n, u, v, r, N = 40) => { // a 3D circle as points
     const out = []; for (let i = 0; i < N; i++) { const a = i / N * Math.PI * 2; out.push([c[0] + (u[0] * Math.cos(a) + v[0] * Math.sin(a)) * r, c[1] + (u[1] * Math.cos(a) + v[1] * Math.sin(a)) * r, c[2] + (u[2] * Math.cos(a) + v[2] * Math.sin(a)) * r]); }
@@ -160,7 +162,7 @@ export default function create(api) {
   };
 
   function shapes(it, view, P) { // svg for one item in one view; P projects model points
-    const s = I.scale, pos = it.pos, y = pos[1];
+    const s = SC.v, pos = it.pos, y = pos[1];
     switch (it.type) {
       case 'plate': case 'guard': return boxRect(P, pos, ...it.size);
       case 'cyl': case 'hub': {
@@ -178,6 +180,27 @@ export default function create(api) {
       }
       case 'disc': return view === 'side' ? circ(P(pos[0], y, pos[2]), it.d / 2 * s) + circ(P(pos[0], y, pos[2]), it.d / 2 * 0.34 * s, 'thin') : boxRect(P, pos, it.d, it.t, it.d);
       case 'caliper': return boxRect(P, pos, ...it.size);
+      case 'scooter_unit': {
+        const out = it.out, c = [pos[0], pos[1], pos[2] + it.height / 2];
+        const sp = design.items.find((o) => o.type === 'sprocket' && Math.abs(o.pos[0] - out[0]) < 0.002 && Math.abs(o.pos[2] - out[2]) < 0.002);
+        const cvt = boxRect(P, [(out[0] + pos[0] + it.length * 0.12) / 2, pos[1] + it.width / 2 - 0.045, out[2]], pos[0] + it.length * 0.12 - out[0], 0.09, 0.15, 'thin');
+        return boxRect(P, c, it.length, it.width, it.height) + cvt + line(P(...out), P(out[0], sp ? sp.pos[1] : out[1], out[2]), 'thin')
+          + (view === 'side' ? circ(P(out[0], out[1], out[2]), 0.075 * s, 'thin') : '');
+      }
+      case 'lamp': {
+        if (it.d) return view === 'side' ? (Math.abs(it.facing[1] === 'x' ? 1 : 0) ? boxRect(P, pos, it.d * 0.7, it.d, it.d, '') : circ(P(...pos), it.d / 2 * s)) : (it.facing.endsWith('x') ? (view === 'front' ? circ(P(...pos), it.d / 2 * s) : boxRect(P, pos, it.d * 0.7, it.d, it.d)) : boxRect(P, pos, it.d, it.d, it.d * 0.7));
+        return boxRect(P, pos, ...it.size);
+      }
+      case 'mirror': {
+        const st = it.stem;
+        return thick(P(...st), P(...pos), 0.016 * s) + (view === 'front' ? boxRect(P, pos, 0.02, it.d, it.d) : view === 'side' ? boxRect(P, pos, 0.02, it.d, it.d) : boxRect(P, pos, 0.02, it.d, it.d));
+      }
+      case 'plate_number': return boxRect(P, pos, ...it.size);
+      case 'box': return boxRect(P, pos, ...it.size);
+      case 'gauge': return view === 'front' ? circ(P(...pos), it.d / 2 * s) : boxRect(P, pos, it.d * 0.9, it.d, it.d);
+      case 'lever': return thick(P(...pos), P(...it.to), 0.016 * s);
+      case 'strap': return thick(P(...pos), P(...it.to), Math.max(it.w * s * 0.6, 1.2), 'thin');
+
       case 'clutch': return view === 'side' ? circ(P(pos[0], y, pos[2]), it.od / 2 * s) : boxRect(P, pos, it.od, it.l, it.od);
       case 'sprocket': return view === 'side' ? gearPath(P, it) : boxRect(P, pos, it.od, it.t, it.od);
       case 'chain': {
@@ -240,7 +263,7 @@ export default function create(api) {
     }
   }
   function memberShape(m, view, P) {
-    return thick(P(...m.a), P(...m.b), Math.max(m.od * I.scale, 0.8));
+    return thick(P(...m.a), P(...m.b), Math.max(m.od * SC.v, 0.8));
   }
 
   // ------------------------------------------------------------------ dimension lines
@@ -262,7 +285,7 @@ export default function create(api) {
   // ------------------------------------------------------------------ the sheet
   function draw() {
     layout = makeLayout();
-    const L = layout, d = design.dims, s = I.scale, S = I.sheet;
+    const L = layout, d = design.dims, s = SC.v, S = I.sheet;
     const items = design.items.filter(shown);
     const prio = (t) => (t === 'plate' ? 0 : t === 'wheel' || t === 'chains' || t === 'ski' ? 1 : 3);
     const byPart = new Map(); // part -> { side:'', plan:'', front:'' }
@@ -301,6 +324,10 @@ export default function create(api) {
     dims += dim(fd(wTot / 2, 0), fd(-wTot / 2, 0), 12, `全幅 ${num(wKey, wTot)}`, 'h');
     dims += dim(fd(tr / 2, 0), fd(-tr / 2, 0), 22, `後輪トレッド ${num(trKey, tr)}`, 'h');
     dims += dim(fd(wTot / 2 + 0.0, 0), fd(wTot / 2 + 0.0, d.height), 12, `全高 ${num('dsn.height_m', d.height)}`, 'v');
+    // 1 m marker line (side and front views)
+    const mk = (a, b, tx, ty) => `<g class="dimline"><line x1="${f(a[0])}" y1="${f(a[1])}" x2="${f(b[0])}" y2="${f(b[1])}" style="stroke-dasharray:4 2"/><text x="${f(tx)}" y="${f(ty)}" style="text-anchor:start">1 m</text></g>`;
+    { const a = L.side(L.ex0, 0, 1), b = L.side(L.ex1, 0, 1), c = L.front(-L.yw / s, 0, 1), e = L.front(L.yw / s, 0, 1);
+      dims += mk(a, b, a[0] + 1, a[1] - 1) + mk(c, e, c[0] + 1, c[1] - 1); }
     // view titles and axes
     const title = (x, y, t) => `<text class="vtitle" x="${f(x)}" y="${f(y)}">${esc(t)}</text>`;
     let titles = title(L.ox + L.ex0 * s, L.gy - L.H - 7, '側面図 (右から)') + title(L.ox + L.ex0 * s, L.py - L.yw - 3, '平面図') + title(L.fx - L.yw, L.gy - L.H - 7, '正面図');
@@ -314,7 +341,7 @@ export default function create(api) {
       <line x1="${tx}" x2="${tx + T.w}" y1="${ty + 16}" y2="${ty + 16}"/><line x1="${tx}" x2="${tx + T.w}" y1="${ty + 31}" y2="${ty + 31}"/>
       <line x1="${tx + 78}" x2="${tx + 78}" y1="${ty + 16}" y2="${ty + T.h}"/>
       <text class="k" x="${tx + 2}" y="${ty + 4}">図面名</text><text class="big" x="${tx + 2}" y="${ty + 12}">ゴーカート 三面図（${esc(CONFIG_LABEL[config] || config)}）</text>
-      <text class="k" x="${tx + 2}" y="${ty + 20}">縮尺</text><text x="${tx + 2}" y="${ty + 28}">${I.scaleLabel}（A3 横）</text>
+      <text class="k" x="${tx + 2}" y="${ty + 20}">縮尺</text><text x="${tx + 2}" y="${ty + 28}">1:${SC.n}（A3 横）</text>
       <text class="k" x="${tx + 80}" y="${ty + 20}">日付</text><text x="${tx + 80}" y="${ty + 28}">${esc(recordDate())}</text>
       <text class="k" x="${tx + 2}" y="${ty + 35}">部品</text><text x="${tx + 2}" y="${ty + 43}">${partIds.size} 部品（${nShapes} 要素）</text>
       <text class="k" x="${tx + 80}" y="${ty + 35}">寸法の単位</text><text x="${tx + 80}" y="${ty + 43}">mm（図は m 値から作図）</text></g>`;

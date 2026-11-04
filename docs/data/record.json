@@ -207,6 +207,102 @@
     "D-019"
    ],
    "status": "confirmed"
+  },
+  {
+   "id": "R-19",
+   "text": "A belted driver is protected if the kart rolls over.",
+   "origin": "derived",
+   "design_point": "A roll bar rises above the head of the tallest driver (rider.stature_max_cm) seated, and carries the kart's weight upside down without collapsing onto the driver.",
+   "verify": "analysis",
+   "basis": [
+    "H-05",
+    "D-022"
+   ],
+   "status": "awaiting"
+  },
+  {
+   "id": "R-20",
+   "text": "The kart has the lamps and reflectors of a moped.",
+   "origin": "derived",
+   "design_point": "A white head lamp that dips, a red tail lamp, a red stop lamp, a number plate lamp, a red rear reflector, and amber turn signals at the front and the rear on both sides, as P36 articles 62 to 64-3 ask.",
+   "verify": "inspection",
+   "basis": [
+    "R-18"
+   ],
+   "status": "awaiting",
+   "parent": "R-18"
+  },
+  {
+   "id": "R-21",
+   "text": "The kart has two independent brake systems and a parking brake.",
+   "origin": "derived",
+   "design_point": "A foot brake on the rear wheels and a separate hand brake, either of which stops the kart, and a parking brake that holds it on law.parking_grade_pct (P36 article 61, P37).",
+   "verify": "test",
+   "basis": [
+    "R-18"
+   ],
+   "status": "awaiting",
+   "parent": "R-18"
+  },
+  {
+   "id": "R-22",
+   "text": "The driver's seat has a seat belt and a head restraint.",
+   "origin": "derived",
+   "design_point": "A seat belt with anchors on the frame and a head restraint behind the driver's head, as P36 articles 66-2 and 66-3 ask for a seat that is not straddled.",
+   "verify": "inspection",
+   "basis": [
+    "R-18"
+   ],
+   "status": "awaiting",
+   "parent": "R-18"
+  },
+  {
+   "id": "R-23",
+   "text": "The kart has a mirror, a horn, a speedometer, and an approved silencer.",
+   "origin": "derived",
+   "design_point": "An adjustable mirror on each side, a horn, a lit speedometer with an odometer in the driver's view, and the engine's own approved silencer (P36 articles 64, 64-2, 65, 65-2).",
+   "verify": "inspection",
+   "basis": [
+    "R-18"
+   ],
+   "status": "awaiting",
+   "parent": "R-18"
+  },
+  {
+   "id": "R-24",
+   "text": "Other road users can see the low kart.",
+   "origin": "derived",
+   "design_point": "A structure at least law.marker_height_mm above the ground (P36 article 61-2), which the roll bar provides.",
+   "verify": "inspection",
+   "basis": [
+    "R-18"
+   ],
+   "status": "awaiting",
+   "parent": "R-18"
+  },
+  {
+   "id": "R-25",
+   "text": "The kart is within the size of a moped.",
+   "origin": "derived",
+   "design_point": "Overall length at most law.length_max_mm and width at most law.width_max_mm (P36 article 59).",
+   "verify": "inspection",
+   "basis": [
+    "R-18"
+   ],
+   "status": "awaiting",
+   "parent": "R-18"
+  },
+  {
+   "id": "R-26",
+   "text": "The engine is within the moped limit.",
+   "origin": "derived",
+   "design_point": "Displacement at most law.minicar_cc_max (P35).",
+   "verify": "inspection",
+   "basis": [
+    "R-18"
+   ],
+   "status": "awaiting",
+   "parent": "R-18"
   }
  ],
  "values": [
@@ -2647,6 +2743,300 @@
    ]
   },
   {
+   "key": "su.length_mm",
+   "v": 560,
+   "unit": "mm",
+   "status": "assumed",
+   "basis": [
+    "Q-023"
+   ]
+  },
+  {
+   "key": "su.width_mm",
+   "v": 320,
+   "unit": "mm",
+   "status": "assumed",
+   "basis": [
+    "Q-023"
+   ]
+  },
+  {
+   "key": "su.height_mm",
+   "v": 330,
+   "unit": "mm",
+   "status": "assumed",
+   "basis": [
+    "Q-023"
+   ]
+  },
+  {
+   "key": "su.mass_kg",
+   "v": 22,
+   "unit": "kg",
+   "status": "assumed",
+   "basis": [
+    "Q-023"
+   ]
+  },
+  {
+   "key": "su.final_ratio",
+   "v": 10.5,
+   "status": "assumed",
+   "basis": [
+    "Q-023"
+   ]
+  },
+  {
+   "key": "su.rev_limit_rpm",
+   "v": 8500,
+   "unit": "rpm",
+   "status": "assumed",
+   "basis": [
+    "Q-023"
+   ]
+  },
+  {
+   "key": "dsn.road_kit_mass_kg",
+   "v": 6.0,
+   "unit": "kg",
+   "status": "assumed",
+   "basis": [
+    "Q-023"
+   ]
+  },
+  {
+   "key": "gear.t_out420",
+   "v": 15,
+   "status": "calculated",
+   "basis": [
+    "docs/03-design.md#drive"
+   ]
+  },
+  {
+   "key": "gear.t_axle420",
+   "v": 30,
+   "status": "calculated",
+   "basis": [
+    "docs/03-design.md#drive"
+   ]
+  },
+  {
+   "key": "lay.unit_y_mm",
+   "v": 400,
+   "unit": "mm",
+   "status": "calculated",
+   "basis": [
+    "docs/03-design.md#drive"
+   ]
+  },
+  {
+   "key": "lay.chain420_y_mm",
+   "v": 215,
+   "unit": "mm",
+   "status": "calculated",
+   "basis": [
+    "docs/03-design.md#drive"
+   ]
+  },
+  {
+   "key": "lay.unit_out_x_mm",
+   "v": 250,
+   "unit": "mm",
+   "status": "calculated",
+   "basis": [
+    "docs/03-design.md#drive"
+   ]
+  },
+  {
+   "key": "lay.rollbar_top_mm",
+   "v": 1050,
+   "unit": "mm",
+   "status": "calculated",
+   "basis": [
+    "docs/03-design.md#rollbar"
+   ]
+  },
+  {
+   "key": "cost.hand_brake_jpy",
+   "v": 6000,
+   "unit": "JPY",
+   "status": "assumed",
+   "basis": [
+    "Q-018"
+   ]
+  },
+  {
+   "key": "cost.headlamp_jpy",
+   "v": 6380,
+   "unit": "JPY",
+   "status": "sourced",
+   "basis": [
+    "M65"
+   ]
+  },
+  {
+   "key": "cost.tail_plate_lamp_jpy",
+   "v": 3446,
+   "unit": "JPY",
+   "status": "sourced",
+   "basis": [
+    "M66"
+   ]
+  },
+  {
+   "key": "cost.turn_signals_jpy",
+   "v": 3200,
+   "unit": "JPY",
+   "status": "sourced",
+   "basis": [
+    "M67"
+   ]
+  },
+  {
+   "key": "cost.flasher_jpy",
+   "v": 1950,
+   "unit": "JPY",
+   "status": "sourced",
+   "basis": [
+    "M68"
+   ]
+  },
+  {
+   "key": "cost.switch_jpy",
+   "v": 2480,
+   "unit": "JPY",
+   "status": "sourced",
+   "basis": [
+    "M68"
+   ]
+  },
+  {
+   "key": "cost.reflector_jpy",
+   "v": 715,
+   "unit": "JPY",
+   "status": "sourced",
+   "basis": [
+    "M69"
+   ]
+  },
+  {
+   "key": "cost.mirror_jpy",
+   "v": 1860,
+   "unit": "JPY",
+   "status": "sourced",
+   "basis": [
+    "M70"
+   ]
+  },
+  {
+   "key": "cost.horn_jpy",
+   "v": 2619,
+   "unit": "JPY",
+   "status": "sourced",
+   "basis": [
+    "M71"
+   ]
+  },
+  {
+   "key": "cost.speedo_jpy",
+   "v": 15737,
+   "unit": "JPY",
+   "status": "sourced",
+   "basis": [
+    "M72"
+   ]
+  },
+  {
+   "key": "cost.speed_sensor_jpy",
+   "v": 7751,
+   "unit": "JPY",
+   "status": "sourced",
+   "basis": [
+    "M72"
+   ]
+  },
+  {
+   "key": "cost.head_restraint_jpy",
+   "v": 8673,
+   "unit": "JPY",
+   "status": "sourced",
+   "basis": [
+    "M73"
+   ]
+  },
+  {
+   "key": "cost.battery_gtz6v_jpy",
+   "v": 5454,
+   "unit": "JPY",
+   "status": "sourced",
+   "basis": [
+    "M74"
+   ]
+  },
+  {
+   "key": "cost.chain420_jpy",
+   "v": 1928,
+   "unit": "JPY",
+   "status": "sourced",
+   "basis": [
+    "M75"
+   ]
+  },
+  {
+   "key": "cost.spr420_30t_jpy",
+   "v": 2090,
+   "unit": "JPY",
+   "status": "sourced",
+   "basis": [
+    "M75"
+   ]
+  },
+  {
+   "key": "cost.spr420_15t_jpy",
+   "v": 1270,
+   "unit": "JPY",
+   "status": "sourced",
+   "basis": [
+    "M75"
+   ]
+  },
+  {
+   "key": "cost.donor_scooter_jpy",
+   "v": 61000,
+   "unit": "JPY",
+   "status": "sourced",
+   "basis": [
+    "M76"
+   ]
+  },
+  {
+   "key": "cost.plate_stay_jpy",
+   "v": 2617,
+   "unit": "JPY",
+   "status": "sourced",
+   "basis": [
+    "M77"
+   ]
+  },
+  {
+   "key": "cost.belt_anchor_jpy",
+   "v": 2772,
+   "unit": "JPY",
+   "status": "sourced",
+   "basis": [
+    "M78"
+   ]
+  },
+  {
+   "key": "cost.belt_used_car_jpy",
+   "v": 3000,
+   "unit": "JPY",
+   "status": "assumed",
+   "basis": [
+    "Q-024"
+   ]
+  },
+  {
    "key": "form.mass_total_kg",
    "v": 170,
    "unit": "kg",
@@ -3052,11 +3442,20 @@
   },
   {
    "key": "dsn.tube_cross_m",
-   "v": 8.66,
+   "v": 7.14,
    "unit": "m",
    "status": "calculated",
    "basis": [
     "docs/03-design.md#frame"
+   ]
+  },
+  {
+   "key": "dsn.tube_roll_m",
+   "v": 4.05,
+   "unit": "m",
+   "status": "calculated",
+   "basis": [
+    "docs/03-design.md#rollbar"
    ]
   },
   {
@@ -3069,8 +3468,16 @@
    ]
   },
   {
+   "key": "dsn.ratio_top",
+   "v": 18.06,
+   "status": "calculated",
+   "basis": [
+    "docs/03-design.md#drive"
+   ]
+  },
+  {
    "key": "dsn.ratio",
-   "v": 12.0,
+   "v": 59.85,
    "status": "calculated",
    "basis": [
     "docs/03-design.md#drive"
@@ -3078,7 +3485,7 @@
   },
   {
    "key": "dsn.top_speed_kmh",
-   "v": 19.65,
+   "v": 28.83,
    "unit": "km/h",
    "status": "calculated",
    "basis": [
@@ -3086,8 +3493,8 @@
    ]
   },
   {
-   "key": "dsn.chain1_centre_mm",
-   "v": 240.0,
+   "key": "dsn.chain420_centre_mm",
+   "v": 287,
    "unit": "mm",
    "status": "calculated",
    "basis": [
@@ -3095,60 +3502,16 @@
    ]
   },
   {
-   "key": "dsn.chain2_centre_mm",
-   "v": 157.6,
-   "unit": "mm",
+   "key": "dsn.chain420_links",
+   "v": 68,
    "status": "calculated",
    "basis": [
     "docs/03-design.md#drive"
    ]
   },
   {
-   "key": "dsn.chain1_links",
-   "v": 64,
-   "status": "calculated",
-   "basis": [
-    "docs/03-design.md#drive"
-   ]
-  },
-  {
-   "key": "dsn.chain2_links",
-   "v": 50,
-   "status": "calculated",
-   "basis": [
-    "docs/03-design.md#drive"
-   ]
-  },
-  {
-   "key": "dsn.chain1_gap_mm",
-   "v": 102,
-   "unit": "mm",
-   "status": "calculated",
-   "basis": [
-    "docs/03-design.md#drive"
-   ]
-  },
-  {
-   "key": "dsn.chain2_gap_mm",
-   "v": 54,
-   "unit": "mm",
-   "status": "calculated",
-   "basis": [
-    "docs/03-design.md#drive"
-   ]
-  },
-  {
-   "key": "dsn.engine_x_mm",
-   "v": 375,
-   "unit": "mm",
-   "status": "calculated",
-   "basis": [
-    "docs/03-design.md#drive"
-   ]
-  },
-  {
-   "key": "dsn.jack_x_mm",
-   "v": 149,
+   "key": "dsn.unit_front_x_mm",
+   "v": 760,
    "unit": "mm",
    "status": "calculated",
    "basis": [
@@ -3157,7 +3520,7 @@
   },
   {
    "key": "dsn.low_point_mm",
-   "v": 86,
+   "v": 87,
    "unit": "mm",
    "status": "calculated",
    "basis": [
@@ -3193,7 +3556,7 @@
   },
   {
    "key": "dsn.mass_kg",
-   "v": 94.5,
+   "v": 105.6,
    "unit": "kg",
    "status": "calculated",
    "basis": [
@@ -3202,7 +3565,7 @@
   },
   {
    "key": "dsn.cg_x_m",
-   "v": 0.368,
+   "v": 0.362,
    "unit": "m",
    "status": "calculated",
    "basis": [
@@ -3211,7 +3574,7 @@
   },
   {
    "key": "dsn.cg_y_m",
-   "v": 0.097,
+   "v": 0.086,
    "unit": "m",
    "status": "calculated",
    "basis": [
@@ -3220,7 +3583,7 @@
   },
   {
    "key": "dsn.cg_z_m",
-   "v": 0.231,
+   "v": 0.273,
    "unit": "m",
    "status": "calculated",
    "basis": [
@@ -3229,7 +3592,7 @@
   },
   {
    "key": "dsn.frame_mass_kg",
-   "v": 13.8,
+   "v": 12.3,
    "unit": "kg",
    "status": "calculated",
    "basis": [
@@ -3238,7 +3601,7 @@
   },
   {
    "key": "dsn.rear_share_adult",
-   "v": 0.729,
+   "v": 0.726,
    "status": "calculated",
    "basis": [
     "docs/03-design.md#mass"
@@ -3255,7 +3618,7 @@
   },
   {
    "key": "dsn.cg_height_adult_m",
-   "v": 0.35,
+   "v": 0.365,
    "unit": "m",
    "status": "calculated",
    "basis": [
@@ -3264,7 +3627,7 @@
   },
   {
    "key": "dsn.tip_ratio_adult",
-   "v": 1.61,
+   "v": 1.54,
    "status": "calculated",
    "basis": [
     "docs/03-design.md#stability"
@@ -3272,7 +3635,7 @@
   },
   {
    "key": "dsn.rear_share_child",
-   "v": 0.644,
+   "v": 0.647,
    "status": "calculated",
    "basis": [
     "docs/03-design.md#mass"
@@ -3280,7 +3643,7 @@
   },
   {
    "key": "dsn.cg_side_child_mm",
-   "v": 66,
+   "v": 60,
    "unit": "mm",
    "status": "calculated",
    "basis": [
@@ -3289,7 +3652,7 @@
   },
   {
    "key": "dsn.cg_height_child_m",
-   "v": 0.253,
+   "v": 0.287,
    "unit": "m",
    "status": "calculated",
    "basis": [
@@ -3298,7 +3661,7 @@
   },
   {
    "key": "dsn.tip_ratio_child",
-   "v": 1.95,
+   "v": 1.74,
    "status": "calculated",
    "basis": [
     "docs/03-design.md#stability"
@@ -3306,7 +3669,7 @@
   },
   {
    "key": "dsn.climb_force_n",
-   "v": 599,
+   "v": 633,
    "unit": "N",
    "status": "calculated",
    "basis": [
@@ -3315,7 +3678,7 @@
   },
   {
    "key": "dsn.climb_grip_n",
-   "v": 672,
+   "v": 712,
    "unit": "N",
    "status": "calculated",
    "basis": [
@@ -3324,7 +3687,7 @@
   },
   {
    "key": "dsn.climb_thrust_n",
-   "v": 758,
+   "v": 1359,
    "unit": "N",
    "status": "calculated",
    "basis": [
@@ -3333,7 +3696,7 @@
   },
   {
    "key": "dsn.axle_chain_pull_n",
-   "v": 1691,
+   "v": 3635,
    "unit": "N",
    "status": "calculated",
    "basis": [
@@ -3342,7 +3705,7 @@
   },
   {
    "key": "dsn.axle_stress_mpa",
-   "v": 222,
+   "v": 221,
    "unit": "MPa",
    "status": "calculated",
    "basis": [
@@ -3359,7 +3722,7 @@
   },
   {
    "key": "dsn.frame_moment_nm",
-   "v": 559,
+   "v": 558,
    "unit": "N m",
    "status": "calculated",
    "basis": [
@@ -3368,7 +3731,7 @@
   },
   {
    "key": "dsn.rail_stress_mpa",
-   "v": 191,
+   "v": 190,
    "unit": "MPa",
    "status": "calculated",
    "basis": [
@@ -3385,7 +3748,7 @@
   },
   {
    "key": "dsn.bearing_load_n",
-   "v": 695,
+   "v": 733,
    "unit": "N",
    "status": "calculated",
    "basis": [
@@ -3403,7 +3766,7 @@
   },
   {
    "key": "dsn.brake_torque_needed_nm",
-   "v": 183,
+   "v": 193,
    "unit": "N m",
    "status": "calculated",
    "basis": [
@@ -3412,7 +3775,7 @@
   },
   {
    "key": "dsn.brake_clamp_needed_n",
-   "v": 4082,
+   "v": 4317,
    "unit": "N",
    "status": "calculated",
    "basis": [
@@ -3421,7 +3784,7 @@
   },
   {
    "key": "dsn.brake_downhill_decel",
-   "v": 0.93,
+   "v": 0.9,
    "unit": "m/s2",
    "status": "calculated",
    "basis": [
@@ -3430,7 +3793,7 @@
   },
   {
    "key": "dsn.brake_downhill_stop_m",
-   "v": 37.4,
+   "v": 38.4,
    "unit": "m",
    "status": "calculated",
    "basis": [
@@ -3457,7 +3820,7 @@
   },
   {
    "key": "dsn.height_m",
-   "v": 0.71,
+   "v": 1.05,
    "unit": "m",
    "status": "calculated",
    "basis": [
@@ -3466,7 +3829,7 @@
   },
   {
    "key": "dsn.bom_parts_jpy",
-   "v": 228130,
+   "v": 336426,
    "unit": "JPY",
    "status": "calculated",
    "basis": [
@@ -4575,6 +4938,146 @@
    "note": "Read by a helper, page 1. Used engines 28,000 to 50,000 JPY."
   },
   {
+   "id": "M65",
+   "class": "M",
+   "title": "Kitaco multi-reflector headlamp unit 800-1083100",
+   "url": "https://www.kitaco.co.jp/goods_detail/P800-1083100",
+   "retrieved": "2026-11-04",
+   "license": "unknown",
+   "read": "full",
+   "note": "Read by a helper. 6,380 JPY list; PH-7 12 V 30/30 W with high and low beams."
+  },
+  {
+   "id": "M66",
+   "class": "M",
+   "title": "Daytona LED slim tail lamp with number plate lamp, Yahoo Shopping",
+   "url": "https://shopping.yahoo.co.jp/search?p=テールランプ+ナンバー灯+保安基準",
+   "retrieved": "2026-11-04",
+   "license": "unknown",
+   "read": "partial",
+   "note": "Read by a helper, page 1. 3,446 JPY."
+  },
+  {
+   "id": "M67",
+   "class": "M",
+   "title": "Generic 12 V turn signal sets of four, Yahoo Shopping",
+   "url": "https://shopping.yahoo.co.jp/search?p=汎用+ウインカー+4個セット+12V+オレンジ+保安基準",
+   "retrieved": "2026-11-04",
+   "license": "unknown",
+   "read": "partial",
+   "note": "Read by a helper, page 1. 1,050 to 3,200 JPY; none claims the safety standards."
+  },
+  {
+   "id": "M68",
+   "class": "M",
+   "title": "Kitaco LED flasher relay 755-2409900 and generic handlebar switches, Yahoo Shopping",
+   "url": "https://shopping.yahoo.co.jp/search?p=キタコ+汎用ウインカー+12V",
+   "retrieved": "2026-11-04",
+   "license": "unknown",
+   "read": "partial",
+   "note": "Read by a helper. Relay 1,950 JPY; switch with high and low beam, horn, and turn 2,480 JPY."
+  },
+  {
+   "id": "M69",
+   "class": "M",
+   "title": "Kijima red reflector 305-2160, Yahoo Shopping",
+   "url": "https://shopping.yahoo.co.jp/search?p=リフレクター+赤+汎用",
+   "retrieved": "2026-11-04",
+   "license": "unknown",
+   "read": "partial",
+   "note": "Read by a helper. 715 JPY."
+  },
+  {
+   "id": "M70",
+   "class": "M",
+   "title": "Kitaco GPR mirror type 1",
+   "url": "https://joshinweb.jp/car/46252/4990852121595.html",
+   "retrieved": "2026-11-04",
+   "license": "unknown",
+   "read": "excerpt",
+   "note": "Seen by a helper as an excerpt. 1,860 JPY each; marked as meeting the 2007 safety standards."
+  },
+  {
+   "id": "M71",
+   "class": "M",
+   "title": "Mitsuba UC flat horn UCH-201, Yahoo Shopping",
+   "url": "https://shopping.yahoo.co.jp/search?p=ミツバ+ホーン+12V",
+   "retrieved": "2026-11-04",
+   "license": "unknown",
+   "read": "partial",
+   "note": "Read by a helper. 2,619 JPY; 12 V, 110 dB at 2 m."
+  },
+  {
+   "id": "M72",
+   "class": "M",
+   "title": "Daytona VELONA speedometer 44196 and non-contact speed sensor 90666",
+   "url": "https://www.daytona.co.jp/products/detail/44196/",
+   "retrieved": "2026-11-04",
+   "license": "unknown",
+   "read": "full",
+   "note": "Read by helpers. Speedometer 15,737 JPY at Yahoo, 48 mm, odometer, lit; the maker does not support vehicles other than motorcycles. Sensor 7,751 JPY."
+  },
+  {
+   "id": "M73",
+   "class": "M",
+   "title": "Suzuki Alto rear head restraint 86401-64L11-ELZ, Yahoo Shopping",
+   "url": "https://shopping.yahoo.co.jp/search?p=ヘッドレスト+単体+汎用",
+   "retrieved": "2026-11-04",
+   "license": "unknown",
+   "read": "partial",
+   "note": "Read by a helper. 8,673 to 10,547 JPY; two stays."
+  },
+  {
+   "id": "M74",
+   "class": "M",
+   "title": "GS Yuasa GTZ6V battery (Tact AF79 standard), kakaku.com",
+   "url": "https://search.kakaku.com/GTZ6V/",
+   "retrieved": "2026-11-04",
+   "license": "unknown",
+   "read": "partial",
+   "note": "Read by a helper. 5,454 to 7,371 JPY; 112 x 70 x 105 mm, 2.1 kg."
+  },
+  {
+   "id": "M75",
+   "class": "M",
+   "title": "DID chain 420D-120L and 420 sprockets (Kitaco 30T, CK Custom 15T), Yahoo Shopping",
+   "url": "https://shopping.yahoo.co.jp/search?p=420+スプロケット+汎用",
+   "retrieved": "2026-11-04",
+   "license": "unknown",
+   "read": "partial",
+   "note": "Read by a helper. Chain 1,928 JPY; 30T rear 2,090 JPY; 15T front 1,270 JPY; bores and bolt circles not stated."
+  },
+  {
+   "id": "M76",
+   "class": "M",
+   "title": "Yahoo Auctions closed listings for AF79 parts vehicles (Honda Tact)",
+   "url": "https://auctions.yahoo.co.jp/closedsearch/closedsearch?p=AF79+部品取り",
+   "retrieved": "2026-11-04",
+   "license": "unknown",
+   "read": "partial",
+   "note": "Read by a helper. 2,500 to 61,000 JPY; running donors 32,000 and 61,000 JPY."
+  },
+  {
+   "id": "M77",
+   "class": "M",
+   "title": "Generic moped number plate stay CL935, Yahoo Shopping",
+   "url": "https://shopping.yahoo.co.jp/search?p=原付+ナンバーステー+汎用",
+   "retrieved": "2026-11-04",
+   "license": "unknown",
+   "read": "partial",
+   "note": "Read by a helper. 2,617 JPY."
+  },
+  {
+   "id": "M78",
+   "class": "M",
+   "title": "Generic three-point seat belts and anchor bolts, Yahoo Shopping",
+   "url": "https://shopping.yahoo.co.jp/search?p=シートベルト+3点式+汎用+JIS",
+   "retrieved": "2026-11-04",
+   "license": "unknown",
+   "read": "partial",
+   "note": "Read by a helper. Belts 3,036 to 3,190 JPY, none marked JIS D4604; anchor bolts 2,772 JPY."
+  },
+  {
    "id": "F1",
    "class": "F",
    "title": "Motor1, a shifter kart turned into a snowmobile, 2025-02-02",
@@ -4811,6 +5314,17 @@
    "touches": [
     "site.grade_max_pct",
     "R-16"
+   ]
+  },
+  {
+   "id": "D-022",
+   "date": "2026-11-04",
+   "by": "owner",
+   "what": "Reflect the proposal of docs/02-form.md#road in the design and the 3D view. The working basis becomes a used 50 cc four-stroke scooter engine with its CVT, centrifugal clutch, and final reduction in one unit, driving the rear axle by one chain; a roll bar over the driver's head that also serves as the 1 m marker; and the equipment the law asks for road use. The owner may still change the engine choice.",
+   "touches": [
+    "engine",
+    "R-18",
+    "R-19"
    ]
   }
  ],
@@ -5079,7 +5593,8 @@
     "cost.machining_allow_jpy",
     "cost.rear_hub_make_jpy",
     "cost.axle_shaft_jpy",
-    "cost.tube_32x23_jpy_per_m"
+    "cost.tube_32x23_jpy_per_m",
+    "cost.hand_brake_jpy"
    ],
    "opened": "2026-11-03",
    "phase": "design",
@@ -5108,7 +5623,7 @@
    "waits_for": "assistant",
    "affects": [
     "frame",
-    "jackshaft",
+    "chain_final",
     "axle_bearings",
     "guards",
     "steering_column",
@@ -5142,6 +5657,57 @@
     "R-18"
    ],
    "opened": "2026-11-04",
+   "phase": "design",
+   "blocks": "design_build"
+  },
+  {
+   "id": "Q-023",
+   "kind": "question",
+   "text": "The size and mass of a 50 cc scooter's engine and transmission unit, its final reduction, and its ECU's rev limit are not stated in any source found; the design assumes them. Measure the donor unit when it arrives, and set the drive sprockets so the top speed at the rev limit is kart.speed_max_kmh.",
+   "waits_for": "assistant",
+   "affects": [
+    "su.length_mm",
+    "su.width_mm",
+    "su.height_mm",
+    "su.mass_kg",
+    "su.final_ratio",
+    "su.rev_limit_rpm",
+    "dsn.road_kit_mass_kg"
+   ],
+   "opened": "2026-11-04",
+   "phase": "design",
+   "blocks": "design_build"
+  },
+  {
+   "id": "Q-024",
+   "kind": "question",
+   "text": "No seat belt marked JIS D4604, which the safety standards accept (P36 article 66-2), was found for sale to individuals; generic belts (M78) are not marked. A belt with its anchors from a scrapped kei car carries its approval; find one and its price, and check how it mounts on the kart's frame and seat.",
+   "waits_for": "assistant",
+   "affects": [
+    "cost.belt_used_car_jpy",
+    "R-22"
+   ],
+   "opened": "2026-11-04",
+   "phase": "design",
+   "blocks": "design_build"
+  },
+  {
+   "id": "Q-025",
+   "kind": "finding",
+   "text": "The road-going layout is not yet buildable (K-006). Move the left side bar and the column braces clear of the scooter unit and the adult's shins; give the unit a plate on both rails; keep the axle sprocket and chain clear of the middle bearing plate; raise the roll bar above the tallest driver's head with a folding or bolted top for the car, with a front structure for a rollover; mount the hand brake, belt anchors, head restraint, battery, horn, and mirrors (facing the driver) on the frame; place the fuel tank, ECU, regulator, key switch, and the donor's silencer; add the cornering load to the axle and check a 30 mm axle; and carry the engine unit's mass on both rails. Build the collision search into calc/design.py so each change is checked.",
+   "waits_for": "assistant",
+   "affects": [
+    "frame",
+    "roll_bar",
+    "engine",
+    "hand_brake",
+    "seat_belt",
+    "head_restraint",
+    "mirrors",
+    "axle_shaft"
+   ],
+   "opened": "2026-11-04",
+   "raised_by": "assistant",
    "phase": "design",
    "blocks": "design_build"
   }
@@ -5202,7 +5768,8 @@
    ],
    "at_risk": "The driver.",
    "controls": [
-    "R-12"
+    "R-12",
+    "R-19"
    ]
   },
   {
@@ -5375,27 +5942,12 @@
   },
   {
    "id": "engine",
-   "name": "Engine",
-   "parent": "powertrain"
-  },
-  {
-   "id": "clutch",
-   "name": "Centrifugal clutch",
-   "parent": "powertrain"
-  },
-  {
-   "id": "jackshaft",
-   "name": "Jackshaft with its bearings and sprockets",
-   "parent": "powertrain"
-  },
-  {
-   "id": "chain_primary",
-   "name": "Primary chain from the clutch to the jackshaft",
+   "name": "Engine unit of a 50 cc four-stroke scooter, with its CVT, centrifugal clutch, final reduction, ECU, fuel pump, and silencer",
    "parent": "powertrain"
   },
   {
    "id": "chain_final",
-   "name": "Final chain from the jackshaft to the axle, with the axle sprocket and its carrier",
+   "name": "Drive chain from the engine unit's output to the axle, with both sprockets and the axle sprocket's carrier",
    "parent": "powertrain"
   },
   {
@@ -5422,41 +5974,64 @@
    "id": "snow_chains",
    "name": "Rear tyre chains",
    "parent": "winter"
+  },
+  {
+   "id": "roll_bar",
+   "name": "Roll bar over the driver's head, also the 1 m marker",
+   "parent": "chassis"
+  },
+  {
+   "id": "road",
+   "name": "Road equipment",
+   "parent": "kart"
+  },
+  {
+   "id": "lighting",
+   "name": "Head lamp, tail and stop lamp, number plate lamp, reflector, and turn signals",
+   "parent": "road"
+  },
+  {
+   "id": "mirrors",
+   "name": "Mirrors on both sides",
+   "parent": "road"
+  },
+  {
+   "id": "horn",
+   "name": "Horn",
+   "parent": "road"
+  },
+  {
+   "id": "speedometer",
+   "name": "Speedometer with odometer",
+   "parent": "road"
+  },
+  {
+   "id": "seat_belt",
+   "name": "Seat belt with its anchors",
+   "parent": "road"
+  },
+  {
+   "id": "head_restraint",
+   "name": "Head restraint",
+   "parent": "road"
+  },
+  {
+   "id": "hand_brake",
+   "name": "Hand brake with its own caliper, also the parking brake",
+   "parent": "road"
+  },
+  {
+   "id": "battery",
+   "name": "12 V battery for the engine's ECU and the lamps",
+   "parent": "road"
+  },
+  {
+   "id": "number_plate",
+   "name": "Number plate and its bracket",
+   "parent": "road"
   }
  ],
  "interfaces": [
-  {
-   "id": "I-01",
-   "between": [
-    "engine",
-    "clutch"
-   ],
-   "carries": "power"
-  },
-  {
-   "id": "I-02",
-   "between": [
-    "clutch",
-    "chain_primary"
-   ],
-   "carries": "power"
-  },
-  {
-   "id": "I-03",
-   "between": [
-    "chain_primary",
-    "jackshaft"
-   ],
-   "carries": "power"
-  },
-  {
-   "id": "I-04",
-   "between": [
-    "jackshaft",
-    "chain_final"
-   ],
-   "carries": "power"
-  },
   {
    "id": "I-05",
    "between": [
@@ -5542,14 +6117,6 @@
    "between": [
     "front_wheels",
     "spindles"
-   ],
-   "carries": "load"
-  },
-  {
-   "id": "I-16",
-   "between": [
-    "jackshaft",
-    "frame"
    ],
    "carries": "load"
   },
@@ -5656,6 +6223,94 @@
     "frame"
    ],
    "carries": "load"
+  },
+  {
+   "id": "I-30",
+   "between": [
+    "engine",
+    "chain_final"
+   ],
+   "carries": "power"
+  },
+  {
+   "id": "I-31",
+   "between": [
+    "roll_bar",
+    "frame"
+   ],
+   "carries": "load"
+  },
+  {
+   "id": "I-32",
+   "between": [
+    "seat_belt",
+    "frame"
+   ],
+   "carries": "load"
+  },
+  {
+   "id": "I-33",
+   "between": [
+    "head_restraint",
+    "roll_bar"
+   ],
+   "carries": "load"
+  },
+  {
+   "id": "I-34",
+   "between": [
+    "battery",
+    "engine"
+   ],
+   "carries": "power"
+  },
+  {
+   "id": "I-35",
+   "between": [
+    "battery",
+    "lighting"
+   ],
+   "carries": "power"
+  },
+  {
+   "id": "I-36",
+   "between": [
+    "hand_brake",
+    "brake"
+   ],
+   "carries": "other"
+  },
+  {
+   "id": "I-37",
+   "between": [
+    "speedometer",
+    "rear_wheels"
+   ],
+   "carries": "signal"
+  },
+  {
+   "id": "I-38",
+   "between": [
+    "horn",
+    "battery"
+   ],
+   "carries": "power"
+  },
+  {
+   "id": "I-39",
+   "between": [
+    "mirrors",
+    "roll_bar"
+   ],
+   "carries": "load"
+  },
+  {
+   "id": "I-40",
+   "between": [
+    "number_plate",
+    "frame"
+   ],
+   "carries": "load"
   }
  ],
  "checks": [
@@ -5729,8 +6384,6 @@
    "id": "K-004",
    "target": [
     "dsn.ratio",
-    "dsn.chain1_links",
-    "dsn.chain2_links",
     "dsn.tip_ratio_adult",
     "dsn.axle_stress_mpa",
     "dsn.rail_stress_mpa",
@@ -5755,8 +6408,6 @@
     "dsn.rail_stress_mpa",
     "dsn.brake_downhill_stop_m",
     "dsn.tip_ratio_adult",
-    "dsn.chain1_links",
-    "dsn.chain2_links",
     "dsn.width_transport_m"
    ],
    "tier": "T2",
@@ -5765,6 +6416,25 @@
    "by": "assistant",
    "date": "2026-11-03",
    "detail": "A second independent helper re-checked the repairs of K-004. The rear rails now clear the axle, the seat and the rider clear the drive and the brake, the floor clears the sprockets, the chains are whole even links, and the load cases reproduce. Still not buildable - between the seat and the left rail there is no room for both chains, the jackshaft and its bearings, the middle axle bearing, and the guard, which overlap by up to about 10 mm; the column support runs through the column and the adult's shins; the pedal box rail runs through two cross members, so it cannot slide to the child position; the steering arms and tie rod ends touch the front rails; the middle bearing plate, the jackshaft plate, the floor, and the seat slide are joined to nothing, and the outer bearing plates miss the outriggers by 3 mm. Also the left rail carrying the overhung engine is at a safety factor of about 1.3, the cornering side force on the axle is not yet a load case, and the downhill stop is about 19 m with the braking load shift. These are left open in Q-020 for the next design pass."
+  },
+  {
+   "id": "K-006",
+   "target": [
+    "dsn.ratio_top",
+    "dsn.top_speed_kmh",
+    "dsn.chain420_links",
+    "dsn.climb_grip_n",
+    "dsn.axle_stress_mpa",
+    "dsn.rail_stress_mpa",
+    "dsn.tip_ratio_adult",
+    "dsn.height_m"
+   ],
+   "tier": "T2",
+   "method": "refute",
+   "result": "fail",
+   "by": "assistant",
+   "date": "2026-11-04",
+   "detail": "A third independent helper checked the road-going design of D-022. The arithmetic reproduces, but the layout cannot be built - the left side bar, a column brace, and the rising left rail pass through the scooter unit; the axle sprocket and chain pass through the middle bearing plate; the guard is cut by the axle; the roll bar is no higher than a 170 cm adult's head, and a bar that clears it does not fit the Delica unless it folds; the rear turn signals and mirror stems collide with the braces; the mirrors face backward behind the eyes; the horn passes through a cross member and the battery through the seat; the hand-brake caliper and lever, the belt anchors, the head restraint, and several plates are joined to nothing; the fuel tank, ECU, regulator, and key switch are not placed; the silencer is placed where the donor's may not fit. The roll bar's mass was counted at the wrong tube size, corrected the same day. The 25 mm axle is marginal under a cornering load and the left rail carries the engine unit at a safety factor of about 1.2. The rest is open in Q-025."
   }
  ],
  "procedures": [
@@ -6285,10 +6955,9 @@
     ],
     "parts": [
      "engine",
-     "clutch",
-     "jackshaft",
-     "chain_primary",
      "chain_final",
+     "lighting",
+     "seat_belt",
      "axle_bearings",
      "rear_hubs",
      "front_wheels",
@@ -6380,7 +7049,7 @@
    {
     "id": "b5",
     "phase": "build",
-    "title": "Mount the engine, clutch, and jackshaft; align and fit both chains",
+    "title": "Mount the engine unit, fit the drive chain, and wire the ECU, battery, and fuel pump",
     "kind": "work",
     "days": 3,
     "after": [
@@ -6393,7 +7062,7 @@
    {
     "id": "b6",
     "phase": "build",
-    "title": "Fit the seat slide, seat, pedal box, throttle cable, and stop switches",
+    "title": "Fit the seat, belt, head restraint, pedal box, hand brake, throttle cable, and stop switches",
     "kind": "work",
     "days": 2,
     "after": [
@@ -6403,7 +7072,10 @@
     "parts": [
      "seat",
      "seat_slide",
+     "seat_belt",
+     "head_restraint",
      "pedal_box",
+     "hand_brake",
      "throttle",
      "kill_switch"
     ]
@@ -6529,6 +7201,42 @@
      "R-06",
      "R-07"
     ]
+   },
+   {
+    "id": "r1",
+    "phase": "build",
+    "title": "Fit the roll bar, lamps, turn signals, mirrors, horn, speedometer, and number plate",
+    "kind": "work",
+    "days": 3,
+    "after": [
+     "b7"
+    ],
+    "parts": [
+     "roll_bar",
+     "lighting",
+     "mirrors",
+     "horn",
+     "speedometer",
+     "number_plate"
+    ]
+   },
+   {
+    "id": "r2",
+    "phase": "test",
+    "title": "Register at the municipality, buy compulsory insurance, and check the road equipment",
+    "kind": "work",
+    "days": 2,
+    "after": [
+     "r1",
+     "t2"
+    ],
+    "reqs": [
+     "R-18",
+     "R-20",
+     "R-21",
+     "R-22",
+     "R-23"
+    ]
    }
   ]
  },
@@ -6641,62 +7349,6 @@
     "need": "b4"
    },
    {
-    "part": "engine",
-    "item": "Engine GX200 class 196 cc, 3/4 inch shaft",
-    "qty": 1,
-    "price": "cost.engine_clone_jpy",
-    "need": "b5"
-   },
-   {
-    "part": "clutch",
-    "item": "Centrifugal clutch 3/4 inch, 10T, chain 40",
-    "qty": 1,
-    "price": "cost.clutch_jpy",
-    "need": "b5"
-   },
-   {
-    "part": "jackshaft",
-    "item": "Sprocket KANA 40T bore 20",
-    "qty": 1,
-    "price": "cost.spr_t40_jpy",
-    "need": "b5"
-   },
-   {
-    "part": "jackshaft",
-    "item": "Sprocket KANA 12T bore 20",
-    "qty": 1,
-    "price": "cost.spr_t12_jpy",
-    "need": "b5"
-   },
-   {
-    "part": "chain_final",
-    "item": "Sprocket KANA 36T pilot bore, bored to 25",
-    "qty": 1,
-    "price": "cost.spr_t36_jpy",
-    "need": "b5"
-   },
-   {
-    "part": "chain_primary",
-    "item": "Roller chain 40, 3 m with joint links (both chains)",
-    "qty": 1,
-    "price": "cost.chain_3m_jpy",
-    "need": "b5"
-   },
-   {
-    "part": "jackshaft",
-    "item": "Shaft S45C 20 mm, keyed",
-    "qty": 1,
-    "price": "cost.shaft20_jpy",
-    "need": "b5"
-   },
-   {
-    "part": "jackshaft",
-    "item": "Pillow block UCP204 (FYH)",
-    "qty": 2,
-    "price": "cost.ucp204_jpy",
-    "need": "b5"
-   },
-   {
     "part": "rear_axle",
     "item": "Machining by a local shop (keyways, boring, pin holes, disc carrier)",
     "qty": 1,
@@ -6788,6 +7440,153 @@
     "price": "cost.ramp_rail_jpy",
     "need": "t4",
     "group": "tools"
+   },
+   {
+    "part": "roll_bar",
+    "item": "STKM11A round tube 31.8 x 2.3 for the roll bar and its braces (m)",
+    "qty": 3,
+    "price": "cost.tube_32x23_jpy_per_m",
+    "need": "b1"
+   },
+   {
+    "part": "hand_brake",
+    "item": "Hand lever and second caliper on the rear disc, also the parking brake",
+    "qty": 1,
+    "price": "cost.hand_brake_jpy",
+    "need": "b6"
+   },
+   {
+    "part": "engine",
+    "item": "Running 50 cc scooter (Tact AF79 class) as donor of the engine unit, ECU, fuel pump, wiring, and silencer",
+    "qty": 1,
+    "price": "cost.donor_scooter_jpy",
+    "need": "b5"
+   },
+   {
+    "part": "chain_final",
+    "item": "Chain 420, 120 links",
+    "qty": 1,
+    "price": "cost.chain420_jpy",
+    "need": "b5"
+   },
+   {
+    "part": "chain_final",
+    "item": "Sprocket 420, 15T on the engine unit's output (with an adapter, machined)",
+    "qty": 1,
+    "price": "cost.spr420_15t_jpy",
+    "need": "b5"
+   },
+   {
+    "part": "chain_final",
+    "item": "Sprocket 420, 30T on the axle carrier",
+    "qty": 1,
+    "price": "cost.spr420_30t_jpy",
+    "need": "b5"
+   },
+   {
+    "part": "lighting",
+    "item": "Head lamp unit with high and low beams",
+    "qty": 1,
+    "price": "cost.headlamp_jpy",
+    "need": "r1"
+   },
+   {
+    "part": "lighting",
+    "item": "Tail and stop lamp with number plate lamp",
+    "qty": 1,
+    "price": "cost.tail_plate_lamp_jpy",
+    "need": "r1"
+   },
+   {
+    "part": "lighting",
+    "item": "Red rear reflector",
+    "qty": 1,
+    "price": "cost.reflector_jpy",
+    "need": "r1"
+   },
+   {
+    "part": "lighting",
+    "item": "Turn signals, set of four",
+    "qty": 1,
+    "price": "cost.turn_signals_jpy",
+    "need": "r1"
+   },
+   {
+    "part": "lighting",
+    "item": "Flasher relay",
+    "qty": 1,
+    "price": "cost.flasher_jpy",
+    "need": "r1"
+   },
+   {
+    "part": "lighting",
+    "item": "Switch for beams, horn, and turn signals",
+    "qty": 1,
+    "price": "cost.switch_jpy",
+    "need": "r1"
+   },
+   {
+    "part": "mirrors",
+    "item": "Mirror",
+    "qty": 2,
+    "price": "cost.mirror_jpy",
+    "need": "r1"
+   },
+   {
+    "part": "horn",
+    "item": "Horn 12 V",
+    "qty": 1,
+    "price": "cost.horn_jpy",
+    "need": "r1"
+   },
+   {
+    "part": "speedometer",
+    "item": "Speedometer with odometer, lit",
+    "qty": 1,
+    "price": "cost.speedo_jpy",
+    "need": "r1"
+   },
+   {
+    "part": "speedometer",
+    "item": "Non-contact speed sensor",
+    "qty": 1,
+    "price": "cost.speed_sensor_jpy",
+    "need": "r1"
+   },
+   {
+    "part": "seat_belt",
+    "item": "Approved seat belt from a scrapped kei car",
+    "qty": 1,
+    "price": "cost.belt_used_car_jpy",
+    "need": "b6"
+   },
+   {
+    "part": "seat_belt",
+    "item": "Belt anchor bolts",
+    "qty": 1,
+    "price": "cost.belt_anchor_jpy",
+    "need": "b6"
+   },
+   {
+    "part": "head_restraint",
+    "item": "Car head restraint with two stays",
+    "qty": 1,
+    "price": "cost.head_restraint_jpy",
+    "need": "b6"
+   },
+   {
+    "part": "battery",
+    "item": "Battery GTZ6V",
+    "qty": 1,
+    "price": "cost.battery_gtz6v_jpy",
+    "need": "b5"
+   },
+   {
+    "part": "number_plate",
+    "item": "Number plate stay",
+    "qty": 1,
+    "price": "cost.plate_stay_jpy",
+    "need": "r1"
    }
   ]
  },
@@ -6986,8 +7785,14 @@
   },
   {
    "doc": "docs/03-design.md",
+   "id": "rollbar",
+   "title": "1.3.13 Roll bar and road equipment",
+   "level": 2
+  },
+  {
+   "doc": "docs/03-design.md",
    "id": "safety",
-   "title": "1.3.13 Guards and stopping",
+   "title": "1.3.14 Guards and stopping",
    "level": 2
   },
   {
@@ -6999,7 +7804,7 @@
   {
    "doc": "docs/03-design.md",
    "id": "issues",
-   "title": "1.3.14 Layout issues still open",
+   "title": "1.3.16 Layout issues still open",
    "level": 2
   },
   {

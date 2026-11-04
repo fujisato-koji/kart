@@ -21,34 +21,38 @@ function s(tag, attrs, ...kids) {
 
 // Drawing-only constants: block size, grid, Japanese short names, fixed positions.
 export const ILLUSTRATIVE = {
-  W: 106, H: 36, X0: 15, PITCH: 131, VBW: 1200, VBH: 660,
+  W: 106, H: 36, X0: 15, PITCH: 131, VBW: 1200, VBH: 830,
   ja: {
     frame: 'フレーム', floor: '床板', bumpers: 'バンパー', seat: 'シート', seat_slide: 'シートスライド', pedal_box: 'ペダルボックス',
     guards: 'ガード', steering_wheel: 'ハンドル', steering_column: 'コラム', tie_rods: 'タイロッド', spindles: 'スピンドル',
     front_wheels: '前輪', axle_shaft: 'アクスル軸', axle_bearings: '軸受', rear_hubs: '後ハブ', rear_wheels: '後輪', brake: 'ブレーキ',
-    engine: 'エンジン', clutch: 'クラッチ', jackshaft: 'ジャックシャフト', chain_primary: '一次チェーン', chain_final: '最終チェーン',
-    throttle: 'スロットル', kill_switch: '停止スイッチ', skis: 'スキー', snow_chains: '雪用チェーン',
+    engine: 'エンジン', chain_final: '最終チェーン',
+    throttle: 'スロットル', kill_switch: '停止スイッチ', skis: 'スキー', lighting: '灯火', mirrors: 'ミラー', horn: 'ホーン', speedometer: 'スピードメーター', seat_belt: 'シートベルト', head_restraint: 'ヘッドレスト', hand_brake: 'ハンドブレーキ', battery: 'バッテリー', number_plate: 'ナンバー', roll_bar: 'ロールバー', snow_chains: '雪用チェーン',
   },
-  // [column, y]; the frame is a wide bar
+  // [column, y]; the frame is a wide bar. A part missing here is drawn in the fallback row.
   pos: {
-    engine: [0, 60], clutch: [1, 60], chain_primary: [2, 60], jackshaft: [3, 60], chain_final: [4, 60],
-    throttle: [1, 130], kill_switch: [2, 130],
+    engine: [0, 60], chain_final: [4, 60], throttle: [2, 130], kill_switch: [3, 130],
     axle_shaft: [6, 60], rear_hubs: [7, 60], rear_wheels: [8, 60], axle_bearings: [6, 130], brake: [7, 130],
-    seat: [1, 250], seat_slide: [2, 250], pedal_box: [4, 250], bumpers: [5, 250], guards: [7, 250], floor: [5, 385],
-    steering_wheel: [0, 485], steering_column: [1, 485], tie_rods: [2, 485], spindles: [3, 485], front_wheels: [4, 485],
-    skis: [3, 595], snow_chains: [8, 595],
+    battery: [1, 232], lighting: [2, 232], mirrors: [3, 232], head_restraint: [4, 232], hand_brake: [5, 232], speedometer: [7, 232],
+    horn: [1, 292], seat_belt: [5, 292], number_plate: [7, 292],
+    seat: [1, 410], seat_slide: [2, 410], pedal_box: [3, 410], roll_bar: [4, 410],
+    bumpers: [2, 545], guards: [5, 545], floor: [7, 545],
+    steering_wheel: [0, 645], steering_column: [1, 645], tie_rods: [2, 645], spindles: [3, 645], front_wheels: [4, 645],
+    skis: [3, 755], snow_chains: [8, 755],
   },
-  frame: { x: 15, y: 330, w: 1033 },
+  frame: { x: 15, y: 490, w: 1033 },
+  fallbackY: 840, VBH_BASE: 830,
   // id, label, x, y, w, h, css class
   bands: [
     ['powertrain', '動力', 5, 30, 660, 155, 'g-pt'],
     ['rear', '足回り（後）', 791, 30, 394, 155, 'g-su'],
-    ['chassis', '車体', 5, 215, 1053, 225, 'g-ch'],
-    ['steering', '操舵', 5, 455, 530, 80, 'g-st'],
-    ['front', '足回り（前）', 529, 455, 136, 80, 'g-su'],
-    ['winter', '冬', 398, 545, 792, 100, 'g-wi'],
+    ['road', '道路装備', 5, 200, 1053, 150, 'g-rd'],
+    ['chassis', '車体', 5, 375, 1053, 225, 'g-ch'],
+    ['steering', '操舵', 5, 615, 530, 80, 'g-st'],
+    ['front', '足回り（前）', 529, 615, 136, 80, 'g-su'],
+    ['winter', '冬', 398, 705, 792, 100, 'g-wi'],
   ],
-  group: { powertrain: 'g-pt', chassis: 'g-ch', steering: 'g-st', winter: 'g-wi', front_wheels: 'g-su', rear_axle: 'g-su', rear_wheels: 'g-su', brake: 'g-su' },
+  group: { powertrain: 'g-pt', chassis: 'g-ch', steering: 'g-st', winter: 'g-wi', road: 'g-rd', front_wheels: 'g-su', rear_axle: 'g-su', rear_wheels: 'g-su', brake: 'g-su' },
 };
 const VIEWS = [['power', '動力の流れ'], ['load', '力の流れ'], ['signal', '操作と信号'], ['all', 'すべて']];
 const CSS = `
@@ -57,6 +61,7 @@ const CSS = `
 #mode-sys svg.sysfig{min-width:900px;width:100%;display:block}
 #mode-sys .band{fill:var(--neubg,#e7e8e4);stroke:var(--line,#d9dbd5);opacity:.55}
 #mode-sys .band.g-pt{fill:var(--warnbg,#fdecc8)}#mode-sys .band.g-st{fill:var(--infobg,#dce8fa)}
+#mode-sys .band.g-rd{fill:var(--badbg,#f8d9d5)}#mode-sys .n.g-rd rect{stroke:var(--bad,#a8261c)}
 #mode-sys .band.g-su{fill:var(--okbg,#dff3e4)}#mode-sys .band.g-wi{fill:var(--card,#fff);stroke-dasharray:5 3}
 #mode-sys .bandlabel{font-weight:700;fill:var(--mut,#5f6670)}
 #mode-sys .n{cursor:pointer}
@@ -108,6 +113,11 @@ export default function create(api) {
 
   const rect = new Map();
   for (const [id, [c, y]] of Object.entries(I.pos)) rect.set(id, { x: I.X0 + c * I.PITCH, y, w: I.W, h: I.H });
+  const leaves = rec.parts.filter((p) => !kids.has(p.id)).map((p) => p.id);
+  const need = new Set(leaves); for (const i of rec.interfaces) i.between.forEach((x) => need.add(x));
+  let fb = 0; const orphan = [];
+  for (const id of need) if (id !== 'frame' && !rect.has(id)) { rect.set(id, { x: I.X0 + (fb % 9) * I.PITCH, y: I.fallbackY + Math.floor(fb / 9) * 50, w: I.W, h: I.H }); orphan.push(id); fb++; }
+  const vbh = orphan.length ? I.fallbackY + Math.ceil(orphan.length / 9) * 50 + 20 : I.VBH;
   rect.set('frame', { x: I.frame.x, y: I.frame.y, w: I.frame.w, h: I.H });
   const centre = (id, other) => {
     const r = rect.get(id);
@@ -122,13 +132,14 @@ export default function create(api) {
   };
 
   const kind = (c) => (c === 'power' ? 'power' : c === 'load' ? 'load' : 'sig');
-  const svg = s('svg', { class: 'sysfig', viewBox: `0 0 ${I.VBW} ${I.VBH}`, role: 'img', 'aria-label': '系統図' });
+  const svg = s('svg', { class: 'sysfig', viewBox: `0 0 ${I.VBW} ${vbh}`, role: 'img', 'aria-label': '系統図' });
   const defs = s('defs');
   for (const k of ['power', 'load', 'sig']) defs.append(s('marker', { id: 'sysah-' + k, viewBox: '0 0 10 10', refX: 9, refY: 5, markerWidth: 11, markerHeight: 11, markerUnits: 'userSpaceOnUse', orient: 'auto' }, s('path', { d: 'M0,0 L10,5 L0,10 z', class: 'ah ' + k })));
   svg.append(defs);
   for (const [, label, x, y, w, hh, cls] of I.bands) {
     svg.append(s('rect', { class: 'band ' + cls, x, y, width: w, height: hh, rx: 8 }), s('text', { class: 'bandlabel', x: x + 8, y: y + 16 }, label));
   }
+  if (orphan.length) svg.append(s('text', { class: 'bandlabel', x: 8, y: I.fallbackY - 8 }, '未配置'));
   const edgeEls = new Map(), nodeEls = new Map();
   const ifaces = rec.interfaces.filter((i) => rect.has(i.between[0]) && rect.has(i.between[1]));
   for (const i of ifaces) {

@@ -51,6 +51,14 @@ Whether a piece of private land counts as a road when other people pass through 
 | R-16 | The kart climbs a fairly steep slope slowly without damage. | With the heaviest rider, on grass at site.grade_max_pct, the kart starts from rest on the slope and climbs at walking pace or faster, and no part slips, overheats, or deforms. | test | confirmed |
 | R-17 | An adult can set a lower top speed for a small child. | Without tools, an adult sets the top speed on level paved ground to at most kart.speed_child_kmh, and the child cannot undo the setting from the seat. | demonstration | withdrawn |
 | R-18 | The kart may be driven on public roads. | The kart meets every safety standard and registration rule that applies to its class of vehicle, listed from the law in step 1.1 (Q-021), and is registered with its number plate and compulsory insurance before it is driven on a road. | inspection | confirmed |
+| R-19 | A belted driver is protected if the kart rolls over. | A roll bar rises above the head of the tallest driver (rider.stature_max_cm) seated, and carries the kart's weight upside down without collapsing onto the driver. | analysis | awaiting |
+| R-20 | The kart has the lamps and reflectors of a moped. | A white head lamp that dips, a red tail lamp, a red stop lamp, a number plate lamp, a red rear reflector, and amber turn signals at the front and the rear on both sides, as P36 articles 62 to 64-3 ask. | inspection | awaiting |
+| R-21 | The kart has two independent brake systems and a parking brake. | A foot brake on the rear wheels and a separate hand brake, either of which stops the kart, and a parking brake that holds it on law.parking_grade_pct (P36 article 61, P37). | test | awaiting |
+| R-22 | The driver's seat has a seat belt and a head restraint. | A seat belt with anchors on the frame and a head restraint behind the driver's head, as P36 articles 66-2 and 66-3 ask for a seat that is not straddled. | inspection | awaiting |
+| R-23 | The kart has a mirror, a horn, a speedometer, and an approved silencer. | An adjustable mirror on each side, a horn, a lit speedometer with an odometer in the driver's view, and the engine's own approved silencer (P36 articles 64, 64-2, 65, 65-2). | inspection | awaiting |
+| R-24 | Other road users can see the low kart. | A structure at least law.marker_height_mm above the ground (P36 article 61-2), which the roll bar provides. | inspection | awaiting |
+| R-25 | The kart is within the size of a moped. | Overall length at most law.length_max_mm and width at most law.width_max_mm (P36 article 59). | inspection | awaiting |
+| R-26 | The engine is within the moped limit. | Displacement at most law.minicar_cc_max (P35). | inspection | awaiting |
 <!-- tdr:end -->
 
 R-01 to R-08, R-14, and R-16 restate the owner's answers.
@@ -84,7 +92,7 @@ R-09 to R-13 and R-15 are derived from the hazards in 1.1.4 and wait for the own
 | H-02 | The drive keeps pushing after the driver lets go or loses control. | The driver and people nearby. | R-10 |
 | H-03 | Hair, clothing such as a scarf, or fingers are caught in the chain, sprockets, belt, or turning axle. | The driver and helpers. | R-11 |
 | H-04 | The driver touches a hot engine, exhaust, or motor, or the battery overheats or burns. | The driver and helpers. | R-11 |
-| H-05 | The kart tips over in a turn or on a slope. | The driver. | R-12 |
+| H-05 | The kart tips over in a turn or on a slope. | The driver. | R-12, R-19 |
 | H-06 | The steering, an axle, the frame, or the seat breaks under an adult. | The driver. | R-02 |
 | H-07 | Braking or steering is lost on snow or ice. | The driver and people nearby. | R-05, R-09 |
 | H-08 | A small child drives faster than the child can control. | The child and people nearby. | R-01 |
@@ -387,6 +395,39 @@ These are not decided here. 1.2 compares forms against them.
 | cost.engine50_used_max_jpy | 38500 | JPY | sourced | M63 |
 | cub50.kw | 2.7 | kW | sourced | P44 |
 | cub50.torque_nm | 3.8 | N m | sourced | P44 |
+| su.length_mm | 560 | mm | assumed | Q-023 |
+| su.width_mm | 320 | mm | assumed | Q-023 |
+| su.height_mm | 330 | mm | assumed | Q-023 |
+| su.mass_kg | 22 | kg | assumed | Q-023 |
+| su.final_ratio | 10.5 |  | assumed | Q-023 |
+| su.rev_limit_rpm | 8500 | rpm | assumed | Q-023 |
+| dsn.road_kit_mass_kg | 6.0 | kg | assumed | Q-023 |
+| gear.t_out420 | 15 |  | calculated | docs/03-design.md#drive |
+| gear.t_axle420 | 30 |  | calculated | docs/03-design.md#drive |
+| lay.unit_y_mm | 400 | mm | calculated | docs/03-design.md#drive |
+| lay.chain420_y_mm | 215 | mm | calculated | docs/03-design.md#drive |
+| lay.unit_out_x_mm | 250 | mm | calculated | docs/03-design.md#drive |
+| lay.rollbar_top_mm | 1050 | mm | calculated | docs/03-design.md#rollbar |
+| cost.hand_brake_jpy | 6000 | JPY | assumed | Q-018 |
+| cost.headlamp_jpy | 6380 | JPY | sourced | M65 |
+| cost.tail_plate_lamp_jpy | 3446 | JPY | sourced | M66 |
+| cost.turn_signals_jpy | 3200 | JPY | sourced | M67 |
+| cost.flasher_jpy | 1950 | JPY | sourced | M68 |
+| cost.switch_jpy | 2480 | JPY | sourced | M68 |
+| cost.reflector_jpy | 715 | JPY | sourced | M69 |
+| cost.mirror_jpy | 1860 | JPY | sourced | M70 |
+| cost.horn_jpy | 2619 | JPY | sourced | M71 |
+| cost.speedo_jpy | 15737 | JPY | sourced | M72 |
+| cost.speed_sensor_jpy | 7751 | JPY | sourced | M72 |
+| cost.head_restraint_jpy | 8673 | JPY | sourced | M73 |
+| cost.battery_gtz6v_jpy | 5454 | JPY | sourced | M74 |
+| cost.chain420_jpy | 1928 | JPY | sourced | M75 |
+| cost.spr420_30t_jpy | 2090 | JPY | sourced | M75 |
+| cost.spr420_15t_jpy | 1270 | JPY | sourced | M75 |
+| cost.donor_scooter_jpy | 61000 | JPY | sourced | M76 |
+| cost.plate_stay_jpy | 2617 | JPY | sourced | M77 |
+| cost.belt_anchor_jpy | 2772 | JPY | sourced | M78 |
+| cost.belt_used_car_jpy | 3000 | JPY | assumed | Q-024 |
 | form.mass_total_kg | 170 | kg | calculated | docs/02-form.md#mass |
 | snow.wheel_sinkage_min_cm | 19.0 | cm | calculated | docs/02-form.md#snow |
 | snow.wheel_sinkage_max_cm | 25.1 | cm | calculated | docs/02-form.md#snow |
@@ -432,54 +473,51 @@ These are not decided here. 1.2 compares forms against them.
 | dsn.width_transport_m | 1.21 | m | calculated | docs/03-design.md#transport |
 | dsn.axle_rail_gap_mm | 30 | mm | calculated | docs/03-design.md#frame |
 | dsn.tube_main_m | 3.37 | m | calculated | docs/03-design.md#frame |
-| dsn.tube_cross_m | 8.66 | m | calculated | docs/03-design.md#frame |
+| dsn.tube_cross_m | 7.14 | m | calculated | docs/03-design.md#frame |
+| dsn.tube_roll_m | 4.05 | m | calculated | docs/03-design.md#rollbar |
 | dsn.hub_bearing_gap_mm | 39 | mm | calculated | docs/03-design.md#transport |
-| dsn.ratio | 12.0 |  | calculated | docs/03-design.md#drive |
-| dsn.top_speed_kmh | 19.65 | km/h | calculated | docs/03-design.md#drive |
-| dsn.chain1_centre_mm | 240.0 | mm | calculated | docs/03-design.md#drive |
-| dsn.chain2_centre_mm | 157.6 | mm | calculated | docs/03-design.md#drive |
-| dsn.chain1_links | 64 |  | calculated | docs/03-design.md#drive |
-| dsn.chain2_links | 50 |  | calculated | docs/03-design.md#drive |
-| dsn.chain1_gap_mm | 102 | mm | calculated | docs/03-design.md#drive |
-| dsn.chain2_gap_mm | 54 | mm | calculated | docs/03-design.md#drive |
-| dsn.engine_x_mm | 375 | mm | calculated | docs/03-design.md#drive |
-| dsn.jack_x_mm | 149 | mm | calculated | docs/03-design.md#drive |
-| dsn.low_point_mm | 86 | mm | calculated | docs/03-design.md#axle |
+| dsn.ratio_top | 18.06 |  | calculated | docs/03-design.md#drive |
+| dsn.ratio | 59.85 |  | calculated | docs/03-design.md#drive |
+| dsn.top_speed_kmh | 28.83 | km/h | calculated | docs/03-design.md#drive |
+| dsn.chain420_centre_mm | 287 | mm | calculated | docs/03-design.md#drive |
+| dsn.chain420_links | 68 |  | calculated | docs/03-design.md#drive |
+| dsn.unit_front_x_mm | 760 | mm | calculated | docs/03-design.md#drive |
+| dsn.low_point_mm | 87 | mm | calculated | docs/03-design.md#axle |
 | dsn.turn_radius_m | 2.26 | m | calculated | docs/03-design.md#steering |
 | dsn.leg_margin_adult_mm | 148 | mm | calculated | docs/03-design.md#fit |
 | dsn.leg_margin_child_mm | 149 | mm | calculated | docs/03-design.md#fit |
-| dsn.mass_kg | 94.5 | kg | calculated | docs/03-design.md#mass |
-| dsn.cg_x_m | 0.368 | m | calculated | docs/03-design.md#mass |
-| dsn.cg_y_m | 0.097 | m | calculated | docs/03-design.md#mass |
-| dsn.cg_z_m | 0.231 | m | calculated | docs/03-design.md#mass |
-| dsn.frame_mass_kg | 13.8 | kg | calculated | docs/03-design.md#frame |
-| dsn.rear_share_adult | 0.729 |  | calculated | docs/03-design.md#mass |
+| dsn.mass_kg | 105.6 | kg | calculated | docs/03-design.md#mass |
+| dsn.cg_x_m | 0.362 | m | calculated | docs/03-design.md#mass |
+| dsn.cg_y_m | 0.086 | m | calculated | docs/03-design.md#mass |
+| dsn.cg_z_m | 0.273 | m | calculated | docs/03-design.md#mass |
+| dsn.frame_mass_kg | 12.3 | kg | calculated | docs/03-design.md#frame |
+| dsn.rear_share_adult | 0.726 |  | calculated | docs/03-design.md#mass |
 | dsn.cg_side_adult_mm | 1 | mm | calculated | docs/03-design.md#mass |
-| dsn.cg_height_adult_m | 0.35 | m | calculated | docs/03-design.md#mass |
-| dsn.tip_ratio_adult | 1.61 |  | calculated | docs/03-design.md#stability |
-| dsn.rear_share_child | 0.644 |  | calculated | docs/03-design.md#mass |
-| dsn.cg_side_child_mm | 66 | mm | calculated | docs/03-design.md#mass |
-| dsn.cg_height_child_m | 0.253 | m | calculated | docs/03-design.md#mass |
-| dsn.tip_ratio_child | 1.95 |  | calculated | docs/03-design.md#stability |
-| dsn.climb_force_n | 599 | N | calculated | docs/03-design.md#climb |
-| dsn.climb_grip_n | 672 | N | calculated | docs/03-design.md#climb |
-| dsn.climb_thrust_n | 758 | N | calculated | docs/03-design.md#climb |
-| dsn.axle_chain_pull_n | 1691 | N | calculated | docs/03-design.md#axle |
-| dsn.axle_stress_mpa | 222 | MPa | calculated | docs/03-design.md#axle |
+| dsn.cg_height_adult_m | 0.365 | m | calculated | docs/03-design.md#mass |
+| dsn.tip_ratio_adult | 1.54 |  | calculated | docs/03-design.md#stability |
+| dsn.rear_share_child | 0.647 |  | calculated | docs/03-design.md#mass |
+| dsn.cg_side_child_mm | 60 | mm | calculated | docs/03-design.md#mass |
+| dsn.cg_height_child_m | 0.287 | m | calculated | docs/03-design.md#mass |
+| dsn.tip_ratio_child | 1.74 |  | calculated | docs/03-design.md#stability |
+| dsn.climb_force_n | 633 | N | calculated | docs/03-design.md#climb |
+| dsn.climb_grip_n | 712 | N | calculated | docs/03-design.md#climb |
+| dsn.climb_thrust_n | 1359 | N | calculated | docs/03-design.md#climb |
+| dsn.axle_chain_pull_n | 3635 | N | calculated | docs/03-design.md#axle |
+| dsn.axle_stress_mpa | 221 | MPa | calculated | docs/03-design.md#axle |
 | dsn.axle_safety | 1.56 |  | calculated | docs/03-design.md#axle |
-| dsn.frame_moment_nm | 559 | N m | calculated | docs/03-design.md#frame |
-| dsn.rail_stress_mpa | 191 | MPa | calculated | docs/03-design.md#frame |
+| dsn.frame_moment_nm | 558 | N m | calculated | docs/03-design.md#frame |
+| dsn.rail_stress_mpa | 190 | MPa | calculated | docs/03-design.md#frame |
 | dsn.rail_safety | 1.52 |  | calculated | docs/03-design.md#frame |
-| dsn.bearing_load_n | 695 | N | calculated | docs/03-design.md#axle |
+| dsn.bearing_load_n | 733 | N | calculated | docs/03-design.md#axle |
 | dsn.brake_decel_needed | 5.79 | m/s2 | calculated | docs/03-design.md#brake |
-| dsn.brake_torque_needed_nm | 183 | N m | calculated | docs/03-design.md#brake |
-| dsn.brake_clamp_needed_n | 4082 | N | calculated | docs/03-design.md#brake |
-| dsn.brake_downhill_decel | 0.93 | m/s2 | calculated | docs/03-design.md#brake |
-| dsn.brake_downhill_stop_m | 37.4 | m | calculated | docs/03-design.md#brake |
+| dsn.brake_torque_needed_nm | 193 | N m | calculated | docs/03-design.md#brake |
+| dsn.brake_clamp_needed_n | 4317 | N | calculated | docs/03-design.md#brake |
+| dsn.brake_downhill_decel | 0.9 | m/s2 | calculated | docs/03-design.md#brake |
+| dsn.brake_downhill_stop_m | 38.4 | m | calculated | docs/03-design.md#brake |
 | dsn.delica_length_margin_mm | 80 | mm | calculated | docs/03-design.md#transport |
 | dsn.delica_width_margin_mm | 20 | mm | calculated | docs/03-design.md#transport |
-| dsn.height_m | 0.71 | m | calculated | docs/03-design.md#layout |
-| dsn.bom_parts_jpy | 228130 | JPY | calculated | docs/03-design.md#cost |
+| dsn.height_m | 1.05 | m | calculated | docs/03-design.md#layout |
+| dsn.bom_parts_jpy | 336426 | JPY | calculated | docs/03-design.md#cost |
 | dsn.bom_tools_jpy | 34056 | JPY | calculated | docs/03-design.md#cost |
 <!-- tdr:end -->
 
@@ -510,4 +548,7 @@ These are not decided here. 1.2 compares forms against them.
 | Q-020 | The layout of step 1.3 is not yet buildable (K-005). Rearrange the drive so that the chains, the jackshaft and its bearings, the middle axle bearing, and the guard fit between the seat and the left rail, or move the drive outboard; redesign the column support so it holds the column at its lower flange bearing and clears the legs; route the pedal box rails clear of the cross members; raise the steering arms and tie rods clear of the front rails; join every plate, the floor, and the seat slide to the frame; widen the seat space; and add the cornering side force to the axle and the engine's offset to the left rail. | assistant |
 | Q-021 | Which class of vehicle the kart becomes on public roads (most likely a minicar, a four-wheel first-class moped with up to 50 cc or 0.6 kW rated electric output), and which safety standards (brakes, lamps, turn signals, mirrors, horn, speedometer, plate, size), registration steps, tax, and insurance apply; list each as a requirement with its article from the law. | assistant |
 | Q-022 | How does the owner's municipality register a minicar built from scratch - how is a frame number given to a home-made frame, and which papers prove the engine's displacement (the donor's scrapping certificate, a receipt or transfer certificate, an engine-number rubbing)? No official page found covers a scratch-built frame; the owner asks the municipality's light vehicle tax counter. | owner |
+| Q-023 | The size and mass of a 50 cc scooter's engine and transmission unit, its final reduction, and its ECU's rev limit are not stated in any source found; the design assumes them. Measure the donor unit when it arrives, and set the drive sprockets so the top speed at the rev limit is kart.speed_max_kmh. | assistant |
+| Q-024 | No seat belt marked JIS D4604, which the safety standards accept (P36 article 66-2), was found for sale to individuals; generic belts (M78) are not marked. A belt with its anchors from a scrapped kei car carries its approval; find one and its price, and check how it mounts on the kart's frame and seat. | assistant |
+| Q-025 | The road-going layout is not yet buildable (K-006). Move the left side bar and the column braces clear of the scooter unit and the adult's shins; give the unit a plate on both rails; keep the axle sprocket and chain clear of the middle bearing plate; raise the roll bar above the tallest driver's head with a folding or bolted top for the car, with a front structure for a rollover; mount the hand brake, belt anchors, head restraint, battery, horn, and mirrors (facing the driver) on the frame; place the fuel tank, ECU, regulator, key switch, and the donor's silencer; add the cornering load to the axle and check a 30 mm axle; and carry the engine unit's mass on both rails. Build the collision search into calc/design.py so each change is checked. | assistant |
 <!-- tdr:end -->

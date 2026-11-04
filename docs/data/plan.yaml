@@ -52,10 +52,9 @@ tasks:
       - d3
     parts:
       - engine
-      - clutch
-      - jackshaft
-      - chain_primary
       - chain_final
+      - lighting
+      - seat_belt
       - axle_bearings
       - rear_hubs
       - front_wheels
@@ -122,7 +121,7 @@ tasks:
       - front_wheels
   - id: b5
     phase: build
-    title: Mount the engine, clutch, and jackshaft; align and fit both chains
+    title: Mount the engine unit, fit the drive chain, and wire the ECU, battery, and fuel pump
     kind: work
     days: 3
     after:
@@ -131,7 +130,7 @@ tasks:
       - powertrain
   - id: b6
     phase: build
-    title: Fit the seat slide, seat, pedal box, throttle cable, and stop switches
+    title: Fit the seat, belt, head restraint, pedal box, hand brake, throttle cable, and stop switches
     kind: work
     days: 2
     after:
@@ -140,7 +139,10 @@ tasks:
     parts:
       - seat
       - seat_slide
+      - seat_belt
+      - head_restraint
       - pedal_box
+      - hand_brake
       - throttle
       - kill_switch
   - id: b7
@@ -231,3 +233,31 @@ tasks:
       - R-05
       - R-06
       - R-07
+  - id: r1
+    phase: build
+    title: Fit the roll bar, lamps, turn signals, mirrors, horn, speedometer, and number plate
+    kind: work
+    days: 3
+    after:
+      - b7
+    parts:
+      - roll_bar
+      - lighting
+      - mirrors
+      - horn
+      - speedometer
+      - number_plate
+  - id: r2
+    phase: test
+    title: Register at the municipality, buy compulsory insurance, and check the road equipment
+    kind: work
+    days: 2
+    after:
+      - r1
+      - t2
+    reqs:
+      - R-18
+      - R-20
+      - R-21
+      - R-22
+      - R-23

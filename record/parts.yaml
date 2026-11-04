@@ -67,19 +67,10 @@ items:
     name: Powertrain
     parent: kart
   - id: engine
-    name: Engine
-    parent: powertrain
-  - id: clutch
-    name: Centrifugal clutch
-    parent: powertrain
-  - id: jackshaft
-    name: Jackshaft with its bearings and sprockets
-    parent: powertrain
-  - id: chain_primary
-    name: Primary chain from the clutch to the jackshaft
+    name: Engine unit of a 50 cc four-stroke scooter, with its CVT, centrifugal clutch, final reduction, ECU, fuel pump, and silencer
     parent: powertrain
   - id: chain_final
-    name: Final chain from the jackshaft to the axle, with the axle sprocket and its carrier
+    name: Drive chain from the engine unit's output to the axle, with both sprockets and the axle sprocket's carrier
     parent: powertrain
   - id: throttle
     name: Throttle cable with a return spring
@@ -96,3 +87,36 @@ items:
   - id: snow_chains
     name: Rear tyre chains
     parent: winter
+  - id: roll_bar
+    name: Roll bar over the driver's head, also the 1 m marker
+    parent: chassis
+  - id: road
+    name: Road equipment
+    parent: kart
+  - id: lighting
+    name: Head lamp, tail and stop lamp, number plate lamp, reflector, and turn signals
+    parent: road
+  - id: mirrors
+    name: Mirrors on both sides
+    parent: road
+  - id: horn
+    name: Horn
+    parent: road
+  - id: speedometer
+    name: Speedometer with odometer
+    parent: road
+  - id: seat_belt
+    name: Seat belt with its anchors
+    parent: road
+  - id: head_restraint
+    name: Head restraint
+    parent: road
+  - id: hand_brake
+    name: Hand brake with its own caliper, also the parking brake
+    parent: road
+  - id: battery
+    name: 12 V battery for the engine's ECU and the lamps
+    parent: road
+  - id: number_plate
+    name: Number plate and its bracket
+    parent: road

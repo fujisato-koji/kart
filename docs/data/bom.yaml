@@ -80,46 +80,6 @@ lines:
     qty: 1
     price: cost.ucfl204_jpy
     need: b4
-  - part: engine
-    item: Engine GX200 class 196 cc, 3/4 inch shaft
-    qty: 1
-    price: cost.engine_clone_jpy
-    need: b5
-  - part: clutch
-    item: Centrifugal clutch 3/4 inch, 10T, chain 40
-    qty: 1
-    price: cost.clutch_jpy
-    need: b5
-  - part: jackshaft
-    item: Sprocket KANA 40T bore 20
-    qty: 1
-    price: cost.spr_t40_jpy
-    need: b5
-  - part: jackshaft
-    item: Sprocket KANA 12T bore 20
-    qty: 1
-    price: cost.spr_t12_jpy
-    need: b5
-  - part: chain_final
-    item: Sprocket KANA 36T pilot bore, bored to 25
-    qty: 1
-    price: cost.spr_t36_jpy
-    need: b5
-  - part: chain_primary
-    item: Roller chain 40, 3 m with joint links (both chains)
-    qty: 1
-    price: cost.chain_3m_jpy
-    need: b5
-  - part: jackshaft
-    item: Shaft S45C 20 mm, keyed
-    qty: 1
-    price: cost.shaft20_jpy
-    need: b5
-  - part: jackshaft
-    item: Pillow block UCP204 (FYH)
-    qty: 2
-    price: cost.ucp204_jpy
-    need: b5
   - part: rear_axle
     item: Machining by a local shop (keyways, boring, pin holes, disc carrier)
     qty: 1
@@ -187,3 +147,108 @@ lines:
     price: cost.ramp_rail_jpy
     need: t4
     group: tools
+  - part: roll_bar
+    item: STKM11A round tube 31.8 x 2.3 for the roll bar and its braces (m)
+    qty: 3
+    price: cost.tube_32x23_jpy_per_m
+    need: b1
+  - part: hand_brake
+    item: Hand lever and second caliper on the rear disc, also the parking brake
+    qty: 1
+    price: cost.hand_brake_jpy
+    need: b6
+  - part: engine
+    item: Running 50 cc scooter (Tact AF79 class) as donor of the engine unit, ECU, fuel pump, wiring, and silencer
+    qty: 1
+    price: cost.donor_scooter_jpy
+    need: b5
+  - part: chain_final
+    item: Chain 420, 120 links
+    qty: 1
+    price: cost.chain420_jpy
+    need: b5
+  - part: chain_final
+    item: Sprocket 420, 15T on the engine unit's output (with an adapter, machined)
+    qty: 1
+    price: cost.spr420_15t_jpy
+    need: b5
+  - part: chain_final
+    item: Sprocket 420, 30T on the axle carrier
+    qty: 1
+    price: cost.spr420_30t_jpy
+    need: b5
+  - part: lighting
+    item: Head lamp unit with high and low beams
+    qty: 1
+    price: cost.headlamp_jpy
+    need: r1
+  - part: lighting
+    item: Tail and stop lamp with number plate lamp
+    qty: 1
+    price: cost.tail_plate_lamp_jpy
+    need: r1
+  - part: lighting
+    item: Red rear reflector
+    qty: 1
+    price: cost.reflector_jpy
+    need: r1
+  - part: lighting
+    item: Turn signals, set of four
+    qty: 1
+    price: cost.turn_signals_jpy
+    need: r1
+  - part: lighting
+    item: Flasher relay
+    qty: 1
+    price: cost.flasher_jpy
+    need: r1
+  - part: lighting
+    item: Switch for beams, horn, and turn signals
+    qty: 1
+    price: cost.switch_jpy
+    need: r1
+  - part: mirrors
+    item: Mirror
+    qty: 2
+    price: cost.mirror_jpy
+    need: r1
+  - part: horn
+    item: Horn 12 V
+    qty: 1
+    price: cost.horn_jpy
+    need: r1
+  - part: speedometer
+    item: Speedometer with odometer, lit
+    qty: 1
+    price: cost.speedo_jpy
+    need: r1
+  - part: speedometer
+    item: Non-contact speed sensor
+    qty: 1
+    price: cost.speed_sensor_jpy
+    need: r1
+  - part: seat_belt
+    item: Approved seat belt from a scrapped kei car
+    qty: 1
+    price: cost.belt_used_car_jpy
+    need: b6
+  - part: seat_belt
+    item: Belt anchor bolts
+    qty: 1
+    price: cost.belt_anchor_jpy
+    need: b6
+  - part: head_restraint
+    item: Car head restraint with two stays
+    qty: 1
+    price: cost.head_restraint_jpy
+    need: b6
+  - part: battery
+    item: Battery GTZ6V
+    qty: 1
+    price: cost.battery_gtz6v_jpy
+    need: b5
+  - part: number_plate
+    item: Number plate stay
+    qty: 1
+    price: cost.plate_stay_jpy
+    need: r1

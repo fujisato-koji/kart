@@ -214,6 +214,7 @@ items:
       - cost.rear_hub_make_jpy
       - cost.axle_shaft_jpy
       - cost.tube_32x23_jpy_per_m
+      - cost.hand_brake_jpy
     opened: 2026-11-03
     phase: design
     blocks: design_build
@@ -236,7 +237,7 @@ items:
     waits_for: assistant
     affects:
       - frame
-      - jackshaft
+      - chain_final
       - axle_bearings
       - guards
       - steering_column
@@ -263,5 +264,47 @@ items:
     affects:
       - R-18
     opened: 2026-11-04
+    phase: design
+    blocks: design_build
+  - id: Q-023
+    kind: question
+    text: The size and mass of a 50 cc scooter's engine and transmission unit, its final reduction, and its ECU's rev limit are not stated in any source found; the design assumes them. Measure the donor unit when it arrives, and set the drive sprockets so the top speed at the rev limit is kart.speed_max_kmh.
+    waits_for: assistant
+    affects:
+      - su.length_mm
+      - su.width_mm
+      - su.height_mm
+      - su.mass_kg
+      - su.final_ratio
+      - su.rev_limit_rpm
+      - dsn.road_kit_mass_kg
+    opened: 2026-11-04
+    phase: design
+    blocks: design_build
+  - id: Q-024
+    kind: question
+    text: No seat belt marked JIS D4604, which the safety standards accept (P36 article 66-2), was found for sale to individuals; generic belts (M78) are not marked. A belt with its anchors from a scrapped kei car carries its approval; find one and its price, and check how it mounts on the kart's frame and seat.
+    waits_for: assistant
+    affects:
+      - cost.belt_used_car_jpy
+      - R-22
+    opened: 2026-11-04
+    phase: design
+    blocks: design_build
+  - id: Q-025
+    kind: finding
+    text: The road-going layout is not yet buildable (K-006). Move the left side bar and the column braces clear of the scooter unit and the adult's shins; give the unit a plate on both rails; keep the axle sprocket and chain clear of the middle bearing plate; raise the roll bar above the tallest driver's head with a folding or bolted top for the car, with a front structure for a rollover; mount the hand brake, belt anchors, head restraint, battery, horn, and mirrors (facing the driver) on the frame; place the fuel tank, ECU, regulator, key switch, and the donor's silencer; add the cornering load to the axle and check a 30 mm axle; and carry the engine unit's mass on both rails. Build the collision search into calc/design.py so each change is checked.
+    waits_for: assistant
+    affects:
+      - frame
+      - roll_bar
+      - engine
+      - hand_brake
+      - seat_belt
+      - head_restraint
+      - mirrors
+      - axle_shaft
+    opened: 2026-11-04
+    raised_by: assistant
     phase: design
     blocks: design_build

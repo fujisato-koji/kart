@@ -39,6 +39,7 @@ items:
     at_risk: The driver.
     controls:
       - R-12
+      - R-19
   - id: H-06
     text: The steering, an axle, the frame, or the seat breaks under an adult.
     phases:

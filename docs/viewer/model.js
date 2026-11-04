@@ -669,6 +669,155 @@ function pedalsItem(it, ctx) {
   return g;
 }
 
+// ---- 50 cc scooter engine with its CVT case and final gear housing
+function scooterItem(it, ctx) {
+  const M = mats(); const g = new THREE.Group();
+  const L = it.length, W = it.width, H = it.height;
+  const out = [it.out[0] - it.pos[0], it.out[1] - it.pos[1], it.out[2] - it.pos[2]];
+  const front = it.cylinder.startsWith('-') ? -1 : 1;
+  const xr = -front * L / 2, xf = front * L / 2; // rear and front ends along x
+  const plastic = M.plastic, gear = std(0x6b727a, 0.5, 0.7);
+  const at = (m, x, y, z) => { m.position.set(x, y, z); g.add(m); return m; };
+  at(box(L * 0.92, W * 0.78, 0.012, M.darkSteel, 0.003), 0, -W * 0.06, 0.006);
+  // final gear housing at the rear, on the output side (-y)
+  at(cylY(0.075, W * 0.5, gear, 36), out[0], -W / 2 + W * 0.25, out[2]);
+  at(box(0.1, W * 0.5, 0.14, gear, 0.03), out[0], -W / 2 + W * 0.25, out[2] - 0.05);
+  at(cylY(0.045, 0.012, M.alu, 28), out[0], -W / 2 + 0.006, out[2]);
+  for (let i = 0; i < 5; i++) { const a = i / 5 * Math.PI * 2; at(hexBolt(0.006, 0.01, M.steel), out[0] + Math.cos(a) * 0.058, -W / 2 + 0.003, out[2] + Math.sin(a) * 0.058); }
+  // output shaft to the sprocket
+  const sp = ctx.design.items.find((o) => o.type === 'sprocket' && Math.abs(o.pos[0] - it.out[0]) < 0.002 && Math.abs(o.pos[2] - it.out[2]) < 0.002);
+  const yEnd = sp ? sp.pos[1] - it.pos[1] - sp.t : out[1] - 0.02;
+  at(cylY(0.0095, Math.abs(yEnd - out[1]) + 0.01, M.steel, 20), out[0], (yEnd + out[1]) / 2, out[2]);
+  // CVT case on the +y side from the engine to the final gear housing
+  const cvtY = W / 2 - 0.045, cvtX0 = out[0], cvtX1 = front * (L * 0.12);
+  const xa = Math.min(cvtX0, cvtX1), xb = Math.max(cvtX0, cvtX1), r1 = 0.07, r2 = 0.088;
+  at(box(xb - xa, 0.09, 0.13, plastic, 0.03), (xa + xb) / 2, cvtY, out[2] - 0.01);
+  at(cylY(r1 + 0.01, 0.09, plastic, 36), cvtX0, cvtY, out[2]);
+  at(cylY(r2, 0.09, plastic, 36), cvtX1, cvtY, out[2] + 0.005);
+  for (const [cx, rr] of [[cvtX0, r1], [cvtX1, r2]]) at(cylY(rr * 0.5, 0.006, M.black, 24), cx, W / 2 + 0.001, out[2]);
+  for (let i = 0; i < 9; i++) at(box(0.01, 0.003, 0.1, M.black), xa + 0.04 + i * (xb - xa - 0.08) / 8, W / 2 + 0.0005, out[2] - 0.01);
+  // crankcase
+  at(box(L * 0.3, W * 0.5, 0.2, M.alu, 0.025), front * L * 0.06, -W * 0.05, 0.115);
+  // horizontal finned cylinder pointing forward, with a cooling shroud
+  const cz = 0.11, cy0 = -W * 0.05, cx0 = front * (L * 0.2), nFin = 9, cylEnd = xf - front * 0.045;
+  g.add(cylBetween(new THREE.Vector3(cx0, cy0, cz), new THREE.Vector3(cylEnd, cy0, cz), 0.034, M.cast, 20));
+  for (let i = 0; i < nFin; i++) {
+    const fin = mesh(new THREE.CylinderGeometry(0.056, 0.056, 0.0045, 24), M.finDark); fin.rotation.z = Math.PI / 2;
+    at(fin, cx0 + (cylEnd - cx0) * (i + 0.5) / nFin, cy0, cz);
+  }
+  at(box(0.06, 0.1, 0.11, M.cast, 0.01), xf - front * 0.03, cy0, cz);
+  at(box(0.04, 0.09, 0.09, M.black, 0.008), xf - front * 0.01, cy0, cz + 0.005);
+  g.add(cylBetween(new THREE.Vector3(xf - front * 0.04, cy0, cz + 0.05), new THREE.Vector3(xf - front * 0.04, cy0, cz + 0.095), 0.007, M.steel, 8));
+  at(box((cylEnd - cx0) * 0.72, 0.14, 0.15, plastic, 0.03), cx0 + (cylEnd - cx0) * 0.36, cy0, cz + 0.005);
+  for (let i = 0; i < 4; i++) at(box(0.018, 0.1, 0.002, M.black), cx0 + 0.02 + i * 0.03, cy0, cz + 0.082);
+  // air box and intake
+  at(box(L * 0.3, W * 0.4, 0.1, plastic, 0.03), -front * L * 0.05, -W * 0.02, H - 0.05);
+  for (let i = 0; i < 5; i++) at(box(0.003, W * 0.3, 0.008, M.black), -front * L * 0.05 + (i - 2) * 0.03, -W * 0.02, H + 0.0005);
+  g.add(cylBetween(new THREE.Vector3(front * L * 0.07, -W * 0.02, H - 0.06), new THREE.Vector3(xf - front * 0.04, cy0, cz + 0.06), 0.017, M.black, 12));
+  // muffler running back under the unit
+  const mz = 0.052, my = -W * 0.28, mx0 = xr + front * 0.03, mx1 = front * L * 0.22;
+  g.add(cylBetween(new THREE.Vector3(xf - front * 0.02, cy0 - 0.03, cz - 0.045), new THREE.Vector3(mx1, my, mz), 0.012, M.darkSteel, 10));
+  g.add(cylBetween(new THREE.Vector3(mx1, my, mz), new THREE.Vector3(mx0, my, mz), 0.04, M.darkSteel, 24));
+  g.add(cylBetween(new THREE.Vector3(mx0, my, mz), new THREE.Vector3(mx0 - front * 0.03, my, mz), 0.017, M.steel, 12));
+  for (const x of [mx1, mx0]) at(sphere(0.04, M.darkSteel, 14), x, my, mz);
+  const shield = new THREE.Mesh(new THREE.CylinderGeometry(0.046, 0.046, Math.abs(mx1 - mx0) * 0.6, 24, 1, true, Math.PI * 0.2, Math.PI * 0.8), new THREE.MeshStandardMaterial({ color: C.steel, metalness: 0.8, roughness: 0.4, side: THREE.DoubleSide }));
+  shield.rotation.z = Math.PI / 2; shade(shield); at(shield, (mx0 + mx1) / 2, my, mz);
+  at(cylY(0.008, 0.03, M.steel, 10), 0, -W / 2 + 0.02, 0.09);
+  g.position.set(...it.pos);
+  return g;
+}
+
+// ---- road equipment
+const LENS = { white: [0xfff6d8, 0xfff0b0], amber: [0xffa31a, 0xff8a00], red: [0xd01414, 0xff1010] };
+function dirOf(facing) { const s = facing[0] === '-' ? -1 : 1, a = facing.slice(1); return new THREE.Vector3(a === 'x' ? s : 0, a === 'y' ? s : 0, a === 'z' ? s : 0); }
+function lampItem(it) {
+  const M = mats(); const g = new THREE.Group(); const dir = dirOf(it.facing);
+  const [col, em] = LENS[it.color] || LENS.white;
+  const lens = new THREE.MeshStandardMaterial({ color: col, emissive: em, emissiveIntensity: 0.55, roughness: 0.2, metalness: 0.0 });
+  if (it.d) {
+    const depth = it.d * 0.7;
+    const hs = mesh(new THREE.CylinderGeometry(it.d / 2, it.d / 2 * 0.85, depth, 28), it.role === 'head' ? M.rim : M.darkSteel); hs.position.y = -depth / 2; g.add(hs);
+    const rim = mesh(new THREE.TorusGeometry(it.d / 2 * 0.98, it.d * 0.035, 8, 28), M.steel); rim.rotation.x = Math.PI / 2; g.add(rim);
+    const ln = mesh(new THREE.SphereGeometry(it.d / 2 * 0.95, 24, 8, 0, Math.PI * 2, 0, Math.PI / 2), lens); ln.scale.y = 0.45; g.add(ln);
+    g.quaternion.setFromUnitVectors(Y, dir);
+  } else {
+    const [sx, sy, sz] = it.size;
+    g.add(box(sx, sy, sz, M.black, 0.004));
+    const l = box(Math.abs(dir.x) ? sx + 0.004 : sx * 0.9, sy * 0.92, sz * 0.8, lens, 0.003); l.position.copy(dir.clone().multiplyScalar(0.004)); g.add(l);
+  }
+  g.position.set(...it.pos); return g;
+}
+function mirrorItem(it) {
+  const M = mats(); const g = new THREE.Group(); const dir = dirOf(it.facing);
+  const p = V(it.pos), st = V(it.stem).sub(p);
+  g.add(cylBetween(st, new THREE.Vector3(0, 0, 0), 0.008, M.black, 10));
+  const base = sphere(0.014, M.black, 10); base.position.copy(st); g.add(base);
+  const m = new THREE.Group();
+  m.add(mesh(new THREE.CylinderGeometry(it.d / 2 * 1.05, it.d / 2, 0.02, 32), M.black));
+  const glass = mesh(new THREE.CylinderGeometry(it.d / 2 * 0.92, it.d / 2 * 0.92, 0.003, 32), std(0xcfe4f2, 0.05, 1.0)); glass.position.y = 0.0105; m.add(glass);
+  m.quaternion.setFromUnitVectors(Y, dir); g.add(m);
+  g.position.copy(p); return g;
+}
+function plateNumberItem(it) {
+  const M = mats(); const g = new THREE.Group(); const [sx, sy, sz] = it.size;
+  g.add(box(sx, sy, sz, std(0x1d2a22, 0.5, 0.2), 0.001));
+  const c = document.createElement('canvas'); c.width = 512; c.height = 300; const x = c.getContext('2d');
+  x.fillStyle = '#f4f4ee'; x.fillRect(0, 0, 512, 300); x.strokeStyle = '#1d2a22'; x.lineWidth = 8; x.strokeRect(10, 10, 492, 280);
+  x.fillStyle = '#1d2a22'; x.font = 'bold 110px sans-serif'; x.textAlign = 'center'; x.fillText('・ ・・', 256, 120); x.font = 'bold 130px sans-serif'; x.fillText('・・-・・', 256, 250);
+  const t = new THREE.CanvasTexture(c); t.colorSpace = THREE.SRGBColorSpace;
+  for (const sg of [-1, 1]) {
+    const f = new THREE.Mesh(new THREE.PlaneGeometry(sy * 0.94, sz * 0.9), new THREE.MeshStandardMaterial({ map: t, roughness: 0.5 }));
+    f.quaternion.setFromRotationMatrix(new THREE.Matrix4().makeBasis(new THREE.Vector3(0, sg, 0), new THREE.Vector3(0, 0, 1), new THREE.Vector3(sg, 0, 0)));
+    f.position.x = sg * (sx / 2 + 0.0004); g.add(f);
+  }
+  g.position.set(...it.pos); return g;
+}
+function boxItem(it) {
+  const M = mats(); const g = new THREE.Group(); const [sx, sy, sz] = it.size;
+  if (it.part === 'horn') {
+    g.add(box(sx, sy, sz, M.black, 0.01));
+    const tr = mesh(new THREE.CylinderGeometry(sz * 0.2, sz * 0.5, sx * 0.9, 20), M.steel); tr.rotation.z = Math.PI / 2; tr.position.x = sx * 0.55; g.add(tr);
+  } else if (it.part === 'battery') {
+    g.add(box(sx, sy, sz, std(0x25292e, 0.6, 0.1), 0.006));
+    const lab = box(sx * 0.7, sy * 1.01, sz * 0.3, std(0xd7d7d0, 0.6, 0), 0.002); lab.position.z = -sz * 0.1; g.add(lab);
+    for (const [sg, col] of [[-1, 0xc01818], [1, 0x222222]]) { const t = cylY(0.007, 0.012, std(col, 0.5, 0.3), 12); t.rotation.x = Math.PI / 2; t.position.set(sg * sx * 0.28, 0, sz / 2 + 0.006); g.add(t); }
+  } else if (it.part === 'head_restraint') {
+    g.add(box(sx, sy, sz, M.seat, Math.min(sx, sz) * 0.4));
+    for (const sg of [-1, 1]) g.add(cylBetween(new THREE.Vector3(0, sg * sy * 0.25, -sz / 2), new THREE.Vector3(0, sg * sy * 0.25, -sz / 2 - 0.1), 0.006, M.steel, 8));
+  } else g.add(box(sx, sy, sz, M.darkSteel, 0.005));
+  g.position.set(...it.pos); return g;
+}
+function gaugeItem(it) {
+  const M = mats(); const g = new THREE.Group(); const dir = dirOf(it.facing); const r = it.d / 2;
+  const c = document.createElement('canvas'); c.width = c.height = 256; const x = c.getContext('2d');
+  x.fillStyle = '#0d0f11'; x.fillRect(0, 0, 256, 256); x.strokeStyle = '#f0f0f0'; x.lineWidth = 4;
+  for (let i = 0; i <= 8; i++) { const a = (-225 + i * 33.75) * Math.PI / 180, c1 = Math.cos(a), s1 = Math.sin(a); x.beginPath(); x.moveTo(128 + c1 * 100, 128 - s1 * 100); x.lineTo(128 + c1 * 116, 128 - s1 * 116); x.stroke(); }
+  x.strokeStyle = '#ff5030'; x.lineWidth = 6; x.beginPath(); x.moveTo(128, 128); x.lineTo(128 + Math.cos(-0.4) * 95, 128 - Math.sin(-0.4) * 95); x.stroke();
+  const t = new THREE.CanvasTexture(c); t.colorSpace = THREE.SRGBColorSpace;
+  const hs = mesh(new THREE.CylinderGeometry(r, r * 0.9, r * 0.9, 32), M.black); hs.position.y = -r * 0.45; g.add(hs);
+  const face = new THREE.Mesh(new THREE.CircleGeometry(r * 0.92, 32), new THREE.MeshStandardMaterial({ map: t, roughness: 0.3 })); face.rotation.x = -Math.PI / 2; face.position.y = 0.0015; g.add(face);
+  const bez = mesh(new THREE.TorusGeometry(r * 0.95, r * 0.06, 8, 32), M.steel); bez.rotation.x = Math.PI / 2; g.add(bez);
+  g.quaternion.setFromUnitVectors(Y, dir); g.position.set(...it.pos); return g;
+}
+function leverItem(it) {
+  const M = mats(); const g = new THREE.Group(); const a = V(it.pos), b = V(it.to), d = b.clone().sub(a), dir = d.clone().normalize();
+  g.add(cylBetween(a, b, 0.008, M.steel, 10));
+  g.add(cylBetween(b.clone().addScaledVector(dir, -Math.min(0.12, d.length() * 0.4)), b, 0.0155, M.rubber, 14));
+  const k = sphere(0.016, M.rubber, 12); k.position.copy(b); g.add(k);
+  const piv = cylY(0.014, 0.03, M.darkSteel, 16); piv.position.copy(a); g.add(piv);
+  return g;
+}
+function strapItem(it) {
+  const M = mats(); const a = V(it.pos), b = V(it.to), d = b.clone().sub(a), len = d.length(), dir = d.clone().normalize();
+  const w = new THREE.Vector3().crossVectors(dir, new THREE.Vector3(0, 0, 1)); if (w.lengthSq() < 1e-6) w.set(0, 1, 0); w.normalize();
+  const n = new THREE.Vector3().crossVectors(dir, w).normalize();
+  const s = mesh(new THREE.BoxGeometry(len, it.w, 0.003), std(0x1f3a63, 0.85, 0));
+  s.quaternion.setFromRotationMatrix(new THREE.Matrix4().makeBasis(dir, w, n)); s.position.copy(a).addScaledVector(d, 0.5);
+  const g = new THREE.Group(); g.add(s);
+  for (const p of [a, b]) { const t = box(0.012, it.w * 1.1, 0.012, M.steel, 0.002); t.position.copy(p); t.quaternion.copy(s.quaternion); g.add(t); }
+  return g;
+}
+
 function buildItem(it, ctx) {
   switch (it.type) {
     case 'plate': return plateFor(it);
@@ -680,6 +829,14 @@ function buildItem(it, ctx) {
     case 'disc': return discItem(it);
     case 'caliper': return caliperItem(it);
     case 'engine': return engineItem(it, ctx);
+    case 'scooter_unit': return scooterItem(it, ctx);
+    case 'lamp': return lampItem(it);
+    case 'mirror': return mirrorItem(it);
+    case 'plate_number': return plateNumberItem(it);
+    case 'box': return boxItem(it);
+    case 'gauge': return gaugeItem(it);
+    case 'lever': return leverItem(it);
+    case 'strap': return strapItem(it);
     case 'clutch': return clutchItem(it);
     case 'sprocket': return sprocketItem(it);
     case 'chain': return chainItem(it, ctx);

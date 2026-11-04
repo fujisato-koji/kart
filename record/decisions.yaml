@@ -162,3 +162,11 @@ items:
     touches:
       - site.grade_max_pct
       - R-16
+  - id: D-022
+    date: 2026-11-04
+    by: owner
+    what: Reflect the proposal of docs/02-form.md#road in the design and the 3D view. The working basis becomes a used 50 cc four-stroke scooter engine with its CVT, centrifugal clutch, and final reduction in one unit, driving the rear axle by one chain; a roll bar over the driver's head that also serves as the 1 m marker; and the equipment the law asks for road use. The owner may still change the engine choice.
+    touches:
+      - engine
+      - R-18
+      - R-19

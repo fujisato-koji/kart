@@ -10,13 +10,13 @@
   "length": 1.53,
   "width": 1.277,
   "width_transport": 1.21,
-  "height": 0.71,
+  "height": 1.05,
   "wheelbase": 1.0,
   "track_front": 1.06,
   "track_rear": 1.15,
   "track_rear_narrow": 1.04,
   "clearance": 0.15,
-  "low_point": 0.086,
+  "low_point": 0.0865,
   "axle_height": 0.1625,
   "x_front": 1.3,
   "x_back": -0.23
@@ -464,64 +464,94 @@
    "t": 0.0016
   },
   {
-   "part": "frame",
+   "part": "roll_bar",
    "a": [
     -0.05,
-    0.08,
+    0.1,
     0.2209
    ],
    "b": [
     -0.09,
-    0.08,
-    0.6409
+    0.1,
+    1.0341
    ],
-   "od": 0.0254,
-   "t": 0.0016
+   "od": 0.0318,
+   "t": 0.0023
   },
   {
-   "part": "frame",
+   "part": "roll_bar",
    "a": [
     -0.09,
-    0.08,
-    0.6409
+    0.1,
+    1.0341
    ],
    "b": [
     -0.09,
-    -0.26,
-    0.6409
+    -0.28,
+    1.0341
    ],
-   "od": 0.0254,
-   "t": 0.0016
+   "od": 0.0318,
+   "t": 0.0023
   },
   {
-   "part": "frame",
+   "part": "roll_bar",
    "a": [
     -0.09,
-    -0.26,
-    0.6409
+    -0.28,
+    1.0341
    ],
    "b": [
     -0.05,
-    -0.26,
+    -0.28,
     0.2209
    ],
-   "od": 0.0254,
-   "t": 0.0016
+   "od": 0.0318,
+   "t": 0.0023
   },
   {
-   "part": "frame",
+   "part": "roll_bar",
    "a": [
     -0.05,
-    0.08,
+    0.1,
     0.2209
    ],
    "b": [
     -0.05,
-    -0.26,
+    -0.28,
     0.2209
    ],
-   "od": 0.0254,
-   "t": 0.0016
+   "od": 0.0318,
+   "t": 0.0023
+  },
+  {
+   "part": "roll_bar",
+   "a": [
+    -0.09,
+    0.1,
+    1.0341
+   ],
+   "b": [
+    -0.2,
+    0.3,
+    0.2209
+   ],
+   "od": 0.0318,
+   "t": 0.0023
+  },
+  {
+   "part": "roll_bar",
+   "a": [
+    -0.09,
+    -0.28,
+    1.0341
+   ],
+   "b": [
+    -0.2,
+    -0.3,
+    0.2209
+   ],
+   "od": 0.0318,
+   "t": 0.0023
   },
   {
    "part": "bumpers",
@@ -1059,54 +1089,41 @@
     "transport"
    ],
    "pos": [
-    0.3753199495187337,
-    0.43,
+    0.48000000000000004,
+    0.4,
     0.1848
    ],
    "size": [
-    0.28200000000000003,
-    0.26605,
+    0.44800000000000006,
+    0.256,
     0.006
    ]
   },
   {
    "part": "engine",
-   "type": "engine",
+   "type": "scooter_unit",
    "configs": [
     "summer",
     "winter",
     "transport"
    ],
    "pos": [
-    0.3753199495187337,
-    0.43,
+    0.48000000000000004,
+    0.4,
     0.1878
    ],
-   "length": 0.313,
-   "width": 0.376,
-   "height": 0.339,
-   "shaft_h": 0.106,
-   "pto": "-y"
+   "length": 0.56,
+   "width": 0.32,
+   "height": 0.33,
+   "out": [
+    0.25,
+    0.24,
+    0.3033
+   ],
+   "cylinder": "+x"
   },
   {
-   "part": "clutch",
-   "type": "clutch",
-   "configs": [
-    "summer",
-    "winter",
-    "transport"
-   ],
-   "pos": [
-    0.3753199495187337,
-    0.257,
-    0.2938
-   ],
-   "axis": "y",
-   "od": 0.107,
-   "l": 0.064
-  },
-  {
-   "part": "clutch",
+   "part": "chain_final",
    "type": "sprocket",
    "configs": [
     "summer",
@@ -1114,53 +1131,15 @@
     "transport"
    ],
    "pos": [
-    0.3753199495187337,
-    0.225,
-    0.2938
+    0.25,
+    0.215,
+    0.3033
    ],
    "axis": "y",
-   "teeth": 10,
-   "pd": 0.0411,
-   "od": 0.0487,
-   "t": 0.0072
-  },
-  {
-   "part": "jackshaft",
-   "type": "sprocket",
-   "configs": [
-    "summer",
-    "winter",
-    "transport"
-   ],
-   "pos": [
-    0.1486364143358115,
-    0.225,
-    0.215
-   ],
-   "axis": "y",
-   "teeth": 40,
-   "pd": 0.1619,
-   "od": 0.169,
-   "t": 0.0072
-  },
-  {
-   "part": "jackshaft",
-   "type": "sprocket",
-   "configs": [
-    "summer",
-    "winter",
-    "transport"
-   ],
-   "pos": [
-    0.1486364143358115,
-    0.155,
-    0.215
-   ],
-   "axis": "y",
-   "teeth": 12,
-   "pd": 0.0491,
-   "od": 0.055,
-   "t": 0.0072
+   "teeth": 15,
+   "pd": 0.0611,
+   "od": 0.0687,
+   "t": 0.006
   },
   {
    "part": "chain_final",
@@ -1172,110 +1151,14 @@
    ],
    "pos": [
     0.0,
-    0.155,
+    0.215,
     0.1625
    ],
    "axis": "y",
-   "teeth": 36,
-   "pd": 0.1457,
-   "od": 0.153,
-   "t": 0.0072
-  },
-  {
-   "part": "jackshaft",
-   "type": "cyl",
-   "configs": [
-    "summer",
-    "winter",
-    "transport"
-   ],
-   "pos": [
-    0.1486364143358115,
-    0.19999999999999998,
-    0.215
-   ],
-   "axis": "y",
-   "d": 0.02,
-   "l": 0.16
-  },
-  {
-   "part": "jackshaft",
-   "type": "pillow",
-   "configs": [
-    "summer",
-    "winter",
-    "transport"
-   ],
-   "pos": [
-    0.1486364143358115,
-    0.137,
-    0.1817
-   ],
-   "h": 0.0333,
-   "l": 0.127,
-   "h2": 0.065,
-   "bore": 0.02,
-   "axis": "y"
-  },
-  {
-   "part": "jackshaft",
-   "type": "pillow",
-   "configs": [
-    "summer",
-    "winter",
-    "transport"
-   ],
-   "pos": [
-    0.1486364143358115,
-    0.26299999999999996,
-    0.1817
-   ],
-   "h": 0.0333,
-   "l": 0.127,
-   "h2": 0.065,
-   "bore": 0.02,
-   "axis": "y"
-  },
-  {
-   "part": "frame",
-   "type": "plate",
-   "configs": [
-    "summer",
-    "winter",
-    "transport"
-   ],
-   "pos": [
-    0.1486364143358115,
-    0.19999999999999998,
-    0.1787
-   ],
-   "size": [
-    0.147,
-    0.15999999999999998,
-    0.006
-   ]
-  },
-  {
-   "part": "chain_primary",
-   "type": "chain",
-   "configs": [
-    "summer",
-    "winter",
-    "transport"
-   ],
-   "pos": [
-    0.3753199495187337,
-    0.225,
-    0.2938
-   ],
-   "to": [
-    0.1486364143358115,
-    0.225,
-    0.215
-   ],
-   "r1": 0.0205,
-   "r2": 0.0809,
-   "axis": "y"
+   "teeth": 30,
+   "pd": 0.1215,
+   "od": 0.1291,
+   "t": 0.006
   },
   {
    "part": "chain_final",
@@ -1286,17 +1169,17 @@
     "transport"
    ],
    "pos": [
-    0.1486364143358115,
-    0.155,
-    0.215
+    0.25,
+    0.215,
+    0.3033
    ],
    "to": [
     0.0,
-    0.155,
+    0.215,
     0.1625
    ],
-   "r1": 0.0245,
-   "r2": 0.0729,
+   "r1": 0.0305,
+   "r2": 0.0607,
    "axis": "y"
   },
   {
@@ -1308,14 +1191,14 @@
     "transport"
    ],
    "pos": [
-    0.18765997475936685,
-    0.15,
-    0.25815
+    0.125,
+    0.18,
+    0.2529
    ],
    "size": [
-    0.5153199495187337,
+    0.37,
     0.004,
-    0.22
+    0.17
    ]
   },
   {
@@ -1615,16 +1498,409 @@
     0.18
    ],
    "spacing": 0.14
+  },
+  {
+   "part": "lighting",
+   "type": "lamp",
+   "configs": [
+    "summer",
+    "winter",
+    "transport"
+   ],
+   "pos": [
+    1.3,
+    0.0,
+    0.32589999999999997
+   ],
+   "role": "head",
+   "color": "white",
+   "facing": "+x",
+   "d": 0.11
+  },
+  {
+   "part": "lighting",
+   "type": "lamp",
+   "configs": [
+    "summer",
+    "winter",
+    "transport"
+   ],
+   "pos": [
+    1.28,
+    0.22499999999999998,
+    0.2959
+   ],
+   "role": "turn",
+   "color": "amber",
+   "facing": "+x",
+   "d": 0.05
+  },
+  {
+   "part": "lighting",
+   "type": "lamp",
+   "configs": [
+    "summer",
+    "winter",
+    "transport"
+   ],
+   "pos": [
+    -0.22,
+    0.3,
+    0.27090000000000003
+   ],
+   "role": "turn",
+   "color": "amber",
+   "facing": "-x",
+   "d": 0.05
+  },
+  {
+   "part": "mirrors",
+   "type": "mirror",
+   "configs": [
+    "summer",
+    "winter",
+    "transport"
+   ],
+   "pos": [
+    -0.09000000000000001,
+    0.21,
+    0.93
+   ],
+   "stem": [
+    -0.09000000000000001,
+    0.1,
+    0.8500000000000001
+   ],
+   "d": 0.1,
+   "facing": "-x"
+  },
+  {
+   "part": "lighting",
+   "type": "lamp",
+   "configs": [
+    "summer",
+    "winter",
+    "transport"
+   ],
+   "pos": [
+    1.28,
+    -0.22499999999999998,
+    0.2959
+   ],
+   "role": "turn",
+   "color": "amber",
+   "facing": "+x",
+   "d": 0.05
+  },
+  {
+   "part": "lighting",
+   "type": "lamp",
+   "configs": [
+    "summer",
+    "winter",
+    "transport"
+   ],
+   "pos": [
+    -0.22,
+    -0.3,
+    0.27090000000000003
+   ],
+   "role": "turn",
+   "color": "amber",
+   "facing": "-x",
+   "d": 0.05
+  },
+  {
+   "part": "mirrors",
+   "type": "mirror",
+   "configs": [
+    "summer",
+    "winter",
+    "transport"
+   ],
+   "pos": [
+    -0.09000000000000001,
+    -0.39,
+    0.93
+   ],
+   "stem": [
+    -0.09000000000000001,
+    -0.28,
+    0.8500000000000001
+   ],
+   "d": 0.1,
+   "facing": "-x"
+  },
+  {
+   "part": "lighting",
+   "type": "lamp",
+   "configs": [
+    "summer",
+    "winter",
+    "transport"
+   ],
+   "pos": [
+    -0.22,
+    0.0,
+    0.29090000000000005
+   ],
+   "role": "tail_stop",
+   "color": "red",
+   "facing": "-x",
+   "size": [
+    0.02,
+    0.12,
+    0.05
+   ]
+  },
+  {
+   "part": "lighting",
+   "type": "lamp",
+   "configs": [
+    "summer",
+    "winter",
+    "transport"
+   ],
+   "pos": [
+    -0.22,
+    0.0,
+    0.20090000000000002
+   ],
+   "role": "reflector",
+   "color": "red",
+   "facing": "-x",
+   "size": [
+    0.01,
+    0.06,
+    0.03
+   ]
+  },
+  {
+   "part": "number_plate",
+   "type": "plate_number",
+   "configs": [
+    "summer",
+    "winter",
+    "transport"
+   ],
+   "pos": [
+    -0.23,
+    -0.17,
+    0.2409
+   ],
+   "size": [
+    0.004,
+    0.17,
+    0.1
+   ]
+  },
+  {
+   "part": "lighting",
+   "type": "lamp",
+   "configs": [
+    "summer",
+    "winter",
+    "transport"
+   ],
+   "pos": [
+    -0.21000000000000002,
+    -0.17,
+    0.3109
+   ],
+   "role": "plate",
+   "color": "white",
+   "facing": "-z",
+   "d": 0.03
+  },
+  {
+   "part": "horn",
+   "type": "box",
+   "configs": [
+    "summer",
+    "winter",
+    "transport"
+   ],
+   "pos": [
+    1.1,
+    0.0,
+    0.18589999999999998
+   ],
+   "size": [
+    0.06,
+    0.08,
+    0.06
+   ]
+  },
+  {
+   "part": "speedometer",
+   "type": "gauge",
+   "configs": [
+    "summer",
+    "winter",
+    "transport"
+   ],
+   "pos": [
+    0.6599999999999999,
+    -0.09,
+    0.6100000000000001
+   ],
+   "d": 0.08,
+   "facing": "-x"
+  },
+  {
+   "part": "battery",
+   "type": "box",
+   "configs": [
+    "summer",
+    "winter",
+    "transport"
+   ],
+   "pos": [
+    0.32,
+    -0.22999999999999998,
+    0.2418
+   ],
+   "size": [
+    0.11,
+    0.07,
+    0.09
+   ]
+  },
+  {
+   "part": "hand_brake",
+   "type": "lever",
+   "configs": [
+    "summer",
+    "winter",
+    "transport"
+   ],
+   "pos": [
+    0.13,
+    -0.33999999999999997,
+    0.18589999999999998
+   ],
+   "to": [
+    0.13,
+    -0.33999999999999997,
+    0.4659
+   ]
+  },
+  {
+   "part": "hand_brake",
+   "type": "caliper",
+   "configs": [
+    "summer",
+    "winter",
+    "transport"
+   ],
+   "pos": [
+    0.0,
+    -0.35,
+    0.10650000000000001
+   ],
+   "size": [
+    0.06,
+    0.04,
+    0.05
+   ]
+  },
+  {
+   "part": "head_restraint",
+   "type": "box",
+   "configs": [
+    "summer",
+    "winter",
+    "transport"
+   ],
+   "pos": [
+    -0.06999999999999999,
+    -0.09,
+    0.88
+   ],
+   "size": [
+    0.06,
+    0.22,
+    0.16
+   ]
+  },
+  {
+   "part": "seat_belt",
+   "type": "strap",
+   "configs": [
+    "summer",
+    "winter",
+    "transport"
+   ],
+   "pos": [
+    0.03,
+    0.11000000000000001,
+    0.1659
+   ],
+   "to": [
+    0.2,
+    -0.09,
+    0.3318
+   ],
+   "w": 0.048
+  },
+  {
+   "part": "seat_belt",
+   "type": "strap",
+   "configs": [
+    "summer",
+    "winter",
+    "transport"
+   ],
+   "pos": [
+    0.03,
+    -0.29000000000000004,
+    0.1659
+   ],
+   "to": [
+    0.2,
+    -0.09,
+    0.3318
+   ],
+   "w": 0.048
+  },
+  {
+   "part": "seat_belt",
+   "type": "strap",
+   "configs": [
+    "summer",
+    "winter",
+    "transport"
+   ],
+   "pos": [
+    -0.09000000000000001,
+    0.1,
+    0.8
+   ],
+   "to": [
+    0.2,
+    -0.21,
+    0.3318
+   ],
+   "w": 0.048
   }
  ],
  "masses": [
   {
    "part": "frame",
-   "kg": 13.77,
+   "kg": 12.34,
    "pos": [
     0.45,
     0.0,
     0.2159
+   ]
+  },
+  {
+   "part": "roll_bar",
+   "kg": 6.78,
+   "pos": [
+    -0.04,
+    -0.09,
+    0.6355
    ]
   },
   {
@@ -1719,70 +1995,25 @@
   },
   {
    "part": "engine",
-   "kg": 16.1,
+   "kg": 22,
    "pos": [
-    0.3753,
-    0.43,
-    0.3234
+    0.48,
+    0.4,
+    0.3363
    ]
   },
   {
-   "part": "clutch",
-   "kg": 1.2,
+   "part": "fuel",
+   "kg": 2.0,
    "pos": [
-    0.3753,
-    0.255,
-    0.2938
-   ]
-  },
-  {
-   "part": "jackshaft",
-   "kg": 1.92,
-   "pos": [
-    0.1486,
-    0.225,
-    0.215
-   ]
-  },
-  {
-   "part": "chain_final",
-   "kg": 1.5,
-   "pos": [
-    0.0,
-    0.155,
-    0.1625
-   ]
-  },
-  {
-   "part": "jackshaft",
-   "kg": 0.39,
-   "pos": [
-    0.1486,
-    0.2,
-    0.215
-   ]
-  },
-  {
-   "part": "jackshaft",
-   "kg": 0.66,
-   "pos": [
-    0.1486,
-    0.137,
-    0.215
-   ]
-  },
-  {
-   "part": "jackshaft",
-   "kg": 0.66,
-   "pos": [
-    0.1486,
-    0.263,
-    0.215
+    0.564,
+    0.4,
+    0.4848
    ]
   },
   {
    "part": "frame",
-   "kg": 6.62,
+   "kg": 7.38,
    "pos": [
     0.2,
     0.2,
@@ -1790,39 +2021,21 @@
    ]
   },
   {
-   "part": "guards",
-   "kg": 1.5,
-   "pos": [
-    0.1877,
-    0.19,
-    0.2125
-   ]
-  },
-  {
-   "part": "chain_primary",
-   "kg": 0.7,
-   "pos": [
-    0.262,
-    0.225,
-    0.2544
-   ]
-  },
-  {
    "part": "chain_final",
-   "kg": 0.6,
+   "kg": 1.1,
    "pos": [
-    0.0743,
-    0.155,
-    0.1888
+    0.125,
+    0.215,
+    0.2329
    ]
   },
   {
-   "part": "fuel",
-   "kg": 2.0,
+   "part": "guards",
+   "kg": 1.2,
    "pos": [
-    0.3753,
-    0.43,
-    0.4759
+    0.125,
+    0.18,
+    0.2125
    ]
   },
   {
@@ -1896,12 +2109,21 @@
     0.0,
     0.2659
    ]
+  },
+  {
+   "part": "road",
+   "kg": 6.0,
+   "pos": [
+    0.1,
+    0.0,
+    0.3659
+   ]
   }
  ],
  "cg": {
-  "x": 0.3677,
-  "z": 0.2309,
-  "mass": 94.47
+  "x": 0.3621,
+  "z": 0.2733,
+  "mass": 105.65
  },
  "delica": {
   "length": 1.61,
