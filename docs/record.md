@@ -25,6 +25,7 @@ The current state, with open items grouped by whom they wait for, is in [STATUS.
 | D-015 | 2026-11-03 | owner | The top speed on paved ground is lowered to 20 km/h, to see whether the kart can be made cheaper. |
 | D-016 | 2026-11-03 | owner | The tallest adult who drives is about 170 cm tall. |
 | D-017 | 2026-11-03 | owner | Make the design concrete with new parts that are readily available in Japan, with realistic shapes, and show the designed kart in 3D to grasp what will be built; the 3D view need not be a driving game. This settles item 1 of docs/02-form.md#proposal as new parts (L2). The other items of that proposal are taken as the working basis of step 1.3 until the owner decides them. |
+| D-018 | 2026-11-04 | owner | No lower speed limit for the child is needed; the kart has one top speed for every driver. |
 <!-- tdr:end -->
 
 ## Open items {#open}
@@ -44,7 +45,7 @@ The current state, with open items grouped by whom they wait for, is in [STATUS.
 | Q-010 | The price of the 12 V chargers for E2 and the allowances for shipping, small parts, a reduction stage, skis, the track running gear, pedals and cables and the stop switch, guards and mounts, drive chains, and electric wiring are assumed. Whether the snow chain price of M15 is for one tyre or a pair is not known; two are counted. Step 1.5 replaces each with a quoted price. | assistant |  |
 | Q-011 | What is the governed no-load speed of the chosen engine? The gearing for R-01 is set to it. It is assumed at 3850 rpm from a checker's recollection (K-001), not from a source; take it from the engine maker's data, or measure it on the engine when it arrives. | assistant |  |
 | Q-012 | How far does the owner's fresh snow give under a loaded plate? A board of known area loaded to about 5 kPa and to about 16 kPa, set on undisturbed fresh snow and its sinkage measured, settles whether rear tracks (W2) clear snow.depth_max_cm before the frame is given mounts for them. | owner |  |
-| Q-013 | Should an adult be able to set a lower top speed for a small child? A 5-year-old drives (D-010), while US youth ATV guidance allows no ATVs under 6 and limits ages 6 and up to 10 mph with the restrictor (P25, S2). The child limit is assumed at 16 km/h, about 10 mph, until the owner decides R-17. | owner |  |
+| Q-013 | Should an adult be able to set a lower top speed for a small child? A 5-year-old drives (D-010), while US youth ATV guidance allows no ATVs under 6 and limits ages 6 and up to 10 mph with the restrictor (P25, S2). The child limit is assumed at 16 km/h, about 10 mph, until the owner decides R-17. | owner | D-018 |
 | Q-014 | The 3D simulator needs the tyre grip on pavement, gravel, and grass, the sideways grip of the front skis, the resistance of tracks in fresh snow, and the resistance when the floor ploughs snow. No source was found; they are assumed so that the simulator can run, and a test run of the built kart settles them. Simulator results that rest on them are illustrations, not verification. | assistant |  |
 | Q-015 | In the owner's Delica D:5, with the third row flipped up and the second row tipped up and slid forward, how wide is the clear space at the floor and at 40 cm above it, and how wide is the tailgate opening at the height of the cargo floor? The sources give only the narrowest and widest widths. | owner |  |
 | Q-016 | How many hours a day can the owner work on the kart? The plan in docs/data/plan.yaml assumes two to three hours a day for its task lengths. | owner |  |
@@ -144,7 +145,6 @@ The current state, with open items grouped by whom they wait for, is in [STATUS.
 | cost.allow_guards_mounts_jpy | 5000 | JPY | assumed | Q-010 |
 | cost.allow_drive_chains_jpy | 5000 | JPY | assumed | Q-010 |
 | cost.allow_electric_jpy | 5000 | JPY | assumed | Q-010 |
-| kart.speed_child_kmh | 16 | km/h | assumed | Q-013 |
 | ground.crr_avg | 0.08 |  | assumed | Q-009 |
 | drive.speed_avg_kmh | 12 | km/h | assumed | Q-009 |
 | drive.efficiency_electric | 0.8 |  | assumed | Q-009 |

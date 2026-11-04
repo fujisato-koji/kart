@@ -126,3 +126,13 @@ items:
     touches:
       - R-08
       - cost.total_l2_e1_w1_jpy
+  - id: D-018
+    date: 2026-11-04
+    by: owner
+    what: No lower speed limit for the child is needed; the kart has one top speed for every driver.
+    options:
+      - an adult sets a lower top speed for the child (R-17)
+      - one top speed for every driver
+    touches:
+      - R-17
+      - H-08

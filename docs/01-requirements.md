@@ -49,11 +49,11 @@ Whether a piece of private land counts as a road when other people pass through 
 | R-14 | The kart is carried in a Mitsubishi Delica D:5. | With the rear seats of a Delica D:5 folded and slid forward, the kart passes through the tailgate opening (delica.opening_width_min_mm to delica.opening_width_max_mm wide) and lies within the cargo space (delica.cargo_length_mm long, delica.cargo_width_min_mm between the flipped-up third-row seats, delica.cargo_width_max_mm at most), after removing at most parts that come off without tools. | demonstration | confirmed |
 | R-15 | One adult loads and unloads the kart alone. | One adult rolls the kart up a ramp onto the cargo floor at delica.lip_height_mm and back down, without lifting the whole kart. | demonstration | awaiting |
 | R-16 | The kart climbs a fairly steep slope slowly without damage. | With the heaviest rider, on grass at site.grade_max_pct, the kart starts from rest on the slope and climbs at walking pace or faster, and no part slips, overheats, or deforms. | test | confirmed |
-| R-17 | An adult can set a lower top speed for a small child. | Without tools, an adult sets the top speed on level paved ground to at most kart.speed_child_kmh, and the child cannot undo the setting from the seat. | demonstration | awaiting |
+| R-17 | An adult can set a lower top speed for a small child. | Without tools, an adult sets the top speed on level paved ground to at most kart.speed_child_kmh, and the child cannot undo the setting from the seat. | demonstration | withdrawn |
 <!-- tdr:end -->
 
 R-01 to R-08, R-14, and R-16 restate the owner's answers.
-R-09 to R-13, R-15, and R-17 are derived from the hazards in 1.1.4 and wait for the owner to confirm them.
+R-09 to R-13 and R-15 are derived from the hazards in 1.1.4 and wait for the owner to confirm them; R-17 was withdrawn (D-018).
 
 ## 1.1.3 Why each requirement is as it is {#why}
 
@@ -72,7 +72,7 @@ R-09 to R-13, R-15, and R-17 are derived from the hazards in 1.1.4 and wait for 
 - **R-14 car.** The owner carries the kart in a Delica D:5 and wants it easy to load (D-012). The car's cargo and tailgate sizes come from the maker (P26, P27); the clear width at floor height is measured by the owner (Q-015).
 - **R-15 loading alone.** "Easy to load" is read as one adult rolling the kart up a ramp without lifting it, which also controls a kart rolling off the ramp (H-09). It waits for the owner.
 - **R-16 slope.** The owner wants the kart not to be damaged on a fairly steep slope, and accepts a slow climb (D-014). The slope is assumed at site.grade_max_pct until Q-008. "Without damage" covers a slipping clutch, which a slow climb can cause (1.2.5).
-- **R-17 child limit.** A 5-year-old drives (D-010). US youth ATV guidance allows no ATVs under 6 and limits older children to a low speed with a restrictor (P25, S2). R-17 lets an adult set a lower top speed for the child; it waits for the owner (Q-013).
+- **R-17 child limit (withdrawn).** A 5-year-old drives (D-010), and US youth ATV guidance allows no ATVs under 6 and limits older children to a low speed with a restrictor (P25, S2). R-17 proposed a lower top speed that an adult sets for the child; the owner decided that none is needed (D-018), so every driver has the top speed of R-01, and H-08 rests on R-01 and the operating rules.
 
 ## 1.1.4 Hazards {#hazards}
 
@@ -86,7 +86,7 @@ R-09 to R-13, R-15, and R-17 are derived from the hazards in 1.1.4 and wait for 
 | H-05 | The kart tips over in a turn or on a slope. | The driver. | R-12 |
 | H-06 | The steering, an axle, the frame, or the seat breaks under an adult. | The driver. | R-02 |
 | H-07 | Braking or steering is lost on snow or ice. | The driver and people nearby. | R-05, R-09 |
-| H-08 | A small child drives faster than the child can control. | The child and people nearby. | R-01, R-17 |
+| H-08 | A small child drives faster than the child can control. | The child and people nearby. | R-01 |
 | H-09 | The kart rolls off the ramp or falls while being loaded or unloaded. | The person loading it and people nearby. | R-15 |
 | H-10 | Petrol catches fire while refuelling or near the hot engine, or exhaust gas builds up when the engine runs in a closed shed. | The driver, helpers, and children nearby. | OP-03.02, OP-03.03 |
 <!-- tdr:end -->
@@ -104,7 +104,7 @@ These are not decided here. 1.2 compares forms against them.
 4. **Cold against batteries.** R-07 at ambient.temp_min_c affects batteries more than engines, especially charging. 1.2 takes the limits from cell makers' data.
 5. **The car against stability.** R-14 limits the width that goes into the car, while R-12 asks for a wide track, and R-16 on a slope sideways asks for a wider one still.
 6. **A slow climb against a simple clutch.** R-16 accepts a slow climb, but a centrifugal clutch slips and heats below its lock speed.
-7. **A young driver against the top speed.** R-01 is set for the kart, and R-17 lowers it for the youngest driver.
+7. **A young driver against the top speed.** R-01 is set for the kart; the owner decided against a lower limit for the youngest driver (D-018).
 
 ## 1.1.6 Values used by the requirements {#values}
 
@@ -196,7 +196,6 @@ These are not decided here. 1.2 compares forms against them.
 | cost.allow_guards_mounts_jpy | 5000 | JPY | assumed | Q-010 |
 | cost.allow_drive_chains_jpy | 5000 | JPY | assumed | Q-010 |
 | cost.allow_electric_jpy | 5000 | JPY | assumed | Q-010 |
-| kart.speed_child_kmh | 16 | km/h | assumed | Q-013 |
 | ground.crr_avg | 0.08 |  | assumed | Q-009 |
 | drive.speed_avg_kmh | 12 | km/h | assumed | Q-009 |
 | drive.efficiency_electric | 0.8 |  | assumed | Q-009 |

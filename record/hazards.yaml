@@ -61,7 +61,6 @@ items:
     at_risk: The child and people nearby.
     controls:
       - R-01
-      - R-17
   - id: H-09
     text: The kart rolls off the ramp or falls while being loaded or unloaded.
     phases:

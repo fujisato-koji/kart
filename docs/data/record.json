@@ -191,9 +191,10 @@
    "design_point": "Without tools, an adult sets the top speed on level paved ground to at most kart.speed_child_kmh, and the child cannot undo the setting from the seat.",
    "verify": "demonstration",
    "basis": [
-    "H-08"
+    "H-08",
+    "D-018"
    ],
-   "status": "awaiting"
+   "status": "withdrawn"
   }
  ],
  "values": [
@@ -950,15 +951,6 @@
    "status": "assumed",
    "basis": [
     "Q-010"
-   ]
-  },
-  {
-   "key": "kart.speed_child_kmh",
-   "v": 16,
-   "unit": "km/h",
-   "status": "assumed",
-   "basis": [
-    "Q-013"
    ]
   },
   {
@@ -4469,6 +4461,20 @@
     "R-08",
     "cost.total_l2_e1_w1_jpy"
    ]
+  },
+  {
+   "id": "D-018",
+   "date": "2026-11-04",
+   "by": "owner",
+   "what": "No lower speed limit for the child is needed; the kart has one top speed for every driver.",
+   "options": [
+    "an adult sets a lower top speed for the child (R-17)",
+    "one top speed for every driver"
+   ],
+   "touches": [
+    "R-17",
+    "H-08"
+   ]
   }
  ],
  "open": [
@@ -4656,11 +4662,12 @@
    "text": "Should an adult be able to set a lower top speed for a small child? A 5-year-old drives (D-010), while US youth ATV guidance allows no ATVs under 6 and limits ages 6 and up to 10 mph with the restrictor (P25, S2). The child limit is assumed at 16 km/h, about 10 mph, until the owner decides R-17.",
    "waits_for": "owner",
    "affects": [
-    "kart.speed_child_kmh",
     "R-17"
    ],
    "opened": "2026-11-03",
-   "phase": "design"
+   "phase": "design",
+   "closed_by": "D-018",
+   "closed": "2026-11-04"
   },
   {
    "id": "Q-014",
@@ -4868,8 +4875,7 @@
    ],
    "at_risk": "The child and people nearby.",
    "controls": [
-    "R-01",
-    "R-17"
+    "R-01"
    ]
   },
   {
@@ -5450,19 +5456,6 @@
      ]
     },
     {
-     "id": "OP-01.07",
-     "action": "For the child, set the child speed limit on the governor.",
-     "values": [
-      "kart.speed_child_kmh"
-     ],
-     "controls": [
-      "H-08"
-     ],
-     "limits": [
-      "kart.speed_child_kmh"
-     ]
-    },
-    {
      "id": "OP-01.08",
      "action": "Check that the driver wears a full-face helmet with long hair inside it, and no scarf.",
      "controls": [
@@ -5708,8 +5701,7 @@
     "group": "run",
     "label": "Driving, clutch locked, speed held by the governor",
     "refs": [
-     "R-01",
-     "R-17"
+     "R-01"
     ]
    },
    {
@@ -6116,8 +6108,7 @@
     ],
     "reqs": [
      "R-01",
-     "R-09",
-     "R-17"
+     "R-09"
     ]
    },
    {
@@ -6630,6 +6621,12 @@
    "doc": "docs/03-design.md",
    "id": "safety",
    "title": "1.3.13 Guards and stopping",
+   "level": 2
+  },
+  {
+   "doc": "docs/03-design.md",
+   "id": "engine-position",
+   "title": "1.3.15 Where the engine sits",
    "level": 2
   },
   {

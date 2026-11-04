@@ -58,7 +58,8 @@ export function makeParams(record) {
     ratio: val('drive.ratio', 'drive.engine_ratio'),
     eta: val('drive.eta', 'drive.efficiency'),
     vMax: val('drive.vMax', 'kart.speed_max_kmh', 1 / 3.6), // m/s
-    vChild: val('drive.vChild', 'kart.speed_child_kmh', 1 / 3.6),
+    // no child limit (D-018): the child limit, if the key comes back, scales the governor
+    vChild: values.has('kart.speed_child_kmh') ? val('drive.vChild', 'kart.speed_child_kmh', 1 / 3.6) : null,
   };
 
   // Rolling resistance (crr) and grip (mu) by surface

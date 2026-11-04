@@ -501,12 +501,6 @@ items:
     status: assumed
     basis:
       - Q-010
-  - key: kart.speed_child_kmh
-    v: 16
-    unit: km/h
-    status: assumed
-    basis:
-      - Q-013
   - key: ground.crr_avg
     v: 0.08
     status: assumed

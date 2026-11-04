@@ -143,4 +143,5 @@ items:
     verify: demonstration
     basis:
       - H-08
-    status: awaiting
+      - D-018
+    status: withdrawn

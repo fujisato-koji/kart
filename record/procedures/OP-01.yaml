@@ -30,14 +30,6 @@ items:
         values:
           - rider.stature_min_cm
           - rider.stature_max_cm
-      - id: OP-01.07
-        action: For the child, set the child speed limit on the governor.
-        values:
-          - kart.speed_child_kmh
-        controls:
-          - H-08
-        limits:
-          - kart.speed_child_kmh
       - id: OP-01.08
         action: Check that the driver wears a full-face helmet with long hair inside it, and no scarf.
         controls:

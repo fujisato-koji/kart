@@ -189,7 +189,6 @@ tasks:
     reqs:
       - R-01
       - R-09
-      - R-17
   - id: t3
     phase: test
     title: Runs on gravel, grass, and the slope

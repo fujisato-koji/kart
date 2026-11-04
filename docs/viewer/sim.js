@@ -72,7 +72,7 @@ export function createKart(p, opts = {}) {
   // Engine. Torque is powerMax / omega_rated below rated speed and falls linearly to
   // zero at no-load speed. The child limit moves both speeds by vChild / vMax (a lower
   // governor setting); the torque stays that of the unlimited engine.
-  const k = o.childLimit ? p.drive.vChild / p.drive.vMax : 1;
+  const k = o.childLimit && p.drive.vChild ? p.drive.vChild / p.drive.vMax : 1;
   const nRated = p.drive.rpmRated * k;
   const nNoLoad = p.drive.rpmNoLoad * k;
   const Tr = p.drive.powerMax / (p.drive.rpmRated * RPM2RAD);
@@ -323,14 +323,7 @@ export function runTests(p) {
       note: `${f2((vk / d.value - 1) * 100)} % against the limit` });
   }
 
-  // R-17 child limit on
-  for (const rider of ['child', 'adult']) {
-    const vk = topSpeedKmh(p, { rider, childLimit: true });
-    const d = dv(p, 'kart.speed_child_kmh');
-    add({ req: 'R-17', title: `Top speed with the child limit on, ${rider}`, setup: 'summer', rider, design: d,
-      result: { value: f2(vk), unit: 'km/h' }, pass: vk <= d.value,
-      note: `${f2((vk / d.value - 1) * 100)} % against the child limit; governor speeds scaled by vChild / vMax` });
-  }
+  // R-17 was withdrawn (D-018): no child limit
 
   // R-09 stopping distance from top speed
   {

@@ -76,7 +76,6 @@ On long grass, with the rolling resistance ground.crr_max of ATV tyres (P24), th
 - **Clutch.** A generic centrifugal clutch begins to grip at clutch.engage_rpm and locks at clutch.lock_rpm (M23). Geared as above, it lets go below drive.clutch_engage_kmh and slips at any steady speed below drive.clutch_lock_kmh; it starts the kart from rest by slipping. A seller quoting the clutch maker warns that driving too slowly, restricting the throttle, hills, and deep grass ruin a clutch, and that rear wheels over 15 inch need a torque converter (M23).
 - With full throttle the clutch locks within a moment, because the rear tyres spin up when grip runs out (simulator); so on a slope it is the tyres, not the clutch, that slip. Creeping up at part throttle, or holding the kart on the slope with the throttle, slips the clutch instead. The rule for E1 is therefore to climb at full throttle, and to stop on a slope with the brake, not the throttle; a restart on the slope slips the clutch for a few seconds (K-003). Climbing at the lock speed is not the slow climb the owner allowed (D-014), which the owner should accept or not.
 - E1t, a torque converter (M24: low ratio tc.ratio_low, high ratio tc.ratio_high; a clone kit costs cost.tc_kit_jpy, M25), keeps the engine above lock while the kart creeps, and suits slow climbing and deep snow. At the earlier top speed it would have been needed for the slope as well; lowering the top speed (D-015) is what lets the cheaper clutch stand.
-- The child limit of R-17 must lower the governed speed, not restrict the throttle, because a restricted throttle keeps the clutch slipping (M23). A child limit whose governed speed falls near or below the lock speed keeps the clutch slipping at the limit, so a child limit much below kart.speed_child_kmh needs E1t (K-003).
 - The clone engines found (M18) do not state a governor, while the genuine engine has one (P5). A clone must have a working governor, checked when it arrives, or R-01 fails.
 - One chain from a sprocket.engine_teeth tooth clutch sprocket of pitch sprocket.pitch_mm (chain size 40, 1/2 inch by its name, which the clutch of M2 takes) to the axle would need an axle sprocket whose teeth reach to drive.sprocket_reach_mm above the ground. A second reduction stage (a jackshaft) is needed; its rough price is cost.allow_reduction_jpy.
 
@@ -118,7 +117,7 @@ The cargo floor lip is at delica.lip_height_mm, so one adult loading alone (R-15
 - **Guards and stopping.** JAF's guideline for leisure kart events asks for guards against hair and scarves, pedals and seat adjustable to body size, brakes on both rear wheels, and an emergency stop with a remote speed limit or engine stop (P16). JAF's rules require a chain guard over the upper run (P17).
 - **No seat belt.** Race karts have no roll bar and prohibit seat belts (P18). The kart follows that: no belt without a roll bar.
 - **Braking distance.** No kart standard with a stopping distance could be read; ASTM's fun-kart standard excludes home-made karts and may not be given to an AI (P23). The Japanese rule for mopeds (P15) gives, at the top speed, a limit for linked brakes that is longer than the assumed kart.stop_distance_max_m. Section 1.2.12 proposes which to use.
-- **A young driver.** The youngest driver is 5 (D-010). US youth ATV guidance allows no ATVs under 6 and limits ages 6 and up to a low speed with the restrictor (P25, S2), which is why R-17 proposes a child limit of kart.speed_child_kmh that an adult sets (Q-013).
+- **A young driver.** The youngest driver is 5 (D-010). US youth ATV guidance allows no ATVs under 6 and limits ages 6 and up to a low speed with the restrictor (P25, S2), which is why R-17 proposed a child limit; the owner decided against it (D-018).
 - **Body sizes.** The seat and pedals reach down to rider.stature_min_cm, the small end for a 5-year-old (P21), and up to rider.stature_max_cm, the tallest adult (D-016).
 
 ## 1.2.10 Cost {#cost}
@@ -149,7 +148,7 @@ The cheapest new parts seen save little, because the small parts and allowances 
 A used buggy as a donor saves more, but less than it first seemed (K-003).
 Used buggies sell for cost.donor_buggy_min_jpy as junk and from cost.donor_buggy_running_min_jpy running, up to cost.donor_buggy_max_jpy (M26).
 A buggy's rear axle is narrower than R-12 asks and does not let the track narrow for the car (T1), so a full kart needs a new axle with hubs and a brake, and keeps from the donor only the wheels, the steering, and the engine with its gearbox.
-That engine is not E1: it has no governor and has its own clutch and gears, so how it is held to kart.speed_max_kmh and kart.speed_child_kmh, and how it climbs (R-16), are not yet analysed; with E1 in its place the donor route costs as much as new parts.
+That engine is not E1: it has no governor and has its own clutch and gears, so how it is held to kart.speed_max_kmh, and how it climbs (R-16), are not yet analysed; with E1 in its place the donor route costs as much as new parts.
 The other risks are that listings do not itemise their parts or state a load rating for an adult (R-02), that many are for pickup only, and that the condition is unknown until it is taken apart.
 A used engine (cost.engine_used_min_jpy to cost.engine_used_max_jpy, M27) costs about the same as a new clone.
 
@@ -190,9 +189,9 @@ The owner decides:
 2. **R-06 against R-08.** (a) Build with W1 now, run the plate test of Q-012 this winter, and add W2 as a second stage with its own budget if the test supports it. (b) Change R-06 to fresh snow up to the W1 limit, between snow.wheel_depth_limit_axle_cm and snow.wheel_depth_limit_cm. (c) Design and build W2 now and accept the larger excess (cost.total_l2_e1_w2_jpy) without the test.
 3. **Transport.** T1 (proposed), T2, T3, or T4; and the owner's measurement of the car (Q-015).
 4. **Slopes.** R-12 on level ground with the rule "straight up and down" (proposed), or a wider or lower kart.
-5. **Power.** E1 with a centrifugal clutch and the rule to climb at full throttle (proposed, the cheapest), E1t if the kart must creep up slopes or the child limit is set low, E1h for a genuine engine, or an electric drive with a larger controller if a quiet kart without fuel or hot exhaust matters more than cost and climbing grass. Decisions 5 and 8 are linked: a child limit much below kart.speed_child_kmh needs E1t.
+5. **Power.** E1 with a centrifugal clutch and the rule to climb at full throttle (proposed, the cheapest), E1t if the kart must creep up slopes, E1h for a genuine engine, or an electric drive with a larger controller if a quiet kart without fuel or hot exhaust matters more than cost and climbing grass.
 6. **Frame.** F1 with a welder bought as a tool (proposed), or F2 without welding.
 7. **Stopping distance (R-09, T3).** Current: kart.stop_distance_max_m, assumed. Proposed: keep it as the design point, because a kart has a lower centre of mass than a moped and brakes are cheap, and record the moped limit from P15 as the floor below which the kart fails.
-8. **A child limit (R-17, Q-013).** Whether an adult sets a lower top speed for the 5-year-old, at kart.speed_child_kmh or another value.
+8. **A child limit (R-17).** Decided: none (D-018).
 
 After the owner decides, 1.2 records the selection, adds the hazards of the chosen power source (fuel, exhaust gas in a closed shed), and 1.3 starts the design calculation and the drawings.

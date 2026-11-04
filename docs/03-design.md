@@ -76,6 +76,18 @@ The working basis is the proposal of [1.2.12](02-form.md#proposal): an off-road 
 - R-11: a steel guard covers both chains and the clutch from the seat side and above, and the turning axle between the seat and the bearings is covered (P17, P19).
 - R-13: the front bumper and the side nerf bars keep the driver's feet and legs inside the frame.
 
+## 1.3.15 Where the engine sits {#engine-position}
+
+The owner asked whether the engine's place is the best (2026-11-04). `calc/design.py` was run with the engine moved forward beside the seat, and the length was worked out for an engine behind the rear axle:
+
+- **Forward beside the seat:** the rear wheels carry less of the weight, so the grip margin on the grass slope (1.3.10) shrinks and the downhill stop with rear brakes (1.3.5) grows; the frame is stressed a little less and the primary chain gets longer. Nothing else improves.
+- **Behind the rear axle (buggy layout):** the engine's width across the crank lies along the kart behind the axle and makes the kart too long for the Delica (R-14); the rear grip and the downhill stop would improve.
+- **Where it is, beside the seat near the axle:** the most weight on the rear wheels that still fits the car. It stays.
+
+The crowding of Q-020 comes from the drive, not from the engine's place: two chain stages through a jackshaft, with the jackshaft's bearings and a third axle bearing, all between the seat and the left rail. The next pass looks first at an engine with a built-in reduction gear and centrifugal clutch, which would remove the jackshaft and one chain, and otherwise at wider rails or the chains outboard of the rail.
+
+On the clutch: an engine needs one, because it must idle while the kart stands, and the recoil starter cannot turn the wheels; a centrifugal clutch also lets go when the throttle is released, which is how R-10 cuts the drive. Only an electric drive would need none.
+
 ## 1.3.14 Layout issues still open {#issues}
 
 Two independent checks searched `docs/data/design.json` for parts that collide (K-004, K-005). The first pass placed the rear axle through the main rails and the seat on the drive; the second pass cleared those, but the space between the seat and the left rail still cannot hold both chains, the jackshaft and its bearings, the middle axle bearing, and the guard, the column support and the pedal box rails cross other members and the adult's shins, the steering arms touch the front rails, and several plates are joined to nothing. The next design pass resolves Q-020 before any number of this step is used for building; the 3D view and the drawings show the present layout as it is, including these faults.

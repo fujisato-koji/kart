@@ -49,7 +49,6 @@ states:
     label: Driving, clutch locked, speed held by the governor
     refs:
       - R-01
-      - R-17
   - id: braking
     group: run
     label: Braking on the rear wheels
