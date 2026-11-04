@@ -1927,9 +1927,9 @@ items:
       - Q-027
   - key: kart.tip_ratio_snow_min
     v: 0.6
-    status: assumed
+    status: decided
     basis:
-      - Q-027
+      - D-025
   - key: hull.bottom_t_mm
     v: 6
     unit: mm

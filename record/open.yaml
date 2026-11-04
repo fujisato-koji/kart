@@ -318,9 +318,11 @@ items:
       - R-22
     opened: 2026-11-04
     phase: design
+    closed_by: D-026
+    closed: 2026-11-04
   - id: Q-027
     kind: question
-    text: The rough inputs of the snowmobile form and the hull - the track's place and mass (its size is a Yamaha Bravo's, P51), the parts removed and added at each change, the drive sprocket, the seat's rise over the track, the hull's size, foam share, and plating, the water design points, the outboard's battery, the change time, and the tipping margin on snow - are assumed until a donor is chosen and the hull is laid out in step 1.3.
+    text: The rough inputs of the snowmobile form and the hull - the track's place and mass (its size is a Yamaha Bravo's, P51), the parts removed and added at each change, the drive sprocket, the seat's rise over the track, the hull's size, foam share, and plating, the water design points, the outboard's battery, and the change time - are assumed until a donor is chosen and the hull is laid out in step 1.3.
     waits_for: assistant
     affects:
       - sm.track_x_mm
@@ -346,7 +348,6 @@ items:
       - water.shore_grade_pct
       - water.reserve_ratio
       - kart.swap_time_h
-      - kart.tip_ratio_snow_min
     opened: 2026-11-04
     phase: design
   - id: Q-028

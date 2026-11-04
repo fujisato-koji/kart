@@ -8,7 +8,7 @@ It is designed under the [traceable-design](https://github.com/traceable-design/
 | Step | State |
 |------|-------|
 | [1.1 Requirements](01-requirements.md) | Written from the owner's answers (D-001 to D-024). Derived requirements wait for the owner. |
-| [1.2 Form](02-form.md) | Forms compared; the latest pass, the snowmobile form and water, waits for the owner's decisions in [1.2.16](02-form.md#outdoor). |
+| [1.2 Form](02-form.md) | Forms compared; the latest pass chose the snowmobile form on the 50 cc engine for winter (D-025) and a seated ride (D-026); water use waits for the owner ([1.2.16](02-form.md#outdoor)). |
 | [1.3 Design](03-design.md) | The road-going summer form (D-022); not yet buildable (K-006, Q-025). |
 | [1.4 Availability](04-availability.md), [1.5 Parts and cost](05-parts-and-cost.md) | Parts of the summer form, found in Japan and priced. |
 

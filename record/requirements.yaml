@@ -99,11 +99,12 @@ items:
   - id: R-12
     text: The kart slides before it tips over.
     origin: derived
-    design_point: With the heaviest rider, half the track width divided by the height of the centre of mass is at least kart.tip_ratio_min, on every wheel or ski setup.
+    design_point: With the heaviest rider, half the track width divided by the height of the centre of mass is at least kart.tip_ratio_min on wheels and on skis with chains; in the snowmobile form, which runs only on snow, the distance from the centre of mass to the tipping edge divided by its height is at least kart.tip_ratio_snow_min.
     verify: analysis
     basis:
       - H-05
-    status: awaiting
+      - D-025
+    status: confirmed
   - id: R-13
     text: The frame shields the driver's legs and feet.
     origin: derived
@@ -242,7 +243,8 @@ items:
     verify: test
     basis:
       - D-023
-    status: awaiting
+      - D-025
+    status: confirmed
   - id: R-29
     text: A driver whose kart capsizes or swamps in water, or breaks through ice, gets free and stays afloat.
     origin: derived

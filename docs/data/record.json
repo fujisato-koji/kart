@@ -133,12 +133,13 @@
    "id": "R-12",
    "text": "The kart slides before it tips over.",
    "origin": "derived",
-   "design_point": "With the heaviest rider, half the track width divided by the height of the centre of mass is at least kart.tip_ratio_min, on every wheel or ski setup.",
+   "design_point": "With the heaviest rider, half the track width divided by the height of the centre of mass is at least kart.tip_ratio_min on wheels and on skis with chains; in the snowmobile form, which runs only on snow, the distance from the centre of mass to the tipping edge divided by its height is at least kart.tip_ratio_snow_min.",
    "verify": "analysis",
    "basis": [
-    "H-05"
+    "H-05",
+    "D-025"
    ],
-   "status": "awaiting"
+   "status": "confirmed"
   },
   {
    "id": "R-13",
@@ -323,9 +324,10 @@
    "design_point": "Two people change the kart from one form to the other with hand tools in at most kart.swap_time_h, without cutting or welding.",
    "verify": "test",
    "basis": [
-    "D-023"
+    "D-023",
+    "D-025"
    ],
-   "status": "awaiting"
+   "status": "confirmed"
   },
   {
    "id": "R-29",
@@ -3251,9 +3253,9 @@
   {
    "key": "kart.tip_ratio_snow_min",
    "v": 0.6,
-   "status": "assumed",
+   "status": "decided",
    "basis": [
-    "Q-027"
+    "D-025"
    ]
   },
   {
@@ -6175,6 +6177,33 @@
    "touches": [
     "R-27"
    ]
+  },
+  {
+   "id": "D-025",
+   "date": "2026-11-04",
+   "by": "owner",
+   "what": "Settles items 1, 2, and 5 of docs/02-form.md#outdoor. The winter form is the snowmobile form W3, driven by the summer 50 cc scooter unit (D1). R-12 is relaxed for the snowmobile form only, which runs only on snow - its tipping ratio need be at least kart.tip_ratio_snow_min, above the snow's grip. Item 3 (water) waits until the owner has heard what a ship inspection involves.",
+   "options": [
+    "W3 the snowmobile form, or W1 kept for packed snow only",
+    "D1 the summer engine, or D2 the donor's engine in winter",
+    "R-12 relaxed for the snowmobile form, or the full margin on every setup"
+   ],
+   "touches": [
+    "D-023",
+    "R-12",
+    "R-28",
+    "kart.tip_ratio_snow_min"
+   ]
+  },
+  {
+   "id": "D-026",
+   "date": "2026-11-04",
+   "by": "owner",
+   "what": "The driver may sit or stand, but if standing would keep the kart off public roads, the kart is ridden seated. A minicar needs a seat with a seat belt and a head restraint (R-22), so the kart stays seated. This settles Q-026.",
+   "touches": [
+    "Q-026",
+    "R-22"
+   ]
   }
  ],
  "open": [
@@ -6571,12 +6600,14 @@
     "R-22"
    ],
    "opened": "2026-11-04",
-   "phase": "design"
+   "phase": "design",
+   "closed_by": "D-026",
+   "closed": "2026-11-04"
   },
   {
    "id": "Q-027",
    "kind": "question",
-   "text": "The rough inputs of the snowmobile form and the hull - the track's place and mass (its size is a Yamaha Bravo's, P51), the parts removed and added at each change, the drive sprocket, the seat's rise over the track, the hull's size, foam share, and plating, the water design points, the outboard's battery, the change time, and the tipping margin on snow - are assumed until a donor is chosen and the hull is laid out in step 1.3.",
+   "text": "The rough inputs of the snowmobile form and the hull - the track's place and mass (its size is a Yamaha Bravo's, P51), the parts removed and added at each change, the drive sprocket, the seat's rise over the track, the hull's size, foam share, and plating, the water design points, the outboard's battery, and the change time - are assumed until a donor is chosen and the hull is laid out in step 1.3.",
    "waits_for": "assistant",
    "affects": [
     "sm.track_x_mm",
@@ -6601,8 +6632,7 @@
     "water.speed_min_kmh",
     "water.shore_grade_pct",
     "water.reserve_ratio",
-    "kart.swap_time_h",
-    "kart.tip_ratio_snow_min"
+    "kart.swap_time_h"
    ],
    "opened": "2026-11-04",
    "phase": "design"

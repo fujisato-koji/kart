@@ -188,3 +188,23 @@ items:
     what: The owner would like the kart, if it can be done, to drive from a shore straight into a lake, move on as a boat, and drive out again. Step 1.2 finds what that takes and what it costs before the owner confirms it.
     touches:
       - R-27
+  - id: D-025
+    date: 2026-11-04
+    by: owner
+    what: Settles items 1, 2, and 5 of docs/02-form.md#outdoor. The winter form is the snowmobile form W3, driven by the summer 50 cc scooter unit (D1). R-12 is relaxed for the snowmobile form only, which runs only on snow - its tipping ratio need be at least kart.tip_ratio_snow_min, above the snow's grip. Item 3 (water) waits until the owner has heard what a ship inspection involves.
+    options:
+      - W3 the snowmobile form, or W1 kept for packed snow only
+      - D1 the summer engine, or D2 the donor's engine in winter
+      - R-12 relaxed for the snowmobile form, or the full margin on every setup
+    touches:
+      - D-023
+      - R-12
+      - R-28
+      - kart.tip_ratio_snow_min
+  - id: D-026
+    date: 2026-11-04
+    by: owner
+    what: The driver may sit or stand, but if standing would keep the kart off public roads, the kart is ridden seated. A minicar needs a seat with a seat belt and a head restraint (R-22), so the kart stays seated. This settles Q-026.
+    touches:
+      - Q-026
+      - R-22
