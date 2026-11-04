@@ -53,9 +53,16 @@ def build(v):
     def put(key, val, unit, sec):
         out.append((key, val, unit, sec))
 
+    def rf(x):                   # round every float, in lists too, so the file is the same everywhere
+        if isinstance(x, float):
+            return round(x, 4)
+        if isinstance(x, (list, tuple)):
+            return [rf(y) for y in x]
+        return x
+
     def item(part, typ, configs=None, **kw):
         d = {"part": part, "type": typ, "configs": configs or CONFIGS}
-        d.update({k: (round(x, 4) if isinstance(x, float) else x) for k, x in kw.items()})
+        d.update({k: rf(x) for k, x in kw.items()})
         items.append(d)
 
     def rnd(p):
