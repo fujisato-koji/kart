@@ -512,6 +512,8 @@ These are not decided here. 1.2 compares forms against them.
 | snow.crrel_trac_shallow_a | 0.851 |  | sourced | P59 |
 | snow.crrel_trac_shallow_b | 0.823 |  | sourced | P59 |
 | w4.wheel_share | 0.35 |  | assumed | Q-027 |
+| w4.big_tyre_dia_mm | 600 | mm | assumed | Q-027 |
+| w4.big_tyre_width_mm | 250 | mm | assumed | Q-027 |
 | form.mass_total_kg | 170 | kg | calculated | docs/02-form.md#mass |
 | snow.wheel_sinkage_min_cm | 63.2 | cm | calculated | docs/02-form.md#snow |
 | snow.wheel_sinkage_max_cm | 83.8 | cm | calculated | docs/02-form.md#snow |
@@ -569,11 +571,19 @@ These are not decided here. 1.2 compares forms against them.
 | w4.wheel_sink_cm | 24.2 | cm | calculated | docs/02-form.md#snowmobile |
 | w4.grip_n | 368 | N | calculated | docs/02-form.md#snowmobile |
 | w4.resistance_n | 262 | N | calculated | docs/02-form.md#snowmobile |
+| w4.resistance_bekker_n | 621 | N | calculated | docs/02-form.md#snowmobile |
 | w4.wheel_drop_mm | 194 | mm | calculated | docs/02-form.md#snowmobile |
 | w4.tyre_dia_min_mm | 484 | mm | calculated | docs/02-form.md#snowmobile |
 | w4.dual_share_min | 0.2 |  | calculated | docs/02-form.md#snowmobile |
 | w4.dual_wheel_sink_cm | 16.9 | cm | calculated | docs/02-form.md#snowmobile |
 | w4.dual_grip_n | 416 | N | calculated | docs/02-form.md#snowmobile |
+| w4.dual_resistance_bekker_n | 541 | N | calculated | docs/02-form.md#snowmobile |
+| w4.big_wheel_sink_cm | 17.2 | cm | calculated | docs/02-form.md#snowmobile |
+| w4.big_grip_n | 463 | N | calculated | docs/02-form.md#snowmobile |
+| w4.big_resistance_bekker_n | 436 | N | calculated | docs/02-form.md#snowmobile |
+| w4.big_dual_wheel_sink_cm | 12.0 | cm | calculated | docs/02-form.md#snowmobile |
+| w4.big_dual_grip_n | 513 | N | calculated | docs/02-form.md#snowmobile |
+| w4.big_dual_resistance_bekker_n | 386 | N | calculated | docs/02-form.md#snowmobile |
 | w4.dual_width_m | 1.55 | m | calculated | docs/02-form.md#snowmobile |
 | cost.tub_jpy | 82992 | JPY | calculated | docs/02-form.md#water |
 | cost.winter_sm_jpy | 236992 | JPY | calculated | docs/02-form.md#snowmobile |

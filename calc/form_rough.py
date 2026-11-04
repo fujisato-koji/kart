@@ -230,13 +230,25 @@ def compute(v):
     w4w = (v["dsn.mass_kg"] + v["rider.mass_max_kg"]) * G
     td, tw4 = v["whl.tyre_od_mm"], v["whl.tyre_width_mm"]
 
-    def w4(f, tyres=2):
+    def w4(f, tyres=2, d_mm=None, b_mm=None, bekker_res=False):
+        d_mm, b_mm = d_mm or td, b_mm or tw4
         load = f * w4w / tyres
-        z = bekker_wheel(load, tw4, td) / 100
-        arc = min(math.sqrt(td / 1000 * z), td / 2000)
-        n_ = load / (tw4 / 1000 * arc) / 1000
-        grip = tyres * v["snow.crrel_trac_shallow_a"] * n_ ** v["snow.crrel_trac_shallow_b"] * tw4 / 1000 * arc * 1000
-        res = v["sled.mu_packed"] * (1 - f) * w4w + v["ground.crr_snow_fresh"] * f * w4w
+        z = bekker_wheel(load, b_mm, d_mm) / 100
+        arc = min(math.sqrt(d_mm / 1000 * z), d_mm / 2000)
+        n_ = load / (b_mm / 1000 * arc) / 1000
+        grip = tyres * v["snow.crrel_trac_shallow_a"] * n_ ** v["snow.crrel_trac_shallow_b"] * b_mm / 1000 * arc * 1000
+        if bekker_res:
+            # the work of pressing a rut z deep, b (kc/b + kphi) z^(n+1) / (n+1), in the snow that sinks deepest
+            def sink(s_):
+                n_s = v[f"snow.bekker_{s_}_n"]
+                k_s = (v[f"snow.bekker_{s_}_kc"] + b_mm / 1000 * v[f"snow.bekker_{s_}_kphi"]) * 1000
+                return (3 * load / ((3 - n_s) * k_s * math.sqrt(d_mm / 1000))) ** (2 / (2 * n_s + 1))
+            s = max("abc", key=sink)
+            n = v[f"snow.bekker_{s}_n"]
+            rut = b_mm / 1000 * (v[f"snow.bekker_{s}_kc"] / (b_mm / 1000) + v[f"snow.bekker_{s}_kphi"]) * 1000 * z ** (n + 1) / (n + 1)
+            res = v["sled.mu_packed"] * (1 - f) * w4w + tyres * rut
+        else:
+            res = v["sled.mu_packed"] * (1 - f) * w4w + v["ground.crr_snow_fresh"] * f * w4w
         return z, grip, res
 
     put("w4.share_min", next(f / 100 for f in range(5, 100, 5) if w4(f / 100)[1] >= w4(f / 100)[2]), None, "snowmobile")
@@ -244,6 +256,7 @@ def compute(v):
     put("w4.wheel_sink_cm", round(z4 * 100, 1), "cm", "snowmobile")
     put("w4.grip_n", round(g4), "N", "snowmobile")
     put("w4.resistance_n", round(r4), "N", "snowmobile")
+    put("w4.resistance_bekker_n", round(w4(v["w4.wheel_share"], bekker_res=True)[2]), "N", "snowmobile")
     # the pan's own sinkage under the rest of the weight; the tyres must reach that much deeper
     z_pan = bekker((1 - v["w4.wheel_share"]) * w4w / (hl * hb) / 1000, v["hull.beam_mm"]) / 100
     put("w4.wheel_drop_mm", round((z4 - z_pan) * 1000), "mm", "snowmobile")
@@ -254,6 +267,13 @@ def compute(v):
         "snowmobile")
     put("w4.dual_wheel_sink_cm", round(zd * 100, 1), "cm", "snowmobile")
     put("w4.dual_grip_n", round(gd), "N", "snowmobile")
+    put("w4.dual_resistance_bekker_n", round(w4(v["w4.wheel_share"], 4, bekker_res=True)[2]), "N", "snowmobile")
+    # large low-pressure tyres instead, two and four
+    for tag, n_t in (("big", 2), ("big_dual", 4)):
+        zb, gb, rb = w4(v["w4.wheel_share"], n_t, v["w4.big_tyre_dia_mm"], v["w4.big_tyre_width_mm"], True)
+        put(f"w4.{tag}_wheel_sink_cm", round(zb * 100, 1), "cm", "snowmobile")
+        put(f"w4.{tag}_grip_n", round(gb), "N", "snowmobile")
+        put(f"w4.{tag}_resistance_bekker_n", round(rb), "N", "snowmobile")
     put("w4.dual_width_m", round(v["lay.track_rear_mm"] / 1000 + 3 * v["whl.tyre_width_mm"] / 1000 + 0.02, 2), "m", "snowmobile")
 
     # Winter parts: a running donor for its rear half, skis, mounts, and the tub

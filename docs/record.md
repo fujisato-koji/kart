@@ -463,6 +463,8 @@ The current state, with open items grouped by whom they wait for, is in [STATUS.
 | snow.crrel_trac_shallow_a | 0.851 |  | sourced | P59 |
 | snow.crrel_trac_shallow_b | 0.823 |  | sourced | P59 |
 | w4.wheel_share | 0.35 |  | assumed | Q-027 |
+| w4.big_tyre_dia_mm | 600 | mm | assumed | Q-027 |
+| w4.big_tyre_width_mm | 250 | mm | assumed | Q-027 |
 | form.mass_total_kg | 170 | kg | calculated | docs/02-form.md#mass |
 | snow.wheel_sinkage_min_cm | 63.2 | cm | calculated | docs/02-form.md#snow |
 | snow.wheel_sinkage_max_cm | 83.8 | cm | calculated | docs/02-form.md#snow |
@@ -520,11 +522,19 @@ The current state, with open items grouped by whom they wait for, is in [STATUS.
 | w4.wheel_sink_cm | 24.2 | cm | calculated | docs/02-form.md#snowmobile |
 | w4.grip_n | 368 | N | calculated | docs/02-form.md#snowmobile |
 | w4.resistance_n | 262 | N | calculated | docs/02-form.md#snowmobile |
+| w4.resistance_bekker_n | 621 | N | calculated | docs/02-form.md#snowmobile |
 | w4.wheel_drop_mm | 194 | mm | calculated | docs/02-form.md#snowmobile |
 | w4.tyre_dia_min_mm | 484 | mm | calculated | docs/02-form.md#snowmobile |
 | w4.dual_share_min | 0.2 |  | calculated | docs/02-form.md#snowmobile |
 | w4.dual_wheel_sink_cm | 16.9 | cm | calculated | docs/02-form.md#snowmobile |
 | w4.dual_grip_n | 416 | N | calculated | docs/02-form.md#snowmobile |
+| w4.dual_resistance_bekker_n | 541 | N | calculated | docs/02-form.md#snowmobile |
+| w4.big_wheel_sink_cm | 17.2 | cm | calculated | docs/02-form.md#snowmobile |
+| w4.big_grip_n | 463 | N | calculated | docs/02-form.md#snowmobile |
+| w4.big_resistance_bekker_n | 436 | N | calculated | docs/02-form.md#snowmobile |
+| w4.big_dual_wheel_sink_cm | 12.0 | cm | calculated | docs/02-form.md#snowmobile |
+| w4.big_dual_grip_n | 513 | N | calculated | docs/02-form.md#snowmobile |
+| w4.big_dual_resistance_bekker_n | 386 | N | calculated | docs/02-form.md#snowmobile |
 | w4.dual_width_m | 1.55 | m | calculated | docs/02-form.md#snowmobile |
 | cost.tub_jpy | 82992 | JPY | calculated | docs/02-form.md#water |
 | cost.winter_sm_jpy | 236992 | JPY | calculated | docs/02-form.md#snowmobile |
@@ -763,6 +773,9 @@ The current state, with open items grouped by whom they wait for, is in [STATUS.
 | P60 | P | ERDC/CRREL TR-16-4, Advances in Antarctic Sled Technology, 2016 | partial |
 | P61 | P | AIST human body dimension database 1991-92 (Kouchi and Mochimaru 2005, H16PRO 287), stature and sitting height | full |
 | P62 | P | OECD Code 7 (February 2025), rear-mounted foldable roll-over protective structures, section 3.7 | partial |
+| P63 | P | Shackleton, South (1919), Project Gutenberg 5199 | partial |
+| P64 | P | Shackleton, The Heart of the Antarctic, vol. 1 (1909), archive.org | partial |
+| P65 | P | Patents for sleds pushed by sprung spiked wheels or drums - AT81336B (1917), US1567776 (1925), US136750 (1873) | full |
 | S3 | S | Wikipedia, Yamaha Bravo | full |
 | S4 | S | Wikipedia, Ground pressure | full |
 | S7 | S | PowerSportsGuide, 120 cc snowmobiles and Yamaha snowmobile horsepower | partial |
@@ -785,6 +798,8 @@ The current state, with open items grouped by whom they wait for, is in [STATUS.
 | F1 | F | Motor1, a shifter kart turned into a snowmobile, 2025-02-02 | partial |
 | F2 | F | 6x6world forum, Argo open water speed with outboard | full |
 | F3 | F | Goo-net Magazine, an electric track unit from Canada (MTT, My Track Technology), 2016-10-14 | full |
+| F4 | F | Commercial Motor, A novel Girling tractor for the Imperial Antarctic Expedition, 1914-09-17 | full |
+| F5 | F | Za Rulem, Iz snezhnogo plena (out of snow captivity), November 2007 | full |
 <!-- tdr:end -->
 
 ## Checks {#checks}
@@ -802,6 +817,7 @@ The current state, with open items grouped by whom they wait for, is in [STATUS.
 | K-008 | T2 | refute | pass | 2026-11-04 |
 | K-009 | T2 | refute | pass | 2026-11-04 |
 | K-010 | T2 | refute | pass | 2026-11-04 |
+| K-011 | T2 | refute | pass | 2026-11-04 |
 <!-- tdr:end -->
 
 ## Parts {#parts}

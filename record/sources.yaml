@@ -1105,6 +1105,30 @@ items:
     license: unknown
     read: partial
     note: Read by a helper. A foldable ROPS is raised and lowered by hand with at most 100, 75, or 50 N depending on the zone; one standing operator works its lock; pins are captive with marked positions; an automatic lock passes 500 cycles; hand and finger clearances of 100 and 25 mm.
+  - id: P63
+    class: P
+    title: Shackleton, South (1919), Project Gutenberg 5199
+    url: https://www.gutenberg.org/cache/epub/5199/pg5199.txt
+    retrieved: 2026-11-04
+    license: public domain in the US (Project Gutenberg licence)
+    read: partial
+    note: Read by a helper, the motor passages. On a Weddell Sea floe in 1915 the motor crawler and warper ran at about six miles an hour over ice hidden by a foot or two of soft snow and worked most successfully; the Ross Sea party's motor tractor gave no effective service and was dropped, for reasons not given.
+  - id: P64
+    class: P
+    title: Shackleton, The Heart of the Antarctic, vol. 1 (1909), archive.org
+    url: https://archive.org/download/heartofantarctic01shacuoft/heartofantarctic01shacuoft_djvu.txt
+    retrieved: 2026-11-04
+    license: public domain text
+    read: partial
+    note: Read by a helper, the motor-car passages. The Arrol-Johnston car's wheels clogged in soft snow within a hundred yards and its rear wheels sank into even the hardest snow and spun; Shackleton wrote that sledge runners under the front wheels with broad spiked driving wheels might have got it over some soft surfaces.
+  - id: P65
+    class: P
+    title: Patents for sleds pushed by sprung spiked wheels or drums - AT81336B (1917), US1567776 (1925), US136750 (1873)
+    url: https://patents.google.com/patent/AT81336B/de
+    retrieved: 2026-11-04
+    license: US patents public domain; the Austrian unknown
+    read: full
+    note: Read by a helper through OCR summaries, with https://patents.google.com/patent/US1567776 and https://patents.google.com/patent/US136750. Sprung drive wheels that pass through openings in the runners with their height set from the seat (AT81336B); two spring-pressed drums with spiral lugs for roads under deep snow (US1567776); an 1873 patent notes that earlier spring-pressed spiked wheels broke their springs. None gives test data.
   - id: S3
     class: S
     title: Wikipedia, Yamaha Bravo
@@ -1281,3 +1305,19 @@ items:
     license: unknown (copyright PROTO CORPORATION, all rights reserved)
     read: full
     note: Given by the owner; read by a helper. A self-contained electric track unit with handlebars, about 130 kg, that a person rides or that pulls sleds and trailers; not yet a product. No speed, power, or price given.
+  - id: F4
+    class: F
+    title: Commercial Motor, A novel Girling tractor for the Imperial Antarctic Expedition, 1914-09-17
+    url: https://archive.commercialmotor.com/article/17th-september-1914/19/a-novel-girling-tractor-for-the-imperial-antarctic
+    retrieved: 2026-11-04
+    license: publisher's terms
+    read: full
+    note: Read by a helper. A motor sledge carried on four hickory runners and pulled by two front driving wheels about 1 m across with rims of spring-steel scoops, 9 hp, claimed 3 to 12 mph with 4 to 6 sledges under favourable conditions, with winding drums and wire to haul itself out of soft snow.
+  - id: F5
+    class: F
+    title: Za Rulem, Iz snezhnogo plena (out of snow captivity), November 2007
+    url: https://www.zr.ru/content/articles/15265-iz_snezhnogo_plena/
+    retrieved: 2026-11-04
+    license: publisher's terms
+    read: full
+    note: Read by a helper in Russian. A front-wheel-drive car stuck with chains alone; with its rear wheels on two snowboards, so that the tail floats on loose snow, and chains on the driven front wheels, it lapped untouched snow up to 30 cm deep; a board slipped out in a sharp turn.

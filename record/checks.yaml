@@ -161,3 +161,16 @@ items:
     by: assistant
     date: 2026-11-04
     detail: An independent helper recomputed the towing pull and sled mass, the crawlers' pressures, and the head and roll bar heights of 1.3.17 by hand; all reproduce and the physics is stated rightly. It found three overstated wordings (the 180 crawler not stated in stock, a pair of 300s beating rather than matching the donor's track, the base of twice the weight) and one claim without a source about tracks on pavement; all four were reworded the same day. The sitting height ratio comes from men of 18 to 29 and is applied to the tallest driver's stature.
+  - id: K-011
+    target:
+      - w4.share_min
+      - w4.wheel_sink_cm
+      - w4.grip_n
+      - w4.resistance_n
+      - w4.dual_wheel_sink_cm
+    tier: T2
+    method: refute
+    result: pass
+    by: assistant
+    date: 2026-11-04
+    detail: An independent helper recomputed the values of W4 by hand; all reproduce. It found that the conclusion that the tyres push rests on taking their resistance as P1's 0.18 of their load, outside P1's range at 24 cm of sinkage - Bekker's work of pressing the ruts gives about 490 N for two tyres and reverses it - and that a cold start doubles the pan's resistance; it also found the floe run of P63 attributed to the Girling sledge without the note saying so, and P2's snows called denser than powder without a source. The text now gives both estimates of the tyres' resistance and large tyres that push under both (w4.big_*), names the floe machine as likely the same, and softens the P2 claim.
