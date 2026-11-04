@@ -19,7 +19,7 @@ items:
         controls:
           - H-07
       - id: OP-04.04
-        action: Lower the kart and check that the steering moves freely from lock to lock, that the skis clear the brake discs and tie rods, and that both brakes hold.
+        action: Lower the kart and check that the steering moves freely from lock to lock, that the skis clear the brake drums and tie rods, and that both brakes hold.
         controls:
           - H-01
           - H-07

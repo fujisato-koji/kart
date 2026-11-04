@@ -27,6 +27,7 @@ jobs:
       - name: Check the site data
         run: |
           python tools/gen_site_data.py --check
+          python tools/ja.py check
           python calc/design.py --check
       - uses: actions/setup-node@v5
         with:

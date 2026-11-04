@@ -289,3 +289,12 @@ items:
       - R-08
       - D-008
       - D-030
+  - id: D-034
+    date: 2026-11-04
+    by: owner
+    what: The navigator is in Japanese. Its own display is Japanese, and the record's statements are shown in Japanese from a table of translations kept beside the site data; the record, the reasoning pages, and the code stay English (D-002).
+    options:
+      - navigator in English as the record
+      - navigator in Japanese, record in English
+    touches:
+      - D-002

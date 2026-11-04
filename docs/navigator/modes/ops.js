@@ -85,10 +85,11 @@ export default function create(api) {
   const FONT = (px, bold) => `${bold ? '600 ' : ''}${px}px system-ui, sans-serif`;
   const width = (t, px = I.fontPx, bold) => { ctx.font = FONT(px, bold); return ctx.measureText(t).width; };
   function wrap(text, maxW, px = I.fontPx, bold) {
-    const words = String(text).split(/(\s+)/), lines = [];
+    // break at spaces and between Japanese characters; closing punctuation stays on its line
+    const words = String(text).split(/(\s+|[\u3000-\u30ff\u4e00-\u9fff\uff00-\uffef])/).filter(Boolean), lines = [];
     let cur = '';
     for (const w of words) {
-      if (width(cur + w, px, bold) > maxW && cur.trim()) { lines.push(cur.trim()); cur = w.trimStart(); } else cur += w;
+      if (width(cur + w, px, bold) > maxW && cur.trim() && !/^[、。，．）」』]$/.test(w)) { lines.push(cur.trim()); cur = w.trimStart(); } else cur += w;
     }
     if (cur.trim()) lines.push(cur.trim());
     return lines.length ? lines : [''];

@@ -11,8 +11,8 @@ export default function create(api) {
 
   const sel = (key, opts) => h('select', { onchange: (e) => { f[key] = e.target.value; draw(); api.syncUrl(); } },
     h('option', { value: '' }, 'すべて'), opts.map(([v, t]) => h('option', { value: v }, t)));
-  const stSel = sel('st', [['confirmed', STATUS_JA.confirmed + ' (confirmed)'], ['awaiting', STATUS_JA.awaiting + ' (awaiting)']]);
-  const vfSel = sel('vf', Object.entries(VERIFY_JA).map(([v, t]) => [v, `${t} (${v})`]));
+  const stSel = sel('st', [['confirmed', STATUS_JA.confirmed], ['awaiting', STATUS_JA.awaiting]]);
+  const vfSel = sel('vf', Object.entries(VERIFY_JA).map(([v, t]) => [v, t]));
   const viewSel = h('select', { onchange: (e) => { f.view = e.target.value; draw(); api.syncUrl(); } },
     h('option', { value: 'list' }, '一覧'), h('option', { value: 'tree' }, '木 (上位と下位)'));
   el.append(h('div', { class: 'controls' }, h('label', {}, '状態 ', stSel), h('label', {}, '検証方法 ', vfSel), h('label', {}, '表示 ', viewSel), count), list);

@@ -14,7 +14,7 @@ export default function create(api) {
   const gate = rec.open.filter((o) => o.blocks === 'design_build' && !o.closed);
   const gatePanel = h('div', { class: 'panel' }, h('h2', {}, `設計から製作への関門を塞ぐ未決事項 (${gate.length})`),
     gate.length ? gate.map((o) => h('div', { class: 'gateitem', 'data-k': 'open', 'data-i': o.id, onclick: (e) => { if (!e.target.closest('a,[role=button]')) api.select('open', o.id); } },
-      h('a', { class: 'id', href: api.href('open', o.id) }, o.id), ' ', api.chip('待つ相手: ' + o.waits_for), ' ', api.rich(o.text),
+      h('a', { class: 'id', href: api.href('open', o.id) }, o.id), ' ', api.chip('待つ相手: ' + (api.ORIGIN_JA[o.waits_for] || o.waits_for)), ' ', api.rich(o.text),
       o.affects && o.affects.length ? h('div', { class: 'meta' }, '影響するもの: ', o.affects.map((a) => refChip(a))) : null))
       : h('p', { class: 'meta' }, '塞いでいる未決事項はありません。'));
 

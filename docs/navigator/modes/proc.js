@@ -99,7 +99,7 @@ export default function create(api) {
     const bud = budget ? budget.v : null, over = bud != null && sumP > bud;
     cards.append(
       h('div', { class: 'tot' }, h('div', { class: 'meta' }, '部品の合計（予算に対して）'), h('b', { class: over ? 'over-t' : '' }, yen(sumP)),
-        bud != null ? h('span', { class: 'meta' }, ` / 予算 ${yen(bud)}（${api.valueText('budget.parts_jpy')}）`) : '',
+        bud != null ? h('span', { class: 'meta' }, ` / 予算 ${yen(bud)}`) : '',
         bud != null ? h('div', { class: 'meta' }, over ? `予算を ${yen(sumP - bud)} 超えている` : `残り ${yen(bud - sumP)}（${Math.round((sumP / bud) * 100)}%）`) : '',
         bud != null ? h('div', { class: 'meter' }, h('i', { class: over ? 'over' : '', style: `width:${Math.min(100, (sumP / bud) * 100)}%` })) : ''),
       h('div', { class: 'tot' }, h('div', { class: 'meta' }, '道具の合計（予算とは別）'), h('b', {}, yen(sumT)), h('div', { class: 'meta' }, `${tools.length} 品`)),
@@ -135,7 +135,7 @@ export default function create(api) {
             h('td', {}, h('a', { href: api.href('part', pid), onclick: (e) => e.stopPropagation() }, pid)),
             h('td', {}, l.item),
             h('td', { class: 'num' }, String(l.qty)),
-            h('td', { class: 'num' }, api.valueText(l.price), ' ', v ? h('span', { class: 'chip ' + (v.status === 'sourced' || v.status === 'measured' ? 'ok' : v.status === 'assumed' ? 'warn' : 'info'), title: l.price }, v.status) : '',
+            h('td', { class: 'num' }, api.valueText(l.price), ' ', v ? h('span', { class: 'chip ' + (v.status === 'sourced' || v.status === 'measured' ? 'ok' : v.status === 'assumed' ? 'warn' : 'info'), title: l.price }, api.STATUS_JA[v.status] || v.status) : '',
               ' ', ...srcs.flatMap((b, i) => [i ? ', ' : '', h('a', { href: api.href(kindOfId(b), b), onclick: (e) => e.stopPropagation() }, b)])),
             h('td', { class: 'num' }, yen(l.total)),
             h('td', {}, t ? h('a', { href: api.href('task', t.id), onclick: (e) => e.stopPropagation(), title: t.title }, t.id) : '—', t ? h('span', { class: 'meta' }, ' ' + t.title) : ''),

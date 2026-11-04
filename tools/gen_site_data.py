@@ -3,7 +3,9 @@
     python tools/gen_site_data.py          # write
     python tools/gen_site_data.py --check  # fail if the file is not what would be written
 
-The JSON holds every item of every kind as written in record/*.yaml, in file order.
+The JSON holds every item of every kind as written in record/*.yaml, in file order, with
+the prose fields in Japanese from docs/data/ja.json for the navigator (tools/ja.py); a string
+not yet translated stays English. The record itself stays English.
 It carries no time stamp, so the same record always gives the same file.
 """
 import importlib.util
@@ -45,7 +47,7 @@ def plain(x):
     return x
 
 
-def build():
+def build_data():
     rec = tdr.Record(ROOT)
     if rec.problems:
         raise SystemExit("record has problems; run python tools/tdr.py check")
@@ -58,6 +60,16 @@ def build():
     for f in sorted((ROOT / "docs").glob("0*.md")):
         for m in HEAD_RX.finditer(f.read_text(encoding="utf-8")):
             data["sections"].append({"doc": f"docs/{f.name}", "id": m.group(3), "title": m.group(2), "level": len(m.group(1))})
+    return data
+
+
+def build():
+    sys.path.insert(0, str(ROOT / "tools"))
+    import ja
+    data = build_data()
+    missing = ja.apply(data)
+    if missing and "--check" not in sys.argv:
+        print(f"{len(missing)} strings have no Japanese yet; run python tools/ja.py todo")
     return json.dumps(data, ensure_ascii=False, indent=1, default=str) + "\n"
 
 

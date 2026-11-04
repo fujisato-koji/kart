@@ -42,8 +42,9 @@ The record is published as a MkDocs Material site at https://fujisato-koji.githu
 ```bash
 pip install -r requirements-site.txt
 python tools/gen_site_data.py   # regenerate docs/data/record.json from record/
+python tools/ja.py todo         # list record prose that has no Japanese for the navigator yet
 mkdocs serve                    # preview at http://127.0.0.1:8000/kart/
 mkdocs build --strict
 ```
 
-`docs/data/record.json` is generated from `record/`; do not edit it by hand (`python tools/gen_site_data.py --check` fails if it is stale).
+`docs/data/record.json` is generated from `record/`; do not edit it by hand (`python tools/gen_site_data.py --check` fails if it is stale). The navigator is Japanese (D-034): `docs/data/ja.json` maps each English prose string to its Japanese, `python tools/ja.py add <file.json>` merges new translations, and `python tools/ja.py check` fails while any string lacks one or a translation drops a value key or id.

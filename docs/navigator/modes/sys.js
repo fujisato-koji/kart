@@ -152,7 +152,7 @@ export default function create(api) {
     const pa = edge(a, ca, cb, 1), pb = edge(b, cb, ca, 4);
     const k = kind(i.carries);
     const g = s('g', { class: 'e ' + k, 'data-i': i.id, onclick: () => api.select('iface', i.id) },
-      s('title', {}, `${i.id}: ${(byId.get(a) || {}).name || a} → ${(byId.get(b) || {}).name || b} (${i.carries})`),
+      s('title', {}, `${i.id}: ${(byId.get(a) || {}).name || a} → ${(byId.get(b) || {}).name || b} (${api.CARRIES_JA[i.carries] || i.carries})`),
       s('line', { class: 'hit', x1: pa.x, y1: pa.y, x2: pb.x, y2: pb.y }),
       s('line', { class: 'ln', x1: pa.x, y1: pa.y, x2: pb.x, y2: pb.y, 'marker-end': `url(#sysah-${k})` }),
       Math.hypot(pb.x - pa.x, pb.y - pa.y) > 60 ? s('text', { x: (pa.x + pb.x) / 2, y: (pa.y + pb.y) / 2 + 3 }, i.id) : null);
