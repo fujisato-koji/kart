@@ -1,6 +1,6 @@
 # Kart: a traceable design record
 
-One go-kart with one seat, a personal vehicle for the far outdoors (D-023): driven by a child and an adult on private land (D-001) and by an adult on roads near home as a minicar (D-019), on pavement, gravel, grass, and packed snow, and changed each winter into a snowmobile form for deep fresh snow. Driving on into a lake as a boat is under study (D-024).
+One go-kart with one seat, a personal vehicle for the far outdoors (D-023): driven by a child and an adult on private land (D-001) and by an adult on roads near home as a minicar (D-019), on pavement, gravel, grass, and packed snow, and changed each winter into a snowmobile form for deep fresh snow. Driving on into a lake as a boat is kept as a future development, shown only in the 3D view (D-027).
 It is designed under the [traceable-design](https://github.com/traceable-design/traceable-design) standard: an AI assistant researches, calculates, and writes the record, and the owner decides.
 
 ## Where the design stands
@@ -8,7 +8,7 @@ It is designed under the [traceable-design](https://github.com/traceable-design/
 | Step | State |
 |------|-------|
 | [1.1 Requirements](01-requirements.md) | Written from the owner's answers (D-001 to D-024). Derived requirements wait for the owner. |
-| [1.2 Form](02-form.md) | Forms compared; the latest pass chose the snowmobile form on the 50 cc engine for winter (D-025) and a seated ride (D-026); water use waits for the owner ([1.2.16](02-form.md#outdoor)). |
+| [1.2 Form](02-form.md) | Forms compared; the latest pass chose the snowmobile form on the 50 cc engine for winter (D-025) and a seated ride (D-026); water use is withdrawn and kept as a future development ([1.2.16](02-form.md#outdoor), D-027). |
 | [1.3 Design](03-design.md) | The road-going summer form (D-022); not yet buildable (K-006, Q-025). |
 | [1.4 Availability](04-availability.md), [1.5 Parts and cost](05-parts-and-cost.md) | Parts of the summer form, found in Japan and priced. |
 

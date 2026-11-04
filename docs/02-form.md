@@ -237,7 +237,7 @@ The owner wants a personal vehicle for the far outdoors, changed each winter int
 
 ## 1.2.15 Water {#water}
 
-The owner would like the kart to drive into a lake and on as a boat, if it can be done (D-024).
+The owner would like the kart to drive into a lake and on as a boat, if it can be done (D-024). After this section the owner withdrew R-27 and keeps water use as a future development, shown only in the 3D view (D-027); the section stays as the basis of such a version, and the tub stays for the snow and as safety buoyancy.
 
 **Floating.** A kart floats when what is under the waterline displaces its weight. Two forms of hull are candidates:
 
@@ -266,8 +266,8 @@ The owner decides:
 
 1. **Winter form.** W3 as proposed, or W1 kept for packed snow only. Decided: W3 (D-025).
 2. **Winter drive.** D1, the summer engine in both forms (proposed, a lighter change, a quarter of a snowmobile's power per mass), or D2, the donor's engine in winter. Decided: D1 (D-025).
-3. **Water.** (a) The tub floats the kart for safety, and the owner asks the regional transport bureau whether and how a home-built amphibious kart is inspected (Q-028) before any boat use (proposed). (b) R-27 is withdrawn and the tub stays for snow and safety. (c) Boat use on an inspection is pursued now, with side floats that widen the kart to water.beam_for_one_mm on water days. Waiting: the owner asked what an inspection involves; the answer is in 1.2.15.
+3. **Water.** (a) The tub floats the kart for safety, and the owner asks the regional transport bureau whether and how a home-built amphibious kart is inspected (Q-028) before any boat use (proposed). (b) R-27 is withdrawn and the tub stays for snow and safety. (c) Boat use on an inspection is pursued now, with side floats that widen the kart to water.beam_for_one_mm on water days. Decided: R-27 withdrawn, the tub kept for snow and safety, and water use kept as a future development shown only in the 3D view (D-027).
 4. **Kick scooter.** What "like a kick scooter" asks: a standing ride, or a light personal vehicle that stays seated (Q-026). Decided: seated, so that the kart may stay on roads (D-026).
 5. **Tipping on snow.** R-12 for the winter form at kart.tip_ratio_snow_min, against the snow's grip (proposed), or the full kart.tip_ratio_min on every setup, which W3 cannot meet. Decided: relaxed for the winter form (D-025).
 
-After the owner decides, 1.3 lays out the tub, the track's mounts, and the change of form, and the 3D view shows both forms.
+Next, 1.3 lays out the tub, the track's mounts, and the change of form, and the 3D view shows both forms, with the side floats and outboard of a future water version as an option.

@@ -235,7 +235,8 @@ items:
     verify: test
     basis:
       - D-024
-    status: awaiting
+      - D-027
+    status: withdrawn
   - id: R-28
     text: The kart changes between a summer form on tyres and a winter form on skis and a track.
     origin: derived

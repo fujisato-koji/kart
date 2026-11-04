@@ -313,9 +313,10 @@
    "design_point": "With the heaviest rider, in calm fresh water, the kart floats upright with a freeboard of at least water.freeboard_min_mm, moves at water.speed_min_kmh or more and steers, and drives out up a shore of water.shore_grade_pct.",
    "verify": "test",
    "basis": [
-    "D-024"
+    "D-024",
+    "D-027"
    ],
-   "status": "awaiting"
+   "status": "withdrawn"
   },
   {
    "id": "R-28",
@@ -6287,6 +6288,22 @@
     "Q-026",
     "R-22"
    ]
+  },
+  {
+   "id": "D-027",
+   "date": "2026-11-04",
+   "by": "owner",
+   "what": "Settles item 3 of docs/02-form.md#outdoor. The water requirement R-27 is withdrawn. Water use is kept only as a future development, shown in the 3D view as an option (side floats and an electric outboard on the tub) without a requirement; the tub stays for the snow and as safety buoyancy (R-29). Q-028 is closed until such a version is taken up.",
+   "options": [
+    "the tub floats only for safety, and the owner asks the transport bureau before any boat use",
+    "R-27 withdrawn, the tub kept for snow and safety",
+    "boat use on an inspection pursued now, with side floats"
+   ],
+   "touches": [
+    "R-27",
+    "Q-028",
+    "D-024"
+   ]
   }
  ],
  "open": [
@@ -6729,7 +6746,9 @@
     "R-27"
    ],
    "opened": "2026-11-04",
-   "phase": "design"
+   "phase": "design",
+   "closed_by": "D-027",
+   "closed": "2026-11-04"
   }
  ],
  "hazards": [
