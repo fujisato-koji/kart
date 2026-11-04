@@ -3,12 +3,12 @@
  "requirements": [
   {
    "id": "R-01",
-   "text": "The kart is not faster than a speed set for a child.",
+   "text": "The kart is not faster than its set top speed.",
    "origin": "owner",
    "design_point": "Top speed on level paved ground, with the lightest and with the heaviest rider, is at most kart.speed_max_kmh.",
    "verify": "test",
    "basis": [
-    "D-015",
+    "D-020",
     "D-011"
    ],
    "status": "confirmed"
@@ -180,7 +180,8 @@
    "design_point": "With the heaviest rider, on grass at site.grade_max_pct, the kart starts from rest on the slope and climbs at walking pace or faster, and no part slips, overheats, or deforms.",
    "verify": "test",
    "basis": [
-    "D-014"
+    "D-014",
+    "D-021"
    ],
    "status": "confirmed"
   },
@@ -195,6 +196,17 @@
     "D-018"
    ],
    "status": "withdrawn"
+  },
+  {
+   "id": "R-18",
+   "text": "The kart may be driven on public roads.",
+   "origin": "owner",
+   "design_point": "The kart meets every safety standard and registration rule that applies to its class of vehicle, listed from the law in step 1.1 (Q-021), and is registered with its number plate and compulsory insurance before it is driven on a road.",
+   "verify": "inspection",
+   "basis": [
+    "D-019"
+   ],
+   "status": "confirmed"
   }
  ],
  "values": [
@@ -208,11 +220,11 @@
   },
   {
    "key": "kart.speed_max_kmh",
-   "v": 20,
+   "v": 30,
    "unit": "km/h",
    "status": "decided",
    "basis": [
-    "D-015"
+    "D-020"
    ]
   },
   {
@@ -2593,7 +2605,7 @@
   },
   {
    "key": "drive.engine_ratio",
-   "v": 11.97,
+   "v": 7.98,
    "status": "calculated",
    "basis": [
     "docs/02-form.md#drive"
@@ -2601,7 +2613,7 @@
   },
   {
    "key": "drive.engine_thrust_n",
-   "v": 745,
+   "v": 497,
    "unit": "N",
    "status": "calculated",
    "basis": [
@@ -2610,7 +2622,7 @@
   },
   {
    "key": "drive.engine_thrust_cont_n",
-   "v": 641,
+   "v": 427,
    "unit": "N",
    "status": "calculated",
    "basis": [
@@ -2619,7 +2631,7 @@
   },
   {
    "key": "drive.motor_thrust_n",
-   "v": 183,
+   "v": 122,
    "unit": "N",
    "status": "calculated",
    "basis": [
@@ -2628,7 +2640,7 @@
   },
   {
    "key": "drive.motor2_thrust_n",
-   "v": 350,
+   "v": 233,
    "unit": "N",
    "status": "calculated",
    "basis": [
@@ -2637,7 +2649,7 @@
   },
   {
    "key": "drive.clutch_engage_kmh",
-   "v": 10.4,
+   "v": 15.6,
    "unit": "km/h",
    "status": "calculated",
    "basis": [
@@ -2646,7 +2658,7 @@
   },
   {
    "key": "drive.clutch_lock_kmh",
-   "v": 13.5,
+   "v": 20.3,
    "unit": "km/h",
    "status": "calculated",
    "basis": [
@@ -2664,7 +2676,7 @@
   },
   {
    "key": "drive.grass_power_kw",
-   "v": 1.24,
+   "v": 1.85,
    "unit": "kW",
    "status": "calculated",
    "basis": [
@@ -2691,7 +2703,7 @@
   },
   {
    "key": "drive.sprocket_reach_mm",
-   "v": -81,
+   "v": 0,
    "unit": "mm",
    "status": "calculated",
    "basis": [
@@ -3213,7 +3225,7 @@
   },
   {
    "key": "dsn.brake_decel_needed",
-   "v": 2.57,
+   "v": 5.79,
    "unit": "m/s2",
    "status": "calculated",
    "basis": [
@@ -3222,7 +3234,7 @@
   },
   {
    "key": "dsn.brake_torque_needed_nm",
-   "v": 81,
+   "v": 183,
    "unit": "N m",
    "status": "calculated",
    "basis": [
@@ -3231,7 +3243,7 @@
   },
   {
    "key": "dsn.brake_clamp_needed_n",
-   "v": 1814,
+   "v": 4082,
    "unit": "N",
    "status": "calculated",
    "basis": [
@@ -3249,7 +3261,7 @@
   },
   {
    "key": "dsn.brake_downhill_stop_m",
-   "v": 16.6,
+   "v": 37.4,
    "unit": "m",
    "status": "calculated",
    "basis": [
@@ -4475,6 +4487,42 @@
     "R-17",
     "H-08"
    ]
+  },
+  {
+   "id": "D-019",
+   "date": "2026-11-04",
+   "by": "owner",
+   "what": "The kart should also be driven on public roads, for short trips and leisurely runs near home in daytime, so it is to be equipped and registered as the law requires (most likely as a four-wheel moped, a minicar). The child drives only on private land. This changes D-005, which kept the kart off public roads.",
+   "touches": [
+    "D-005",
+    "R-18"
+   ]
+  },
+  {
+   "id": "D-020",
+   "date": "2026-11-04",
+   "by": "owner",
+   "what": "The top speed is about 30 km/h, on public roads and on private land alike (one top speed, D-018). This replaces the 20 km/h of D-015.",
+   "options": [
+    "20 km/h as in D-015",
+    "about 30 km/h",
+    "fast on roads and slow on private land, switched"
+   ],
+   "touches": [
+    "kart.speed_max_kmh",
+    "R-01"
+   ],
+   "supersedes": "D-015"
+  },
+  {
+   "id": "D-021",
+   "date": "2026-11-04",
+   "by": "owner",
+   "what": "Road use comes first. The slope the kart must climb is lowered to what the engine allowed on public roads can do, instead of choosing a larger engine for the slope.",
+   "touches": [
+    "site.grade_max_pct",
+    "R-16"
+   ]
   }
  ],
  "open": [
@@ -4572,7 +4620,7 @@
   {
    "id": "Q-008",
    "kind": "question",
-   "text": "How steep is the fairly steep slope of D-014? It is assumed at 20 % (about 11 degrees) until the owner gives a number or measures the steepest slope on the land.",
+   "text": "How steep is the fairly steep slope of D-014? It is assumed at 20 % (about 11 degrees); D-021 lowers it to what the road-legal engine can climb, which is set when the engine is chosen.",
    "waits_for": "owner",
    "affects": [
     "site.grade_max_pct"
@@ -4781,6 +4829,18 @@
    ],
    "opened": "2026-11-03",
    "raised_by": "assistant",
+   "phase": "design",
+   "blocks": "design_build"
+  },
+  {
+   "id": "Q-021",
+   "kind": "question",
+   "text": "Which class of vehicle the kart becomes on public roads (most likely a minicar, a four-wheel first-class moped with up to 50 cc or 0.6 kW rated electric output), and which safety standards (brakes, lamps, turn signals, mirrors, horn, speedometer, plate, size), registration steps, tax, and insurance apply; list each as a requirement with its article from the law.",
+   "waits_for": "assistant",
+   "affects": [
+    "R-18"
+   ],
+   "opened": "2026-11-04",
    "phase": "design",
    "blocks": "design_build"
   }

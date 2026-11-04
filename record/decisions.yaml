@@ -136,3 +136,29 @@ items:
     touches:
       - R-17
       - H-08
+  - id: D-019
+    date: 2026-11-04
+    by: owner
+    what: The kart should also be driven on public roads, for short trips and leisurely runs near home in daytime, so it is to be equipped and registered as the law requires (most likely as a four-wheel moped, a minicar). The child drives only on private land. This changes D-005, which kept the kart off public roads.
+    touches:
+      - D-005
+      - R-18
+  - id: D-020
+    date: 2026-11-04
+    by: owner
+    what: The top speed is about 30 km/h, on public roads and on private land alike (one top speed, D-018). This replaces the 20 km/h of D-015.
+    options:
+      - 20 km/h as in D-015
+      - about 30 km/h
+      - fast on roads and slow on private land, switched
+    touches:
+      - kart.speed_max_kmh
+      - R-01
+    supersedes: D-015
+  - id: D-021
+    date: 2026-11-04
+    by: owner
+    what: Road use comes first. The slope the kart must climb is lowered to what the engine allowed on public roads can do, instead of choosing a larger engine for the slope.
+    touches:
+      - site.grade_max_pct
+      - R-16

@@ -26,6 +26,9 @@ The current state, with open items grouped by whom they wait for, is in [STATUS.
 | D-016 | 2026-11-03 | owner | The tallest adult who drives is about 170 cm tall. |
 | D-017 | 2026-11-03 | owner | Make the design concrete with new parts that are readily available in Japan, with realistic shapes, and show the designed kart in 3D to grasp what will be built; the 3D view need not be a driving game. This settles item 1 of docs/02-form.md#proposal as new parts (L2). The other items of that proposal are taken as the working basis of step 1.3 until the owner decides them. |
 | D-018 | 2026-11-04 | owner | No lower speed limit for the child is needed; the kart has one top speed for every driver. |
+| D-019 | 2026-11-04 | owner | The kart should also be driven on public roads, for short trips and leisurely runs near home in daytime, so it is to be equipped and registered as the law requires (most likely as a four-wheel moped, a minicar). The child drives only on private land. This changes D-005, which kept the kart off public roads. |
+| D-020 | 2026-11-04 | owner | The top speed is about 30 km/h, on public roads and on private land alike (one top speed, D-018). This replaces the 20 km/h of D-015. |
+| D-021 | 2026-11-04 | owner | Road use comes first. The slope the kart must climb is lowered to what the engine allowed on public roads can do, instead of choosing a larger engine for the slope. |
 <!-- tdr:end -->
 
 ## Open items {#open}
@@ -40,7 +43,7 @@ The current state, with open items grouped by whom they wait for, is in [STATUS.
 | Q-005 | Set the smallest ratio of half the track width to the height of the centre of mass, so that the kart slides before it tips, from tyre friction data and any standard. Until then it is assumed at 1.5. Also decide whether R-12 must hold standing sideways on site.grade_max_pct, which needs a wider track (form.track_min_slope_m, check K-001). | assistant |  |
 | Q-006 | Where is the kart kept (indoors, under a roof, outdoors), and must it be carried in a car or a truck? This sets the size and mass limits and whether it stands in the cold before a run. | owner | D-012 |
 | Q-007 | How often is the kart used, and by when should it be ready? The run time is settled by D-013. | owner |  |
-| Q-008 | How steep is the fairly steep slope of D-014? It is assumed at 20 % (about 11 degrees) until the owner gives a number or measures the steepest slope on the land. | owner |  |
+| Q-008 | How steep is the fairly steep slope of D-014? It is assumed at 20 % (about 11 degrees); D-021 lowers it to what the road-legal engine can climb, which is set when the engine is chosen. | owner |  |
 | Q-009 | The rough inputs of step 1.2 (kart mass and its rear share, tyre pressure, track wheel diameter, ski size, drive efficiency, tube lengths, ground clearance, heights of the centres of mass, and a mean speed, rolling resistance, electric efficiency, and usable battery fraction for the run time) are assumed so that forms can be compared. Step 1.3 replaces each with the chosen part's data or a calculation. | assistant |  |
 | Q-010 | The price of the 12 V chargers for E2 and the allowances for shipping, small parts, a reduction stage, skis, the track running gear, pedals and cables and the stop switch, guards and mounts, drive chains, and electric wiring are assumed. Whether the snow chain price of M15 is for one tyre or a pair is not known; two are counted. Step 1.5 replaces each with a quoted price. | assistant |  |
 | Q-011 | What is the governed no-load speed of the chosen engine? The gearing for R-01 is set to it. It is assumed at 3850 rpm from a checker's recollection (K-001), not from a source; take it from the engine maker's data, or measure it on the engine when it arrives. | assistant |  |
@@ -53,6 +56,7 @@ The current state, with open items grouped by whom they wait for, is in [STATUS.
 | Q-018 | The parts list assumes the price of steel plate cut to size, of machining by a local shop (keyways on the axle and the jackshaft, boring the 36 tooth sprocket, cross holes for the hub pins, the brake disc carrier), of making the two rear hubs, and of a 25 mm axle shaft of 1.22 m. Get quotes before the gate from design to build. | assistant |  |
 | Q-019 | The fit of bought parts to each other is not stated by their sellers and is checked when they arrive, before the frame is welded to them - the rim's three-hole pattern against the front hubs and the made rear hubs, the front hubs' bore against the 17 mm spindles, the engine's shaft (3/4 inch Q-type) and base holes, the ladder chains on 13x5.00-6 tyres, and the seat's rail bolt spacing. | assistant |  |
 | Q-020 | The layout of step 1.3 is not yet buildable (K-005). Rearrange the drive so that the chains, the jackshaft and its bearings, the middle axle bearing, and the guard fit between the seat and the left rail, or move the drive outboard; redesign the column support so it holds the column at its lower flange bearing and clears the legs; route the pedal box rails clear of the cross members; raise the steering arms and tie rods clear of the front rails; join every plate, the floor, and the seat slide to the frame; widen the seat space; and add the cornering side force to the axle and the engine's offset to the left rail. | assistant |  |
+| Q-021 | Which class of vehicle the kart becomes on public roads (most likely a minicar, a four-wheel first-class moped with up to 50 cc or 0.6 kW rated electric output), and which safety standards (brakes, lamps, turn signals, mirrors, horn, speedometer, plate, size), registration steps, tax, and insurance apply; list each as a requirement with its article from the law. | assistant |  |
 <!-- tdr:end -->
 
 ## Values {#values}
@@ -61,7 +65,7 @@ The current state, with open items grouped by whom they wait for, is in [STATUS.
 | key | v | unit | status | basis |
 |---|---|---|---|---|
 | kart.seats | 1 |  | decided | D-001 |
-| kart.speed_max_kmh | 20 | km/h | decided | D-015 |
+| kart.speed_max_kmh | 30 | km/h | decided | D-020 |
 | snow.depth_max_cm | 30 | cm | decided | D-006 |
 | ambient.temp_min_c | -10 | degC | decided | D-007 |
 | budget.parts_jpy | 100000 | JPY | decided | D-008 |
@@ -330,18 +334,18 @@ The current state, with open items grouped by whom they wait for, is in [STATUS.
 | form.width_overall_m | 1.24 | m | calculated | docs/02-form.md#transport |
 | form.track_min_m | 1.11 | m | calculated | docs/02-form.md#stability |
 | form.track_min_slope_m | 1.79 | m | calculated | docs/02-form.md#stability |
-| drive.engine_ratio | 11.97 |  | calculated | docs/02-form.md#drive |
-| drive.engine_thrust_n | 745 | N | calculated | docs/02-form.md#drive |
-| drive.engine_thrust_cont_n | 641 | N | calculated | docs/02-form.md#drive |
-| drive.motor_thrust_n | 183 | N | calculated | docs/02-form.md#drive |
-| drive.motor2_thrust_n | 350 | N | calculated | docs/02-form.md#drive |
-| drive.clutch_engage_kmh | 10.4 | km/h | calculated | docs/02-form.md#drive |
-| drive.clutch_lock_kmh | 13.5 | km/h | calculated | docs/02-form.md#drive |
+| drive.engine_ratio | 7.98 |  | calculated | docs/02-form.md#drive |
+| drive.engine_thrust_n | 497 | N | calculated | docs/02-form.md#drive |
+| drive.engine_thrust_cont_n | 427 | N | calculated | docs/02-form.md#drive |
+| drive.motor_thrust_n | 122 | N | calculated | docs/02-form.md#drive |
+| drive.motor2_thrust_n | 233 | N | calculated | docs/02-form.md#drive |
+| drive.clutch_engage_kmh | 15.6 | km/h | calculated | docs/02-form.md#drive |
+| drive.clutch_lock_kmh | 20.3 | km/h | calculated | docs/02-form.md#drive |
 | drive.climb_force_n | 523 | N | calculated | docs/02-form.md#drive |
-| drive.grass_power_kw | 1.24 | kW | calculated | docs/02-form.md#drive |
+| drive.grass_power_kw | 1.85 | kW | calculated | docs/02-form.md#drive |
 | drive.power_avg_heavy_w | 556 | W | calculated | docs/02-form.md#drive |
 | battery.run_time_heavy_min | 133 | min | calculated | docs/02-form.md#drive |
-| drive.sprocket_reach_mm | -81 | mm | calculated | docs/02-form.md#drive |
+| drive.sprocket_reach_mm | 0 | mm | calculated | docs/02-form.md#drive |
 | cost.chassis_jpy | 93902 | JPY | calculated | docs/02-form.md#cost |
 | cost.power_engine_clone_jpy | 37940 | JPY | calculated | docs/02-form.md#cost |
 | cost.power_engine_genuine_jpy | 86940 | JPY | calculated | docs/02-form.md#cost |
@@ -400,11 +404,11 @@ The current state, with open items grouped by whom they wait for, is in [STATUS.
 | dsn.rail_stress_mpa | 191 | MPa | calculated | docs/03-design.md#frame |
 | dsn.rail_safety | 1.52 |  | calculated | docs/03-design.md#frame |
 | dsn.bearing_load_n | 695 | N | calculated | docs/03-design.md#axle |
-| dsn.brake_decel_needed | 2.57 | m/s2 | calculated | docs/03-design.md#brake |
-| dsn.brake_torque_needed_nm | 81 | N m | calculated | docs/03-design.md#brake |
-| dsn.brake_clamp_needed_n | 1814 | N | calculated | docs/03-design.md#brake |
+| dsn.brake_decel_needed | 5.79 | m/s2 | calculated | docs/03-design.md#brake |
+| dsn.brake_torque_needed_nm | 183 | N m | calculated | docs/03-design.md#brake |
+| dsn.brake_clamp_needed_n | 4082 | N | calculated | docs/03-design.md#brake |
 | dsn.brake_downhill_decel | 0.93 | m/s2 | calculated | docs/03-design.md#brake |
-| dsn.brake_downhill_stop_m | 16.6 | m | calculated | docs/03-design.md#brake |
+| dsn.brake_downhill_stop_m | 37.4 | m | calculated | docs/03-design.md#brake |
 | dsn.delica_length_margin_mm | 80 | mm | calculated | docs/03-design.md#transport |
 | dsn.delica_width_margin_mm | 20 | mm | calculated | docs/03-design.md#transport |
 | dsn.height_m | 0.71 | m | calculated | docs/03-design.md#layout |

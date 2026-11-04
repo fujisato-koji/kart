@@ -73,7 +73,7 @@ items:
     phase: design
   - id: Q-008
     kind: question
-    text: How steep is the fairly steep slope of D-014? It is assumed at 20 % (about 11 degrees) until the owner gives a number or measures the steepest slope on the land.
+    text: How steep is the fairly steep slope of D-014? It is assumed at 20 % (about 11 degrees); D-021 lowers it to what the road-legal engine can climb, which is set when the engine is chosen.
     waits_for: owner
     affects:
       - site.grade_max_pct
@@ -245,5 +245,14 @@ items:
       - seat
     opened: 2026-11-03
     raised_by: assistant
+    phase: design
+    blocks: design_build
+  - id: Q-021
+    kind: question
+    text: Which class of vehicle the kart becomes on public roads (most likely a minicar, a four-wheel first-class moped with up to 50 cc or 0.6 kW rated electric output), and which safety standards (brakes, lamps, turn signals, mirrors, horn, speedometer, plate, size), registration steps, tax, and insurance apply; list each as a requirement with its article from the law.
+    waits_for: assistant
+    affects:
+      - R-18
+    opened: 2026-11-04
     phase: design
     blocks: design_build

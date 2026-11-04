@@ -2,12 +2,12 @@ kind: requirement
 schema: 1
 items:
   - id: R-01
-    text: The kart is not faster than a speed set for a child.
+    text: The kart is not faster than its set top speed.
     origin: owner
     design_point: Top speed on level paved ground, with the lightest and with the heaviest rider, is at most kart.speed_max_kmh.
     verify: test
     basis:
-      - D-015
+      - D-020
       - D-011
     status: confirmed
   - id: R-02
@@ -135,6 +135,7 @@ items:
     verify: test
     basis:
       - D-014
+      - D-021
     status: confirmed
   - id: R-17
     text: An adult can set a lower top speed for a small child.
@@ -145,3 +146,11 @@ items:
       - H-08
       - D-018
     status: withdrawn
+  - id: R-18
+    text: The kart may be driven on public roads.
+    origin: owner
+    design_point: The kart meets every safety standard and registration rule that applies to its class of vehicle, listed from the law in step 1.1 (Q-021), and is registered with its number plate and compulsory insurance before it is driven on a road.
+    verify: inspection
+    basis:
+      - D-019
+    status: confirmed

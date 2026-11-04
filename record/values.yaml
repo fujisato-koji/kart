@@ -7,11 +7,11 @@ items:
     basis:
       - D-001
   - key: kart.speed_max_kmh
-    v: 20
+    v: 30
     unit: km/h
     status: decided
     basis:
-      - D-015
+      - D-020
   - key: snow.depth_max_cm
     v: 30
     unit: cm
@@ -1586,42 +1586,42 @@ items:
     basis:
       - docs/02-form.md#stability
   - key: drive.engine_ratio
-    v: 11.97
+    v: 7.98
     status: calculated
     basis:
       - docs/02-form.md#drive
   - key: drive.engine_thrust_n
-    v: 745
+    v: 497
     unit: N
     status: calculated
     basis:
       - docs/02-form.md#drive
   - key: drive.engine_thrust_cont_n
-    v: 641
+    v: 427
     unit: N
     status: calculated
     basis:
       - docs/02-form.md#drive
   - key: drive.motor_thrust_n
-    v: 183
+    v: 122
     unit: N
     status: calculated
     basis:
       - docs/02-form.md#drive
   - key: drive.motor2_thrust_n
-    v: 350
+    v: 233
     unit: N
     status: calculated
     basis:
       - docs/02-form.md#drive
   - key: drive.clutch_engage_kmh
-    v: 10.4
+    v: 15.6
     unit: km/h
     status: calculated
     basis:
       - docs/02-form.md#drive
   - key: drive.clutch_lock_kmh
-    v: 13.5
+    v: 20.3
     unit: km/h
     status: calculated
     basis:
@@ -1633,7 +1633,7 @@ items:
     basis:
       - docs/02-form.md#drive
   - key: drive.grass_power_kw
-    v: 1.24
+    v: 1.85
     unit: kW
     status: calculated
     basis:
@@ -1651,7 +1651,7 @@ items:
     basis:
       - docs/02-form.md#drive
   - key: drive.sprocket_reach_mm
-    v: -81
+    v: 0
     unit: mm
     status: calculated
     basis:
@@ -1998,19 +1998,19 @@ items:
     basis:
       - docs/03-design.md#axle
   - key: dsn.brake_decel_needed
-    v: 2.57
+    v: 5.79
     unit: m/s2
     status: calculated
     basis:
       - docs/03-design.md#brake
   - key: dsn.brake_torque_needed_nm
-    v: 81
+    v: 183
     unit: N m
     status: calculated
     basis:
       - docs/03-design.md#brake
   - key: dsn.brake_clamp_needed_n
-    v: 1814
+    v: 4082
     unit: N
     status: calculated
     basis:
@@ -2022,7 +2022,7 @@ items:
     basis:
       - docs/03-design.md#brake
   - key: dsn.brake_downhill_stop_m
-    v: 16.6
+    v: 37.4
     unit: m
     status: calculated
     basis:
