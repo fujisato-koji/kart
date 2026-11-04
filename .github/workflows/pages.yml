@@ -25,7 +25,7 @@ jobs:
       - uses: actions/setup-node@v5
         with:
           node-version: 24
-      - run: pip install -r requirements-site.txt
+      - run: pip install -r requirements-site.txt -r requirements-calc.txt
       - run: python tools/tdr.py check
       - run: python tools/gen_site_data.py --check
       - run: python calc/design.py --check
