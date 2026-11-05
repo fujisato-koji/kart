@@ -27,12 +27,13 @@ kingpin axis of their side; the handlebar, stem arm, lever, mirrors, gauge and h
 stem about its raked axis by the same angle; each tie rod runs from the stem foot (turned with the
 stem) to the spindle's steering arm (turned with the spindle). The fenders stay fixed.
 
-Front suspension. If design.json has front_suspension (pivots l and r, axis x, bump_deg, droop_deg),
-items and members marked front_arm "l" or "r" turn about the line parallel to x through that side's
-pivot (a positive angle raises the outer end, the kingpin), one side at a time, at +bump and -droop
-with straight steering, and at +-steer with that side at +bump. Steering is applied after the
-suspension, about the kingpin as it stands then. Tie rod outer ends follow the arm, inner ends stay with
-the stem; front shocks move their lower eye (pos) with the arm.
+Front suspension (D-041). design.json's front_suspension holds the hard points of the double A-arms;
+calc/front.py moves them. Items and members marked front_arm "l" or "r" move with that side's knuckle,
+or with its lower or upper arm when marked front_link; one side at a time and both together, at +bump
+and -droop, straight and at +-lock. The bar turns the stem by the lock angle;
+each knuckle then turns about its own kingpin as far as its tie rod makes it (so the wheels' angles
+differ, as built). Tie rods run from the stem's plate to the knuckles' arms; front shocks move their
+lower eye (pos) with the lower arm.
 """
 import argparse
 import json
@@ -43,6 +44,9 @@ from pathlib import Path
 
 import numpy as np
 from scipy.spatial import cKDTree
+
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+import front as FRONT_KIN   # noqa: E402
 
 ROOT = Path(__file__).resolve().parents[1]
 SRC = ROOT / "docs" / "data" / "design.json"
@@ -135,8 +139,8 @@ class Prim:
     def __init__(self, kind, c, R, h=None, r=0.0, tyre=None):
         self.kind, self.c, self.R, self.h, self.r, self.tyre = kind, np.asarray(c, float), R, h, r, tyre
 
-    def moved(self, Rt, piv):
-        return Prim(self.kind, Rt @ (self.c - piv) + piv, Rt @ self.R, self.h, self.r, self.tyre)
+    def moved(self, Rt, piv, d=0.0):
+        return Prim(self.kind, Rt @ (self.c - piv) + piv + d, Rt @ self.R, self.h, self.r, self.tyre)
 
     def sdf(self, P):
         q = (P - self.c) @ self.R
@@ -164,7 +168,8 @@ class Body:
         self.prims = []
         self.steer = None    # None, ("king", side) or ("stem",)
         self.arm = False     # turns with the swing arm
-        self.farm = None     # "l" or "r": turns with that front suspension arm
+        self.farm = None     # "l" or "r": moves with that front corner
+        self.flink = None    # None (the knuckle), "lower" or "upper": which part of the corner
         self.ends = None     # tie rod: (inner end, outer end)
         self.member = None
         self._trees = None
@@ -231,14 +236,18 @@ class Body:
         return self
 
     # -- use
-    def moved(self, Rt, piv):
+    def moved(self, Rt, piv, d=0.0):
+        """Rigid motion p -> Rt (p - piv) + piv + d."""
         b = Body(self.kind, self.part, self.typ, self.idx, self.sub, self.rider, self.item, self.side)
-        b.parts = [(r, (p - piv) @ Rt.T + piv) for r, p in self.parts]
-        b.prims = [p.moved(Rt, piv) for p in self.prims]
-        b.steer, b.member, b.arm, b.farm, b.ends = self.steer, self.member, self.arm, self.farm, self.ends
+        b.parts = [(r, (p - piv) @ Rt.T + piv + d) for r, p in self.parts]
+        b.prims = [p.moved(Rt, piv, d) for p in self.prims]
+        b.steer, b.member, b.arm, b.farm, b.flink, b.ends = self.steer, self.member, self.arm, self.farm, self.flink, self.ends
         if b.member is not None:
-            b.member = tuple((Rt @ (np.asarray(e) - piv) + piv) for e in b.member)
+            b.member = tuple((Rt @ (np.asarray(e) - piv) + piv + d) for e in b.member)
         return b
+
+    def move(self, mv):
+        return self.moved(mv.R, mv.c, mv.d)
 
     def trees(self):
         if self._trees is None:
@@ -435,17 +444,24 @@ def build_item(i, it, items):
         end = np.asarray(rod["to"], float) if rod else np.array([k[0] - it["arm"], k[1] - s * 0.02, k[2]])
         st = ("king", s)
         b = mk("kingpin", st)
-        b.cyl([k[0], k[1], w[2] - 0.032], [k[0], k[1], k[2] + 0.025], 0.0125)
-        b.cyl([k[0], k[1], k[2] + 0.02], [k[0], k[1], k[2] + 0.045], 0.0065)
-        b.cyl_c([k[0], k[1], k[2] + 0.045], [0, 0, 1], 0.01, 0.01)
+        if "kp_lo" in it:                                # the kingpin between the arms' joints (D-041)
+            lo_, hi_ = np.asarray(it["kp_lo"], float), np.asarray(it["kp_hi"], float)
+            b.cyl(lo_ + 0.012 * unit(hi_ - lo_), hi_ - 0.012 * unit(hi_ - lo_), 0.0125)
+            on_kp = lambda z: lo_ + (hi_ - lo_) * (z - lo_[2]) / (hi_[2] - lo_[2])
+        else:
+            b.cyl([k[0], k[1], w[2] - 0.032], [k[0], k[1], k[2] + 0.025], 0.0125)
+            b.cyl([k[0], k[1], k[2] + 0.02], [k[0], k[1], k[2] + 0.045], 0.0065)
+            b.cyl_c([k[0], k[1], k[2] + 0.045], [0, 0, 1], 0.01, 0.01)
+            on_kp = lambda z: np.array([k[0], k[1], z])
         bodies.append(b)
         b = mk("stub", st)
         b.cyl([k[0], k[1], w[2]], w, 0.0125)
         b.box([k[0], k[1] + s * abs(w[1] - k[1]) * 0.3, w[2]], [0.04, abs(w[1] - k[1]) * 0.6, 0.02])
         bodies.append(b)
         b = mk("arm", st)
-        b.cyl([k[0], k[1], end[2]], end, 0.0075)
-        b.box([k[0] - 0.015, k[1], end[2]], [0.04, 0.035, 0.012])
+        root = on_kp(end[2])
+        b.cyl(root, end, 0.0075)
+        b.box(root - [0.015, 0, 0], [0.04, 0.035, 0.012])
         bodies.append(b)
     elif t == "rod":
         a, e = pos, np.asarray(it["to"], float)
@@ -455,8 +471,9 @@ def build_item(i, it, items):
             d = unit(e - a)
             b = mk("tube"); b.cyl(a, e, it["d"] / 2); bodies.append(b)
             b = mk("flange")
-            for tt in (0.12, 0.62):                      # flange bearings on the frame
-                p = a + (e - a) * (1 - tt)
+            spots = [np.asarray(q, float) for q in it["bearings"]] if "bearings" in it else \
+                [a + (e - a) * (1 - tt) for tt in (0.12, 0.62)]
+            for p in spots:                              # flange bearings on the frame
                 b.box(p, [0.07, 0.07, 0.012], frame(d)); b.cyl_c(p, d, 0.02, 0.026)
             bodies.append(b)
     elif t == "arm":                                     # flat bar, width kept horizontal (as armItem in model.js)
@@ -563,6 +580,7 @@ def _mk(i, it, sub, steer):
     b.steer = steer or (("king", SIDE(it["pos"])) if it.get("steers") else None)   # "steers": turns with its front wheel
     b.arm = it.get("arm") is True and it["type"] not in ("chain", "shock")            # chain and shock are rebuilt, not rotated
     b.farm = it.get("front_arm")
+    b.flink = it.get("front_link")
     return b
 
 
@@ -583,6 +601,7 @@ def member_body(i, m):
     b.member = (a, e)
     b.arm = m.get("arm") is True
     b.farm = m.get("front_arm")
+    b.flink = m.get("front_link")
     return b.finish()
 
 
@@ -826,69 +845,59 @@ def _steer_setup(design):
 
 
 def _front(design):
-    """(pivots {"l","r"} as arrays, bump deg, droop deg) of the front suspension, or None."""
+    """The front's hard points (calc/front.py), its bump and droop (m), and the bar's lock (deg), or None."""
     fs = design.get("front_suspension")
-    if not fs:
+    if not fs or fs.get("type") != "wishbones":
         return None
-    return {k: np.asarray(v, float) for k, v in fs["pivots"].items()}, abs(fs["bump_deg"]), -abs(fs["droop_deg"])
+    return FRONT_KIN.from_json(fs["points"]), fs["bump"], -fs["droop"], fs["lock_bar_deg"]
 
 
-def _frot(design, spindles, letter, deg):
-    """(rotation, pivot) of a front arm at deg: about x through the pivot, positive lifting the outer end (kingpin)."""
-    piv = _front(design)[0][letter]
-    k = np.asarray(spindles[1 if letter == "l" else -1]["pos"], float)
-    out = 1.0 if k[1] >= piv[1] else -1.0
-    return rot_axis([1.0, 0, 0], math.radians(deg) * out), piv
+def _poses(fr, fsd, bar_deg):
+    """{"l"/"r": the corner's moves} for a state: the sides in fsd risen by their value, both knuckles
+    turned by the bar; sides that do not move are left out."""
+    out = {}
+    for L, s in (("l", 1), ("r", -1)):
+        if L in fsd or bar_deg:
+            out[L] = FRONT_KIN.Corner(fr[0], s).pose(fsd.get(L, 0.0), math.radians(bar_deg))
+    return out
 
 
-def _tie_ends(it, ang, spindles, foot, axis, fs=None, design=None):
-    """Inner end (turned with the stem) and outer end (moved with the front arm, then turned about the
-    kingpin where it stands) of a tie rod at a steer angle; fs = {"l"/"r": arm angle in deg}."""
+def _tie_ends(it, bar_deg, poses, foot, axis):
+    """Inner end (turned with the stem) and outer end (moved with its knuckle) of a tie rod."""
     a, e = np.asarray(it["pos"], float), np.asarray(it["to"], float)
-    s = int(np.sign(e[1]))
-    k = np.asarray(spindles[s]["pos"], float)
-    zax = np.array([0, 0, 1.0])
-    letter = "l" if s > 0 else "r"
-    if fs and letter in fs:
-        R, pv = _frot(design, spindles, letter, fs[letter])
-        e, k, zax = R @ (e - pv) + pv, R @ (k - pv) + pv, R @ zax
-    if ang:
-        th = math.radians(ang)
-        a = rot_axis(axis, th) @ (a - foot) + foot
-        e = rot_axis(zax, th) @ (e - k) + k
+    L = "l" if e[1] > 0 else "r"
+    if bar_deg:
+        a = rot_axis(axis, math.radians(bar_deg)) @ (a - foot) + foot
+    if L in poses:
+        e = poses[L]["knuckle"](e)
     return a, e
 
 
 def steering_report(design, steer_deg=30.0):
-    """Tie rod lengths (m) straight and at +-steer_deg, and the largest change from straight.
-    {"steer_deg", "rods": [{"index", "straight", "plus", "minus"}], "max_change"}; with front_suspension also
-    per rod "bump" and "droop" (both sides together, straight steering) and "max_change_heave" (m), plus
-    "max_change_single" (one side moved alone)."""
-    spindles, foot, axis = _steer_setup(design)
-    rods = []
-    for i, it in enumerate(design["items"]):
-        if it["type"] == "rod" and it["part"] == "tie_rods":
-            ln = {}
-            for k, ang in (("straight", 0.0), ("plus", steer_deg), ("minus", -steer_deg)):
-                a, e = _tie_ends(it, ang, spindles, foot, axis)
-                ln[k] = float(np.linalg.norm(e - a))
-            rods.append({"index": i, **ln})
-    ch = max([abs(r[k] - r["straight"]) for r in rods for k in ("plus", "minus")] or [0.0])
-    out = {"steer_deg": steer_deg, "rods": rods, "max_change": ch}
+    """The front's lock and bump steer, from calc/front.py: {"bar_deg", "inner", "outer", "rods": [...],
+    "max_change_heave"} - the last is how far a tie rod would have to stretch over the travel (m) if the
+    knuckle did not steer, which is the bump steer times the steering arm."""
     fr = _front(design)
-    if fr:
-        single = 0.0
-        for r in rods:
-            it = design["items"][r["index"]]
-            for k, u in (("bump", fr[1]), ("droop", fr[2])):
-                a, e = _tie_ends(it, 0.0, spindles, foot, axis, {"l": u, "r": u}, design)
-                r[k] = float(np.linalg.norm(e - a))
-                a, e = _tie_ends(it, 0.0, spindles, foot, axis, {"l": u} if it["to"][1] > 0 else {"r": u}, design)
-                single = max(single, abs(float(np.linalg.norm(e - a)) - r["straight"]))
-        out["max_change_heave"] = max([abs(r[k] - r["straight"]) for r in rods for k in ("bump", "droop")] or [0.0])
-        out["max_change_single"] = single
-        out["bump_deg"], out["droop_deg"] = fr[1], fr[2]
-    return out
+    if not fr:
+        return {"rods": [], "max_change_heave": 0.0}
+    g = fr[0]
+    bar, inner, outer = FRONT_KIN.lock(g, steer_deg)
+    rods = []
+    for L, s in (("l", 1), ("r", -1)):
+        c = FRONT_KIN.Corner(g, s)
+        lo0, up0 = c.arms(0.0)
+        k0 = c.knuckle(lo0, up0, 0.0)
+        tip0 = k0(c.p["tip"])
+        ch = 0.0
+        for u in (fr[1], fr[2]):
+            pose = c.pose(u)
+            lo, up = pose["lower"], pose["upper"]
+            # the knuckle carried by the arms alone, its steer as at rest
+            kn = c.knuckle(lo, up, 0.0)
+            ch = max(ch, abs(np.linalg.norm(kn(c.p["tip"]) - c.p["tie_in"]) - np.linalg.norm(tip0 - c.p["tie_in"])))
+        rods.append({"side": L, "length": float(np.linalg.norm(c.p["tip"] - c.p["tie_in"])), "change_heave": float(ch)})
+    return {"bar_deg": math.degrees(bar), "inner": inner, "outer": outer, "rods": rods,
+            "max_change_heave": max(r["change_heave"] for r in rods), "bump": fr[1], "droop": fr[2]}
 
 
 def _susp_angles(design):
@@ -921,19 +930,20 @@ def find(design, configs=("summer", "winter"), limit=0.005, steer_deg=30.0):
     ties = [i for i in need if items[i]["part"] == "tie_rods"]
     piv, susp = _susp_angles(design)
     fr = _front(design)
-    states = [(a, 0.0, {}) for a in (0.0, steer_deg, -steer_deg)] + [(0.0, u, {}) for u in susp]
-    if fr:                               # one side at a time: +bump and -droop straight; +bump at +-steer
-        states += [(0.0, 0.0, {L: u}) for L in fr[0] for u in (fr[1], fr[2])]
-        states += [(a, 0.0, {L: fr[1]}) for L in fr[0] for a in (steer_deg, -steer_deg)]
-    for i in need:                       # shock length at each front angle
+    lock = fr[3] if fr else steer_deg    # the bar's angle at the lock
+    states = [(a, 0.0, {}) for a in (0.0, lock, -lock)] + [(0.0, u, {}) for u in susp]
+    if fr:                               # one side at a time and both together, at +bump and -droop, straight and at +-lock (K-017)
+        for fsd in [{L: u} for L in ("l", "r") for u in (fr[1], fr[2])] + [{"l": u, "r": u} for u in (fr[1], fr[2])]:
+            states += [(a, 0.0, fsd) for a in (0.0, lock, -lock)]
+    for i in need:                       # shock length at each front position
         if items[i]["type"] == "shock" and items[i].get("front_arm") and fr:
             ls = []
             for u in [0.0, fr[1], fr[2]]:
                 it = items[i]
                 if u:
-                    R, pv = _frot(design, spindles, items[i]["front_arm"], u)
-                    it = _dyn(it, R, pv)
-                ls.append(f"{np.linalg.norm(np.asarray(it['to']) - np.asarray(it['pos'])) * 1000:.0f} mm at {u:+g} deg")
+                    pose = _poses(fr, {it["front_arm"]: u}, 0.0)[it["front_arm"]]
+                    it = dict(it, pos=[float(x) for x in pose["lower"](it["pos"])])
+                ls.append(f"{np.linalg.norm(np.asarray(it['to']) - np.asarray(it['pos'])) * 1000:.0f} mm at {u * 1000:+.0f} mm")
             free = items[i].get("eye")
             LAST_NOTES.append(("shock", f"front shock #{i} ({items[i]['front_arm']}) length " + ", ".join(ls) + (f" (free length {free * 1000:.0f} mm)" if free else ""), None, 0.0))
     for i in need:                       # shock length at each rear angle
@@ -970,7 +980,8 @@ def find(design, configs=("summer", "winter"), limit=0.005, steer_deg=30.0):
         ctx = {"mount": mount, "eyes": eyes, "saddles": saddles}
         for ang, sus, fsd in states:
             th = math.radians(ang)
-            FR = {L: _frot(design, spindles, L, u) for L, u in fsd.items()}
+            FR = _poses(fr, fsd, ang) if fr else {}
+            part_of = lambda pose, link: pose[link or "knuckle"]
             if ang not in rider_cache:
                 turn = (rot_axis(stem_axis, th), foot) if ang else None
                 rider_cache[ang] = {k: rider_bodies(design, k, turn) for k in design["riders"]}
@@ -980,8 +991,7 @@ def find(design, configs=("summer", "winter"), limit=0.005, steer_deg=30.0):
                 if sus and j.get("arm") is True:
                     return rot_axis([0, 1, 0], math.radians(sus)) @ (at - piv) + piv
                 if j.get("front_arm") in FR:
-                    R, pv = FR[j["front_arm"]]
-                    return R @ (at - pv) + pv
+                    return part_of(FR[j["front_arm"]], j.get("front_link"))(at)
                 return at
             ctx["joints"] = [(jat(j), j["r"]) for j in design.get("joints", [])]
             Ry = rot_axis([0, 1, 0], math.radians(sus))
@@ -995,22 +1005,11 @@ def find(design, configs=("summer", "winter"), limit=0.005, steer_deg=30.0):
                 if sus and b.arm:
                     nb = b.moved(Ry, piv)
                     changed.add(id(nb))
-                elif fa in FR:                                   # suspension first, then steering about the moved kingpin
-                    R, pv = FR[fa]
-                    nb = b.moved(R, pv)
+                elif fa in FR:                                   # the corner's arms and knuckle, steered as the tie rod makes it
+                    nb = b.move(part_of(FR[fa], b.flink))
                     changed.add(id(nb))
-                    if ang and b.steer is not None:
-                        if b.steer[0] == "king":
-                            k = np.asarray(spindles[b.steer[1]]["pos"], float)
-                            nb = nb.moved(rot_axis(R @ np.array([0, 0, 1.0]), th), R @ (k - pv) + pv)
-                        else:
-                            nb = nb.moved(rot_axis(stem_axis, th), foot)
-                elif ang and b.steer is not None:
-                    if b.steer[0] == "king":
-                        k = np.asarray(spindles[b.steer[1]]["pos"], float)
-                        nb = b.moved(rot_z(th), np.array([k[0], k[1], 0.0]))
-                    else:
-                        nb = b.moved(rot_axis(stem_axis, th), foot)
+                elif ang and b.steer is not None and b.steer[0] != "king":
+                    nb = b.moved(rot_axis(stem_axis, th), foot)
                 else:
                     nb = b
                 moved.append(nb)
@@ -1019,7 +1018,7 @@ def find(design, configs=("summer", "winter"), limit=0.005, steer_deg=30.0):
                     fa = items[i].get("front_arm")
                     dyn = None
                     if fa in FR:
-                        dyn = _dyn(items[i], *FR[fa])
+                        dyn = dict(items[i], pos=[float(x) for x in FR[fa]["lower"](items[i]["pos"])])
                     elif sus and not fa:
                         dyn = _dyn(items[i], Ry, piv)
                     if dyn is not None:
@@ -1029,7 +1028,7 @@ def find(design, configs=("summer", "winter"), limit=0.005, steer_deg=30.0):
                             changed.add(id(nb))
             for i in ties:
                 if i in idx:
-                    a, e = _tie_ends(items[i], ang, spindles, foot, stem_axis, fsd, design)
+                    a, e = _tie_ends(items[i], ang, FR, foot, stem_axis)
                     nb = tie_rod_body(i, items[i], a, e)
                     moved.append(nb)
                     if fsd:
@@ -1111,13 +1110,11 @@ def report(clashes, configs, limit, steer, secs, design):
         if n[0] == "shock":
             print(f"\nnote: {n[1]}")
     sr = steering_report(design, steer)
-    for r in sr["rods"]:
-        print(f"\nnote: tie rod #{r['index']} length {r['straight'] * 1000:.0f} mm straight, {r['plus'] * 1000:.0f} mm at +{steer:g}, {r['minus'] * 1000:.0f} mm at -{steer:g}")
-    print(f"note: largest tie rod length change {sr['max_change'] * 1000:.0f} mm")
-    if "max_change_heave" in sr:
+    if sr["rods"]:
+        print(f"\nnote: lock: bar {sr['bar_deg']:.1f} deg, inner wheel {sr['inner']:.1f} deg, outer {sr['outer']:.1f} deg")
         for r in sr["rods"]:
-            print(f"note: tie rod #{r['index']} length {r['bump'] * 1000:.1f} mm at +{sr['bump_deg']:g} and {r['droop'] * 1000:.1f} mm at {sr['droop_deg']:g} front suspension (both sides)")
-        print(f"note: bump steer: largest tie rod length change over the front suspension travel (heave) {sr['max_change_heave'] * 1000:.1f} mm (one side alone {sr['max_change_single'] * 1000:.1f} mm)")
+            print(f"note: tie rod ({r['side']}) {r['length'] * 1000:.0f} mm; it would have to stretch "
+                  f"{r['change_heave'] * 1000:.1f} mm over the travel for the wheel not to steer")
     print(f"\nsummary: {summary(clashes)}   ({secs:.1f} s)")
 
 

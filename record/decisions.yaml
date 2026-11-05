@@ -366,3 +366,16 @@ items:
     touches:
       - Q-041
       - H-06
+  - id: D-041
+    date: 2026-11-04
+    by: owner
+    what: The front end takes form S1 of 1.2.20 - upper and lower A-arms each side with the knuckle between their ends, one coil-over from each lower arm to a node of the upper rails, a triangulated nose box carrying the arms' pivots, the shocks' tops, and the stem's two bearings, and tie rods from a plate on the stem, their inner ends at the height that keeps the toe change least; it replaces the swing axles of D-039, which change the camber too much over the travel
+    options:
+      - S1 double A-arms
+      - S2 one arm a side on a fore-and-aft axis (the swing axles of D-039)
+      - S3 a leading arm a side
+      - S4 rigid beam
+    touches:
+      - Q-043
+      - R-04
+    supersedes: D-039

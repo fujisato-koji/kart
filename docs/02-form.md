@@ -363,7 +363,7 @@ The owner found that the front end of 1.3 was not a sound structure. The steerin
 | FE-01 | The handlebar steers both front wheels through one continuous linkage | bar - stem - plate - tie rods - steering arms - knuckles, every joint shown | D-030 |
 | FE-02 | Lock and turning | lay.steer_max_deg each way, close to Ackermann | 1.3.6 |
 | FE-03 | The wheels hardly steer as the springs move | toe change under 1 degree over the travel (proposal) | F6 |
-| FE-04 | The front follows the ground | sus.droop_mm down and sus.bump_mm up; landing from land.drop_ref_mm no worse than the bump case | D-039, 1.3.18 |
+| FE-04 | The front follows the ground | sus.droop_mm down and sus.bump_mm up; landing from land.drop_ref_mm no worse than the bump case (proposal; not met by 1.3.20, Q-044) | D-039, 1.3.18 |
 | FE-05 | The wheels stay upright enough | camber change under about 3 degrees over the travel (proposal) | S12 |
 | FE-06 | It carries the loads of rough ground | the cases of 1.3.18, safety factors as there | 1.3.18 |
 | FE-07 | Every load goes straight into the frame | each wheel force, shock force, and stem force enters at a node of a triangulated frame; the tubes work mainly in tension and compression | owner, this section |
@@ -425,3 +425,5 @@ None of them is known to carry what this kart carries. The two with a stated max
 The shocks sold as M100 are 240 to 290 mm between the eyes; their stroke is not stated, so whether a 290 mm shock gives the 37 mm (S1), 29 mm (S2), or 56 mm (S3) that the travel needs is still to be found.
 
 **The assistant proposes S1.** As sketched it is the only form that meets FE-03 and FE-05 together; its loads go along tubes into the nodes of a triangulated box, and that box gives the shocks and the stem their places without stays of their own (FE-07, FE-08). Against it: it has the most pivots; the arms cost cost.atv_aarm_set_jpy if a set covers both sides and twice that if not, or are made at home; and if the knuckles turn on kingpins, each side needs a kingpin shaft and a plate made stronger than the donor's (P85). Whether the knuckles take kingpins or ball joints is to be found from the parts in hand. No precedent carries this kart's load, so the sizes of the arms, the box, and the knuckle plate come from the line model and the frame analysis of the next step. S3 is the second choice if fewer pivots matter more than a steady caster. **The owner decides** (Q-043).
+
+**Decided.** The owner chose S1 (D-041). 1.3.20 designs it: the hard points set and moved in three dimensions, the nose box of 1.3.2 built round them, the stresses solved, and the interferences searched.

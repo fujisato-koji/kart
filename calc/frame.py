@@ -1,8 +1,8 @@
 """Static analysis of the kart's frame as a space frame of steel tubes (step 1.3, Q-035).
 
 Each tube is a straight Euler-Bernoulli beam with six degrees of freedom at each end; a shock
-absorber is a pin-ended link that carries only its axial force; a pivot couples two nodes in
-every direction but one rotation. calc/design.py builds the nodes, tubes, loads, and supports
+absorber or a tie rod is a pin-ended link that carries only its axial force; a pivot couples two
+nodes in every direction but one rotation, a ball joint in every direction but the rotations. calc/design.py builds the nodes, tubes, loads, and supports
 and reads back the stresses.
 
     from frame import solve
@@ -12,7 +12,8 @@ nodes    {name: (x, y, z)} in metres
 members  [{"a": name, "b": name, "od": m, "t": m, "tag": str}] tubes
 loads    {name: (Fx, Fy, Fz)} in newtons
 supports {name: "xyz"} the translations held at that node
-hinges   [(name_a, name_b, "y")] two coincident nodes joined except for rotation about that axis
+hinges   [(name_a, name_b, "y")] two coincident nodes joined except for rotation about that axis;
+         "xyz" frees all three rotations (a ball joint)
 links    [(name_a, name_b)] pin-ended axial links (a shock taken as rigid)
 returns  {"stress": [MPa per member, von Mises at the worse end], "axial": [N per member],
           "link_force": [N per link, tension positive], "disp": {name: (dx, dy, dz)}}
@@ -97,9 +98,9 @@ def solve(nodes, members, loads, supports, hinges=(), links=()):
         link_axes.append((da, db, e, ka))
     for na, nb, free in hinges:
         ia, ib = idx[na], idx[nb]
-        free_r = 3 + "xyz".index(free)
+        free_r = {3 + "xyz".index(ch) for ch in free}
         for d in range(6):
-            if d == free_r:
+            if d in free_r:
                 continue
             p, q = 6 * ia + d, 6 * ib + d
             K[p, p] += STIFF

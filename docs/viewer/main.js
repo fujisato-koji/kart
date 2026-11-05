@@ -18,7 +18,7 @@ const PART_NAMES = {
   tie_rods: 'タイロッド', spindles: 'スピンドルとキングピン', front_wheels: '前輪とタイヤ', axle_shaft: 'アクスル軸',
   axle_bearings: 'アクスル軸受（UCP）', rear_hubs: '後輪ハブ', rear_wheels: '後輪とタイヤ', brake: 'ディスクブレーキ',
   engine: 'エンジン', clutch: '遠心クラッチ', jackshaft: 'ジャックシャフト', chain_primary: '一次チェーン', chain_final: '二次チェーン',
-  skis: 'スキー', swing_arm: 'スイングアーム', rear_shock: '後ろの緩衝器', front_arms: '前のスイングアクスル', front_shocks: '前の緩衝器', sled_pan: 'そり底',
+  skis: 'スキー', swing_arm: 'スイングアーム', rear_shock: '後ろの緩衝器', front_arms: '前の A アーム', front_shocks: '前の緩衝器', sled_pan: 'そり底',
   side_floats: '浮き（将来版）', outboard: '船外機（将来版）', roll_bar: '転倒保護の輪', lighting: '灯火と方向指示器', mirrors: 'ミラー', horn: 'ホーン',
   speedometer: '速度計', hand_brake: '前輪ブレーキ（2 系統目）', battery: 'バッテリー', number_plate: 'ナンバー', snow_chains: 'タイヤチェーン',
 };
@@ -27,7 +27,7 @@ const state = {
   config: ['summer', 'winter', 'transport', 'water'].includes(params.get('config')) ? params.get('config') : 'summer',
   rider: ['adult', 'child', 'none'].includes(params.get('rider')) ? params.get('rider') : 'adult',
   delica: params.get('delica') === '1', dims: params.get('dims') === '1',
-  view: ['iso', 'side', 'top', 'front'].includes(params.get('view')) ? params.get('view') : 'iso',
+  view: ['iso', 'side', 'top', 'front', 'nose', 'nose_side'].includes(params.get('view')) ? params.get('view') : 'iso',
 };
 const $ = (id) => document.getElementById(id);
 const post = (msg) => { if (window.parent !== window) window.parent.postMessage(msg, '*'); };
@@ -40,7 +40,7 @@ function fail(e) {
 
 let design, renderer, scene, camera, controls, kart, groups = [], riderCache = {}, riderObj = null, delicaObj = null, dimsObj = null;
 let ground, groundShadow, floorShadow, dirty = true, tween = null;
-const hidden = new Set(); let focus = new Set(); let selected = null;
+const hidden = new Set((params.get('hide') || '').split(',').filter(Boolean)); let focus = new Set(); let selected = null;   // ?hide=front_wheels,fenders
 const matCache = new Map();
 
 function sceneColour() { return getComputedStyle(document.documentElement).getPropertyValue('--scene').trim() || '#e9eff5'; }
@@ -189,6 +189,10 @@ function viewSpec(name) {
   if (name === 'side') { dir = new THREE.Vector3(0, 1, 0.1); dist = fit(L / 2 + 0.3, Hh / 2 + 0.12); }
   else if (name === 'top') { dir = new THREE.Vector3(0.0001, -0.07, 1); dist = fit(L / 2 + 0.25, W / 2 + 0.3); }
   else if (name === 'front') { dir = new THREE.Vector3(1, 0, 0.1); dist = fit(W / 2 + 0.25, Hh / 2 + 0.12); }
+  else if (name === 'nose' || name === 'nose_side') { // a close look at the left front corner and the nose box (D-041)
+    const t = k2w(design.dims.wheelbase + 0.02, 0.14, 0.28), v = name === 'nose' ? k2w(0.9, 1.0, 0.45) : k2w(0.08, 1, 0.1);
+    return { pos: t.clone().addScaledVector(v.normalize(), name === 'nose' ? 0.95 : 1.05), target: t };
+  }
   else { dir = new THREE.Vector3(1, 1.05, 0.72); const rho = 0.5 * Math.sqrt(L * L + W * W + Hh * Hh); dist = Math.max(rho / tf, rho / (tf * aspect)) * 0.95; }
   const w = k2w(dir.x, dir.y, dir.z).normalize();
   return { pos: target.clone().addScaledVector(w, dist), target };

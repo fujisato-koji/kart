@@ -562,3 +562,16 @@ items:
     opened: 2026-11-04
     raised_by: owner
     phase: design
+    closed_by: D-041
+    closed: 2026-11-04
+  - id: Q-044
+    kind: finding
+    text: The double A-arms of D-041 (1.3.20) rest on hard points set before the knuckles were measured. Whether the bought knuckles (M92) take ball joints or a kingpin between the arms, where their joints and steering arm are, and how long that arm is (lay.steer_arm_mm, assumed) are to be measured on the parts in hand, and the hard points set from them, before the arms are made; the ball joints in the parts list (M106) stand for either. The front steers with more Ackermann than one turning centre needs - the outer wheel turns dsn.steer_outer_deg where dsn.steer_outer_ideal_deg would do - because arms angled to correct it raise the toe change to dsn.bump_steer_alt_deg. The tyre stands within 5 mm of the lower arm's outer end. From land.drop_ref_mm the front lands at dsn.landing_front_g, above the bump case (FE-04); the arms would allow more travel, as far as the shocks' stroke does. The arms' pivot bolts and bushes are not yet priced.
+    waits_for: owner
+    affects:
+      - front_arms
+      - spindles
+      - tie_rods
+    opened: 2026-11-05
+    raised_by: assistant
+    phase: design

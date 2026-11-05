@@ -230,6 +230,10 @@ export default function create(api) {
       case 'spindle': {
         const k = it.pos, w = it.to, rod = design.items.find((o) => o.part === 'tie_rods' && Math.sign(o.to[1]) === it.side);
         const end = rod ? rod.to : [k[0] - it.arm, k[1], k[2]];
+        if (it.kp_lo) { // the kingpin between the A-arms' joints (D-041)
+          const lo = it.kp_lo, hi = it.kp_hi, at = (z) => lo.map((v, i) => v + (hi[i] - v) * (z - lo[2]) / (hi[2] - lo[2]));
+          return thick(P(...lo), P(...hi), 0.025 * s) + thick(P(...at(w[2])), P(...w), 0.025 * s) + thick(P(...at(end[2])), P(...end), 0.015 * s);
+        }
         const kb = [k[0], k[1], w[2] - 0.032];
         return thick(P(...kb), P(k[0], k[1], k[2] + 0.025), 0.025 * s) + thick(P(k[0], k[1], w[2]), P(...w), 0.025 * s) + thick(P(k[0], k[1], end[2]), P(...end), 0.015 * s);
       }

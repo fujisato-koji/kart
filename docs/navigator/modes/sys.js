@@ -28,7 +28,7 @@ export const ILLUSTRATIVE = {
     front_wheels: '前輪', axle_shaft: 'アクスル軸', axle_bearings: '軸受', rear_hubs: '後ハブ', rear_wheels: '後輪', brake: 'ブレーキ',
     engine: 'エンジン', chain_final: '最終チェーン',
     throttle: 'スロットル', kill_switch: '停止スイッチ', skis: 'スキー', lighting: '灯火', mirrors: 'ミラー', horn: 'ホーン', speedometer: 'スピードメーター', hand_brake: '前輪ブレーキ', battery: 'バッテリー', number_plate: 'ナンバー', roll_bar: '転倒保護の輪',
-    snow_chains: 'タイヤチェーン', sled_pan: 'そり底', swing_arm: 'スイングアーム', rear_shock: '後ろの緩衝器', front_arms: '前のスイングアクスル', front_shocks: '前の緩衝器', side_floats: '浮き（将来版）', outboard: '船外機（将来版）',
+    snow_chains: 'タイヤチェーン', sled_pan: 'そり底', swing_arm: 'スイングアーム', rear_shock: '後ろの緩衝器', front_arms: '前の A アーム', front_shocks: '前の緩衝器', side_floats: '浮き（将来版）', outboard: '船外機（将来版）',
   },
   // [column, y]; the frame is a wide bar. A part missing here is drawn in the fallback row.
   pos: {

@@ -117,25 +117,25 @@ function buildMembers(design) {
   const key = (p) => p.map((v) => Math.round(v * 1000)).join(',');
   for (const mb of design.members) {
     const a = V(mb.a), b = V(mb.b), r = mb.od / 2;
-    const bump = mb.part === 'bumpers';
+    const bump = mb.part === 'bumpers', farm = mb.part === 'front_arms';   // the A-arms in black, as an ATV's
     const g = new THREE.Group(); g.userData = { part: mb.part, configs: design.configs, member: true };
-    g.add(cylBetween(a, b, r, bump ? M.bumper : M.paint, ILLUSTRATIVE.tubeSegments));
+    g.add(cylBetween(a, b, r, bump ? M.bumper : farm ? M.darkSteel : M.paint, ILLUSTRATIVE.tubeSegments));
     // weld beads: a dark ring near each end of the tube
     const dir = b.clone().sub(a).normalize();
     for (const [p, s] of [[a, 1], [b, -1]]) {
-      const bead = mesh(new THREE.TorusGeometry(r * 1.02, r * ILLUSTRATIVE.weldBead * 2.2, 8, 20), bump ? M.bumperDark : M.paintDark);
+      const bead = mesh(new THREE.TorusGeometry(r * 1.02, r * ILLUSTRATIVE.weldBead * 2.2, 8, 20), bump ? M.bumperDark : farm ? M.steel : M.paintDark);
       bead.position.copy(p).addScaledVector(dir, s * Math.max(0.012, r * 0.9));
       bead.quaternion.setFromUnitVectors(new THREE.Vector3(0, 0, 1), dir);
       g.add(bead);
       const k = key([p.x, p.y, p.z]);
-      const n = nodes.get(k) || { p, r: 0, part: mb.part, bump };
+      const n = nodes.get(k) || { p, r: 0, part: mb.part, bump, farm };
       n.r = Math.max(n.r, r); nodes.set(k, n);
     }
     out.push(g);
   }
   for (const n of nodes.values()) { // a round weld blob at each node closes the mitre gap
     const g = new THREE.Group(); g.userData = { part: n.part, configs: design.configs, member: true };
-    const s = sphere(n.r * ILLUSTRATIVE.nodeScale * 1.02, n.bump ? M.bumper : M.paint, 14);
+    const s = sphere(n.r * ILLUSTRATIVE.nodeScale * 1.02, n.bump ? M.bumper : n.farm ? M.darkSteel : M.paint, 14);
     s.position.copy(n.p); g.add(s); out.push(g);
   }
   return out;
@@ -496,18 +496,25 @@ function clutchItem(it) {
 function spindleItem(it, ctx) {
   const M = mats(); const g = new THREE.Group(); const s = it.side;
   const k = V(it.pos), w = V(it.to);
-  // kingpin tube and bolt
-  const kp = cylBetween(new THREE.Vector3(k.x, k.y, w.z - 0.032), new THREE.Vector3(k.x, k.y, k.z + 0.025), 0.0125, M.darkSteel, 18); g.add(kp);
-  const bolt = cylBetween(new THREE.Vector3(k.x, k.y, k.z + 0.02), new THREE.Vector3(k.x, k.y, k.z + 0.045), 0.0065, M.steel, 6); g.add(bolt);
-  const nut = boltUp(0.01, 0.01, M.steel); nut.position.set(k.x, k.y, k.z + 0.045); g.add(nut);
+  let onKp = (z) => new THREE.Vector3(k.x, k.y, z);
+  if (it.kp_lo) { // the knuckle's kingpin between the A-arms' joints (D-041), with a ball at each joint
+    const lo = V(it.kp_lo), hi = V(it.kp_hi), d = hi.clone().sub(lo).normalize();
+    g.add(cylBetween(lo.clone().addScaledVector(d, 0.012), hi.clone().addScaledVector(d, -0.012), 0.0125, M.darkSteel, 18));
+    for (const p of [lo, hi]) { const b = sphere(0.016, M.steel, 14); b.position.copy(p); g.add(b); }
+    onKp = (z) => lo.clone().lerp(hi, (z - lo.z) / (hi.z - lo.z));
+  } else { // kingpin tube and bolt
+    const kp = cylBetween(new THREE.Vector3(k.x, k.y, w.z - 0.032), new THREE.Vector3(k.x, k.y, k.z + 0.025), 0.0125, M.darkSteel, 18); g.add(kp);
+    const bolt = cylBetween(new THREE.Vector3(k.x, k.y, k.z + 0.02), new THREE.Vector3(k.x, k.y, k.z + 0.045), 0.0065, M.steel, 6); g.add(bolt);
+    const nut = boltUp(0.01, 0.01, M.steel); nut.position.set(k.x, k.y, k.z + 0.045); g.add(nut);
+  }
   // stub axle toward the wheel centre, with a web
   const stub = cylBetween(new THREE.Vector3(k.x, k.y, w.z), w, 0.0125, M.steel, 16); g.add(stub);
   const web = box(0.04, Math.abs(w.y - k.y) * 0.6, 0.02, M.darkSteel, 0.004); web.position.set(k.x, k.y + s * Math.abs(w.y - k.y) * 0.3, w.z); g.add(web);
   // steering arm to the inner end of the tie rod
   const rod = ctx.design.items.find((o) => o.part === 'tie_rods' && Math.sign(o.to[1]) === s);
   const end = rod ? V(rod.to) : new THREE.Vector3(k.x - it.arm, k.y - s * 0.02, k.z);
-  const a0 = new THREE.Vector3(k.x, k.y, end.z), arm = cylBetween(a0, end, 0.0075, M.darkSteel, 10); g.add(arm);
-  const arm2 = box(0.04, 0.035, 0.012, M.darkSteel, 0.004); arm2.position.set(k.x - 0.015, k.y, end.z); g.add(arm2);
+  const a0 = onKp(end.z), arm = cylBetween(a0, end, 0.0075, M.darkSteel, 10); g.add(arm);
+  const arm2 = box(0.04, 0.035, 0.012, M.darkSteel, 0.004); arm2.position.set(a0.x - 0.015, a0.y, a0.z); g.add(arm2);
   g.userData.armEnd = end;
   return g;
 }
@@ -555,8 +562,8 @@ function rodItem(it) {
     }
   } else {
     g.add(cylBetween(a, b, r, M.steel, 14));
-    for (const t of [0.12, 0.62]) { // flange bearings on the frame
-      const p = a.clone().lerp(b, 1 - t);
+    const spots = it.bearings ? it.bearings.map(V) : [0.12, 0.62].map((t) => a.clone().lerp(b, 1 - t));
+    for (const p of spots) { // flange bearings on the frame
       const fl = box(0.07, 0.07, 0.012, M.cast, 0.004); fl.position.copy(p); fl.quaternion.setFromUnitVectors(new THREE.Vector3(0, 0, 1), dir);
       g.add(fl);
       const hs = mesh(new THREE.CylinderGeometry(0.02, 0.02, 0.026, 20), M.cast); hs.position.copy(p); hs.quaternion.setFromUnitVectors(Y, dir); g.add(hs);

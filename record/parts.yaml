@@ -25,13 +25,13 @@ items:
     name: Tie rods with rod ends
     parent: steering
   - id: front_arms
-    name: Front swing axles - the two halves of the front beam, each turning on a pivot near the centre line and carrying a kingpin boss (D-039)
+    name: Front A-arms - an upper and a lower arm each side, hinged on the nose box, the knuckle between their ends (D-041)
     parent: steering
   - id: front_shocks
-    name: Front shock absorbers with their coil springs, one per swing axle, to a cross tube over the front (D-039)
+    name: Front shock absorbers with their coil springs, one per side, from the lower arm to the nose box's top rail (D-041)
     parent: steering
   - id: spindles
-    name: Kingpins and ATV steering knuckles with 17 mm spindles and steering arms
+    name: ATV steering knuckles with 17 mm spindles and steering arms, between the A-arms' joints
     parent: steering
   - id: front_wheels
     name: Front wheels and tyres
