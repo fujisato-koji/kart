@@ -132,11 +132,11 @@ The owner asked whether the load cases were right for a kart that also runs on r
 
 - **Driving cases**, each checked against dsn.frame_safety_min on tensile strength:
     - a bump of load.bump_g, with the adult seated and standing - the figure racing-car frames are designed to, for durability (P72, P73); road-vehicle figures are 2 to 3 and higher off road (S8);
-    - one front wheel lifted, at load.twist_rough, the rough-road figure for torsion (S8);
+    - either front wheel lifted, each in turn, at load.twist_rough, the rough-road figure for torsion (S8);
     - braking at load.brake_g and cornering at load.lateral_g, each with the weight (P72);
     - combined: load.combined_vert_g vertical with load.combined_brake_g braking and load.combined_lat_g sideways (Q-040).
 - **Accident cases**, each checked against load.accident_safety_min - the tubes may bend but must not break (Q-040):
-    - a frontal impact at load.impact_g, met by the whole bumper or by one end of it against a post or tree. Baja cars are designed for 8 to 10 g at 56 km/h head on (P74, P75); scaled to this kart's speed with the same stopping time this is 4.3 to 5.4 g (Q-040). The bumper stands ahead of the front tyres, so it meets a wall first (K-015).
+    - a frontal impact at load.impact_g, met by the whole bumper or by either end of it, each in turn, against a post or tree. Baja cars are designed for 8 to 10 g at 56 km/h head on (P74, P75); scaled to this kart's speed with the same stopping time this is 4.3 to 5.4 g (Q-040). The bumper stands ahead of the front tyres, so it meets a wall first (K-015).
     - the hoop crushed from above by load.hoop_crush_n_per_kg per kilogram of the kart, as tractor rollover structures are tested (P76);
     - the hoop pushed sideways by load.hoop_side_g of the kart's weight (Q-040).
 
@@ -206,7 +206,7 @@ The front of D-039 - two swing axles, a keel, a tower, and stays for the stem - 
 
 ## 1.3.21 Stress map and what it trimmed {#stress-map}
 
-The owner asked to see, for each load case, where the frame is stressed, and to take out what carries too little. The 3D view's stress choice (<a href="../navigator/#/?m=v3d&amp;st=env">the navigator's 3D mode, 応力</a>) colours every tube by its use in a case of 1.3.18: the stress along the tube over what that case allows - the tensile strength dsn.stkm11a_tensile_mpa over dsn.frame_safety_min for the driving cases and over load.accident_safety_min for the accidents, and for fatigue the repeated range a tube joint stands for fat.life_kcycles_min thousand cycles (1.3.18). All loads come at the nodes, so the bending runs straight along each tube and the colour along it is that of the line model itself. Envelopes of all cases, of the strength cases, and of fatigue are offered too.
+The owner asked to see, for each load case, where the frame is stressed, and to take out what carries too little. The 3D view's stress choice (<a href="../navigator/#/?m=v3d&amp;st=env">the navigator's 3D mode, 応力</a>) colours every tube by its use in a case of 1.3.18: the stress along the tube over what that case allows - the tensile strength dsn.stkm11a_tensile_mpa over dsn.frame_safety_min for the driving cases and over load.accident_safety_min for the accidents, and for fatigue the repeated range a tube joint stands for fat.life_kcycles_min thousand cycles (1.3.18). All loads come at the nodes, so the bending runs straight along each tube and the colour along it is that of the line model itself. Envelopes of all cases, of the strength cases, and of fatigue are offered too. Every one-sided case is taken on both sides - either front wheel lifted, either end of the bumper struck - so that the envelopes are symmetric but for the masses off the centre line (the engine, the chain, the brake), which change a tube's use by 1 % at most; the left front wheel and the bumper's right end were added when the owner found the envelope lopsided.
 
 - **First reading.** On the front of D-041 as first built, 37 of 132 tubes (6.7 m) used less than 15 % of what they could in every case, strength and fatigue alike, and only 6 (0.7 m) more than 60 %:
     - idle - the nose box's front and rear panels (posts, bottom cross tubes, and V braces, 3 to 12 %), the bumper and its struts (6 to 12 %), the upper A-arms (4 to 11 %), and the hoop's tubes (9 to 11 %);

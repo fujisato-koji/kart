@@ -840,8 +840,9 @@ def build(v):
             old = loads.get(q, (0.0, 0.0, 0.0))
             loads[q] = tuple(o + c * w_ / sum(wts) for o, c in zip(old, f))
 
-    def case(gz, rider="sit", gx=0.0, gy=0.0, lift_fr=False, impact=False):
-        """gz vertical, gx forward (braking or a frontal impact), gy sideways, in g on every mass"""
+    def case(gz, rider="sit", gx=0.0, gy=0.0, lift="", impact=False):
+        """gz vertical, gx forward (braking or a frontal impact), gy sideways, in g on every mass; lift "l" or
+        "r" lifts that front wheel off the ground, the other front wheel then holding the frame sideways"""
         loads = {}
         for pt, m, p_ in sprung:
             spread(loads, (m * G * gx, m * G * gy, -m * G * gz), p_, fnodes)
@@ -854,11 +855,15 @@ def build(v):
             old = loads.get(q, (0.0, 0.0, 0.0))
             loads[q] = tuple(o + share * c / 2 for o, c in zip(old, f_r))
         hx, hy = ("x" if gx else ""), ("y" if gy else "")
-        sup = {"cwl": "xyz", "cwr": "x" + hy + ("" if lift_fr else "z"), "axl": hx + hy + "z", "axr": hx + hy + "z"}
+        sup = {"cwl": "xyz", "cwr": "x" + hy + ("" if lift == "r" else "z"), "axl": hx + hy + "z", "axr": hx + hy + "z"}
+        if lift == "l":
+            sup.update(cwl="x", cwr="xyz")
         if impact == "both":             # the bumper stops the kart; the wheels carry its weight
             sup = {"cwl": "yz", "cwr": "z", "axl": "z", "axr": "z", "bpl": "x", "bpr": "x"}
-        elif impact == "offset":         # a post meets one end of the bumper; the tyres hold the yaw
+        elif impact == "l":              # a post meets the left end of the bumper; the tyres hold the yaw
             sup = {"cwl": "yz", "cwr": "z", "axl": "yz", "axr": "z", "bel": "x"}
+        elif impact == "r":              # the same at the right end
+            sup = {"cwl": "z", "cwr": "yz", "axl": "z", "axr": "yz", "ber": "x"}
         return frame.solve(N, mem, loads, sup, **pin)
 
     def hoop(f):                         # the kart upside down or on its side, held at its spine
@@ -866,12 +871,14 @@ def build(v):
         return frame.solve(N, mem, loads, {q: "xyz" for q in rails}, **pin)
 
     drive = {"bump, seated": case(k), "bump, standing": case(k, "stand"),
-             "right front wheel lifted": case(v["load.twist_rough"], lift_fr=True),
+             "right front wheel lifted": case(v["load.twist_rough"], lift="r"),
+             "left front wheel lifted": case(v["load.twist_rough"], lift="l"),
              "braking": case(1.0, gx=v["load.brake_g"]), "cornering": case(1.0, gy=v["load.lateral_g"]),
              "bump, braking, and cornering": case(v["load.combined_vert_g"], gx=v["load.combined_brake_g"],
                                                   gy=v["load.combined_lat_g"])}
     accident = {"frontal impact": case(1.0, gx=v["load.impact_g"], impact="both"),
-                "frontal impact, one end": case(1.0, gx=v["load.impact_g"], impact="offset"),
+                "frontal impact, left end": case(1.0, gx=v["load.impact_g"], impact="l"),
+                "frontal impact, right end": case(1.0, gx=v["load.impact_g"], impact="r"),
                 "hoop crushed from above": hoop((0.0, 0.0, -v["load.hoop_crush_n_per_kg"] * M)),
                 "hoop pushed sideways": hoop((0.0, -v["load.hoop_side_g"] * M * G, 0.0))}
 
@@ -906,8 +913,8 @@ def build(v):
     put("dsn.rail_safety", round(ts / worst["frame"][0], 2), None, "frame")
     put("dsn.arm_stress_mpa", round(worst["arm"][0]), "MPa", "suspension")
     put("dsn.arm_safety", round(ts / worst["arm"][0], 2), None, "suspension")
-    put("dsn.impact_safety", round(ts / max(max(accident["frontal impact"]["stress"][:len(tubes)]),
-                                            max(accident["frontal impact, one end"]["stress"][:len(tubes)])), 2), None, "loads")
+    put("dsn.impact_safety", round(ts / max(max(accident[c]["stress"][:len(tubes)]) for c in
+                                            ("frontal impact", "frontal impact, left end", "frontal impact, right end")), 2), None, "loads")
     for name, key_ in (("hoop crushed from above", "hoop_crush"), ("hoop pushed sideways", "hoop_side")):
         put(f"dsn.{key_}_safety", round(ts / max(accident[name]["stress"][:len(tubes)]), 2), None, "loads")
     put("dsn.shock_force_bump_n", round(abs(drive["bump, seated"]["link_force"][0])), "N", "suspension")
@@ -915,19 +922,20 @@ def build(v):
     put("dsn.frame_deflection_mm", round(sag_frame * 1000, 1), "mm", "frame")
 
     # Fatigue: stress is linear in the load, so the worst member's stress per g - of the seated
-    # and standing bumps and of one lifted wheel, whichever is worst - gives the stress range of a
+    # and standing bumps and of either lifted wheel, whichever is worst - gives the stress range of a
     # repeated load range. Welded tube joints last without limit below their fatigue limit,
     # (2/5)^(1/3) of the detail category, over the partial factor; above it the life falls with the
     # cube of the range from the category at 2 million cycles.
+    lifts = ("right front wheel lifted", "left front wheel lifted")
     per_g = max(max(drive["bump, seated"]["stress"][:len(tubes)]) / k, max(drive["bump, standing"]["stress"][:len(tubes)]) / k,
-                max(drive["right front wheel lifted"]["stress"][:len(tubes)]) / v["load.twist_rough"])
+                *(max(drive[c]["stress"][:len(tubes)]) / v["load.twist_rough"] for c in lifts))
     rng = per_g * v["fat.range_g"]
     put("dsn.fatigue_range_mpa", round(rng), "MPa", "loads")
     # the same for every tube, along it, for the stress map, against the range a tube joint stands for
     # the life fat.life_kcycles_min (below it the life is longer than that)
-    per_g_prof = [[max(a_ / k, b_ / k, c_ / v["load.twist_rough"]) for a_, b_, c_ in zip(pa, pb, pc)]
-                  for pa, pb, pc in zip(drive["bump, seated"]["profile"], drive["bump, standing"]["profile"],
-                                        drive["right front wheel lifted"]["profile"])][:len(tubes)]
+    per_g_prof = [[max(a_ / k, b_ / k, c_ / v["load.twist_rough"], d_ / v["load.twist_rough"]) for a_, b_, c_, d_ in zip(pa, pb, pc, pd)]
+                  for pa, pb, pc, pd in zip(drive["bump, seated"]["profile"], drive["bump, standing"]["profile"],
+                                            *(drive[c]["profile"] for c in lifts))][:len(tubes)]
     stress_map["cases"].append({"name": "fatigue, repeated range", "kind": "fatigue",
                                 "allow": round(v["fat.cat_tube_mpa"] / v["fat.gamma_mf"] * (2000 / v["fat.life_kcycles_min"]) ** (1 / 3), 1),
                                 "mpa": [[round(x * v["fat.range_g"], 1) for x in pr] for pr in per_g_prof]})

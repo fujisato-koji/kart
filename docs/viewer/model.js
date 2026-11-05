@@ -929,9 +929,9 @@ export function buildKart(design) {
 export const STRESS_EDGES = [0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.8, 1.0];
 export const STRESS_RAMP = ['#ffffcc', '#ffeda0', '#fed976', '#feb24c', '#fd8d3c', '#fc4e2a', '#e31a1c', '#bd0026', '#54278f'];
 export const STRESS_CASE_JA = {
-  'bump, seated': '段差（座って）', 'bump, standing': '段差（立って）', 'right front wheel lifted': '右前輪が浮く（ねじれ）',
+  'bump, seated': '段差（座って）', 'bump, standing': '段差（立って）', 'right front wheel lifted': '右前輪が浮く（ねじれ）', 'left front wheel lifted': '左前輪が浮く（ねじれ）',
   braking: '制動', cornering: '旋回', 'bump, braking, and cornering': '段差と制動と旋回', 'frontal impact': '正面衝突',
-  'frontal impact, one end': '正面衝突（バンパーの片端）', 'hoop crushed from above': '保護枠を上から押す',
+  'frontal impact, left end': '正面衝突（バンパーの左端）', 'frontal impact, right end': '正面衝突（バンパーの右端）', 'hoop crushed from above': '保護枠を上から押す',
   'hoop pushed sideways': '保護枠を横から押す', 'fatigue, repeated range': '疲労（繰り返しの応力幅）',
 };
 export const stressBand = (u) => { const i = STRESS_EDGES.findIndex((e) => u < e); return i < 0 ? STRESS_EDGES.length : i; };
