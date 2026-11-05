@@ -10618,6 +10618,20 @@
    "opened": "2026-11-05",
    "raised_by": "assistant",
    "phase": "design"
+  },
+  {
+   "id": "Q-047",
+   "kind": "question",
+   "text": "施主は、座面のクッションで大人と子どもの両方に合わせ、前から後ろまでまっすぐなフレームに座面を載せられないかを尋ねた。1.2.22 によると、座面はエンジンより低くできないので子どもの足台は残る。座席のレールの高さでまっすぐなフレームにすると溶接する端は 4〜8 か所減るが、ノーズの箱が 9 cm 高く 1.1 kg 重くなり、上の A アームの支点ごとに 14 cm 下へ吊る支えか、上の継手が買うものより 60 mm 高いナックルが要る。提案は A 案のまま。施主が選ぶ。",
+   "waits_for": "owner",
+   "affects": [
+    "frame",
+    "front_arms",
+    "seat"
+   ],
+   "opened": "2026-11-05",
+   "raised_by": "owner",
+   "phase": "design"
   }
  ],
  "hazards": [
@@ -12994,6 +13008,12 @@
    "doc": "docs/02-form.md",
    "id": "frame-welds",
    "title": "1.2.21 フレーム - 溶接を減らす",
+   "level": 2
+  },
+  {
+   "doc": "docs/02-form.md",
+   "id": "frame-straight",
+   "title": "1.2.22 フレーム - 前から後ろまでまっすぐ",
    "level": 2
   },
   {

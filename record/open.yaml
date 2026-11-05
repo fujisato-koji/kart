@@ -599,3 +599,14 @@ items:
     opened: 2026-11-05
     raised_by: assistant
     phase: design
+  - id: Q-047
+    kind: question
+    text: The owner asked whether the frame could run straight from front to back with the seat on it, the seat fitting both riders by its cushion. 1.2.22 finds that the child's steps stay, for the seat cannot go lower than the engine unit, and that a straight frame at the seat rails' height saves 4 to 8 welded ends but makes the nose box 9 cm taller and 1.1 kg heavier and needs either a support hanging 14 cm under each upper A-arm pivot or a knuckle whose upper joint is 60 mm higher than the bought one's; the assistant proposes keeping form A. The owner chooses.
+    waits_for: owner
+    affects:
+      - frame
+      - front_arms
+      - seat
+    opened: 2026-11-05
+    raised_by: owner
+    phase: design
