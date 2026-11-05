@@ -29,7 +29,7 @@ items:
           - rider.stature_min_cm
           - rider.stature_max_cm
       - id: OP-01.07
-        action: Look over the frame's welds for cracks - the spine between the footboards, the seat rails' posts, the rear posts and struts, the front pivots, and the swing arms; do not ride with a crack.
+        action: Look over the frame's welds for cracks - the spine between the footboards, the seat rails, the rising tubes and the pivot tube behind the engine, the hoop's legs, the nose box and the A-arms' pivots, and the swing arm; do not ride with a crack.
         controls:
           - H-06
       - id: OP-01.08

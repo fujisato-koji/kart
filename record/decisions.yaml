@@ -379,3 +379,19 @@ items:
       - Q-043
       - R-04
     supersedes: D-039
+  - id: D-042
+    date: 2026-11-05
+    by: owner
+    what: The frame's ends lose what carries little. At the rear the swing arm's pivot stays level with the engine's output, carried by two tubes rising from the spine's rear cross tube to the seat rails' rear ends behind the saddle; the protective hoop stands there, leaning back, and carries the rear shock's top on a cross tube between its legs; the struts, the upper rails behind the seat, and the number plate's frame go, the plate and the rear lamps riding on the swing arm. At the front the nose box's front panel is the bumper, ahead of the tyres, and the separate bumper with its struts goes. A pivot right on the spine rails was chosen first; the owner moved to the pivot at the output's height when a faulty search said no single shock fitted the low pivot, and kept it once a corrected search (K-019) found layouts for both, since the low pivot changes the chain's centre distance by about 45 mm against 14 mm.
+    options:
+      - rear - the pivot right on the spine rails, with a rocker and link for the shock
+      - rear - the pivot level with the output on the rising tubes, the shock's top on the hoop
+      - rear - no springs, the axle on the spine
+      - rear - the posts, struts, and upper rails as they were
+      - front - the nose box's front panel as the bumper
+      - front - the separate bumper as it was
+    touches:
+      - R-02
+      - R-19
+      - D-036
+      - D-041

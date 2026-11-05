@@ -114,7 +114,8 @@ def build(v):
     yb = mm("lay.bearing_y_mm")                       # the arm's sides and the two bearings
     h_b, l_b, h2_b = mm("brg.ucp207_h_mm"), mm("brg.ucp207_l_mm"), mm("brg.ucp207_h2_mm")
     arm_od, arm_t = rail_od, rail_t
-    # the pivot sits just behind the unit, level with its output, so the chain keeps its length
+    # the pivot sits just behind the unit, level with its output, so the chain keeps its length; it is
+    # carried by the two tubes rising from the spine to the seat rails (D-042)
     x_p, z_p = mm("lay.pivot_x_mm"), z_out
     z_bplate = r + h_b                               # bearings hang under plates on the arm's sides
     z_arm = z_bplate + 0.006 + arm_od / 2
@@ -139,38 +140,50 @@ def build(v):
                 hi = mid
         return (lo + hi) / 2
 
-    # The shock's lower eye sits on a lug over the arm's brace; the upper eye is placed so that,
-    # laden, the shock is compressed by the sag, which the natural frequency alone sets. The struts
-    # meet a cross tube on the shock's axis just beyond the upper eye, so its lug only pulls.
+    # The shock's lower eye sits on a lug over the arm's brace; its upper eye hangs on a lug under a
+    # cross tube between the hoop's legs, which lean back over the saddle's rear from the seat rails'
+    # rear ends (D-042), at the height where the shock, laden, is compressed by the sag, which the
+    # natural frequency alone sets.
     sag = G / (2 * math.pi * v["sus.freq_hz"]) ** 2
     sl0 = (x_sl, z_arm + mm("lay.shock_low_rise_mm"))
-    x_su = mm("lay.shock_top_x_mm")
-    z_su = z_seat_base + 0.03
+    z_u = z_seat_base - rail_od / 2 - 0.002            # the seat rails, under the saddle
+    x_uf = mm("lay.seat_x0_mm") - 0.03                # their rear ends, behind the saddle, where the rising tubes meet them
+    xh_, zt = mm("lay.hoop_x_mm"), mm("lay.rollbar_top_mm")
+    leg_x = lambda z: x_uf + (xh_ - x_uf) * (z - z_u) / (zt - rail_od / 2 - z_u)   # on the hoop's leg, side view
+    lug_k = rail_od / 2 + 0.026                        # the eye under the cross tube's centre, room for its 10 mm bore (K-019)
+    eye_r = mm("shock.rear_eye_mm")
+    z_k = z_u + 0.1                                    # the cross tube's height on the legs
+    x_su, z_su = leg_x(z_k), z_k - lug_k
 
     def shock_len(th):
         return math.dist(turn_xz(sl0, th), (x_su, z_su))
 
     for _ in range(8):
         mr = (shock_len(0.0) - shock_len(angle_for(0.001))) / 0.001
-        z_su = sl0[1] + math.sqrt(max((mm("shock.eye_mm") - mr * sag) ** 2 - (sl0[0] - x_su) ** 2, 0.0))
-    ux, uz = x_su - sl0[0], z_su - sl0[1]
-    x_c, z_c = x_su + 0.07 * ux / math.hypot(ux, uz), z_su + 0.07 * uz / math.hypot(ux, uz)   # the eye clear of the cross tube
+        want = eye_r - mr * sag
+        lo, hi = z_u, zt - 0.05
+        for _ in range(50):
+            z_k = (lo + hi) / 2
+            if math.dist(sl0, (leg_x(z_k), z_k - lug_k)) < want:
+                lo = z_k
+            else:
+                hi = z_k
+        x_su, z_su = leg_x(z_k), z_k - lug_k
+    put("dsn.shock_top_x_mm", round(x_su * 1000), "mm", "suspension")
 
     # ---- frame -----------------------------------------------------------------------------
-    # Two spine rails under the engine unit from the pivot forward to the footboards' front edge,
-    # then narrowing into the lower rails of a nose box (D-041); footboards on three cross tubes
-    # either side. Upper rails come forward from the seat rails over the box, whose nodes carry the
-    # A-arms' pivots, the shocks' tops, and the stem's two bearings. Behind the unit, posts
-    # rise from the rails' ends through the pivot tube to two upper rails under the seat's rear,
-    # and struts from the pivot tube to the shock's top close each side into a triangle. The
-    # protective hoop (R-19, the part roll_bar) stands on the upper rails.
+    # Two spine rails under the engine unit, from their rear cross tube under the swing arm's pivot
+    # forward to a nose box (D-041); footboards on three cross tubes either side. Upper rails come
+    # forward from the seat rails over the box, whose nodes carry the A-arms' pivots, the shocks'
+    # tops, the stem's two bearings, and, at its front, the bumper (D-042). Behind the unit, two
+    # tubes rise from the spine's rear cross tube through the pivot tube to the seat rails' rear
+    # ends, where the protective hoop (R-19, the part roll_bar) stands, leaning back over the
+    # saddle's rear and carrying the rear shock's top (D-042).
     zfoot = mm("lay.footrest_height_mm")
     xf0, xf1 = mm("lay.foot_x0_mm"), mm("lay.foot_x1_mm")
     yf0, yf1 = mm("lay.foot_y0_mm"), mm("lay.foot_y1_mm")
     xbar, zbar = mm("lay.bar_x_mm"), mm("lay.bar_z_mm")
-    xh_, zt = mm("lay.hoop_x_mm"), mm("lay.rollbar_top_mm")
-    z_u = z_seat_base - rail_od / 2 - 0.002            # upper rails under the seat's rear
-    x_uf, x_uh, x_ub = 0.12, xh_ + 0.05, xb + 0.02
+    x_ub = xb + 0.02
     z_fs = zfoot - 0.003 - cross_od / 2                # footboard cross tubes
     xm = (xf0 + xf1) / 2
     stations = [x_p, xf0, xm, xf1]                     # the spine rails, on to the nose box's rear cross tube below
@@ -200,7 +213,9 @@ def build(v):
     # shocks' tops and, bolted to its back, the stem's upper flange bearing; the lower bearing sits on
     # a cross tube under the stem's foot
     off = mm("lay.nose_post_offset_mm")                 # the posts stand clear of the arms' pivots and their clevises
-    x_nr, x_nf = fg["lo_r"][0] - off, fg["lo_f"][0] + off
+    x_nr, x_nf = fg["lo_r"][0] - off, xf - 0.02        # the front posts are the bumper, ahead of the tyres (D-042)
+    x_pf = fg["lo_f"][0]                                # the rails' nodes at the arms' front pivots
+    z_bp = zc + 0.10                                    # the bumper's bar, across the front posts
     y_lr, y_ur, z_top = mm("lay.nose_lower_y_mm"), fg["up_f"][1], mm("lay.nose_top_z_mm")
     z_lb = zc + rail_od / 2 + 0.016                     # the lower flange bearing's centre, on its cross tube
     x_sb0, x_sb1 = stem_x(z_lb), stem_x(z_top)
@@ -218,6 +233,9 @@ def build(v):
         N[f"n0{c}"], N[f"n1{c}"], N[f"n2{c}"] = (x_nr, s * y_lr, zc), (x_sb0, s * y_lr, zc), (x_nf, s * y_lr, zc)
         N[f"t0{c}"] = (x_nr, s * y_ur, z_top)
         N[f"ts{c}"], N[f"t2{c}"] = (x_sh, s * y_ur, z_top), (x_nf, s * y_ur, z_top)
+        N[f"n3{c}"], N[f"t3{c}"] = (x_pf, s * y_lr, zc), (x_pf, s * y_ur, z_top)
+        N[f"bp{c}"] = (x_nf, s * (y_lr + (y_ur - y_lr) * (z_bp - zc) / (z_top - zc)), z_bp)   # on the front post
+        N[f"be{c}"] = (x_nf, s * mm("lay.bumper_half_mm"), z_bp)   # the bar's end, out as far as the old bumper's (K-019)
         N[f"ste{c}"] = m3(fg["sh_top"], s)              # the shock's upper eye, on a lug beside the top rail
         # the arms' pivots: on the frame (clevises on the rails) and on the arm, hinged about x
         for q, key in (("lpf", "lo_f"), ("lpr", "lo_r"), ("upf", "up_f"), ("upr", "up_r")):
@@ -235,35 +253,30 @@ def build(v):
         FRONT |= {f"{q}{c}" for q in ("alpf", "alpr", "aupf", "aupr", "lj", "ljk", "uj", "ujk", "kh", "tp", "kw", "cw", "fe",
                                        "lfm", "lrm", "ti")}
     N["n0c"], N["n1c"], N["n2c"] = (x_nr, 0.0, zc), (x_sb0, 0.0, zc), (x_nf, 0.0, zc)
+    N["bpc"] = (x_nf, 0.0, z_bp)
     N["tsc"] = (x_sh, 0.0, z_top)
     N["sb0"], N["sb1"] = (x_sb0, 0.0, z_lb), (x_sb1, 0.0, z_top)   # the stem's flange bearings
     N["stf"] = tuple(float(x) for x in sf_)             # the plate's root on the stem
     N["pcb"] = (float(x_tip), 0.0, z_tie)               # the plate's cross bar
     FRONT |= {"sb0", "sb1", "stf", "pcb"}
     for s, c in ((1, "l"), (-1, "r")):
-        N[f"rx{c}"] = (x_p, s * yp, zc)                 # where the rear post stands on the rails' rear cross tube
         N[f"sm{c}"] = (mm("lay.hpoint_x_mm"), s * 0.10, z_u)   # seat rails under the saddle, outside the air box
         N[f"sf{c}"] = (mm("lay.seat_x1_mm"), s * 0.10, z_u)
-        N[f"b{c}"] = (xf - 0.02, s * ys, zc + 0.10)
         for j, x in enumerate((xf0 + 0.02, xm, xf1 - 0.02)):
             N[f"fs{c}{j}"] = (x, s * yf1, z_fs)
         N[f"fm{c}"] = (xm, s * (ys + yf1) / 2, z_fs)
-        N[f"pe{c}"] = (x_p, s * (yb + 0.008), z_p)     # the pivot tube's ends, just past the sleeves
-        N[f"ps{c}"] = (x_p, s * yb, z_p)               # where the arm's sleeve turns on it
-        N[f"pf{c}"] = (x_p, s * yp, z_p)               # where the post crosses it
-        N[f"uf{c}"] = (x_uf, s * yp, z_u)
-        N[f"us{c}"] = (x_c, s * yp, z_c)                 # struts' tops, on the shock's axis
-        N[f"um{c}"] = (x_c, s * yp, z_u)
-        # the strut leaves the post above the arm's brace and crosses the upper rail at a joint
-        f_ = 0.45
-        N[f"pm{c}"] = (x_p + f_ * (x_uf - x_p), s * yp, z_p + f_ * (z_u - z_p))
-        fx_ = (z_u - N[f"pm{c}"][2]) / (z_c - N[f"pm{c}"][2])
-        N[f"ux{c}"] = (N[f"pm{c}"][0] + fx_ * (x_c - N[f"pm{c}"][0]), s * yp, z_u)
-        N[f"uh{c}"] = (x_uh, s * yp, z_u)
-        N[f"ub{c}"] = (x_ub, s * yp, z_u)
+        # the rear (D-042): a tube rising from the spine's rear cross tube through the pivot tube to the
+        # seat rail's rear end, and the hoop standing there, leaning back over the saddle's rear, with a
+        # cross tube between its legs for the shock's top
+        N[f"rx{c}"] = (x_p, s * yp, zc)                 # where the rising tube stands on the spine's rear cross tube
+        N[f"pf{c}"] = (x_p, s * yp, z_p)               # where the pivot tube crosses it
+        N[f"ps{c}"] = (x_p, s * yb, z_p)               # where the arm's sleeve turns on the pivot tube
+        N[f"pe{c}"] = (x_p, s * (yb + 0.008), z_p)     # the pivot tube's end, just past the sleeve
+        N[f"uf{c}"] = (x_uf, s * yp, z_u)               # the seat rail's rear end
         N[f"hp{c}"] = (xh_, s * 0.20, zt - rail_od / 2)
-    N["usc"] = (x_c, 0.0, z_c)
-    N["bc"] = (xf - 0.02, 0.0, zc + 0.10)
+        f_k = (z_k - z_u) / (zt - rail_od / 2 - z_u)
+        N[f"hk{c}"] = tuple(N[f"uf{c}"][q] + f_k * (N[f"hp{c}"][q] - N[f"uf{c}"][q]) for q in range(3))
+    N["hkc"] = (x_su, 0.0, z_k)
     last = len(stations) - 1
     farm_od, farm_t = mm("dsn.farm_od_mm"), mm("dsn.farm_t_mm")
     fup_od, fup_t = mm("dsn.farm_upper_od_mm"), mm("dsn.farm_upper_t_mm")
@@ -277,12 +290,15 @@ def build(v):
         # the stem)
         tube(f"r{c}{last}", f"n0{c}", rail_od, rail_t, "frame")
         tube(f"n0{c}", f"n1{c}", box_od, box_t, "frame")
-        tube(f"n1{c}", f"n2{c}", box_od, box_t, "frame")
+        tube(f"n1{c}", f"n3{c}", box_od, box_t, "frame")
+        tube(f"n3{c}", f"n2{c}", box_od, box_t, "frame")
         tube(f"sf{c}", f"t0{c}", rail_od, rail_t, "frame")
         tube(f"t0{c}", f"ts{c}", rail_od, rail_t, "frame")
-        tube(f"ts{c}", f"t2{c}", box_od, box_t, "frame")
+        tube(f"ts{c}", f"t3{c}", box_od, box_t, "frame")
+        tube(f"t3{c}", f"t2{c}", box_od, box_t, "frame")
         tube(f"n0{c}", f"t0{c}", cross_od, cross_t, "frame")           # rear upright, at the arms' rear pivots
-        tube(f"n2{c}", f"t2{c}", cross_od, cross_t, "frame")           # front post, at their front pivots
+        tube(f"n2{c}", f"bp{c}", rail_od, rail_t, "bumpers")           # the front post: the bumper's upright (D-042)
+        tube(f"bp{c}", f"t2{c}", rail_od, rail_t, "bumpers")
         tube(f"n1{c}", f"ts{c}", cross_od, cross_t, "frame")
         tube(f"ts{c}", f"n2{c}", cross_od, cross_t, "frame")             # clear of the upper arm's front pivot
         tube(f"sf{c}", f"r{c}{last}", rail_od, rail_t, "frame")        # the seat rail down to the spine's end (D-040)
@@ -296,8 +312,6 @@ def build(v):
         tube(f"fe{c}", f"lrm{c}", farm_od, farm_t, "front_arms", farm=c, flink="lower")
         tube(f"aupf{c}", f"uj{c}", fup_od, fup_t, "front_arms", farm=c, flink="upper")      # the upper arm carries little
         tube(f"aupr{c}", f"uj{c}", fup_od, fup_t, "front_arms", farm=c, flink="upper")
-        tube(f"b{c}", f"n2{c}", rail_od, rail_t, "bumpers")            # the bumper on the box's front nodes; the lower
-        tube(f"b{c}", f"t2{c}", box_od, box_t, "bumpers")              # strut takes most of a blow on one end
         tube(f"uf{c}", f"sm{c}", rail_od, rail_t, "frame")           # seat rails
         tube(f"sm{c}", f"sf{c}", rail_od, rail_t, "frame")
         tube(f"r{c}1", f"fs{c}0", cross_od, cross_t, "footrests")
@@ -306,39 +320,34 @@ def build(v):
         tube(f"r{c}3", f"fs{c}2", cross_od, cross_t, "footrests")
         tube(f"fs{c}0", f"fs{c}1", cross_od, cross_t, "footrests")
         tube(f"fs{c}1", f"fs{c}2", cross_od, cross_t, "footrests")
-        tube(f"rx{c}", f"pf{c}", rail_od, rail_t, "frame")             # post, lower part, upright clear of the arm
-        tube(f"pf{c}", f"pm{c}", rail_od, rail_t, "frame")             # post, upper part
-        tube(f"pm{c}", f"uf{c}", rail_od, rail_t, "frame")
-        tube(f"pm{c}", f"ux{c}", rail_od, rail_t, "frame")             # strut to the shock's top
-        tube(f"ux{c}", f"us{c}", rail_od, rail_t, "frame")
-        tube(f"us{c}", f"um{c}", rail_od, rail_t, "frame")
-        tube(f"uf{c}", f"ux{c}", cross_od, cross_t, "frame")
-        tube(f"ux{c}", f"um{c}", cross_od, cross_t, "frame")
-        tube(f"um{c}", f"uh{c}", cross_od, cross_t, "frame")
-        tube(f"uh{c}", f"ub{c}", cross_od, cross_t, "frame")
-        tube(f"pf{c}", f"ps{c}", rail_od, rail_t, "frame")             # the pivot tube
+        # the rear (D-042): the tube rising from the spine to the seat rail through the pivot tube,
+        # the pivot tube's ends carrying the arm's sleeves, and the hoop's leg
+        tube(f"rx{c}", f"pf{c}", rail_od, rail_t, "frame")
+        tube(f"pf{c}", f"uf{c}", rail_od, rail_t, "frame")
+        tube(f"pf{c}", f"ps{c}", rail_od, rail_t, "frame")
         tube(f"ps{c}", f"pe{c}", rail_od, rail_t, "frame")
-        tube(f"us{c}", f"hp{c}", rail_od, rail_t, "roll_bar")          # the hoop stands on the struts' tops
-        tube(f"hp{c}", f"ub{c}", cross_od, cross_t, "roll_bar")
-    tube("rl0", "rxl", rail_od, rail_t, "frame")                      # the rails' rear cross tube, carrying the posts
+        tube(f"uf{c}", f"hk{c}", rail_od, rail_t, "roll_bar")         # the hoop, leaning back over the saddle
+        tube(f"hk{c}", f"hp{c}", rail_od, rail_t, "roll_bar")
+    tube("rl0", "rxl", rail_od, rail_t, "frame")                      # the spine's rear cross tube
     tube("rxl", "rxr", rail_od, rail_t, "frame")
     tube("rxr", "rr0", rail_od, rail_t, "frame")
+    tube("pfl", "pfr", rail_od, rail_t, "frame")                      # the pivot tube
+    tube("ufl", "ufr", box_od, box_t, "frame")                        # the seat rails' rear cross tube
+    tube("hkl", "hkc", rail_od, rail_t, "roll_bar")                   # the hoop's cross tube, the shock's top
+    tube("hkc", "hkr", rail_od, rail_t, "roll_bar")
     for q in ("n0", "n1", "n2"):                                       # the box's lower cross tubes
         tube(f"{q}l", f"{q}c", box_od, box_t, "frame")
         tube(f"{q}c", f"{q}r", box_od, box_t, "frame")
     tube("t0l", "t0r", cross_od, cross_t, "frame")                    # its top cross tubes
     tube("tsl", "tsc", rail_od, rail_t, "frame")                     # the shocks' tops and the stem's upper bearing
     tube("tsc", "tsr", rail_od, rail_t, "frame")
-    tube("t2l", "t2r", cross_od, cross_t, "frame")
     # no braces in its front and rear panels: the stress map found them carrying under 4 per cent of
-    # what they could, with the panels' joints taking the little racking there is (1.3.21, K-018)
-    tube("bl", "bc", box_od, box_t, "bumpers")
-    tube("bc", "br", box_od, box_t, "bumpers")
-    tube("pfl", "pfr", rail_od, rail_t, "frame")
-    tube("ufl", "ufr", box_od, box_t, "frame")                       # the larger: one lifted wheel works it hardest (fatigue)
-    tube("usl", "usc", rail_od, rail_t, "frame")
-    tube("usc", "usr", rail_od, rail_t, "frame")
-    tube("ubl", "ubr", cross_od, cross_t, "frame")
+    # what they could, with the panels' joints taking the little racking there is (1.3.21, K-018);
+    # the front panel is the bumper, a bar across its posts at the old bumper's height (D-042)
+    tube("bel", "bpl", rail_od, rail_t, "bumpers")
+    tube("bpl", "bpc", rail_od, rail_t, "bumpers")
+    tube("bpc", "bpr", rail_od, rail_t, "bumpers")
+    tube("bpr", "ber", rail_od, rail_t, "bumpers")
     tube("hpl", "hpr", rail_od, rail_t, "roll_bar")
 
     # the swing arm: two sides from the sleeves on the pivot tube, bent level ahead of the bearing
@@ -389,7 +398,7 @@ def build(v):
         masses.append((part, kg, pos))
 
     mass("frame", m_frame, (0.45, 0.0, zc + 0.05))
-    mass("roll_bar", m_roll, ((x_uh + xh_) / 2, 0.0, (z_u + zt) / 2))
+    mass("roll_bar", m_roll, ((x_uf + xh_) / 2, 0.0, (z_u + zt) / 2))
     mass("footrests", m_foot, (xm, 0.0, zfoot))
     mass("swing_arm", m_arm, (x_p / 2 - 0.02, 0.0, (z_p + z_arm) / 2))
     m_farm = sum(tube_mass(od_, t_, math.dist(N[a], N[b])) for a, b, od_, t_, part, _ in tubes if part == "front_arms")
@@ -566,22 +575,27 @@ def build(v):
     put("dsn.seat_drop_adult_mm", round((zs - zfoot) * 1000), "mm", "fit")
 
     # ---- road equipment (R-20, R-21, R-23) -----------------------------------------------------
-    xbk = x_ub
     item("lighting", "lamp", pos=[xbar + 0.13, 0.0, zbar - 0.09], role="head", color="white", facing="+x", d=0.11)
-    for s in (1, -1):
-        item("lighting", "lamp", pos=[xf - 0.02, s * (ys + 0.055), zc + 0.10], role="turn", color="amber", facing="+x", d=0.05)   # at the bumper's ends
-        item("lighting", "lamp", pos=[xh_ + 0.01, s * 0.21, zt - 0.20], role="turn", color="amber", facing="-x", d=0.05)
+    for s, c in ((1, "l"), (-1, "r")):
+        # front turn signals beside the bumper's posts, rear ones on the hoop's legs (D-042)
+        item("lighting", "lamp", pos=[x_nf, N[f"be{c}"][1] + s * 0.05, z_bp], role="turn", color="amber", facing="+x", d=0.05)
+        leg = [N[f"uf{c}"][k] + 0.55 * (N[f"hp{c}"][k] - N[f"uf{c}"][k]) for k in range(3)]
+        item("lighting", "lamp", pos=[leg[0] - 0.03, leg[1] + s * 0.035, leg[2]], role="turn", color="amber", facing="-x", d=0.05)
         item("mirrors", "mirror", pos=[xbar + 0.03, s * (wbar / 2 + 0.03), zbar + 0.14],
              stem=[xbar, s * (wbar / 2 - 0.13), zbar + 0.01], d=0.10, facing="-x")
-    item("lighting", "lamp", pos=[xbk - 0.02, 0.0, z_u + 0.06], role="tail_stop", color="red", facing="-x", size=[0.02, 0.12, 0.05])
-    item("lighting", "lamp", pos=[xbk - 0.035, 0.0, z_u + 0.005], role="reflector", color="red", facing="-x", size=[0.01, 0.06, 0.03])
-    item("number_plate", "plate_number", pos=[xbk - 0.03, 0.0, z_u - 0.10], size=[0.004, 0.17, 0.10])
-    item("lighting", "lamp", pos=[xbk - 0.01, 0.0, z_u - 0.035], role="plate", color="white", facing="-z", d=0.03)
-    item("horn", "box", pos=[x_nf, 0.0, z_top + rail_od / 2 + 0.032], size=[0.06, 0.08, 0.06])   # on the box's front top tube
+    # the number plate, its lamp, the tail and stop lamp, and the reflector on a bracket on the swing
+    # arm's rear cross tube, rising and falling with the wheels as on ATVs (D-042)
+    xbk = x_end - 0.04
+    item("number_plate", "plate", pos=[xbk + 0.012, 0.0, z_arm + 0.13], size=[0.006, 0.20, 0.20], arm=True)   # the bracket on the arm's cross tube
+    item("number_plate", "plate_number", pos=[xbk, 0.0, z_arm + 0.08], size=[0.004, 0.17, 0.10], arm=True)
+    item("lighting", "lamp", pos=[xbk + 0.01, 0.0, z_arm + 0.148], role="plate", color="white", facing="-z", d=0.03, arm=True)
+    item("lighting", "lamp", pos=[xbk + 0.005, 0.0, z_arm + 0.21], role="tail_stop", color="red", facing="-x", size=[0.02, 0.12, 0.05], arm=True)
+    item("lighting", "lamp", pos=[xbk - 0.005, 0.10, z_arm + 0.21], role="reflector", color="red", facing="-x", size=[0.01, 0.06, 0.03], arm=True)
+    item("horn", "box", pos=[x_nf, 0.0, z_bp + rail_od / 2 + 0.032], size=[0.06, 0.08, 0.06])   # on the bumper's bar
     item("speedometer", "gauge", pos=[xbar + 0.02, 0.0, zbar + 0.07], d=0.08, facing="-x")
-    z_batt = z_u + cross_od / 2 + 0.045
-    item("battery", "box", pos=[x_uh + 0.02, 0.0, z_batt], size=[0.07, 0.11, 0.09])
-    mass("battery", v["dsn.battery_mass_kg"], (x_uh + 0.02, 0.0, z_batt))
+    z_batt = zc + rail_od / 2 + 0.047                   # ahead of the engine, against the nose box's rear cross tube (D-042)
+    item("battery", "box", pos=[x_nr - 0.051, 0.0, z_batt], size=[0.07, 0.11, 0.09])
+    mass("battery", v["dsn.battery_mass_kg"], (x_nr - 0.051, 0.0, z_batt))
     item("hand_brake", "lever", pos=[xbar, wbar / 2 - 0.08, zbar], to=[xbar + 0.08, wbar / 2 - 0.10, zbar - 0.01])
     mass("road", v["dsn.road_kit_mass_kg"], (0.3, 0.0, zc + 0.3))
 
@@ -691,26 +705,38 @@ def build(v):
     th_b, th_d = angle_for(mm("sus.bump_mm")), angle_for(-mm("sus.droop_mm"))
     used = shock_len(th_d) - shock_len(th_b)
     put("dsn.motion_ratio", round(mr, 2), None, "suspension")
+    for key_, u_ in (("dsn.motion_ratio_droop", -mm("sus.droop_mm")), ("dsn.motion_ratio_bump", mm("sus.bump_mm"))):
+        put(key_, round((shock_len(angle_for(u_ - 0.002)) - shock_len(angle_for(u_ + 0.002))) / 0.004, 2), None, "suspension")
     put("dsn.rear_sprung_kg", round(m_sprung_r, 1), "kg", "suspension")
     put("dsn.rear_wheel_rate_n_mm", round(k_wheel / 1000, 1), "N/mm", "suspension")
     put("dsn.shock_spring_n_mm", round(k_wheel / mr ** 2 / 1000), "N/mm", "suspension")
     put("dsn.rear_sag_mm", round(sag * 1000), "mm", "suspension")
     put("dsn.shock_force_static_n", round(m_sprung_r * G / mr), "N", "suspension")
     put("dsn.shock_length_static_mm", round(shock_len(0.0) * 1000), "mm", "suspension")
-    put("dsn.shock_stroke_used_mm", round((mm("shock.eye_mm") - shock_len(th_b)) * 1000), "mm", "suspension")
+    put("dsn.shock_stroke_used_mm", round((eye_r - shock_len(th_b)) * 1000), "mm", "suspension")
     put("dsn.shock_travel_mm", round(used * 1000), "mm", "suspension")
     chain_c = [math.dist((x_out, z_out), turn_xz((0.0, r), th)) for th in (th_d, 0.0, th_b)]
     put("dsn.chain_centre_change_mm", round((max(chain_c) - min(chain_c)) * 1000, 1), "mm", "suspension")
     x_q_su = (x_su, 0.0, z_su)
     N["su_eye"] = x_q_su
     N["sl_eye"] = (sl0[0], 0.0, sl0[1])
-    tube("usc", "su_eye", rail_od, rail_t, "frame")
+    tube("hkc", "su_eye", rail_od, rail_t, "roll_bar")              # the lug for the shock's upper eye
     tube("abc", "sl_eye", arm_od, arm_t, "swing_arm", arm=True)
     item("rear_shock", "shock", pos=[sl0[0], 0.0, sl0[1]], to=list(x_q_su), d=0.036, rod_d=0.012, spring_d=0.055,
-         eye=mm("shock.eye_mm"), arm=True)
-    # the axle at full bump clears the struts above it
-    strut_z0 = z_p + (z_c - z_p) * (x_p - 0.0) / (x_p - x_c)
-    put("dsn.axle_rail_gap_mm", round((strut_z0 - rail_od / 2 - (r + da / 2 + mm("sus.bump_mm"))) * 1000), "mm", "suspension")
+         eye=eye_r, arm=True)
+    # the axle at full bump clears the nearest frame tube (the struts it once cleared are gone, D-042)
+    def seg_gap(a0, a1, b0, b1):
+        best = 9.0
+        for i in range(21):
+            p_ = [a0[k] + (a1[k] - a0[k]) * i / 20 for k in range(3)]
+            for j in range(21):
+                q_ = [b0[k] + (b1[k] - b0[k]) * j / 20 for k in range(3)]
+                best = min(best, math.dist(p_, q_))
+        return best
+    ax_b = r + mm("sus.bump_mm")
+    gap_ = min(seg_gap((0.0, -La / 2, ax_b), (0.0, La / 2, ax_b), N[a], N[b]) - od_ / 2 - da / 2
+               for a, b, od_, t_, part, on_arm in tubes if not on_arm and part in ("frame", "roll_bar"))
+    put("dsn.axle_rail_gap_mm", round(gap_ * 1000), "mm", "suspension")
 
     # front: each corner carries half the front's sprung mass; camber, toe (bump steer), and track
     # over the whole travel, straight ahead and at the lock, from the moved points (calc/front.py)
@@ -796,8 +822,8 @@ def build(v):
     mem = [{"a": a, "b": b, "od": od_, "t": t_} for a, b, od_, t_, _, _ in tubes]
     stiff = lambda a, b: {"a": a, "b": b, "od": 0.04, "t": 0.015}
     for c in "lr":
-        mem += [stiff(f"n2{c}", f"lpf{c}"), stiff(f"n0{c}", f"lpr{c}"),       # the arms' clevises on the rails
-                stiff(f"t2{c}", f"upf{c}"), stiff(f"t0{c}", f"upr{c}"), stiff(f"ts{c}", f"ste{c}")]
+        mem += [stiff(f"n3{c}", f"lpf{c}"), stiff(f"n0{c}", f"lpr{c}"),       # the arms' clevises on the rails
+                stiff(f"t3{c}", f"upf{c}"), stiff(f"t0{c}", f"upr{c}"), stiff(f"ts{c}", f"ste{c}")]
         mem += [stiff(f"ljk{c}", f"kh{c}"), stiff(f"kh{c}", f"ujk{c}"), stiff(f"kh{c}", f"kw{c}"),   # the knuckle,
                 stiff(f"kw{c}", f"cw{c}"), stiff(f"kh{c}", f"tp{c}"), stiff("pcb", f"ti{c}")]        # wheel, plate
     mem += [stiff("n1c", "sb0"), stiff("sb0", "stf"), stiff("stf", "sb1"), stiff("sb1", "tsc"), stiff("stf", "pcb")]
@@ -830,9 +856,9 @@ def build(v):
         hx, hy = ("x" if gx else ""), ("y" if gy else "")
         sup = {"cwl": "xyz", "cwr": "x" + hy + ("" if lift_fr else "z"), "axl": hx + hy + "z", "axr": hx + hy + "z"}
         if impact == "both":             # the bumper stops the kart; the wheels carry its weight
-            sup = {"cwl": "yz", "cwr": "z", "axl": "z", "axr": "z", "bl": "x", "br": "x"}
+            sup = {"cwl": "yz", "cwr": "z", "axl": "z", "axr": "z", "bpl": "x", "bpr": "x"}
         elif impact == "offset":         # a post meets one end of the bumper; the tyres hold the yaw
-            sup = {"cwl": "yz", "cwr": "z", "axl": "yz", "axr": "z", "bl": "x"}
+            sup = {"cwl": "yz", "cwr": "z", "axl": "yz", "axr": "z", "bel": "x"}
         return frame.solve(N, mem, loads, sup, **pin)
 
     def hoop(f):                         # the kart upside down or on its side, held at its spine
@@ -980,14 +1006,11 @@ def build(v):
     put("dsn.bom_tools_jpy", round(totals["tools"]), "JPY", "cost")
 
     joints = [{"at": rnd(N[q]), "r": 0.07} for q in ("pfl", "pfr", "psl", "psr")]
-    joints += [{"at": rnd(N[q]), "r": 0.05} for q in ("rl0", "rr0",
-                                                     "usl", "usr", "usc", "su_eye", "ufl", "ufr", "uml", "umr", "uhl", "uhr",
-                                                     "pml", "pmr", "uxl", "uxr",
-                                                     "hpl", "hpr")]
+    joints += [{"at": rnd(N[q]), "r": 0.05} for q in ("rl0", "rr0", "rxl", "rxr", "ufl", "ufr", "hkl", "hkr", "hkc", "su_eye", "hpl", "hpr")]
     joints += [{"at": rnd(N[q]), "r": 0.05, "arm": True} for q in ("abl", "abr", "abc", "sl_eye", "axl", "axr", "ael", "aer")]
-    joints += [{"at": rnd(N[q]), "r": 0.05} for q in ("sml", "smr", "sfl", "sfr", "bc", "bl", "br", "rxl", "rxr",
+    joints += [{"at": rnd(N[q]), "r": 0.05} for q in ("sml", "smr", "sfl", "sfr", "bpl", "bpr", "bpc", "bel", "ber",
                                                      f"rl{last}", f"rr{last}", "n0c", "n1c", "n2c", "tsc")]
-    joints += [{"at": rnd(N[q + c]), "r": 0.05} for c in "lr" for q in ("n0", "n1", "n2", "t0", "ts", "t2")]
+    joints += [{"at": rnd(N[q + c]), "r": 0.05} for c in "lr" for q in ("n0", "n1", "n2", "n3", "t0", "ts", "t2", "t3")]
     # the arms' clevises at their pivots and the knuckle's joints, moving with their arm
     joints += [{"at": rnd(N[q + c]), "r": 0.045} for c in "lr" for q in ("lpf", "lpr", "upf", "upr", "ste")]
     joints += [{"at": rnd(N[q + c]), "r": 0.04, "front_arm": c, "front_link": lk} for c in "lr"

@@ -38,7 +38,7 @@ export const PART_KEYS = {
   number_plate: ['cost.tax_year_jpy', 'cost.cali_year_jpy'],
   front_arms: ['lay.fa_*', 'dsn.farm_*', 'dsn.front_camber_change_deg', 'dsn.front_track_change_mm', 'dsn.bump_steer_*', 'dsn.landing_front_g', 'cost.ball_joint_pair_jpy'],
   front_shocks: ['lay.front_shock_*', 'dsn.front_shock_*', 'dsn.front_motion_ratio', 'dsn.front_wheel_rate_n_mm', 'shock.*', 'cost.rear_shock_jpy'],
-  swing_arm: ['lay.pivot_x_mm', 'lay.bearing_y_mm', 'dsn.tube_arm_m', 'dsn.arm_*', 'sus.*', 'dsn.chain_centre_change_mm', 'dsn.axle_rail_gap_mm'],
+  swing_arm: ['lay.pivot_x_mm', 'lay.bearing_y_mm', 'dsn.tube_arm_m', 'dsn.arm_*', 'sus.*', 'dsn.chain_centre_change_mm', 'dsn.shock_top_x_mm'],
   rear_shock: ['shock.*', 'lay.shock_*', 'dsn.shock_*', 'dsn.motion_ratio', 'dsn.rear_*', 'cost.rear_shock_jpy'],
   snow_chains: ['ground.mu_snow_chains', 'ground.mu_ice_chains', 'cost.snow_chain_jpy', 'w4.*'],
   sled_pan: ['lay.pan_*', 'lay.bow_*', 'lay.tunnel_*', 'hull.bottom_t_mm', 'hull.side_t_mm', 'dsn.pan_mass_kg', 'dsn.belly_*', 'cost.hull_*', 'cost.xps_jpy_per_m3'],

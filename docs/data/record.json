@@ -4202,7 +4202,7 @@
   },
   {
    "key": "lay.shock_low_x_mm",
-   "v": 50,
+   "v": 60,
    "unit": "mm",
    "status": "calculated",
    "basis": [
@@ -4211,16 +4211,7 @@
   },
   {
    "key": "lay.shock_low_rise_mm",
-   "v": 30,
-   "unit": "mm",
-   "status": "calculated",
-   "basis": [
-    "docs/03-design.md#suspension"
-   ]
-  },
-  {
-   "key": "lay.shock_top_x_mm",
-   "v": -50,
+   "v": 32,
    "unit": "mm",
    "status": "calculated",
    "basis": [
@@ -4264,8 +4255,8 @@
    ]
   },
   {
-   "key": "shock.eye_mm",
-   "v": 250,
+   "key": "shock.rear_eye_mm",
+   "v": 290,
    "unit": "mm",
    "status": "sourced",
    "basis": [
@@ -4750,6 +4741,16 @@
    "basis": [
     "docs/03-design.md#frame",
     "D-041"
+   ]
+  },
+  {
+   "key": "lay.bumper_half_mm",
+   "v": 150,
+   "unit": "mm",
+   "status": "calculated",
+   "basis": [
+    "docs/03-design.md#frame",
+    "D-042"
    ]
   },
   {
@@ -5916,6 +5917,15 @@
    ]
   },
   {
+   "key": "dsn.shock_top_x_mm",
+   "v": -18,
+   "unit": "mm",
+   "status": "calculated",
+   "basis": [
+    "docs/03-design.md#suspension"
+   ]
+  },
+  {
    "key": "dsn.stem_rake_deg",
    "v": 23.4,
    "unit": "deg",
@@ -5944,7 +5954,7 @@
   },
   {
    "key": "dsn.tube_main_m",
-   "v": 7.59,
+   "v": 7.37,
    "unit": "m",
    "status": "calculated",
    "basis": [
@@ -5953,7 +5963,7 @@
   },
   {
    "key": "dsn.tube_box_m",
-   "v": 3.27,
+   "v": 2.92,
    "unit": "m",
    "status": "calculated",
    "basis": [
@@ -5962,7 +5972,7 @@
   },
   {
    "key": "dsn.tube_cross_m",
-   "v": 6.05,
+   "v": 4.56,
    "unit": "m",
    "status": "calculated",
    "basis": [
@@ -5971,7 +5981,7 @@
   },
   {
    "key": "dsn.tube_roll_m",
-   "v": 1.97,
+   "v": 1.64,
    "unit": "m",
    "status": "calculated",
    "basis": [
@@ -6175,7 +6185,7 @@
   },
   {
    "key": "dsn.mass_kg",
-   "v": 144.9,
+   "v": 142.9,
    "unit": "kg",
    "status": "calculated",
    "basis": [
@@ -6184,7 +6194,7 @@
   },
   {
    "key": "dsn.cg_x_m",
-   "v": 0.458,
+   "v": 0.474,
    "unit": "m",
    "status": "calculated",
    "basis": [
@@ -6202,7 +6212,7 @@
   },
   {
    "key": "dsn.cg_z_m",
-   "v": 0.31,
+   "v": 0.308,
    "unit": "m",
    "status": "calculated",
    "basis": [
@@ -6211,7 +6221,7 @@
   },
   {
    "key": "dsn.frame_mass_kg",
-   "v": 28.4,
+   "v": 25.8,
    "unit": "kg",
    "status": "calculated",
    "basis": [
@@ -6220,7 +6230,7 @@
   },
   {
    "key": "dsn.rear_share_adult",
-   "v": 0.579,
+   "v": 0.57,
    "status": "calculated",
    "basis": [
     "docs/03-design.md#mass"
@@ -6237,7 +6247,7 @@
   },
   {
    "key": "dsn.cg_height_adult_m",
-   "v": 0.53,
+   "v": 0.531,
    "unit": "m",
    "status": "calculated",
    "basis": [
@@ -6254,7 +6264,7 @@
   },
   {
    "key": "dsn.pitch_ratio_adult",
-   "v": 0.86,
+   "v": 0.87,
    "status": "calculated",
    "basis": [
     "docs/03-design.md#stability"
@@ -6262,7 +6272,7 @@
   },
   {
    "key": "dsn.rear_share_child",
-   "v": 0.571,
+   "v": 0.558,
    "status": "calculated",
    "basis": [
     "docs/03-design.md#mass"
@@ -6279,7 +6289,7 @@
   },
   {
    "key": "dsn.cg_height_child_m",
-   "v": 0.354,
+   "v": 0.353,
    "unit": "m",
    "status": "calculated",
    "basis": [
@@ -6296,7 +6306,7 @@
   },
   {
    "key": "dsn.pitch_ratio_child",
-   "v": 1.31,
+   "v": 1.35,
    "status": "calculated",
    "basis": [
     "docs/03-design.md#stability"
@@ -6304,7 +6314,7 @@
   },
   {
    "key": "dsn.winter_mass_kg",
-   "v": 154.9,
+   "v": 152.9,
    "unit": "kg",
    "status": "calculated",
    "basis": [
@@ -6313,7 +6323,7 @@
   },
   {
    "key": "dsn.winter_cg_height_m",
-   "v": 0.515,
+   "v": 0.516,
    "unit": "m",
    "status": "calculated",
    "basis": [
@@ -6322,7 +6332,7 @@
   },
   {
    "key": "dsn.winter_rear_share",
-   "v": 0.572,
+   "v": 0.563,
    "status": "calculated",
    "basis": [
     "docs/03-design.md#winter"
@@ -6330,7 +6340,7 @@
   },
   {
    "key": "dsn.winter_tip_ratio",
-   "v": 0.63,
+   "v": 0.62,
    "status": "calculated",
    "basis": [
     "docs/03-design.md#stability"
@@ -6338,7 +6348,7 @@
   },
   {
    "key": "dsn.winter_pitch_ratio",
-   "v": 0.9,
+   "v": 0.91,
    "status": "calculated",
    "basis": [
     "docs/03-design.md#stability"
@@ -6346,7 +6356,7 @@
   },
   {
    "key": "dsn.winter_ski_pressure_kpa",
-   "v": 7.43,
+   "v": 7.52,
    "unit": "kPa",
    "status": "calculated",
    "basis": [
@@ -6364,7 +6374,23 @@
   },
   {
    "key": "dsn.motion_ratio",
-   "v": 0.61,
+   "v": 0.6,
+   "status": "calculated",
+   "basis": [
+    "docs/03-design.md#suspension"
+   ]
+  },
+  {
+   "key": "dsn.motion_ratio_droop",
+   "v": 0.73,
+   "status": "calculated",
+   "basis": [
+    "docs/03-design.md#suspension"
+   ]
+  },
+  {
+   "key": "dsn.motion_ratio_bump",
+   "v": 0.47,
    "status": "calculated",
    "basis": [
     "docs/03-design.md#suspension"
@@ -6372,7 +6398,7 @@
   },
   {
    "key": "dsn.rear_sprung_kg",
-   "v": 114.6,
+   "v": 111.3,
    "unit": "kg",
    "status": "calculated",
    "basis": [
@@ -6381,7 +6407,7 @@
   },
   {
    "key": "dsn.rear_wheel_rate_n_mm",
-   "v": 28.3,
+   "v": 27.5,
    "unit": "N/mm",
    "status": "calculated",
    "basis": [
@@ -6390,7 +6416,7 @@
   },
   {
    "key": "dsn.shock_spring_n_mm",
-   "v": 76,
+   "v": 75,
    "unit": "N/mm",
    "status": "calculated",
    "basis": [
@@ -6408,7 +6434,7 @@
   },
   {
    "key": "dsn.shock_force_static_n",
-   "v": 1849,
+   "v": 1809,
    "unit": "N",
    "status": "calculated",
    "basis": [
@@ -6417,7 +6443,7 @@
   },
   {
    "key": "dsn.shock_length_static_mm",
-   "v": 226,
+   "v": 266,
    "unit": "mm",
    "status": "calculated",
    "basis": [
@@ -6453,7 +6479,7 @@
   },
   {
    "key": "dsn.axle_rail_gap_mm",
-   "v": 204,
+   "v": 134,
    "unit": "mm",
    "status": "calculated",
    "basis": [
@@ -6470,7 +6496,7 @@
   },
   {
    "key": "dsn.front_sprung_kg",
-   "v": 41.9,
+   "v": 42.5,
    "unit": "kg",
    "status": "calculated",
    "basis": [
@@ -6479,7 +6505,7 @@
   },
   {
    "key": "dsn.front_wheel_rate_n_mm",
-   "v": 10.3,
+   "v": 10.5,
    "unit": "N/mm",
    "status": "calculated",
    "basis": [
@@ -6497,7 +6523,7 @@
   },
   {
    "key": "dsn.front_shock_force_static_n",
-   "v": 853,
+   "v": 867,
    "unit": "N",
    "status": "calculated",
    "basis": [
@@ -6587,7 +6613,7 @@
   },
   {
    "key": "dsn.climb_force_n",
-   "v": 754,
+   "v": 748,
    "unit": "N",
    "status": "calculated",
    "basis": [
@@ -6596,7 +6622,7 @@
   },
   {
    "key": "dsn.climb_grip_n",
-   "v": 718,
+   "v": 703,
    "unit": "N",
    "status": "calculated",
    "basis": [
@@ -6614,7 +6640,7 @@
   },
   {
    "key": "dsn.climb_grade_max_pct",
-   "v": 18.0,
+   "v": 17.5,
    "unit": "%",
    "status": "calculated",
    "basis": [
@@ -6632,7 +6658,7 @@
   },
   {
    "key": "dsn.axle_stress_mpa",
-   "v": 169,
+   "v": 166,
    "unit": "MPa",
    "status": "calculated",
    "basis": [
@@ -6641,7 +6667,7 @@
   },
   {
    "key": "dsn.axle_safety",
-   "v": 2.04,
+   "v": 2.08,
    "status": "calculated",
    "basis": [
     "docs/03-design.md#axle"
@@ -6649,7 +6675,7 @@
   },
   {
    "key": "dsn.bearing_load_n",
-   "v": 696,
+   "v": 679,
    "unit": "N",
    "status": "calculated",
    "basis": [
@@ -6658,7 +6684,7 @@
   },
   {
    "key": "dsn.nose_bay_stress_mpa",
-   "v": 56,
+   "v": 59,
    "unit": "MPa",
    "status": "calculated",
    "basis": [
@@ -6684,7 +6710,7 @@
   },
   {
    "key": "dsn.arm_stress_mpa",
-   "v": 86,
+   "v": 84,
    "unit": "MPa",
    "status": "calculated",
    "basis": [
@@ -6693,7 +6719,7 @@
   },
   {
    "key": "dsn.arm_safety",
-   "v": 3.39,
+   "v": 3.47,
    "status": "calculated",
    "basis": [
     "docs/03-design.md#suspension"
@@ -6701,7 +6727,7 @@
   },
   {
    "key": "dsn.impact_safety",
-   "v": 2.02,
+   "v": 1.63,
    "status": "calculated",
    "basis": [
     "docs/03-design.md#loads"
@@ -6709,7 +6735,7 @@
   },
   {
    "key": "dsn.hoop_crush_safety",
-   "v": 2.98,
+   "v": 2.51,
    "status": "calculated",
    "basis": [
     "docs/03-design.md#loads"
@@ -6717,7 +6743,7 @@
   },
   {
    "key": "dsn.hoop_side_safety",
-   "v": 4.26,
+   "v": 3.54,
    "status": "calculated",
    "basis": [
     "docs/03-design.md#loads"
@@ -6725,7 +6751,7 @@
   },
   {
    "key": "dsn.shock_force_bump_n",
-   "v": 5961,
+   "v": 5800,
    "unit": "N",
    "status": "calculated",
    "basis": [
@@ -6734,7 +6760,7 @@
   },
   {
    "key": "dsn.frame_deflection_mm",
-   "v": 0.8,
+   "v": 0.9,
    "unit": "mm",
    "status": "calculated",
    "basis": [
@@ -6794,7 +6820,7 @@
   },
   {
    "key": "dsn.fatigue_kcycles_fillet",
-   "v": 1160,
+   "v": 1161,
    "status": "calculated",
    "basis": [
     "docs/03-design.md#loads"
@@ -6898,7 +6924,7 @@
   },
   {
    "key": "dsn.brake_torque_needed_nm",
-   "v": 333,
+   "v": 330,
    "unit": "N m",
    "status": "calculated",
    "basis": [
@@ -6907,7 +6933,7 @@
   },
   {
    "key": "dsn.brake_rear_alone_decel",
-   "v": 3.26,
+   "v": 3.21,
    "unit": "m/s2",
    "status": "calculated",
    "basis": [
@@ -6916,7 +6942,7 @@
   },
   {
    "key": "dsn.brake_clamp_needed_n",
-   "v": 2919,
+   "v": 2800,
    "unit": "N",
    "status": "calculated",
    "basis": [
@@ -6925,7 +6951,7 @@
   },
   {
    "key": "dsn.brake_front_torque_needed_nm",
-   "v": 101,
+   "v": 102,
    "unit": "N m",
    "status": "calculated",
    "basis": [
@@ -6934,7 +6960,7 @@
   },
   {
    "key": "dsn.brake_downhill_decel_rear",
-   "v": 0.16,
+   "v": 0.12,
    "unit": "m/s2",
    "status": "calculated",
    "basis": [
@@ -7006,7 +7032,7 @@
   },
   {
    "key": "dsn.bom_parts_jpy",
-   "v": 319371,
+   "v": 316599,
    "unit": "JPY",
    "status": "calculated",
    "basis": [
@@ -9650,6 +9676,26 @@
     "R-04"
    ],
    "supersedes": "D-039"
+  },
+  {
+   "id": "D-042",
+   "date": "2026-11-05",
+   "by": "owner",
+   "what": "フレームの前後の端から、ほとんど力を受けていないものを外す。後ろでは、スイングアームの支点はエンジンの出力軸と同じ高さのまま、背骨の後ろの横管から座席の後ろのシートレールの後端へ立ち上がる 2 本の管に付ける。保護枠はそこに後ろへ傾けて立て、脚の間の横管に後ろの緩衝器の上端を付ける。支柱、座席より後ろの上のレール、ナンバーの台は無くし、ナンバーと後ろの灯火はスイングアームに付ける。前では、ノーズの箱の前面をタイヤより前に出してバンパーとし、別付けのバンパーとその支えは無くす。支点を背骨のレールに直接置く形をはじめに選んだが、低い支点には 1 本の緩衝器が付かないとする誤った探索を受けて施主は出力軸の高さの支点へ移り、正しい探索（K-019）で両方に配置が見つかった後も、チェーンの軸間距離の変化が約 45 mm に対し 14 mm で済むため、こちらを残した。",
+   "options": [
+    "後ろ - 支点を背骨のレールに直接、緩衝器はロッカーとリンクで押す",
+    "後ろ - 支点は出力軸と同じ高さで立ち上がりの管に、緩衝器の上端は保護枠に",
+    "後ろ - ばね無し、車軸を背骨に付ける",
+    "後ろ - 柱、支柱、上のレールをそのまま残す",
+    "前 - ノーズの箱の前面をバンパーにする",
+    "前 - 別付けのバンパーをそのまま残す"
+   ],
+   "touches": [
+    "R-02",
+    "R-19",
+    "D-036",
+    "D-041"
+   ]
   }
  ],
  "open": [
@@ -11343,6 +11389,23 @@
    "by": "assistant",
    "date": "2026-11-05",
    "detail": "独立した確かめ役が、1.3.21 で削る前と後のフレームを動かし、全ケースを自前のスクリプトで解き直した。確かめられたのは次の点である。応力マップ（管の両端では解法の応力と一致し、モーメントの向きは釣り合いと 4 点曲げの手計算で合い、管を 4 要素に分けても長さ方向の応力が同じ）。最初の読み（15 % 未満が 37 本 6.7 m、60 % 超が 6 本）。削った後の、走行の安全率 2.33、腕 3.39、衝突 2.02、保護枠 2.98 と 4.26、疲労の応力幅 35.5 MPa が管の継手の限度 38.75 MPa より下であること、車体 144.9 kg、干渉なし。V の筋かいを外しても箱は機構にならず（上の角に横 1 kN で 0.13 mm、以前は 0.07 mm）、各ケースの最大応力は 5 % 以内しか変わらない。前輪 1 本への横 2 g の打撃と、箱の上のレールに 200 kg を載せた場合も管の強さに十分収まり、座屈に近い管もない。反証されたのは、削る前のフレームの質量（34.7 kg ではなく 33.0 kg、減ったのは 4.6 kg）、筋かいの利用率（3〜8 % ではなく 4 % 未満）、柱の寸法を上の腕の値で示したこと、細い管の長さに中間の管が入っていたこと。また、マップの疲労の色は管の継手の等級なので、すみ肉溶接の板が付く管では実際の利用率よりずっと低く見えると指摘した。いずれも同じ日に直した。"
+  },
+  {
+   "id": "K-019",
+   "target": [
+    "D-042",
+    "dsn.motion_ratio",
+    "dsn.shock_stroke_used_mm",
+    "dsn.impact_safety",
+    "dsn.hoop_crush_safety",
+    "dsn.frame_mass_kg"
+   ],
+   "tier": "T2",
+   "method": "refute",
+   "result": "partial",
+   "by": "assistant",
+   "date": "2026-11-05",
+   "detail": "独立した確かめ役が、D-042 の新しいフレームの前後の端を以前のものと比べて動かし、全ケースを解き直し、後ろの緩衝器の配置を自前で探し、継手の球のある場合と無い場合で干渉を探した。確かめられたのは、後ろの緩衝器の静止長とストローク、緩衝器の上端が保護枠の横管にあること、フレームの安全率、前後とも機構にならないこと、干渉が無いこと。反証されたのは次の点である。支点を背骨のレールに直接置くと直接押す 1 本の緩衝器が付かないという主張（自前の探索で数百の配置が見つかり、支点の後ろの低い取付点ならレバー比も落ちにくい。私の探索は腕の角度の向きを逆にしており、施主はその主張にもとづいて高い支点へ移っていた）。行程の間にレバー比が 0.65 から 0.37 へ落ちることを書いていなかったこと。耳が短く緩衝器の目玉が保護枠の横管に入っていたこと。腕と保護枠の横押しの安全率の数値の誤り。柱の間が 157 mm しかないバンパーで、中心から 0.1 m 以上ずれた柱にはタイヤや腕が先に当たること。片端の打撃がまっすぐ後ろへ抜けるとしたが柱が曲がること。後ろの灯火に金具が無いこと。柱、支柱、前の削減についての古い記述。いずれも同じ日に直した。施主は両方の支点を示されたうえで、チェーンのため高い支点を残した（軸間距離の変化が約 14 mm と 45 mm）。緩衝器の下の目玉は、腕の補強の管から離れたまま比の落ちが最も小さい所へ移し（0.73 から 0.47）、上の耳を延ばし、バンパーの横棒を以前のバンパーの幅に広げ、灯火に金具を付け、本文を直した。"
   }
  ],
  "procedures": [
@@ -11393,7 +11456,7 @@
     },
     {
      "id": "OP-01.07",
-     "action": "フレームの溶接部に割れがないか見る - フットボードの間の背骨、シートレールの柱、後ろの柱と支柱、前の支点、スイングアーム。割れがあるまま乗らない。",
+     "action": "フレームの溶接に割れがないか見る - 足置きの間の背骨、シートレール、エンジンの後ろの立ち上がりの管とピボットの管、保護枠の脚、ノーズの箱と A アームの支点、スイングアーム。割れがあれば乗らない。",
      "controls": [
       "H-06"
      ]
@@ -12231,15 +12294,15 @@
   "lines": [
    {
     "part": "frame",
-    "item": "STKM11A 丸管 48.6 × 2.3、背骨のレール、ノーズの箱の上のレール、柱、支柱、ピボットの管、スイングアーム、バンパーの下の支え、保護枠（m）",
+    "item": "STKM11A 丸管 48.6 × 2.3、背骨のレール、ノーズの箱の上のレール、バンパーの柱と横棒、立ち上がりの管とピボットの管、スイングアーム、保護枠（m）",
     "qty": 11,
     "price": "cost.tube_48x23_jpy_per_m",
     "need": "b1"
    },
    {
     "part": "frame",
-    "item": "STKM11A 丸管 25.4 × 1.6、横材、足置きの支え、上のレール、ノーズの箱の柱、上の A アーム（m）",
-    "qty": 8,
+    "item": "STKM11A 丸管 25.4 × 1.6、横材、足置きの支え、ノーズの箱の後ろの柱と斜材、上の A アーム（m）",
+    "qty": 5,
     "price": "cost.tube_25_jpy_per_m",
     "need": "b1"
    },
@@ -12308,7 +12371,7 @@
    },
    {
     "part": "frame",
-    "item": "STKM11A 丸管 31.8 × 2.3、下の A アーム、ノーズの箱の下のレールと横管、バンパー、シートの後ろの横管（m）",
+    "item": "STKM11A 丸管 31.8 × 2.3、下の A アーム、ノーズの箱の下のレールと横管、シートの後ろの横管（m）",
     "qty": 4,
     "price": "cost.tube_32x23_jpy_per_m",
     "need": "b1"
@@ -12415,7 +12478,7 @@
    },
    {
     "part": "rear_shock",
-    "item": "後ろの緩衝器 250 mm とそのコイルばね（ばねは合わせて選ぶ、Q-039）",
+    "item": "後ろの緩衝器 290 mm、コイルばね付き、前と同じもの（ばねは合わせて選ぶ、Q-039）",
     "qty": 1,
     "price": "cost.rear_shock_jpy",
     "need": "b3"

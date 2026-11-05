@@ -275,3 +275,17 @@ items:
     by: assistant
     date: 2026-11-05
     detail: An independent helper ran the frame before and after the trim of 1.3.21 and re-solved every case with its own scripts. It confirmed the stress map - at the tubes' ends it equals the solver's stresses, the moment's sign checks by statics and by a four-point bending case by hand, and tubes split into four elements give the same stresses along them; the first reading (37 tubes, 6.7 m, under 15 % and 6 over 60 %); and after the trim the driving factor 2.33, the arms' 3.39, the impact factor 2.02, the hoop's 2.98 and 4.26, a fatigue range of 35.5 MPa under the tube joints' limit of 38.75 MPa, a kart of 144.9 kg, and no clashes. Without the V braces the box is no mechanism - a sideways kilonewton at a top corner moves it 0.13 mm against 0.07 mm before - and each case's largest stress changes by 5 % or less; a 2 g sideways blow at one front tyre and a 200 kg weight on the box's top rail stay well inside the tubes' strength, and no tube comes near buckling. It refuted the frame's mass before the trim (33.0 kg, not 34.7, so 4.6 kg saved), the braces' use (under 4 %, not 3 to 8 %), the posts' size named as the upper arms' value, and a tube length of the smaller size that included the middle one, and it noted that the map's fatigue colours are a tube joint's, so a tube with a fillet-welded plate would show far less than its use. All were corrected the same day.
+  - id: K-019
+    target:
+      - D-042
+      - dsn.motion_ratio
+      - dsn.shock_stroke_used_mm
+      - dsn.impact_safety
+      - dsn.hoop_crush_safety
+      - dsn.frame_mass_kg
+    tier: T2
+    method: refute
+    result: partial
+    by: assistant
+    date: 2026-11-05
+    detail: An independent helper ran the new frame ends of D-042 against the frame before them, re-solved every case, searched the rear shock's layouts on its own, and ran the interference search with and without the joints' spheres. It confirmed the rear shock's laden length and stroke, the shock's top on the hoop's cross tube, the frame's safety factors, no mechanism at either end, and no clashes. It refuted - the claim that a pivot right on the spine rails admits no single directly acting shock (its own search found hundreds of layouts, a lug low behind the pivot giving a steadier ratio; the assistant's search had the arm's angle the wrong way round, and the owner had moved to the higher pivot on that claim); a motion ratio falling from 0.65 to 0.37 over the travel, left unsaid; a lug so short that the shock's eye sat in the hoop's cross tube; the arms' and the hoop's side factors quoted wrongly; a bumper only 157 mm between its posts, which a post more than 0.1 m off centre would pass to reach a tyre or an arm; a blow on one end said to go straight back, where it bends the posts; the rear lamps without a bracket; and stale text on the posts, the struts, and the earlier trim. All were corrected the same day - the owner, shown both pivots, kept the higher one for the chain (about 14 mm of change in its centre distance against 45 mm); the shock's lower eye moved to where its ratio falls least while its eye stays clear of the arm's brace (0.73 to 0.47), the upper lug lengthened, the bumper's bar widened to the old bumper's width, the lamps given a bracket, and the text corrected.
