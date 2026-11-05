@@ -16,13 +16,15 @@ hinges   [(name_a, name_b, "y")] two coincident nodes joined except for rotation
          "xyz" frees all three rotations (a ball joint)
 links    [(name_a, name_b)] pin-ended axial links (a shock taken as rigid)
 returns  {"stress": [MPa per member, von Mises at the worse end], "axial": [N per member],
-          "link_force": [N per link, tension positive], "disp": {name: (dx, dy, dz)}}
+          "link_force": [N per link, tension positive], "disp": {name: (dx, dy, dz)},
+          "profile": [[MPa at PROFILE_N points from end a to end b] per member]}
 """
 import numpy as np
 
 E = 205e9          # steel, Pa
 G_SHEAR = 79e9
 STIFF = 1e12       # penalty stiffness for the pivots
+PROFILE_N = 9      # points along each tube at which "profile" gives the stress
 
 
 def section(od, t):
@@ -116,7 +118,7 @@ def solve(nodes, members, loads, supports, hinges=(), links=()):
     K[np.arange(ndof), np.arange(ndof)] += 1e-3
     U = np.zeros(ndof)
     U[free] = np.linalg.solve(K[np.ix_(free, free)], F[free])
-    stress, axial = [], []
+    stress, axial, profile = [], [], []
     for dofs, T, kl, a, z in elems:
         f = kl @ (T @ U[dofs])             # end forces in local axes
         worst = 0.0
@@ -128,6 +130,12 @@ def solve(nodes, members, loads, supports, hinges=(), links=()):
             worst = max(worst, np.sqrt(sig ** 2 + 3 * tau ** 2))
         stress.append(worst / 1e6)
         axial.append(-f[0])               # tension positive
+        # along the tube: loads come only at nodes, so the bending moment runs straight from -M at
+        # end a to +M at end b, and the axial force and the torque stay the same
+        ma, mb_ = np.array([f[4], f[5]]), np.array([f[10], f[11]])
+        tau = abs(f[3]) / (2 * z)
+        profile.append([float(np.sqrt((abs(f[0]) / a + np.hypot(*((1 - s) * -ma + s * mb_)) / z) ** 2 + 3 * tau ** 2) / 1e6)
+                        for s in np.linspace(0.0, 1.0, PROFILE_N)])
     link_force = [float(ka * e @ (U[db] - U[da])) for da, db, e, ka in link_axes]
     disp = {n: tuple(U[6 * idx[n]:6 * idx[n] + 3]) for n in names}
-    return {"stress": stress, "axial": axial, "link_force": link_force, "disp": disp}
+    return {"stress": stress, "axial": axial, "link_force": link_force, "disp": disp, "profile": profile}

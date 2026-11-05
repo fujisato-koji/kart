@@ -919,6 +919,70 @@ export function buildKart(design) {
   return { root, groups };
 }
 
+// ---------------------------------------------------------------- stress map
+// design.json "stress" (calc/design.py) holds, for every load case of 1.3.18, the stress at
+// STRESS points along every tube, and the stress that case is checked against: the tensile strength
+// over the least safety factor (driving or accident), or for fatigue the repeated range a tube joint
+// stands for its target life. A tube is coloured along its length by the ratio of the two (its use),
+// in bands, lighter for less: the light tubes carry little of what they could. As the oven's
+// contours, the colours are ColorBrewer's YlOrRd, with a purple band for more than allowed.
+export const STRESS_EDGES = [0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.8, 1.0];
+export const STRESS_RAMP = ['#ffffcc', '#ffeda0', '#fed976', '#feb24c', '#fd8d3c', '#fc4e2a', '#e31a1c', '#bd0026', '#54278f'];
+export const STRESS_CASE_JA = {
+  'bump, seated': '段差（座って）', 'bump, standing': '段差（立って）', 'right front wheel lifted': '右前輪が浮く（ねじれ）',
+  braking: '制動', cornering: '旋回', 'bump, braking, and cornering': '段差と制動と旋回', 'frontal impact': '正面衝突',
+  'frontal impact, one end': '正面衝突（バンパーの片端）', 'hoop crushed from above': '保護枠を上から押す',
+  'hoop pushed sideways': '保護枠を横から押す', 'fatigue, repeated range': '疲労（繰り返しの応力幅）',
+};
+export const stressBand = (u) => { const i = STRESS_EDGES.findIndex((e) => u < e); return i < 0 ? STRESS_EDGES.length : i; };
+// the choices: the envelope of everything, of the strength cases, fatigue, or one case
+export function stressChoices(design) {
+  const cs = (design.stress && design.stress.cases) || [];
+  const out = cs.length ? [['env', 'すべての包絡'], ['strength', '強さの包絡（走行と事故）']] : [];
+  cs.forEach((c, i) => out.push([c.kind === 'fatigue' ? 'fatigue' : 'c' + i, STRESS_CASE_JA[c.name] || c.name]));
+  return out;
+}
+// per tube: the use at each point along it, and which case gives the most
+export function stressUse(design, key) {
+  const cs = design.stress.cases, n = design.stress.samples;
+  const pick = key === 'env' ? cs.map((_, i) => i) : key === 'strength' ? cs.map((c, i) => (c.kind === 'fatigue' ? -1 : i)).filter((i) => i >= 0)
+    : key === 'fatigue' ? cs.map((c, i) => (c.kind === 'fatigue' ? i : -1)).filter((i) => i >= 0) : [Number(key.slice(1))];
+  return design.members.map((_, m) => {
+    const use = new Array(n).fill(0); let top = 0, by = pick[0], mpa = 0;
+    for (const i of pick) {
+      const c = cs[i], row = c.mpa[m];
+      for (let k = 0; k < n; k++) {
+        const u = row[k] / c.allow; if (u > use[k]) use[k] = u;
+        if (u > top) { top = u; by = i; mpa = row[k]; }
+      }
+    }
+    return { use, top, by, mpa };
+  });
+}
+export function buildStress(design, uses) {
+  const g = new THREE.Group(); g.name = 'stress';
+  const n = design.stress.samples, col = new THREE.Color();
+  const mat = new THREE.MeshLambertMaterial({ vertexColors: true, toneMapped: false });   // the colours as in the legend
+  design.members.forEach((mb, m) => {
+    const a = V(mb.a), b = V(mb.b), L = a.distanceTo(b);
+    if (L < 0.02) return;
+    const geo = new THREE.CylinderGeometry(mb.od / 2 * 1.04, mb.od / 2 * 1.04, L, 14, 24, false);
+    const pos = geo.attributes.position, cl = new Float32Array(pos.count * 3);
+    for (let k = 0; k < pos.count; k++) {
+      const s = Math.min(Math.max(pos.getY(k) / L + 0.5, 0), 1) * (n - 1), i = Math.min(Math.floor(s), n - 2), f = s - i;
+      const u = uses[m].use[i] * (1 - f) + uses[m].use[i + 1] * f;
+      col.set(STRESS_RAMP[stressBand(u)]); cl.set([col.r, col.g, col.b], 3 * k);
+    }
+    geo.setAttribute('color', new THREE.BufferAttribute(cl, 3));
+    const me = new THREE.Mesh(geo, mat);
+    me.position.copy(a).addScaledVector(b.clone().sub(a), 0.5);
+    me.quaternion.setFromUnitVectors(Y, b.clone().sub(a).normalize());
+    me.userData = { part: mb.part, member: m, front_arm: mb.front_arm };
+    g.add(me);
+  });
+  return g;
+}
+
 // ---------------------------------------------------------------- mannequin
 function ik(S, T, l1, l2, pole) {
   const d0 = T.clone().sub(S), dist = Math.min(Math.max(d0.length(), Math.abs(l1 - l2) + 1e-4), l1 + l2 - 1e-4);

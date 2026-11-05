@@ -24,8 +24,9 @@
   </label>
   <label class="check"><input type="checkbox" id="delica"> デリカの荷室</label>
   <label class="check"><input type="checkbox" id="dims"> 寸法</label>
+  <label class="field">応力 <select id="stress"></select></label>
   <span class="group" id="gView" role="group" aria-label="視点">
-    <button type="button" data-view="iso">斜め</button><button type="button" data-view="side">横</button><button type="button" data-view="top">上</button><button type="button" data-view="front">前</button>
+    <button type="button" data-view="iso">斜め</button><button type="button" data-view="side">横</button><button type="button" data-view="top">上</button><button type="button" data-view="front">前</button><button type="button" data-view="nose">前まわり</button>
   </span>
   <button type="button" id="partsBtn" aria-expanded="false" aria-controls="partsPanel">部品</button>
   <button type="button" id="themeBtn" aria-label="明るさの切り替え">明暗</button>
@@ -35,6 +36,7 @@
   <ul id="partsList"></ul>
 </aside>
 <div id="status" class="status" aria-live="polite"></div>
+<div id="stressLegend" class="legend" hidden aria-live="polite"></div>
 <div id="futureNote" class="future-note" hidden>将来版の参考表示（要求ではありません、D-027）</div>
 <div id="loading" class="loading">設計データと 3D ライブラリを読み込んでいます…</div>
 <div id="error" class="error" hidden></div>

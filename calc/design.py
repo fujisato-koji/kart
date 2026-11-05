@@ -856,6 +856,13 @@ def build(v):
         return w
 
     worst, worst_acc = worst_of(drive), worst_of(accident)
+    # the stress along every tube in every case, for the 3D view's stress map; each case with the
+    # stress it is checked against (the tensile strength over its least safety factor)
+    ts_ = v["dsn.stkm11a_tensile_mpa"]
+    stress_map = {"samples": frame.PROFILE_N, "cases": [
+        {"name": name, "kind": kind, "allow": round(ts_ / v[key], 1), "mpa": [[round(x) for x in pr] for pr in res["profile"][:len(tubes)]]}
+        for kind, key, cases in (("driving", "dsn.frame_safety_min", drive), ("accident", "load.accident_safety_min", accident))
+        for name, res in cases.items()]}
     # the nose box's open bay, where the tie rods pass: its rails and posts carry its shear in bending
     bay = {frozenset(q) for c in "lr" for q in ((f"t0{c}", f"ts{c}"), (f"n0{c}", f"n1{c}"), (f"n0{c}", f"t0{c}"), (f"n1{c}", f"ts{c}"))}
     put("dsn.nose_bay_stress_mpa", round(max(s_ for res in drive.values() for (a, b, *_), s_ in zip(tubes, res["stress"])
@@ -887,6 +894,14 @@ def build(v):
                 max(drive["right front wheel lifted"]["stress"][:len(tubes)]) / v["load.twist_rough"])
     rng = per_g * v["fat.range_g"]
     put("dsn.fatigue_range_mpa", round(rng), "MPa", "loads")
+    # the same for every tube, along it, for the stress map, against the range a tube joint stands for
+    # the life fat.life_kcycles_min (below it the life is longer than that)
+    per_g_prof = [[max(a_ / k, b_ / k, c_ / v["load.twist_rough"]) for a_, b_, c_ in zip(pa, pb, pc)]
+                  for pa, pb, pc in zip(drive["bump, seated"]["profile"], drive["bump, standing"]["profile"],
+                                        drive["right front wheel lifted"]["profile"])][:len(tubes)]
+    stress_map["cases"].append({"name": "fatigue, repeated range", "kind": "fatigue",
+                                "allow": round(v["fat.cat_tube_mpa"] / v["fat.gamma_mf"] * (2000 / v["fat.life_kcycles_min"]) ** (1 / 3), 1),
+                                "mpa": [[round(x * v["fat.range_g"], 1) for x in pr] for pr in per_g_prof]})
     for key_, cat in (("tube", "fat.cat_tube_mpa"), ("fillet", "fat.cat_fillet_mpa")):
         limit = (2 / 5) ** (1 / 3) * v[cat] / v["fat.gamma_mf"]
         put(f"dsn.fatigue_limit_{key_}_mpa", round(limit), "MPa", "loads")
@@ -992,6 +1007,7 @@ def build(v):
         "rear_suspension": {"pivot": [round(x_p, 4), round(z_p, 4)], "bump_deg": round(math.degrees(abs(th_b)), 2),
                             "droop_deg": round(math.degrees(abs(th_d)), 2)},
         "joints": joints,
+        "stress": stress_map,
         "riders": riders,
         "members": members,
         "items": items,

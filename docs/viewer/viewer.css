@@ -48,3 +48,10 @@ html.embed .toolbar, html.embed .panel, html.embed .status { display: none !impo
   .title { display: none; }
   .panel { top: auto; bottom: 40px; height: 45vh; width: auto; left: 8px; }
 }
+/* the stress map's legend: bottom right, over the view */
+.legend { position: fixed; right: 10px; bottom: 10px; max-width: min(430px, calc(100% - 20px)); padding: 8px 10px; background: var(--card);
+  border: 1px solid var(--line); border-radius: 8px; font-size: 12px; z-index: 6; box-shadow: 0 2px 10px rgba(0,0,0,.12); }
+.legend .ramp { display: grid; grid-template-columns: 16px auto 16px auto 16px auto; gap: 2px 6px; align-items: center; margin: 6px 0 4px; }
+.legend .sw { width: 16px; height: 11px; border-radius: 2px; border: 1px solid rgba(0,0,0,.15); }
+.legend .note, .legend .hov { color: var(--muted); }
+.legend .top, .legend .hov { margin-top: 3px; }

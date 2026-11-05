@@ -3,7 +3,7 @@
 import * as THREE from 'three';
 import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
 import { RoomEnvironment } from 'three/addons/environments/RoomEnvironment.js';
-import { buildKart, buildRider, buildDelica, buildDims, k2w } from './model.js';
+import { buildKart, buildRider, buildDelica, buildDims, k2w, buildStress, stressUse, stressChoices, STRESS_EDGES, STRESS_RAMP, STRESS_CASE_JA } from './model.js';
 import { partOfObject } from './parts.js';
 
 const params = new URLSearchParams(location.search);
@@ -28,6 +28,7 @@ const state = {
   rider: ['adult', 'child', 'none'].includes(params.get('rider')) ? params.get('rider') : 'adult',
   delica: params.get('delica') === '1', dims: params.get('dims') === '1',
   view: ['iso', 'side', 'top', 'front', 'nose', 'nose_side'].includes(params.get('view')) ? params.get('view') : 'iso',
+  stress: params.get('stress') || '',   // '' or a key of stressChoices: env, strength, fatigue, c0, c1, ...
 };
 const $ = (id) => document.getElementById(id);
 const post = (msg) => { if (window.parent !== window) window.parent.postMessage(msg, '*'); };
@@ -39,7 +40,7 @@ function fail(e) {
 }
 
 let design, renderer, scene, camera, controls, kart, groups = [], riderCache = {}, riderObj = null, delicaObj = null, dimsObj = null;
-let ground, groundShadow, floorShadow, dirty = true, tween = null;
+let ground, groundShadow, floorShadow, dirty = true, tween = null, stressObj = null, stressKey = '', stressData = null;
 const hidden = new Set((params.get('hide') || '').split(',').filter(Boolean)); let focus = new Set(); let selected = null;   // ?hide=front_wheels,fenders
 const matCache = new Map();
 
@@ -94,7 +95,7 @@ async function init() {
   bindPicking(); bindUi(); applyAll(); setView(state.view, false);
   $('loading').hidden = true;
   const ids = [...new Set(groups.map((g) => g.userData.part))];
-  post({ type: 'kart3d:ready', parts: ids.map((id) => ({ id, name: PART_NAMES[id] || id })) });
+  post({ type: 'kart3d:ready', parts: ids.map((id) => ({ id, name: PART_NAMES[id] || id })), stress: stressChoices(design) });
   requestAnimationFrame(frame);
   window.__kart = { state, scene, camera, controls, setState, focusParts, groups, THREE, get riderObj() { return riderObj; } };
 }
@@ -138,6 +139,7 @@ function applyAll() {
     riderCache[state.rider] = riderCache[state.rider] || buildRider(design, state.rider);
     riderObj = riderCache[state.rider]; riderObj.position.y = lift; scene.add(riderObj); // world frame: y is up
   }
+  applyStress(lift);
   delicaObj.visible = state.delica; floorShadow.visible = state.delica;
   const lip = state.delica ? design.delica.lip : 0;
   ground.position.y = -lip;
@@ -146,9 +148,45 @@ function applyAll() {
   $('futureNote').hidden = state.config !== 'water';
   applyFocus(); syncUi(); dirty = true;
 }
+// ---------------------------------------------------------------- stress map
+// The frame's tubes coloured by their use in the chosen load case (model.js, buildStress); everything
+// else is drawn as a grey ghost, and a legend gives the bands and the tube under the pointer.
+function applyStress(lift) {
+  const on = !!(state.stress && design.stress && stressChoices(design).some(([k]) => k === state.stress));
+  if (!on) state.stress = '';
+  if (stressObj && (!on || stressKey !== state.stress)) { kart.remove(stressObj); stressObj = null; }
+  if (on && !stressObj) {
+    stressData = stressUse(design, state.stress); stressObj = buildStress(design, stressData); stressKey = state.stress; kart.add(stressObj);
+  }
+  if (stressObj) stressObj.position.z = lift;
+  for (const g of groups) if (g.userData.type === 'member' && on) g.visible = false;
+  paintLegend();
+}
+function paintLegend(hover) {
+  const el = $('stressLegend'); if (!el) return;
+  el.hidden = !stressObj;
+  if (!stressObj) return;
+  const label = (stressChoices(design).find(([k]) => k === state.stress) || [])[1] || '';
+  const top = stressData.reduce((a, b, i) => (b.top > a.top ? { ...b, i } : a), { top: -1 });
+  const lo = ['0', ...STRESS_EDGES.map((e) => String(Math.round(e * 100)))];
+  const rows = STRESS_RAMP.map((c, i) => `<span class="sw" style="background:${c}"></span><span>${i < STRESS_EDGES.length ? lo[i] + '–' + lo[i + 1] : lo[i] + ' より上'} %</span>`).join('');
+  const tube = (d, i) => {
+    const mb = design.members[i], L = Math.hypot(mb.b[0] - mb.a[0], mb.b[1] - mb.a[1], mb.b[2] - mb.a[2]);
+    const c = design.stress.cases[d.by];
+    return `${PART_NAMES[mb.part] || mb.part} φ${(mb.od * 1000).toFixed(1)}×${(mb.t * 1000).toFixed(1)}、長さ ${Math.round(L * 1000)} mm：` +
+      `${Math.round(d.top * 100)} %（${d.mpa} MPa ／ ${c.allow} MPa、${STRESS_CASE_JA[c.name] || c.name}）`;
+  };
+  el.innerHTML = `<strong>応力：${label}</strong><div class="ramp">${rows}</div>` +
+    `<div class="note">許される応力に対する割合。薄い管ほど余っている</div>` +
+    `<div class="top">最大：${top.i != null ? tube(top, top.i) : ''}</div>` +
+    `<div class="hov">${hover != null ? tube(stressData[hover], hover) : '管に重ねると値が出ます'}</div>`;
+}
+const ghostMat = new THREE.MeshLambertMaterial({ color: 0xb4bcc6, transparent: true, opacity: 0.22, depthWrite: false });
+
 function setState(patch, user = false) {
   const prev = { ...state };
   for (const k of ['config', 'rider', 'view']) if (patch[k] != null && patch[k] !== state[k]) state[k] = patch[k];
+  if (patch.stress != null) state.stress = String(patch.stress);
   for (const k of ['delica', 'dims']) if (patch[k] != null) state[k] = !!patch[k];
   if (user && patch.delica && !prev.delica && state.config !== 'transport') state.config = 'transport'; // the Delica holds the kart in transport form
   applyAll();
@@ -160,13 +198,14 @@ function setState(patch, user = false) {
 const dimMat = (m) => { const k = 'd' + m.uuid; if (!matCache.has(k)) { const c = m.clone(); c.transparent = true; c.opacity = 0.1; c.depthWrite = false; if (c.alphaMap) c.alphaMap = null; matCache.set(k, c); } return matCache.get(k); };
 const hiMat = (m) => { const k = 'h' + m.uuid; if (!matCache.has(k)) { const c = m.clone(); if (c.emissive) { c.emissive = new THREE.Color(0xff7a00); c.emissiveIntensity = 0.7; } matCache.set(k, c); } return matCache.get(k); };
 function applyFocus() {
-  const on = focus.size > 0;
+  const on = focus.size > 0, st = !!stressObj;
   const walk = (root) => root.traverse((o) => {
     if (!o.isMesh && !o.isInstancedMesh) return;
+    if (stressObj && (o === stressObj || o.parent === stressObj)) return;   // the stress map keeps its colours
     if (!o.userData.base) o.userData.base = o.material;
     const base = o.userData.base, part = partOfObject(o);
-    o.material = !on ? base : focus.has(part) ? hiMat(base) : dimMat(base);
-    if (on && !focus.has(part)) o.castShadow = false; else o.castShadow = o.userData.cast !== false;
+    o.material = st ? ghostMat : !on ? base : focus.has(part) ? hiMat(base) : dimMat(base);
+    if (st || (on && !focus.has(part))) o.castShadow = false; else o.castShadow = o.userData.cast !== false;
   });
   walk(kart); if (riderObj) walk(riderObj);
   dirty = true;
@@ -206,6 +245,14 @@ function setView(name, animate = true) {
 // ---------------------------------------------------------------- picking (a click without a drag)
 function bindPicking() {
   const el = renderer.domElement; let down = null; const ray = new THREE.Raycaster();
+  let hov = null;
+  el.addEventListener('pointermove', (e) => {
+    if (!stressObj || e.buttons) return;
+    const r = el.getBoundingClientRect();
+    ray.setFromCamera(new THREE.Vector2(((e.clientX - r.left) / r.width) * 2 - 1, -((e.clientY - r.top) / r.height) * 2 + 1), camera);
+    const h = ray.intersectObject(stressObj, true)[0], m = h ? h.object.userData.member : null;
+    if (m !== hov) { hov = m; paintLegend(m); }
+  });
   el.addEventListener('pointerdown', (e) => { down = { x: e.clientX, y: e.clientY, t: performance.now() }; });
   el.addEventListener('pointerup', (e) => {
     if (!down) return; const moved = Math.hypot(e.clientX - down.x, e.clientY - down.y); down = null;
@@ -234,6 +281,9 @@ function bindUi() {
   $('rider').addEventListener('change', (e) => setState({ rider: e.target.value }, true));
   $('delica').addEventListener('change', (e) => setState({ delica: e.target.checked }, true));
   $('dims').addEventListener('change', (e) => setState({ dims: e.target.checked }, true));
+  const ss = $('stress');
+  for (const [k, t] of [['', 'なし'], ...stressChoices(design)]) { const o = document.createElement('option'); o.value = k; o.textContent = t; ss.appendChild(o); }
+  ss.addEventListener('change', (e) => setState({ stress: e.target.value }, true));
   $('partsBtn').addEventListener('click', () => { const p = $('partsPanel'); p.hidden = !p.hidden; $('partsBtn').setAttribute('aria-expanded', String(!p.hidden)); $('partsBtn').classList.toggle('on', !p.hidden); });
   $('themeBtn').addEventListener('click', () => {
     const dark = document.documentElement.dataset.theme === 'dark' || (!document.documentElement.dataset.theme && matchMedia('(prefers-color-scheme: dark)').matches);
@@ -256,7 +306,7 @@ function syncUi() {
   if (EMBED) return;
   for (const b of $('gConfig').children) b.classList.toggle('on', b.dataset.config === state.config);
   for (const b of $('gView').children) b.classList.toggle('on', b.dataset.view === state.view);
-  $('rider').value = state.rider; $('delica').checked = state.delica; $('dims').checked = state.dims;
+  $('rider').value = state.rider; $('delica').checked = state.delica; $('dims').checked = state.dims; $('stress').value = state.stress;
   for (const li of $('partsList').children) {
     li.querySelector('input').checked = !hidden.has(li.dataset.part);
     li.classList.toggle('sel', focus.has(li.dataset.part));
@@ -266,8 +316,8 @@ function syncUi() {
 }
 
 // ---------------------------------------------------------------- messages from the navigator
-//  in : { type:'kart3d:set', config?, rider?, delica?, dims?, view? }   { type:'kart3d:focus', parts:[ids] }   { type:'kart3d:hide', parts:[ids] }
-//  out: { type:'kart3d:ready', parts:[{id,name}] }  { type:'kart3d:pick', part }  { type:'kart3d:state', config, rider, delica, dims, view }
+//  in : { type:'kart3d:set', config?, rider?, delica?, dims?, view?, stress? }   { type:'kart3d:focus', parts:[ids] }   { type:'kart3d:hide', parts:[ids] }
+//  out: { type:'kart3d:ready', parts:[{id,name}], stress:[[key,label]] }  { type:'kart3d:pick', part }  { type:'kart3d:state', config, rider, delica, dims, view }
 addEventListener('message', (e) => {
   const m = e.data; if (!m || typeof m.type !== 'string' || !renderer) return;
   if (m.type === 'kart3d:set') setState(m, false);

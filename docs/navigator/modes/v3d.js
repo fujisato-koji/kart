@@ -3,13 +3,13 @@
 // part or a whole group, click a name to select it, point at a name to light it in the view.
 import { viewForItem } from '../../viewer/parts.js';
 
-const DEFAULTS = { config: 'summer', rider: 'adult', delica: false, dims: false, view: 'iso' };
+const DEFAULTS = { config: 'summer', rider: 'adult', delica: false, dims: false, view: 'iso', stress: '' };
 const GROUPS = [
   ['構成', 'config', [['summer', '夏'], ['winter', '冬'], ['transport', '運搬'], ['water', '水（将来版）']]],
   ['乗る人', 'rider', [['adult', '大人'], ['child', '子ども'], ['none', 'なし']]],
-  ['視点', 'view', [['iso', '斜め'], ['side', '横'], ['top', '上'], ['front', '前']]],
+  ['視点', 'view', [['iso', '斜め'], ['side', '横'], ['top', '上'], ['front', '前'], ['nose', '前まわり']]],
 ];
-const URLKEY = { config: 'cfg', rider: 'rd', delica: 'dl', dims: 'dm', view: 'vw' };
+const URLKEY = { config: 'cfg', rider: 'rd', delica: 'dl', dims: 'dm', view: 'vw', stress: 'st' };
 
 export default function create(api) {
   const { h } = api;
@@ -41,7 +41,11 @@ export default function create(api) {
   bar.append(h('span', { class: 'grp' },
     h('button', { type: 'button', 'data-key': 'delica', 'data-val': 'toggle', onclick: () => send({ delica: !st.delica }) }, 'デリカの荷室'),
     h('button', { type: 'button', 'data-key': 'dims', 'data-val': 'toggle', onclick: () => send({ dims: !st.dims }) }, '寸法')));
+  // the stress map: the frame's tubes coloured by their use in a load case (1.3.18)
+  const stressSel = h('select', { 'aria-label': '応力の表示', onchange: (e) => send({ stress: e.target.value }) }, h('option', { value: '' }, 'なし'));
+  bar.append(h('span', { class: 'grp' }, '応力 ', stressSel));
   function paintBar() {
+    stressSel.value = st.stress;
     bar.querySelectorAll('button[data-key]').forEach((b) => {
       const key = b.dataset.key;
       const on = b.dataset.val === 'toggle' ? !!st[key] : String(st[key]) === b.dataset.val;
@@ -113,6 +117,8 @@ export default function create(api) {
       ready = true;
       drawn = Array.isArray(d.parts) ? d.parts : [];
       buildTree();
+      stressSel.replaceChildren(h('option', { value: '' }, 'なし'), ...(Array.isArray(d.stress) ? d.stress : []).map(([k, t]) => h('option', { value: k }, t)));
+      paintBar();
       post({ type: 'kart3d:set', ...st });
       post({ type: 'kart3d:hide', parts: [...hidden] });
       sync(true);
