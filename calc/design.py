@@ -71,7 +71,7 @@ def build(v):
 
     def tube(a, b, od, t, part, arm=False, farm=None, flink=None):
         tubes.append((a, b, od, t, part, arm or bool(farm)))
-        m = {"part": part, "a": rnd(N[a]), "b": rnd(N[b]), "od": od, "t": t}
+        m = {"part": part, "a": rnd(N[a]), "b": rnd(N[b]), "od": od, "t": t, "name": f"{a}-{b}"}   # name: the line model's nodes
         if arm:
             m["arm"] = True
         if farm:
@@ -745,6 +745,51 @@ def build(v):
     gap_ = min(seg_gap((0.0, -La / 2, ax_b), (0.0, La / 2, ax_b), N[a], N[b]) - od_ / 2 - da / 2
                for a, b, od_, t_, part, on_arm in tubes if not on_arm and part in ("frame", "roll_bar"))
     put("dsn.axle_rail_gap_mm", round(gap_ * 1000), "mm", "suspension")
+
+    # Welds (1.2.21): a tube as cut runs straight through the nodes where the next piece of the same size
+    # and part carries straight on; every end of a cut tube is welded - to another tube, a sleeve, a
+    # bush, or an eye - but the bumper bar's two free ends. The weld at each end is taken round the
+    # tube's circumference, short of a saddle's length.
+    def cut_tubes(sel):
+        idx = [i for i, t_ in enumerate(tubes) if sel(t_)]
+        par = {i: i for i in idx}
+        def root(i):
+            while par[i] != i:
+                par[i] = par[par[i]]
+                i = par[i]
+            return i
+        at = {}
+        for i in idx:
+            for q in tubes[i][:2]:
+                at.setdefault(q, []).append(i)
+        def away(i, q):                                 # unit vector from node q along tube i
+            a_, b_ = tubes[i][:2]
+            o = b_ if a_ == q else a_
+            d_ = [N[o][k] - N[q][k] for k in range(3)]
+            n_ = math.sqrt(sum(c * c for c in d_))
+            return [c / n_ for c in d_]
+        for q, es in at.items():
+            best = None
+            for x_ in range(len(es)):
+                for y_ in range(x_ + 1, len(es)):
+                    i, j = es[x_], es[y_]
+                    if tubes[i][2:5] != tubes[j][2:5]:
+                        continue
+                    if sum(u * w for u, w in zip(away(i, q), away(j, q))) < -math.cos(math.radians(3)):
+                        if best is None or tubes[i][2] > best[2]:
+                            best = (i, j, tubes[i][2])
+            if best:
+                par[root(best[0])] = root(best[1])
+        groups = {}
+        for i in idx:
+            groups.setdefault(root(i), []).append(i)
+        return list(groups.values())
+    welded_parts = ("frame", "bumpers", "footrests", "roll_bar", "swing_arm", "front_arms")
+    cuts = cut_tubes(lambda t_: t_[4] in welded_parts)
+    free_ends = 2                                       # the bumper bar's ends
+    put("dsn.cut_tubes", len(cuts), None, "frame")
+    put("dsn.welded_ends", 2 * len(cuts) - free_ends, None, "frame")
+    put("dsn.weld_length_m", round(sum(2 * math.pi * tubes[g[0]][2] for g in cuts) - free_ends * math.pi * rail_od, 1), "m", "frame")
 
     # front: each corner carries half the front's sprung mass; camber, toe (bump steer), and track
     # over the whole travel, straight ahead and at the lock, from the moved points (calc/front.py)

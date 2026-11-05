@@ -1713,3 +1713,51 @@ items:
     license: unknown
     read: partial
     note: Read by a helper. The guideline asks only to confirm that the rated output is 0.6 kW or less; the handbook (content/001594627.pdf) asks for a test report on the motor's output but names no test. The voluntary scheme covers special-small and general-small mopeds (a track under 460 mm), not a minicar.
+  - id: P93
+    class: P
+    title: EN 1993-1-9:2005 Eurocode 3, design of steel structures, part 1-9 fatigue, with the corrigenda (copy by Public.Resource.Org)
+    url: https://www.phd.eng.br/wp-content/uploads/2015/12/en.1993.1.9.2005.pdf
+    retrieved: 2026-11-05
+    license: unknown
+    read: full
+    note: Read by a helper, tables 3.1, 4.1, 8.1 to 8.7 and B.1. Seamless tube 160; seam weld, automatic, 140; circumferential butt weld of round tubes 71; K and N gap joints of round tubes 90 at a chord-to-brace wall ratio of 2.0 and 45 at 1.0; T, Y, and X joints only by the hot-spot method of annex B (90 to 100); a tube to a flange, fillet welded, 40. The text is CEN copyright, made available for non-commercial use.
+  - id: P94
+    class: P
+    title: Hobbacher, Recommendations for fatigue design of welded joints and components, IIW-1823-07, December 2008
+    url: https://svv.cz/files/IIW182307FatigueRecomm20121017.pdf
+    retrieved: 2026-11-05
+    license: unknown
+    read: full
+    note: Read by a helper, the tables. Seamless tube 160; longitudinal seam, automatic, 125; tubular nodes by the hot-spot method; superseded by the 2016 and 2024 editions, not read.
+  - id: P95
+    class: P
+    title: Baja SAE, 2018 rules, the frame (part B.3)
+    url: https://www.bajasae.net/content/2018-BAJA-RULES-FINAL-2017-08-30.pdf
+    retrieved: 2026-11-05
+    license: unknown
+    read: full
+    note: Read by a helper, the frame section. A space frame of steel tube; the rear hoop's verticals and the front bracing are continuous tubes; tubes joined end to end take a sleeve inside, 2 D each way; bolted joints on welded flanges with three or more 8 mm bolts; rectangular tube allowed if as stiff and strong as 25 x 3 mm round.
+  - id: P96
+    class: P
+    title: Northern Arizona University, SAE Baja 2023-24 final report
+    url: https://sce.nau.edu/capstone/projects/ME/2024/F23toSp24_Baja24/files/SAEBaja24_Report2.pdf
+    retrieved: 2026-11-05
+    license: unknown
+    read: partial
+    note: Read by a helper, the requirements. One requirement is to minimize the number of primary and secondary members, with about 30 primary and 36 secondary as the target. A student report.
+  - id: P97
+    class: P
+    title: Yamaha Motor, YFZ450R features
+    url: https://yamahamotorsports.com/models/24-yfz450r/features
+    retrieved: 2026-11-05
+    license: unknown
+    read: full
+    note: Read by a helper. The aluminium and steel frame is bolted together rather than welded.
+  - id: P98
+    class: P
+    title: Polaris RZR XP service manual, the roll cage (third-party host)
+    url: https://manualslib.com/manual/2988807/Polaris-Rzr-Xp.html?page=492
+    retrieved: 2026-11-05
+    license: unknown
+    read: partial
+    note: Read by a helper, one page. The cage is a bolted assembly, its bolts torqued to 54 N m.

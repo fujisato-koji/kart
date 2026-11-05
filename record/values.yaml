@@ -4062,6 +4062,22 @@ items:
     status: calculated
     basis:
       - docs/03-design.md#suspension
+  - key: dsn.cut_tubes
+    v: 79
+    status: calculated
+    basis:
+      - docs/03-design.md#frame
+  - key: dsn.welded_ends
+    v: 156
+    status: calculated
+    basis:
+      - docs/03-design.md#frame
+  - key: dsn.weld_length_m
+    v: 19.1
+    unit: m
+    status: calculated
+    basis:
+      - docs/03-design.md#frame
   - key: dsn.front_motion_ratio
     v: 0.48
     status: calculated

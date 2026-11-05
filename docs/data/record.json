@@ -6508,6 +6508,31 @@
    ]
   },
   {
+   "key": "dsn.cut_tubes",
+   "v": 79,
+   "status": "calculated",
+   "basis": [
+    "docs/03-design.md#frame"
+   ]
+  },
+  {
+   "key": "dsn.welded_ends",
+   "v": 156,
+   "status": "calculated",
+   "basis": [
+    "docs/03-design.md#frame"
+   ]
+  },
+  {
+   "key": "dsn.weld_length_m",
+   "v": 19.1,
+   "unit": "m",
+   "status": "calculated",
+   "basis": [
+    "docs/03-design.md#frame"
+   ]
+  },
+  {
    "key": "dsn.front_motion_ratio",
    "v": 0.48,
    "status": "calculated",
@@ -9235,6 +9260,66 @@
    "license": "不明",
    "read": "partial",
    "note": "確かめ役が読んだ。ガイドラインは定格出力が 0.6 kW 以下であることを確かめるよう求めるだけで、手引き（content/001594627.pdf）は電動機の出力に関するテストレポートを求めるが、試験の名前は挙げていない。この任意の制度の対象は特定小型と一般小型原付（輪距 460 mm 未満）で、ミニカーは対象外。"
+  },
+  {
+   "id": "P93",
+   "class": "P",
+   "title": "EN 1993-1-9:2005 Eurocode 3, design of steel structures, part 1-9 fatigue, with the corrigenda (copy by Public.Resource.Org)",
+   "url": "https://www.phd.eng.br/wp-content/uploads/2015/12/en.1993.1.9.2005.pdf",
+   "retrieved": "2026-11-05",
+   "license": "不明",
+   "read": "full",
+   "note": "確かめ役が表 3.1、4.1、8.1〜8.7、B.1 を読んだ。継目なし管 160、自動溶接の継目 140、丸管の周溶接の突合せ 71、丸管の K・N 形のギャップ継手は弦材と枝材の肉厚比 2.0 で 90、1.0 で 45、T・Y・X 形の継手は附属書 B のホットスポット法だけ（90〜100）、管とフランジのすみ肉溶接 40。本文は CEN の著作物で、非営利の利用に限って公開されている。"
+  },
+  {
+   "id": "P94",
+   "class": "P",
+   "title": "Hobbacher, Recommendations for fatigue design of welded joints and components, IIW-1823-07, December 2008",
+   "url": "https://svv.cz/files/IIW182307FatigueRecomm20121017.pdf",
+   "retrieved": "2026-11-05",
+   "license": "不明",
+   "read": "full",
+   "note": "確かめ役が表を読んだ。継目なし管 160、自動溶接の長手の継目 125、管の継手はホットスポット法。2016 年版と 2024 年版で改められているが、それらは読んでいない。"
+  },
+  {
+   "id": "P95",
+   "class": "P",
+   "title": "Baja SAE, 2018 rules, the frame (part B.3)",
+   "url": "https://www.bajasae.net/content/2018-BAJA-RULES-FINAL-2017-08-30.pdf",
+   "retrieved": "2026-11-05",
+   "license": "不明",
+   "read": "full",
+   "note": "確かめ役がフレームの節を読んだ。鋼管の立体骨組み。後ろの輪の縦材と前の補強は連続した管とする。管を突き合わせてつなぐときは内側にスリーブを各側 2 D 入れる。溶接したフランジに 8 mm 以上のボルト 3 本以上で留めるボルト継手は認める。角管は 25 × 3 mm の丸管と同じ剛さと強さがあれば認める。"
+  },
+  {
+   "id": "P96",
+   "class": "P",
+   "title": "Northern Arizona University, SAE Baja 2023-24 final report",
+   "url": "https://sce.nau.edu/capstone/projects/ME/2024/F23toSp24_Baja24/files/SAEBaja24_Report2.pdf",
+   "retrieved": "2026-11-05",
+   "license": "不明",
+   "read": "partial",
+   "note": "確かめ役が要求の節を読んだ。要求の 1 つが主部材と副部材の数を少なくすることで、目標は主部材約 30、副部材約 36。学生の報告書。"
+  },
+  {
+   "id": "P97",
+   "class": "P",
+   "title": "Yamaha Motor, YFZ450R features",
+   "url": "https://yamahamotorsports.com/models/24-yfz450r/features",
+   "retrieved": "2026-11-05",
+   "license": "不明",
+   "read": "full",
+   "note": "確かめ役が読んだ。アルミと鋼のフレームは溶接でなくボルトで組んである。"
+  },
+  {
+   "id": "P98",
+   "class": "P",
+   "title": "Polaris RZR XP service manual, the roll cage (third-party host)",
+   "url": "https://manualslib.com/manual/2988807/Polaris-Rzr-Xp.html?page=492",
+   "retrieved": "2026-11-05",
+   "license": "不明",
+   "read": "partial",
+   "note": "確かめ役が 1 ページを読んだ。ケージはボルト組立で、ボルトの締付けは 54 N m。"
   }
  ],
  "decisions": [
@@ -10493,6 +10578,34 @@
     "front_arms",
     "spindles",
     "tie_rods"
+   ],
+   "opened": "2026-11-05",
+   "raised_by": "assistant",
+   "phase": "design"
+  },
+  {
+   "id": "Q-045",
+   "kind": "question",
+   "text": "施主は、曲げた管を使わず、まっすぐな管だけで溶接を減らしてフレームを磨くよう求めた。1.2.21 でフレームの要求を立て、溶接を数え（切る管 dsn.cut_tubes 本、溶接する端 dsn.welded_ends か所）、A 案（力をほとんど受けない管を外し、4 か所をまっすぐ通す。溶接する端 124）と、B 案（A にノーズの箱の側面を斜材なしの枠にする。114）を比べた。提案は A。フレームを設計し直す前に施主が選ぶ。",
+   "waits_for": "owner",
+   "affects": [
+    "frame",
+    "bumpers",
+    "footrests"
+   ],
+   "opened": "2026-11-05",
+   "raised_by": "owner",
+   "phase": "design"
+  },
+  {
+   "id": "Q-046",
+   "kind": "finding",
+   "text": "記録は、溶接した管の継手をすべて疲労等級 71（fat.cat_tube_mpa）で確かめているが、これは突合せ溶接の等級である。EN 1993-1-9 では、丸管のギャップ継手は通し管の肉厚が枝の 2 倍なら 90、同じなら 45 で、T・Y・X 形の継手はホットスポット法だけで扱う（P93、P94）。45 とすると、いちばん応力幅の大きい溶接の端は限度を超える。フレームの継手を種類ごとに等級またはホットスポット応力で確かめ、応力幅の大きい所は通し管を厚くするなどして寸法を決める。",
+   "waits_for": "assistant",
+   "affects": [
+    "frame",
+    "footrests",
+    "swing_arm"
    ],
    "opened": "2026-11-05",
    "raised_by": "assistant",
@@ -12850,6 +12963,12 @@
    "doc": "docs/02-form.md",
    "id": "front-end",
    "title": "1.2.20 前端 - 要求、先例、構造様式",
+   "level": 2
+  },
+  {
+   "doc": "docs/02-form.md",
+   "id": "frame-welds",
+   "title": "1.2.21 フレーム - 溶接を減らす",
    "level": 2
   },
   {

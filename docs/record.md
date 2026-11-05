@@ -102,6 +102,8 @@ The current state, with open items grouped by whom they wait for, is in [STATUS.
 | Q-042 | For rough ground the owner decides the front's springing of 1.3.18 (the ride height of 1.3.19 is settled by D-038) - stay rigid and ride drops of more than a few centimetres slowly, or add ATV A-arms with two shocks (D-036 put this off; a kit costs about 70,000 to 73,000 JPY, M104). | owner | D-039 |
 | Q-043 | The front end of 1.3 grew by patching interferences and passed its checks without being a sound structure - the steering did not visibly reach the wheels, the springs' action was unclear, and the stem's stays carried little. 1.2.20 sets the front end's requirements, gathers precedents, and compares four forms - double A-arms, one arm a side on a fore-and-aft axis, a leading arm a side, and a rigid beam - by their load paths and by how camber, toe, and caster change over the travel; the owner chooses the form before the front end is designed again. | owner | D-041 |
 | Q-044 | The double A-arms of D-041 (1.3.20) rest on hard points set before the knuckles were measured. Whether the bought knuckles (M92) take ball joints or a kingpin between the arms, where their joints and steering arm are, and how long that arm is (lay.steer_arm_mm, assumed) are to be measured on the parts in hand, and the hard points set from them, before the arms are made; the ball joints in the parts list (M106) stand for either. The front steers with more Ackermann than one turning centre needs - the outer wheel turns dsn.steer_outer_deg where dsn.steer_outer_ideal_deg would do - because arms angled to correct it raise the toe change to dsn.bump_steer_alt_deg. The tyre stands within 5 mm of the lower arm's outer end. From land.drop_ref_mm the front lands at dsn.landing_front_g, above the bump case (FE-04); the arms would allow more travel, as far as the shocks' stroke does. The arms' pivot bolts and bushes are not yet priced. | owner |  |
+| Q-045 | The owner asked for the frame to be brushed up with fewer welds, from straight tubes only. 1.2.21 sets the frame's requirements, counts its welds - dsn.welded_ends welded ends on dsn.cut_tubes tubes as cut - and compares form A, the frame tidied, with the idle tubes out and four runs straightened (124 welded ends), with form B, A with the nose box's sides as open frames (114); the assistant proposes A. The owner chooses before the frame is designed again. | owner |  |
+| Q-046 | The record checks every welded tube joint in fatigue against category 71 (fat.cat_tube_mpa), which is a butt weld's. EN 1993-1-9 gives a round tube's gap joints 90 where the through-tube's wall is twice the branch's and 45 where the walls are equal, and T, Y, and X joints only by the hot-spot method (P93, P94); at 45 the busiest welded ends would be over their limit. Each kind of joint in the frame is to be given its own category, or its hot-spot stress, and the joints sized by them - a thicker through-tube where the range is high. | assistant |  |
 <!-- tdr:end -->
 
 ## Values {#values}
@@ -801,6 +803,9 @@ The current state, with open items grouped by whom they wait for, is in [STATUS.
 | dsn.shock_stroke_used_mm | 46 | mm | calculated | docs/03-design.md#suspension |
 | dsn.shock_travel_mm | 42 | mm | calculated | docs/03-design.md#suspension |
 | dsn.axle_rail_gap_mm | 133 | mm | calculated | docs/03-design.md#suspension |
+| dsn.cut_tubes | 79 |  | calculated | docs/03-design.md#frame |
+| dsn.welded_ends | 156 |  | calculated | docs/03-design.md#frame |
+| dsn.weld_length_m | 19.1 | m | calculated | docs/03-design.md#frame |
 | dsn.front_motion_ratio | 0.48 |  | calculated | docs/03-design.md#front-suspension |
 | dsn.front_sprung_kg | 42.5 | kg | calculated | docs/03-design.md#front-suspension |
 | dsn.front_wheel_rate_n_mm | 10.5 | N/mm | calculated | docs/03-design.md#front-suspension |
@@ -1089,6 +1094,12 @@ The current state, with open items grouped by whom they wait for, is in [STATUS.
 | P90 | P | City of Kyoto, form 15, declaration of a modified moped (改造申立書) | full |
 | P91 | P | NALTEC examination rules, attachment TRIAS 99-017-02, electric motor maximum and rated output test (電動機最高出力及び定格出力試験) | partial |
 | P92 | P | MLIT, guideline and application handbook for confirming small electric mopeds (特定小型・一般小型原動機付自転車の性能等確認) | partial |
+| P93 | P | EN 1993-1-9:2005 Eurocode 3, design of steel structures, part 1-9 fatigue, with the corrigenda (copy by Public.Resource.Org) | full |
+| P94 | P | Hobbacher, Recommendations for fatigue design of welded joints and components, IIW-1823-07, December 2008 | full |
+| P95 | P | Baja SAE, 2018 rules, the frame (part B.3) | full |
+| P96 | P | Northern Arizona University, SAE Baja 2023-24 final report | partial |
+| P97 | P | Yamaha Motor, YFZ450R features | full |
+| P98 | P | Polaris RZR XP service manual, the roll cage (third-party host) | partial |
 <!-- tdr:end -->
 
 ## Checks {#checks}

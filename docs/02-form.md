@@ -427,3 +427,66 @@ The shocks sold as M100 are 240 to 290 mm between the eyes; their stroke is not 
 **The assistant proposes S1.** As sketched it is the only form that meets FE-03 and FE-05 together; its loads go along tubes into the nodes of a triangulated box, and that box gives the shocks and the stem their places without stays of their own (FE-07, FE-08). Against it: it has the most pivots; the arms cost cost.atv_aarm_set_jpy if a set covers both sides and twice that if not, or are made at home; and if the knuckles turn on kingpins, each side needs a kingpin shaft and a plate made stronger than the donor's (P85). Whether the knuckles take kingpins or ball joints is to be found from the parts in hand. No precedent carries this kart's load, so the sizes of the arms, the box, and the knuckle plate come from the line model and the frame analysis of the next step. S3 is the second choice if fewer pivots matter more than a steady caster. **The owner decides** (Q-043).
 
 **Decided.** The owner chose S1 (D-041). 1.3.20 designs it: the hard points set and moved in three dimensions, the nose box of 1.3.2 built round them, the stresses solved, and the interferences searched.
+
+## 1.2.21 Frame - fewer welds {#frame-welds}
+
+The owner saw in the stress map of 1.3.21 that much of the frame carries little, asked for the frame to be brushed up, and held that fewer welds are a matter of quality; asked how, the owner chose to weld straight tubes only, with no bent tube. This section counts the welds, sets the frame's requirements, gathers what the precedents say, and compares two forms; the owner chooses before the frame is designed again (Q-045).
+
+**What the stress map says.** In strength alone, 73 of the 116 lengths of the line model use less than 30 % of what they could. In fatigue at their welded ends, against the category the record takes for tube joints, 70 use more than 30 % and 12 more than 60 %. So the tubes' sizes are set less by their strength than by the repeated stress at the welds, and by the smallest tubes worth welding. A weld is where a fatigue crack starts, where a home welder's faults hide, where the frame warps as it cools, and what the inspection of OP-01.07 must look at: fewer welds, and welds where the stress range is low, make the frame better, and let what stays be lighter.
+
+**Requirements for the frame.** Drawn from the record; where a limit is new it is marked as a proposal.
+
+| No. | Requirement | Measure | From |
+|---|---|---|---|
+| FR-01 | It carries the loads of rough ground and of accidents | the cases of 1.3.18, with their safety factors | 1.3.18 |
+| FR-02 | Its welded joints last | each joint's stress range against the category of its own kind of joint (P93, P94); a through-tube thicker than its branches where the range is high (proposal) | 1.3.18, Q-046 |
+| FR-03 | It has as few welds as it can | welded tube ends, now dsn.welded_ends on dsn.cut_tubes tubes as cut and about dsn.weld_length_m of weld; a quarter fewer (proposal) | owner |
+| FR-04 | Straight tubes only | no bent tube; every tube cut straight and welded | owner |
+| FR-05 | Joints a home welder can make and check | each joint a branch's end fitted to a through-tube all round its rim, as few tubes to a node as can be, each reachable to weld and to inspect (OP-01.07) | owner, K-020 |
+| FR-06 | Every load enters at a node | as FE-07, for the whole frame | 1.2.20 |
+| FR-07 | It holds every part where it is | the engine unit's plate, the seat, the footboards, the A-arms' pivots, the shocks' tops, the stem's bearings, and the swing arm's pivot on the line from the output to the axle | D-041, D-042, D-043 |
+| FR-08 | It clears what moves | the interference search, with and without the joints' spheres; 150 mm under the frame | D-038, K-020 |
+| FR-09 | It protects | the hoop of R-19, the leg shield of R-13, the bumper ahead of the tyres | R-13, R-19, K-015 |
+| FR-10 | No heavier and no dearer | the frame no heavier than dsn.frame_mass_kg; no more tube bought by the metre than now | R-08 |
+
+**Where the welds are.** A tube as cut runs straight through the nodes where the next length of the same size carries straight on; each of its ends is welded - to another tube, a sleeve, a bush, or an eye - but the bumper bar's two free ends. Counted so by `calc/design.py` and drawn by `calc/frame_forms.py`:
+
+| Where | Tubes as cut | Welded ends |
+|---|---|---|
+| nose box and bumper | 26 | 52 |
+| spine and seat rails | 10 | 20 |
+| footboards | 10 | 20 |
+| rear - rising tubes, pivot tube, cross tubes | 9 | 18 |
+| hoop | 5 | 10 |
+| A-arms | 12 | 24 |
+| swing arm | 7 | 14 |
+
+![Where the welds are](figures/frame-welds.svg)
+
+A third of the welds are in the nose box and the bumper, where the arms, the shocks, and the stem come in.
+
+**Precedents.** No source read counts the welds of a youth ATV's, a buggy's, or a kart's frame.
+
+- Baja SAE's rules ask for a space frame of steel tube; some members must be continuous tubes, tubes joined end to end need a sleeve inside, and bolted joints are allowed on welded flanges (P95). One Baja team set itself to keep the members few, about 30 primary and 36 secondary (P96), against 79 tubes here with the arms and the footboards.
+- Sport ATVs and UTVs bolt parts of their frames rather than weld them: Yamaha's YFZ450R is bolted together, and Polaris bolts the RZR's cage (P97, P98). But the flange that carries a bolted joint is itself welded, at a low category (40 to 63, P93), so it belongs where the stress range is low.
+- In fatigue a through-tube with branches welded to it is category 90 where its wall is twice the branch's and 45 where the walls are equal (P93, table 8.7); T, Y, and X joints are not in the tables of nominal stress and go by the hot-spot method (P93 annex B, P94); a seam-welded tube's own metal is 125 to 140 (P93, P94). The record takes 71 for its tube joints (fat.cat_tube_mpa), which is a butt weld's category (S10); for joints of equal walls that is too high, and at 45 the busiest welded ends would be over their limit (Q-046). Fewer joints, joints where the range is low, and through-tubes thicker than their branches all help.
+
+**Forms.** Both keep every part in its place (FR-07) and the frame's kind - a triangulated frame of straight tubes; they differ in how many tubes stay. The figure marks what each takes out or straightens.
+
+- **A, the frame tidied.** Out go the tubes that carry little in every case: the box's rear uprights, the top cross tube at the box's rear, the tubes from the seat rails down to the spine's ends, and the seat rails' rear cross tube. Four runs are straightened, so that one tube does where several do now: the spine runs straight on, converging a little toward the front, as the box's lower rail to the bumper's post, where a jog now joins two tubes; the seat rails run straight in plan from the hoop to their slope, the rising tubes standing at their spacing; each top rail of the box is one size through the shocks' node; and the bumper's bar is one tube. Solved with those tubes taken out, every safety factor stays as now but the hoop's sideways factor, from 3.54 to 3.23; the straightening is checked when the frame is designed.
+- **B, A with the box's sides as open frames.** The box's diagonals and its lower front cross tube go too, and its side panels carry their shear by bending in their corners, as the bay the tie rods sweep through already does. Its open bays reach 67 MPa against 59, the frame's worst fatigue range 38 MPa against 36, and the busiest welded end 70 % of its limit against 67 %.
+
+| | Now | A | B |
+|---|---|---|---|
+| Tubes as cut | 79 | 63 | 58 |
+| Welded ends | 156 | 124 (-21 %) | 114 (-27 %) |
+| Mass of the frame, hoop, bumper, and footboards | 30.3 kg | 27.2 kg | 25.8 kg |
+| Driving and impact safety factors | 2.33, 1.63 | 2.34, 1.63 | 2.33, 1.63 |
+| Hoop crushed, pushed sideways | 2.51, 3.54 | 2.51, 3.23 | 2.51, 3.24 |
+| The box's open bay | 59 MPa | 55 MPa | 67 MPa |
+| Worst fatigue range; busiest welded end against its limit (category 71) | 36 MPa; 67 % | 36 MPa; 67 % | 38 MPa; 70 % |
+| The box against racking | triangles | triangles | bending in its corners |
+
+The masses and stresses are those of the frame as now with the tubes taken out; the straightened runs change them little and are solved in the design.
+
+**The assistant proposes A.** It takes out a fifth of the welds while every load still goes along triangulated tubes into nodes, and its stresses are the frame's as now. B saves ten welds more but puts the box onto bending at its welded corners, where the stress range is already the frame's open question: until Q-046 settles the joints' categories, A is the safer start, and B's diagonals can still go later if the categories leave room. Either way, where a joint of equal walls carries more range than category 45 allows, its through-tube takes a thicker wall. **The owner decides** (Q-045).

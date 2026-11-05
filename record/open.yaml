@@ -575,3 +575,25 @@ items:
     opened: 2026-11-05
     raised_by: assistant
     phase: design
+  - id: Q-045
+    kind: question
+    text: The owner asked for the frame to be brushed up with fewer welds, from straight tubes only. 1.2.21 sets the frame's requirements, counts its welds - dsn.welded_ends welded ends on dsn.cut_tubes tubes as cut - and compares form A, the frame tidied, with the idle tubes out and four runs straightened (124 welded ends), with form B, A with the nose box's sides as open frames (114); the assistant proposes A. The owner chooses before the frame is designed again.
+    waits_for: owner
+    affects:
+      - frame
+      - bumpers
+      - footrests
+    opened: 2026-11-05
+    raised_by: owner
+    phase: design
+  - id: Q-046
+    kind: finding
+    text: The record checks every welded tube joint in fatigue against category 71 (fat.cat_tube_mpa), which is a butt weld's. EN 1993-1-9 gives a round tube's gap joints 90 where the through-tube's wall is twice the branch's and 45 where the walls are equal, and T, Y, and X joints only by the hot-spot method (P93, P94); at 45 the busiest welded ends would be over their limit. Each kind of joint in the frame is to be given its own category, or its hot-spot stress, and the joints sized by them - a thicker through-tube where the range is high.
+    waits_for: assistant
+    affects:
+      - frame
+      - footrests
+      - swing_arm
+    opened: 2026-11-05
+    raised_by: assistant
+    phase: design
