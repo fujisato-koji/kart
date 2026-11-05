@@ -258,7 +258,7 @@ items:
     blocks: design_build
   - id: Q-022
     kind: question
-    text: How does the owner's municipality register a minicar built from scratch - how is a frame number given to a home-made frame, and which papers prove the engine's displacement (the donor's scrapping certificate, a receipt or transfer certificate, an engine-number rubbing)? No official page found covers a scratch-built frame; the owner asks the municipality's light vehicle tax counter.
+    text: How does the owner's municipality register a minicar built from scratch - how is a frame number given to a home-made frame, and which papers prove the engine's displacement (the donor's scrapping certificate, a receipt or transfer certificate, an engine-number rubbing)? No official page found covers a scratch-built frame; the owner asks the municipality's light vehicle tax counter. Pages read later show the usual practice - a declaration that the vehicle was modified or made, with photos - for a minicar one showing the track over 50 cm - and, for an electric motor, its rated output written in (P89, P90); no municipality found inspects the vehicle or asks for a test. Type approval is an option for makers, not needed for one kart (P87); there is no inspection for a moped, but it must still meet the safety standards (P88).
     waits_for: owner
     affects:
       - R-18

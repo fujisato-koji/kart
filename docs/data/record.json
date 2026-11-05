@@ -9175,6 +9175,66 @@
    "license": "発行元の規約",
    "read": "full",
    "note": "補助役がロシア語で読んだ。前輪駆動の車はチェーンだけでは動けなくなった。後輪を 2 枚のスノーボードに載せて、後ろが粉雪に浮くようにし、駆動する前輪にチェーンを付けると、深さ 30 cm までの手つかずの雪を周回した。急な旋回で板が 1 枚抜けた。"
+  },
+  {
+   "id": "P87",
+   "class": "P",
+   "title": "Road Transport Vehicle Act enforcement regulations (道路運送車両法施行規則), article 62-3, type approval of mopeds, e-Gov",
+   "url": "https://laws.e-gov.go.jp/api/1/lawdata/326M50000800074",
+   "retrieved": "2026-11-05",
+   "license": "不明",
+   "read": "full",
+   "note": "確かめ役が条文を読んだ。原付の製作を業とする者や販売契約を結んだ者は、型式について国土交通大臣の認定を受けることができる（「…型式について国土交通大臣の認定を受けることができる」）。製作における均一性を示すもので任意であり、1 台だけ作る者のためのものではない。"
+  },
+  {
+   "id": "P88",
+   "class": "P",
+   "title": "Road Transport Vehicle Act (道路運送車両法), articles 44 and 58, e-Gov",
+   "url": "https://laws.e-gov.go.jp/api/1/lawdata/326AC0000000185",
+   "retrieved": "2026-11-05",
+   "license": "不明",
+   "read": "partial",
+   "note": "確かめ役が条文を読んだ。第44条 - 原付は技術基準に適合しなければ運行の用に供してはならない。第58条 - 検査は自動車だけが対象で、原付は対象外。"
+  },
+  {
+   "id": "P89",
+   "class": "P",
+   "title": "City of Yokohama, mopeds and the light vehicle tax (原動機付自転車), registration of a modified or made vehicle",
+   "url": "https://www.city.yokohama.lg.jp/kurashi/koseki-zei-hoken/zeikin/y-shizei/keijidousyazei/gentsuki.html",
+   "retrieved": "2026-11-05",
+   "license": "不明",
+   "read": "partial",
+   "note": "確かめ役が読んだ（2026-04-01 更新）。改造または作製した車両には、改造（作製）申立書と内容が分かる資料が要る。ミニカーは輪距が 50 cm を超えることを示す（例えば巻尺を当てた写真）。車両の検査はない。"
+  },
+  {
+   "id": "P90",
+   "class": "P",
+   "title": "City of Kyoto, form 15, declaration of a modified moped (改造申立書)",
+   "url": "https://www.city.kyoto.lg.jp/gyozai/cmsfiles/contents/0000247/248000/kaizou.pdf",
+   "retrieved": "2026-11-05",
+   "license": "不明",
+   "read": "full",
+   "note": "確かめ役が読んだ（令和 8 年 4 月版）。改造の前後の定格出力（W）を本人が書き込み、輪距が分かる写真を付け、領収書や説明書があれば添える。市は車両の適否に責任を負わない。"
+  },
+  {
+   "id": "P91",
+   "class": "P",
+   "title": "NALTEC examination rules, attachment TRIAS 99-017-02, electric motor maximum and rated output test (電動機最高出力及び定格出力試験)",
+   "url": "https://www.naltec.go.jp/publication/regulation/gtg5d20000000fht-att/ih3l1n00000008qe.pdf",
+   "retrieved": "2026-11-05",
+   "license": "不明",
+   "read": "partial",
+   "note": "確かめ役が読んだ（2026-10-28 改正の規程）。自動車では、申告した定格出力で電動機を 1 時間回し、走行風による冷却はなしとする。巻線の温度上昇が、絶縁の種類ごとの限度＋5 K 以内に収まらなければならない。自動車のための規程で、原付のためのものではない。"
+  },
+  {
+   "id": "P92",
+   "class": "P",
+   "title": "MLIT, guideline and application handbook for confirming small electric mopeds (特定小型・一般小型原動機付自転車の性能等確認)",
+   "url": "https://www.mlit.go.jp/jidosha/content/001590861.pdf",
+   "retrieved": "2026-11-05",
+   "license": "不明",
+   "read": "partial",
+   "note": "確かめ役が読んだ。ガイドラインは定格出力が 0.6 kW 以下であることを確かめるよう求めるだけで、手引き（content/001594627.pdf）は電動機の出力に関するテストレポートを求めるが、試験の名前は挙げていない。この任意の制度の対象は特定小型と一般小型原付（輪距 460 mm 未満）で、ミニカーは対象外。"
   }
  ],
  "decisions": [
@@ -10054,7 +10114,7 @@
   {
    "id": "Q-022",
    "kind": "question",
-   "text": "施主の市町村は自作のミニカーをどう登録するか。自作フレームにどう車台番号を付けるか、エンジンの排気量を証明する書類は何か（ドナーの廃車証明書、領収書または譲渡証明書、エンジン番号の拓本）。自作フレームを扱う公式ページは見つからなかった。施主が市町村の軽自動車税の窓口に尋ねる。",
+   "text": "施主の市区町村は、一から作ったミニカーをどう登録するか。自作のフレームに車台番号をどう付けるか、排気量を何で示すか（元の車の廃車証明、領収書や譲渡証明書、エンジン番号の写し）。自作のフレームを扱う公式のページは見つからず、施主が市区町村の軽自動車税の窓口に尋ねる。後に読んだページでは、通常の手続きは次のとおりである。改造または作製したことの申立書に写真を付ける。ミニカーなら輪距が 50 cm を超えることを示す写真、電動機ならその定格出力を書き込む（P89、P90）。車両を検査したり試験を求めたりする市区町村は見つからなかった。型式認定は製作者のための任意の制度で、1 台作るには要らない（P87）。原付に検査はないが、保安基準には適合しなければならない（P88）。",
    "waits_for": "owner",
    "affects": [
     "R-18"

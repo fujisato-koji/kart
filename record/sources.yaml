@@ -1665,3 +1665,51 @@ items:
     license: publisher's terms
     read: full
     note: Read by a helper in Russian. A front-wheel-drive car stuck with chains alone; with its rear wheels on two snowboards, so that the tail floats on loose snow, and chains on the driven front wheels, it lapped untouched snow up to 30 cm deep; a board slipped out in a sharp turn.
+  - id: P87
+    class: P
+    title: Road Transport Vehicle Act enforcement regulations (道路運送車両法施行規則), article 62-3, type approval of mopeds, e-Gov
+    url: https://laws.e-gov.go.jp/api/1/lawdata/326M50000800074
+    retrieved: 2026-11-05
+    license: unknown
+    read: full
+    note: Read by a helper, the article. A maker or a seller under contract may have a moped's type approved by the minister (「…型式について国土交通大臣の認定を受けることができる」), showing uniformity in manufacture; it is optional and not for a one-off builder.
+  - id: P88
+    class: P
+    title: Road Transport Vehicle Act (道路運送車両法), articles 44 and 58, e-Gov
+    url: https://laws.e-gov.go.jp/api/1/lawdata/326AC0000000185
+    retrieved: 2026-11-05
+    license: unknown
+    read: partial
+    note: Read by a helper, the articles. Article 44 - a moped may not be used unless it meets the technical standards; article 58 - inspection applies to motor vehicles (自動車) only, not to mopeds.
+  - id: P89
+    class: P
+    title: City of Yokohama, mopeds and the light vehicle tax (原動機付自転車), registration of a modified or made vehicle
+    url: https://www.city.yokohama.lg.jp/kurashi/koseki-zei-hoken/zeikin/y-shizei/keijidousyazei/gentsuki.html
+    retrieved: 2026-11-05
+    license: unknown
+    read: partial
+    note: Read by a helper, updated 2026-04-01. A modified or made vehicle needs a declaration of the modification or making (改造（作製）申立書) and papers showing it; a minicar shows its track over 50 cm, for example a photo with a tape across it. No inspection.
+  - id: P90
+    class: P
+    title: City of Kyoto, form 15, declaration of a modified moped (改造申立書)
+    url: https://www.city.kyoto.lg.jp/gyozai/cmsfiles/contents/0000247/248000/kaizou.pdf
+    retrieved: 2026-11-05
+    license: unknown
+    read: full
+    note: Read by a helper, R8.4. The owner writes the rated output (定格出力, W) before and after, attaches a photo showing the track, and receipts or manuals if any; the city takes no responsibility for the vehicle's fitness.
+  - id: P91
+    class: P
+    title: NALTEC examination rules, attachment TRIAS 99-017-02, electric motor maximum and rated output test (電動機最高出力及び定格出力試験)
+    url: https://www.naltec.go.jp/publication/regulation/gtg5d20000000fht-att/ih3l1n00000008qe.pdf
+    retrieved: 2026-11-05
+    license: unknown
+    read: partial
+    note: Read by a helper, the rules as amended 2026-10-28. For motor vehicles, the motor is held at the declared rated output for one hour without cooling by the running wind; the winding's temperature rise must stay within its insulation class's limit plus 5 K. Written for motor vehicles, not mopeds.
+  - id: P92
+    class: P
+    title: MLIT, guideline and application handbook for confirming small electric mopeds (特定小型・一般小型原動機付自転車の性能等確認)
+    url: https://www.mlit.go.jp/jidosha/content/001590861.pdf
+    retrieved: 2026-11-05
+    license: unknown
+    read: partial
+    note: Read by a helper. The guideline asks only to confirm that the rated output is 0.6 kW or less; the handbook (content/001594627.pdf) asks for a test report on the motor's output but names no test. The voluntary scheme covers special-small and general-small mopeds (a track under 460 mm), not a minicar.
