@@ -20,7 +20,7 @@ const PART_NAMES = {
   engine: 'エンジン', clutch: '遠心クラッチ', jackshaft: 'ジャックシャフト', chain_primary: '一次チェーン', chain_final: '二次チェーン',
   skis: 'スキー', swing_arm: 'スイングアーム', rear_shock: '後ろの緩衝器', front_arms: '前のスイングアクスル', front_shocks: '前の緩衝器', sled_pan: 'そり底',
   side_floats: '浮き（将来版）', outboard: '船外機（将来版）', roll_bar: '転倒保護の輪', lighting: '灯火と方向指示器', mirrors: 'ミラー', horn: 'ホーン',
-  speedometer: '速度計', hand_brake: '前輪ブレーキ（2 系統目）', battery: 'バッテリー', number_plate: 'ナンバー',
+  speedometer: '速度計', hand_brake: '前輪ブレーキ（2 系統目）', battery: 'バッテリー', number_plate: 'ナンバー', snow_chains: 'タイヤチェーン',
 };
 
 const state = {
@@ -262,12 +262,13 @@ function syncUi() {
 }
 
 // ---------------------------------------------------------------- messages from the navigator
-//  in : { type:'kart3d:set', config?, rider?, delica?, dims?, view? }   { type:'kart3d:focus', parts:[ids] }
+//  in : { type:'kart3d:set', config?, rider?, delica?, dims?, view? }   { type:'kart3d:focus', parts:[ids] }   { type:'kart3d:hide', parts:[ids] }
 //  out: { type:'kart3d:ready', parts:[{id,name}] }  { type:'kart3d:pick', part }  { type:'kart3d:state', config, rider, delica, dims, view }
 addEventListener('message', (e) => {
   const m = e.data; if (!m || typeof m.type !== 'string' || !renderer) return;
   if (m.type === 'kart3d:set') setState(m, false);
   else if (m.type === 'kart3d:focus') focusParts(Array.isArray(m.parts) ? m.parts : []);
+  else if (m.type === 'kart3d:hide') { hidden.clear(); for (const id of Array.isArray(m.parts) ? m.parts : []) hidden.add(id); applyAll(); }
 });
 
 init().catch(fail);

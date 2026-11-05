@@ -89,7 +89,34 @@ svg a{cursor:pointer}
 .tb3d{gap:4px 14px;margin-bottom:6px}
 .tb3d .grp{display:inline-flex;flex-wrap:wrap;gap:4px;align-items:center}
 .tb3d button{padding:1px 8px;font-size:.85rem}
-.stage3d{flex:1 1 auto;min-height:60vh;display:flex}
+.stage3d{flex:1 1 auto;min-height:60vh;display:flex;position:relative}
 body.full .stage3d{min-height:0}
 .stage3d iframe{flex:1 1 auto;width:100%;border:1px solid var(--line);border-radius:8px;background:var(--card)}
+/* the parts tree floats over the view's left, the card over its right only while something is selected */
+.tree3d{position:absolute;left:8px;top:8px;z-index:3;width:250px;max-height:calc(100% - 16px);display:flex;flex-direction:column;
+ background:color-mix(in srgb,var(--card) 92%,transparent);border:1px solid var(--line);border-radius:8px;box-shadow:0 2px 10px rgba(0,0,0,.12);font-size:.85rem}
+.tree3d .th{display:flex;align-items:center;gap:6px;padding:4px 6px;border-bottom:1px solid var(--line)}
+.tree3d .th .fold{flex:1;text-align:left;border:0;background:none;font-weight:600;padding:2px 4px}
+.tree3d .th .fold::before{content:"▾ ";color:var(--mut)}
+.tree3d.closed .th .fold::before{content:"▸ "}
+.tree3d.closed{width:auto}.tree3d.closed .th{border-bottom:0}.tree3d.closed .th .small,.tree3d.closed .tb{display:none}
+.tree3d .th .small{padding:0 6px;font-size:.78rem}
+.tree3d .tb{overflow:auto;padding:4px 6px 6px}
+.tree3d .row{display:flex;align-items:center;gap:4px;padding:1px 0}
+.tree3d .row input{margin:0 2px;width:14px;height:14px;flex:none}
+.tree3d .row .nm{border:0;background:none;padding:1px 4px;text-align:left;flex:1;border-radius:4px;font-size:.85rem;line-height:1.35}
+.tree3d .row .nm:hover{background:var(--lit)}
+.tree3d details>summary{list-style:none;cursor:pointer;display:flex;align-items:center}
+.tree3d details>summary::-webkit-details-marker{display:none}
+.tree3d details>summary::before{content:"▸";color:var(--mut);width:12px;flex:none;font-size:.8rem}
+.tree3d details[open]>summary::before{content:"▾"}
+.tree3d details>summary .row{flex:1}
+.tree3d .kids{margin-left:12px;padding-left:4px;border-left:1px solid var(--line)}
+.tree3d .row:not(details>summary .row){margin-left:12px}
+@media (min-width:761px){
+ body.full #layout{grid-template-columns:minmax(0,1fr);position:relative}
+ body.full #card{position:absolute;right:28px;top:62px;width:min(380px,40%);max-height:calc(100% - 78px);z-index:4;box-shadow:0 4px 18px rgba(0,0,0,.18)}
+ body.full #card.empty{display:none}
+}
+@media (max-width:760px){.tree3d{width:210px;max-height:calc(100% - 16px)}}
 .item .id,.haztable .id{white-space:nowrap}
