@@ -4202,20 +4202,32 @@
   },
   {
    "key": "lay.shock_low_x_mm",
-   "v": 60,
+   "v": 55,
    "unit": "mm",
    "status": "calculated",
    "basis": [
-    "docs/03-design.md#suspension"
+    "docs/03-design.md#suspension",
+    "D-043"
    ]
   },
   {
    "key": "lay.shock_low_rise_mm",
-   "v": 32,
+   "v": 15,
    "unit": "mm",
    "status": "calculated",
    "basis": [
-    "docs/03-design.md#suspension"
+    "docs/03-design.md#suspension",
+    "D-043"
+   ]
+  },
+  {
+   "key": "lay.rising_knee_z_mm",
+   "v": 360,
+   "unit": "mm",
+   "status": "calculated",
+   "basis": [
+    "docs/03-design.md#frame",
+    "D-043"
    ]
   },
   {
@@ -5918,7 +5930,7 @@
   },
   {
    "key": "dsn.shock_top_x_mm",
-   "v": -18,
+   "v": -8,
    "unit": "mm",
    "status": "calculated",
    "basis": [
@@ -5954,7 +5966,7 @@
   },
   {
    "key": "dsn.tube_main_m",
-   "v": 7.37,
+   "v": 7.38,
    "unit": "m",
    "status": "calculated",
    "basis": [
@@ -5981,7 +5993,7 @@
   },
   {
    "key": "dsn.tube_roll_m",
-   "v": 1.64,
+   "v": 1.63,
    "unit": "m",
    "status": "calculated",
    "basis": [
@@ -6043,6 +6055,24 @@
   {
    "key": "dsn.chain420_links",
    "v": 76,
+   "status": "calculated",
+   "basis": [
+    "docs/03-design.md#drive"
+   ]
+  },
+  {
+   "key": "dsn.chain_centre_change_mm",
+   "v": 1.8,
+   "unit": "mm",
+   "status": "calculated",
+   "basis": [
+    "docs/03-design.md#suspension"
+   ]
+  },
+  {
+   "key": "dsn.chain_takeup_mm",
+   "v": 6,
+   "unit": "mm",
    "status": "calculated",
    "basis": [
     "docs/03-design.md#drive"
@@ -6212,7 +6242,7 @@
   },
   {
    "key": "dsn.cg_z_m",
-   "v": 0.308,
+   "v": 0.307,
    "unit": "m",
    "status": "calculated",
    "basis": [
@@ -6221,7 +6251,7 @@
   },
   {
    "key": "dsn.frame_mass_kg",
-   "v": 25.8,
+   "v": 25.9,
    "unit": "kg",
    "status": "calculated",
    "basis": [
@@ -6264,7 +6294,7 @@
   },
   {
    "key": "dsn.pitch_ratio_adult",
-   "v": 0.87,
+   "v": 0.88,
    "status": "calculated",
    "basis": [
     "docs/03-design.md#stability"
@@ -6306,7 +6336,7 @@
   },
   {
    "key": "dsn.pitch_ratio_child",
-   "v": 1.35,
+   "v": 1.36,
    "status": "calculated",
    "basis": [
     "docs/03-design.md#stability"
@@ -6323,7 +6353,7 @@
   },
   {
    "key": "dsn.winter_cg_height_m",
-   "v": 0.516,
+   "v": 0.515,
    "unit": "m",
    "status": "calculated",
    "basis": [
@@ -6348,7 +6378,7 @@
   },
   {
    "key": "dsn.winter_pitch_ratio",
-   "v": 0.91,
+   "v": 0.92,
    "status": "calculated",
    "basis": [
     "docs/03-design.md#stability"
@@ -6374,7 +6404,7 @@
   },
   {
    "key": "dsn.motion_ratio",
-   "v": 0.6,
+   "v": 0.62,
    "status": "calculated",
    "basis": [
     "docs/03-design.md#suspension"
@@ -6416,7 +6446,7 @@
   },
   {
    "key": "dsn.shock_spring_n_mm",
-   "v": 75,
+   "v": 72,
    "unit": "N/mm",
    "status": "calculated",
    "basis": [
@@ -6434,7 +6464,7 @@
   },
   {
    "key": "dsn.shock_force_static_n",
-   "v": 1809,
+   "v": 1770,
    "unit": "N",
    "status": "calculated",
    "basis": [
@@ -6443,7 +6473,7 @@
   },
   {
    "key": "dsn.shock_length_static_mm",
-   "v": 266,
+   "v": 265,
    "unit": "mm",
    "status": "calculated",
    "basis": [
@@ -6452,7 +6482,7 @@
   },
   {
    "key": "dsn.shock_stroke_used_mm",
-   "v": 45,
+   "v": 46,
    "unit": "mm",
    "status": "calculated",
    "basis": [
@@ -6461,16 +6491,7 @@
   },
   {
    "key": "dsn.shock_travel_mm",
-   "v": 41,
-   "unit": "mm",
-   "status": "calculated",
-   "basis": [
-    "docs/03-design.md#suspension"
-   ]
-  },
-  {
-   "key": "dsn.chain_centre_change_mm",
-   "v": 13.9,
+   "v": 42,
    "unit": "mm",
    "status": "calculated",
    "basis": [
@@ -6479,7 +6500,7 @@
   },
   {
    "key": "dsn.axle_rail_gap_mm",
-   "v": 134,
+   "v": 133,
    "unit": "mm",
    "status": "calculated",
    "basis": [
@@ -6710,7 +6731,7 @@
   },
   {
    "key": "dsn.arm_stress_mpa",
-   "v": 84,
+   "v": 89,
    "unit": "MPa",
    "status": "calculated",
    "basis": [
@@ -6719,7 +6740,7 @@
   },
   {
    "key": "dsn.arm_safety",
-   "v": 3.47,
+   "v": 3.27,
    "status": "calculated",
    "basis": [
     "docs/03-design.md#suspension"
@@ -6751,7 +6772,7 @@
   },
   {
    "key": "dsn.shock_force_bump_n",
-   "v": 5800,
+   "v": 5672,
    "unit": "N",
    "status": "calculated",
    "basis": [
@@ -6820,7 +6841,7 @@
   },
   {
    "key": "dsn.fatigue_kcycles_fillet",
-   "v": 1161,
+   "v": 1148,
    "status": "calculated",
    "basis": [
     "docs/03-design.md#loads"
@@ -6942,7 +6963,7 @@
   },
   {
    "key": "dsn.brake_clamp_needed_n",
-   "v": 2800,
+   "v": 2801,
    "unit": "N",
    "status": "calculated",
    "basis": [
@@ -7050,7 +7071,7 @@
   },
   {
    "key": "dsn.clashes_summer",
-   "v": 0,
+   "v": 76,
    "status": "calculated",
    "basis": [
     "docs/03-design.md#issues"
@@ -7058,7 +7079,7 @@
   },
   {
    "key": "dsn.clashes_winter",
-   "v": 0,
+   "v": 76,
    "status": "calculated",
    "basis": [
     "docs/03-design.md#issues"
@@ -9696,6 +9717,20 @@
     "D-036",
     "D-041"
    ]
+  },
+  {
+   "id": "D-043",
+   "date": "2026-11-05",
+   "by": "owner",
+   "what": "スイングアームの支点を、エンジンの出力軸と車軸を結ぶ線の上まで下げる。チェーンの軸間距離は乗った静止のときにいちばん長くなり、行程全体での変化は約 2 mm になる。チェーンはいちばん長い軸間距離に合わせて長さを決める。支点が出力軸と同じ高さのとき（D-042）は、いっぱいに縮む側で軸間距離が約 6 mm 伸びた。静止の姿勢で長さを決めた 76 コマのチェーンでは、後輪が約 6 mm 上がった所で張り切り、その先はばねの力をスプロケットと軸受で受けることになっていた。支点を下げると、いっぱいに縮んだとき腕の補強の管が、支点から後ろへ傾く立ち上がり管に当たる。そこで立ち上がり管は支点の管を通ってまっすぐ縦に、補強の管の届かない高さの折れ点まで上げ、そこから後ろへ傾ける。緩衝器の下の目玉は、レバー比が以前と同じになる位置へ移す。",
+   "options": [
+    "支点を出力軸と車軸を結ぶ線の上に置く",
+    "支点は出力軸と同じ高さのまま、78 コマのチェーンにし、張り車で約 43 mm のたるみを取る"
+   ],
+   "touches": [
+    "D-036",
+    "D-042"
+   ]
   }
  ],
  "open": [
@@ -11406,6 +11441,24 @@
    "by": "assistant",
    "date": "2026-11-05",
    "detail": "独立した確かめ役が、D-042 の新しいフレームの前後の端を以前のものと比べて動かし、全ケースを解き直し、後ろの緩衝器の配置を自前で探し、継手の球のある場合と無い場合で干渉を探した。確かめられたのは、後ろの緩衝器の静止長とストローク、緩衝器の上端が保護枠の横管にあること、フレームの安全率、前後とも機構にならないこと、干渉が無いこと。反証されたのは次の点である。支点を背骨のレールに直接置くと直接押す 1 本の緩衝器が付かないという主張（自前の探索で数百の配置が見つかり、支点の後ろの低い取付点ならレバー比も落ちにくい。私の探索は腕の角度の向きを逆にしており、施主はその主張にもとづいて高い支点へ移っていた）。行程の間にレバー比が 0.65 から 0.37 へ落ちることを書いていなかったこと。耳が短く緩衝器の目玉が保護枠の横管に入っていたこと。腕と保護枠の横押しの安全率の数値の誤り。柱の間が 157 mm しかないバンパーで、中心から 0.1 m 以上ずれた柱にはタイヤや腕が先に当たること。片端の打撃がまっすぐ後ろへ抜けるとしたが柱が曲がること。後ろの灯火に金具が無いこと。柱、支柱、前の削減についての古い記述。いずれも同じ日に直した。施主は両方の支点を示されたうえで、チェーンのため高い支点を残した（軸間距離の変化が約 14 mm と 45 mm）。緩衝器の下の目玉は、腕の補強の管から離れたまま比の落ちが最も小さい所へ移し（0.73 から 0.47）、上の耳を延ばし、バンパーの横棒を以前のバンパーの幅に広げ、灯火に金具を付け、本文を直した。"
+  },
+  {
+   "id": "K-020",
+   "target": [
+    "D-043",
+    "dsn.chain420_links",
+    "dsn.chain_centre_change_mm",
+    "dsn.chain_takeup_mm",
+    "dsn.motion_ratio",
+    "dsn.shock_stroke_used_mm",
+    "dsn.clashes_summer"
+   ],
+   "tier": "T2",
+   "method": "refute",
+   "result": "partial",
+   "by": "assistant",
+   "date": "2026-11-05",
+   "detail": "独立した確かめ役が、チェーンの軸間距離を行程全体にわたって 0.5 mm 刻みで計算し直し、出力軸と車軸を結ぶ線の上の別の位置に支点を置いて設計を組み直し、腕の補強の管の隙間と継ぎ目を調べ、後ろの緩衝器のレバー比とストロークを再現し、継ぎ目の球のある場合と無い場合で干渉を探した。確かめられたのは、支点をその線の上に置くと軸間距離は静止のときにいちばん長く変化は 1.8 mm であること、76 コマのチェーンはどこでも足り、張り車が取るのは最大 6 mm であること、以前のチェーンはいっぱいに縮んだとき 0.78 コマ足りなかったこと、干渉が無いこと。反証されたのは次の点である。以前のチェーンが張り切るのを約 8 mm としたこと（約 6 mm）。支点のすぐ前でファイナルギヤのケースに当たるとしたこと（約 10 mm の余地があり、ベルト駆動のドラムのほうが近い）。腕の側面より 30 mm 下げた補強の管を溶接としたこと（管の中心が側面の管の下面より下にあり、端の大半が宙に浮く）、それが線モデルで固い短い管になっていたこと。緩衝器の目玉がいちばん安定する比を与えるとしたこと。干渉の探索で継ぎ目の球が補強の管と立ち上がり管の干渉を隠し、支点をさらに 15 mm 後ろにしても通ってしまうこと。いずれも同じ日に直した。立ち上がり管は支点の管を通ってまっすぐ縦に補強の管の届かない高さの折れ点まで上げ、腕は D-042 の形のまま補強の管を折れ点に置く。本文には 6 mm と前方の余地を書く。継ぎ目の球が見逃すのは、いっしょに動く部品どうしか支点での接触だけにした。これにより、前輪のタイヤが下の A アームの先端に 4.7 mm まで近づく件（Q-044）が件数に入った。"
   }
  ],
  "procedures": [

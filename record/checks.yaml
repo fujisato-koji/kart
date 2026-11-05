@@ -289,3 +289,18 @@ items:
     by: assistant
     date: 2026-11-05
     detail: An independent helper ran the new frame ends of D-042 against the frame before them, re-solved every case, searched the rear shock's layouts on its own, and ran the interference search with and without the joints' spheres. It confirmed the rear shock's laden length and stroke, the shock's top on the hoop's cross tube, the frame's safety factors, no mechanism at either end, and no clashes. It refuted - the claim that a pivot right on the spine rails admits no single directly acting shock (its own search found hundreds of layouts, a lug low behind the pivot giving a steadier ratio; the assistant's search had the arm's angle the wrong way round, and the owner had moved to the higher pivot on that claim); a motion ratio falling from 0.65 to 0.37 over the travel, left unsaid; a lug so short that the shock's eye sat in the hoop's cross tube; the arms' and the hoop's side factors quoted wrongly; a bumper only 157 mm between its posts, which a post more than 0.1 m off centre would pass to reach a tyre or an arm; a blow on one end said to go straight back, where it bends the posts; the rear lamps without a bracket; and stale text on the posts, the struts, and the earlier trim. All were corrected the same day - the owner, shown both pivots, kept the higher one for the chain (about 14 mm of change in its centre distance against 45 mm); the shock's lower eye moved to where its ratio falls least while its eye stays clear of the arm's brace (0.73 to 0.47), the upper lug lengthened, the bumper's bar widened to the old bumper's width, the lamps given a bracket, and the text corrected.
+  - id: K-020
+    target:
+      - D-043
+      - dsn.chain420_links
+      - dsn.chain_centre_change_mm
+      - dsn.chain_takeup_mm
+      - dsn.motion_ratio
+      - dsn.shock_stroke_used_mm
+      - dsn.clashes_summer
+    tier: T2
+    method: refute
+    result: partial
+    by: assistant
+    date: 2026-11-05
+    detail: An independent helper recomputed the chain's centre distance over the whole travel in 0.5 mm steps, rebuilt the design with the pivot at other places along the line from the output to the axle, worked out the arm brace's clearances and its joint, reproduced the rear shock's ratios and stroke, and ran the interference search with and without the joints' spheres. It confirmed that with the pivot on that line the distance is longest at rest and changes by 1.8 mm, that the 76-link chain is long enough everywhere with at most 6 mm for the tensioner, that the old chain was 0.78 links short at full bump, and that nothing clashed. It refuted - the old chain pulling tight about 8 mm into the bump (about 6 mm); the pivot meeting the final gear's case just forward of its place (about 10 mm of room, the belt drive's drum nearer); a brace dropped 30 mm below the arm's sides as a weld (its axis below the side tubes' bottoms, most of its end in the air), which also stood as a rigid stub in the line model; the shock's eye said to give the steadiest ratio; and the interference search, whose joint spheres hid the brace meeting a rising tube and would still pass a pivot 15 mm further back. All were corrected the same day - the rising tubes go straight up through the pivot tube to a knee above the brace's reach and the arm keeps its D-042 form with its brace at the bend, the text gives the 6 mm and the room forward, and a joint sphere now excuses only contacts between bodies that move together or at a pivot, which brings the front tyre within 4.7 mm of the lower arm's end (Q-044) into the count.

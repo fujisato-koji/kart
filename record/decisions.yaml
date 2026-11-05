@@ -395,3 +395,13 @@ items:
       - R-19
       - D-036
       - D-041
+  - id: D-043
+    date: 2026-11-05
+    by: owner
+    what: The swing arm's pivot moves down onto the line from the engine's output to the axle, so that the chain's centre distance is longest at rest and changes by about 2 mm over the travel, and the chain is sized for its longest distance. With the pivot level with the output (D-042) the distance grew by about 6 mm toward full bump, and the 76-link chain, sized at rest, would have pulled tight about 6 mm into the bump and carried the springs' load through the sprockets and bearings. With the pivot lower, the arm's brace at full bump would meet the rising tubes where they lean back from the pivot, so they now go straight up through the pivot tube to a knee above the brace's reach and lean back from there; the shock's lower eye moves to keep the motion ratio as it was.
+    options:
+      - the pivot on the line from the output to the axle
+      - the pivot level with the output, a 78-link chain, and a tensioner taking up about 43 mm of chain
+    touches:
+      - D-036
+      - D-042

@@ -85,7 +85,7 @@ ALLOWANCES = [
     ("A16 steering", "handlebar with the stem tube; stem tube with its flange bearings; flange bearings with frame tubes; the pitman arm (items of type arm, part handlebar) with the stem tube and with each other (bolted, welded); tie rods with the pitman arm near their inner end (50 mm) and with the spindle steering arm on their side, and with each other where both start at the same point on the drop arm"),
     ("A22 seat", "the saddle with the frame tubes it rests on (the upper and seat rails)"),
     ("A17 rider", "any rider part with the saddle, or with anything under the saddle's footprint, which the saddle covers; foot and shin with footrests plates and tubes; arms with the handlebar (grips) and the brake levers (fingers rest on them)"),
-    ("A19 joints", "any contact whose two closest points both lie in one design.json joint sphere (pivot sleeves, posts through the tube, welded clusters); a joint with arm:true turns with the swing arm"),
+    ("A19 joints", "any contact whose two closest points both lie in one design.json joint sphere (pivot sleeves, posts through the tube, welded clusters), between bodies that move together, or where one is a pivot (the swing arm's sleeves, the kingpin); a joint with arm:true turns with the swing arm (K-020: a sphere had hidden the arm's brace meeting a rising tube)"),
     ("A20 axle covers", "guards items of type cyl with the axle_shaft (they are covers round it)"),
     ("A21 kingpin", "a kingpin with every frame tube that has an end within 30 mm of the kingpin axis (beam and brace end at the boss)"),
     ("A18 shock eyes", "a rear shock eye with the one member or item nearest to it (within 30 mm, straight ahead)"),
@@ -1040,13 +1040,13 @@ def find(design, configs=("summer", "winter"), limit=0.005, steer_deg=30.0):
             else:
                 todo_ids = {id(b) for b in moved if b.steer is not None}
             checks = []
-            for x in moved:
-                if id(x) not in todo_ids:
+            for i, x in enumerate(moved):                      # by position in the list, not by id(), so that the
+                if id(x) not in todo_ids:                       # pairs and their order are the same on every run
                     continue
-                for y in moved:
+                for j, y in enumerate(moved):
                     if x is y or (x.kind == y.kind and x.idx == y.idx and x.kind != "rider"):
                         continue
-                    if id(y) in todo_ids and id(y) < id(x):
+                    if id(y) in todo_ids and j < i:
                         continue
                     checks.append((x, y))
             for who, rb in riders.items():
@@ -1065,12 +1065,30 @@ def find(design, configs=("summer", "winter"), limit=0.005, steer_deg=30.0):
                 if allowed(x, y, ctx):
                     continue
                 gap, pa, pb = res
-                if any(np.linalg.norm(pa - c) <= r and np.linalg.norm(pb - c) <= r for c, r in ctx["joints"]):
+                if ((group(x) == group(y) or pivot(x) or pivot(y))
+                        and any(np.linalg.norm(pa - c) <= r and np.linalg.norm(pb - c) <= r for c, r in ctx["joints"])):
                     continue                                   # A19 joints
                 out.append({"config": cfg, "steer_deg": ang, "susp_deg": sus, "front": ({"side": next(iter(fsd)), "deg": next(iter(fsd.values()))} if fsd else None), "a": x.info(), "b": y.info(), "gap": float(gap),
                             "point_a": [round(float(v), 4) for v in pa], "point_b": [round(float(v), 4) for v in pb],
                             "overlap": bool(gap < 0)})
     return out
+
+
+def group(b):
+    """The rigid group a body moves with: the frame, the swing arm, a front corner's arm or knuckle, or the stem."""
+    if b.arm:
+        return "arm"
+    if b.farm:
+        return f"{b.farm}.{b.flink or 'knuckle'}"
+    if b.steer:
+        return "stem" if b.steer[0] == "stem" else f"{'l' if b.steer[1] > 0 else 'r'}.knuckle"
+    return "frame"
+
+
+def pivot(b):
+    """A body that turns in or on a body of another group at a joint: the swing arm's sleeves on the pivot tube,
+    the kingpin in the A-arms' joints."""
+    return (b.kind == "item" and b.typ == "cyl" and b.part == "swing_arm") or (b.typ == "spindle" and b.sub == "kingpin")
 
 
 def summary(clashes):

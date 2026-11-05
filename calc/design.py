@@ -114,13 +114,15 @@ def build(v):
     yb = mm("lay.bearing_y_mm")                       # the arm's sides and the two bearings
     h_b, l_b, h2_b = mm("brg.ucp207_h_mm"), mm("brg.ucp207_l_mm"), mm("brg.ucp207_h2_mm")
     arm_od, arm_t = rail_od, rail_t
-    # the pivot sits just behind the unit, level with its output, so the chain keeps its length; it is
-    # carried by the two tubes rising from the spine to the seat rails (D-042)
-    x_p, z_p = mm("lay.pivot_x_mm"), z_out
+    # the pivot sits just behind the unit on the line from its output to the axle, so the chain's centre
+    # distance is longest at rest and hardly changes as the arm turns either way (D-043); it is carried
+    # by the two tubes rising from the spine to the seat rails (D-042)
+    x_p = mm("lay.pivot_x_mm")
+    z_p = r + (z_out - r) * x_p / x_out
     z_bplate = r + h_b                               # bearings hang under plates on the arm's sides
+    x_brace = l_b / 2 + 0.005 + arm_od / 2          # the arm's brace just ahead of the bearing plates
     z_arm = z_bplate + 0.006 + arm_od / 2
     x_end = -l_b / 2 - 0.02
-    x_brace = l_b / 2 + 0.005 + arm_od / 2          # the arm's brace just ahead of the bearing plates
     x_sl = mm("lay.shock_low_x_mm")
 
     def turn_xz(p, th):          # rotate a point about the pivot; positive lifts the axle behind it
@@ -270,6 +272,7 @@ def build(v):
         # cross tube between its legs for the shock's top
         N[f"rx{c}"] = (x_p, s * yp, zc)                 # where the rising tube stands on the spine's rear cross tube
         N[f"pf{c}"] = (x_p, s * yp, z_p)               # where the pivot tube crosses it
+        N[f"pk{c}"] = (x_p, s * yp, mm("lay.rising_knee_z_mm"))   # where it leans back, above the arm's brace at full bump (D-043)
         N[f"ps{c}"] = (x_p, s * yb, z_p)               # where the arm's sleeve turns on the pivot tube
         N[f"pe{c}"] = (x_p, s * (yb + 0.008), z_p)     # the pivot tube's end, just past the sleeve
         N[f"uf{c}"] = (x_uf, s * yp, z_u)               # the seat rail's rear end
@@ -323,7 +326,8 @@ def build(v):
         # the rear (D-042): the tube rising from the spine to the seat rail through the pivot tube,
         # the pivot tube's ends carrying the arm's sleeves, and the hoop's leg
         tube(f"rx{c}", f"pf{c}", rail_od, rail_t, "frame")
-        tube(f"pf{c}", f"uf{c}", rail_od, rail_t, "frame")
+        tube(f"pf{c}", f"pk{c}", rail_od, rail_t, "frame")
+        tube(f"pk{c}", f"uf{c}", rail_od, rail_t, "frame")
         tube(f"pf{c}", f"ps{c}", rail_od, rail_t, "frame")
         tube(f"ps{c}", f"pe{c}", rail_od, rail_t, "frame")
         tube(f"uf{c}", f"hk{c}", rail_od, rail_t, "roll_bar")         # the hoop, leaning back over the saddle
@@ -461,12 +465,18 @@ def build(v):
     item("chain_final", "sprocket", configs=WHEELED, pos=[0.0, y2, r], axis="y", teeth=t4, pd=pd_ax, od=od_ax, t=0.006, arm=True)
     c420 = math.dist((x_out, z_out), (0.0, r))
 
-    def links(c, t1, t2):
-        exact = 2 * c / p420 + (t1 + t2) / 2 + p420 * (t2 - t1) ** 2 / (4 * math.pi ** 2 * c)
-        return math.ceil(exact / 2) * 2
+    def exact_links(c, t1, t2):
+        return 2 * c / p420 + (t1 + t2) / 2 + p420 * (t2 - t1) ** 2 / (4 * math.pi ** 2 * c)
 
+    # the chain is as long as the longest centre distance over the travel needs, so that it never pulls
+    # tight against the springs; the spring tensioner takes up the rest where the distance is shorter
+    rises = [-mm("sus.droop_mm") + i * (mm("sus.bump_mm") + mm("sus.droop_mm")) / 40 for i in range(41)]
+    chain_c = [math.dist((x_out, z_out), turn_xz((0.0, r), angle_for(u_))) for u_ in rises]
+    n420 = math.ceil(exact_links(max(chain_c), t_out, t4) / 2) * 2
     put("dsn.chain420_centre_mm", round(c420 * 1000), "mm", "drive")
-    put("dsn.chain420_links", links(c420, t_out, t4), None, "drive")
+    put("dsn.chain420_links", n420, None, "drive")
+    put("dsn.chain_centre_change_mm", round((max(chain_c) - min(chain_c)) * 1000, 1), "mm", "suspension")
+    put("dsn.chain_takeup_mm", round((n420 - exact_links(min(chain_c), t_out, t4)) * p420 * 1000), "mm", "drive")
     put("dsn.unit_front_x_mm", round((xe + ul / 2) * 1000), "mm", "drive")
     item("chain_final", "chain", configs=WHEELED, pos=[x_out, y2, z_out], to=[0.0, y2, r], r1=pd_out / 2, r2=pd_ax / 2, axis="y")
     mass("chain_final", 0.8, (x_out / 2, y2, (z_out + r) / 2))
@@ -715,8 +725,6 @@ def build(v):
     put("dsn.shock_length_static_mm", round(shock_len(0.0) * 1000), "mm", "suspension")
     put("dsn.shock_stroke_used_mm", round((eye_r - shock_len(th_b)) * 1000), "mm", "suspension")
     put("dsn.shock_travel_mm", round(used * 1000), "mm", "suspension")
-    chain_c = [math.dist((x_out, z_out), turn_xz((0.0, r), th)) for th in (th_d, 0.0, th_b)]
-    put("dsn.chain_centre_change_mm", round((max(chain_c) - min(chain_c)) * 1000, 1), "mm", "suspension")
     x_q_su = (x_su, 0.0, z_su)
     N["su_eye"] = x_q_su
     N["sl_eye"] = (sl0[0], 0.0, sl0[1])
