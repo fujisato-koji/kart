@@ -266,6 +266,8 @@ def build(v):
     N["bc"] = (xf - 0.02, 0.0, zc + 0.10)
     last = len(stations) - 1
     farm_od, farm_t = mm("dsn.farm_od_mm"), mm("dsn.farm_t_mm")
+    fup_od, fup_t = mm("dsn.farm_upper_od_mm"), mm("dsn.farm_upper_t_mm")
+    box_od, box_t = mm("dsn.box_od_mm"), mm("dsn.box_t_mm")      # a middle size where the stress map found the larger idle (1.3.21)
     for c in "lr":
         for i in range(last):
             tube(f"r{c}{i}", f"r{c}{i + 1}", rail_od, rail_t, "frame")
@@ -274,13 +276,13 @@ def build(v):
         # tie rods and the stem's plate sweep through (its shear goes round it in bending, and through
         # the stem)
         tube(f"r{c}{last}", f"n0{c}", rail_od, rail_t, "frame")
-        tube(f"n0{c}", f"n1{c}", rail_od, rail_t, "frame")
-        tube(f"n1{c}", f"n2{c}", rail_od, rail_t, "frame")
+        tube(f"n0{c}", f"n1{c}", box_od, box_t, "frame")
+        tube(f"n1{c}", f"n2{c}", box_od, box_t, "frame")
         tube(f"sf{c}", f"t0{c}", rail_od, rail_t, "frame")
         tube(f"t0{c}", f"ts{c}", rail_od, rail_t, "frame")
-        tube(f"ts{c}", f"t2{c}", rail_od, rail_t, "frame")
-        tube(f"n0{c}", f"t0{c}", rail_od, rail_t, "frame")             # rear upright, at the arms' rear pivots
-        tube(f"n2{c}", f"t2{c}", rail_od, rail_t, "frame")             # front post, at their front pivots
+        tube(f"ts{c}", f"t2{c}", box_od, box_t, "frame")
+        tube(f"n0{c}", f"t0{c}", cross_od, cross_t, "frame")           # rear upright, at the arms' rear pivots
+        tube(f"n2{c}", f"t2{c}", cross_od, cross_t, "frame")           # front post, at their front pivots
         tube(f"n1{c}", f"ts{c}", cross_od, cross_t, "frame")
         tube(f"ts{c}", f"n2{c}", cross_od, cross_t, "frame")             # clear of the upper arm's front pivot
         tube(f"sf{c}", f"r{c}{last}", rail_od, rail_t, "frame")        # the seat rail down to the spine's end (D-040)
@@ -292,10 +294,10 @@ def build(v):
         tube(f"lrm{c}", f"lj{c}", farm_od, farm_t, "front_arms", farm=c, flink="lower")
         tube(f"lfm{c}", f"fe{c}", farm_od, farm_t, "front_arms", farm=c, flink="lower")
         tube(f"fe{c}", f"lrm{c}", farm_od, farm_t, "front_arms", farm=c, flink="lower")
-        tube(f"aupf{c}", f"uj{c}", farm_od, farm_t, "front_arms", farm=c, flink="upper")
-        tube(f"aupr{c}", f"uj{c}", farm_od, farm_t, "front_arms", farm=c, flink="upper")
-        tube(f"b{c}", f"n2{c}", rail_od, rail_t, "bumpers")            # the bumper on the box's front nodes
-        tube(f"b{c}", f"t2{c}", rail_od, rail_t, "bumpers")
+        tube(f"aupf{c}", f"uj{c}", fup_od, fup_t, "front_arms", farm=c, flink="upper")      # the upper arm carries little
+        tube(f"aupr{c}", f"uj{c}", fup_od, fup_t, "front_arms", farm=c, flink="upper")
+        tube(f"b{c}", f"n2{c}", rail_od, rail_t, "bumpers")            # the bumper on the box's front nodes; the lower
+        tube(f"b{c}", f"t2{c}", box_od, box_t, "bumpers")              # strut takes most of a blow on one end
         tube(f"uf{c}", f"sm{c}", rail_od, rail_t, "frame")           # seat rails
         tube(f"sm{c}", f"sf{c}", rail_od, rail_t, "frame")
         tube(f"r{c}1", f"fs{c}0", cross_od, cross_t, "footrests")
@@ -322,19 +324,18 @@ def build(v):
     tube("rxl", "rxr", rail_od, rail_t, "frame")
     tube("rxr", "rr0", rail_od, rail_t, "frame")
     for q in ("n0", "n1", "n2"):                                       # the box's lower cross tubes
-        tube(f"{q}l", f"{q}c", rail_od, rail_t, "frame")
-        tube(f"{q}c", f"{q}r", rail_od, rail_t, "frame")
+        tube(f"{q}l", f"{q}c", box_od, box_t, "frame")
+        tube(f"{q}c", f"{q}r", box_od, box_t, "frame")
     tube("t0l", "t0r", cross_od, cross_t, "frame")                    # its top cross tubes
     tube("tsl", "tsc", rail_od, rail_t, "frame")                     # the shocks' tops and the stem's upper bearing
     tube("tsc", "tsr", rail_od, rail_t, "frame")
     tube("t2l", "t2r", cross_od, cross_t, "frame")
-    for c in "lr":                                                     # V braces in its front and rear panels
-        tube("n0c", f"t0{c}", cross_od, cross_t, "frame")
-        tube("n2c", f"t2{c}", cross_od, cross_t, "frame")
-    tube("bl", "bc", rail_od, rail_t, "bumpers")
-    tube("bc", "br", rail_od, rail_t, "bumpers")
+    # no braces in its front and rear panels: the stress map found them carrying under 4 per cent of
+    # what they could, with the panels' joints taking the little racking there is (1.3.21, K-018)
+    tube("bl", "bc", box_od, box_t, "bumpers")
+    tube("bc", "br", box_od, box_t, "bumpers")
     tube("pfl", "pfr", rail_od, rail_t, "frame")
-    tube("ufl", "ufr", cross_od, cross_t, "frame")
+    tube("ufl", "ufr", box_od, box_t, "frame")                       # the larger: one lifted wheel works it hardest (fatigue)
     tube("usl", "usc", rail_od, rail_t, "frame")
     tube("usc", "usr", rail_od, rail_t, "frame")
     tube("ubl", "ubr", cross_od, cross_t, "frame")
@@ -362,9 +363,11 @@ def build(v):
     tube_mass = lambda od_, t_, L: rho * math.pi * (od_ * od_ - (od_ - 2 * t_) ** 2) / 4 * L
     lens = {}
     for a, b, od_, t_, part, _ in tubes:
-        key = ("arm" if part == "swing_arm" else "roll" if part == "roll_bar" else "main" if od_ == rail_od else "cross")
+        key = ("arm" if part == "swing_arm" else "roll" if part == "roll_bar" else "main" if od_ == rail_od
+               else "box" if od_ == box_od else "cross")
         lens[key] = lens.get(key, 0.0) + math.dist(N[a], N[b])
     put("dsn.tube_main_m", round(lens["main"], 2), "m", "frame")
+    put("dsn.tube_box_m", round(lens.get("box", 0.0), 2), "m", "frame")
     put("dsn.tube_cross_m", round(lens["cross"], 2), "m", "frame")
     put("dsn.tube_roll_m", round(lens["roll"], 2), "m", "rollbar")
     put("dsn.tube_arm_m", round(lens["arm"], 2), "m", "suspension")

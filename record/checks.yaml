@@ -261,3 +261,17 @@ items:
     by: assistant
     date: 2026-11-05
     detail: An independent helper re-derived the double A-arms of 1.3.20 with its own solver (the knuckle's pose from the arms' legs and the tie rod), the lock, the frame model, and two stresses by hand. It confirmed the camber, track, and toe changes, the shock's lengths, the lock's angles with the tie rods holding their length, a frame model with no mechanism, wrong hinge, or name collision, and the arms' stress, the shocks' and tie rods' forces, and the impact factor (the shock's force by hand within a few per cent, the lower arm's bending within 3 per cent). It refuted - an interference the sweep never visited, the inner wheel at the lock and full droop 2 mm into the sled pan's front corner; a camber that went top out as the wheel rose, which leans the outer wheel out in a turn; the open bay's shear said to pass through the stem, which carries almost none of it (the bay works in bending, up to 48 MPa); a safety factor quoted above 5 that is 4.7, a shock force of 3.5 times its load at rest that is 3.8 standing, and a toe change of 1.4 to 2.8 degrees for the other arm angle that no calculation gave; the largest frame stress placed in the spine rather than a footboard's cross tube; the tyre said near the lower arm's end at the lock when it is so in every position; FE-04 claimed though the front lands at 4.6 g against the 3.5 g bump; and two stale comments. All were corrected the same day - the sweep now visits both sides and each side at bump and droop, straight and at the lock both ways, and the pan was narrowed to clear the wheel; the upper joint was raised so that the wheel's top leans in as it rises; the bay's bending is a value (dsn.nose_bay_stress_mpa); the other arm angle is calculated (dsn.steer_outer_alt_deg, dsn.bump_steer_alt_deg); and the text, FE-04, and Q-044 say what the numbers say.
+  - id: K-018
+    target:
+      - dsn.box_od_mm
+      - dsn.farm_upper_od_mm
+      - dsn.rail_safety
+      - dsn.impact_safety
+      - dsn.fatigue_life_ratio
+      - dsn.frame_mass_kg
+    tier: T2
+    method: refute
+    result: partial
+    by: assistant
+    date: 2026-11-05
+    detail: An independent helper ran the frame before and after the trim of 1.3.21 and re-solved every case with its own scripts. It confirmed the stress map - at the tubes' ends it equals the solver's stresses, the moment's sign checks by statics and by a four-point bending case by hand, and tubes split into four elements give the same stresses along them; the first reading (37 tubes, 6.7 m, under 15 % and 6 over 60 %); and after the trim the driving factor 2.33, the arms' 3.39, the impact factor 2.02, the hoop's 2.98 and 4.26, a fatigue range of 35.5 MPa under the tube joints' limit of 38.75 MPa, a kart of 144.9 kg, and no clashes. Without the V braces the box is no mechanism - a sideways kilonewton at a top corner moves it 0.13 mm against 0.07 mm before - and each case's largest stress changes by 5 % or less; a 2 g sideways blow at one front tyre and a 200 kg weight on the box's top rail stay well inside the tubes' strength, and no tube comes near buckling. It refuted the frame's mass before the trim (33.0 kg, not 34.7, so 4.6 kg saved), the braces' use (under 4 %, not 3 to 8 %), the posts' size named as the upper arms' value, and a tube length of the smaller size that included the middle one, and it noted that the map's fatigue colours are a tube joint's, so a tube with a fillet-welded plate would show far less than its use. All were corrected the same day.
