@@ -1037,7 +1037,10 @@ def build(v):
                         "x_front": round(max(xf, wb + r, wb + mm("ski.contact_length_mm") * 0.8), 4),
                         "x_back": round(min(xb, -r), 4), "belly": round(zp, 4), "lift": 0.0},
         "front_suspension": {"type": "wishbones", "points": front.to_json(fg), "bump": bump, "droop": droop,
-                             "lock_bar_deg": round(math.degrees(bar_lock), 3)},
+                             "lock_bar_deg": round(math.degrees(bar_lock), 3),
+                             # poses for the 3D view's animation: 10 mm of rise, an eighth of the lock apart
+                             "motion": front.motion(fg, [-droop + i * 0.01 for i in range(round((bump + droop) / 0.01) + 1)],
+                                                    [bar_lock * (i / 4 - 1) for i in range(9)])},
         "rear_suspension": {"pivot": [round(x_p, 4), round(z_p, 4)], "bump_deg": round(math.degrees(abs(th_b)), 2),
                             "droop_deg": round(math.degrees(abs(th_d)), 2)},
         "joints": joints,

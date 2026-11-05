@@ -257,6 +257,41 @@ def to_json(g):
     return d
 
 
+def quat(R):
+    """The unit quaternion (x, y, z, w) of a rotation matrix."""
+    w = math.sqrt(max(0.0, 1 + R[0, 0] + R[1, 1] + R[2, 2])) / 2
+    x = math.copysign(math.sqrt(max(0.0, 1 + R[0, 0] - R[1, 1] - R[2, 2])) / 2, R[2, 1] - R[1, 2])
+    y = math.copysign(math.sqrt(max(0.0, 1 - R[0, 0] + R[1, 1] - R[2, 2])) / 2, R[0, 2] - R[2, 0])
+    z = math.copysign(math.sqrt(max(0.0, 1 - R[0, 0] - R[1, 1] + R[2, 2])) / 2, R[1, 0] - R[0, 1])
+    n = math.sqrt(x * x + y * y + z * z + w * w)
+    return [x / n, y / n, z / n, w / n]
+
+
+def motion(g, rises, bars):
+    """The corners' poses on a grid of the wheel's rise (m) and the bar's angle (rad), for the 3D view's
+    animation. Per side: the lower and upper arms' angles about x through lo and up (as Corner.arms
+    turns them), and the knuckle as p -> R (p - c) + c + d, R given by its quaternion (x, y, z, w) -
+    with c the lower joint, so that between grid points the turn and the shift can be interpolated
+    apart. Indexed [rise][bar]."""
+    r5 = lambda a: [round(float(x), 5) for x in a]
+    out = {"rise": r5(rises), "bar_deg": [round(math.degrees(b), 3) for b in bars]}
+    for L, s in (("l", 1), ("r", -1)):
+        c = Corner(g, s)
+        side = {"lo": r5(c.p["lo_f"]), "up": r5(c.p["up_f"]), "c": r5(c.p["lbj"]), "lower": [], "upper": [], "knuckle": []}
+        for u in rises:
+            lo_, up_, kn_ = [], [], []
+            for b in bars:
+                pz = c.pose(u, b)
+                lo_.append(round(math.atan2(pz["lower"].R[2, 1], pz["lower"].R[1, 1]), 5))
+                up_.append(round(math.atan2(pz["upper"].R[2, 1], pz["upper"].R[1, 1]), 5))
+                kn_.append(r5(quat(pz["knuckle"].R)) + r5(pz["knuckle"].d))
+            side["lower"].append(lo_)
+            side["upper"].append(up_)
+            side["knuckle"].append(kn_)
+        out[L] = side
+    return out
+
+
 def from_json(d):
     g = {k: (np.asarray(x, float) if isinstance(x, list) else x) for k, x in d.items()}
     return g

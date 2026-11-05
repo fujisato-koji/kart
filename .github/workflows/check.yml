@@ -35,7 +35,9 @@ jobs:
         with:
           node-version: 24
       - name: Test the simulator
-        run: node tools/test_sim.mjs
+        run: |
+          node tools/test_sim.mjs
+          node tools/test_motion.mjs
       - name: Check the tier of the change
         if: github.event_name == 'pull_request'
         env:

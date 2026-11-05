@@ -59,7 +59,7 @@ function mats() {
     ski: std(C.ski, 0.5, 0.05), chain: std(C.chain, 0.4, 0.8), brass: std(C.brass, 0.4, 0.8),
     pan: std(0xeeeadf, 0.55, 0.0, { side: THREE.DoubleSide }), track: std(0x2b2d30, 0.95, 0.0), lug: std(0x1c1d20, 0.95, 0.0),
     float: std(0xff7a1a, 0.45, 0.0, { transparent: true, opacity: 0.85 }), motor: std(0x30353b, 0.45, 0.3), motorCowl: std(0xd8dde2, 0.4, 0.2),
-    black: std(0x0e0f10, 0.7, 0.2), finDark: std(0x4d545b, 0.5, 0.7), key: std(0x1a1c1e, 0.9, 0.2),
+    black: std(0x0e0f10, 0.7, 0.2), finDark: std(0x4d545b, 0.5, 0.7), key: std(0x1a1c1e, 0.9, 0.2), coil: std(0xd0a020, 0.4, 0.6),
   };
   return _M;
 }
@@ -118,7 +118,7 @@ function buildMembers(design) {
   for (const mb of design.members) {
     const a = V(mb.a), b = V(mb.b), r = mb.od / 2;
     const bump = mb.part === 'bumpers', farm = mb.part === 'front_arms';   // the A-arms in black, as an ATV's
-    const g = new THREE.Group(); g.userData = { part: mb.part, configs: design.configs, member: true };
+    const g = new THREE.Group(); g.userData = { part: mb.part, configs: design.configs, member: true, mb };
     g.add(cylBetween(a, b, r, bump ? M.bumper : farm ? M.darkSteel : M.paint, ILLUSTRATIVE.tubeSegments));
     // weld beads: a dark ring near each end of the tube
     const dir = b.clone().sub(a).normalize();
@@ -128,13 +128,13 @@ function buildMembers(design) {
       bead.quaternion.setFromUnitVectors(new THREE.Vector3(0, 0, 1), dir);
       g.add(bead);
       const k = key([p.x, p.y, p.z]);
-      const n = nodes.get(k) || { p, r: 0, part: mb.part, bump, farm };
-      n.r = Math.max(n.r, r); nodes.set(k, n);
+      const n = nodes.get(k) || { p, r: 0, part: mb.part, bump, farm, mbs: [] };
+      n.r = Math.max(n.r, r); n.mbs.push(mb); nodes.set(k, n);
     }
     out.push(g);
   }
   for (const n of nodes.values()) { // a round weld blob at each node closes the mitre gap
-    const g = new THREE.Group(); g.userData = { part: n.part, configs: design.configs, member: true };
+    const g = new THREE.Group(); g.userData = { part: n.part, configs: design.configs, member: true, mbs: n.mbs };
     const s = sphere(n.r * ILLUSTRATIVE.nodeScale * 1.02, n.bump ? M.bumper : n.farm ? M.darkSteel : M.paint, 14);
     s.position.copy(n.p); g.add(s); out.push(g);
   }
@@ -567,6 +567,7 @@ function rodItem(it) {
       const fl = box(0.07, 0.07, 0.012, M.cast, 0.004); fl.position.copy(p); fl.quaternion.setFromUnitVectors(new THREE.Vector3(0, 0, 1), dir);
       g.add(fl);
       const hs = mesh(new THREE.CylinderGeometry(0.02, 0.02, 0.026, 20), M.cast); hs.position.copy(p); hs.quaternion.setFromUnitVectors(Y, dir); g.add(hs);
+      fl.userData.stay = hs.userData.stay = true;   // on the frame: they stay when the stem turns
     }
   }
   return g;
@@ -858,11 +859,11 @@ function shockItem(it) {
     const t = i / N, a = t * turns * Math.PI * 2;
     pts.push(a0.clone().lerp(a1, t).addScaledVector(u, Math.cos(a) * (r - 0.0035)).addScaledVector(w, Math.sin(a) * (r - 0.0035)));
   }
-  g.add(mesh(new THREE.TubeGeometry(new THREE.CatmullRomCurve3(pts), N, 0.0035, 6), std(0xd0a020, 0.4, 0.6)));
+  g.add(mesh(new THREE.TubeGeometry(new THREE.CatmullRomCurve3(pts), N, 0.0035, 6), M.coil));
   return g;
 }
 
-function buildItem(it, ctx) {
+export function buildItem(it, ctx) {
   switch (it.type) {
     case 'plate': return plateFor(it);
     case 'cyl': return cylItem(it, ctx);
@@ -914,7 +915,7 @@ export function buildKart(design) {
   for (const g of buildMembers(design)) add(g, { part: g.userData.part, configs: g.userData.configs, type: 'member' });
   for (const it of design.items) {
     const g = buildItem(it, ctx);
-    if (g) add(g, { part: it.part, configs: it.configs, type: it.type, rider: it.rider, ground: !!it.ground, future: !!it.future });
+    if (g) add(g, { part: it.part, configs: it.configs, type: it.type, rider: it.rider, ground: !!it.ground, future: !!it.future, src: it });
   }
   return { root, groups };
 }
@@ -992,17 +993,42 @@ function ik(S, T, l1, l2, pole) {
   const joint = S.clone().addScaledVector(dir, a).addScaledVector(perp, hh);
   return { joint, end: S.clone().addScaledVector(dir, dist) };
 }
+const riderMatCache = {};
+function riderMats(kind) {
+  return riderMatCache[kind] || (riderMatCache[kind] = { body: std(kind === 'adult' ? C.adult : C.child, 0.7, 0), skin: std(C.skin, 0.7, 0) });
+}
+function riderShoulder(r) {
+  const K = ILLUSTRATIVE.mannequin, lean = K.trunkLean * Math.PI / 180;
+  return V(r.hip).add(new THREE.Vector3(Math.sin(lean), 0, Math.cos(lean)).multiplyScalar(K.trunk * r.stature));
+}
+// the arms to both grips, in a group of their own (name 'arms'); turn, if given, maps a grip (kart axes,
+// [x, y, z]) to where the turned bar has it
+export function riderArms(design, kind, turn) {
+  const r = design.riders[kind], K = ILLUSTRATIVE.mannequin, H = r.stature, lr = K.limb * H, { body, skin } = riderMats(kind);
+  const g = new THREE.Group(); g.name = 'arms';
+  const limb = (a, b, rad, m = body) => { g.add(cylBetween(a, b, rad, m, 12)); };
+  const ball = (p, rad, m = body) => { const s = sphere(rad, m, 14); s.position.copy(p); g.add(s); };
+  const shoulder = riderShoulder(r);
+  for (const sy of [-1, 1]) {
+    const sp = shoulder.clone().add(new THREE.Vector3(0, sy * K.shoulderHalfWidth * H, -0.01));
+    const grip = [r.hand[0], sy * r.hand[1], r.hand[2]], hand = V(turn ? turn(grip) : grip);
+    const { joint, end } = ik(sp, hand, K.upperArm * H, (K.foreArm + K.hand) * H, new THREE.Vector3(-0.3, sy * 0.9, -0.6));
+    ball(sp, lr * 1.9); limb(sp, joint, lr * 1.5); ball(joint, lr * 1.4); limb(joint, end, lr * 1.2, skin); ball(end, lr * 1.3, skin);
+  }
+  g.traverse((o) => { if (o.isMesh) o.castShadow = true; });
+  return g;
+}
 export function buildRider(design, kind) {
   const r = design.riders[kind]; if (!r) return null;
-  const K = ILLUSTRATIVE.mannequin, H = r.stature, col = kind === 'adult' ? C.adult : C.child;
-  const body = std(col, 0.7, 0), skin = std(C.skin, 0.7, 0);
+  const K = ILLUSTRATIVE.mannequin, H = r.stature;
+  const { body, skin } = riderMats(kind);
   const g = new THREE.Group(); g.name = 'rider'; g.userData = { rider: kind };
   const limb = (a, b, rad, m = body) => { g.add(cylBetween(a, b, rad, m, 12)); };
   const ball = (p, rad, m = body) => { const s = sphere(rad, m, 14); s.position.copy(p); g.add(s); };
   const hip = V(r.hip), lr = K.limb * H;
   // astride like on an ATV: the trunk leans forward a little
   const lean = K.trunkLean * Math.PI / 180;
-  const shoulder = hip.clone().add(new THREE.Vector3(Math.sin(lean), 0, Math.cos(lean)).multiplyScalar(K.trunk * H * 1.0));
+  const shoulder = riderShoulder(r);
   const pelvis = box(0.1 * H / 1.7 * 1.3, 0.3 * H / 1.7 * 0.9, 0.14 * H / 1.7, body, 0.04); pelvis.position.copy(hip); g.add(pelvis);
   const chestC = hip.clone().lerp(shoulder, 0.62);
   limb(hip, shoulder, lr * 4.4);
@@ -1027,13 +1053,7 @@ export function buildRider(design, kind) {
     limb(heel, toe, lr * 1.25, std(0x2d2f33, 0.8, 0)); ball(toe, lr * 1.25, std(0x2d2f33, 0.8, 0));
     limb(end, heel, lr * 1.4);
   }
-  // arms to both grips
-  for (const sy of [-1, 1]) {
-    const sp = shoulder.clone().add(new THREE.Vector3(0, sy * K.shoulderHalfWidth * H, -0.01));
-    const hand = new THREE.Vector3(r.hand[0], sy * r.hand[1], r.hand[2]);
-    const { joint, end } = ik(sp, hand, K.upperArm * H, (K.foreArm + K.hand) * H, new THREE.Vector3(-0.3, sy * 0.9, -0.6));
-    ball(sp, lr * 1.9); limb(sp, joint, lr * 1.5); ball(joint, lr * 1.4); limb(joint, end, lr * 1.2, skin); ball(end, lr * 1.3, skin);
-  }
+  g.add(riderArms(design, kind));
   g.traverse((o) => { if (o.isMesh) { o.castShadow = true; } });
   const wrap = new THREE.Group(); wrap.name = 'rider-wrap'; wrap.applyMatrix4(KART_TO_WORLD); wrap.add(g);
   return wrap;

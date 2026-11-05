@@ -5,6 +5,8 @@ import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
 import { RoomEnvironment } from 'three/addons/environments/RoomEnvironment.js';
 import { buildKart, buildRider, buildDelica, buildDims, k2w, buildStress, stressUse, stressChoices, STRESS_EDGES, STRESS_RAMP, STRESS_CASE_JA } from './model.js';
 import { partOfObject } from './parts.js';
+import { MOTIONS, MOTION_VIEW, PERIOD_S } from './motion.js';
+import { makeAnimator, MOTION_TEXT, describeNumbers } from './animate.js';
 
 const params = new URLSearchParams(location.search);
 const EMBED = params.get('embed') === '1';
@@ -29,6 +31,7 @@ const state = {
   delica: params.get('delica') === '1', dims: params.get('dims') === '1',
   view: ['iso', 'side', 'top', 'front', 'nose', 'nose_side'].includes(params.get('view')) ? params.get('view') : 'iso',
   stress: params.get('stress') || '',   // '' or a key of stressChoices: env, strength, fatigue, c0, c1, ...
+  motion: MOTIONS.some(([k]) => k === params.get('motion')) ? params.get('motion') : '',   // '' or a key of MOTIONS
 };
 const $ = (id) => document.getElementById(id);
 const post = (msg) => { if (window.parent !== window) window.parent.postMessage(msg, '*'); };
@@ -41,6 +44,7 @@ function fail(e) {
 
 let design, renderer, scene, camera, controls, kart, groups = [], riderCache = {}, riderObj = null, delicaObj = null, dimsObj = null;
 let ground, groundShadow, floorShadow, dirty = true, tween = null, stressObj = null, stressKey = '', stressData = null;
+let anim = null, phase = 0, playing = true, lastT = 0;   // the animation of the moving parts (animate.js)
 const hidden = new Set((params.get('hide') || '').split(',').filter(Boolean)); let focus = new Set(); let selected = null;   // ?hide=front_wheels,fenders
 const matCache = new Map();
 
@@ -84,6 +88,7 @@ async function init() {
   controls.addEventListener('start', () => { tween = null; });
 
   const built = buildKart(design); kart = built.root; groups = built.groups; scene.add(kart);
+  anim = makeAnimator(design, kart, groups, { onRebuild: walkFocus, rider: () => (riderObj ? { obj: riderObj, kind: state.rider } : null) });
   const D = design.delica, d = design.dims;
   const dl = buildDelica(design); dl.visible = false; delicaObj = dl; scene.add(dl);
   const fl = new THREE.Mesh(new THREE.PlaneGeometry(D.length, D.width_max).rotateX(-Math.PI / 2), new THREE.ShadowMaterial({ opacity: 0.26 }));
@@ -92,10 +97,10 @@ async function init() {
   resize(); addEventListener('resize', resize);
   new ResizeObserver(resize).observe(host);
   matchMedia('(prefers-color-scheme: dark)').addEventListener('change', () => { scene.background = new THREE.Color(sceneColour()); dirty = true; });
-  bindPicking(); bindUi(); applyAll(); setView(state.view, false);
+  bindPicking(); bindUi(); bindMotion(); applyAll(); setView(state.view, false);
   $('loading').hidden = true;
   const ids = [...new Set(groups.map((g) => g.userData.part))];
-  post({ type: 'kart3d:ready', parts: ids.map((id) => ({ id, name: PART_NAMES[id] || id })), stress: stressChoices(design) });
+  post({ type: 'kart3d:ready', parts: ids.map((id) => ({ id, name: PART_NAMES[id] || id })), stress: stressChoices(design), motion: MOTIONS });
   requestAnimationFrame(frame);
   window.__kart = { state, scene, camera, controls, setState, focusParts, groups, THREE, get riderObj() { return riderObj; } };
 }
@@ -113,6 +118,8 @@ function frame(t) {
     camera.lookAt(controls.target); if (k >= 1) tween = null; dirty = true;
   }
   if (controls.update()) dirty = true;
+  const dt = lastT ? Math.min(0.1, (t - lastT) / 1000) : 0; lastT = t;
+  if (state.motion && playing) { phase = (phase + dt / PERIOD_S[state.motion]) % 1; poseNow(); }
   if (dirty) { dirty = false; renderer.render(scene, camera); }
 }
 
@@ -140,6 +147,7 @@ function applyAll() {
     riderObj = riderCache[state.rider]; riderObj.position.y = lift; scene.add(riderObj); // world frame: y is up
   }
   applyStress(lift);
+  poseNow();
   delicaObj.visible = state.delica; floorShadow.visible = state.delica;
   const lip = state.delica ? design.delica.lip : 0;
   ground.position.y = -lip;
@@ -181,12 +189,33 @@ function paintLegend(hover) {
     `<div class="top">最大：${top.i != null ? tube(top, top.i) : ''}</div>` +
     `<div class="hov">${hover != null ? tube(stressData[hover], hover) : '管に重ねると値が出ます'}</div>`;
 }
+// ---------------------------------------------------------------- moving parts
+// The springs and the steering at work (animate.js): the panel says what turns where, with the travel
+// and the shocks' lengths, and holds a pause and a slider for the phase.
+function poseNow() {
+  if (!anim) return;
+  const ro = anim.pose(state.motion, phase, liftNow());
+  dirty = true;
+  const el = $('motionPanel'); el.hidden = !state.motion;
+  if (!state.motion) return;
+  $('mvTitle').textContent = '動き：' + (MOTIONS.find(([k]) => k === state.motion) || [])[1];
+  $('mvText').textContent = MOTION_TEXT[state.motion];
+  $('mvNums').textContent = describeNumbers(state.motion, ro);
+  $('mvPhase').value = String(Math.round(phase * 1000));
+  $('mvPlay').textContent = playing ? '⏸' : '▶'; $('mvPlay').setAttribute('aria-label', playing ? '止める' : '動かす');
+}
+function bindMotion() {
+  $('mvPlay').addEventListener('click', () => { playing = !playing; poseNow(); });
+  $('mvPhase').addEventListener('input', (e) => { playing = false; phase = Number(e.target.value) / 1000; poseNow(); });
+}
 const ghostMat = new THREE.MeshLambertMaterial({ color: 0xb4bcc6, transparent: true, opacity: 0.22, depthWrite: false });
 
 function setState(patch, user = false) {
   const prev = { ...state };
   for (const k of ['config', 'rider', 'view']) if (patch[k] != null && patch[k] !== state[k]) state[k] = patch[k];
   if (patch.stress != null) state.stress = String(patch.stress);
+  if (patch.motion != null && patch.motion !== state.motion) { state.motion = MOTIONS.some(([k]) => k === patch.motion) ? patch.motion : ''; phase = 0; playing = true; }
+  if (state.stress && state.motion) { if (patch.motion) state.stress = ''; else state.motion = ''; }   // one at a time
   for (const k of ['delica', 'dims']) if (patch[k] != null) state[k] = !!patch[k];
   if (user && patch.delica && !prev.delica && state.config !== 'transport') state.config = 'transport'; // the Delica holds the kart in transport form
   applyAll();
@@ -197,9 +226,9 @@ function setState(patch, user = false) {
 // ---------------------------------------------------------------- focus and highlight
 const dimMat = (m) => { const k = 'd' + m.uuid; if (!matCache.has(k)) { const c = m.clone(); c.transparent = true; c.opacity = 0.1; c.depthWrite = false; if (c.alphaMap) c.alphaMap = null; matCache.set(k, c); } return matCache.get(k); };
 const hiMat = (m) => { const k = 'h' + m.uuid; if (!matCache.has(k)) { const c = m.clone(); if (c.emissive) { c.emissive = new THREE.Color(0xff7a00); c.emissiveIntensity = 0.7; } matCache.set(k, c); } return matCache.get(k); };
-function applyFocus() {
+function walkFocus(root) {
   const on = focus.size > 0, st = !!stressObj;
-  const walk = (root) => root.traverse((o) => {
+  root.traverse((o) => {
     if (!o.isMesh && !o.isInstancedMesh) return;
     if (stressObj && (o === stressObj || o.parent === stressObj)) return;   // the stress map keeps its colours
     if (!o.userData.base) o.userData.base = o.material;
@@ -207,9 +236,9 @@ function applyFocus() {
     o.material = st ? ghostMat : !on ? base : focus.has(part) ? hiMat(base) : dimMat(base);
     if (st || (on && !focus.has(part))) o.castShadow = false; else o.castShadow = o.userData.cast !== false;
   });
-  walk(kart); if (riderObj) walk(riderObj);
   dirty = true;
 }
+function applyFocus() { walkFocus(kart); if (riderObj) walkFocus(riderObj); }
 function focusParts(ids) {
   focus = new Set(ids || []);
   if (focus.size === 0) selected = null;
@@ -284,6 +313,9 @@ function bindUi() {
   const ss = $('stress');
   for (const [k, t] of [['', 'なし'], ...stressChoices(design)]) { const o = document.createElement('option'); o.value = k; o.textContent = t; ss.appendChild(o); }
   ss.addEventListener('change', (e) => setState({ stress: e.target.value }, true));
+  const ms = $('motion');
+  for (const [k, t] of [['', 'なし'], ...MOTIONS]) { const o = document.createElement('option'); o.value = k; o.textContent = t; ms.appendChild(o); }
+  ms.addEventListener('change', (e) => setState({ motion: e.target.value, ...(MOTION_VIEW[e.target.value] ? { view: MOTION_VIEW[e.target.value] } : {}) }, true));
   $('partsBtn').addEventListener('click', () => { const p = $('partsPanel'); p.hidden = !p.hidden; $('partsBtn').setAttribute('aria-expanded', String(!p.hidden)); $('partsBtn').classList.toggle('on', !p.hidden); });
   $('themeBtn').addEventListener('click', () => {
     const dark = document.documentElement.dataset.theme === 'dark' || (!document.documentElement.dataset.theme && matchMedia('(prefers-color-scheme: dark)').matches);
@@ -306,7 +338,7 @@ function syncUi() {
   if (EMBED) return;
   for (const b of $('gConfig').children) b.classList.toggle('on', b.dataset.config === state.config);
   for (const b of $('gView').children) b.classList.toggle('on', b.dataset.view === state.view);
-  $('rider').value = state.rider; $('delica').checked = state.delica; $('dims').checked = state.dims; $('stress').value = state.stress;
+  $('rider').value = state.rider; $('delica').checked = state.delica; $('dims').checked = state.dims; $('stress').value = state.stress; $('motion').value = state.motion;
   for (const li of $('partsList').children) {
     li.querySelector('input').checked = !hidden.has(li.dataset.part);
     li.classList.toggle('sel', focus.has(li.dataset.part));
@@ -316,8 +348,8 @@ function syncUi() {
 }
 
 // ---------------------------------------------------------------- messages from the navigator
-//  in : { type:'kart3d:set', config?, rider?, delica?, dims?, view?, stress? }   { type:'kart3d:focus', parts:[ids] }   { type:'kart3d:hide', parts:[ids] }
-//  out: { type:'kart3d:ready', parts:[{id,name}], stress:[[key,label]] }  { type:'kart3d:pick', part }  { type:'kart3d:state', config, rider, delica, dims, view }
+//  in : { type:'kart3d:set', config?, rider?, delica?, dims?, view?, stress?, motion? }   { type:'kart3d:focus', parts:[ids] }   { type:'kart3d:hide', parts:[ids] }
+//  out: { type:'kart3d:ready', parts:[{id,name}], stress:[[key,label]], motion:[[key,label]] }  { type:'kart3d:pick', part }  { type:'kart3d:state', config, rider, delica, dims, view, stress, motion }
 addEventListener('message', (e) => {
   const m = e.data; if (!m || typeof m.type !== 'string' || !renderer) return;
   if (m.type === 'kart3d:set') setState(m, false);

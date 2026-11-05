@@ -55,3 +55,8 @@ html.embed .toolbar, html.embed .panel, html.embed .status { display: none !impo
 .legend .sw { width: 16px; height: 11px; border-radius: 2px; border: 1px solid rgba(0,0,0,.15); }
 .legend .note, .legend .hov { color: var(--muted); }
 .legend .top, .legend .hov { margin-top: 3px; }
+.legend.motion { max-width: min(470px, calc(100% - 20px)); }
+.legend.motion .nums { margin-top: 5px; font-variant-numeric: tabular-nums; }
+.legend.motion .mvctl { display: flex; gap: 8px; align-items: center; margin: 6px 0 4px; }
+.legend.motion .mvctl input { flex: 1; }
+.legend.motion .mvctl button { min-width: 34px; }
