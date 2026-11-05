@@ -9379,6 +9379,36 @@
    "license": "不明",
    "read": "excerpt",
    "note": "要旨のみ。走行中のオートバイで、排気管は 170〜250 ℃、その外側の覆いは 40〜60 ℃。十分な間隔をとった覆いを勧めている。"
+  },
+  {
+   "id": "P102",
+   "class": "P",
+   "title": "Road Traffic Act enforcement regulations (道路交通法施行規則), article 1-2-2, the special small moped, e-Gov",
+   "url": "https://laws.e-gov.go.jp/api/1/lawdata/335M50000002060",
+   "retrieved": "2026-11-06",
+   "license": "不明",
+   "read": "full",
+   "note": "確かめ役が条文を読んだ。特定小型原動機付自転車は、長さ 190 cm 以下、幅 60 cm 以下、定格出力 0.60 kW 以下の電動機で動き、20 km/h を超えて走れず、走行中に最高速度の設定を変えられず、AT 機構で、最高速度表示灯を備える。車輪の数は定めていない。国交省の申請の手引きは、2 輪・3 輪・4 輪の別を尋ねている（P92）。"
+  },
+  {
+   "id": "P103",
+   "class": "P",
+   "title": "National Police Agency, special small mopeds (特定小型原動機付自転車)",
+   "url": "https://www.npa.go.jp/bureau/traffic/anzen/tokuteikogata.html",
+   "retrieved": "2026-11-06",
+   "license": "不明",
+   "read": "full",
+   "note": "確かめ役が読んだ。16 歳以上、免許は不要、ヘルメットは努力義務。車道か自転車道を走り、歩道は標識で認められた所だけ 6 km/h のモードで走る。市区町村のナンバーと自賠責が要る。"
+  },
+  {
+   "id": "P104",
+   "class": "P",
+   "title": "MLIT, list of special small mopeds whose performance has been confirmed (as of 2026-10-31)",
+   "url": "https://www.mlit.go.jp/jidosha/content/001622342.pdf",
+   "retrieved": "2026-11-06",
+   "license": "不明",
+   "read": "partial",
+   "note": "確かめ役が読んだ。Ainohot の SAGA life（確認番号 0181、歩道モードあり）が載っている。報道（carview、二次資料）は四輪のモビリティと伝えている。"
   }
  ],
  "decisions": [

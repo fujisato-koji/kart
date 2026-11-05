@@ -1111,6 +1111,9 @@ The current state, with open items grouped by whom they wait for, is in [STATUS.
 | P100 | P | MLIT detailed technical notice (保安基準の細目を定める告示), articles 284, 268, 252, and 275, silencers, noise, and exhaust pipes of mopeds | full |
 | P101 | P | Apso, PE-UHMW material data sheet (2024-06-19) | partial |
 | S13 | S | Lai and others, Motorcycle exhaust pipe burns, Burns 28 (2002) 370-373, PMID 12052376 | excerpt |
+| P102 | P | Road Traffic Act enforcement regulations (道路交通法施行規則), article 1-2-2, the special small moped, e-Gov | full |
+| P103 | P | National Police Agency, special small mopeds (特定小型原動機付自転車) | full |
+| P104 | P | MLIT, list of special small mopeds whose performance has been confirmed (as of 2026-10-31) | partial |
 <!-- tdr:end -->
 
 ## Checks {#checks}

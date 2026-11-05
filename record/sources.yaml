@@ -1793,3 +1793,27 @@ items:
     license: unknown
     read: excerpt
     note: The abstract only. On moving motorcycles the exhaust pipe measured 170 to 250 C, its outer cover 40 to 60 C; a shield with adequate separation is recommended.
+  - id: P102
+    class: P
+    title: Road Traffic Act enforcement regulations (道路交通法施行規則), article 1-2-2, the special small moped, e-Gov
+    url: https://laws.e-gov.go.jp/api/1/lawdata/335M50000002060
+    retrieved: 2026-11-06
+    license: unknown
+    read: full
+    note: Read by a helper, the article. A special small moped (特定小型原動機付自転車) is at most 190 cm long and 60 cm wide, driven by an electric motor of 0.60 kW rated output or less, cannot exceed 20 km/h nor have its top speed changed while moving, has an automatic transmission, and carries a top-speed lamp. No number of wheels is set; MLIT's application handbook asks whether it has two, three, or four wheels (P92).
+  - id: P103
+    class: P
+    title: National Police Agency, special small mopeds (特定小型原動機付自転車)
+    url: https://www.npa.go.jp/bureau/traffic/anzen/tokuteikogata.html
+    retrieved: 2026-11-06
+    license: unknown
+    read: full
+    note: Read by a helper. Riders 16 and over, no licence, a helmet to be tried for; on the road or a cycle track, on a footway only where signed and in the 6 km/h mode; a municipal plate and compulsory insurance.
+  - id: P104
+    class: P
+    title: MLIT, list of special small mopeds whose performance has been confirmed (as of 2026-10-31)
+    url: https://www.mlit.go.jp/jidosha/content/001622342.pdf
+    retrieved: 2026-11-06
+    license: unknown
+    read: partial
+    note: Read by a helper. Lists the Ainohot SAGA life, confirmation 0181, with a footway mode; a news report calls it a four-wheeled mobility (carview, secondary).
