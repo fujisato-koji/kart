@@ -567,6 +567,11 @@ These are not decided here. 1.2 compares forms against them.
 | lay.shock_low_x_mm | 55 | mm | calculated | docs/03-design.md#suspension, D-043 |
 | lay.shock_low_rise_mm | 15 | mm | calculated | docs/03-design.md#suspension, D-043 |
 | lay.rising_knee_z_mm | 360 | mm | calculated | docs/03-design.md#frame, D-043 |
+| lay.muffler_d_mm | 120 | mm | sourced | P99 |
+| lay.muffler_l_mm | 360 | mm | assumed | Q-048 |
+| lay.muffler_tail_x_mm | -150 | mm | assumed | Q-048 |
+| lay.muffler_y_mm | 135 | mm | sourced | P99 |
+| lay.muffler_z_mm | 60 | mm | sourced | P99 |
 | lay.post_y_mm | 75 | mm | calculated | docs/03-design.md#frame, D-044 |
 | sus.bump_mm | 40 | mm | calculated | docs/03-design.md#suspension |
 | sus.droop_mm | 30 | mm | calculated | docs/03-design.md#suspension |
@@ -891,8 +896,8 @@ These are not decided here. 1.2 compares forms against them.
 | dsn.delica_length_margin_mm | 30 | mm | calculated | docs/03-design.md#transport |
 | dsn.bom_parts_jpy | 317199 | JPY | calculated | docs/03-design.md#cost |
 | dsn.bom_tools_jpy | 34056 | JPY | calculated | docs/03-design.md#cost |
-| dsn.clashes_summer | 76 |  | calculated | docs/03-design.md#issues |
-| dsn.clashes_winter | 76 |  | calculated | docs/03-design.md#issues |
+| dsn.clashes_summer | 85 |  | calculated | docs/03-design.md#issues |
+| dsn.clashes_winter | 85 |  | calculated | docs/03-design.md#issues |
 | dsn.tie_rod_change_heave_mm | 0.6 | mm | calculated | docs/03-design.md#front-suspension |
 <!-- tdr:end -->
 
@@ -948,4 +953,5 @@ These are not decided here. 1.2 compares forms against them.
 | Q-045 | The owner asked for the frame to be brushed up with fewer welds, from straight tubes only. 1.2.21 sets the frame's requirements, counts its welds - dsn.welded_ends welded ends on dsn.cut_tubes tubes as cut - and compares form A, the frame tidied, with the idle tubes out and four runs straightened (124 welded ends), with form B, A with the nose box's sides as open frames (114); the assistant proposes A. The owner chooses before the frame is designed again. | owner |
 | Q-046 | The record checks every welded tube joint in fatigue against category 71 (fat.cat_tube_mpa), which is a butt weld's. EN 1993-1-9 gives a round tube's gap joints 90 where the through-tube's wall is twice the branch's and 45 where the walls are equal, and T, Y, and X joints only by the hot-spot method (P93, P94); at 45 the busiest welded ends would be over their limit. Each kind of joint in the frame is to be given its own category, or its hot-spot stress, and the joints sized by them - a thicker through-tube where the range is high. | assistant |
 | Q-047 | The owner asked whether the frame could run straight from front to back with the seat on it, the seat fitting both riders by its cushion. 1.2.22 finds that the child's steps stay, for the seat cannot go lower than the engine unit, and that a straight frame at the seat rails' height saves 4 to 8 welded ends but makes the nose box 9 cm taller and 1.1 kg heavier and needs either a support hanging 14 cm under each upper A-arm pivot or a knuckle whose upper joint is 60 mm higher than the bought one's; the assistant proposes keeping form A. The owner chooses. | owner |
+| Q-048 | The engine unit's own silencer, placed as on the scooter, meets the right rising tube, the swing arm's right side, and, with its pipe run under the engine, the engine's plate (1.3.22). Its length and the tail's place are assumed until the donor's silencer is measured. The ways are to keep it and its pipe as they are, rebuilding the rear and raising the engine; to keep the marked silencer with a new pipe to where it fits, if that is accepted; a marked aftermarket silencer; or one's own with a laboratory's report. The owner chooses, and asks the transport bureau whether a new pipe to the marked silencer is accepted. | owner |
 <!-- tdr:end -->

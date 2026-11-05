@@ -1761,3 +1761,35 @@ items:
     license: unknown
     read: partial
     note: Read by a helper, one page. The cage is a bolted assembly, its bolts torqued to 54 N m.
+  - id: P99
+    class: P
+    title: Honda, Tact (2BH-AF79) dimension drawing, side, top, and rear views
+    url: https://www.honda.co.jp/content/dam/site/www/50-Scooter/cq_img/TACT_size_pc.png
+    retrieved: 2026-11-05
+    license: unknown
+    read: full
+    note: Measured from the drawing by a helper at 2.64 mm a pixel, set by the wheelbase and the overall height, to about 5 mm. The silencer is on the right outside the rear wheel, about level - its tail's centre about 60 mm over the rear axle and 135 mm right of the wheel's centre line, its outer face 205 mm right, its end cap 115 to 120 mm across, the outlet pointing back. How far the tail ends behind the axle could not be read (about 195 mm behind or 70 mm ahead). The spec page (honda.co.jp/TACT/spec) gives the engine AF74E, 80/100-10 tyres, and a wheelbase of 1180 mm.
+  - id: P100
+    class: P
+    title: MLIT detailed technical notice (保安基準の細目を定める告示), articles 284, 268, 252, and 275, silencers, noise, and exhaust pipes of mopeds
+    url: https://www.mlit.go.jp/jidosha/content/S284.pdf
+    retrieved: 2026-11-05
+    license: unknown
+    read: full
+    note: Read by a helper (S268.pdf, S252.pdf in full, S275.pdf paragraph 5). A first-class moped's silencer must carry the marking of a type-approved maker's silencer, a JMCA performance mark, a UN R9, R41, R63, or R92 mark, or a public laboratory's report of 79 dB or less in acceleration; it may not be removed, its body cut, or its baffle taken out. The rule that it keep its structure and position applies only to two-wheelers over 50 cc; lengthening the pipe is not addressed. The outlet may not hide the number plate, and the heat or gas may not set fire to the vehicle or impair the brakes or wiring. Stationary exhaust noise at most 84 dB.
+  - id: P101
+    class: P
+    title: Apso, PE-UHMW material data sheet (2024-06-19)
+    url: https://www.apsoparts.com/media/downloads/asset//std.lang.all/0_/en/PE-UHMW_00_004-00_EN.pdf
+    retrieved: 2026-11-05
+    license: unknown
+    read: partial
+    note: Read by a helper, the thermal part. Long-term service temperature 80 C (20,000 h), short-term 120 C, heat deflection 42 C at 1.8 MPa, melting 135 C.
+  - id: S13
+    class: S
+    title: Lai and others, Motorcycle exhaust pipe burns, Burns 28 (2002) 370-373, PMID 12052376
+    url: https://pubmed.ncbi.nlm.nih.gov/12052376/
+    retrieved: 2026-11-05
+    license: unknown
+    read: excerpt
+    note: The abstract only. On moving motorcycles the exhaust pipe measured 170 to 250 C, its outer cover 40 to 60 C; a shield with adequate separation is recommended.

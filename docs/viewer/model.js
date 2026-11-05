@@ -866,6 +866,27 @@ function fenderItem(it) {
 }
 
 // ---- rear shock: body cylinder at the fixed (upper) eye, a thinner rod, a coil spring between the eyes
+// ---- the engine unit's own silencer: the exhaust pipe from the port along `pipe`, the body along x from
+// pos (length l, diameter d), and, if guard, a perforated heat guard over its outer side
+function mufflerItem(it) {
+  const M = mats(); const g = new THREE.Group();
+  const pts = it.pipe.map(V);
+  if (pts.length > 1) g.add(mesh(new THREE.TubeGeometry(new THREE.CatmullRomCurve3(pts, false, 'catmullrom', 0.1), pts.length * 12, it.pipe_d / 2, 10), M.steel));
+  const c = V(it.pos), r = it.d / 2;
+  const body = mesh(new THREE.CylinderGeometry(r, r, it.l, 24), M.darkSteel);
+  body.position.copy(c); body.rotation.z = Math.PI / 2; g.add(body);
+  for (const s of [-1, 1]) { const cap = mesh(new THREE.CylinderGeometry(r * 0.92, r * 0.92, 0.01, 24), M.steel); cap.position.copy(c).add(new THREE.Vector3(s * (it.l / 2 + 0.004), 0, 0)); cap.rotation.z = Math.PI / 2; g.add(cap); }
+  const tail = mesh(new THREE.CylinderGeometry(0.011, 0.011, 0.05, 12), M.steel);
+  tail.position.copy(c).add(new THREE.Vector3(-it.l / 2 - 0.025, 0, 0)); tail.rotation.z = Math.PI / 2; g.add(tail);
+  if (it.guard) {
+    const s = Math.sign(it.pos[1]) || 1;
+    const guard = mesh(new THREE.CylinderGeometry(r + 0.012, r + 0.012, it.l * 0.8, 24, 1, true, s > 0 ? -Math.PI * 0.05 : Math.PI * 0.95, Math.PI * 1.1), M.alu);
+    guard.material = guard.material.clone(); guard.material.side = THREE.DoubleSide;
+    guard.position.copy(c); guard.rotation.z = Math.PI / 2; g.add(guard);
+  }
+  return g;
+}
+
 function shockItem(it) {
   const M = mats(); const g = new THREE.Group();
   const lo = V(it.pos), up = V(it.to), ax = up.clone().sub(lo), len = ax.length(), dir = ax.clone().normalize();
@@ -922,6 +943,7 @@ export function buildItem(it, ctx) {
     case 'handlebar': return handlebarItem(it);
     case 'fender': return fenderItem(it);
     case 'shock': return shockItem(it);
+    case 'muffler': return mufflerItem(it);
     default: return null;
   }
 }

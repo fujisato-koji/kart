@@ -456,6 +456,19 @@ def build(v):
     item("engine", "scooter_unit", pos=[xe, yu, z_base], length=ul, width=uw, height=uh, out=[x_out, y2 + 0.025, z_out],
          cylinder="+x")
     mass("engine", v["su.mass_kg"], (xe, yu, z_base + uh * 0.45))
+    # the unit's own silencer and pipe, unmodified, where they sit on the scooter (R-23): the body beside
+    # the scooter's rear wheel on the right, its tail lay.muffler_y_mm right of the wheel's centre line,
+    # the cylinder's (the unit model's), and lay.muffler_z_mm over the output, the scooter's rear axle;
+    # the pipe from the cylinder head's port down under the engine and up to the body's front (Q-048)
+    y_sc = yu - uw * 0.05
+    d_mf, l_mf = mm("lay.muffler_d_mm"), mm("lay.muffler_l_mm")
+    x_mf = x_out + mm("lay.muffler_tail_x_mm") + l_mf / 2
+    p_mf = [x_mf, y_sc - mm("lay.muffler_y_mm"), z_out + mm("lay.muffler_z_mm")]
+    x_port = xe + ul / 2 - 0.07
+    pipe = [[x_port, y_sc, z_base + 0.07], [x_port - 0.06, y_sc - 0.01, z_base - 0.015], [x_mf + l_mf / 2 + 0.06, y_sc - 0.07, z_base - 0.015],
+            [x_mf + l_mf / 2 + 0.02, p_mf[1], p_mf[2] - 0.03], [x_mf + l_mf / 2 - 0.01, p_mf[1], p_mf[2]]]
+    item("engine", "muffler", pos=[round(c, 4) for c in p_mf], d=d_mf, l=l_mf, pipe=[[round(c, 4) for c in q] for q in pipe],
+         pipe_d=0.025, guard=True)
     mass("fuel", v["dsn.fuel_mass_kg"], (xe + ul * 0.35, yu, z_base + uh * 0.9))
     mass("frame", plates, (xe, 0.0, z_base))
     item("chain_final", "sprocket", configs=WHEELED, pos=[x_out, y2, z_out], axis="y", teeth=t_out, pd=pd_out, od=pd_out + 0.6 * p420,

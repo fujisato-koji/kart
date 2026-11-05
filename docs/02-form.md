@@ -518,3 +518,5 @@ The owner asked whether the tubes sloping down from the seat rails toward the fr
 - **Pivots and the knuckle's upper joint raised** by 60 mm work as well as now. But the knuckle's two joints would be 280 mm apart instead of 220. The bought ATV knuckles (M92) do not have that spacing, so it needs a knuckle extended or made (Q-044).
 
 **The assistant proposes keeping form A.** The straight frame saves 4 to 8 welded ends. It costs a taller box, 1.1 kg, a little of the impact factor, and either a support hanging 14 cm under each upper pivot or a different knuckle. The child's steps stay in any case. If the knuckles in hand (Q-044) turn out to be extendable at the upper joint, the last column becomes worth building. **The owner decides** (Q-047).
+
+**Decided.** The owner kept form A (D-046), to be looked at again if the knuckles in hand can take a higher upper joint (Q-044).

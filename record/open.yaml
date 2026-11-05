@@ -610,3 +610,17 @@ items:
     opened: 2026-11-05
     raised_by: owner
     phase: design
+    closed_by: D-046
+    closed: 2026-11-05
+  - id: Q-048
+    kind: question
+    text: The engine unit's own silencer, placed as on the scooter, meets the right rising tube, the swing arm's right side, and, with its pipe run under the engine, the engine's plate (1.3.22). Its length and the tail's place are assumed until the donor's silencer is measured. The ways are to keep it and its pipe as they are, rebuilding the rear and raising the engine; to keep the marked silencer with a new pipe to where it fits, if that is accepted; a marked aftermarket silencer; or one's own with a laboratory's report. The owner chooses, and asks the transport bureau whether a new pipe to the marked silencer is accepted.
+    waits_for: owner
+    affects:
+      - engine
+      - frame
+      - swing_arm
+      - sled_pan
+    opened: 2026-11-05
+    raised_by: owner
+    phase: design

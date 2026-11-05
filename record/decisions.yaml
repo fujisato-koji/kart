@@ -429,3 +429,15 @@ items:
     touches:
       - D-036
       - D-043
+  - id: D-046
+    date: 2026-11-05
+    by: owner
+    what: The frame stays as form A (D-044), with its seat rails sloping down to the nose box's top. A frame straight from front to back at the seat rails' height saves 4 to 8 welded ends but makes the box 9 cm taller and 1.1 kg heavier and needs either a support hanging 14 cm under each upper A-arm pivot or a knuckle whose upper joint is 60 mm higher than the bought one's (1.2.22). If the knuckles in hand can take that (Q-044), it is looked at again. The child's steps stay, for the seat cannot go lower than the engine unit.
+    options:
+      - form A as it is
+      - straight, the upper pivots kept on deep supports
+      - decide once the knuckles are measured
+    touches:
+      - D-030
+      - D-041
+      - D-044

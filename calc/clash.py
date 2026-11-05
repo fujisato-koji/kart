@@ -77,7 +77,7 @@ ALLOWANCES = [
     ("A8 engine unit", "scooter_unit with its frame plate, with the sprocket on its output, with the saddle on top"),
     ("A9 final chain", "the chain with its own two sprockets (and nothing else)"),
     ("A10 footboards", "footrests plates with footrests tubes; the child steps with the footboards"),
-    ("A11 bolted on", "lamp, mirror, plate_number, box (horn, battery), gauge, lever, caliper, guard and the kingpin: contact with the one body nearest to them (frame tube, plate, bar, stem, saddle, engine unit, axle) is allowed if within 50 mm; the mount is printed"),
+    ("A11 bolted on", "lamp, mirror, plate_number, box (horn, battery), gauge, lever, caliper, guard, muffler (on the engine unit) and the kingpin: contact with the one body nearest to them (frame tube, plate, bar, stem, saddle, engine unit, axle) is allowed if within 50 mm; the mount is printed"),
     ("A12 ski", "a ski with the spindle on the same side"),
     ("A13 front drum and stub", "front brake drum with the front wheel and the spindle stub axle on its side; the stub axle (and web) with the front wheel"),
     ("A14 fender", "fenders with any frame tube (fixed to the frame)"),
@@ -91,7 +91,7 @@ ALLOWANCES = [
     ("A18 shock eyes", "a rear shock eye with the one member or item nearest to it (within 30 mm, straight ahead)"),
 ]
 
-MOUNTED = {"lamp", "mirror", "plate_number", "box", "gauge", "lever", "caliper", "guard"}
+MOUNTED = {"lamp", "mirror", "plate_number", "box", "gauge", "lever", "caliper", "guard", "muffler"}
 # bodies a bolted-on part may be mounted on
 MOUNT_TYPES = {"plate", "sheet", "handlebar", "saddle", "scooter_unit", "cyl"}
 PLATE_SINK = 0.003   # a plate rests on a tube it is fixed to; deeper than this it cuts through it (A2)
@@ -393,6 +393,13 @@ def build_item(i, it, items):
         bodies.append(b)
     elif t == "cyl":
         b = mk(); b.cyl_c(pos, Y_AX, it["d"] / 2, it["l"]); bodies.append(b)
+    elif t == "muffler":                                  # the silencer: its body, and its pipe from the port
+        b = mk("body"); b.cyl_c(pos, [1.0, 0.0, 0.0], it["d"] / 2 + (0.012 if it.get("guard") else 0.0), it["l"]); bodies.append(b)
+        b = mk("pipe")
+        pp = [np.asarray(q, float) for q in it["pipe"]]
+        for q0, q1 in zip(pp, pp[1:]):
+            b.cap(q0, q1, it["pipe_d"] / 2)
+        bodies.append(b)
     elif t == "pillow":
         b = mk()
         M = np.diag([1.0, -1, -1]) if it.get("inverted") else np.eye(3)    # hung under a plate: base on top

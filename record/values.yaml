@@ -2535,6 +2535,36 @@ items:
     basis:
       - docs/03-design.md#frame
       - D-043
+  - key: lay.muffler_d_mm
+    v: 120
+    unit: mm
+    status: sourced
+    basis:
+      - P99
+  - key: lay.muffler_l_mm
+    v: 360
+    unit: mm
+    status: assumed
+    basis:
+      - Q-048
+  - key: lay.muffler_tail_x_mm
+    v: -150
+    unit: mm
+    status: assumed
+    basis:
+      - Q-048
+  - key: lay.muffler_y_mm
+    v: 135
+    unit: mm
+    status: sourced
+    basis:
+      - P99
+  - key: lay.muffler_z_mm
+    v: 60
+    unit: mm
+    status: sourced
+    basis:
+      - P99
   - key: lay.post_y_mm
     v: 75
     unit: mm
@@ -4432,12 +4462,12 @@ items:
     basis:
       - docs/03-design.md#cost
   - key: dsn.clashes_summer
-    v: 76
+    v: 85
     status: calculated
     basis:
       - docs/03-design.md#issues
   - key: dsn.clashes_winter
-    v: 76
+    v: 85
     status: calculated
     basis:
       - docs/03-design.md#issues

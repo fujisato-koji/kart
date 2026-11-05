@@ -229,3 +229,25 @@ The owner asked to see, for each load case, where the frame is stressed, and to 
     - The open bay's top rails and the shocks' cross tube, which bend (dsn.nose_bay_stress_mpa).
 - **Then.** The owner found the frame's ends still wasteful and chose new forms for them (D-042): the nose box's front panel became the bumper, and at the rear two tubes rising from the spine took the arm's pivot, the seat, and the hoop, with the shock's top on the hoop, in place of the posts, struts, upper rails, and the number plate's frame. A pivot right on the spine rails was chosen first. A search for its shock, which had the arm's angle the wrong way round, found no layout, and the owner moved to the pivot at the output's height; the independent check K-019 then found that the low pivot does take a single shock, with a lug low behind it and a steadier motion ratio, and the owner kept the higher pivot for the chain, whose centre distance would change by about 45 mm against 14 mm; D-043 later moved it onto the line from the output to the axle, where it changes by about 2 mm. The bumper's bar was widened to the old bumper's width after K-019 found the box's front alone too narrow. The frame came to dsn.frame_mass_kg; the frame, arms, and hoop are 114 tubes.
 - **What the map does not show.** Loads outside 1.3.18 - lifting and tying the kart for transport, a rider stepping on a tube, a sideways blow on a front wheel - the stiffness the rider feels, and dents. K-018 tried a sideways blow of 2 g at one front tyre and a rider standing on the box's top rail and found nothing near its limit. The fatigue colours are those of a tube joint; where a plate is fillet-welded to a tube the life is shorter (dsn.fatigue_kcycles_fillet thousand cycles, 1.3.18), which is why such plates stay off the busy tubes (D-040, Q-041). The trimmed tubes keep a wall of 1.6 mm or more for the welder of FE-11.
+
+## 1.3.22 Silencer {#silencer}
+
+The owner asked whether the kart needs a silencer and a battery. The battery is the GTZ6V on the nose box's rear lower cross tube (1.3.13). The silencer, the engine unit's own, was in the parts list with the donor scooter but had never been placed. R-23 asks for an approved silencer. The detailed notice requires a first-class moped's silencer to carry a type-approved maker's marking, a JMCA mark, a UN mark, or a laboratory's report of 79 dB or less, and forbids removing it, cutting its body, or taking out its baffle (P100). The donor's own silencer and pipe, unmodified, are the plainest way to meet that. Moving the silencer is not barred for a vehicle of three or more wheels, but whether a new pipe to a marked silencer keeps it compliant is not settled (P100).
+
+- **Where it sits on the scooter.** No dimensions of the genuine silencer were found. Honda's drawing shows it on the right, outside the rear wheel and about level. Its tail sits lay.muffler_z_mm over the rear axle and lay.muffler_y_mm right of the wheel's centre line, and its end cap is about lay.muffler_d_mm across (P99). Its length and where its tail ends are assumed (lay.muffler_l_mm, lay.muffler_tail_x_mm; Q-048). Its pipe runs down from the port under the engine and up to the silencer's front, and a guard covers the silencer's outer face.
+- **Placed so on the kart** - the body beside the output, the pipe under the engine - it meets three things in the interference search, which now draws the silencer, its guard, and its pipe, bolted to the engine unit:
+    - the right rising tube's leaning part, by about 26 mm;
+    - the swing arm's right side, by about 19 mm at rest;
+    - with its pipe, the engine unit's plate, by about 15 mm, for the unit rests 11 mm above the spine rails on rubber mounts and leaves no room under it.
+- **Heat.** A bare silencer runs at about 100 to 250 °C, its pipe hotter near the port; a guard brings the outside down to about 40 to 60 °C (S13). The UHMW sled pan should stay under 80 °C (P101). So wherever the pipe runs, a shield or a gap keeps it from the pan, and a guard keeps the silencer from the rider's right leg (R-11).
+- **Ways.**
+    - (a) Keep the silencer and its pipe as on the scooter and make room. The right rising tube and the swing arm's right side would have to move, and the engine rise about 40 mm for the pipe, lifting the seat and the centre of mass.
+    - (b) Keep the marked silencer and make a new pipe to put it where it fits, for example low on the right behind the footboard - if a new pipe is accepted (P100).
+    - (c) A JMCA-marked aftermarket silencer for this engine that fits; the ones found are made for the scooter's place too.
+    - (d) A silencer of one's own, with a laboratory's report of 79 dB or less.
+- **The assistant proposes** these steps:
+    - measure the donor's silencer and pipe when the donor is bought;
+    - ask the transport bureau whether a new pipe to the marked silencer is accepted;
+    - if it is, take (b), with a guard and a shield over the pan.
+
+  The owner decides (Q-048). Until then the silencer is drawn where it sits on the scooter, and the clashes it makes are counted.

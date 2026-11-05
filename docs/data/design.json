@@ -20927,6 +20927,52 @@
    "cylinder": "+x"
   },
   {
+   "part": "engine",
+   "type": "muffler",
+   "configs": [
+    "summer",
+    "winter",
+    "transport",
+    "water"
+   ],
+   "pos": [
+    0.32,
+    -0.151,
+    0.3911
+   ],
+   "d": 0.12,
+   "l": 0.36,
+   "pipe": [
+    [
+     0.73,
+     -0.016,
+     0.2856
+    ],
+    [
+     0.67,
+     -0.026,
+     0.2006
+    ],
+    [
+     0.56,
+     -0.086,
+     0.2006
+    ],
+    [
+     0.52,
+     -0.151,
+     0.3611
+    ],
+    [
+     0.49,
+     -0.151,
+     0.3911
+    ]
+   ],
+   "pipe_d": 0.025,
+   "guard": true
+  },
+  {
    "part": "chain_final",
    "type": "sprocket",
    "configs": [
@@ -22546,6 +22592,36 @@
   {
    "config": "summer",
    "susp_deg": 0.0,
+   "gap": -0.0149,
+   "overlap": true
+  },
+  {
+   "config": "summer",
+   "susp_deg": 0.0,
+   "gap": -0.0256,
+   "overlap": true
+  },
+  {
+   "config": "summer",
+   "susp_deg": 0.0,
+   "gap": -0.0094,
+   "overlap": true
+  },
+  {
+   "config": "summer",
+   "susp_deg": 0.0,
+   "gap": 0.0038,
+   "overlap": false
+  },
+  {
+   "config": "summer",
+   "susp_deg": 0.0,
+   "gap": 0.0038,
+   "overlap": false
+  },
+  {
+   "config": "summer",
+   "susp_deg": 0.0,
    "gap": 0.0047,
    "overlap": false
   },
@@ -22614,6 +22690,30 @@
    "susp_deg": 0.0,
    "gap": 0.0047,
    "overlap": false
+  },
+  {
+   "config": "summer",
+   "susp_deg": 12.73,
+   "gap": -0.0187,
+   "overlap": true
+  },
+  {
+   "config": "summer",
+   "susp_deg": 12.73,
+   "gap": -0.003,
+   "overlap": true
+  },
+  {
+   "config": "summer",
+   "susp_deg": 12.73,
+   "gap": -0.003,
+   "overlap": true
+  },
+  {
+   "config": "summer",
+   "susp_deg": -10.17,
+   "gap": -0.0022,
+   "overlap": true
   },
   {
    "config": "summer",
@@ -23002,6 +23102,36 @@
   {
    "config": "winter",
    "susp_deg": 0.0,
+   "gap": -0.0149,
+   "overlap": true
+  },
+  {
+   "config": "winter",
+   "susp_deg": 0.0,
+   "gap": -0.0256,
+   "overlap": true
+  },
+  {
+   "config": "winter",
+   "susp_deg": 0.0,
+   "gap": -0.0094,
+   "overlap": true
+  },
+  {
+   "config": "winter",
+   "susp_deg": 0.0,
+   "gap": 0.0038,
+   "overlap": false
+  },
+  {
+   "config": "winter",
+   "susp_deg": 0.0,
+   "gap": 0.0038,
+   "overlap": false
+  },
+  {
+   "config": "winter",
+   "susp_deg": 0.0,
    "gap": 0.0047,
    "overlap": false
   },
@@ -23070,6 +23200,30 @@
    "susp_deg": 0.0,
    "gap": 0.0047,
    "overlap": false
+  },
+  {
+   "config": "winter",
+   "susp_deg": 12.73,
+   "gap": -0.0187,
+   "overlap": true
+  },
+  {
+   "config": "winter",
+   "susp_deg": 12.73,
+   "gap": -0.003,
+   "overlap": true
+  },
+  {
+   "config": "winter",
+   "susp_deg": 12.73,
+   "gap": -0.003,
+   "overlap": true
+  },
+  {
+   "config": "winter",
+   "susp_deg": -10.17,
+   "gap": -0.0022,
+   "overlap": true
   },
   {
    "config": "winter",
