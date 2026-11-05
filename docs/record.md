@@ -52,6 +52,7 @@ The current state, with open items grouped by whom they wait for, is in [STATUS.
 | D-042 | 2026-11-05 | owner | The frame's ends lose what carries little. At the rear the swing arm's pivot stays level with the engine's output, carried by two tubes rising from the spine's rear cross tube to the seat rails' rear ends behind the saddle; the protective hoop stands there, leaning back, and carries the rear shock's top on a cross tube between its legs; the struts, the upper rails behind the seat, and the number plate's frame go, the plate and the rear lamps riding on the swing arm. At the front the nose box's front panel is the bumper, ahead of the tyres, and the separate bumper with its struts goes. A pivot right on the spine rails was chosen first; the owner moved to the pivot at the output's height when a faulty search said no single shock fitted the low pivot, and kept it once a corrected search (K-019) found layouts for both, since the low pivot changes the chain's centre distance by about 45 mm against 14 mm. |
 | D-043 | 2026-11-05 | owner | The swing arm's pivot moves down onto the line from the engine's output to the axle, so that the chain's centre distance is longest at rest and changes by about 2 mm over the travel, and the chain is sized for its longest distance. With the pivot level with the output (D-042) the distance grew by about 6 mm toward full bump, and the 76-link chain, sized at rest, would have pulled tight about 6 mm into the bump and carried the springs' load through the sprockets and bearings. With the pivot lower, the arm's brace at full bump would meet the rising tubes where they lean back from the pivot, so they now go straight up through the pivot tube to a knee above the brace's reach and lean back from there; the shock's lower eye moves to keep the motion ratio as it was. |
 | D-044 | 2026-11-05 | owner | The frame takes form A of 1.2.21, with fewer welds and straight tubes only. Out go the nose box's second pair of rear uprights, which carried little, its rear top cross tube, whose share of an end-on blow the uprights take, and the seat rails' rear cross tube, whose share of the hoop's sideways push the hoop's own cross tube takes; the tubes from the seat rails down to the spine's front ends stay, keeping the range low at the box's rear uprights' joints (K-021). The box's rear lower cross tube is one tube of the spine's size from spine rail to spine rail, with the box's lower rails welded to it; each seat rail is one straight tube, the rising tubes leaning out to them above their knee; and each top rail of the box is one size through the shocks' node. The sled pan loses the bow that cut the box's lower rails. The frame came to 69 tubes as cut with 134 welded ends, against 79 and 154 counted the same way, and 0.4 kg lighter; B's open box sides wait on the joints' fatigue categories (Q-046). |
+| D-045 | 2026-11-05 | owner | The rear shock's lower eye sits in a clevis of two plates welded to the back of the swing arm's brace, in place of a stub of tube that reached back to it and bent at about 89 MPa, the arm's highest; the arm's safety factor rises from 3.27 to 3.48 and the motion ratio stays. The owner had first asked for a cross tube between the arm's sides under the eye; it would bend about as the brace does and lift the eye about 45 mm, the ratio then falling to about 0.35 at full bump against 0.47. |
 <!-- tdr:end -->
 
 ## Open items {#open}
@@ -801,9 +802,9 @@ The current state, with open items grouped by whom they wait for, is in [STATUS.
 | dsn.shock_stroke_used_mm | 46 | mm | calculated | docs/03-design.md#suspension |
 | dsn.shock_travel_mm | 42 | mm | calculated | docs/03-design.md#suspension |
 | dsn.axle_rail_gap_mm | 133 | mm | calculated | docs/03-design.md#suspension |
-| dsn.cut_tubes | 69 |  | calculated | docs/03-design.md#frame |
-| dsn.welded_ends | 134 |  | calculated | docs/03-design.md#frame |
-| dsn.weld_length_m | 16.6 | m | calculated | docs/03-design.md#frame |
+| dsn.cut_tubes | 68 |  | calculated | docs/03-design.md#frame |
+| dsn.welded_ends | 132 |  | calculated | docs/03-design.md#frame |
+| dsn.weld_length_m | 16.3 | m | calculated | docs/03-design.md#frame |
 | dsn.front_motion_ratio | 0.48 |  | calculated | docs/03-design.md#front-suspension |
 | dsn.front_sprung_kg | 42.2 | kg | calculated | docs/03-design.md#front-suspension |
 | dsn.front_wheel_rate_n_mm | 10.4 | N/mm | calculated | docs/03-design.md#front-suspension |
@@ -829,8 +830,8 @@ The current state, with open items grouped by whom they wait for, is in [STATUS.
 | dsn.nose_bay_stress_mpa | 54 | MPa | calculated | docs/03-design.md#frame |
 | dsn.rail_stress_mpa | 125 | MPa | calculated | docs/03-design.md#frame |
 | dsn.rail_safety | 2.32 |  | calculated | docs/03-design.md#frame |
-| dsn.arm_stress_mpa | 89 | MPa | calculated | docs/03-design.md#suspension |
-| dsn.arm_safety | 3.27 |  | calculated | docs/03-design.md#suspension |
+| dsn.arm_stress_mpa | 83 | MPa | calculated | docs/03-design.md#suspension |
+| dsn.arm_safety | 3.48 |  | calculated | docs/03-design.md#suspension |
 | dsn.impact_safety | 1.63 |  | calculated | docs/03-design.md#loads |
 | dsn.hoop_crush_safety | 2.52 |  | calculated | docs/03-design.md#loads |
 | dsn.hoop_side_safety | 3.53 |  | calculated | docs/03-design.md#loads |

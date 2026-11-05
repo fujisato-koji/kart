@@ -418,3 +418,14 @@ items:
       - D-041
       - D-042
       - D-043
+  - id: D-045
+    date: 2026-11-05
+    by: owner
+    what: The rear shock's lower eye sits in a clevis of two plates welded to the back of the swing arm's brace, in place of a stub of tube that reached back to it and bent at about 89 MPa, the arm's highest; the arm's safety factor rises from 3.27 to 3.48 and the motion ratio stays. The owner had first asked for a cross tube between the arm's sides under the eye; it would bend about as the brace does and lift the eye about 45 mm, the ratio then falling to about 0.35 at full bump against 0.47.
+    options:
+      - the eye in a clevis of plates on the brace
+      - a cross tube between the arm's sides under the eye, the brace and the stub gone
+      - a cross tube under the eye, the brace kept
+    touches:
+      - D-036
+      - D-043

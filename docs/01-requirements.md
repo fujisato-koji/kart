@@ -824,9 +824,9 @@ These are not decided here. 1.2 compares forms against them.
 | dsn.shock_stroke_used_mm | 46 | mm | calculated | docs/03-design.md#suspension |
 | dsn.shock_travel_mm | 42 | mm | calculated | docs/03-design.md#suspension |
 | dsn.axle_rail_gap_mm | 133 | mm | calculated | docs/03-design.md#suspension |
-| dsn.cut_tubes | 69 |  | calculated | docs/03-design.md#frame |
-| dsn.welded_ends | 134 |  | calculated | docs/03-design.md#frame |
-| dsn.weld_length_m | 16.6 | m | calculated | docs/03-design.md#frame |
+| dsn.cut_tubes | 68 |  | calculated | docs/03-design.md#frame |
+| dsn.welded_ends | 132 |  | calculated | docs/03-design.md#frame |
+| dsn.weld_length_m | 16.3 | m | calculated | docs/03-design.md#frame |
 | dsn.front_motion_ratio | 0.48 |  | calculated | docs/03-design.md#front-suspension |
 | dsn.front_sprung_kg | 42.2 | kg | calculated | docs/03-design.md#front-suspension |
 | dsn.front_wheel_rate_n_mm | 10.4 | N/mm | calculated | docs/03-design.md#front-suspension |
@@ -852,8 +852,8 @@ These are not decided here. 1.2 compares forms against them.
 | dsn.nose_bay_stress_mpa | 54 | MPa | calculated | docs/03-design.md#frame |
 | dsn.rail_stress_mpa | 125 | MPa | calculated | docs/03-design.md#frame |
 | dsn.rail_safety | 2.32 |  | calculated | docs/03-design.md#frame |
-| dsn.arm_stress_mpa | 89 | MPa | calculated | docs/03-design.md#suspension |
-| dsn.arm_safety | 3.27 |  | calculated | docs/03-design.md#suspension |
+| dsn.arm_stress_mpa | 83 | MPa | calculated | docs/03-design.md#suspension |
+| dsn.arm_safety | 3.48 |  | calculated | docs/03-design.md#suspension |
 | dsn.impact_safety | 1.63 |  | calculated | docs/03-design.md#loads |
 | dsn.hoop_crush_safety | 2.52 |  | calculated | docs/03-design.md#loads |
 | dsn.hoop_side_safety | 3.53 |  | calculated | docs/03-design.md#loads |

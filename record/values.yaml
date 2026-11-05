@@ -4046,17 +4046,17 @@ items:
     basis:
       - docs/03-design.md#suspension
   - key: dsn.cut_tubes
-    v: 69
+    v: 68
     status: calculated
     basis:
       - docs/03-design.md#frame
   - key: dsn.welded_ends
-    v: 134
+    v: 132
     status: calculated
     basis:
       - docs/03-design.md#frame
   - key: dsn.weld_length_m
-    v: 16.6
+    v: 16.3
     unit: m
     status: calculated
     basis:
@@ -4209,13 +4209,13 @@ items:
     basis:
       - docs/03-design.md#frame
   - key: dsn.arm_stress_mpa
-    v: 89
+    v: 83
     unit: MPa
     status: calculated
     basis:
       - docs/03-design.md#suspension
   - key: dsn.arm_safety
-    v: 3.27
+    v: 3.48
     status: calculated
     basis:
       - docs/03-design.md#suspension

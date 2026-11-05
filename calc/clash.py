@@ -970,9 +970,12 @@ def find(design, configs=("summer", "winter"), limit=0.005, steer_deg=30.0):
                 pt = Body("item", "", "point", -1)
                 pt.cap(p, p, 0.0)
                 pt.finish()
-                best = min(((pair_gap(pt, c, 1.0) or (np.inf,))[0], k) for k, c in enumerate(cand))
+                gaps = [((pair_gap(pt, c, 1.0) or (np.inf,))[0], k) for k, c in enumerate(cand)]
+                best = min(gaps)
                 if best[0] <= 0.03:
-                    eyes.setdefault(sh.key(), set()).add(cand[best[1]].key())
+                    for g_, k in gaps:                   # every body as near as the nearest: both plates of a clevis
+                        if g_ <= best[0] + 0.002:
+                            eyes.setdefault(sh.key(), set()).add(cand[k].key())
                     LAST_NOTES.append((cfg, sh.label() + " eye", cand[best[1]].label(), best[0]))
                 else:
                     LAST_NOTES.append((cfg, sh.label() + " eye", None, best[0]))

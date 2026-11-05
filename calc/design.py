@@ -724,7 +724,15 @@ def build(v):
     N["su_eye"] = x_q_su
     N["sl_eye"] = (sl0[0], 0.0, sl0[1])
     tube("hkc", "su_eye", rail_od, rail_t, "roll_bar")              # the lug for the shock's upper eye
-    tube("abc", "sl_eye", arm_od, arm_t, "swing_arm", arm=True)
+    # the eye sits in a clevis of two plates welded to the back of the brace, deep in the shock's plane,
+    # where a stub of tube reaching back to it bent at about 89 MPa (the owner, D-045); in the line model
+    # the clevis is stiff
+    t_cv, h_cv = 0.006, 0.055                       # the plates' thickness and depth
+    x_cv0, x_cv1 = x_brace - arm_od / 2 + 0.002, sl0[0] - 0.016
+    for yy in (0.016, -0.016):
+        item("frame", "plate", pos=[(x_cv0 + x_cv1) / 2, yy + math.copysign(t_cv / 2, yy), (z_arm + sl0[1]) / 2],
+             size=[x_cv0 - x_cv1, t_cv, h_cv], arm=True)
+    mass("swing_arm", 2 * rho * (x_cv0 - x_cv1) * t_cv * h_cv, ((x_cv0 + x_cv1) / 2, 0.0, (z_arm + sl0[1]) / 2))
     item("rear_shock", "shock", pos=[sl0[0], 0.0, sl0[1]], to=list(x_q_su), d=0.036, rod_d=0.012, spring_d=0.055,
          eye=eye_r, arm=True)
     # the axle at full bump clears the nearest frame tube (the struts it once cleared are gone, D-042)
@@ -876,6 +884,7 @@ def build(v):
         mem += [stiff(f"ljk{c}", f"kh{c}"), stiff(f"kh{c}", f"ujk{c}"), stiff(f"kh{c}", f"kw{c}"),   # the knuckle,
                 stiff(f"kw{c}", f"cw{c}"), stiff(f"kh{c}", f"tp{c}"), stiff("pcb", f"ti{c}")]        # wheel, plate
     mem += [stiff("n1c", "sb0"), stiff("sb0", "stf"), stiff("stf", "sb1"), stiff("sb1", "tsc"), stiff("stf", "pcb")]
+    mem += [stiff("abc", "sl_eye")]                                     # the rear shock's clevis on the arm's brace (D-045)
     hinges = [("psl", "asl", "y"), ("psr", "asr", "y")]
     for c in "lr":
         hinges += [(f"{q}{c}", f"a{q}{c}", "x") for q in ("lpf", "lpr", "upf", "upr")]
