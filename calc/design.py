@@ -262,8 +262,8 @@ def build(v):
     N["pcb"] = (float(x_tip), 0.0, z_tie)               # the plate's cross bar
     FRONT |= {"sb0", "sb1", "stf", "pcb"}
     for s, c in ((1, "l"), (-1, "r")):
-        N[f"sm{c}"] = (mm("lay.hpoint_x_mm"), s * 0.10, z_u)   # seat rails under the saddle, outside the air box
-        N[f"sf{c}"] = (mm("lay.seat_x1_mm"), s * 0.10, z_u)
+        N[f"sm{c}"] = (mm("lay.hpoint_x_mm"), s * 0.10, z_u)   # seat rails under the saddle, outside the air box, each
+        N[f"sf{c}"] = (mm("lay.seat_x1_mm"), s * 0.10, z_u)     # one straight tube from its rear end (D-044)
         for j, x in enumerate((xf0 + 0.02, xm, xf1 - 0.02)):
             N[f"fs{c}{j}"] = (x, s * yf1, z_fs)
         N[f"fm{c}"] = (xm, s * (ys + yf1) / 2, z_fs)
@@ -275,7 +275,7 @@ def build(v):
         N[f"pk{c}"] = (x_p, s * yp, mm("lay.rising_knee_z_mm"))   # where it leans back, above the arm's brace at full bump (D-043)
         N[f"ps{c}"] = (x_p, s * yb, z_p)               # where the arm's sleeve turns on the pivot tube
         N[f"pe{c}"] = (x_p, s * (yb + 0.008), z_p)     # the pivot tube's end, just past the sleeve
-        N[f"uf{c}"] = (x_uf, s * yp, z_u)               # the seat rail's rear end
+        N[f"uf{c}"] = (x_uf, s * 0.10, z_u)             # the seat rail's rear end, the rising tube leaning out to it
         N[f"hp{c}"] = (xh_, s * 0.20, zt - rail_od / 2)
         f_k = (z_k - z_u) / (zt - rail_od / 2 - z_u)
         N[f"hk{c}"] = tuple(N[f"uf{c}"][q] + f_k * (N[f"hp{c}"][q] - N[f"uf{c}"][q]) for q in range(3))
@@ -291,21 +291,20 @@ def build(v):
         # from the seat rails over it, uprights and posts, and diagonals in every bay but the one the
         # tie rods and the stem's plate sweep through (its shear goes round it in bending, and through
         # the stem)
-        tube(f"r{c}{last}", f"n0{c}", rail_od, rail_t, "frame")
+        tube(f"r{c}{last}", f"n0{c}", rail_od, rail_t, "frame")    # part of the box's rear lower cross tube (D-044)
         tube(f"n0{c}", f"n1{c}", box_od, box_t, "frame")
         tube(f"n1{c}", f"n3{c}", box_od, box_t, "frame")
         tube(f"n3{c}", f"n2{c}", box_od, box_t, "frame")
         tube(f"sf{c}", f"t0{c}", rail_od, rail_t, "frame")
         tube(f"t0{c}", f"ts{c}", rail_od, rail_t, "frame")
-        tube(f"ts{c}", f"t3{c}", box_od, box_t, "frame")
-        tube(f"t3{c}", f"t2{c}", box_od, box_t, "frame")
-        tube(f"n0{c}", f"t0{c}", cross_od, cross_t, "frame")           # rear upright, at the arms' rear pivots
+        tube(f"ts{c}", f"t3{c}", rail_od, rail_t, "frame")             # one size through the shocks' node (D-044)
+        tube(f"t3{c}", f"t2{c}", rail_od, rail_t, "frame")
         tube(f"n2{c}", f"bp{c}", rail_od, rail_t, "bumpers")           # the front post: the bumper's upright (D-042)
         tube(f"bp{c}", f"t2{c}", rail_od, rail_t, "bumpers")
         tube(f"n1{c}", f"ts{c}", cross_od, cross_t, "frame")
         tube(f"ts{c}", f"n2{c}", cross_od, cross_t, "frame")             # clear of the upper arm's front pivot
-        tube(f"sf{c}", f"r{c}{last}", rail_od, rail_t, "frame")        # the seat rail down to the spine's end (D-040)
-        tube(f"t0{c}", f"r{c}{last}", rail_od, rail_t, "frame")        # and the box's rear corner down to it
+        tube(f"sf{c}", f"r{c}{last}", rail_od, rail_t, "frame")        # the seat rail down to the spine's end: a truss (D-040),
+        tube(f"t0{c}", f"r{c}{last}", rail_od, rail_t, "frame")        # which keeps the range low at this upright's joints (K-021)
         # the A-arms: legs from the pivots to the knuckle's joints; the lower arm's plate for the shock
         tube(f"alpf{c}", f"lfm{c}", farm_od, farm_t, "front_arms", farm=c, flink="lower")
         tube(f"lfm{c}", f"lj{c}", farm_od, farm_t, "front_arms", farm=c, flink="lower")
@@ -336,13 +335,13 @@ def build(v):
     tube("rxl", "rxr", rail_od, rail_t, "frame")
     tube("rxr", "rr0", rail_od, rail_t, "frame")
     tube("pfl", "pfr", rail_od, rail_t, "frame")                      # the pivot tube
-    tube("ufl", "ufr", box_od, box_t, "frame")                        # the seat rails' rear cross tube
     tube("hkl", "hkc", rail_od, rail_t, "roll_bar")                   # the hoop's cross tube, the shock's top
     tube("hkc", "hkr", rail_od, rail_t, "roll_bar")
-    for q in ("n0", "n1", "n2"):                                       # the box's lower cross tubes
+    tube("n0l", "n0c", rail_od, rail_t, "frame")                      # the box's rear lower cross tube, from spine to
+    tube("n0c", "n0r", rail_od, rail_t, "frame")                      # spine at the spine's size (D-044)
+    for q in ("n1", "n2"):                                             # its other lower cross tubes
         tube(f"{q}l", f"{q}c", box_od, box_t, "frame")
         tube(f"{q}c", f"{q}r", box_od, box_t, "frame")
-    tube("t0l", "t0r", cross_od, cross_t, "frame")                    # its top cross tubes
     tube("tsl", "tsc", rail_od, rail_t, "frame")                     # the shocks' tops and the stem's upper bearing
     tube("tsc", "tsr", rail_od, rail_t, "frame")
     # no braces in its front and rear panels: the stress map found them carrying under 4 per cent of
@@ -612,18 +611,14 @@ def build(v):
     # ---- sled pan (D-023, D-028): UHMW polyethylene under the spine, kept in both forms --------
     tb = mm("hull.bottom_t_mm")
     zp = zr - tb                     # right under the spine rails (D-038)
+    # It is flat to its front edge under the nose box's rear lower cross tube, the edge bevelled: a bow
+    # cannot rise anywhere ahead of it, for tubes stand right over the pan - the spine rails back to that
+    # cross tube, the box's lower rails and the A-arms' pivots in front of it (1.3.12).
     x0, x1 = mm("lay.pan_x0_mm"), mm("lay.pan_x1_mm")
     yo = mm("lay.pan_half_beam_mm")
-    xbw, zbw, ybw = mm("lay.bow_x_mm"), zp + mm("lay.bow_rise_mm"), mm("lay.bow_half_beam_mm")
     item("sled_pan", "plate", pos=[(x0 + x1) / 2, 0.0, zp + tb / 2], size=[x1 - x0, 2 * yo, tb])
-    sheet_a = (x1 - x0) * 2 * yo * tb
-    st = [(x1 + fx * (xbw - x1), yo + fy * (ybw - yo), zp + fz * (zbw - zp))
-          for fx, fy, fz in ((0, 0, 0), (0.35, 0.3, 0.1), (0.7, 0.65, 0.4), (1, 1, 1))]
-    for (xa, ya, za), (xb_, yb_, zb_) in zip(st, st[1:]):
-        item("sled_pan", "sheet", corners=[[xa, ya, za], [xb_, yb_, zb_], [xb_, -yb_, zb_], [xa, -ya, za]], t=tb)
-        sheet_a += math.dist((xa, za), (xb_, zb_)) * (ya + yb_) * tb
-    m_pan = sheet_a * v["hull.sheet_density_kg_m3"]
-    mass("sled_pan", m_pan, ((x0 + xbw) / 2, 0.0, zp + 0.02))
+    m_pan = (x1 - x0) * 2 * yo * tb * v["hull.sheet_density_kg_m3"]
+    mass("sled_pan", m_pan, ((x0 + x1) / 2, 0.0, zp + tb / 2))
     put("dsn.pan_mass_kg", round(m_pan, 1), "kg", "winter")
 
     # ---- winter form W6 (D-032): skis beside the front wheels, chains on the rear tyres ---------
@@ -748,7 +743,8 @@ def build(v):
 
     # Welds (1.2.21): a tube as cut runs straight through the nodes where the next piece of the same size
     # and part carries straight on; every end of a cut tube is welded - to another tube, a sleeve, a
-    # bush, or an eye - but the bumper bar's two free ends. The weld at each end is taken round the
+    # bush, or an eye - but the bumper bar's two free ends and the pivot tube's two, which the swing arm's
+    # sleeves ride on. The weld at each end is taken round the
     # tube's circumference, short of a saddle's length.
     def cut_tubes(sel):
         idx = [i for i, t_ in enumerate(tubes) if sel(t_)]
@@ -786,7 +782,7 @@ def build(v):
         return list(groups.values())
     welded_parts = ("frame", "bumpers", "footrests", "roll_bar", "swing_arm", "front_arms")
     cuts = cut_tubes(lambda t_: t_[4] in welded_parts)
-    free_ends = 2                                       # the bumper bar's ends
+    free_ends = 4                                       # the bumper bar's ends and the pivot tube's, which the sleeves ride on
     put("dsn.cut_tubes", len(cuts), None, "frame")
     put("dsn.welded_ends", 2 * len(cuts) - free_ends, None, "frame")
     put("dsn.weld_length_m", round(sum(2 * math.pi * tubes[g[0]][2] for g in cuts) - free_ends * math.pi * rail_od, 1), "m", "frame")
@@ -953,7 +949,7 @@ def build(v):
         for kind, key, cases in (("driving", "dsn.frame_safety_min", drive), ("accident", "load.accident_safety_min", accident))
         for name, res in cases.items()]}
     # the nose box's open bay, where the tie rods pass: its rails and posts carry its shear in bending
-    bay = {frozenset(q) for c in "lr" for q in ((f"t0{c}", f"ts{c}"), (f"n0{c}", f"n1{c}"), (f"n0{c}", f"t0{c}"), (f"n1{c}", f"ts{c}"))}
+    bay = {frozenset(q) for c in "lr" for q in ((f"t0{c}", f"ts{c}"), (f"n0{c}", f"n1{c}"), (f"t0{c}", f"r{c}{last}"), (f"n1{c}", f"ts{c}"))}
     put("dsn.nose_bay_stress_mpa", round(max(s_ for res in drive.values() for (a, b, *_), s_ in zip(tubes, res["stress"])
                                              if frozenset((a, b)) in bay)), "MPa", "frame")
     for label, w in (("driving", worst), ("accident", worst_acc)):

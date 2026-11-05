@@ -586,6 +586,8 @@ items:
     opened: 2026-11-05
     raised_by: owner
     phase: design
+    closed_by: D-044
+    closed: 2026-11-05
   - id: Q-046
     kind: finding
     text: The record checks every welded tube joint in fatigue against category 71 (fat.cat_tube_mpa), which is a butt weld's. EN 1993-1-9 gives a round tube's gap joints 90 where the through-tube's wall is twice the branch's and 45 where the walls are equal, and T, Y, and X joints only by the hot-spot method (P93, P94); at 45 the busiest welded ends would be over their limit. Each kind of joint in the frame is to be given its own category, or its hot-spot stress, and the joints sized by them - a thicker through-tube where the range is high.

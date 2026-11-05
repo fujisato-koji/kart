@@ -3407,33 +3407,6 @@
    ]
   },
   {
-   "key": "lay.bow_x_mm",
-   "v": 1240,
-   "unit": "mm",
-   "status": "calculated",
-   "basis": [
-    "docs/03-design.md#winter"
-   ]
-  },
-  {
-   "key": "lay.bow_rise_mm",
-   "v": 80,
-   "unit": "mm",
-   "status": "calculated",
-   "basis": [
-    "docs/03-design.md#winter"
-   ]
-  },
-  {
-   "key": "lay.bow_half_beam_mm",
-   "v": 60,
-   "unit": "mm",
-   "status": "calculated",
-   "basis": [
-    "docs/03-design.md#winter"
-   ]
-  },
-  {
    "key": "lay.float_dia_mm",
    "v": 300,
    "unit": "mm",
@@ -4236,7 +4209,8 @@
    "unit": "mm",
    "status": "calculated",
    "basis": [
-    "docs/03-design.md#frame"
+    "docs/03-design.md#frame",
+    "D-044"
    ]
   },
   {
@@ -5966,7 +5940,7 @@
   },
   {
    "key": "dsn.tube_main_m",
-   "v": 7.38,
+   "v": 7.97,
    "unit": "m",
    "status": "calculated",
    "basis": [
@@ -5975,7 +5949,7 @@
   },
   {
    "key": "dsn.tube_box_m",
-   "v": 2.92,
+   "v": 2.18,
    "unit": "m",
    "status": "calculated",
    "basis": [
@@ -5984,7 +5958,7 @@
   },
   {
    "key": "dsn.tube_cross_m",
-   "v": 4.56,
+   "v": 3.83,
    "unit": "m",
    "status": "calculated",
    "basis": [
@@ -5993,7 +5967,7 @@
   },
   {
    "key": "dsn.tube_roll_m",
-   "v": 1.63,
+   "v": 1.66,
    "unit": "m",
    "status": "calculated",
    "basis": [
@@ -6197,7 +6171,7 @@
   },
   {
    "key": "dsn.pan_mass_kg",
-   "v": 2.0,
+   "v": 1.6,
    "unit": "kg",
    "status": "calculated",
    "basis": [
@@ -6215,7 +6189,7 @@
   },
   {
    "key": "dsn.mass_kg",
-   "v": 142.9,
+   "v": 142.2,
    "unit": "kg",
    "status": "calculated",
    "basis": [
@@ -6224,7 +6198,7 @@
   },
   {
    "key": "dsn.cg_x_m",
-   "v": 0.474,
+   "v": 0.472,
    "unit": "m",
    "status": "calculated",
    "basis": [
@@ -6242,7 +6216,7 @@
   },
   {
    "key": "dsn.cg_z_m",
-   "v": 0.307,
+   "v": 0.308,
    "unit": "m",
    "status": "calculated",
    "basis": [
@@ -6251,7 +6225,7 @@
   },
   {
    "key": "dsn.frame_mass_kg",
-   "v": 25.9,
+   "v": 25.5,
    "unit": "kg",
    "status": "calculated",
    "basis": [
@@ -6260,7 +6234,7 @@
   },
   {
    "key": "dsn.rear_share_adult",
-   "v": 0.57,
+   "v": 0.571,
    "status": "calculated",
    "basis": [
     "docs/03-design.md#mass"
@@ -6277,7 +6251,7 @@
   },
   {
    "key": "dsn.cg_height_adult_m",
-   "v": 0.531,
+   "v": 0.532,
    "unit": "m",
    "status": "calculated",
    "basis": [
@@ -6294,7 +6268,7 @@
   },
   {
    "key": "dsn.pitch_ratio_adult",
-   "v": 0.88,
+   "v": 0.87,
    "status": "calculated",
    "basis": [
     "docs/03-design.md#stability"
@@ -6302,7 +6276,7 @@
   },
   {
    "key": "dsn.rear_share_child",
-   "v": 0.558,
+   "v": 0.56,
    "status": "calculated",
    "basis": [
     "docs/03-design.md#mass"
@@ -6336,7 +6310,7 @@
   },
   {
    "key": "dsn.pitch_ratio_child",
-   "v": 1.36,
+   "v": 1.35,
    "status": "calculated",
    "basis": [
     "docs/03-design.md#stability"
@@ -6344,7 +6318,7 @@
   },
   {
    "key": "dsn.winter_mass_kg",
-   "v": 152.9,
+   "v": 152.2,
    "unit": "kg",
    "status": "calculated",
    "basis": [
@@ -6353,7 +6327,7 @@
   },
   {
    "key": "dsn.winter_cg_height_m",
-   "v": 0.515,
+   "v": 0.516,
    "unit": "m",
    "status": "calculated",
    "basis": [
@@ -6362,7 +6336,7 @@
   },
   {
    "key": "dsn.winter_rear_share",
-   "v": 0.563,
+   "v": 0.565,
    "status": "calculated",
    "basis": [
     "docs/03-design.md#winter"
@@ -6378,7 +6352,7 @@
   },
   {
    "key": "dsn.winter_pitch_ratio",
-   "v": 0.92,
+   "v": 0.91,
    "status": "calculated",
    "basis": [
     "docs/03-design.md#stability"
@@ -6386,7 +6360,7 @@
   },
   {
    "key": "dsn.winter_ski_pressure_kpa",
-   "v": 7.52,
+   "v": 7.48,
    "unit": "kPa",
    "status": "calculated",
    "basis": [
@@ -6428,7 +6402,7 @@
   },
   {
    "key": "dsn.rear_sprung_kg",
-   "v": 111.3,
+   "v": 111.2,
    "unit": "kg",
    "status": "calculated",
    "basis": [
@@ -6437,7 +6411,7 @@
   },
   {
    "key": "dsn.rear_wheel_rate_n_mm",
-   "v": 27.5,
+   "v": 27.4,
    "unit": "N/mm",
    "status": "calculated",
    "basis": [
@@ -6464,7 +6438,7 @@
   },
   {
    "key": "dsn.shock_force_static_n",
-   "v": 1770,
+   "v": 1768,
    "unit": "N",
    "status": "calculated",
    "basis": [
@@ -6509,7 +6483,7 @@
   },
   {
    "key": "dsn.cut_tubes",
-   "v": 79,
+   "v": 69,
    "status": "calculated",
    "basis": [
     "docs/03-design.md#frame"
@@ -6517,7 +6491,7 @@
   },
   {
    "key": "dsn.welded_ends",
-   "v": 156,
+   "v": 134,
    "status": "calculated",
    "basis": [
     "docs/03-design.md#frame"
@@ -6525,7 +6499,7 @@
   },
   {
    "key": "dsn.weld_length_m",
-   "v": 19.1,
+   "v": 16.6,
    "unit": "m",
    "status": "calculated",
    "basis": [
@@ -6542,7 +6516,7 @@
   },
   {
    "key": "dsn.front_sprung_kg",
-   "v": 42.5,
+   "v": 42.2,
    "unit": "kg",
    "status": "calculated",
    "basis": [
@@ -6551,7 +6525,7 @@
   },
   {
    "key": "dsn.front_wheel_rate_n_mm",
-   "v": 10.5,
+   "v": 10.4,
    "unit": "N/mm",
    "status": "calculated",
    "basis": [
@@ -6569,7 +6543,7 @@
   },
   {
    "key": "dsn.front_shock_force_static_n",
-   "v": 867,
+   "v": 860,
    "unit": "N",
    "status": "calculated",
    "basis": [
@@ -6659,7 +6633,7 @@
   },
   {
    "key": "dsn.climb_force_n",
-   "v": 748,
+   "v": 746,
    "unit": "N",
    "status": "calculated",
    "basis": [
@@ -6668,7 +6642,7 @@
   },
   {
    "key": "dsn.climb_grip_n",
-   "v": 703,
+   "v": 702,
    "unit": "N",
    "status": "calculated",
    "basis": [
@@ -6686,7 +6660,7 @@
   },
   {
    "key": "dsn.climb_grade_max_pct",
-   "v": 17.5,
+   "v": 17.6,
    "unit": "%",
    "status": "calculated",
    "basis": [
@@ -6730,7 +6704,7 @@
   },
   {
    "key": "dsn.nose_bay_stress_mpa",
-   "v": 59,
+   "v": 54,
    "unit": "MPa",
    "status": "calculated",
    "basis": [
@@ -6739,7 +6713,7 @@
   },
   {
    "key": "dsn.rail_stress_mpa",
-   "v": 124,
+   "v": 125,
    "unit": "MPa",
    "status": "calculated",
    "basis": [
@@ -6748,7 +6722,7 @@
   },
   {
    "key": "dsn.rail_safety",
-   "v": 2.33,
+   "v": 2.32,
    "status": "calculated",
    "basis": [
     "docs/03-design.md#frame"
@@ -6781,7 +6755,7 @@
   },
   {
    "key": "dsn.hoop_crush_safety",
-   "v": 2.51,
+   "v": 2.52,
    "status": "calculated",
    "basis": [
     "docs/03-design.md#loads"
@@ -6789,7 +6763,7 @@
   },
   {
    "key": "dsn.hoop_side_safety",
-   "v": 3.54,
+   "v": 3.53,
    "status": "calculated",
    "basis": [
     "docs/03-design.md#loads"
@@ -6797,7 +6771,7 @@
   },
   {
    "key": "dsn.shock_force_bump_n",
-   "v": 5672,
+   "v": 5665,
    "unit": "N",
    "status": "calculated",
    "basis": [
@@ -6833,7 +6807,7 @@
   },
   {
    "key": "dsn.fatigue_g_tube",
-   "v": 1.09,
+   "v": 1.08,
    "status": "calculated",
    "basis": [
     "docs/03-design.md#loads"
@@ -6866,7 +6840,7 @@
   },
   {
    "key": "dsn.fatigue_kcycles_fillet",
-   "v": 1148,
+   "v": 1136,
    "status": "calculated",
    "basis": [
     "docs/03-design.md#loads"
@@ -6970,7 +6944,7 @@
   },
   {
    "key": "dsn.brake_torque_needed_nm",
-   "v": 330,
+   "v": 329,
    "unit": "N m",
    "status": "calculated",
    "basis": [
@@ -6979,7 +6953,7 @@
   },
   {
    "key": "dsn.brake_rear_alone_decel",
-   "v": 3.21,
+   "v": 3.22,
    "unit": "m/s2",
    "status": "calculated",
    "basis": [
@@ -7078,7 +7052,7 @@
   },
   {
    "key": "dsn.bom_parts_jpy",
-   "v": 316599,
+   "v": 317199,
    "unit": "JPY",
    "status": "calculated",
    "basis": [
@@ -9876,6 +9850,23 @@
     "D-036",
     "D-042"
    ]
+  },
+  {
+   "id": "D-044",
+   "date": "2026-11-05",
+   "by": "owner",
+   "what": "フレームは 1.2.21 の A 案とし、まっすぐな管だけで溶接を減らす。外すのは、ほとんど力を受けていなかったノーズの箱の 2 組目の後ろの縦材、端に当たる衝突の分担を縦材が引き受ける箱の後ろの上の横管、保護枠の横押しの分担を保護枠自身の横管が引き受ける座席のレールの後ろの横管である。座席のレールから背骨の前端へ下りる管は、箱の後ろの縦材の継ぎ目の応力幅を低く保つので残す（K-021）。箱の後ろの下の横管は背骨と同じ太さの 1 本で背骨のレールから背骨のレールまで渡し、箱の下のレールはそこに溶接する。座席のレールはそれぞれ 1 本のまっすぐな管とし、立ち上がり管は折れ点から上でそこへ少し開いて付く。箱の上のレールは、緩衝器の節点を通して 1 サイズにする。そり底は、箱の下のレールを突き抜けていた反り上がりをやめる。フレームは切る管 69 本・溶接する端 134 か所（同じ数え方で以前は 79 と 154）、0.4 kg 軽くなった。B の斜材なしの箱の側面は、継手の疲労等級（Q-046）を待つ。",
+   "options": [
+    "A - 力をほとんど受けない管を外し、管の並びをまっすぐ通す",
+    "B - A に加えてノーズの箱の側面を斜材なしの枠にする",
+    "フレームをいまのまま"
+   ],
+   "touches": [
+    "D-040",
+    "D-041",
+    "D-042",
+    "D-043"
+   ]
   }
  ],
  "open": [
@@ -10595,7 +10586,9 @@
    ],
    "opened": "2026-11-05",
    "raised_by": "owner",
-   "phase": "design"
+   "phase": "design",
+   "closed_by": "D-044",
+   "closed": "2026-11-05"
   },
   {
    "id": "Q-046",
@@ -11632,6 +11625,23 @@
    "by": "assistant",
    "date": "2026-11-05",
    "detail": "独立した確かめ役が、チェーンの軸間距離を行程全体にわたって 0.5 mm 刻みで計算し直し、出力軸と車軸を結ぶ線の上の別の位置に支点を置いて設計を組み直し、腕の補強の管の隙間と継ぎ目を調べ、後ろの緩衝器のレバー比とストロークを再現し、継ぎ目の球のある場合と無い場合で干渉を探した。確かめられたのは、支点をその線の上に置くと軸間距離は静止のときにいちばん長く変化は 1.8 mm であること、76 コマのチェーンはどこでも足り、張り車が取るのは最大 6 mm であること、以前のチェーンはいっぱいに縮んだとき 0.78 コマ足りなかったこと、干渉が無いこと。反証されたのは次の点である。以前のチェーンが張り切るのを約 8 mm としたこと（約 6 mm）。支点のすぐ前でファイナルギヤのケースに当たるとしたこと（約 10 mm の余地があり、ベルト駆動のドラムのほうが近い）。腕の側面より 30 mm 下げた補強の管を溶接としたこと（管の中心が側面の管の下面より下にあり、端の大半が宙に浮く）、それが線モデルで固い短い管になっていたこと。緩衝器の目玉がいちばん安定する比を与えるとしたこと。干渉の探索で継ぎ目の球が補強の管と立ち上がり管の干渉を隠し、支点をさらに 15 mm 後ろにしても通ってしまうこと。いずれも同じ日に直した。立ち上がり管は支点の管を通ってまっすぐ縦に補強の管の届かない高さの折れ点まで上げ、腕は D-042 の形のまま補強の管を折れ点に置く。本文には 6 mm と前方の余地を書く。継ぎ目の球が見逃すのは、いっしょに動く部品どうしか支点での接触だけにした。これにより、前輪のタイヤが下の A アームの先端に 4.7 mm まで近づく件（Q-044）が件数に入った。"
+  },
+  {
+   "id": "K-021",
+   "target": [
+    "D-044",
+    "dsn.cut_tubes",
+    "dsn.welded_ends",
+    "dsn.rail_safety",
+    "dsn.nose_bay_stress_mpa",
+    "dsn.clashes_summer"
+   ],
+   "tier": "T2",
+   "method": "refute",
+   "result": "partial",
+   "by": "assistant",
+   "date": "2026-11-05",
+   "detail": "独立した確かめ役が、A 案のフレームを以前のフレームと比べて解き直し、切る管と溶接する端を自前で数え直し、継ぎ目の球のある場合・無い場合・規則をすべて外した場合で干渉を探し、新旧の規則を両方のフレームで走らせ、3D の溶接する端の数え方を設計の数え方と突き合わせた。確かめられたのは、数が正しいこと、既知の前輪タイヤ（Q-044）のほかに干渉が無いこと、新しい規則が何も隠さず正当なものを誤って拾わないこと、3D が同じ溶接する端を示すこと。反証されたのは次の点である。安全率がすべて保たれるか上がるとしたこと（走行は 2.33 から 2.32 に下がった）。箱の開いた区画を 51 MPa としたのが、なくなった管で集計し区画を閉じる管を入れていなかったこと（約 61）。外した管がすべてほとんど力を受けないとしたこと（座席のレールの後ろの横管は保護枠の横押しで 82 MPa を受け、箱の後ろの上の横管と座席から下りる管を外すと箱の後ろの縦材の継ぎ目の応力幅が約 20 から 34 MPa に上がり、等級 45 の限度を超える）。支点の管の自由な端を溶接に数えたこと。古い記述 - 要求の物差しが新しいフレームの数を示していたこと、D-040 のトラスがなくなったとしていたこと。いずれも同じ日に直した。座席のレールから背骨へ下りる管は残し、箱の後ろの上の横管を外したままでも応力幅は約 20 MPa に戻る。区画は閉じる管で集計する。支点の管の端は数の上で自由とする（以前 154、今 134）。本文は実際の数を書く。"
   }
  ],
  "procedures": [
@@ -12520,14 +12530,14 @@
   "lines": [
    {
     "part": "frame",
-    "item": "STKM11A 丸管 48.6 × 2.3、背骨のレール、ノーズの箱の上のレール、バンパーの柱と横棒、立ち上がりの管とピボットの管、スイングアーム、保護枠（m）",
-    "qty": 11,
+    "item": "STKM11A 丸管 48.6 × 2.3、背骨のレール、ノーズの箱の上のレールと後ろの下の横管、バンパーの柱と横棒、立ち上がりの管とピボットの管、スイングアーム、保護枠（m）",
+    "qty": 12,
     "price": "cost.tube_48x23_jpy_per_m",
     "need": "b1"
    },
    {
     "part": "frame",
-    "item": "STKM11A 丸管 25.4 × 1.6、横材、足置きの支え、ノーズの箱の後ろの柱と斜材、上の A アーム（m）",
+    "item": "STKM11A 丸管 25.4 × 1.6、横材、足置きの支え、ノーズの箱の斜材、上の A アーム（m）",
     "qty": 5,
     "price": "cost.tube_25_jpy_per_m",
     "need": "b1"
@@ -12597,8 +12607,8 @@
    },
    {
     "part": "frame",
-    "item": "STKM11A 丸管 31.8 × 2.3、下の A アーム、ノーズの箱の下のレールと横管、シートの後ろの横管（m）",
-    "qty": 4,
+    "item": "STKM11A 丸管 31.8 × 2.3、下の A アーム、ノーズの箱の下のレールと下の横管 2 本（m）",
+    "qty": 3,
     "price": "cost.tube_32x23_jpy_per_m",
     "need": "b1"
    },

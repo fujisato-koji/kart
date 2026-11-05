@@ -405,3 +405,16 @@ items:
     touches:
       - D-036
       - D-042
+  - id: D-044
+    date: 2026-11-05
+    by: owner
+    what: The frame takes form A of 1.2.21, with fewer welds and straight tubes only. Out go the nose box's second pair of rear uprights, which carried little, its rear top cross tube, whose share of an end-on blow the uprights take, and the seat rails' rear cross tube, whose share of the hoop's sideways push the hoop's own cross tube takes; the tubes from the seat rails down to the spine's front ends stay, keeping the range low at the box's rear uprights' joints (K-021). The box's rear lower cross tube is one tube of the spine's size from spine rail to spine rail, with the box's lower rails welded to it; each seat rail is one straight tube, the rising tubes leaning out to them above their knee; and each top rail of the box is one size through the shocks' node. The sled pan loses the bow that cut the box's lower rails. The frame came to 69 tubes as cut with 134 welded ends, against 79 and 154 counted the same way, and 0.4 kg lighter; B's open box sides wait on the joints' fatigue categories (Q-046).
+    options:
+      - A - the idle tubes out and the runs straightened
+      - B - A with the nose box's sides as open frames
+      - the frame as it is
+    touches:
+      - D-040
+      - D-041
+      - D-042
+      - D-043

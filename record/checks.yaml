@@ -304,3 +304,17 @@ items:
     by: assistant
     date: 2026-11-05
     detail: An independent helper recomputed the chain's centre distance over the whole travel in 0.5 mm steps, rebuilt the design with the pivot at other places along the line from the output to the axle, worked out the arm brace's clearances and its joint, reproduced the rear shock's ratios and stroke, and ran the interference search with and without the joints' spheres. It confirmed that with the pivot on that line the distance is longest at rest and changes by 1.8 mm, that the 76-link chain is long enough everywhere with at most 6 mm for the tensioner, that the old chain was 0.78 links short at full bump, and that nothing clashed. It refuted - the old chain pulling tight about 8 mm into the bump (about 6 mm); the pivot meeting the final gear's case just forward of its place (about 10 mm of room, the belt drive's drum nearer); a brace dropped 30 mm below the arm's sides as a weld (its axis below the side tubes' bottoms, most of its end in the air), which also stood as a rigid stub in the line model; the shock's eye said to give the steadiest ratio; and the interference search, whose joint spheres hid the brace meeting a rising tube and would still pass a pivot 15 mm further back. All were corrected the same day - the rising tubes go straight up through the pivot tube to a knee above the brace's reach and the arm keeps its D-042 form with its brace at the bend, the text gives the 6 mm and the room forward, and a joint sphere now excuses only contacts between bodies that move together or at a pivot, which brings the front tyre within 4.7 mm of the lower arm's end (Q-044) into the count.
+  - id: K-021
+    target:
+      - D-044
+      - dsn.cut_tubes
+      - dsn.welded_ends
+      - dsn.rail_safety
+      - dsn.nose_bay_stress_mpa
+      - dsn.clashes_summer
+    tier: T2
+    method: refute
+    result: partial
+    by: assistant
+    date: 2026-11-05
+    detail: An independent helper re-solved the frame of form A against the frame before it, recounted the tubes as cut and their welded ends on its own, ran the interference search with and without the joints' spheres and with every rule switched off, ran the old and new rules on both frames, and ran the 3D view's count of welded ends against the design's. It confirmed the counts, that nothing clashes but the known front tyre (Q-044), that the new rules hide nothing and wrongly flag nothing, and that the 3D view marks the same welded ends. It refuted - that every safety factor stayed or rose (the driving one fell from 2.33 to 2.32); the box's open bay at 51 MPa, summed over a tube gone and without the one now closing it (about 61); that the tubes taken out all carried little (the seat rails' rear cross tube took 82 MPa when the hoop is pushed sideways, and without the box's rear top cross tube and the tubes down from the seat rails the range at the box's rear uprights' joints rose from about 20 to 34 MPa, over category 45's limit); the pivot tube's free ends counted as welded; and stale text - the requirements' measures showing the new frame's numbers, and the truss of D-040 said to be gone. All were corrected the same day - the tubes from the seat rails down to the spine stay, which brings the range back to about 20 MPa with the rear top cross tube still out; the bay is summed over the tubes that close it; the pivot tube's ends are free in the count (154 before, 134 now); and the text gives the numbers as they are.

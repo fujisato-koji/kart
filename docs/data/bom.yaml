@@ -6,12 +6,12 @@
 schema: 1
 lines:
   - part: frame
-    item: STKM11A round tube 48.6 x 2.3, spine rails, the nose box's top rails, the bumper's posts and bar, the rising tubes and pivot tube, swing arm, and hoop (m)
-    qty: 11
+    item: STKM11A round tube 48.6 x 2.3, spine rails, the nose box's top rails and rear lower cross tube, the bumper's posts and bar, the rising tubes and pivot tube, swing arm, and hoop (m)
+    qty: 12
     price: cost.tube_48x23_jpy_per_m
     need: b1
   - part: frame
-    item: STKM11A round tube 25.4 x 1.6, cross members, footboard supports, the nose box's rear uprights and diagonals, the upper A-arms (m)
+    item: STKM11A round tube 25.4 x 1.6, cross members, footboard supports, the nose box's diagonals, the upper A-arms (m)
     qty: 5
     price: cost.tube_25_jpy_per_m
     need: b1
@@ -61,8 +61,8 @@ lines:
     price: cost.atv_drum_hub_jpy
     need: b4
   - part: frame
-    item: STKM11A round tube 31.8 x 2.3, the lower A-arms, the nose box's lower rails and cross tubes, and the seat's rear cross tube (m)
-    qty: 4
+    item: STKM11A round tube 31.8 x 2.3, the lower A-arms, and the nose box's lower rails and two lower cross tubes (m)
+    qty: 3
     price: cost.tube_32x23_jpy_per_m
     need: b1
   - part: front_arms

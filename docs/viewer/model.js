@@ -112,28 +112,53 @@ function perfSheet(sx, sz, mat) { // a perforated sheet in the x-z plane, centre
 }
 
 // ---------------------------------------------------------------- tubes
+// A tube as cut runs straight through a node where the next length of the same size and part carries
+// straight on (calc/design.py, 1.2.21); there it has no weld, so no bead and, if nothing else ends there,
+// no blob. Returns the set of "member index:end" (0 for a, 1 for b) that pass straight through.
+function throughEnds(members) {
+  const key = (p) => p.map((v) => Math.round(v * 10000)).join(',');
+  const at = new Map();
+  members.forEach((m, i) => { for (const [p, e] of [[m.a, 0], [m.b, 1]]) { const k = key(p); if (!at.has(k)) at.set(k, []); at.get(k).push([i, e]); } });
+  const away = (i, e) => { const m = members[i], [p, q] = e === 0 ? [m.a, m.b] : [m.b, m.a]; const d = [q[0] - p[0], q[1] - p[1], q[2] - p[2]]; const n = Math.hypot(...d); return d.map((c) => c / n); };
+  const out = new Set();
+  for (const es of at.values()) {
+    let best = null;
+    for (let x = 0; x < es.length; x++) for (let y = x + 1; y < es.length; y++) {
+      const [i, ei] = es[x], [j, ej] = es[y], a = members[i], b = members[j];
+      if (a.od !== b.od || a.t !== b.t || a.part !== b.part) continue;
+      const u = away(i, ei), w = away(j, ej);
+      if (u[0] * w[0] + u[1] * w[1] + u[2] * w[2] < -Math.cos(3 * Math.PI / 180) && (!best || a.od > best[2])) best = [es[x], es[y], a.od];
+    }
+    if (best) { out.add(best[0].join(':')); out.add(best[1].join(':')); }
+  }
+  return out;
+}
 function buildMembers(design) {
   const M = mats(); const out = []; const nodes = new Map();
   const key = (p) => p.map((v) => Math.round(v * 1000)).join(',');
-  for (const mb of design.members) {
+  const through = throughEnds(design.members);
+  design.members.forEach((mb, i) => {
     const a = V(mb.a), b = V(mb.b), r = mb.od / 2;
     const bump = mb.part === 'bumpers', farm = mb.part === 'front_arms';   // the A-arms in black, as an ATV's
     const g = new THREE.Group(); g.userData = { part: mb.part, configs: design.configs, member: true, mb };
     g.add(cylBetween(a, b, r, bump ? M.bumper : farm ? M.darkSteel : M.paint, ILLUSTRATIVE.tubeSegments));
-    // weld beads: a dark ring near each end of the tube
+    // weld beads: a dark ring near each welded end of the tube
     const dir = b.clone().sub(a).normalize();
-    for (const [p, s] of [[a, 1], [b, -1]]) {
+    for (const [p, s, e] of [[a, 1, 0], [b, -1, 1]]) {
+      const k = key([p.x, p.y, p.z]);
+      const n = nodes.get(k) || { p, r: 0, part: mb.part, bump, farm, mbs: [], welded: false };
+      n.r = Math.max(n.r, r); n.mbs.push(mb); nodes.set(k, n);
+      if (through.has(i + ':' + e)) continue;
+      n.welded = true;
       const bead = mesh(new THREE.TorusGeometry(r * 1.02, r * ILLUSTRATIVE.weldBead * 2.2, 8, 20), bump ? M.bumperDark : farm ? M.steel : M.paintDark);
       bead.position.copy(p).addScaledVector(dir, s * Math.max(0.012, r * 0.9));
       bead.quaternion.setFromUnitVectors(new THREE.Vector3(0, 0, 1), dir);
       g.add(bead);
-      const k = key([p.x, p.y, p.z]);
-      const n = nodes.get(k) || { p, r: 0, part: mb.part, bump, farm, mbs: [] };
-      n.r = Math.max(n.r, r); n.mbs.push(mb); nodes.set(k, n);
     }
     out.push(g);
-  }
-  for (const n of nodes.values()) { // a round weld blob at each node closes the mitre gap
+  });
+  for (const n of nodes.values()) { // a round weld blob at each node where a tube ends closes the mitre gap
+    if (!n.welded) continue;
     const g = new THREE.Group(); g.userData = { part: n.part, configs: design.configs, member: true, mbs: n.mbs };
     const s = sphere(n.r * ILLUSTRATIVE.nodeScale * 1.02, n.bump ? M.bumper : n.farm ? M.darkSteel : M.paint, 14);
     s.position.copy(n.p); g.add(s); out.push(g);

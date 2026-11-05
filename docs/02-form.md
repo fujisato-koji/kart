@@ -440,16 +440,16 @@ The owner saw in the stress map of 1.3.21 that much of the frame carries little,
 |---|---|---|---|
 | FR-01 | It carries the loads of rough ground and of accidents | the cases of 1.3.18, with their safety factors | 1.3.18 |
 | FR-02 | Its welded joints last | each joint's stress range against the category of its own kind of joint (P93, P94); a through-tube thicker than its branches where the range is high (proposal) | 1.3.18, Q-046 |
-| FR-03 | It has as few welds as it can | welded tube ends, now dsn.welded_ends on dsn.cut_tubes tubes as cut and about dsn.weld_length_m of weld; a quarter fewer (proposal) | owner |
+| FR-03 | It has as few welds as it can | welded tube ends, 156 on 79 tubes as cut before D-044 and about 19 m of weld; a quarter fewer (proposal) | owner |
 | FR-04 | Straight tubes only | no bent tube; every tube cut straight and welded | owner |
 | FR-05 | Joints a home welder can make and check | each joint a branch's end fitted to a through-tube all round its rim, as few tubes to a node as can be, each reachable to weld and to inspect (OP-01.07) | owner, K-020 |
 | FR-06 | Every load enters at a node | as FE-07, for the whole frame | 1.2.20 |
 | FR-07 | It holds every part where it is | the engine unit's plate, the seat, the footboards, the A-arms' pivots, the shocks' tops, the stem's bearings, and the swing arm's pivot on the line from the output to the axle | D-041, D-042, D-043 |
 | FR-08 | It clears what moves | the interference search, with and without the joints' spheres; 150 mm under the frame | D-038, K-020 |
 | FR-09 | It protects | the hoop of R-19, the leg shield of R-13, the bumper ahead of the tyres | R-13, R-19, K-015 |
-| FR-10 | No heavier and no dearer | the frame no heavier than dsn.frame_mass_kg; no more tube bought by the metre than now | R-08 |
+| FR-10 | No heavier and no dearer | the frame no heavier than its 25.9 kg before D-044; no more tube bought by the metre than then | R-08 |
 
-**Where the welds are.** A tube as cut runs straight through the nodes where the next length of the same size carries straight on; each of its ends is welded - to another tube, a sleeve, a bush, or an eye - but the bumper bar's two free ends. Counted so by `calc/design.py` and drawn by `calc/frame_forms.py`:
+**Where the welds are**, in the frame before D-044. A tube as cut runs straight through the nodes where the next length of the same size carries straight on; each of its ends is welded - to another tube, a sleeve, a bush, or an eye - but the bumper bar's two free ends. Counted so by `calc/design.py` and drawn by `calc/frame_forms.py`:
 
 | Where | Tubes as cut | Welded ends |
 |---|---|---|
@@ -461,7 +461,7 @@ The owner saw in the stress map of 1.3.21 that much of the frame carries little,
 | A-arms | 12 | 24 |
 | swing arm | 7 | 14 |
 
-![Where the welds are](figures/frame-welds.svg)
+![Where the welds are](figures/frame-welds-forms.svg)
 
 A third of the welds are in the nose box and the bumper, where the arms, the shocks, and the stem come in.
 
@@ -473,13 +473,13 @@ A third of the welds are in the nose box and the bumper, where the arms, the sho
 
 **Forms.** Both keep every part in its place (FR-07) and the frame's kind - a triangulated frame of straight tubes; they differ in how many tubes stay. The figure marks what each takes out or straightens.
 
-- **A, the frame tidied.** Out go the tubes that carry little in every case: the box's rear uprights, the top cross tube at the box's rear, the tubes from the seat rails down to the spine's ends, and the seat rails' rear cross tube. Four runs are straightened, so that one tube does where several do now: the spine runs straight on, converging a little toward the front, as the box's lower rail to the bumper's post, where a jog now joins two tubes; the seat rails run straight in plan from the hoop to their slope, the rising tubes standing at their spacing; each top rail of the box is one size through the shocks' node; and the bumper's bar is one tube. Solved with those tubes taken out, every safety factor stays as now but the hoop's sideways factor, from 3.54 to 3.23; the straightening is checked when the frame is designed.
+- **A, the frame tidied.** Out go the tubes that carry little in every case: the box's rear uprights, the top cross tube at the box's rear, the tubes from the seat rails down to the spine's ends, and the seat rails' rear cross tube. Three runs are straightened, so that one tube does where several do now: the spine runs straight on, converging a little toward the front, as the box's lower rail to the bumper's post, where a jog now joins two tubes; the seat rails run straight in plan from the hoop to their slope, the rising tubes standing at their spacing; and each top rail of the box is one size through the shocks' node. (A first version also made the bumper's bar one tube; that saves nothing, for the posts would then be cut at the bar instead.) Solved with those tubes taken out, every safety factor stays as now but the hoop's sideways factor, from 3.54 to 3.23; the straightening is checked when the frame is designed.
 - **B, A with the box's sides as open frames.** The box's diagonals and its lower front cross tube go too, and its side panels carry their shear by bending in their corners, as the bay the tie rods sweep through already does. Its open bays reach 67 MPa against 59, the frame's worst fatigue range 38 MPa against 36, and the busiest welded end 70 % of its limit against 67 %.
 
 | | Now | A | B |
 |---|---|---|---|
-| Tubes as cut | 79 | 63 | 58 |
-| Welded ends | 156 | 124 (-21 %) | 114 (-27 %) |
+| Tubes as cut | 79 | 65 | 60 |
+| Welded ends | 156 | 128 (-18 %) | 118 (-24 %) |
 | Mass of the frame, hoop, bumper, and footboards | 30.3 kg | 27.2 kg | 25.8 kg |
 | Driving and impact safety factors | 2.33, 1.63 | 2.34, 1.63 | 2.33, 1.63 |
 | Hoop crushed, pushed sideways | 2.51, 3.54 | 2.51, 3.23 | 2.51, 3.24 |
@@ -489,4 +489,6 @@ A third of the welds are in the nose box and the bumper, where the arms, the sho
 
 The masses and stresses are those of the frame as now with the tubes taken out; the straightened runs change them little and are solved in the design.
 
-**The assistant proposes A.** It takes out a fifth of the welds while every load still goes along triangulated tubes into nodes, and its stresses are the frame's as now. B saves ten welds more but puts the box onto bending at its welded corners, where the stress range is already the frame's open question: until Q-046 settles the joints' categories, A is the safer start, and B's diagonals can still go later if the categories leave room. Either way, where a joint of equal walls carries more range than category 45 allows, its through-tube takes a thicker wall. **The owner decides** (Q-045).
+**The assistant proposes A.** It takes out about a sixth of the welds while every load still goes along triangulated tubes into nodes, and its stresses are the frame's as now. B saves ten welds more but puts the box onto bending at its welded corners, where the stress range is already the frame's open question: until Q-046 settles the joints' categories, A is the safer start, and B's diagonals can still go later if the categories leave room. Either way, where a joint of equal walls carries more range than category 45 allows, its through-tube takes a thicker wall. **The owner decides** (Q-045).
+
+**Decided.** The owner chose A (D-044). In designing it (1.3.2), and after an independent check (K-021), it changed in four ways. The converging spine brought the box's lower rail within 30 mm of the A-arms' rear pivots, where the arms' tubes would cut it; instead the box's rear lower cross tube is one tube of the spine's size from spine rail to spine rail, with the lower rails welded to it, which takes out the jog but leaves the spine and the lower rail two tubes. The seat rails at the rising tubes' spacing cut the engine unit's air box, and the rising tubes at the seat rails' spacing met the swing arm's sides; so the seat rails stay at ±100 mm, each one straight tube, and the rising tubes lean a little out to them above their knee. The tubes from the seat rails down to the spine's front ends stay: they did not carry little, for without them the stress range at the box's rear uprights' joints rose from about 20 to 34 MPa, over what category 45 would allow (Q-046). And two of the tubes taken out had work that others now do: the seat rails' rear cross tube, whose share of the hoop's sideways push goes to the hoop's own cross tube, and the box's rear top cross tube, whose share of an end-on blow goes to the uprights. Counted as the design counts - the pivot tube's two ends, which the sleeves ride on, being free, which the table above took as welded - the frame before had 154 welded ends; form A has dsn.cut_tubes tubes and dsn.welded_ends welded ends, 13 % fewer, short of FR-03's quarter. The frame weighs dsn.frame_mass_kg, 0.4 kg less; the driving safety factor goes from 2.33 to 2.32 and the hoop's sideways one from 3.54 to 3.53, the others stay or rise, and the worst fatigue range is unchanged. B's diagonals and front lower cross tube, ten welded ends more, wait on Q-046.

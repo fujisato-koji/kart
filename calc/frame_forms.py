@@ -1,7 +1,8 @@
-"""Where the frame's welds are, and what forms A and B of docs/02-form.md 1.2.21 change: the frame as
-designed, from the side and from above, every tube as it is cut (a straight run of one size through
-the nodes) with a dot at each of its welded ends, and the tubes the forms take out or straighten.
-Drawn from docs/data/design.json, so the figure is the design itself.
+"""Where the frame's welds are: the frame as designed (form A of docs/02-form.md 1.2.21, D-044), from the
+side and from above, every tube as it is cut (a straight run of one size through the nodes) with a dot at
+each of its welded ends, and the tubes form B would take out besides. Drawn from docs/data/design.json, so
+the figure is the design itself. The comparison of 1.2.21 (docs/figures/frame-welds-forms.svg) was drawn
+by an earlier version of this script from the frame before D-044.
 
     python calc/frame_forms.py   # writes docs/figures/frame-welds.svg (run calc/design.py --write first)
 """
@@ -100,8 +101,8 @@ def main():
     mem = d["members"]
     groups, key = cut_tubes(mem)
     out = []
-    welded = sum(2 for _ in groups) - 2
-    side = Panel(out, 330, 620, 580, f"Side view, front to the right: {len(groups)} tubes as cut, {welded} welded ends (dots)", 34)
+    welded = 2 * len(groups) - 4
+    side = Panel(out, 330, 620, 580, f"Form A (D-044), side view, front to the right: {len(groups)} tubes as cut, {welded} welded ends (dots)", 34)
     top = Panel(out, 330, 860, 580, "From above, front to the right, the left side up", 660)
     side.line((-0.5, 0.0), (1.45, 0.0), "#ccc", 1, "4 4")     # the ground
 
@@ -109,12 +110,8 @@ def main():
         n = m.get("name", "")
         if m["part"] in ("swing_arm", "front_arms"):
             return MOVING, "", 2
-        if n in OUT_BOTH or n in JOG:
-            return OUT_A, "7 5", 3
         if n in OUT_B_ONLY:
             return OUT_B, "7 5", 3
-        if n in STRAIGHTENED:
-            return STRAIGHT, "", 4
         return KEEP, "", 2.5 if m["od"] < 0.04 else 3.5
     for m in sorted(mem, key=lambda m: m["a"][1] + m["b"][1]):              # the far side first
         c, dash, w = colour(m)
@@ -122,7 +119,8 @@ def main():
     for m in mem:
         c, dash, w = colour(m)
         top.line((m["a"][0], m["a"][1]), (m["b"][0], m["b"][1]), c, w, dash)
-    free = {key(m["a"]) for m in mem if m.get("name", "").startswith("be")} | {key(m["b"]) for m in mem if m.get("name", "").endswith(("bel", "ber"))}
+    free = ({key(m["a"]) for m in mem if m.get("name", "").startswith(("be", "pe"))}
+            | {key(m["b"]) for m in mem if m.get("name", "").endswith(("bel", "ber", "pel", "per"))})   # the bumper bar's and pivot tube's free ends
     for g in groups:
         col = MOVING if mem[g[0]]["part"] in ("swing_arm", "front_arms") else KEEP
         for p in ends_of(g, mem, key):
@@ -130,8 +128,8 @@ def main():
                 continue
             side.dot((p[0], p[2]), col)
             top.dot((p[0], p[1]), col)
-    legend = [(KEEP, "", "kept"), (OUT_A, "7 5", "out in forms A and B"), (OUT_B, "7 5", "out in form B only"),
-              (STRAIGHT, "", "straightened in A and B"), (MOVING, "", "swing arm and A-arms, unchanged")]
+    legend = [(KEEP, "", "frame, hoop, bumper, footboards"), (OUT_B, "7 5", "would go in form B (Q-046)"),
+              (MOVING, "", "swing arm and A-arms")]
     for i, (c, dash, t) in enumerate(legend):
         x = 40 + 255 * i
         d_ = f' stroke-dasharray="{dash}"' if dash else ""

@@ -477,9 +477,6 @@ These are not decided here. 1.2 compares forms against them.
 | lay.pan_x0_mm | 170 | mm | calculated | docs/03-design.md#winter |
 | lay.pan_x1_mm | 950 | mm | calculated | docs/03-design.md#winter |
 | lay.pan_half_beam_mm | 180 | mm | calculated | docs/03-design.md#winter |
-| lay.bow_x_mm | 1240 | mm | calculated | docs/03-design.md#winter |
-| lay.bow_rise_mm | 80 | mm | calculated | docs/03-design.md#winter |
-| lay.bow_half_beam_mm | 60 | mm | calculated | docs/03-design.md#winter |
 | lay.float_dia_mm | 300 | mm | calculated | docs/03-design.md#winter |
 | snow.track_traction_packed | 0.3 |  | sourced | P59 |
 | track.crr_snow_packed | 0.05 |  | assumed | Q-031 |
@@ -570,7 +567,7 @@ These are not decided here. 1.2 compares forms against them.
 | lay.shock_low_x_mm | 55 | mm | calculated | docs/03-design.md#suspension, D-043 |
 | lay.shock_low_rise_mm | 15 | mm | calculated | docs/03-design.md#suspension, D-043 |
 | lay.rising_knee_z_mm | 360 | mm | calculated | docs/03-design.md#frame, D-043 |
-| lay.post_y_mm | 75 | mm | calculated | docs/03-design.md#frame |
+| lay.post_y_mm | 75 | mm | calculated | docs/03-design.md#frame, D-044 |
 | sus.bump_mm | 40 | mm | calculated | docs/03-design.md#suspension |
 | sus.droop_mm | 30 | mm | calculated | docs/03-design.md#suspension |
 | sus.freq_hz | 2.5 | Hz | assumed | Q-039 |
@@ -765,10 +762,10 @@ These are not decided here. 1.2 compares forms against them.
 | dsn.stem_rake_deg | 23.4 | deg | calculated | docs/03-design.md#steering |
 | dsn.tie_z_mm | 282 | mm | calculated | docs/03-design.md#front-suspension |
 | dsn.stem_top_tube_gap_mm | 21 | mm | calculated | docs/03-design.md#frame |
-| dsn.tube_main_m | 7.38 | m | calculated | docs/03-design.md#frame |
-| dsn.tube_box_m | 2.92 | m | calculated | docs/03-design.md#frame |
-| dsn.tube_cross_m | 4.56 | m | calculated | docs/03-design.md#frame |
-| dsn.tube_roll_m | 1.63 | m | calculated | docs/03-design.md#rollbar |
+| dsn.tube_main_m | 7.97 | m | calculated | docs/03-design.md#frame |
+| dsn.tube_box_m | 2.18 | m | calculated | docs/03-design.md#frame |
+| dsn.tube_cross_m | 3.83 | m | calculated | docs/03-design.md#frame |
+| dsn.tube_roll_m | 1.66 | m | calculated | docs/03-design.md#rollbar |
 | dsn.tube_arm_m | 1.12 | m | calculated | docs/03-design.md#suspension |
 | dsn.hub_bearing_gap_mm | 196 | mm | calculated | docs/03-design.md#axle |
 | dsn.ratio_top | 25.8 |  | calculated | docs/03-design.md#drive |
@@ -791,50 +788,50 @@ These are not decided here. 1.2 compares forms against them.
 | dsn.saddle_thickness_mm | 44 | mm | calculated | docs/03-design.md#fit |
 | dsn.child_fit_margin_mm | 23 | mm | calculated | docs/03-design.md#fit |
 | dsn.seat_drop_adult_mm | 420 | mm | calculated | docs/03-design.md#fit |
-| dsn.pan_mass_kg | 2.0 | kg | calculated | docs/03-design.md#winter |
+| dsn.pan_mass_kg | 1.6 | kg | calculated | docs/03-design.md#winter |
 | dsn.ski_y_mm | 221 | mm | calculated | docs/03-design.md#winter |
-| dsn.mass_kg | 142.9 | kg | calculated | docs/03-design.md#mass |
-| dsn.cg_x_m | 0.474 | m | calculated | docs/03-design.md#mass |
+| dsn.mass_kg | 142.2 | kg | calculated | docs/03-design.md#mass |
+| dsn.cg_x_m | 0.472 | m | calculated | docs/03-design.md#mass |
 | dsn.cg_y_m | -0.0 | m | calculated | docs/03-design.md#mass |
-| dsn.cg_z_m | 0.307 | m | calculated | docs/03-design.md#mass |
-| dsn.frame_mass_kg | 25.9 | kg | calculated | docs/03-design.md#frame |
-| dsn.rear_share_adult | 0.57 |  | calculated | docs/03-design.md#mass |
+| dsn.cg_z_m | 0.308 | m | calculated | docs/03-design.md#mass |
+| dsn.frame_mass_kg | 25.5 | kg | calculated | docs/03-design.md#frame |
+| dsn.rear_share_adult | 0.571 |  | calculated | docs/03-design.md#mass |
 | dsn.cg_side_adult_mm | 0 | mm | calculated | docs/03-design.md#mass |
-| dsn.cg_height_adult_m | 0.531 | m | calculated | docs/03-design.md#mass |
+| dsn.cg_height_adult_m | 0.532 | m | calculated | docs/03-design.md#mass |
 | dsn.tip_ratio_adult | 0.75 |  | calculated | docs/03-design.md#stability |
-| dsn.pitch_ratio_adult | 0.88 |  | calculated | docs/03-design.md#stability |
-| dsn.rear_share_child | 0.558 |  | calculated | docs/03-design.md#mass |
+| dsn.pitch_ratio_adult | 0.87 |  | calculated | docs/03-design.md#stability |
+| dsn.rear_share_child | 0.56 |  | calculated | docs/03-design.md#mass |
 | dsn.cg_side_child_mm | 0 | mm | calculated | docs/03-design.md#mass |
 | dsn.cg_height_child_m | 0.353 | m | calculated | docs/03-design.md#mass |
 | dsn.tip_ratio_child | 1.13 |  | calculated | docs/03-design.md#stability |
-| dsn.pitch_ratio_child | 1.36 |  | calculated | docs/03-design.md#stability |
-| dsn.winter_mass_kg | 152.9 | kg | calculated | docs/03-design.md#winter |
-| dsn.winter_cg_height_m | 0.515 | m | calculated | docs/03-design.md#winter |
-| dsn.winter_rear_share | 0.563 |  | calculated | docs/03-design.md#winter |
+| dsn.pitch_ratio_child | 1.35 |  | calculated | docs/03-design.md#stability |
+| dsn.winter_mass_kg | 152.2 | kg | calculated | docs/03-design.md#winter |
+| dsn.winter_cg_height_m | 0.516 | m | calculated | docs/03-design.md#winter |
+| dsn.winter_rear_share | 0.565 |  | calculated | docs/03-design.md#winter |
 | dsn.winter_tip_ratio | 0.62 |  | calculated | docs/03-design.md#stability |
-| dsn.winter_pitch_ratio | 0.92 |  | calculated | docs/03-design.md#stability |
-| dsn.winter_ski_pressure_kpa | 7.52 | kPa | calculated | docs/03-design.md#winter |
+| dsn.winter_pitch_ratio | 0.91 |  | calculated | docs/03-design.md#stability |
+| dsn.winter_ski_pressure_kpa | 7.48 | kPa | calculated | docs/03-design.md#winter |
 | dsn.belly_height_mm | 150 | mm | calculated | docs/03-design.md#winter |
 | dsn.motion_ratio | 0.62 |  | calculated | docs/03-design.md#suspension |
 | dsn.motion_ratio_droop | 0.73 |  | calculated | docs/03-design.md#suspension |
 | dsn.motion_ratio_bump | 0.47 |  | calculated | docs/03-design.md#suspension |
-| dsn.rear_sprung_kg | 111.3 | kg | calculated | docs/03-design.md#suspension |
-| dsn.rear_wheel_rate_n_mm | 27.5 | N/mm | calculated | docs/03-design.md#suspension |
+| dsn.rear_sprung_kg | 111.2 | kg | calculated | docs/03-design.md#suspension |
+| dsn.rear_wheel_rate_n_mm | 27.4 | N/mm | calculated | docs/03-design.md#suspension |
 | dsn.shock_spring_n_mm | 72 | N/mm | calculated | docs/03-design.md#suspension |
 | dsn.rear_sag_mm | 40 | mm | calculated | docs/03-design.md#suspension |
-| dsn.shock_force_static_n | 1770 | N | calculated | docs/03-design.md#suspension |
+| dsn.shock_force_static_n | 1768 | N | calculated | docs/03-design.md#suspension |
 | dsn.shock_length_static_mm | 265 | mm | calculated | docs/03-design.md#suspension |
 | dsn.shock_stroke_used_mm | 46 | mm | calculated | docs/03-design.md#suspension |
 | dsn.shock_travel_mm | 42 | mm | calculated | docs/03-design.md#suspension |
 | dsn.axle_rail_gap_mm | 133 | mm | calculated | docs/03-design.md#suspension |
-| dsn.cut_tubes | 79 |  | calculated | docs/03-design.md#frame |
-| dsn.welded_ends | 156 |  | calculated | docs/03-design.md#frame |
-| dsn.weld_length_m | 19.1 | m | calculated | docs/03-design.md#frame |
+| dsn.cut_tubes | 69 |  | calculated | docs/03-design.md#frame |
+| dsn.welded_ends | 134 |  | calculated | docs/03-design.md#frame |
+| dsn.weld_length_m | 16.6 | m | calculated | docs/03-design.md#frame |
 | dsn.front_motion_ratio | 0.48 |  | calculated | docs/03-design.md#front-suspension |
-| dsn.front_sprung_kg | 42.5 | kg | calculated | docs/03-design.md#front-suspension |
-| dsn.front_wheel_rate_n_mm | 10.5 | N/mm | calculated | docs/03-design.md#front-suspension |
+| dsn.front_sprung_kg | 42.2 | kg | calculated | docs/03-design.md#front-suspension |
+| dsn.front_wheel_rate_n_mm | 10.4 | N/mm | calculated | docs/03-design.md#front-suspension |
 | dsn.front_shock_spring_n_mm | 45 | N/mm | calculated | docs/03-design.md#front-suspension |
-| dsn.front_shock_force_static_n | 867 | N | calculated | docs/03-design.md#front-suspension |
+| dsn.front_shock_force_static_n | 860 | N | calculated | docs/03-design.md#front-suspension |
 | dsn.front_shock_length_static_mm | 271 | mm | calculated | docs/03-design.md#front-suspension |
 | dsn.front_shock_length_droop_mm | 285 | mm | calculated | docs/03-design.md#front-suspension |
 | dsn.front_shock_stroke_used_mm | 38 | mm | calculated | docs/03-design.md#front-suspension |
@@ -844,31 +841,31 @@ These are not decided here. 1.2 compares forms against them.
 | dsn.bump_steer_lock_deg | 1.14 | deg | calculated | docs/03-design.md#front-suspension |
 | dsn.scrub_radius_mm | 69 | mm | calculated | docs/03-design.md#front-suspension |
 | dsn.trail_mm | 16 | mm | calculated | docs/03-design.md#front-suspension |
-| dsn.climb_force_n | 748 | N | calculated | docs/03-design.md#climb |
-| dsn.climb_grip_n | 703 | N | calculated | docs/03-design.md#climb |
+| dsn.climb_force_n | 746 | N | calculated | docs/03-design.md#climb |
+| dsn.climb_grip_n | 702 | N | calculated | docs/03-design.md#climb |
 | dsn.climb_thrust_n | 1343 | N | calculated | docs/03-design.md#climb |
-| dsn.climb_grade_max_pct | 17.5 | % | calculated | docs/03-design.md#climb |
+| dsn.climb_grade_max_pct | 17.6 | % | calculated | docs/03-design.md#climb |
 | dsn.axle_chain_pull_n | 3898 | N | calculated | docs/03-design.md#axle |
 | dsn.axle_stress_mpa | 166 | MPa | calculated | docs/03-design.md#axle |
 | dsn.axle_safety | 2.08 |  | calculated | docs/03-design.md#axle |
 | dsn.bearing_load_n | 679 | N | calculated | docs/03-design.md#axle |
-| dsn.nose_bay_stress_mpa | 59 | MPa | calculated | docs/03-design.md#frame |
-| dsn.rail_stress_mpa | 124 | MPa | calculated | docs/03-design.md#frame |
-| dsn.rail_safety | 2.33 |  | calculated | docs/03-design.md#frame |
+| dsn.nose_bay_stress_mpa | 54 | MPa | calculated | docs/03-design.md#frame |
+| dsn.rail_stress_mpa | 125 | MPa | calculated | docs/03-design.md#frame |
+| dsn.rail_safety | 2.32 |  | calculated | docs/03-design.md#frame |
 | dsn.arm_stress_mpa | 89 | MPa | calculated | docs/03-design.md#suspension |
 | dsn.arm_safety | 3.27 |  | calculated | docs/03-design.md#suspension |
 | dsn.impact_safety | 1.63 |  | calculated | docs/03-design.md#loads |
-| dsn.hoop_crush_safety | 2.51 |  | calculated | docs/03-design.md#loads |
-| dsn.hoop_side_safety | 3.54 |  | calculated | docs/03-design.md#loads |
-| dsn.shock_force_bump_n | 5672 | N | calculated | docs/03-design.md#suspension |
+| dsn.hoop_crush_safety | 2.52 |  | calculated | docs/03-design.md#loads |
+| dsn.hoop_side_safety | 3.53 |  | calculated | docs/03-design.md#loads |
+| dsn.shock_force_bump_n | 5665 | N | calculated | docs/03-design.md#suspension |
 | dsn.frame_deflection_mm | 0.9 | mm | calculated | docs/03-design.md#frame |
 | dsn.fatigue_range_mpa | 36 | MPa | calculated | docs/03-design.md#loads |
 | dsn.fatigue_limit_tube_mpa | 39 | MPa | calculated | docs/03-design.md#loads |
-| dsn.fatigue_g_tube | 1.09 |  | calculated | docs/03-design.md#loads |
+| dsn.fatigue_g_tube | 1.08 |  | calculated | docs/03-design.md#loads |
 | dsn.fatigue_kcycles_tube | 0 |  | calculated | docs/03-design.md#loads |
 | dsn.fatigue_limit_fillet_mpa | 22 | MPa | calculated | docs/03-design.md#loads |
 | dsn.fatigue_g_fillet | 0.61 |  | calculated | docs/03-design.md#loads |
-| dsn.fatigue_kcycles_fillet | 1148 |  | calculated | docs/03-design.md#loads |
+| dsn.fatigue_kcycles_fillet | 1136 |  | calculated | docs/03-design.md#loads |
 | dsn.fatigue_life_ratio | 99.0 |  | calculated | docs/03-design.md#loads |
 | dsn.landing_front_g | 4.6 |  | calculated | docs/03-design.md#loads |
 | dsn.landing_rear_g | 4.6 |  | calculated | docs/03-design.md#loads |
@@ -880,8 +877,8 @@ These are not decided here. 1.2 compares forms against them.
 | dsn.breakover_no_pan_deg | 32.2 | deg | calculated | docs/03-design.md#clearance |
 | dsn.clearance_bump_rear_mm | 116 | mm | calculated | docs/03-design.md#clearance |
 | dsn.brake_decel_needed | 5.79 | m/s2 | calculated | docs/03-design.md#brake |
-| dsn.brake_torque_needed_nm | 330 | N m | calculated | docs/03-design.md#brake |
-| dsn.brake_rear_alone_decel | 3.21 | m/s2 | calculated | docs/03-design.md#brake |
+| dsn.brake_torque_needed_nm | 329 | N m | calculated | docs/03-design.md#brake |
+| dsn.brake_rear_alone_decel | 3.22 | m/s2 | calculated | docs/03-design.md#brake |
 | dsn.brake_clamp_needed_n | 2801 | N | calculated | docs/03-design.md#brake |
 | dsn.brake_front_torque_needed_nm | 102 | N m | calculated | docs/03-design.md#brake |
 | dsn.brake_downhill_decel_rear | 0.12 | m/s2 | calculated | docs/03-design.md#brake |
@@ -892,7 +889,7 @@ These are not decided here. 1.2 compares forms against them.
 | dsn.delica_height_margin_mm | 110 | mm | calculated | docs/03-design.md#transport |
 | dsn.length_m | 1.58 | m | calculated | docs/03-design.md#layout |
 | dsn.delica_length_margin_mm | 30 | mm | calculated | docs/03-design.md#transport |
-| dsn.bom_parts_jpy | 316599 | JPY | calculated | docs/03-design.md#cost |
+| dsn.bom_parts_jpy | 317199 | JPY | calculated | docs/03-design.md#cost |
 | dsn.bom_tools_jpy | 34056 | JPY | calculated | docs/03-design.md#cost |
 | dsn.clashes_summer | 76 |  | calculated | docs/03-design.md#issues |
 | dsn.clashes_winter | 76 |  | calculated | docs/03-design.md#issues |

@@ -68,7 +68,7 @@ RIDER_R = dict(thigh=0.06, shin=0.045, foot=0.04, torso=0.14, arm=0.04)   # radi
 # replaces the front hub; a wheel and its own fender are deliberately still checked (see A15).
 ALLOWANCES = [
     ("A1 tube joint", "frame tubes that share an end (2 mm), or whose end lies inside the other tube (weld joint)"),
-    ("A2 plate on frame", "plates and sheets of parts frame and sled_pan on any frame tube; footrests plates on footrests tubes; sled_pan parts among themselves"),
+    ("A2 plate on frame", "plates and sheets of parts frame and sled_pan resting on a frame tube, sunk into it 3 mm at most (one that cuts through a tube is a clash); footrests plates on footrests tubes; sled_pan parts among themselves"),
     ("A3 bearing", "axle_bearings (pillow blocks) with the axle and with their frame plate"),
     ("A4 on the axle", "axle_shaft with the rear hubs, with the sprockets on it, with the brake disc, and through the hub with the rear wheel"),
     ("A5 hub in wheel", "a hub with the wheel on the same side"),
@@ -85,7 +85,7 @@ ALLOWANCES = [
     ("A16 steering", "handlebar with the stem tube; stem tube with its flange bearings; flange bearings with frame tubes; the pitman arm (items of type arm, part handlebar) with the stem tube and with each other (bolted, welded); tie rods with the pitman arm near their inner end (50 mm) and with the spindle steering arm on their side, and with each other where both start at the same point on the drop arm"),
     ("A22 seat", "the saddle with the frame tubes it rests on (the upper and seat rails)"),
     ("A17 rider", "any rider part with the saddle, or with anything under the saddle's footprint, which the saddle covers; foot and shin with footrests plates and tubes; arms with the handlebar (grips) and the brake levers (fingers rest on them)"),
-    ("A19 joints", "any contact whose two closest points both lie in one design.json joint sphere (pivot sleeves, posts through the tube, welded clusters), between bodies that move together, or where one is a pivot (the swing arm's sleeves, the kingpin); a joint with arm:true turns with the swing arm (K-020: a sphere had hidden the arm's brace meeting a rising tube)"),
+    ("A19 joints", "any contact whose two closest points both lie in one design.json joint sphere (pivot sleeves, posts through the tube, welded clusters), between bodies that move together, or where one is a pivot (the swing arm's sleeves, the kingpin), never for the engine unit, a wheel, the saddle, or a plate; a joint with arm:true turns with the swing arm (K-020: a sphere had hidden the arm's brace meeting a rising tube)"),
     ("A20 axle covers", "guards items of type cyl with the axle_shaft (they are covers round it)"),
     ("A21 kingpin", "a kingpin with every frame tube that has an end within 30 mm of the kingpin axis (beam and brace end at the boss)"),
     ("A18 shock eyes", "a rear shock eye with the one member or item nearest to it (within 30 mm, straight ahead)"),
@@ -94,6 +94,7 @@ ALLOWANCES = [
 MOUNTED = {"lamp", "mirror", "plate_number", "box", "gauge", "lever", "caliper", "guard"}
 # bodies a bolted-on part may be mounted on
 MOUNT_TYPES = {"plate", "sheet", "handlebar", "saddle", "scooter_unit", "cyl"}
+PLATE_SINK = 0.003   # a plate rests on a tube it is fixed to; deeper than this it cuts through it (A2)
 
 
 # ---------------------------------------------------------------- small geometry
@@ -741,7 +742,8 @@ def _allowed_ordered(a, b, ctx):
         return "A18 shock eyes"
     if a.kind == "item" and ctx["mount"].get(a.key()) == b.key():
         return "A11 bolted on"
-    if a.kind == "item" and a.typ in ("plate", "sheet") and a.part in ("frame", "sled_pan") and b.kind == "member":
+    if (a.kind == "item" and a.typ in ("plate", "sheet") and a.part in ("frame", "sled_pan") and b.kind == "member"
+            and ctx.get("gap", 0.0) > -PLATE_SINK):
         return "A2 plate on frame"
     if a.kind == "item" and a.part == "footrests" and a.typ == "plate" and b.kind == "member" and b.part == "footrests":
         return "A10 footboards"
@@ -1062,10 +1064,11 @@ def find(design, configs=("summer", "winter"), limit=0.005, steer_deg=30.0):
                 if res is None:
                     continue
                 ctx["pt"] = {id(x): res[1], id(y): res[2]}
+                ctx["gap"] = res[0]
                 if allowed(x, y, ctx):
                     continue
                 gap, pa, pb = res
-                if ((group(x) == group(y) or pivot(x) or pivot(y))
+                if ((group(x) == group(y) or pivot(x) or pivot(y)) and not (no_joint(x) or no_joint(y))
                         and any(np.linalg.norm(pa - c) <= r and np.linalg.norm(pb - c) <= r for c, r in ctx["joints"])):
                     continue                                   # A19 joints
                 out.append({"config": cfg, "steer_deg": ang, "susp_deg": sus, "front": ({"side": next(iter(fsd)), "deg": next(iter(fsd.values()))} if fsd else None), "a": x.info(), "b": y.info(), "gap": float(gap),
@@ -1083,6 +1086,15 @@ def group(b):
     if b.steer:
         return "stem" if b.steer[0] == "stem" else f"{'l' if b.steer[1] > 0 else 'r'}.knuckle"
     return "frame"
+
+
+NO_JOINT = {"scooter_unit", "wheel", "chains", "chain", "saddle", "plate", "sheet"}
+
+
+def no_joint(b):
+    """A body a joint's sphere never excuses: the engine unit, the wheels, the chain, the saddle, and the plates, which are
+    not welded at the frame's joints and have their own rules (D-044: in a first version the seat rails cut the air box)."""
+    return b.kind == "item" and b.typ in NO_JOINT
 
 
 def pivot(b):

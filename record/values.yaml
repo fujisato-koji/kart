@@ -2008,24 +2008,6 @@ items:
     status: calculated
     basis:
       - docs/03-design.md#winter
-  - key: lay.bow_x_mm
-    v: 1240
-    unit: mm
-    status: calculated
-    basis:
-      - docs/03-design.md#winter
-  - key: lay.bow_rise_mm
-    v: 80
-    unit: mm
-    status: calculated
-    basis:
-      - docs/03-design.md#winter
-  - key: lay.bow_half_beam_mm
-    v: 60
-    unit: mm
-    status: calculated
-    basis:
-      - docs/03-design.md#winter
   - key: lay.float_dia_mm
     v: 300
     unit: mm
@@ -2559,6 +2541,7 @@ items:
     status: calculated
     basis:
       - docs/03-design.md#frame
+      - D-044
   - key: sus.bump_mm
     v: 40
     unit: mm
@@ -3706,25 +3689,25 @@ items:
     basis:
       - docs/03-design.md#frame
   - key: dsn.tube_main_m
-    v: 7.38
+    v: 7.97
     unit: m
     status: calculated
     basis:
       - docs/03-design.md#frame
   - key: dsn.tube_box_m
-    v: 2.92
+    v: 2.18
     unit: m
     status: calculated
     basis:
       - docs/03-design.md#frame
   - key: dsn.tube_cross_m
-    v: 4.56
+    v: 3.83
     unit: m
     status: calculated
     basis:
       - docs/03-design.md#frame
   - key: dsn.tube_roll_m
-    v: 1.63
+    v: 1.66
     unit: m
     status: calculated
     basis:
@@ -3859,7 +3842,7 @@ items:
     basis:
       - docs/03-design.md#fit
   - key: dsn.pan_mass_kg
-    v: 2.0
+    v: 1.6
     unit: kg
     status: calculated
     basis:
@@ -3871,13 +3854,13 @@ items:
     basis:
       - docs/03-design.md#winter
   - key: dsn.mass_kg
-    v: 142.9
+    v: 142.2
     unit: kg
     status: calculated
     basis:
       - docs/03-design.md#mass
   - key: dsn.cg_x_m
-    v: 0.474
+    v: 0.472
     unit: m
     status: calculated
     basis:
@@ -3889,19 +3872,19 @@ items:
     basis:
       - docs/03-design.md#mass
   - key: dsn.cg_z_m
-    v: 0.307
+    v: 0.308
     unit: m
     status: calculated
     basis:
       - docs/03-design.md#mass
   - key: dsn.frame_mass_kg
-    v: 25.9
+    v: 25.5
     unit: kg
     status: calculated
     basis:
       - docs/03-design.md#frame
   - key: dsn.rear_share_adult
-    v: 0.57
+    v: 0.571
     status: calculated
     basis:
       - docs/03-design.md#mass
@@ -3912,7 +3895,7 @@ items:
     basis:
       - docs/03-design.md#mass
   - key: dsn.cg_height_adult_m
-    v: 0.531
+    v: 0.532
     unit: m
     status: calculated
     basis:
@@ -3923,12 +3906,12 @@ items:
     basis:
       - docs/03-design.md#stability
   - key: dsn.pitch_ratio_adult
-    v: 0.88
+    v: 0.87
     status: calculated
     basis:
       - docs/03-design.md#stability
   - key: dsn.rear_share_child
-    v: 0.558
+    v: 0.56
     status: calculated
     basis:
       - docs/03-design.md#mass
@@ -3950,24 +3933,24 @@ items:
     basis:
       - docs/03-design.md#stability
   - key: dsn.pitch_ratio_child
-    v: 1.36
+    v: 1.35
     status: calculated
     basis:
       - docs/03-design.md#stability
   - key: dsn.winter_mass_kg
-    v: 152.9
+    v: 152.2
     unit: kg
     status: calculated
     basis:
       - docs/03-design.md#winter
   - key: dsn.winter_cg_height_m
-    v: 0.515
+    v: 0.516
     unit: m
     status: calculated
     basis:
       - docs/03-design.md#winter
   - key: dsn.winter_rear_share
-    v: 0.563
+    v: 0.565
     status: calculated
     basis:
       - docs/03-design.md#winter
@@ -3977,12 +3960,12 @@ items:
     basis:
       - docs/03-design.md#stability
   - key: dsn.winter_pitch_ratio
-    v: 0.92
+    v: 0.91
     status: calculated
     basis:
       - docs/03-design.md#stability
   - key: dsn.winter_ski_pressure_kpa
-    v: 7.52
+    v: 7.48
     unit: kPa
     status: calculated
     basis:
@@ -4009,13 +3992,13 @@ items:
     basis:
       - docs/03-design.md#suspension
   - key: dsn.rear_sprung_kg
-    v: 111.3
+    v: 111.2
     unit: kg
     status: calculated
     basis:
       - docs/03-design.md#suspension
   - key: dsn.rear_wheel_rate_n_mm
-    v: 27.5
+    v: 27.4
     unit: N/mm
     status: calculated
     basis:
@@ -4033,7 +4016,7 @@ items:
     basis:
       - docs/03-design.md#suspension
   - key: dsn.shock_force_static_n
-    v: 1770
+    v: 1768
     unit: N
     status: calculated
     basis:
@@ -4063,17 +4046,17 @@ items:
     basis:
       - docs/03-design.md#suspension
   - key: dsn.cut_tubes
-    v: 79
+    v: 69
     status: calculated
     basis:
       - docs/03-design.md#frame
   - key: dsn.welded_ends
-    v: 156
+    v: 134
     status: calculated
     basis:
       - docs/03-design.md#frame
   - key: dsn.weld_length_m
-    v: 19.1
+    v: 16.6
     unit: m
     status: calculated
     basis:
@@ -4084,13 +4067,13 @@ items:
     basis:
       - docs/03-design.md#front-suspension
   - key: dsn.front_sprung_kg
-    v: 42.5
+    v: 42.2
     unit: kg
     status: calculated
     basis:
       - docs/03-design.md#front-suspension
   - key: dsn.front_wheel_rate_n_mm
-    v: 10.5
+    v: 10.4
     unit: N/mm
     status: calculated
     basis:
@@ -4102,7 +4085,7 @@ items:
     basis:
       - docs/03-design.md#front-suspension
   - key: dsn.front_shock_force_static_n
-    v: 867
+    v: 860
     unit: N
     status: calculated
     basis:
@@ -4162,13 +4145,13 @@ items:
     basis:
       - docs/03-design.md#front-suspension
   - key: dsn.climb_force_n
-    v: 748
+    v: 746
     unit: N
     status: calculated
     basis:
       - docs/03-design.md#climb
   - key: dsn.climb_grip_n
-    v: 703
+    v: 702
     unit: N
     status: calculated
     basis:
@@ -4180,7 +4163,7 @@ items:
     basis:
       - docs/03-design.md#climb
   - key: dsn.climb_grade_max_pct
-    v: 17.5
+    v: 17.6
     unit: "%"
     status: calculated
     basis:
@@ -4209,19 +4192,19 @@ items:
     basis:
       - docs/03-design.md#axle
   - key: dsn.nose_bay_stress_mpa
-    v: 59
+    v: 54
     unit: MPa
     status: calculated
     basis:
       - docs/03-design.md#frame
   - key: dsn.rail_stress_mpa
-    v: 124
+    v: 125
     unit: MPa
     status: calculated
     basis:
       - docs/03-design.md#frame
   - key: dsn.rail_safety
-    v: 2.33
+    v: 2.32
     status: calculated
     basis:
       - docs/03-design.md#frame
@@ -4242,17 +4225,17 @@ items:
     basis:
       - docs/03-design.md#loads
   - key: dsn.hoop_crush_safety
-    v: 2.51
+    v: 2.52
     status: calculated
     basis:
       - docs/03-design.md#loads
   - key: dsn.hoop_side_safety
-    v: 3.54
+    v: 3.53
     status: calculated
     basis:
       - docs/03-design.md#loads
   - key: dsn.shock_force_bump_n
-    v: 5672
+    v: 5665
     unit: N
     status: calculated
     basis:
@@ -4276,7 +4259,7 @@ items:
     basis:
       - docs/03-design.md#loads
   - key: dsn.fatigue_g_tube
-    v: 1.09
+    v: 1.08
     status: calculated
     basis:
       - docs/03-design.md#loads
@@ -4297,7 +4280,7 @@ items:
     basis:
       - docs/03-design.md#loads
   - key: dsn.fatigue_kcycles_fillet
-    v: 1148
+    v: 1136
     status: calculated
     basis:
       - docs/03-design.md#loads
@@ -4365,13 +4348,13 @@ items:
     basis:
       - docs/03-design.md#brake
   - key: dsn.brake_torque_needed_nm
-    v: 330
+    v: 329
     unit: N m
     status: calculated
     basis:
       - docs/03-design.md#brake
   - key: dsn.brake_rear_alone_decel
-    v: 3.21
+    v: 3.22
     unit: m/s2
     status: calculated
     basis:
@@ -4437,7 +4420,7 @@ items:
     basis:
       - docs/03-design.md#transport
   - key: dsn.bom_parts_jpy
-    v: 316599
+    v: 317199
     unit: JPY
     status: calculated
     basis:
