@@ -251,7 +251,7 @@ KEYS = ("lbj", "ubj", "hub", "wheel", "contact", "lo_f", "lo_r", "up_f", "up_r",
 
 def to_json(g):
     """The hard points for design.json (left side), rounded."""
-    d = {k: [round(float(x), 5) for x in g[k]] for k in KEYS}
+    d = {k: [round(float(x), 5) + 0.0 for x in g[k]] for k in KEYS}
     d.update({k: round(float(g[k]), 5) for k in ("wb", "r", "track", "arm_len", "plate_arm", "tie_y", "z_tie", "shock_x",
                                                 "sh_top_y")})
     return d
@@ -273,7 +273,7 @@ def motion(g, rises, bars):
     turns them), and the knuckle as p -> R (p - c) + c + d, R given by its quaternion (x, y, z, w) -
     with c the lower joint, so that between grid points the turn and the shift can be interpolated
     apart. Indexed [rise][bar]."""
-    r5 = lambda a: [round(float(x), 5) for x in a]
+    r5 = lambda a: [round(float(x), 5) + 0.0 for x in a]          # + 0.0: no -0.0, whose sign the platform decides
     out = {"rise": r5(rises), "bar_deg": [round(math.degrees(b), 3) for b in bars]}
     for L, s in (("l", 1), ("r", -1)):
         c = Corner(g, s)
@@ -282,8 +282,8 @@ def motion(g, rises, bars):
             lo_, up_, kn_ = [], [], []
             for b in bars:
                 pz = c.pose(u, b)
-                lo_.append(round(math.atan2(pz["lower"].R[2, 1], pz["lower"].R[1, 1]), 5))
-                up_.append(round(math.atan2(pz["upper"].R[2, 1], pz["upper"].R[1, 1]), 5))
+                lo_.append(round(math.atan2(pz["lower"].R[2, 1], pz["lower"].R[1, 1]), 5) + 0.0)
+                up_.append(round(math.atan2(pz["upper"].R[2, 1], pz["upper"].R[1, 1]), 5) + 0.0)
                 kn_.append(r5(quat(pz["knuckle"].R)) + r5(pz["knuckle"].d))
             side["lower"].append(lo_)
             side["upper"].append(up_)
