@@ -1016,7 +1016,7 @@ def build(v):
         touches, on the slope where the wheel carries it all, at load.bump_g along gravity there. The
         front is in the air, so every mass is loaded, the wheels and arms too. The wheel rolls and holds
         only square to the ground; the rear tyres hold along it and sideways."""
-        nodes_ = {n for m_ in mem_s for n in (m_["a"], m_["b"])}
+        nodes_ = sorted({n for m_ in mem_s for n in (m_["a"], m_["b"])})   # sorted: a set's order changes from run to run
         Nr = {n: (pitch((p[0], p[2]), th_s)[0], p[1], pitch((p[0], p[2]), th_s)[1]) for n, p in N.items()}
         cx_, cz_ = pitch((xcg_adult, h_adult), th_s)
         beta = math.atan2(cx_ - pitch(hub, th_s)[0], cz_)
