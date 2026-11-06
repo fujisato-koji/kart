@@ -30,6 +30,11 @@ lines:
     qty: 1
     price: cost.axle_shaft_jpy
     need: b3
+  - part: swing_arm
+    item: Wheel 100 x 34 mm, MC nylon with a radial bearing, rated 5.1 kN, for the rear stop (Yodono MCVB100), with an M12 bolt and washers
+    qty: 1
+    price: cost.stop_wheel_jpy
+    need: b3
   - part: axle_bearings
     item: Pillow block UCP207 (FYH), one each side under the swing arm
     qty: 2

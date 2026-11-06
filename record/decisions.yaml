@@ -441,3 +441,18 @@ items:
       - D-030
       - D-041
       - D-044
+  - id: D-047
+    date: 2026-11-06
+    by: owner
+    what: For carrying and handling the kart is made shorter, the front wheels 80 mm back to a wheelbase of 1.00 m and 1.50 m over all, as far as the adult's toes stay on the footboards and clear of the front tyres at full lock. A stop on the swing arm, a strut to a small wheel 75 mm off the ground at the kart's rear end, catches the kart if something pitches it back (1.2.24, 1.3.23). Folding the hoop and handlebar and narrower rear tyres were offered too and stay open.
+    options:
+      - keep the length
+      - the front wheels back, with a stop behind
+      - the hoop and handlebar folding for carrying
+      - narrower rear tyres
+    touches:
+      - R-03
+      - R-14
+      - R-15
+      - D-042
+      - Q-049

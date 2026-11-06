@@ -1625,6 +1625,22 @@ items:
     license: unknown
     read: full
     note: Read by a helper. 4,790 JPY for two, M12 x 1.25, for full-size buggies; elsewhere 3,354 to 5,661 JPY.
+  - id: M107
+    class: M
+    title: Yodono MCVB100 wheel, MC nylon with a radial bearing, ASKUL
+    url: https://www.askul.co.jp/p/AP01535/
+    retrieved: 2026-11-06
+    license: unknown
+    read: full
+    note: Read by a helper. Wheel only, 100 mm across, 34 mm wide, hub 42 mm wide, 12 mm axle, rated 520 kgf (about 5.1 kN); 5,694 JPY with tax (5,177 before tax), sold singly, maker's code 133-6081. Shipped from the maker, not to a private home. Wheels of the same size found with lower ratings - Hammer Caster 423S-UBB100 urethane (not stated, askul.co.jp/p/A737300), Nansin SKC-100GNU caster (1200 N, A081274) - and casters rated higher but wider or dearer - Uchimura 607HB-PA, 100 x 38 mm, 2.55 kN, 8,721 JPY (UK60769); OH Kogyo 34FU-100, 101 x 51 mm, 350 kgf, 3,745 JPY (AW56463).
+  - id: M108
+    class: M
+    title: ORO2U ATV catalogue, section B, page B142, wheelie bars for sport quads
+    url: https://online.flippingbook.com/view/151131465/144/
+    retrieved: 2026-11-06
+    license: unknown
+    read: partial
+    note: Read by a helper. Twin-roller wheelie bars for Kawasaki KFX400, Suzuki LTZ400 and LTR450, and Yamaha Raptor 660 and 700, steel or stainless with nylon rollers 90 mm across, 260 mm wide and 330 mm from the end of the fitting arm to the rollers' centre. Where they mount and how high the rollers stand are not stated.
   - id: F1
     class: F
     title: Motor1, a shifter kart turned into a snowmobile, 2025-02-02
@@ -1873,6 +1889,14 @@ items:
     license: unknown
     read: full
     note: Read by a helper. A vehicle with three or more wheels set symmetrically, its outer contacts on one axle less than 460 mm apart, whose wheels and body lean to turn, takes the two-wheelers' standards; wider, it takes the ordinary ones.
+  - id: P112
+    class: P
+    title: Yamaha NAVIGO wheelchair owner's manual, anti-tip wheels (printed page 94), ManualsLib
+    url: https://www.manualslib.com/manual/3016754/Yamaha-Navigo.html?page=100
+    retrieved: 2026-11-06
+    license: unknown
+    read: partial
+    note: Read by a helper. The anti-tip wheel's centre stands 245 mm or more behind the rear axle's centre and 35 to 50 mm above the ground with the casters and rear wheels on the ground; if less, the dealer is to be asked.
   - id: S14
     class: S
     title: Cenek, Jamieson, McLarin, Frictional characteristics of roadside grass types

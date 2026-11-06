@@ -138,4 +138,7 @@ def solve(nodes, members, loads, supports, hinges=(), links=()):
                         for s in np.linspace(0.0, 1.0, PROFILE_N)])
     link_force = [float(ka * e @ (U[db] - U[da])) for da, db, e, ka in link_axes]
     disp = {n: tuple(U[6 * idx[n]:6 * idx[n] + 3]) for n in names}
+    worst = max(float(np.sqrt(sum(c * c for c in d))) for d in disp.values())
+    if worst > 0.1:                      # held only by the small springs on the diagonal: a mechanism
+        raise ValueError(f"frame.solve: a node moves {worst:.3g} m; the supports leave a mechanism")
     return {"stress": stress, "axial": axial, "link_force": link_force, "disp": disp, "profile": profile}

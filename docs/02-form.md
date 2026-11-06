@@ -499,7 +499,7 @@ The owner asked whether the tubes sloping down from the seat rails toward the fr
 
 **Why the tubes slope now.** Two tubes run down from each seat rail's front end. The upper one joins the seat rail, at about 0.53 m, to the nose box's top rail at lay.nose_top_z_mm. The seat rails sit just over the engine unit, which fills the space under the whole seat. The box's top is where the upper A-arms' pivots (lay.fa_upper_pivot_z_mm), the shocks' tops, and the stem's upper bearing are held. One sloping tube is the fewest joints between the two heights. The steeper one runs down to the spine's front end and makes the spine and the seat rails a truss (D-040); without it the stress range at the box's rear uprights' joints rises from about 20 to 34 MPa (K-021).
 
-**The seat for both riders.** The child's fit is checked as youth ATV guidance has it: standing on the footrests, the crotch clears the seat by rider.child_fit_clear_mm (P69). The 6-year-old's margin is st.child_fit_margin_mm mm without steps, short, and dsn.child_fit_margin_mm mm with the steps of lay.child_foot_raise_mm (D-030). A thicker cushion for the adult does not help the child. A seat lower at the front cannot go lower than the engine unit beneath it either. So the steps stay. A thicker cushion is still open for the adult's comfort, and it does not touch the frame.
+**The seat for both riders.** The child's fit is checked as youth ATV guidance has it: standing on the footrests, the crotch clears the seat by rider.child_fit_clear_mm (P69). The 6-year-old's margin is st.child_fit_margin_mm without steps, short, and dsn.child_fit_margin_mm with the steps of lay.child_foot_raise_mm (D-030). A thicker cushion for the adult does not help the child. A seat lower at the front cannot go lower than the engine unit beneath it either. So the steps stay. A thicker cushion is still open for the adult's comfort, and it does not touch the frame.
 
 **The straight frame.** The only height at which a frame can run straight from the hoop to the bumper is the seat rails', about 0.53 m. Below it is the engine unit; above it the seat would rise. With the box's top raised there, the seat rail, its sloping tube, and the box's top rail line up in height and in plan (both at ±100 mm). Each becomes one tube from the hoop to the bumper's post. The box is then about 9 cm taller, and the upper A-arms' pivots, at about 0.39 m, are 14 cm below its top. Three ways were solved with calc/design.py, the frame otherwise as form A:
 
@@ -539,7 +539,7 @@ The owner noted that three-wheelers run on the roads with less of the record's t
 | Side-by-sides alone, measured | 0.85 to 1.01 | P105 |
 | Cars (NHTSA) | 1.1 to 1.4 | P109 |
 
-**This kart**, with the adult seated upright (calc/design.py): the static ratio is dsn.tip_ratio_adult, the tilt-table ratio with its roll on the front springs and the tyres dsn.tilt_ratio_adult (the rear, a rigid axle on one swing arm, rolls on its tyres alone; the tyres' stiffness is assumed, Q-049), and two wheels lift in a quick turn at about dsn.lift_g_adult g. At full lock that comes at dsn.lift_speed_lock_kmh km/h, and at the top speed in a turn tighter than dsn.lift_radius_top_m m. Standing still it tips on a side slope of about dsn.side_slope_tip_deg degrees.
+**This kart**, with the adult seated upright (calc/design.py): the static ratio is dsn.tip_ratio_adult, the tilt-table ratio with its roll on the front springs and the tyres dsn.tilt_ratio_adult (the rear, a rigid axle on one swing arm, rolls on its tyres alone; the tyres' stiffness is assumed, Q-049), and two wheels lift in a quick turn at about dsn.lift_g_adult g. At full lock that comes at dsn.lift_speed_lock_kmh, and at the top speed in a turn tighter than dsn.lift_radius_top_m. Standing still it tips on a side slope of about dsn.side_slope_tip_deg.
 
 - **Against the ground it runs on**: dry grass grips at 0.21 to 0.38 and wet at 0.17 to 0.24 (S14), packed snow about 0.2 to 0.25, gravel and dirt 0.35 to 0.65, dry asphalt 0.65 on average and up to about 0.9 (S14, P108). So on grass and snow it slides well before it tips, on loose dirt the margin is small, and on dry pavement it can tip before it slides in a sharp turn.
 - **On side slopes** riders feel unsafe from about 15 degrees and a maker's limit is 25 (P105); the kart's 35 degrees standing and the site's steepest 20 % (11 degrees) leave room.
@@ -548,7 +548,7 @@ The owner noted that three-wheelers run on the roads with less of the record's t
 **Criteria.**
 - **C1, the quad standard**: the tilt-table ratio with the heaviest rider at least 0.55 (P106). The kart meets it.
 - **C2, slide first**: at least 0.70, Japan's figure for motor vehicles and the level at which a quad slides rather than rolls (P107, P105). The kart is at it, with no margin.
-- **C3, by the ground it runs on**: on every surface it is meant for, two wheels lift at a higher sideways acceleration than the tyres can give there, with a margin; where they do not - dry pavement - the operating rules keep the turns below the lift, and the hoop of R-19 takes what remains. The kart meets it on grass, snow, and most dirt; on pavement it needs the rule that it takes no full-lock turn above about dsn.lift_speed_lock_kmh km/h and, at its top speed, no turn tighter than about dsn.lift_radius_top_m m.
+- **C3, by the ground it runs on**: on every surface it is meant for, two wheels lift at a higher sideways acceleration than the tyres can give there, with a margin; where they do not - dry pavement - the operating rules keep the turns below the lift, and the hoop of R-19 takes what remains. The kart meets it on grass, snow, and most dirt; on pavement it needs the rule that it takes no full-lock turn above about dsn.lift_speed_lock_kmh and, at its top speed, no turn tighter than about dsn.lift_radius_top_m.
 
 **Forms.**
 - **F1, as now**, under C1 or C3 with the rules.
@@ -556,3 +556,45 @@ The owner noted that three-wheelers run on the roads with less of the record's t
 - **F3, wider.** Sliding first even on dry pavement would need a quick-turn lift near 0.9 g, a tilt-table ratio near 1.0 and a track near 1.15 m: about 1.45 m over all, past the Delica's door (R-14) and the minicar's 1.3 m (P36).
 
 **The assistant proposes C3 with F1.** R-12 is restated: with the heaviest rider seated upright, the kart's tilt-table ratio is at least 0.55, and on grass, dirt, and snow two wheels lift at a higher sideways acceleration than the tyres can give; on paved roads the operating rules hold the turns below that. The rule goes into the operating procedure, and the tyres' stiffness is measured. **The owner decides** (Q-049).
+
+## 1.2.24 Compactness - shorter, with a stop behind {#compact}
+
+The owner wants the kart easy to carry and handle, as compact as it can be, but not an ordinary moped and without giving up much stability, and does not want it to go over backwards. Four ways were offered, each keeping the 0.8 m track and the sideways stability: a stop behind the rear wheels; a hoop and handlebar that fold down for carrying, from 1.02 m high to about 0.86 m; narrower rear tyres, from 1.10 m wide to about 1.04 m; and the front wheels brought back. The owner would bring the front back if the kart can be kept from going over backwards, so the front comes back with a stop behind (D-047). The folding hoop and the narrower tyres stay open.
+
+**Fore and aft.**
+- With the adult the front lifts when the centre of mass comes over the rear tyres' contact: standing nose up, on a slope of dsn.lift_pitch_deg. The static ratio dsn.pitch_ratio_adult meets the Australian quad standard's law.quad_pitch_ratio_min fore and aft (P66).
+- Under power the front lifts only if the drive force reaches that ratio times the weight on the ground, on any slope, and the force is no more than the rear tyres' grip, nor than the engine's dsn.climb_thrust_n, about 0.6 of the weight with the adult. Grass, dirt, and snow grip far less than the ratio (1.2.23), and on dry pavement the engine falls short, so the kart cannot lift its front under power on a slope where it would not lift standing - by a small margin near that slope, for the drive's losses and the tyres' squash are uncertain.
+- What remains is a pitch from outside: a front wheel climbing a step or a log, a short steep bank taken with speed, a drop landed on the rear wheels, a load on the rear, or rolling backwards down a slope and braking hard on dry pavement, where the grip reaches the ratio. A stop behind catches these. Wheelchairs carry anti-tip wheels for the same reason, on one 245 mm or more behind the axle and 35 to 50 mm off the ground (P112); sport quads take wheelie bars with rollers 90 mm across (M108).
+
+**Shorter.** The front wheels came 80 mm back, to a wheelbase of lay.wheelbase_mm.
+- The adult's feet set the limit: the toes stay on the footboards and clear of the front tyres at full lock. The footboards end 80 mm sooner, and the adult's heel comes 88 mm back, nearer under the hip, so the knees bend a little more; the child's heel comes 80 mm back too, to just behind the hip. That is to be tried (R-03); the child's clearance standing over the seat is unchanged. Another 30 mm or so would bring the adult's heel to where the code keeps it from the footboards' rear end; beyond that the seat and the rider would have to move back, at a cost to the fore-and-aft margin.
+- The rider, the engine, and the rear wheels stay where they were, so the fore-and-aft margin hardly changes; the front's parts coming back move the centre of mass a little back.
+
+| | Wheelbase 1.08 m | Now |
+|---|---|---|
+| Length over all | 1.58 m | dsn.length_m |
+| Room left in the Delica's length | 30 mm | dsn.delica_length_margin_mm |
+| Turning radius | 2.27 m | dsn.turn_radius_m |
+| Frame mass | 25.5 kg | dsn.frame_mass_kg |
+| Rear wheels' share with the adult | 0.571 | dsn.rear_share_adult |
+| Steepest grass slope climbed | 17.6 % | dsn.climb_grade_max_pct |
+| Downhill on the grass slope, the rear brake alone | 0.12 m/s2 | dsn.brake_downhill_decel_rear |
+| Fore-and-aft ratio with the adult | 0.87 | dsn.pitch_ratio_adult |
+| Breakover angle | 31.0 degrees | dsn.breakover_deg |
+| Steering stem's lean back | 23.4 degrees | dsn.stem_rake_deg |
+| Speed at full lock where two wheels lift | 13.8 km/h | dsn.lift_speed_lock_kmh |
+
+- The front now carries a larger share. The grass slope the rear tyres climb falls by about a point, and D-021 lets the slope follow what the kart can do. The rear brake alone now only just holds the kart going down the grass slope; with the front brakes, as before, it stops (1.3.5).
+- The stem stands more upright, so the nose box's top cross tube comes forward of the shocks' tops to clear the stem's upper bearing (1.3.2).
+
+**The stop** (1.3.23). A strut from the middle of the swing arm's rear cross tube runs down and back to a small wheel between two plates. The wheel's rear edge is at the kart's rear end, inside its length, and its bottom stands lay.stop_ground_mm off the ground at rest.
+- On the arm it rises as the frame comes down. As the arm moves with the axle on the ground, the bottom stands dsn.stop_ground_droop_mm at full droop and dsn.stop_ground_bump_mm at full bump. On the frame it would come down by sus.bump_mm or more in a full bump, so it would have to stand higher and touch later.
+- A wheel rather than a skid, so that it rolls when it touches, on a loading ramp or on pavement.
+- Pitched back, the tyres on the ground, the arm comes down on the wheel when it has turned dsn.stop_touch_deg. The frame, the rear shock bottomed by all the weight on the rear, has then turned dsn.stop_touch_frame_deg.
+- Caught there with the adult, the kart falls back onto its front wheels by itself on slopes up to dsn.stop_return_deg. On steeper slopes it stays sitting on the stop, and it goes over backwards beyond dsn.stop_slope_deg. It climbs grass at about 10 degrees at most (the slope above), and the site's steepest is 11.
+- What it costs:
+    - The kart's lowest point is now the stop's wheel, behind the rear axle; under the frame it still stands dsn.clearance_mm.
+    - With the tyres squashed as at rest, the kart leaves a ramp steeper than dsn.stop_departure_deg on the wheel.
+    - A stone in the middle that the frame clears can still meet it, and in deep snow it ploughs the pan's track.
+    - It weighs about 1.6 kg.
+    - The wheel, rated for twice the load it carries sitting on the stop at the steepest slope, is sold to business addresses (M107).

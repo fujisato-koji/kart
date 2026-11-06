@@ -626,7 +626,7 @@ items:
     phase: design
   - id: Q-049
     kind: question
-    text: The owner asked for a criterion of whether the kart actually tips in use. R-12 as written, half the track over the centre's height at least kart.tip_ratio_min, is not met and was an early assumption. 1.2.23 offers criteria - the quad standard's tilt-table ratio of 0.55, which the kart meets; 0.70, slide first, which it just reaches; or, by the ground it runs on, two wheels lifting above the tyres' grip on grass, dirt, and snow, with operating rules for turns on pavement - and forms - as now, leaning as a whole, or wider; the assistant proposes the last criterion with the kart as it is. The owner chooses. The tyres' vertical stiffness (tyre.vertical_n_mm) is assumed until measured.
+    text: The owner asked for a criterion of whether the kart actually tips in use. R-12 as written, half the track over the centre's height at least kart.tip_ratio_min, is not met and was an early assumption. 1.2.23 offers criteria - the quad standard's tilt-table ratio of 0.55, which the kart meets; 0.70, slide first, which it just reaches; or, by the ground it runs on, two wheels lifting above the tyres' grip on grass, dirt, and snow, with operating rules for turns on pavement - and forms - as now, leaning as a whole, or wider; the assistant proposes the last criterion with the kart as it is. The owner chooses. The tyres' vertical stiffness (tyre.vertical_n_mm) is assumed until measured. Fore and aft the kart meets the quad standard's 0.8 and cannot lift its front under power, and since D-047 a stop on the swing arm catches it if something else pitches it back (1.2.24); a fore-and-aft criterion can be set with the sideways one.
     waits_for: owner
     affects:
       - frame

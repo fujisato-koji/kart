@@ -222,8 +222,12 @@ def build(v):
     z_lb = zc + rail_od / 2 + 0.016                     # the lower flange bearing's centre, on its cross tube
     x_sb0, x_sb1 = stem_x(z_lb), stem_x(z_top)
     x_sh = fg["shock_x"]
+    # the top cross tube stands where the stem's upper flange bearing, bolted to its back, just clears it:
+    # with the shorter wheelbase the stem stands upright and the tube comes ahead of the shocks' tops,
+    # which hang on lugs behind it (D-047)
+    x_ts = max(x_sh, x_sb1 + rail_od / 2 + 0.0125 + 0.0235)
     stations.append(x_nr)                               # the spine runs straight on to the box's rear cross tube
-    put("dsn.stem_top_tube_gap_mm", round((x_sh - x_sb1 - rail_od / 2 - 0.0125) * 1000), "mm", "frame")
+    put("dsn.stem_top_tube_gap_mm", round((x_ts - x_sb1 - rail_od / 2 - 0.0125) * 1000), "mm", "frame")
 
     for i, x in enumerate(stations):
         for s, c in ((1, "l"), (-1, "r")):
@@ -234,7 +238,7 @@ def build(v):
         # the nose box: lower rails n, top rails t; 0 rear, 1 the lower bearing's tube, 2 front
         N[f"n0{c}"], N[f"n1{c}"], N[f"n2{c}"] = (x_nr, s * y_lr, zc), (x_sb0, s * y_lr, zc), (x_nf, s * y_lr, zc)
         N[f"t0{c}"] = (x_nr, s * y_ur, z_top)
-        N[f"ts{c}"], N[f"t2{c}"] = (x_sh, s * y_ur, z_top), (x_nf, s * y_ur, z_top)
+        N[f"ts{c}"], N[f"t2{c}"] = (x_ts, s * y_ur, z_top), (x_nf, s * y_ur, z_top)
         N[f"n3{c}"], N[f"t3{c}"] = (x_pf, s * y_lr, zc), (x_pf, s * y_ur, z_top)
         N[f"bp{c}"] = (x_nf, s * (y_lr + (y_ur - y_lr) * (z_bp - zc) / (z_top - zc)), z_bp)   # on the front post
         N[f"be{c}"] = (x_nf, s * mm("lay.bumper_half_mm"), z_bp)   # the bar's end, out as far as the old bumper's (K-019)
@@ -256,7 +260,7 @@ def build(v):
                                        "lfm", "lrm", "ti")}
     N["n0c"], N["n1c"], N["n2c"] = (x_nr, 0.0, zc), (x_sb0, 0.0, zc), (x_nf, 0.0, zc)
     N["bpc"] = (x_nf, 0.0, z_bp)
-    N["tsc"] = (x_sh, 0.0, z_top)
+    N["tsc"] = (x_ts, 0.0, z_top)
     N["sb0"], N["sb1"] = (x_sb0, 0.0, z_lb), (x_sb1, 0.0, z_top)   # the stem's flange bearings
     N["stf"] = tuple(float(x) for x in sf_)             # the plate's root on the stem
     N["pcb"] = (float(x_tip), 0.0, z_tie)               # the plate's cross bar
@@ -367,9 +371,26 @@ def build(v):
     N["abc"] = (x_brace, 0.0, z_arm)
     tube("abl", "abc", arm_od, arm_t, "swing_arm", arm=True)
     tube("abc", "abr", arm_od, arm_t, "swing_arm", arm=True)
-    tube("ael", "aer", rail_od, rail_t, "swing_arm", arm=True)
+    N["aec"] = (x_end, 0.0, z_arm)
+    tube("ael", "aec", rail_od, rail_t, "swing_arm", arm=True)
+    tube("aec", "aer", rail_od, rail_t, "swing_arm", arm=True)
     for c in "lr":
         item("swing_arm", "cyl", pos=list(N[f"ps{c}"]), axis="y", d=0.042, l=0.03, arm=True)   # sleeves
+    # the rear stop (D-047): a strut from the cross tube's middle down and back to a small wheel held
+    # between two plates welded to the strut's sides, the wheel's rear edge at the kart's rear end and
+    # its bottom lay.stop_ground_mm off the ground; on the arm, as wheelie bars on quads are, it keeps
+    # that height as the arm moves
+    d_sw, w_sw = mm("lay.stop_wheel_d_mm"), mm("lay.stop_wheel_w_mm")
+    N["aew"] = (xb + d_sw / 2, 0.0, mm("lay.stop_ground_mm") + d_sw / 2)
+    u_sw = [(q - p) / math.dist(N["aec"], N["aew"]) for p, q in zip(N["aec"], N["aew"])]
+    N["aes"] = tuple(q - (d_sw / 2 + 0.03) * u for q, u in zip(N["aew"], u_sw))    # the strut's end, above the wheel
+    tube("aec", "aes", rail_od, rail_t, "swing_arm", arm=True)
+    item("swing_arm", "cyl", pos=list(N["aew"]), axis="y", d=d_sw, l=w_sw, arm=True)
+    t_fk = 0.006
+    fk_x, fk_z = abs(N["aes"][0] - N["aew"][0]) + 0.04, N["aes"][2] + 0.03 - N["aew"][2] + 0.02
+    for s in (1, -1):
+        item("frame", "plate", pos=[(N["aew"][0] + N["aes"][0]) / 2, s * (rail_od / 2 - 0.002 + t_fk / 2), (N["aew"][2] - 0.02 + N["aes"][2] + 0.03) / 2],
+             size=[fk_x, t_fk, fk_z], arm=True)
 
     rho = v["dsn.steel_density_kg_m3"]
     tube_mass = lambda od_, t_, L: rho * math.pi * (od_ * od_ - (od_ - 2 * t_) ** 2) / 4 * L
@@ -404,6 +425,7 @@ def build(v):
     mass("roll_bar", m_roll, ((x_uf + xh_) / 2, 0.0, (z_u + zt) / 2))
     mass("footrests", m_foot, (xm, 0.0, zfoot))
     mass("swing_arm", m_arm, (x_p / 2 - 0.02, 0.0, (z_p + z_arm) / 2))
+    mass("swing_arm", v["dsn.stop_wheel_mass_kg"] + 2 * rho * t_fk * fk_x * fk_z, N["aew"])    # the stop's wheel and plates
     m_farm = sum(tube_mass(od_, t_, math.dist(N[a], N[b])) for a, b, od_, t_, part, _ in tubes if part == "front_arms")
     mass("front_arms", m_farm, (wb, 0.0, (fg["lbj"][2] + fg["ubj"][2]) / 2))
     mass("front_shocks", 3.0, (x_sh, 0.0, (fg["sh_lo"][2] + fg["sh_top"][2]) / 2))
@@ -586,7 +608,7 @@ def build(v):
             ("child", v["rider.stature_min_cm"] / 100, v["rider.mass_child_kg"], v["rider.cg_above_seat_child_m"],
              mm("lay.child_hip_x_mm"), zfoot + raise_c)):
         hip = (xh, 0.0, zs + 0.03)
-        heel_x = min(max(xh + 0.12 * stat / 1.7, xf0 + 0.04), xf1 - 0.04)
+        heel_x = min(max(xh + 0.12 * stat / 1.7, xf0 + 0.04), xf1 - 0.01 - 0.152 * stat)   # the toes on the board (the foot 0.152 of the stature)
         foot_y = (yf0 + yf1) / 2
         hand = (xbar - 0.02, wbar / 2 - 0.06, zbar)
         riders[who] = {"stature": stat, "mass": mkey, "hip": rnd(hip), "heel": rnd((heel_x, foot_y, zfoot_r + 0.02)),
@@ -627,7 +649,7 @@ def build(v):
     # It is flat to its front edge under the nose box's rear lower cross tube, the edge bevelled: a bow
     # cannot rise anywhere ahead of it, for tubes stand right over the pan - the spine rails back to that
     # cross tube, the box's lower rails and the A-arms' pivots in front of it (1.3.12).
-    x0, x1 = mm("lay.pan_x0_mm"), mm("lay.pan_x1_mm")
+    x0, x1 = mm("lay.pan_x0_mm"), x_nr + rail_od / 2                  # to under the nose box's rear lower cross tube
     yo = mm("lay.pan_half_beam_mm")
     item("sled_pan", "plate", pos=[(x0 + x1) / 2, 0.0, zp + tb / 2], size=[x1 - x0, 2 * yo, tb])
     m_pan = (x1 - x0) * 2 * yo * tb * v["hull.sheet_density_kg_m3"]
@@ -722,6 +744,38 @@ def build(v):
 
     k_wheel = (2 * math.pi * v["sus.freq_hz"]) ** 2 * m_sprung_r
     th_b, th_d = angle_for(mm("sus.bump_mm")), angle_for(-mm("sus.droop_mm"))
+
+    # The rear stop (D-047). Pitched back about the axle, the tyres staying on the ground, the arm comes
+    # down on the stop's wheel when it has turned dsn.stop_touch_deg, as drawn with the tyres round; the
+    # frame, the rear shock bottomed by all the weight on the rear, has then turned dsn.stop_touch_frame_deg.
+    # With the tyres squashed as at rest (tyre.vertical_n_mm) the axle and the stop stand lower, and the
+    # steepest ramp the kart leaves without the wheel touching is dsn.stop_departure_deg. Caught on the
+    # wheel on a slope with the adult, the shock bottomed and all but the arm and what it carries turned
+    # with the frame, the kart falls back onto its front wheels by itself while its centre of mass is ahead
+    # of the rear tyres' contact, up to dsn.stop_return_deg; beyond that it sits on the stop, and it goes
+    # over backwards once the centre passes the wheel's contact, at dsn.stop_slope_deg. As the arm moves,
+    # the axle on the ground, the wheel's bottom stands dsn.stop_ground_droop_mm at full droop and
+    # dsn.stop_ground_bump_mm at full bump.
+    def pitch(p, th, ra=r):               # (x, z) turned nose up about the axle, standing ra high
+        px, pz = p[0], p[1] - r
+        return (px * math.cos(th) - pz * math.sin(th), ra + px * math.sin(th) + pz * math.cos(th))
+    hub = (N["aew"][0], N["aew"][2])
+    touch = lambda ra: next(i / 10000 for i in range(1, 15000) if pitch(hub, i / 10000, ra)[1] - d_sw / 2 <= 0)
+    th_s = touch(r)
+    r_rest = r - m_adult * G * rear_adult / 2 / (v["tyre.vertical_n_mm"] * 1000)
+    put("dsn.stop_departure_deg", round(math.degrees(touch(r_rest)), 1), "deg", "stability")
+    on_arm = unsprung_rear | {"swing_arm"}
+    m_u = sum(m for pt, m, _ in masses if pt in on_arm)
+    c_u = (sum(m * p_[0] for pt, m, p_ in masses if pt in on_arm) / m_u, sum(m * p_[2] for pt, m, p_ in masses if pt in on_arm) / m_u)
+    c_f = turn_xz(((m_adult * xcg_adult - m_u * c_u[0]) / (m_adult - m_u), (m_adult * h_adult - m_u * c_u[1]) / (m_adult - m_u)), -th_b)
+    cg_s = pitch(tuple(((m_adult - m_u) * f_ + m_u * u_) / m_adult for f_, u_ in zip(c_f, c_u)), th_s)
+    put("dsn.stop_touch_deg", round(math.degrees(th_s), 1), "deg", "stability")
+    put("dsn.stop_touch_frame_deg", round(math.degrees(th_s + th_b), 1), "deg", "stability")
+    put("dsn.stop_return_deg", round(math.degrees(math.atan2(cg_s[0], cg_s[1])), 1), "deg", "stability")
+    put("dsn.stop_slope_deg", round(math.degrees(math.atan2(cg_s[0] - pitch(hub, th_s)[0], cg_s[1])), 1), "deg", "stability")
+    put("dsn.stop_ground_bump_mm", round((pitch(hub, -th_b)[1] - d_sw / 2) * 1000), "mm", "stability")
+    put("dsn.stop_ground_droop_mm", round((pitch(hub, -th_d)[1] - d_sw / 2) * 1000), "mm", "stability")
+    put("dsn.lift_pitch_deg", round(math.degrees(math.atan(xcg_adult / h_adult)), 1), "deg", "stability")
     used = shock_len(th_d) - shock_len(th_b)
     put("dsn.motion_ratio", round(mr, 2), None, "suspension")
     for key_, u_ in (("dsn.motion_ratio_droop", -mm("sus.droop_mm")), ("dsn.motion_ratio_bump", mm("sus.bump_mm"))):
@@ -922,6 +976,7 @@ def build(v):
         hinges += [(f"{q}{c}", f"a{q}{c}", "x") for q in ("lpf", "lpr", "upf", "upr")]
         hinges += [(f"lj{c}", f"ljk{c}", "xyz"), (f"uj{c}", f"ujk{c}", "xyz")]             # ball joints
     pin = dict(hinges=hinges, links=[("sl_eye", "su_eye"), ("fel", "stel"), ("fer", "ster"), ("til", "tpl"), ("tir", "tpr")])
+    mem_s = mem + [stiff("aes", "aew")]                                 # the stop's plates, for its own case
 
     def spread(loads, f, pos, cands, n=4):
         near = sorted(cands, key=lambda q: math.dist(N[q], pos))[:n]
@@ -956,6 +1011,26 @@ def build(v):
             sup = {"cwl": "z", "cwr": "yz", "axl": "z", "axr": "yz", "ber": "x"}
         return frame.solve(N, mem, loads, sup, **pin)
 
+    def caught():
+        """Caught on the rear stop (1.3.23): the kart turned nose up about the axle till the stop's wheel
+        touches, on the slope where the wheel carries it all, at load.bump_g along gravity there. The
+        front is in the air, so every mass is loaded, the wheels and arms too. The wheel rolls and holds
+        only square to the ground; the rear tyres hold along it and sideways."""
+        nodes_ = {n for m_ in mem_s for n in (m_["a"], m_["b"])}
+        Nr = {n: (pitch((p[0], p[2]), th_s)[0], p[1], pitch((p[0], p[2]), th_s)[1]) for n, p in N.items()}
+        cx_, cz_ = pitch((xcg_adult, h_adult), th_s)
+        beta = math.atan2(cx_ - pitch(hub, th_s)[0], cz_)
+        gv = (-k * math.sin(beta), 0.0, -k * math.cos(beta))
+        loads = {}
+        for pt, m, p_ in masses:
+            spread(loads, tuple(m * G * c for c in gv), p_, nodes_)
+        f_r = tuple(v["rider.mass_max_kg"] * G * c for c in gv)
+        spread(loads, tuple(0.8 * c for c in f_r), (x_adult, 0.0, z_u), seat)
+        for q in ("fml", "fmr"):
+            old = loads.get(q, (0.0, 0.0, 0.0))
+            loads[q] = tuple(o + 0.2 * c / 2 for o, c in zip(old, f_r))
+        return frame.solve(Nr, mem_s, loads, {"aew": "z", "axl": "xyz", "axr": "xz"}, **pin)
+
     def hoop(f):                         # the kart upside down or on its side, held at its spine
         loads = {"hpl": tuple(c / 2 for c in f), "hpr": tuple(c / 2 for c in f)}
         return frame.solve(N, mem, loads, {q: "xyz" for q in rails}, **pin)
@@ -969,6 +1044,7 @@ def build(v):
     accident = {"frontal impact": case(1.0, gx=v["load.impact_g"], impact="both"),
                 "frontal impact, left end": case(1.0, gx=v["load.impact_g"], impact="l"),
                 "frontal impact, right end": case(1.0, gx=v["load.impact_g"], impact="r"),
+                "caught on the rear stop": caught(),
                 "hoop crushed from above": hoop((0.0, 0.0, -v["load.hoop_crush_n_per_kg"] * M)),
                 "hoop pushed sideways": hoop((0.0, -v["load.hoop_side_g"] * M * G, 0.0))}
 
@@ -982,6 +1058,7 @@ def build(v):
         return w
 
     worst, worst_acc = worst_of(drive), worst_of(accident)
+    put("dsn.stop_case_stress_mpa", round(max(accident["caught on the rear stop"]["stress"][:len(tubes)])), "MPa", "frame")
     # the stress along every tube in every case, for the 3D view's stress map; each case with the
     # stress it is checked against (the tensile strength over its least safety factor)
     ts_ = v["dsn.stkm11a_tensile_mpa"]
@@ -1105,7 +1182,7 @@ def build(v):
 
     joints = [{"at": rnd(N[q]), "r": 0.07} for q in ("pfl", "pfr", "psl", "psr")]
     joints += [{"at": rnd(N[q]), "r": 0.05} for q in ("rl0", "rr0", "rxl", "rxr", "ufl", "ufr", "hkl", "hkr", "hkc", "su_eye", "hpl", "hpr")]
-    joints += [{"at": rnd(N[q]), "r": 0.05, "arm": True} for q in ("abl", "abr", "abc", "sl_eye", "axl", "axr", "ael", "aer")]
+    joints += [{"at": rnd(N[q]), "r": 0.05, "arm": True} for q in ("abl", "abr", "abc", "sl_eye", "axl", "axr", "ael", "aer", "aec")]
     joints += [{"at": rnd(N[q]), "r": 0.05} for q in ("sml", "smr", "sfl", "sfr", "bpl", "bpr", "bpc", "bel", "ber",
                                                      f"rl{last}", f"rr{last}", "n0c", "n1c", "n2c", "tsc")]
     joints += [{"at": rnd(N[q + c]), "r": 0.05} for c in "lr" for q in ("n0", "n1", "n2", "n3", "t0", "ts", "t2", "t3")]
