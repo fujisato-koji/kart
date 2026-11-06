@@ -4249,6 +4249,15 @@
    ]
   },
   {
+   "key": "tyre.vertical_n_mm",
+   "v": 50,
+   "unit": "N/mm",
+   "status": "assumed",
+   "basis": [
+    "Q-049"
+   ]
+  },
+  {
    "key": "lay.post_y_mm",
    "v": 75,
    "unit": "mm",
@@ -6575,6 +6584,49 @@
    "status": "calculated",
    "basis": [
     "docs/03-design.md#front-suspension"
+   ]
+  },
+  {
+   "key": "dsn.tilt_ratio_adult",
+   "v": 0.7,
+   "status": "calculated",
+   "basis": [
+    "docs/03-design.md#stability"
+   ]
+  },
+  {
+   "key": "dsn.lift_g_adult",
+   "v": 0.6,
+   "status": "calculated",
+   "basis": [
+    "docs/03-design.md#stability"
+   ]
+  },
+  {
+   "key": "dsn.lift_speed_lock_kmh",
+   "v": 13.8,
+   "unit": "km/h",
+   "status": "calculated",
+   "basis": [
+    "docs/03-design.md#stability"
+   ]
+  },
+  {
+   "key": "dsn.lift_radius_top_m",
+   "v": 11.1,
+   "unit": "m",
+   "status": "calculated",
+   "basis": [
+    "docs/03-design.md#stability"
+   ]
+  },
+  {
+   "key": "dsn.side_slope_tip_deg",
+   "v": 35.0,
+   "unit": "deg",
+   "status": "calculated",
+   "basis": [
+    "docs/03-design.md#stability"
    ]
   },
   {
@@ -9409,6 +9461,106 @@
    "license": "不明",
    "read": "partial",
    "note": "確かめ役が読んだ。Ainohot の SAGA life（確認番号 0181、歩道モードあり）が載っている。報道（carview、二次資料）は四輪のモビリティと伝えている。"
+  },
+  {
+   "id": "P105",
+   "class": "P",
+   "title": "ACCC, Quad bike safety - final recommendation to the Minister, February 2019",
+   "url": "https://consultation.accc.gov.au/product-safety/quad-bike-safety-standard-exposure-draft/supporting_documents/Quad%20bike%20safety%20%20Final%20Recommendation%20to%20the%20Minister.pdf",
+   "retrieved": "2026-11-06",
+   "license": "CC BY 3.0 AU",
+   "read": "partial",
+   "note": "確かめ役が 72〜84 ページを読んだ。横の傾斜台の比 0.55 は UNSW の試験から実際的に選んだもの（8 台中 5 台が合格）。四輪バギー単体で 0.72〜1.10、重い乗り手を載せて 0.46〜0.78。定常円旋回と J ターンでは、傾斜台の比より約 0.1 G 低い所で 2 輪が浮く。乗り手の体重移動で浮く横 G は 1〜14 % 上がるが、積極的な乗り方は安全の頼りにならないと判断された。Troutbeck は、約 0.7 を超えると準静的には転がらず滑るが、つまずけばなお転がり得るとした。2011〜2018 年のオーストラリアの四輪バギーの死亡の約 60 % に転倒が関わる。"
+  },
+  {
+   "id": "P106",
+   "class": "P",
+   "title": "Consumer Goods (Quad Bikes) Safety Standard 2019 (F2019L01321), section 16",
+   "url": "https://www.legislation.gov.au/F2019L01321/asmade/2019-10-10/text/original/pdf",
+   "retrieved": "2026-11-06",
+   "license": "不明",
+   "read": "partial",
+   "note": "確かめ役が第 16 節と附則 1 を読んだ。一般用の四輪バギーを、50 パーセンタイルの男性のダミーを座らせて傾斜台に載せ、横 0.55 以上、前後 0.8 以上。傾斜台の比は静的安定係数に近いが、車体の傾き、懸架、タイヤの変形のぶん低い。"
+  },
+  {
+   "id": "P107",
+   "class": "P",
+   "title": "MLIT detailed technical notice (細目告示), article 8, maximum stable tilt angle",
+   "url": "https://www.mlit.go.jp/jidosha/content/S008.pdf",
+   "retrieved": "2026-11-06",
+   "license": "不明",
+   "read": "full",
+   "note": "確かめ役が読んだ。自動車は空車で外側の接地点を結ぶ線のまわりに傾け、35°、20 km/h 未満などは 30°、側車付二輪は 25°。二輪は除く。保安基準の原付の章には安定性の条がない。"
+  },
+  {
+   "id": "P108",
+   "class": "P",
+   "title": "Transportation Research Board, Special Report 265, An assessment of the National Highway Traffic Safety Administration's rating system for rollover resistance (2002), chapter 2",
+   "url": "https://nap.nationalacademies.org/read/10308/chapter/4",
+   "retrieved": "2026-11-06",
+   "license": "不明",
+   "read": "partial",
+   "note": "確かめ役が読んだ。実際の車両は、静的安定係数より約 15 % 低い定常の横加速度で転がる。乾いた舗装の摩擦係数の最大は約 0.9。"
+  },
+  {
+   "id": "P109",
+   "class": "P",
+   "title": "NHTSA, DOT HS 809 868, June 2005",
+   "url": "https://crashstats.nhtsa.dot.gov/Api/Public/ViewPublication/809868",
+   "retrieved": "2026-11-06",
+   "license": "パブリックドメイン",
+   "read": "partial",
+   "note": "確かめ役が読んだ。2003 年型の販売台数で重みを付けた静的安定係数 - 乗用車 1.41、SUV 1.17、ピックアップ 1.18、ミニバン 1.24、バン 1.12。"
+  },
+  {
+   "id": "P110",
+   "class": "P",
+   "title": "CPSC, recreational off-highway vehicles, termination of rulemaking, 22 November 2016",
+   "url": "https://www.cpsc.gov/s3fs-public/RecreationalOffHighwayVehiclesTerminationofRulemaking.pdf",
+   "retrieved": "2026-11-06",
+   "license": "パブリックドメイン",
+   "read": "partial",
+   "note": "確かめ役が 8〜10 ページを読んだ。ANSI/ROHVA 1-2016 は、2 人乗せて 33°（0.65）以上、満載で 24° 以上の傾斜を求める。2014・2015 年型のサイドバイサイドは 36.0〜40.7° で倒れた。"
+  },
+  {
+   "id": "P111",
+   "class": "P",
+   "title": "MLIT detailed technical notice (細目告示), article 2-2, tilting vehicles of three or more wheels",
+   "url": "https://www.mlit.go.jp/jidosha/content/S002-2.pdf",
+   "retrieved": "2026-11-06",
+   "license": "不明",
+   "read": "full",
+   "note": "確かめ役が読んだ。三輪以上で左右対称に車輪を配置し、同じ軸の外側の接地点の間隔が 460 mm 未満で、車輪と車体を傾けて旋回するものは、二輪の基準による。それより広ければ通常の基準による。"
+  },
+  {
+   "id": "S14",
+   "class": "S",
+   "title": "Cenek, Jamieson, McLarin, Frictional characteristics of roadside grass types",
+   "url": "https://saferroadsconference.com/wp-content/uploads/2016/05/Peter-Cenek-Frictional-Characteristics-Roadside-Grass-Types.pdf",
+   "retrieved": "2026-11-06",
+   "license": "不明",
+   "read": "full",
+   "note": "確かめ役が読んだ。草の摩擦係数は乾いて 0.21〜0.38、濡れて 0.17〜0.24。Noon（1994）を引いて、乗用車のタイヤを固定して - 砂利と土の道 0.35、緩い湿った土 0.60〜0.65、乾いたアスファルト 0.65、雪 0.20〜0.25、濡れた草 0.20。"
+  },
+  {
+   "id": "S15",
+   "class": "S",
+   "title": "Wikipedia, Qooder",
+   "url": "https://en.wikipedia.org/wiki/Qooder",
+   "retrieved": "2026-11-06",
+   "license": "CC BY-SA 4.0",
+   "read": "partial",
+   "note": "確かめ役が読んだ。四輪とも傾くスクーター。油空圧の仕組みで 4 輪を結び、いっしょに傾ける。止まると傾きを固定する（2020 年から）。後ろの 2 輪はデフを通して駆動する。"
+  },
+  {
+   "id": "S16",
+   "class": "S",
+   "title": "New Atlas, Swincar tandem mobility, 21 February 2022",
+   "url": "https://newatlas.com/automotive/swincar-tandem-mobility/",
+   "retrieved": "2026-11-06",
+   "license": "不明",
+   "read": "partial",
+   "note": "確かめ役が読んだ。4 本の独立したアームが受動の振り子で車体を旋回の内側へ傾け、50 % を超える斜面でも車体を水平に保つ。各輪にハブモーター、30 km/h。"
   }
  ],
  "decisions": [
@@ -10778,6 +10930,20 @@
     "sled_pan"
    ],
    "opened": "2026-11-05",
+   "raised_by": "owner",
+   "phase": "design"
+  },
+  {
+   "id": "Q-049",
+   "kind": "question",
+   "text": "施主は、カートが実際に倒れるかどうかで判断する基準を求めた。書かれたとおりの R-12（輪距の半分 ÷ 重心の高さが kart.tip_ratio_min 以上）は満たせておらず、これは初期の仮定だった。1.2.23 は基準の候補 - 四輪バギーの規格の傾斜台の比 0.55（カートは満たす）、滑るほうが先の 0.70（ちょうど届く）、路面ごとに草地・土・雪では 2 輪が浮く横 G がタイヤの摩擦を上回り舗装の旋回は乗り方の決まりで受ける - と、形の候補 - いまのまま、車体ごと傾ける、幅を広げる - を示す。提案は、最後の基準でいまの形のまま。施主が選ぶ。タイヤの上下のばね定数（tyre.vertical_n_mm）は測るまで仮定。",
+   "waits_for": "owner",
+   "affects": [
+    "frame",
+    "front_arms",
+    "swing_arm"
+   ],
+   "opened": "2026-11-06",
    "raised_by": "owner",
    "phase": "design"
   }
@@ -13162,6 +13328,12 @@
    "doc": "docs/02-form.md",
    "id": "frame-straight",
    "title": "1.2.22 フレーム - 前から後ろまでまっすぐ",
+   "level": 2
+  },
+  {
+   "doc": "docs/02-form.md",
+   "id": "tipping",
+   "title": "1.2.23 転倒 - 実際に倒れるかで判断する",
    "level": 2
   },
   {

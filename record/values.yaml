@@ -2565,6 +2565,12 @@ items:
     status: sourced
     basis:
       - P99
+  - key: tyre.vertical_n_mm
+    v: 50
+    unit: N/mm
+    status: assumed
+    basis:
+      - Q-049
   - key: lay.post_y_mm
     v: 75
     unit: mm
@@ -4108,6 +4114,34 @@ items:
     status: calculated
     basis:
       - docs/03-design.md#front-suspension
+  - key: dsn.tilt_ratio_adult
+    v: 0.7
+    status: calculated
+    basis:
+      - docs/03-design.md#stability
+  - key: dsn.lift_g_adult
+    v: 0.6
+    status: calculated
+    basis:
+      - docs/03-design.md#stability
+  - key: dsn.lift_speed_lock_kmh
+    v: 13.8
+    unit: km/h
+    status: calculated
+    basis:
+      - docs/03-design.md#stability
+  - key: dsn.lift_radius_top_m
+    v: 11.1
+    unit: m
+    status: calculated
+    basis:
+      - docs/03-design.md#stability
+  - key: dsn.side_slope_tip_deg
+    v: 35.0
+    unit: deg
+    status: calculated
+    basis:
+      - docs/03-design.md#stability
   - key: dsn.front_shock_spring_n_mm
     v: 45
     unit: N/mm

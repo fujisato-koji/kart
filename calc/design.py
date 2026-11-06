@@ -689,6 +689,7 @@ def build(v):
         put(f"dsn.pitch_ratio_{who}", round(min(cxt, wb - cxt) / czt, 2), None, "stability")
         if who == "adult":
             m_adult, rear_adult, x_adult, h_adult = mt, rear, x_r, czt
+            ht_adult, xcg_adult = half_track(cxt, cyt, tf, tr), cxt
 
     # winter totals: the summer kart with its skis and chains on
     mw = list(masses)
@@ -825,6 +826,24 @@ def build(v):
     put("dsn.front_motion_ratio", round(mr_f, 2), None, "front-suspension")
     put("dsn.front_sprung_kg", round(m_side_f, 1), "kg", "front-suspension")
     put("dsn.front_wheel_rate_n_mm", round(k_wheel_f / 1000, 1), "N/mm", "front-suspension")
+
+    # Tipping in use (1.2.23): a steady sideways acceleration rolls the body outward - at the front on its
+    # springs and tyres in series, at the rear, a rigid axle on one swing arm, on its tyres alone - about an
+    # axis taken at the ground, and its centre of mass moves out, so it tips up below the static ratio, much
+    # as on a tilt table; in a quick turn two wheels lift about 0.1 g lower still (P105). With the adult,
+    # seated upright.
+    k_t = v["tyre.vertical_n_mm"] * 1000
+    k_roll = 1 / (1 / (k_wheel_f * tf ** 2 / 2) + 1 / (k_t * tf ** 2 / 2)) + k_t * tr ** 2 / 2
+    phi_a = m_adult * h_adult / (k_roll - m_adult * G * h_adult)          # roll per unit sideways acceleration
+    a_tip = G * ht_adult / (h_adult + G * h_adult * phi_a)
+    a_lift = a_tip - 0.1 * G
+    d_mean = math.radians((steer + outer) / 2)
+    r_cg = math.hypot(wb / math.tan(d_mean), xcg_adult)                   # the centre's path at full lock
+    put("dsn.tilt_ratio_adult", round(a_tip / G, 2), None, "stability")
+    put("dsn.lift_g_adult", round(a_lift / G, 2), None, "stability")
+    put("dsn.lift_speed_lock_kmh", round(math.sqrt(a_lift * r_cg) * 3.6, 1), "km/h", "stability")
+    put("dsn.lift_radius_top_m", round((v_top / 3.6) ** 2 / a_lift, 1), "m", "stability")
+    put("dsn.side_slope_tip_deg", round(math.degrees(math.atan(a_tip / G)), 1), "deg", "stability")
     put("dsn.front_shock_spring_n_mm", round(k_wheel_f / mr_f ** 2 / 1000), "N/mm", "front-suspension")
     put("dsn.front_shock_force_static_n", round(m_side_f * G / mr_f), "N", "front-suspension")
     put("dsn.front_shock_length_static_mm", round(len_f * 1000), "mm", "front-suspension")

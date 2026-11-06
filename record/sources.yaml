@@ -1817,3 +1817,83 @@ items:
     license: unknown
     read: partial
     note: Read by a helper. Lists the Ainohot SAGA life, confirmation 0181, with a footway mode; a news report calls it a four-wheeled mobility (carview, secondary).
+  - id: P105
+    class: P
+    title: ACCC, Quad bike safety - final recommendation to the Minister, February 2019
+    url: https://consultation.accc.gov.au/product-safety/quad-bike-safety-standard-exposure-draft/supporting_documents/Quad%20bike%20safety%20%20Final%20Recommendation%20to%20the%20Minister.pdf
+    retrieved: 2026-11-06
+    license: CC BY 3.0 AU
+    read: partial
+    note: Read by a helper, pages 72 to 84. The lateral tilt-table ratio of 0.55 was chosen pragmatically from the UNSW tests (5 of 8 quads pass); quads alone 0.72 to 1.10, with a heavy rider 0.46 to 0.78; two wheels lift about 0.1 g below the tilt-table ratio in steady circles and J-turns; rider lean raises the lift by 1 to 14 % and active riding was judged unreliable; Troutbeck - above about 0.7 a quad slides rather than rolls quasi-statically but can still roll when tripped; rollover in about 60 % of Australian quad deaths 2011 to 2018.
+  - id: P106
+    class: P
+    title: Consumer Goods (Quad Bikes) Safety Standard 2019 (F2019L01321), section 16
+    url: https://www.legislation.gov.au/F2019L01321/asmade/2019-10-10/text/original/pdf
+    retrieved: 2026-11-06
+    license: unknown
+    read: partial
+    note: Read by a helper, section 16 and schedule 1. General-use quads on a tilt table with a 50th-percentile male dummy seated - lateral at least 0.55, forward and rearward pitch at least 0.8; the tilt-table ratio is close to the static stability factor, less by body roll, suspension, and tyre deformation.
+  - id: P107
+    class: P
+    title: MLIT detailed technical notice (細目告示), article 8, maximum stable tilt angle
+    url: https://www.mlit.go.jp/jidosha/content/S008.pdf
+    retrieved: 2026-11-06
+    license: unknown
+    read: full
+    note: Read by a helper. Motor vehicles unladen tilted about the line through the outer contacts - 35 degrees, 30 degrees for those under 20 km/h and some others, 25 degrees for sidecar motorcycles; two-wheelers are excluded; the moped chapter of the safety standards has no stability article.
+  - id: P108
+    class: P
+    title: Transportation Research Board, Special Report 265, An assessment of the National Highway Traffic Safety Administration's rating system for rollover resistance (2002), chapter 2
+    url: https://nap.nationalacademies.org/read/10308/chapter/4
+    retrieved: 2026-11-06
+    license: unknown
+    read: partial
+    note: Read by a helper. A real vehicle rolls at a steady sideways acceleration about 15 % below its static stability factor; dry pavement's peak grip about 0.9.
+  - id: P109
+    class: P
+    title: NHTSA, DOT HS 809 868, June 2005
+    url: https://crashstats.nhtsa.dot.gov/Api/Public/ViewPublication/809868
+    retrieved: 2026-11-06
+    license: public domain
+    read: partial
+    note: Read by a helper. Sales-weighted static stability factors of model year 2003 - cars 1.41, SUVs 1.17, pickups 1.18, minivans 1.24, vans 1.12.
+  - id: P110
+    class: P
+    title: CPSC, recreational off-highway vehicles, termination of rulemaking, 22 November 2016
+    url: https://www.cpsc.gov/s3fs-public/RecreationalOffHighwayVehiclesTerminationofRulemaking.pdf
+    retrieved: 2026-11-06
+    license: public domain
+    read: partial
+    note: Read by a helper, pages 8 to 10. ANSI/ROHVA 1-2016 - tilt at least 33 degrees (0.65) with two occupants, 24 degrees fully loaded; side-by-sides of 2014 and 2015 tipped at 36.0 to 40.7 degrees.
+  - id: P111
+    class: P
+    title: MLIT detailed technical notice (細目告示), article 2-2, tilting vehicles of three or more wheels
+    url: https://www.mlit.go.jp/jidosha/content/S002-2.pdf
+    retrieved: 2026-11-06
+    license: unknown
+    read: full
+    note: Read by a helper. A vehicle with three or more wheels set symmetrically, its outer contacts on one axle less than 460 mm apart, whose wheels and body lean to turn, takes the two-wheelers' standards; wider, it takes the ordinary ones.
+  - id: S14
+    class: S
+    title: Cenek, Jamieson, McLarin, Frictional characteristics of roadside grass types
+    url: https://saferroadsconference.com/wp-content/uploads/2016/05/Peter-Cenek-Frictional-Characteristics-Roadside-Grass-Types.pdf
+    retrieved: 2026-11-06
+    license: unknown
+    read: full
+    note: Read by a helper. Grass measured at 0.21 to 0.38 dry and 0.17 to 0.24 wet; quoting Noon (1994) for car tyres locked - gravel and dirt road 0.35, loose moist dirt 0.60 to 0.65, dry asphalt 0.65, snow 0.20 to 0.25, wet grass 0.20.
+  - id: S15
+    class: S
+    title: Wikipedia, Qooder
+    url: https://en.wikipedia.org/wiki/Qooder
+    retrieved: 2026-11-06
+    license: CC BY-SA 4.0
+    read: partial
+    note: Read by a helper. A four-wheeled tilting scooter; a hydro-pneumatic system ties the wheels so that all four lean together, locked when stopped (from 2020); the rear pair driven through a differential.
+  - id: S16
+    class: S
+    title: New Atlas, Swincar tandem mobility, 21 February 2022
+    url: https://newatlas.com/automotive/swincar-tandem-mobility/
+    retrieved: 2026-11-06
+    license: unknown
+    read: partial
+    note: Read by a helper. Four independent arms on a passive pendulum lean the body into turns and keep it level across slopes of over 50 %; a hub motor in each wheel; 30 km/h.

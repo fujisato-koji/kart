@@ -572,6 +572,7 @@ These are not decided here. 1.2 compares forms against them.
 | lay.muffler_tail_x_mm | -150 | mm | assumed | Q-048 |
 | lay.muffler_y_mm | 135 | mm | sourced | P99 |
 | lay.muffler_z_mm | 60 | mm | sourced | P99 |
+| tyre.vertical_n_mm | 50 | N/mm | assumed | Q-049 |
 | lay.post_y_mm | 75 | mm | calculated | docs/03-design.md#frame, D-044 |
 | sus.bump_mm | 40 | mm | calculated | docs/03-design.md#suspension |
 | sus.droop_mm | 30 | mm | calculated | docs/03-design.md#suspension |
@@ -835,6 +836,11 @@ These are not decided here. 1.2 compares forms against them.
 | dsn.front_motion_ratio | 0.48 |  | calculated | docs/03-design.md#front-suspension |
 | dsn.front_sprung_kg | 42.2 | kg | calculated | docs/03-design.md#front-suspension |
 | dsn.front_wheel_rate_n_mm | 10.4 | N/mm | calculated | docs/03-design.md#front-suspension |
+| dsn.tilt_ratio_adult | 0.7 |  | calculated | docs/03-design.md#stability |
+| dsn.lift_g_adult | 0.6 |  | calculated | docs/03-design.md#stability |
+| dsn.lift_speed_lock_kmh | 13.8 | km/h | calculated | docs/03-design.md#stability |
+| dsn.lift_radius_top_m | 11.1 | m | calculated | docs/03-design.md#stability |
+| dsn.side_slope_tip_deg | 35.0 | deg | calculated | docs/03-design.md#stability |
 | dsn.front_shock_spring_n_mm | 45 | N/mm | calculated | docs/03-design.md#front-suspension |
 | dsn.front_shock_force_static_n | 860 | N | calculated | docs/03-design.md#front-suspension |
 | dsn.front_shock_length_static_mm | 271 | mm | calculated | docs/03-design.md#front-suspension |
@@ -954,4 +960,5 @@ These are not decided here. 1.2 compares forms against them.
 | Q-046 | The record checks every welded tube joint in fatigue against category 71 (fat.cat_tube_mpa), which is a butt weld's. EN 1993-1-9 gives a round tube's gap joints 90 where the through-tube's wall is twice the branch's and 45 where the walls are equal, and T, Y, and X joints only by the hot-spot method (P93, P94); at 45 the busiest welded ends would be over their limit. Each kind of joint in the frame is to be given its own category, or its hot-spot stress, and the joints sized by them - a thicker through-tube where the range is high. | assistant |
 | Q-047 | The owner asked whether the frame could run straight from front to back with the seat on it, the seat fitting both riders by its cushion. 1.2.22 finds that the child's steps stay, for the seat cannot go lower than the engine unit, and that a straight frame at the seat rails' height saves 4 to 8 welded ends but makes the nose box 9 cm taller and 1.1 kg heavier and needs either a support hanging 14 cm under each upper A-arm pivot or a knuckle whose upper joint is 60 mm higher than the bought one's; the assistant proposes keeping form A. The owner chooses. | owner |
 | Q-048 | The engine unit's own silencer, placed as on the scooter, meets the right rising tube, the swing arm's right side, and, with its pipe run under the engine, the engine's plate (1.3.22). Its length and the tail's place are assumed until the donor's silencer is measured. The ways are to keep it and its pipe as they are, rebuilding the rear and raising the engine; to keep the marked silencer with a new pipe to where it fits, if that is accepted; a marked aftermarket silencer; or one's own with a laboratory's report. The owner chooses, and asks the transport bureau whether a new pipe to the marked silencer is accepted. | owner |
+| Q-049 | The owner asked for a criterion of whether the kart actually tips in use. R-12 as written, half the track over the centre's height at least kart.tip_ratio_min, is not met and was an early assumption. 1.2.23 offers criteria - the quad standard's tilt-table ratio of 0.55, which the kart meets; 0.70, slide first, which it just reaches; or, by the ground it runs on, two wheels lifting above the tyres' grip on grass, dirt, and snow, with operating rules for turns on pavement - and forms - as now, leaning as a whole, or wider; the assistant proposes the last criterion with the kart as it is. The owner chooses. The tyres' vertical stiffness (tyre.vertical_n_mm) is assumed until measured. | owner |
 <!-- tdr:end -->

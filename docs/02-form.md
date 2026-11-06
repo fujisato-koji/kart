@@ -520,3 +520,39 @@ The owner asked whether the tubes sloping down from the seat rails toward the fr
 **The assistant proposes keeping form A.** The straight frame saves 4 to 8 welded ends. It costs a taller box, 1.1 kg, a little of the impact factor, and either a support hanging 14 cm under each upper pivot or a different knuckle. The child's steps stay in any case. If the knuckles in hand (Q-044) turn out to be extendable at the upper joint, the last column becomes worth building. **The owner decides** (Q-047).
 
 **Decided.** The owner kept form A (D-046), to be looked at again if the knuckles in hand can take a higher upper joint (Q-044).
+
+## 1.2.23 Tipping - judged by whether it tips in use {#tipping}
+
+The owner noted that three-wheelers run on the roads with less of the record's tipping ratio, and asked for a criterion of whether the kart actually tips in use rather than one tied to its number of wheels; then asked whether it could lean into turns as a whole. This section gathers what decides tipping, what the standards and real vehicles show, and how this kart stands, and offers criteria and forms; the owner chooses (Q-049).
+
+**What decides it.** Half the track over the height of the centre of mass is the sideways acceleration, in g, at which a rigid vehicle tips. A real one rolls on its springs and tyres, its centre moves out, and it tips lower: a tilt table measures that (P106). In a quick turn two wheels lift about 0.1 g lower still (P105, P108). If the tyres' grip on the ground is less than that, the vehicle slides before it tips. A rider leaning in raises the threshold by 1 to 14 %, less the heavier the vehicle, and the Australian regulator judged active riding unreliable as a safety measure (P105). Tilting three-wheelers lean like motorcycles, so the ratio does not apply to them; tilting three- and four-wheelers lock their tilt when they stop (S15). Non-tilting trikes rely on speed, the rider, and stability control that brakes when an inside wheel is about to lift (P105).
+
+**What the standards and real vehicles show.**
+
+| | Sideways ratio | Source |
+|---|---|---|
+| Australian quad standard, tilt table, average man seated | at least 0.55 (the draft's 0.8 no quad met) | P106, P105 |
+| Side-by-sides (ROHVA) | at least 0.65 with two aboard | P110 |
+| Japan's motor vehicles, tilt test unladen | 35 degrees, 0.70 (30 degrees under 20 km/h); mopeds have no stability rule | P107 |
+| Slide rather than roll, quasi-static (Troutbeck, for the regulator) | above about 0.70 | P105 |
+| Quads with a heavy rider, measured | 0.46 to 0.78 | P105 |
+| Side-by-sides alone, measured | 0.85 to 1.01 | P105 |
+| Cars (NHTSA) | 1.1 to 1.4 | P109 |
+
+**This kart**, with the adult seated upright (calc/design.py): the static ratio is dsn.tip_ratio_adult, the tilt-table ratio with its roll on the front springs and the tyres dsn.tilt_ratio_adult (the rear, a rigid axle on one swing arm, rolls on its tyres alone; the tyres' stiffness is assumed, Q-049), and two wheels lift in a quick turn at about dsn.lift_g_adult g. At full lock that comes at dsn.lift_speed_lock_kmh km/h, and at the top speed in a turn tighter than dsn.lift_radius_top_m m. Standing still it tips on a side slope of about dsn.side_slope_tip_deg degrees.
+
+- **Against the ground it runs on**: dry grass grips at 0.21 to 0.38 and wet at 0.17 to 0.24 (S14), packed snow about 0.2 to 0.25, gravel and dirt 0.35 to 0.65, dry asphalt 0.65 on average and up to about 0.9 (S14, P108). So on grass and snow it slides well before it tips, on loose dirt the margin is small, and on dry pavement it can tip before it slides in a sharp turn.
+- **On side slopes** riders feel unsafe from about 15 degrees and a maker's limit is 25 (P105); the kart's 35 degrees standing and the site's steepest 20 % (11 degrees) leave room.
+- **R-12 as written** - half the track over the centre's height at least kart.tip_ratio_min - is not met: that figure was assumed at the start (Q-005) and is more than cars have. The criterion is to be chosen anew.
+
+**Criteria.**
+- **C1, the quad standard**: the tilt-table ratio with the heaviest rider at least 0.55 (P106). The kart meets it.
+- **C2, slide first**: at least 0.70, Japan's figure for motor vehicles and the level at which a quad slides rather than rolls (P107, P105). The kart is at it, with no margin.
+- **C3, by the ground it runs on**: on every surface it is meant for, two wheels lift at a higher sideways acceleration than the tyres can give there, with a margin; where they do not - dry pavement - the operating rules keep the turns below the lift, and the hoop of R-19 takes what remains. The kart meets it on grass, snow, and most dirt; on pavement it needs the rule that it takes no full-lock turn above about dsn.lift_speed_lock_kmh km/h and, at its top speed, no turn tighter than about dsn.lift_radius_top_m m.
+
+**Forms.**
+- **F1, as now**, under C1 or C3 with the rules.
+- **F2, leaning as a whole.** All four wheels on linkages that let the body lean into turns, as the Qooder's hydro-pneumatic system does, locked at a standstill and at low speed, or a free pendulum as on the Swincar, which runs off-road at up to 30 km/h (S15, S16). The front's arms, the rear's swing arm and chain to one axle, the steering, and the winter skis would all be designed again, the rear with a differential. With its track of 0.8 m it would stay a minicar (P111). A 6-year-old would ride it locked.
+- **F3, wider.** Sliding first even on dry pavement would need a quick-turn lift near 0.9 g, a tilt-table ratio near 1.0 and a track near 1.15 m: about 1.45 m over all, past the Delica's door (R-14) and the minicar's 1.3 m (P36).
+
+**The assistant proposes C3 with F1.** R-12 is restated: with the heaviest rider seated upright, the kart's tilt-table ratio is at least 0.55, and on grass, dirt, and snow two wheels lift at a higher sideways acceleration than the tyres can give; on paved roads the operating rules hold the turns below that. The rule goes into the operating procedure, and the tyres' stiffness is measured. **The owner decides** (Q-049).
